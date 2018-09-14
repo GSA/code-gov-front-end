@@ -34,19 +34,15 @@ module.exports = {
     new CleanWebpackPlugin(['docs']),
     new CopyWebpackPlugin([
       {
-        from: './assets/images',
-        to: 'images'
-      },
-      {
-        from: './assets/favicon.png',
-        to: 'favicon.png'
+        from: './assets/img',
+        to: 'img'
       },
       {
         from: './404.html',
         to: '404.html'
       }
     ]),
-    new FaviconsWebpackPlugin('./assets/favicon.png'),
+    new FaviconsWebpackPlugin('./assets/img/favicon.png'),
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: 'caribou',
