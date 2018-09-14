@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "analyze": "webpack --config webpack.analyze.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js --config ./config/webpack.prod.js",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack.dev.js",
-    "start-on-server": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack.dev.js --host 0.0.0.0 --port 80"
+    "analyze": "webpack --config ./config/webpack/webpack.analyze.js",
+    "build": "node ./node_modules/webpack/bin/webpack.js --config ./config/webpack/webpack.prod.js",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
+    "start-on-server": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80"
   },
   "repository": {
     "type": "git",
