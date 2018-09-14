@@ -6,8 +6,7 @@ import App from './components/app';
 import buildStore from './build-store';
 import { Provider } from 'react-redux';
 import UrlService from './services/UrlService';
-import Map from './Map';
-import '../styles/style.less';
+import '../styles/main.scss';
 
 OfflinePluginRuntime.install();
 
