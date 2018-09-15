@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import alert from './alert';
+import repo from './repo';
 
 const rootReducer = combineReducers({
-  alert
+  repo
 });
 
 export default rootReducer;
