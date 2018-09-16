@@ -21,6 +21,7 @@
   "homepage": "https://github.com/GSA/caribou#readme",
   "private": "true",
   "dependencies": {
+    "@code.gov/api-client": "^0.1.1",
     "@code.gov/code-gov-font": "^0.7.0",
     "babel-core": "^6.26.3",
     "offline-plugin": "^5.0.5",

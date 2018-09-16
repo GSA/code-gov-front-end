@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -46,6 +47,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: 'caribou',
-    })
+    }),
+    new DefinePlugin({
+      CODE_GOV_API_KEY: process.env.CODE_GOV_API_KEY || null
+    })    
   ],
 }

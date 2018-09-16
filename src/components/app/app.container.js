@@ -1,18 +1,14 @@
-import AppComponent from './app.component';
-import UrlService from '../../services/UrlService';
-import { withRouter } from 'react-router-dom';
-import { compose, lifecycle } from 'recompose';
-import { connect } from 'react-redux';
-
-
-const mapStateToProps = ({}) => ({});
+import AppComponent from './app.component'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import saveSiteConfig from 'actions/save-site-config'
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+    saveSiteConfig: (siteConfig) => dispatch(saveSiteConfig(siteConfig))
+  }
 }
 
-const AppContainer = compose(
-  connect(mapStateToProps, mapDispatchToProps)
-)(AppComponent);
+const AppContainer = connect(null, mapDispatchToProps)(AppComponent);
 
 export default withRouter(AppContainer);

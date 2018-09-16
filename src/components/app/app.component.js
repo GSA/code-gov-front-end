@@ -2,17 +2,19 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Menu from '../menu';
 
-import site from '../../../config/site/site.json';
+import siteConfig from '../../../config/site/site.json';
 
-console.log("site:", site);
 
-const AppComponent = ({ layout, setLayout }) => (
-  <div
-    className="App"
-  >
-    <Switch>
-    </Switch>
-  </div>
-);
+export default class AppComponent extends React.Component {
 
-export default AppComponent;
+  componentDidMount() {
+    this.props.saveSiteConfig(siteConfig)
+  }
+
+  render() {
+    <div className="App">
+      <Switch>
+      </Switch>
+    </div>    
+  }
+}
