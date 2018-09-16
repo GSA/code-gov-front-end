@@ -1,8 +1,9 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Menu from '../menu';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import Home from '../home'
+import Menu from '../menu'
 
-import siteConfig from '../../../config/site/site.json';
+import siteConfig from '../../../config/site/site.json'
 
 
 export default class AppComponent extends React.Component {
@@ -15,6 +16,7 @@ export default class AppComponent extends React.Component {
     return (
       <div className="App">
         <Switch>
+          <Home />
         </Switch>
       </div>
     )

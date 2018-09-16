@@ -1,5 +1,9 @@
 /* import CSS rules that allow you to use icons */
 @import '~@code.gov/code-gov-font/css/code-gov';
-@import '~devicons/css/devicons.scss';
-
+/*@import '~devicons/css/devicons.scss';*/
 @import '~@code.gov/code-gov-style/_sass/_all.scss';
+
+/* overwrite code-gov-style */
+.banner {
+  background-image: none;
+}

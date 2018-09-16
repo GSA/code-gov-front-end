@@ -17,6 +17,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "fonts/[name].[ext]",
+          },
+        }
+      },
+      {
         test: /\.scss$/,
         use: [
             "style-loader", // creates style nodes from JS strings
@@ -36,7 +45,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: './assets/img',
-        to: 'img'
+        to: '/assets/img'
       },
       {
         from: './404.html',
