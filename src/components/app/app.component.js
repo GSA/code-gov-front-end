@@ -12,9 +12,11 @@ export default class AppComponent extends React.Component {
   }
 
   render() {
-    <div className="App">
-      <Switch>
-      </Switch>
-    </div>    
+    return (
+      <div className="App">
+        <Switch>
+        </Switch>
+      </div>
+    )
   }
 }
