@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SearchBox from '../search-box'
 
 export default class HomeBanner extends React.Component {
 
@@ -77,7 +78,7 @@ export default class HomeBanner extends React.Component {
             <div className="banner-subsection width-half" style={{zIndex: 30}}>
               <div className="banner-subsection-content">
                 <div className="banner-subsection-content-padder">
-                  {/*<repos-search autofocus=true buttonClasses="alt"></repos-search>*/}
+                  <SearchBox />
                 </div>
               </div>
             </div>
