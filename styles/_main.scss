@@ -7,3 +7,7 @@
 .banner {
   background-image: none;
 }
+
+
+/* styles that apply to stuff around search box on multiple pages */ 
+@import './_search.scss';

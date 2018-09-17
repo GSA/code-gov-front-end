@@ -13,6 +13,22 @@ export default class HomeBanner extends React.Component {
       behavior: 'smooth'
     });
   }
+
+  get browseDropdown() {
+    return (
+      <div class="browse">
+        Or
+        <br/>
+        <select onChange={this.props.onBrowseByEntityChange}>
+          <option>{this.props.browseByText}</option>
+          <option value="All">All</option>
+          {this.props.entities && this.props.entities.map(entity => {
+            return <option value={entity.acronym}>{entity.name}</option>
+          })}
+        </select>
+      </div>
+    )
+  }
  
   get verticalRow() {
     if (this.props.helpWantedTitle || this.props.helpWantedDescription) {
@@ -51,10 +67,10 @@ export default class HomeBanner extends React.Component {
     return (
       <Fragment>
         {this.props.searchDescriptionText &&
-          <div className="show-w-gt-500">{this.props.searchDescriptionText}</div>
+          <div className="show-w-gt-800">{this.props.searchDescriptionText}</div>
         }
         {this.props.searchDescriptionTextMobile &&
-          <div className="show-w-lte-500">{this.props.searchDescriptionTextMobile}</div>
+          <div className="show-w-lte-800">{this.props.searchDescriptionTextMobile}</div>
         }
       </Fragment>
     )
@@ -80,6 +96,7 @@ export default class HomeBanner extends React.Component {
 
   render() {
     console.log("this.props.backgroundImage:", this.props.backgroundImage)
+    console.log("this.props.searchPlaceholder:", this.props.searchPlaceholder)
     const sectionStyle = {
       backgroundImage: `url('${this.props.backgroundImage}')`
     }
@@ -92,16 +109,17 @@ export default class HomeBanner extends React.Component {
             <div className="banner-subsection width-half" style={{zIndex: 30}}>
               <div className="banner-subsection-content">
                 <div className="banner-subsection-content-padder">
-                  <div class="search-input-container">
-                    <div class="search-input-wrapper">
-                      <div class="search-description-wrapper">
+                  <div className="search-input-container">
+                    <div className="search-input-wrapper">
+                      <div className="search-description-wrapper">
                         {this.searchDescriptionSection}
                       </div>
-                      <div class="search-input-and-button-wrapper">
-                        <SearchBox/>
+                      <div className="search-input-and-button-wrapper">
+                        <SearchBox placeholder={this.props.searchPlaceholder}/>
                       </div>
                     </div>
                   </div>
+                  {this.browseDropdown}
                 </div>
               </div>
             </div>
