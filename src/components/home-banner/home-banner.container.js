@@ -10,7 +10,9 @@ const mapStateToProps = ({ siteConfig }) => {
     helpWantedTitle: get(siteConfig, 'content.home.banner.help_wanted.title'),
     helpWantedDescription: get(siteConfig, 'content.home.banner.help_wanted.description'),
     helpWantedButton: get(siteConfig, 'content.home.banner.help_wanted.button'),
-    issueUrl: get(siteConfig, 'content.home.banner.issue_url')
+    issueUrl: get(siteConfig, 'content.home.banner.issue_url'),
+    searchDescriptionText: get(siteConfig, 'content.home.banner.search_description_text'),
+    searchDescriptionTextMobile: get(siteConfig, 'content.home.banner.search_description_text_mobile')
   }
 }
 

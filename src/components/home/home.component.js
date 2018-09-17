@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import HomeBanner from '../home-banner'
+import './home.scss'
 
 export default class HomeComponent extends React.Component {
 

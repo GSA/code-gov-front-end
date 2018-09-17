@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import SearchBox from '../search-box'
+import './home-banner.scss'
 
 export default class HomeBanner extends React.Component {
 
@@ -46,6 +47,19 @@ export default class HomeBanner extends React.Component {
     return null
   }
 
+  get searchDescriptionSection() {
+    return (
+      <Fragment>
+        {this.props.searchDescriptionText &&
+          <div className="show-w-gt-500">{this.props.searchDescriptionText}</div>
+        }
+        {this.props.searchDescriptionTextMobile &&
+          <div className="show-w-lte-500">{this.props.searchDescriptionTextMobile}</div>
+        }
+      </Fragment>
+    )
+  }
+
   get issueSection() {
     if (this.props.issueUrl) {
       return (
@@ -73,19 +87,28 @@ export default class HomeBanner extends React.Component {
       <section id="banner-home" className="banner large" style={sectionStyle}>
         <div className="banner-content">
           <div className="banner-title">{this.props.motto}</div>
-          <div className="banner-subtitle">{this.props.subtitle}</div>
+          <div className="banner-subtitle show-w-gt-1200">{this.props.subtitle}</div>
           <div className="indented">
             <div className="banner-subsection width-half" style={{zIndex: 30}}>
               <div className="banner-subsection-content">
                 <div className="banner-subsection-content-padder">
-                  <SearchBox />
+                  <div class="search-input-container">
+                    <div class="search-input-wrapper">
+                      <div class="search-description-wrapper">
+                        {this.searchDescriptionSection}
+                      </div>
+                      <div class="search-input-and-button-wrapper">
+                        <SearchBox/>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {this.verticalRow}
 
-            <div className="banner-subsection width-half" id="banner-subsection-engage">
+            <div className="banner-subsection show-w-gt-600 width-half" id="banner-subsection-engage">
               <div className="banner-subsection-content">
                 <div className="banner-subsection-content-padder">
                   {this.helpWantedTitleSubsection}

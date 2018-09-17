@@ -23,7 +23,7 @@
   "dependencies": {
     "@code.gov/api-client": "^0.1.1",
     "@code.gov/code-gov-font": "^0.7.0",
-    "@code.gov/code-gov-style": "^1.8.1",
+    "@code.gov/code-gov-style": "^1.9.1",
     "babel-core": "^6.26.3",
     "devicons": "^1.8.0",
     "lodash.get": "^4.4.2",
