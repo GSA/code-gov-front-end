@@ -1,0 +1,42 @@
+import React, { Component, Fragment } from 'react'
+
+export default class HomeFeaturedProject extends Component {
+
+  render() {
+    const { index, image, short_name, verbose_name, author, description, links } = this.props.project;
+
+    const place = index % 2 === 0 ? 'even' : 'odd'
+
+    return (
+      <div className="block featured-project">
+        <div className="indented">
+
+          {place === 'even' && (<div className="width-half"><img src={image}/></div>)}
+
+          <div className="width-half">
+            <div className="featured-project-info">
+              <div className="fp-short-name">{short_name}</div>
+              <div className="fp-verbose-name">{verbose_name}</div>
+              <div className="fp-developed-by">developed by {author}</div>
+              <p className="fp-description">{description}</p>
+              <div className="buttons">
+                {links.map(link => {
+                  return (
+                    <span>
+                      <a href={link.url}>
+                        <button className="alt">{link.name}</button>
+                      </a>
+                    </span>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+
+          {place === 'odd' && (<div className="width-half"><img src={image}/></div>)}
+
+        </div>
+      </div>
+    )
+  }
+}

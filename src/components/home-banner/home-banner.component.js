@@ -16,7 +16,7 @@ export default class HomeBanner extends React.Component {
 
   get browseDropdown() {
     return (
-      <div class="browse">
+      <div className="browse">
         Or
         <br/>
         <select onChange={this.props.onBrowseByEntityChange}>
@@ -29,7 +29,7 @@ export default class HomeBanner extends React.Component {
       </div>
     )
   }
- 
+
   get verticalRow() {
     if (this.props.helpWantedTitle || this.props.helpWantedDescription) {
       return <div className="vertical-row" ></div>
@@ -57,8 +57,8 @@ export default class HomeBanner extends React.Component {
             <Link to="/help-wanted">
               <button className="alt">{this.props.helpWantedButton}</button>
             </Link>
-        </div>        
-      ) 
+        </div>
+      )
     }
     return null
   }
@@ -115,7 +115,9 @@ export default class HomeBanner extends React.Component {
                         {this.searchDescriptionSection}
                       </div>
                       <div className="search-input-and-button-wrapper">
-                        <SearchBox placeholder={this.props.searchPlaceholder}/>
+                        <SearchBox
+                          placeholder={this.props.searchPlaceholder}
+                        />
                       </div>
                     </div>
                   </div>
@@ -131,7 +133,7 @@ export default class HomeBanner extends React.Component {
                 <div className="banner-subsection-content-padder">
                   {this.helpWantedTitleSubsection}
                   {this.helpWantedDescriptionSubsection}
-                  {this.helpWantedButtonSubsection}                  
+                  {this.helpWantedButtonSubsection}
 
                 </div>
               </div>
@@ -139,7 +141,7 @@ export default class HomeBanner extends React.Component {
           </div>
           {this.issueSection}
         </div>
-      
+
         <a
           className="scroll-indicator"
           title="Scroll Down"
@@ -147,7 +149,7 @@ export default class HomeBanner extends React.Component {
         >
           <i className="icon icon-angle-down"></i>
         </a>
-      
+
       </section>
     )
   }

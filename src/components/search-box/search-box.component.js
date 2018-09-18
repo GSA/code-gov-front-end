@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 
 export default class SearchBox extends Component {
   static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    /*    onChange: PropTypes.func.isRequired,
+        onSubmit: PropTypes.func.isRequired,
+        placeholder: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired*/
   }
 
 
@@ -16,9 +16,8 @@ export default class SearchBox extends Component {
     this.props.onChange(event.target.value)
     // do autocomplete here
   }
-  
+
   onSubmit(event) {
-    console.log("called onSubmit with event", event)
     this.props.onSubmit(event.target.value)
   }
 
