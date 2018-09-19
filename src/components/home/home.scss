@@ -2,6 +2,24 @@
 
 //Help Wanted styles between Banner and Our Mission (About) sections on homepage
 .help-wanted {
+  h2 {
+    margin-top: -1rem;
+    margin-bottom: -2rem;
+  }
+  p {
+    font-size: 1.2em;
+    line-height: 1em;
+    max-width: 75rem;
+    margin: 2rem 2rem 3.5rem 3rem;
+  }
+  .buttons {
+    margin-top: -3rem;
+  } //start here
+  //set to 599px
+  @media screen and (max-width: $medium-screen) {
+    display: none;
+  } //save for changing mobile
+  @media screen and (min-width: $small-screen) {
     h2 {
       margin-top: -1rem;
       margin-bottom: -2rem;
@@ -12,33 +30,11 @@
       max-width: 75rem;
       margin: 2rem 2rem 3.5rem 3rem;
     }
-    .buttons {
-      margin-top: -3rem;
-    }
+  }
 
-    //start here
-    //set to 599px
-    @media screen and (max-width: $medium-screen) {
-      display: none;
-    }
-
-    //save for changing mobile
-    @media screen and (min-width: $small-screen) {
-    h2 {
-      margin-top: -1rem;
-      margin-bottom: -2rem;
-      }
-    p {
-      font-size: 1.2em;
-      line-height: 1em;
-      max-width: 75rem;
-      margin: 2rem 2rem 3.5rem 3rem;
-      }
-    }
-
-    button {
-      margin-top: 2em;
-    }
+  button {
+    margin-top: 2em;
+  }
 }
 
 .help-wanted-mobile {
@@ -57,22 +53,21 @@
     margin: 2rem 2rem 0.5rem 3rem;
   }
   .buttons {
-   //set to 600px
-   @media screen and (min-width: $medium-screen) {
-     display: none;
-   }
-   //set to 480px
-   //@media screen and (max-width: $small-screen) {
-     //margin-top: 5.5rem;
-     //margin-bottom: 5.5rem;
-   //}
- }
+    //set to 600px
+    @media screen and (min-width: $medium-screen) {
+      display: none;
+    } //set to 480px
+    //@media screen and (max-width: $small-screen) {
+    //margin-top: 5.5rem;
+    //margin-bottom: 5.5rem;
+    //}
+  }
 
- button {
-   max-width: 170px;
-   width: 44%;
+  button {
+    max-width: 170px;
+    width: 44%;
 
- }
+  }
 }
 
 //Questions section
@@ -97,8 +92,7 @@
   }
   @media screen and (min-width: $medium-screen) {
     display: none;
-  }
-  //set to 480px
+  } //set to 480px
   @media screen and (max-width: $small-screen) {
     display: none;
   }
@@ -125,12 +119,11 @@
 
     &:hover {
       color: $brand-teal;
-      }
     }
-    //set to 481px
-    @media screen and (min-width: $small-screen) {
-      display: none;
-    }
+  } //set to 481px
+  @media screen and (min-width: $small-screen) {
+    display: none;
+  }
 }
 
 @keyframes zoomOutOnBackground {
@@ -274,14 +267,17 @@
     background: $featured-dark;
     color: $color-white;
 
-    button, h3, h4, p {
+    button,
+    h3,
+    h4,
+    p {
       color: $color-white;
     }
 
-    > div {
+    >div {
       text-align: left;
 
-      > div {
+      >div {
         text-align: left;
       }
     }
@@ -291,13 +287,13 @@
     background: $featured-light;
     color: $color-white;
 
-    > div {
+    >div {
 
       background-position: 0% 50%;
       background-repeat: no-repeat;
       background-size: 50%;
       text-align: right;
-      > div {
+      >div {
         text-align: left;
 
         .featured-project-info {
@@ -332,69 +328,6 @@
 
   button {
     margin-left: 10px;
-  }
-}
-
-.press {
-  background-attachment: scroll;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  // HACK: This is a hack to prevent ugliness on iOS
-  @media screen and (min-width: 768px) {
-    background-attachment: fixed;
-  }
-
-  h2 {
-    color: $color-white;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-}
-
-.press-container {
-  @include clearfix;
-  margin: 0 auto;
-  max-width: 43em;
-}
-
-.press-links {
-  margin-top: 2em;
-  text-align: center;
-
-  @media screen and (min-width: $medium-screen) {
-    margin-top: 0;
-  }
-
-  .press-logo {
-    max-height: 3em;
-
-    @media screen and (min-width: $small-screen) {
-      max-height: 4em;
-    }
-  }
-
-  li {
-    display: inline-block;
-    margin-bottom: 0.5em;
-    margin-left: 2rem;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
-  }
-}
-
-.press-logo {
-  backface-visibility: visible;
-  transition: all 0.2s ease;
-  transform-style: preserve-3d;
-  transform: translate3d(0,0,0);
-  -webkit-perspective: 1000;
-
-  &:hover {
-    transform: translateY(-2px);
   }
 }
 

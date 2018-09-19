@@ -4,17 +4,23 @@ import HomeFeaturedProjects from './home-featured-projects.component'
 
 const mapStateToProps = ({ siteConfig }) => {
   let featuredProjects;
-  try {
-    featuredProjects = siteConfig.content.home.featured.map((project, index) => {
-      project.index = index
-      return project
-    })
+  if (siteConfig) {
+    try {
+      featuredProjects = siteConfig.content.home.featured.map((project, index) => {
+        project.index = index
+        return project
+      })
+    }
+    catch (error) {
+      console.warn("Failed to get featured projects from code-gov-config.json")
+      console.error(error)
+      featuredProjects = []
+    }
   }
-  catch (error) {
-    console.warn("Failed to get featured projects from code-gov-config.json")
-    console.error(error)
+  else {
     featuredProjects = []
   }
+
 
   return { featuredProjects }
 }

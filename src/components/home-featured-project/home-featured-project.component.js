@@ -22,7 +22,7 @@ export default class HomeFeaturedProject extends Component {
               <div className="buttons">
                 {links.map(link => {
                   return (
-                    <span>
+                    <span key={link.url}>
                       <a href={link.url}>
                         <button className="alt">{link.name}</button>
                       </a>
