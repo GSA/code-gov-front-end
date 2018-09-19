@@ -1,17 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-
-
 
 export default class SearchBox extends Component {
-  static propTypes = {
-    /*    onChange: PropTypes.func.isRequired,
-        onSubmit: PropTypes.func.isRequired,
-        placeholder: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired*/
-  }
-
-
   onChange(event) {
     this.props.onChange(event.target.value)
     // do autocomplete here

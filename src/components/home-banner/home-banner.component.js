@@ -95,8 +95,6 @@ export default class HomeBanner extends React.Component {
   }
 
   render() {
-    console.log("this.props.backgroundImage:", this.props.backgroundImage)
-    console.log("this.props.searchPlaceholder:", this.props.searchPlaceholder)
     const sectionStyle = {
       backgroundImage: `url('${this.props.backgroundImage}')`
     }
