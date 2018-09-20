@@ -26,10 +26,14 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.(ttf|eot|woff|woff2)$/,
-        use: {
-          loader: "file-loader"
-        }
+        test: /\.(ttf|eot|woff|woff2|svg)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          }
+        }]
       },
       {
         test: /\.scss$/,

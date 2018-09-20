@@ -1,13 +1,18 @@
 /* import CSS rules that allow you to use icons */
+
+@import 'fonts.css';
 @import '~@code.gov/code-gov-font/css/code-gov';
 /*@import '~devicons/css/devicons.scss';*/
+
 @import '~@code.gov/code-gov-style/_sass/_all.scss';
 
 /* overwrite code-gov-style */
+
 .banner {
   background-image: none;
 }
 
 
-/* styles that apply to stuff around search box on multiple pages */ 
-@import './_search.scss';
+/* styles that apply to stuff around search box on multiple pages */
+
+@import './search.scss';

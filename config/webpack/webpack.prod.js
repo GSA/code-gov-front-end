@@ -28,9 +28,11 @@ const prod = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
+    /*
     new CnameWebpackPlugin({
       domain: 'code.gov',
     })
+    */
   ]
 };
 module.exports = merge(shared, prod);

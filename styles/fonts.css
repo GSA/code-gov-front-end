@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'code-gov';
+  src: url('../assets/fonts/code-gov.eot?94232063');
+  src: url('../assets/fonts/code-gov.eot?94232063#iefix') format('embedded-opentype'),
+  url('../assets/fonts/code-gov.woff2?94232063') format('woff2'),
+  url('../assets/fonts/code-gov.woff?94232063') format('woff'),
+  url('../assets/fonts/code-gov.ttf?94232063') format('truetype'),
+  url('../assets/fonts/code-gov.svg?94232063#code-gov') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
