@@ -11,11 +11,6 @@ const dev = {
     publicPath: '/',
     historyApiFallback: true
   },
-  output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'docs'),
-    publicPath: '/'
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]

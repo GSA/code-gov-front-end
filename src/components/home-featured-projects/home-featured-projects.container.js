@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import get from 'lodash.get'
 import HomeFeaturedProjects from './home-featured-projects.component'
 
 const mapStateToProps = ({ siteConfig }) => {

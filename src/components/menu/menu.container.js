@@ -21,14 +21,12 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-  }
+  return {}
 };
 
 const MenuContainer = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withHandlers({
-  })
+  withHandlers({})
 )(MenuComponent);
 
 export default MenuContainer;

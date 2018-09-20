@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import get from 'lodash.get'
+import { getConfigValue } from '../../utils'
 import HomeAboutComponent from './home-about.component'
 
 const mapStateToProps = ({ siteConfig }) => {
   return {
-    mission: get(siteConfig, 'content.home.mission'),
-    aboutItems: get(siteConfig, 'content.home.about')
+    mission: getConfigValue(siteConfig, 'content.home.mission'),
+    aboutItems: getConfigValue(siteConfig, 'content.home.about')
   }
 }
 
