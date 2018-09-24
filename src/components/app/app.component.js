@@ -16,6 +16,7 @@ export default class AppComponent extends React.Component {
   render() {
     return (
       <div className="App">
+        <Menu />
         <Switch>
           <Home />
         </Switch>

@@ -5,7 +5,7 @@ import './home-press.scss'
 
 export default class SearchBox extends Component {
   static propTypes = {
-    backgroundImage: PropTypes.string.isFinite,
+    backgroundImage: PropTypes.string.isString,
     quote: PropTypes.string.isRequired
   }
 
