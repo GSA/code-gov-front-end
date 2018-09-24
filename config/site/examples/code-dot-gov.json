@@ -38,7 +38,7 @@
           "name": "developers",
           "links": [
             { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
-            { "name": "Contribute", "url": "/#!/help-wanted" },
+            { "name": "Contribute", "url": "/contribute" },
             { "name": "Notebooks", "url": "https://beta.observablehq.com/search?query=%22code.gov%22" }
           ]
         },
@@ -155,7 +155,7 @@
         },
         {
           "name": "Roadmap",
-          "url": "/#!/roadmap"
+          "url": "/roadmap"
         },
         {
           "name": "Visit Project Page",

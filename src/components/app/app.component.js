@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import Roadmap from '../roadmap'
 import Home from '../home'
 import Menu from '../menu'
 import Footer from '../footer'
@@ -18,7 +19,9 @@ export default class AppComponent extends React.Component {
       <div className="App">
         <Menu />
         <Switch>
-          <Home />
+          <Route exact path='/' component={Home}/>
+          <Route path='/roadmap' component={Roadmap}/>
+          <Route component={Home}/>
         </Switch>
         <Footer />
       </div>
