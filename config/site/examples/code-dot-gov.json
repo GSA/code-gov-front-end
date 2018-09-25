@@ -151,7 +151,7 @@
     "footer": {
       "links": [{
           "name": "Privacy Policy",
-          "url": "/#!/privacy-policy"
+          "url": "/privacy-policy"
         },
         {
           "name": "Roadmap",

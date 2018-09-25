@@ -1,0 +1,1 @@
+../examples/docs/privacy-policy.md

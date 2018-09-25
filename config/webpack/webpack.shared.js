@@ -21,8 +21,8 @@ module.exports = {
     './src/index.js'
   ],
   resolve: {
-    modules: ['node_modules', 'src'],
-    extensions: ['.js', '.json']
+    modules: ['node_modules', 'src', 'config'],
+    extensions: ['.js', '.json', '.md']
   },
   module: {
     rules: [{
@@ -47,6 +47,20 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.md$/,
+        use: [
+            {
+                loader: "html-loader"
+            },
+            {
+                loader: "markdown-loader",
+                options: {
+                    /* your options here */
+                }
+            }
+        ]
       }
     ]
   },

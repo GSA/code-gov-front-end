@@ -5,6 +5,10 @@ import './home-banner.scss'
 
 export default class HomeBanner extends React.Component {
 
+  componentDidMount () {
+    if (!this.props.agencies) this.props.saveAgencies();
+  }
+
   scrollToAbout() {
     const top = document.getElementById('banner-home').clientHeight;
     const offset = document.querySelector('header nav.main').clientHeight;
@@ -14,7 +18,19 @@ export default class HomeBanner extends React.Component {
     });
   }
 
+  get agencyOptions() {
+    if (this.props.agencies) {
+      return this.props.agencies.map(agency => {
+        return <option value={agency.acronym}>{agency.name}</option>
+      })
+    } else {
+      return null
+    }
+  }
+
   get browseDropdown() {
+    if (!this.props.agencies) return null;
+
     return (
       <div className="browse">
         Or
@@ -22,9 +38,7 @@ export default class HomeBanner extends React.Component {
         <select onChange={this.props.onBrowseByEntityChange}>
           <option>{this.props.browseByText}</option>
           <option value="All">All</option>
-          {this.props.entities && this.props.entities.map(entity => {
-            return <option value={entity.acronym}>{entity.name}</option>
-          })}
+          {this.agencyOptions}
         </select>
       </div>
     )

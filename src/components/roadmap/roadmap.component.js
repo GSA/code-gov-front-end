@@ -37,6 +37,10 @@ const Column = ({ phase, todos }) => {
 
 export default class Roadmap extends React.Component {
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   getOverviewHTML() {
     return {
       __html: this.props.overview

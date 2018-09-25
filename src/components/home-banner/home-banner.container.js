@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
-import { getConfigValue } from '../../utils'
+import { getConfigValue } from 'utils'
+import saveAgencies from 'actions/save-agencies'
 import HomeBannerComponent from './home-banner.component'
 
-const mapStateToProps = ({ siteConfig }) => {
+const mapStateToProps = ({ agencies, siteConfig }) => {
   return {
+    agencies,
     backgroundImage: getConfigValue(siteConfig, 'images.background'),
     motto: getConfigValue(siteConfig, 'content.home.banner.motto'),
     subtitle: getConfigValue(siteConfig, 'content.home.banner.subtitle'),
@@ -18,4 +20,10 @@ const mapStateToProps = ({ siteConfig }) => {
   }
 }
 
-export default connect(mapStateToProps)(HomeBannerComponent)
+const mapDispatchToProps = dispatch => {
+  return {
+    saveAgencies: () => dispatch(saveAgencies())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeBannerComponent)

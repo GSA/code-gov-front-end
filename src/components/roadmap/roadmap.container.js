@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getConfigValue } from '../../utils'
+import { getConfigValue } from 'utils'
 import RoadmapComponent from './roadmap.component'
 
 const mapStateToProps = ({ siteConfig }) => {
