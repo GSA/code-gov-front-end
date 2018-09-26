@@ -7,7 +7,7 @@
     "analyze": "webpack --config ./config/webpack/webpack.analyze.js",
     "build": "node ./node_modules/webpack/bin/webpack.js --config ./config/webpack/webpack.prod.js",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
-    "start-on-server": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
+    "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
     "update-fonts": "cp node_modules/@code.gov/code-gov-font/font/* ./assets/fonts/."
   },
   "repository": {
@@ -24,9 +24,10 @@
   "dependencies": {
     "@code.gov/api-client": "0.2.0",
     "@code.gov/code-gov-font": "^0.7.0",
-    "@code.gov/code-gov-style": "^1.9.5",
-    "babel-core": "^6.26.3",
+    "@code.gov/code-gov-style": "^1.9.7",
+    "custom-event-polyfill": "^1.0.6",
     "devicons": "^1.8.0",
+    "dotenv": "^6.0.0",
     "lodash.get": "^4.4.2",
     "offline-plugin": "^5.0.5",
     "prop-types": "^15.6.2",
@@ -36,19 +37,25 @@
     "react-router-dom": "^4.3.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.0",
-    "webpack": "^4.19.0",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.4",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0",
+    "@babel/plugin-transform-classes": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-dynamic-import-node": "^2.1.0",
     "babel-plugin-transform-function-bind": "^6.22.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "cname-webpack-plugin": "^1.0.3",
     "copy-webpack-plugin": "^4.5.2",
@@ -62,6 +69,7 @@
     "node-sass": "^4.9.3",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0"
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.2"
   }
 }

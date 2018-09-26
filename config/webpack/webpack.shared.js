@@ -4,22 +4,25 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const rootDir = path.dirname(path.dirname(__dirname))
-console.log("rootDir:", rootDir)
+console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
 const docsDir = path.join(rootDir, 'docs')
 
 module.exports = {
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: docsDir,
     publicPath: '/'
   },
-  entry: [
-    'babel-polyfill',
-    './src/index.js'
-  ],
+  entry: {
+    'custom-elements': '@webcomponents/custom-elements',
+    'custom-event-polyfill': 'custom-event-polyfill',
+    'whatwg-fetch': 'whatwg-fetch',
+    index: './src/index.js'
+  },
   resolve: {
     modules: ['node_modules', 'src', 'config'],
     extensions: ['.js', '.json', '.md']
@@ -45,8 +48,21 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: "babel-loader",
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-transform-arrow-functions',
+              '@babel/plugin-transform-classes',
+              '@babel/plugin-syntax-dynamic-import',
+              'babel-plugin-dynamic-import-node',
+              'babel-plugin-transform-function-bind'
+            ],
+            presets: ["@babel/preset-react"]
+          }
+        }
       },
       {
         test: /\.md$/,
@@ -65,6 +81,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new EnvironmentPlugin(["CODE_GOV_API_KEY"]),
     new CleanWebpackPlugin(['docs'], { root: rootDir }),
     new CopyWebpackPlugin([{
         from: './assets/img',
@@ -79,9 +96,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: 'caribou',
-    }),
-    new DefinePlugin({
-      CODE_GOV_API_KEY: process.env.CODE_GOV_API_KEY || null
     })
   ],
 }

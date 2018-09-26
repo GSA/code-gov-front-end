@@ -8,7 +8,6 @@ export default function PrimaryMenuOption ({ menuOption, onClick }) {
     return (
       <Link
         to={menuOption.url}
-        target="_blank"
         role="menuitem"
         /*onClick={this.closeAllMenus}*/
       >{textContent}</Link>

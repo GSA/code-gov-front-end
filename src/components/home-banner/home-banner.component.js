@@ -21,7 +21,7 @@ export default class HomeBanner extends React.Component {
   get agencyOptions() {
     if (this.props.agencies) {
       return this.props.agencies.map(agency => {
-        return <option value={agency.acronym}>{agency.name}</option>
+        return <option key={agency.acronym} value={agency.acronym}>{agency.name}</option>
       })
     } else {
       return null

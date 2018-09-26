@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Roadmap from '../roadmap'
 import Home from '../home'
+import BrowseProjects from '../browse-projects'
 import Menu from '../menu'
 import Footer from '../footer'
 import PrivacyPolicy from '../privacy-policy'
@@ -21,6 +22,7 @@ export default class AppComponent extends React.Component {
         <Menu />
         <Switch>
           <Route exact path='/' component={Home}/>
+          <Route path='/browse-projects' component={BrowseProjects}/>
           <Route path='/privacy-policy' component={PrivacyPolicy}/>
           <Route path='/roadmap' component={Roadmap}/>
           <Route component={Home}/>

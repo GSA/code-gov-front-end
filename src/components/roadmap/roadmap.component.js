@@ -10,17 +10,17 @@ const Row = ({ todo }) => {
   }
   return (
     <tr>
-      <td class="graphic-cell">
+      <td className="graphic-cell">
         <i className={iconClass} aria-hidden="true"></i>
       </td>
-      <td class="widerow text-cell">{todo.name}</td>
+      <td className="widerow text-cell">{todo.name}</td>
     </tr>
   )
 }
 
 const Column = ({ phase, todos }) => {
   return (
-    <div class="width-third">
+    <div className="width-third">
       <table>
         <thead>
           <tr>
@@ -49,7 +49,7 @@ export default class Roadmap extends React.Component {
 
   get overview() {
     return (
-      <div class="indented roadmap-overview">
+      <div className="indented roadmap-overview">
         <h3>Overview</h3>
         {Array.isArray(this.props.overview) && this.props.overview.map(paragraph => {
           return (
@@ -65,16 +65,16 @@ export default class Roadmap extends React.Component {
       backgroundImage: `url('${this.props.backgroundImage}')`
     }
     return (
-    <div class="roadmap-general">
+    <div className="roadmap-general">
 
-      <div class="banner" style={bannerStyle}>
-        <div class="banner-content">
-          <div class="banner-title">Roadmap</div>
+      <div className="banner" style={bannerStyle}>
+        <div className="banner-content">
+          <div className="banner-title">Roadmap</div>
         </div>
       </div>
 
-      <div class="indented">
-        <ul class="breadcrumbs">
+      <div className="indented">
+        <ul className="breadcrumbs">
           <li><Link to='/'>Home</Link></li>
           <li>Roadmap</li>
         </ul>
@@ -83,35 +83,35 @@ export default class Roadmap extends React.Component {
 
       {this.overview}
 
-      <div class="indented roadmap-table-title">
+      <div className="indented roadmap-table-title">
         <h3>Roadmap</h3>
       </div>
 
-      <div class="indented roadmap-table">
+      <div className="indented roadmap-table">
         <Column name='Near-term' todos={this.props.near}/>
         <Column name='Mid-term' todos={this.props.mid}/>
         <Column name='Long-term' todos={this.props.long}/>
       </div>
 
-      <div class="indented roadmap-legend">
-        <div class="width-third">
+      <div className="indented roadmap-legend">
+        <div className="width-third">
           <table>
             <thead></thead>
               <tbody>
                 <tr>
-                  <td class="pull-down"><i class="icon icon-ok" aria-hidden="true"></i></td>
-                  <td class="widerow pull-down">Released</td>
+                  <td className="pull-down"><i className="icon icon-ok" aria-hidden="true"></i></td>
+                  <td className="widerow pull-down">Released</td>
                 </tr>
                 <tr>
-                  <td class="push-up"><i class="icon icon-circle" aria-hidden="true"></i></td>
-                  <td class="widerow push-up">In Progress</td>
+                  <td className="push-up"><i className="icon icon-circle" aria-hidden="true"></i></td>
+                  <td className="widerow push-up">In Progress</td>
                 </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="indented roadmap-disclaimer">
+      <div className="indented roadmap-disclaimer">
         <h3>Disclaimer</h3>
         <p>{this.props.disclaimer}</p>
       </div>

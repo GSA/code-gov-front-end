@@ -1,9 +1,10 @@
 import { SAVE_AGENCIES } from 'constants/actions';
-//import client from '../api'
+import client from 'api'
 
 export default function () {
   return async dispatch => {
-    const agencies = await client.getAgencies(size=1000)
+    const numAgencies = 1000
+    const agencies = await client.getAgencies(numAgencies)
     dispatch({ type: SAVE_AGENCIES, agencies })
   }
 }
