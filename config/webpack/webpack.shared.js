@@ -18,10 +18,7 @@ module.exports = {
     publicPath: '/'
   },
   entry: {
-    'custom-elements': '@webcomponents/custom-elements',
-    'custom-event-polyfill': 'custom-event-polyfill',
-    'whatwg-fetch': 'whatwg-fetch',
-    index: './src/index.js'
+    index: ['@babel/polyfill', './src/index.js']
   },
   resolve: {
     modules: ['node_modules', 'src', 'config'],
@@ -58,9 +55,13 @@ module.exports = {
               '@babel/plugin-transform-classes',
               '@babel/plugin-syntax-dynamic-import',
               'babel-plugin-dynamic-import-node',
-              'babel-plugin-transform-function-bind'
+              'babel-plugin-transform-function-bind',
+              '@babel/plugin-transform-regenerator'
             ],
-            presets: ["@babel/preset-react"]
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react"
+            ]
           }
         }
       },
@@ -83,13 +84,26 @@ module.exports = {
   plugins: [
     new EnvironmentPlugin(["CODE_GOV_API_KEY"]),
     new CleanWebpackPlugin(['docs'], { root: rootDir }),
-    new CopyWebpackPlugin([{
+    new CopyWebpackPlugin([
+      {
         from: './assets/img',
         to: path.join(docsDir, '/assets/img')
       },
       {
         from: './404.html',
         to: path.join(docsDir, '404.html')
+      },
+      {
+        from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
+        to: 'polyfills/custom-elements.js'
+      },
+      {
+        from: 'node_modules/custom-event-polyfill/polyfill.js',
+        to: 'polyfills/custom-event.js'
+      },
+      {
+        from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
+        to: 'polyfills/fetch.js'
       }
     ]),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),

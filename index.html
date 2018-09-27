@@ -25,12 +25,74 @@
     <meta name="twitter:title" content="Code.gov">
     <meta name="twitter:description" content="Code.gov is a platform designed to improve access to the federal government’s custom-developed software.">
     <meta name="twitter:image" content="./assets/img/og.jpg">
-  
+
     <meta name="google-site-verification" content="FeV1oMKur5PZSGJtUKhKM5EnNGVXn3tTK13iUk_7NZc">
-  
+
     <link rel="image_src" type="image/jpeg" href="./assets/img/og.jpg">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div id="load-screen" style="background-color: rgb(0, 0, 56); color: white; bottom: 0; font-size: 18pt; left: 0; position: absolute; right: 0; text-align: center; top: 0">
+        <!-- https://en.wikipedia.org/wiki/File:Flag_of_the_United_States.svg -->
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 7410 3900" style="padding: 20px">
+          <rect width="7410" height="3900" fill="#b22234"/>
+          <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300"/>
+          <rect width="2964" height="2100" fill="#3c3b6e"/>
+          <g fill="#fff">
+            <g id="s18">
+              <g id="s9">
+                <g id="s5">
+                  <g id="s4">
+                    <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+                    <use xlink:href="#s" y="420"/>
+                    <use xlink:href="#s" y="840"/>
+                    <use xlink:href="#s" y="1260"/>
+                  </g>
+                  <use xlink:href="#s" y="1680"/>
+                </g>
+                <use xlink:href="#s4" x="247" y="210"/>
+              </g>
+            <use xlink:href="#s9" x="494"/>
+            </g>
+            <use xlink:href="#s18" x="988"/>
+            <use xlink:href="#s9" x="1976"/>
+            <use xlink:href="#s5" x="2470"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <script>
+
+      function addToLoadScreen(text) {
+        document.getElementById('load-screen').innerHTML += "<p>" + text + "</p>";
+      }
+
+      function loadScript(url) {
+        var script = document.createElement('script');
+        script.src = url;
+        document.head.appendChild(script);
+        addToLoadScreen('<p>loading ' + url + '</p>');
+      }
+
+      // load fetch polyfill if required
+      if (window.fetch === undefined) {
+        console.warn("this browser doesn't support fetch, so we'll load a polyfill");
+        loadScript('/polyfills/fetch.js');
+      }
+
+      if (window.customElements === undefined) {
+        console.warn("this browser doesn't support custom elements, so we'll load a polyfill");
+        loadScript('/polyfills/custom-elements.js');
+      }
+
+      try {
+        new CustomEvent('test');
+      } catch (error) {
+        console.warn("This browser doesn't support CustomEvent, which is used by code-gov-style, so we'll load a polyfill");
+        loadScript('/polyfills/custom-event.js');
+      }
+
+      addToLoadScreen("loading index.bundle.js")
+    </script>
   </body>
 </html>
