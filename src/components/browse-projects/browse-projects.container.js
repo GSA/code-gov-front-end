@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import { getConfigValue } from 'utils'
-import saveAgencies from 'actions/save-agencies'
+import saveFilterData from 'actions/save-filter-data'
 import BrowseProjectsComponent from './browse-projects.component'
 
-const mapStateToProps = ({ agencies, siteConfig }) => {
+const mapStateToProps = ({ agencies, filters, siteConfig }) => {
   return {
-    agencies,
     backgroundImage: getConfigValue(siteConfig, 'images.background'),
+    filters
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveAgencies: () => dispatch(saveAgencies())
+    saveFilterData: () => dispatch(saveFilterData())
   }
 }
 

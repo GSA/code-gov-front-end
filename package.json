@@ -8,7 +8,8 @@
     "build": "node ./node_modules/webpack/bin/webpack.js --config ./config/webpack/webpack.prod.js",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
-    "update-fonts": "cp node_modules/@code.gov/code-gov-font/font/* ./assets/fonts/."
+    "update-fonts": "cp node_modules/@code.gov/code-gov-font/font/* ./assets/fonts/.",
+    "update-languages": "node scripts/update-languages.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
   "dependencies": {
     "@code.gov/api-client": "0.2.0",
     "@code.gov/code-gov-font": "^0.7.0",
-    "@code.gov/code-gov-style": "^1.9.7",
+    "@code.gov/code-gov-style": "^1.9.9",
+    "@code.gov/coding-languages": "^1.0.0",
     "custom-event-polyfill": "^1.0.6",
     "devicons": "^1.8.0",
     "dotenv": "^6.0.0",

@@ -94,6 +94,10 @@ module.exports = {
         to: path.join(docsDir, '404.html')
       },
       {
+        from: 'node_modules/@code.gov/code-gov-style/dist/js/code-gov-web-components.js',
+        to: 'code-gov-web-components.js'
+      },
+      {
         from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
         to: 'polyfills/custom-elements.js'
       },

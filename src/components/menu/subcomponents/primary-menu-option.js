@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function PrimaryMenuOption ({ menuOption, onClick }) {
-  console.log("starting PrimaryMenuOption with menuOption, and onClick", menuOption, onClick)
   const textContent = menuOption.name;
   if (menuOption.url) {
     return (

@@ -5,6 +5,7 @@ export default class PrivacyPolicy extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
+    document.activeElement.blur()
   }
 
   getPrivacyPolicyHTML() {

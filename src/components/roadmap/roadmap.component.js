@@ -24,7 +24,7 @@ const Column = ({ phase, todos }) => {
       <table>
         <thead>
           <tr>
-            <th colspan="2">{phase}</th>
+            <th colSpan="2">{phase}</th>
           </tr>
         </thead>
         <tbody>
@@ -39,6 +39,7 @@ export default class Roadmap extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
+    document.activeElement.blur()
   }
 
   getOverviewHTML() {

@@ -1,9 +1,33 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+
 export default class BrowseProjects extends React.Component {
 
   componentDidMount () {
-    if (!this.props.agencies) this.props.saveAgencies();
+    window.scrollTo(0, 0)
+    document.activeElement.blur()
+    if (!this.props.filterData) this.props.saveFilterData();
+  }
+
+  getFilterData(key) {
+    const filters = this.props.filters;
+    if (filters && filters[key]) {
+      return JSON.stringify(filters[key])
+    } else {
+      return JSON.stringify([])
+    }
+  }
+
+  get agencies() {
+    return this.getFilterData('agencies')
+  }
+
+  get languages() {
+    return this.getFilterData('languages')
+  }
+
+  get licenses() {
+    return this.getFilterData('licenses')
   }
 
   get repoCounter() {
@@ -22,6 +46,7 @@ export default class BrowseProjects extends React.Component {
   }
 
   render() {
+    const agencies = JSON.stringify(this.props.agencies)
     return (
       <div className="search-results-content">
         <simple-banner image={this.props.backgroundImage} title='Browse Projects' />
@@ -43,19 +68,19 @@ export default class BrowseProjects extends React.Component {
 
             <filter-box
               title="Language"
-              options={this.props.languages}
+              options={this.languages}
               onChange={this.onFilterBoxChange}
             ></filter-box>
 
             <filter-box
               title="Federal Agency"
-              options={this.props.agencies}
+              options={this.agencies}
               onChange={this.onFilterBoxChange}
             ></filter-box>
 
             <filter-box
               title="License"
-              options={this.props.licenses}
+              options={this.licenses}
               onChange={this.onFilterBoxChange}
             ></filter-box>
 
