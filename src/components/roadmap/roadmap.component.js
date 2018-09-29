@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { refreshView } from 'utils'
 
 const Row = ({ todo }) => {
   let iconClass = 'icon'
@@ -38,8 +39,7 @@ const Column = ({ phase, todos }) => {
 export default class Roadmap extends React.Component {
 
   componentDidMount() {
-    window.scrollTo(0, 0)
-    document.activeElement.blur()
+    refreshView()
   }
 
   getOverviewHTML() {

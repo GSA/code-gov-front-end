@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { refreshView } from 'utils'
 
 export default class PrivacyPolicy extends React.Component {
 
   componentDidMount() {
-    window.scrollTo(0, 0)
-    document.activeElement.blur()
+    refreshView()
   }
 
   getPrivacyPolicyHTML() {

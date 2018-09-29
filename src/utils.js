@@ -14,3 +14,9 @@ export function getConfigValue(siteConfig, path) {
     return null
   }
 }
+
+/* runs when each page component is loaded */
+export function refreshView() {
+  window.scrollTo(0, 0)
+  document.activeElement.blur()
+}

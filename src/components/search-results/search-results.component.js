@@ -2,12 +2,11 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { refreshView } from 'utils'
 
-
-export default class BrowseProjects extends React.Component {
+export default class SearchResults extends React.Component {
 
   componentDidMount () {
-    refreshView()
-    if (!this.props.filterData) this.props.saveFilterData()
+    refreshView();
+    if (!this.props.filterData) this.props.saveFilterData();
   }
 
   getFilterData(key) {
@@ -70,11 +69,11 @@ export default class BrowseProjects extends React.Component {
     const agencies = JSON.stringify(this.props.agencies)
     return (
       <div className="search-results-content">
-        <simple-banner image={this.props.backgroundImage} title='Browse Projects' />
+        <simple-banner image={this.props.backgroundImage} title='Search Results' />
         <div className="indented">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
-            <li>Browse Projects</li>
+            <li>Search Results</li>
           </ul>
         </div>
         <div className="search-results-header">
@@ -117,6 +116,7 @@ export default class BrowseProjects extends React.Component {
               <h2>
                 <span>Sort by</span>
                 <select onChange={this.onSortSelectionChange}>
+                  <option value="Best Match">Best Match</option>
                   <option value="Data Quality">Data Quality</option>
                   <option value="A-Z">A-Z</option>
                   <option value="Last Updated">Last Updated</option>

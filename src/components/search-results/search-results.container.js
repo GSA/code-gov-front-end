@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getConfigValue } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
-import BrowseProjectsComponent from './browse-projects.component'
+import SearchResultsComponent from './search-results.component'
 
 const mapStateToProps = ({ agencies, filters, siteConfig }) => {
   return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BrowseProjectsComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsComponent)

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import SearchBox from '../search-box'
+import GlobalSearchBox from '../global-search-box'
 import './home-banner.scss'
 
 export default class HomeBanner extends React.Component {
@@ -127,7 +127,7 @@ export default class HomeBanner extends React.Component {
                         {this.searchDescriptionSection}
                       </div>
                       <div className="search-input-and-button-wrapper">
-                        <SearchBox
+                        <GlobalSearchBox
                           placeholder={this.props.searchPlaceholder}
                         />
                       </div>
