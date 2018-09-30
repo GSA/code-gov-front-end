@@ -62,18 +62,9 @@ export default class Roadmap extends React.Component {
   }
 
   render() {
-    const bannerStyle = {
-      backgroundImage: `url('${this.props.backgroundImage}')`
-    }
     return (
     <div className="roadmap-general">
-
-      <div className="banner" style={bannerStyle}>
-        <div className="banner-content">
-          <div className="banner-title">Roadmap</div>
-        </div>
-      </div>
-
+      <simple-banner image={this.props.backgroundImage} title='Roadmap' />
       <div className="indented">
         <ul className="breadcrumbs">
           <li><Link to='/'>Home</Link></li>

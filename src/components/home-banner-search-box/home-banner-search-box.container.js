@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import updateQuery from 'actions/update-query'
+import newSearch from 'actions/new-search'
 import HomeBannerSearchBoxComponent from './home-banner-search-box.component'
 
 
@@ -13,10 +14,10 @@ const mapStateToProps = ({ query, siteConfig }) => {
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: (query) => {
-//      console.log("starting onSubmit with query:", query)
+      console.log("home-banner-search-box.container starting onSubmit with query:", query)
       //dispatch(updateQuery(query))
-  //    history.push('/search')
-      dispatch(push('/search'))
+      dispatch(newSearch(query))
+      dispatch(push(`/search?query=${query}`))
     },
     updateQuery: (query) => {
       //console.log("starting props.updateQuery")

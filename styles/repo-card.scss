@@ -1,0 +1,110 @@
+.repo-list-item {
+  display: block;
+  margin-bottom: 1em;
+  padding: 1em;
+  text-decoration: none;
+  @include clearfix;
+
+  p {
+    font-size: 1em;
+    margin: 0;
+  }
+
+
+  button {
+    @media screen and (min-width: $medium-screen) {
+      margin: 0;
+      margin-top: 5rem;
+      padding: 1rem 1rem;
+    }
+  }
+
+  .repo-button {
+    margin-left: 3.5818%; //to achieve the same margin as the text column on the left side
+    text-align: right;
+  }
+
+  hr {
+    visibility: hidden;
+    display: none;
+
+    @media screen and (min-width: $medium-screen) {
+      border-top: 1px solid $color-gray-light;
+      display: block;
+      margin-left: -1.2em;
+      margin-right: -1.25em;
+      margin-bottom: 0;
+      margin-top: 2rem;
+      max-width: none;
+      visibility: visible;
+      width: auto;
+    }
+  }
+
+  .agency-details {
+    font-size: .85714286em;
+
+      &> span{
+      font-weight: $font-bold;
+      margin-left: 2rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      margin-top: 14px;
+      padding: 0.75rem 0rem;
+    }
+  }
+
+  @media screen and (max-width: $small-screen - 1) {
+    &.card {
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+
+      padding-bottom: 3rem;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .repo-features {
+    margin-left: 0;
+  }
+
+  .repo-features-list {
+    max-height: 100px;
+
+    @media screen and (min-width: $medium-screen) {
+      width: 90%;
+      align-items: end;
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 2%;
+      grid-template-columns: repeat(1, 100%);
+      grid-template-rows: repeat(3,minmax(30px,1fr));
+    }
+
+    li {
+      display: inline-block;
+      font-weight: $font-bold;
+      margin-right: 1.5rem;
+      min-width: 25%;
+      @include clearfix;
+
+      & > span {
+        font-weight: 400;
+      }
+
+      a {
+        color: $brand-blue-dark;
+        text-decoration: none;
+      }
+    }
+  }
+}

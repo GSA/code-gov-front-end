@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { refreshView } from 'utils'
+import RepoCard from 'components/repo-card'
 
-export default class SearchResults extends React.Component {
+export default class SearchPage extends React.Component {
 
   componentDidMount () {
     refreshView();
@@ -50,7 +51,7 @@ export default class SearchResults extends React.Component {
       return (
         <div className="filter-tags">
           {this.state.filterTags.map(tag => {
-            <div className="filter-tag" onClick={() => this.removeFilterTag(tag)}>
+            <div className="filter-tag" key={tag.name} onClick={() => this.removeFilterTag(tag)}>
               <div className="filter-tag-title">{tag.name}</div>
             </div>
           })}
@@ -63,6 +64,22 @@ export default class SearchResults extends React.Component {
     console.log("starting removeFilterTag")
     const filterTags = this.state.filterTags.filter(tag => tag !== selectedTag);
     this.setState({ filterTags })
+  }
+
+  get reposContainer() {
+    const results = this.props.currentSearchResults
+    console.log("starting reposContainers with results:", results)
+    if (results) {
+      return (
+        <div className="repos-container">
+          <ul className="repos-list repos-list--infinite-scrolled show-w-lte-1000">
+          {results.repos && results.repos.slice(0, 50).map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+          </ul>
+          <ul className="repos-list repos-list--paged show-w-gt-1000">
+          </ul>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -127,6 +144,9 @@ export default class SearchResults extends React.Component {
             {this.state.isLoading && <div>Loading</div>}
             <repo-list *ngIf="!isLoading" [queryValue]="queryValue" [results]="finalResults" [pageSize]="pageSize"></repo-list>
             */}
+            <div className="repo-list">
+              {this.reposContainer}
+            </div>
           </div>
         </div>
       </div>
