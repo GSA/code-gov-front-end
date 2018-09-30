@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import HomeFeaturedProject from '../home-featured-project'
 
 
-export default class SearchBox extends Component {
+export default class HomeFeaturedProjects extends Component {
   static propTypes = {
     /*    onChange: PropTypes.func.isRequired,
         onSubmit: PropTypes.func.isRequired,
@@ -12,7 +12,6 @@ export default class SearchBox extends Component {
   }
 
   render() {
-    console.log("this.props for home-feature-projecs:", this.props.featuredProjects)
     return (
       <section className="featured-projects block block--white">
         <div id="featured-projects-title">

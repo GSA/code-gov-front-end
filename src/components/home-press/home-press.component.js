@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import './home-press.scss'
 
 
-export default class SearchBox extends Component {
-  static propTypes = {
-    backgroundImage: PropTypes.string.isString,
-    quote: PropTypes.string.isRequired
-  }
-
+export default class HomePressComponent extends Component {
   render() {
     const bannerStyle = {
       backgroundImage: `url('${this.props.backgroundImage}')`
