@@ -4,14 +4,16 @@ import { connect } from 'react-redux'
 import newSearch from 'actions/new-search'
 import saveSiteConfig from 'actions/save-site-config'
 import saveInitialSelections from 'actions/save-initial-selections'
+import updateSearchFilters from 'actions/update-search-filters'
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadIinitialSearch: (query) => {
+    loadInitialSearch: (query) => {
       dispatch(newSearch(query))
     },
     saveSiteConfig: (siteConfig) => dispatch(saveSiteConfig(siteConfig)),
-    saveInitialSelections: (saveInitialSelections) => dispatch(saveSiteConfig(saveInitialSelections))
+    saveInitialSelections: (saveInitialSelections) => dispatch(saveSiteConfig(saveInitialSelections)),
+    updateSearchFilters: (category, values) => dispatch(updateSearchFilters(category, values))
   }
 }
 

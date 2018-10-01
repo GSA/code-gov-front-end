@@ -13,7 +13,7 @@ import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
 import PrivacyPolicy from 'components/privacy-policy'
-import { refreshView } from 'utils'
+import { refreshView, normalize } from 'utils'
 
 
 import siteConfig from '../../../config/site/site.json'
@@ -21,19 +21,35 @@ import siteConfig from '../../../config/site/site.json'
 
 export default class AppComponent extends React.Component {
 
-  componentDidMount() {
-    console.log("App Component mounted")
-    refreshView()
-    this.props.saveSiteConfig(siteConfig)
-    console.log('app component with props', this.props)
+  loadParamsFromURL() {
     const location = this.props.location
     if (location.pathname.includes('search')) {
       const params = new URLSearchParams(location.search)
       const query = params.get("query")
       if (query) {
-        this.props.loadIinitialSearch("query")
+        this.props.loadInitialSearch(query)
+      }
+      const languages = params.get("languages")
+      if (languages) {
+        this.props.updateSearchFilters('languages', normalize(languages.split(',')))
+      }
+      const agencies = params.get("agencies")
+      if (agencies) {
+        this.props.updateSearchFilters('agencies', normalize(agencies.split(',')))
+      }
+      const licenses = params.get("licenses")
+      if (licenses) {
+        this.props.updateSearchFilters('licenses', normalize(licenses.split(',')))
       }
     }
+  }
+
+  componentDidMount() {
+    console.log("App Component mounted")
+    refreshView()
+    this.props.saveSiteConfig(siteConfig)
+    console.log('app component with props', this.props)
+    this.loadParamsFromURL()
   }
 
   render() {

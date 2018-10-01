@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom'
 import { refreshView, getLowerSet } from 'utils'
 import FilterBox from 'components/filter-box'
 import RepoCard from 'components/repo-card'
+import SearchPageSearchBox from 'components/search-page-search-box'
 
 export default class SearchPage extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+    }
+  }
 
   componentDidMount () {
     refreshView();
@@ -15,36 +22,20 @@ export default class SearchPage extends React.Component {
     ]
   }
 
-  getFilterData(key, path) {
-    if (this.props.currentSearchResults && this.props.filters && this.props.filters[key]) {
-      const names = getLowerSet(this.props.currentSearchResults.repos, path)
-      return this.props.filters[key].filter(({ name, value }) => {
-        return names.has(name.toLowerCase()) || names.has(value.toLowerCase())
-      })
-    }
-  }
-
-  get agencies() {
-    return this.getFilterData('agencies', 'agency.name')
-  }
-
-  get languages() {
-    return this.getFilterData('languages', 'languages')
-  }
-
-  get licenses() {
-    return this.getFilterData('licenses', 'permissions.licenses[0].name')
+  shouldComponentUpdate(nextProps, nextState) {
+    return JSON.stringify(nextProps) !== this.props || JSON.stringify(nextState) !== this.state
   }
 
   get repoCounter() {
-    const { total } = this.props.currentSearchResults || {}
+    const total = (this.props.filteredResults || []).length
+    const query = this.props.query
     let textContent
     if (total === 0) {
-      textContent = 'No Repositories'
+      textContent = `We found no Repositories for "${query}"`
     } else if (total === 1) {
-      textContent = '1 Repository'
+      textContent = `We found 1 Repository for "${query}"`
     } else if (total >= 2) {
-      textContent = `${total} Repositories`
+      textContent = `We found ${total} Repositories for "${query}"`
     } else {
       textContent = 'Loading Repositories'
     }
@@ -72,15 +63,16 @@ export default class SearchPage extends React.Component {
   }
 
   get reposContainer() {
-    const results = this.props.currentSearchResults
-    console.log("starting reposContainers with results:", results)
-    if (results) {
+    const filteredResults = this.props.filteredResults
+    console.log("starting reposContainers with filteredResults:", filteredResults)
+
+    if (filteredResults) {
       return (
         <div className="repos-container">
-          <ul className="repos-list repos-list--infinite-scrolled show-w-lte-1000">
-          {results.repos && results.repos.slice(0, 50).map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+          <ul className="repos-list repos-list--infinite-scrolled">
+          {filteredResults.slice(0, 50).map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
-          <ul className="repos-list repos-list--paged show-w-gt-1000">
+          <ul className="repos-list repos-list--paged">
           </ul>
         </div>
       )
@@ -88,7 +80,6 @@ export default class SearchPage extends React.Component {
   }
 
   render() {
-    const agencies = JSON.stringify(this.props.agencies)
     return (
       <div className="search-results-content">
         <simple-banner image={this.props.backgroundImage} title='Search Results' />
@@ -99,30 +90,32 @@ export default class SearchPage extends React.Component {
           </ul>
         </div>
         <div className="search-results-header">
-            <div className="indented">
-              <div className="width-quarter"></div>
-              {this.repoCounter}
+          <div className="indented">
+            <div className="width-quarter">
+              <SearchPageSearchBox />
             </div>
+            {this.repoCounter}
           </div>
+        </div>
         <div className="indented">
           <div id="filter-boxes-section">
 
             <h2>Filter</h2>
 
-            {this.languages && (
-            <FilterBox title="Language" options={this.languages} onChange={this.onFilterBoxChange} />
+            {this.props.languages && (
+            <FilterBox title="Language" options={this.props.languages} onChange={event => this.props.onFilterBoxChange('languages', event)} />
             )}
 
-            {this.agencies && (
-            <FilterBox title="Federal Agency" options={this.agencies} onChange={this.onFilterBoxChange} />
+            {this.props.agencies && (
+            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.props.onFilterBoxChange('agencies', event)} />
             )}
 
-            {this.licenses && (
-            <FilterBox title="License" options={this.licenses} onChange={this.onFilterBoxChange} />
+            {this.props.licenses && (
+            <FilterBox title="License" options={this.props.licenses} onChange={event => this.props.onFilterBoxChange('licenses', event)} />
             )}
 
             {this.usageTypes && (
-            <FilterBox title="Usage Type" options={this.usageTypes} onChange={this.onFilterBoxChange} />
+            <FilterBox title="Usage Type" options={this.usageTypes} onChange={event => this.props.onFilterBoxChange('usageTypes', event)} />
             )}
 
           </div>

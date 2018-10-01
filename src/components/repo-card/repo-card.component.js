@@ -49,13 +49,13 @@ export default class RepoCardComponent extends Component {
   }
 
   get repoLicense() {
-    const license = get(this.props.repo, 'repo.permissions.licenses[0].name') || 'N/A'
+    const license = get(this.props.repo, 'permissions.licenses[0].name') || 'N/A'
     return <li>License: <span>{license}</span></li>
   }
 
   get usageType() {
     let text = '';
-    let usageType = get(this.props.repo, 'usageType')
+    let usageType = get(this.props.repo, 'permissions.usageType')
     if (usageType === 'openSource') {
       text = 'Open Source'
     } else if (usageType === 'governmentWideReuse') {
@@ -64,12 +64,7 @@ export default class RepoCardComponent extends Component {
       text = usageType
     }
 
-    return (
-      <li>
-        <span>Usage Type:</span>
-        <span>{text}</span>
-      </li>
-    )
+    return <li>Usage Type: <span>{text}</span></li>
   }
 
   render() {

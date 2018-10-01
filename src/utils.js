@@ -21,14 +21,36 @@ export function getConfigValue(siteConfig, path) {
   }
 }
 
+export function normalize(input) {
+  return trim(lower(input))
+}
+
+export function includes(items, item) {
+  try {
+    return items.includes(item)
+  } catch (error) {
+    return false
+  }
+}
+
 /* lower case the input, including any elements in it */
 export function lower(input) {
   if (Array.isArray(input)) {
     return input.map(item => item.toLowerCase())
-  } else if (input.has && input.add) {
+  } else if (typeof input === 'object' && input.has && input.add) {
     return Set(Array.from(input).map(item => item.toLowerCase()))
   } else if (typeof input === "string") {
     return input.toLowerCase()
+  }
+}
+
+export function trim(input) {
+  if (Array.isArray(input)) {
+    return input.map(item => item.trim())
+  } else if (typeof input === 'object' && input.has && input.add) {
+    return Set(Array.from(input).map(item => item.trim()))
+  } else if (typeof input === "string") {
+    return input.trim()
   }
 }
 
@@ -83,4 +105,17 @@ export function getLowerSet(items, path) {
     })
   }
   return results
+}
+
+export function getFilterData(key, path, currentSearchResults, filters) {
+  if (currentSearchResults && filters && filters[key]) {
+    const names = getLowerSet(currentSearchResults.repos, path)
+    return filters[key].filter(({ name, value }) => {
+      return names.has(name.toLowerCase()) || names.has(value.toLowerCase())
+    })
+  }
+}
+
+export function hasLicense(repo) {
+  return repo.permissions && Array.isArray(repo.permissions.licenses) && repo.permissions.licenses.length > 0
 }
