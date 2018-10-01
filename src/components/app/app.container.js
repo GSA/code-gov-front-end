@@ -1,11 +1,15 @@
 import AppComponent from './app.component'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import newSearch from 'actions/new-search'
 import saveSiteConfig from 'actions/save-site-config'
 import saveInitialSelections from 'actions/save-initial-selections'
 
 const mapDispatchToProps = dispatch => {
   return {
+    loadIinitialSearch: (query) => {
+      dispatch(newSearch(query))
+    },
     saveSiteConfig: (siteConfig) => dispatch(saveSiteConfig(siteConfig)),
     saveInitialSelections: (saveInitialSelections) => dispatch(saveSiteConfig(saveInitialSelections))
   }

@@ -8,6 +8,11 @@ import '../styles/_main.scss';
 
 const store = buildStore();
 
+/* load url parameters */
+
+
+
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

@@ -1,4 +1,5 @@
 /* global history */
+/* global URLSearchParams */
 
 import React from 'react'
 import { Redirect } from 'react-router'
@@ -21,15 +22,18 @@ import siteConfig from '../../../config/site/site.json'
 export default class AppComponent extends React.Component {
 
   componentDidMount() {
+    console.log("App Component mounted")
+    refreshView()
     this.props.saveSiteConfig(siteConfig)
-    /*
     console.log('app component with props', this.props)
     const location = this.props.location
-    if (location.pathname.contains('search')) {
+    if (location.pathname.includes('search')) {
       const params = new URLSearchParams(location.search)
+      const query = params.get("query")
+      if (query) {
+        this.props.loadIinitialSearch("query")
+      }
     }
-    */
-    refreshView()
   }
 
   render() {

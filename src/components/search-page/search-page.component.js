@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { refreshView } from 'utils'
+import { refreshView, getLowerSet } from 'utils'
+import FilterBox from 'components/filter-box'
 import RepoCard from 'components/repo-card'
 
 export default class SearchPage extends React.Component {
@@ -8,31 +9,35 @@ export default class SearchPage extends React.Component {
   componentDidMount () {
     refreshView();
     if (!this.props.filterData) this.props.saveFilterData();
+    this.usageTypes = [
+      {"name":"Open Source","value":"openSource"},
+      {"name":"Government-Wide Reuse","value":"governmentWideReuse"}
+    ]
   }
 
-  getFilterData(key) {
-    const filters = this.props.filters;
-    if (filters && filters[key]) {
-      return JSON.stringify(filters[key])
-    } else {
-      return JSON.stringify([])
+  getFilterData(key, path) {
+    if (this.props.currentSearchResults && this.props.filters && this.props.filters[key]) {
+      const names = getLowerSet(this.props.currentSearchResults.repos, path)
+      return this.props.filters[key].filter(({ name, value }) => {
+        return names.has(name.toLowerCase()) || names.has(value.toLowerCase())
+      })
     }
   }
 
   get agencies() {
-    return this.getFilterData('agencies')
+    return this.getFilterData('agencies', 'agency.name')
   }
 
   get languages() {
-    return this.getFilterData('languages')
+    return this.getFilterData('languages', 'languages')
   }
 
   get licenses() {
-    return this.getFilterData('licenses')
+    return this.getFilterData('licenses', 'permissions.licenses[0].name')
   }
 
   get repoCounter() {
-    const { total } = this.props
+    const { total } = this.props.currentSearchResults || {}
     let textContent
     if (total === 0) {
       textContent = 'No Repositories'
@@ -101,31 +106,24 @@ export default class SearchPage extends React.Component {
           </div>
         <div className="indented">
           <div id="filter-boxes-section">
+
             <h2>Filter</h2>
 
-            <filter-box
-              title="Language"
-              options={this.languages}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {this.languages && (
+            <FilterBox title="Language" options={this.languages} onChange={this.onFilterBoxChange} />
+            )}
 
-            <filter-box
-              title="Federal Agency"
-              options={this.agencies}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {this.agencies && (
+            <FilterBox title="Federal Agency" options={this.agencies} onChange={this.onFilterBoxChange} />
+            )}
 
-            <filter-box
-              title="License"
-              options={this.licenses}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {this.licenses && (
+            <FilterBox title="License" options={this.licenses} onChange={this.onFilterBoxChange} />
+            )}
 
-            <filter-box
-              title="Usage Type"
-              options='[{"name":"Open Source","value":"openSource"},{"name":"Government-Wide Reuse","value":"governmentWideReuse"}]'
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {this.usageTypes && (
+            <FilterBox title="Usage Type" options={this.usageTypes} onChange={this.onFilterBoxChange} />
+            )}
 
           </div>
           <div id="filter-results-section">
