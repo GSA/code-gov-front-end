@@ -26,6 +26,16 @@ export default class SearchPage extends React.Component {
     return JSON.stringify(nextProps) !== this.props || JSON.stringify(nextState) !== this.state
   }
 
+  onFilterBoxChange(category, values) {
+    this.scrollToTopOfResults()
+    this.props.onFilterBoxChange(category, values)
+  }
+
+  scrollToTopOfResults() {
+    this.refs.crumbs.scrollIntoView()
+    window.scrollBy(0, -100)
+  }
+
   get repoCounter() {
     const total = (this.props.filteredResults || []).length
     const query = this.props.query
@@ -83,7 +93,7 @@ export default class SearchPage extends React.Component {
     return (
       <div className="search-results-content">
         <simple-banner image={this.props.backgroundImage} title='Search Results' />
-        <div className="indented">
+        <div className="indented" ref="crumbs">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
             <li>Search Results</li>
@@ -102,20 +112,20 @@ export default class SearchPage extends React.Component {
 
             <h2>Filter</h2>
 
-            {this.props.languages && (
-            <FilterBox title="Language" options={this.props.languages} onChange={event => this.props.onFilterBoxChange('languages', event)} />
+            {Array.isArray(this.props.languages) && this.props.languages.length > 1 && (
+            <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
             )}
 
-            {this.props.agencies && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.props.onFilterBoxChange('agencies', event)} />
+            {Array.isArray(this.props.agencies) && this.props.agencies.length > 1 && (
+            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
             )}
 
-            {this.props.licenses && (
-            <FilterBox title="License" options={this.props.licenses} onChange={event => this.props.onFilterBoxChange('licenses', event)} />
+            {Array.isArray(this.props.licenses) && this.props.licenses.length > 1 && (
+            <FilterBox title="License" options={this.props.licenses} onChange={event => this.onFilterBoxChange('licenses', event)} />
             )}
 
             {this.usageTypes && (
-            <FilterBox title="Usage Type" options={this.usageTypes} onChange={event => this.props.onFilterBoxChange('usageTypes', event)} />
+            <FilterBox title="Usage Type" options={this.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
             )}
 
           </div>

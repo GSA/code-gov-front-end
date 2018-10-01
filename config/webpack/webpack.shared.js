@@ -108,6 +108,10 @@ module.exports = {
       {
         from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
         to: 'polyfills/fetch.js'
+      },
+      {
+        from: 'node_modules/url-search-params-polyfill/index.js',
+        to: 'polyfills/url-search-params.js'
       }
     ]),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),

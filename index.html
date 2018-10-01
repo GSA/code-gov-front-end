@@ -87,10 +87,19 @@
       }
 
       try {
+        /* global CustomEvent */
         new CustomEvent('test');
       } catch (error) {
         console.warn("This browser doesn't support CustomEvent, which is used by code-gov-style, so we'll load a polyfill");
         loadScript('/polyfills/custom-event.js');
+      }
+
+      try {
+        /* global URLSearchParams */
+        new URLSearchParams("?test=test").delete("test");
+      } catch (error) {
+        console.warn("This browser doesn't support URLSearchParams, so we'll load a polyfill");
+        loadScript('/polyfills/url-search-params.js');
       }
 
       addToLoadScreen("loading index.bundle.js")
