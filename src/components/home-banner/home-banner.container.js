@@ -15,7 +15,6 @@ const mapStateToProps = ({ agencies, siteConfig }) => {
     issueUrl: getConfigValue(siteConfig, 'content.home.banner.issue_url'),
     searchDescriptionText: getConfigValue(siteConfig, 'content.home.banner.search_description_text'),
     searchDescriptionTextMobile: getConfigValue(siteConfig, 'content.home.banner.search_description_text_mobile'),
-    searchPlaceholder: getConfigValue(siteConfig, 'content.home.banner.search_placeholder_text'),
     browseByText: getConfigValue(siteConfig, 'content.home.banner.browse_by_text')
   }
 }

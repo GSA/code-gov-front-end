@@ -45,10 +45,8 @@ export default class AppComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log("App Component mounted")
     refreshView()
     this.props.saveSiteConfig(siteConfig)
-    console.log('app component with props', this.props)
     this.loadParamsFromURL()
   }
 

@@ -12,12 +12,13 @@
 */
 
 import { connect } from 'react-redux';
+import get from 'lodash.get'
 import { getConfigValue } from '../../utils'
 import MenuComponent from './menu.component';
 
-const mapStateToProps = ({ siteConfig }) => {
+const mapStateToProps = ({ router, siteConfig }) => {
   return {
-    color: "dark", // need to make dynamic between white and dark listening to route
+    color: get(router, 'location.pathname') === '/' ? 'dark' : 'white',
     logoDark: getConfigValue(siteConfig, 'content.header.logos.dark'),
     logoLight: getConfigValue(siteConfig, 'content.header.logos.light'),
     menu: getConfigValue(siteConfig, 'content.header.menu'),

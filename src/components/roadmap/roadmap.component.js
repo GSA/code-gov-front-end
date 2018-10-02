@@ -42,19 +42,13 @@ export default class Roadmap extends React.Component {
     refreshView()
   }
 
-  getOverviewHTML() {
-    return {
-      __html: this.props.overview
-    }
-  }
-
   get overview() {
     return (
       <div className="indented roadmap-overview">
         <h3>Overview</h3>
         {Array.isArray(this.props.overview) && this.props.overview.map(paragraph => {
           return (
-            <p dangerouslySetInnerHTML={this.getOverviewHTML()}></p>
+            <p key={paragraph} dangerouslySetInnerHTML={{ __html: this.props.overview }}></p>
           )
         })}
       </div>
