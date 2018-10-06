@@ -3,10 +3,12 @@ import { push } from 'connected-react-router'
 import updateQuery from 'actions/update-query'
 import newSearch from 'actions/new-search'
 import HomeBannerSearchBoxComponent from './home-banner-search-box.component'
+import { getConfigValue } from 'utils'
 
 
 const mapStateToProps = ({ query, siteConfig }) => {
   return {
+    placeholder: getConfigValue(siteConfig, 'content.home.banner.search_placeholder_text'),
     query
   }
 }
