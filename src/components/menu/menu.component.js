@@ -18,12 +18,17 @@ export default class Menu extends Component {
       color: props.color,
       expanded: false,
       height: 'auto',
-      isAtTop: false,
+      notAtTop: false,
       menu: props.menu,
       searchBoxShown: false
     }
 
     this.onClickMenuOption = this.onClickMenuOption.bind(this)
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      this.setState({ notAtTop: scrollTop !== 0 })
+    })
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -116,7 +121,7 @@ export default class Menu extends Component {
 
     let navClassName = `main ${this.state.color}`
     if (this.state.expanded) navClassName += ' expanded'
-    if (!this.state.isAtTop) navClassName += ' not-at-top'
+    if (this.state.notAtTop) navClassName += ' not-at-top'
 
     let navStyle = { 'height': this.state.height }
 
