@@ -15,7 +15,6 @@ export default class Menu extends Component {
     super(props)
     console.log("starting consturctor with props:", props)
     this.state = {
-      color: props.color,
       expanded: false,
       height: 'auto',
       notAtTop: false,
@@ -117,9 +116,10 @@ export default class Menu extends Component {
 
   render() {
 
-    let headerClassName = `main ${this.state.color} transparent`
+    let headerClassName = `main ${this.props.color}`
+    if (this.props.transparent) headerClassName += ' transparent'
 
-    let navClassName = `main ${this.state.color}`
+    let navClassName = `main ${this.props.color}`
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 
