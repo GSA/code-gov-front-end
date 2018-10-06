@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import SiteBanner from 'components/site-banner'
 import { refreshView } from 'utils'
 
 const Row = ({ todo }) => {
   let iconClass = 'icon'
-  if (todo.status === 'Released') {
+  if (todo.status.toUpperCase() === 'RELEASED') {
     iconClass += ' icon-ok'
-  } else if (todo.status === 'In Progress') {
+  } else if (todo.status.toUpperCase() === 'IN PROGRESS') {
     iconClass += ' icon-circle'
   }
   return (
@@ -64,7 +65,7 @@ export default class Roadmap extends React.Component {
   render() {
     return (
     <div className="roadmap-general">
-      <simple-banner image={this.props.backgroundImage} title='Roadmap' />
+      <SiteBanner title='Roadmap' />
       <div className="indented">
         <ul className="breadcrumbs">
           <li><Link to='/'>Home</Link></li>
