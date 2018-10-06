@@ -42,7 +42,7 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
     })
   }
 
-  let filteredResults = []
+  let filteredResults
   if (currentSearchResults) {
     filteredResults = currentSearchResults.repos.filter(repo => {
       if (filters) {

@@ -37,15 +37,19 @@ export default class SearchPage extends React.Component {
   }
 
   get repoCounter() {
-    const total = (this.props.filteredResults || []).length
-    const query = this.props.query
     let textContent
-    if (total === 0) {
-      textContent = `We found no Repositories for "${query}"`
-    } else if (total === 1) {
-      textContent = `We found 1 Repository for "${query}"`
-    } else if (total >= 2) {
-      textContent = `We found ${total} Repositories for "${query}"`
+    if (this.props.filteredResults) {
+      const total = this.props.filteredResults.length
+      const query = this.props.query
+      if (total === 0) {
+        textContent = `We found no Repositories for "${query}"`
+      } else if (total === 1) {
+        textContent = `We found 1 Repository for "${query}"`
+      } else if (total >= 2) {
+        textContent = `We found ${total} Repositories for "${query}"`
+      } else {
+        textContent = 'Loading Repositories'
+      }
     } else {
       textContent = 'Loading Repositories'
     }
