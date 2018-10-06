@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import HomeBannerSearchBox from '../home-banner-search-box'
-import './home-banner.scss'
 
 export default class HomeBanner extends React.Component {
 
