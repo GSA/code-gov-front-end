@@ -6,6 +6,7 @@ import siteConfig from './site-config'
 import query from './query'
 import searchHistory from './search'
 import searchFilters from './search-filters'
+import taskFilters from './task-filters'
 
 const rootReducer = combineReducers({
   agencies,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   query,
   repo,
   searchFilters,
+  taskFilters,
   searchHistory,
   siteConfig
 })
