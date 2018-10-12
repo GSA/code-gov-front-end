@@ -4,6 +4,7 @@ import { refreshView, getLowerSet } from 'utils'
 import FilterBox from 'components/filter-box'
 import RepoCard from 'components/repo-card'
 import SearchPageSearchBox from 'components/search-page-search-box'
+import SiteBanner from 'components/site-banner'
 
 export default class SearchPage extends React.Component {
 
@@ -26,9 +27,9 @@ export default class SearchPage extends React.Component {
     return JSON.stringify(nextProps) !== this.props || JSON.stringify(nextState) !== this.state
   }
 
-  onFilterBoxChange(category, values) {
+  onFilterBoxChange(category, event) {
     this.scrollToTopOfResults()
-    this.props.onFilterBoxChange(category, values)
+    this.props.onFilterBoxChange(category, event)
   }
 
   scrollToTopOfResults() {
@@ -96,7 +97,7 @@ export default class SearchPage extends React.Component {
   render() {
     return (
       <div className="search-results-content">
-        <simple-banner image={this.props.backgroundImage} title='Search Results' />
+        <SiteBanner title='Search Results' />
         <div className="indented" ref="crumbs">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
