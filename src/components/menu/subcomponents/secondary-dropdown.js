@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { some } from 'safely'
 
 export default function SecondaryDropdown({ menuOption, onClick }) {
-  if (menuOption.links && menuOption.links.length > 0) {
+  if (some(menuOption.links)) {
     return (
       <ul role="menu">
         {menuOption.links.map(link => {
