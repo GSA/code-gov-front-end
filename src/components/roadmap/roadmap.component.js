@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import SiteBanner from 'components/site-banner'
-import { refreshView } from 'utils'
+import { normalize, refreshView } from 'utils'
 
 const Row = ({ todo }) => {
   let iconClass = 'icon'
-  if (todo.status.toUpperCase() === 'RELEASED') {
+  let status = normalize(todo.status)
+  if (status === 'released') {
     iconClass += ' icon-ok'
-  } else if (todo.status.toUpperCase() === 'IN PROGRESS') {
+  } else if (status === 'in progress') {
     iconClass += ' icon-circle'
   }
   return (
@@ -29,7 +30,7 @@ const Column = ({ phase, todos }) => {
             <th colSpan="2">{phase}</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{background: 'white'}}>
           {todos && todos.map(todo => <Row key={todo.name} todo={todo}/>)}
         </tbody>
       </table>
@@ -43,20 +44,12 @@ export default class Roadmap extends React.Component {
     refreshView()
   }
 
-  getOverviewHTML() {
-    return {
-      __html: this.props.overview
-    }
-  }
-
   get overview() {
     return (
       <div className="indented roadmap-overview">
         <h3>Overview</h3>
         {Array.isArray(this.props.overview) && this.props.overview.map(paragraph => {
-          return (
-            <p dangerouslySetInnerHTML={this.getOverviewHTML()}></p>
-          )
+          return <p dangerouslySetInnerHTML={{ __html: paragraph}} key={paragraph} />
         })}
       </div>
     )
@@ -81,9 +74,9 @@ export default class Roadmap extends React.Component {
       </div>
 
       <div className="indented roadmap-table">
-        <Column name='Near-term' todos={this.props.near}/>
-        <Column name='Mid-term' todos={this.props.mid}/>
-        <Column name='Long-term' todos={this.props.long}/>
+        <Column phase='Near-term' todos={this.props.near}/>
+        <Column phase='Mid-term' todos={this.props.mid}/>
+        <Column phase='Long-term' todos={this.props.long}/>
       </div>
 
       <div className="indented roadmap-legend">
