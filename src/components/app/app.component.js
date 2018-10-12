@@ -9,6 +9,7 @@ import history from 'browser-history'
 import Roadmap from 'components/roadmap'
 import Home from 'components/home'
 import BrowseProjects from 'components/browse-projects'
+import OpenTasks from 'components/open-tasks'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
@@ -60,6 +61,7 @@ export default class AppComponent extends React.Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route path='/browse-projects' component={BrowseProjects}/>
+            <Route path='/open-tasks' component={OpenTasks}/>
             <Route path='/privacy-policy' component={PrivacyPolicy}/>
             <Route path='/roadmap' component={Roadmap}/>
             <Route path='/search' component={SearchPage}/>
