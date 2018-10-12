@@ -66,7 +66,7 @@ export default class Menu extends Component {
   }
 
   get expanded() {
-    return this.state.menu.filter(option => option.expanded).length > 0
+    return this.state.menu.some(option => option.expanded)
   }
 
   get logo() {
