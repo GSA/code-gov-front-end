@@ -13,7 +13,6 @@ export default class Menu extends Component {
 
   constructor(props) {
     super(props)
-    console.log("starting consturctor with props:", props)
     this.state = {
       expanded: false,
       height: 'auto',
