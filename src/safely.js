@@ -6,6 +6,22 @@ export function run(item, func) {
   }
 }
 
+export function capitalize(string) {
+  try {
+    return string[0].toUpperCase() + string.substring(1)
+  } catch (error) {
+    return string
+  }
+}
+
+export function join(array, joiner) {
+  try {
+    return array.join(joiner)
+  } catch (error) {
+    return array
+  }
+}
+
 export function includes(array, item) {
   try {
     return array.includes(item)
