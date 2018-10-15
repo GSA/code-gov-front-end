@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
+import { some } from 'safely'
 
 
 export default class RepoCardComponent extends Component {
@@ -40,7 +41,7 @@ export default class RepoCardComponent extends Component {
 
   get repoLanguages() {
     const repo = this.props.repo
-    if (Array.isArray(repo.languages) && repo.languages.length > 0) {
+    if (some(repo.languages)) {
       const languages = repo.languages
       return <li>Languages: {languages.map(language => <span key={language}>&nbsp;{language}&nbsp;</span>)}</li>
     } else {
