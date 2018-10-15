@@ -2,21 +2,17 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
 import SiteBanner from 'components/site-banner'
+import { some } from 'safely'
 
 export default class OpenTasks extends React.Component {
 
   constructor() {
     super()
-    this.skillLevels = [
-      { name: "Small", value: "small" },
-      { name: "Medium", value: "medium" },
-      { name: "Large", value: "large" }
-    ]
-    this.timeRequired = [
-      { name: "Small", value: "small" },
-      { name: "Medium", value: "medium" },
-      { name: "Large", value: "large" }
-    ]
+  }
+
+  componentDidMount() {
+    if (!this.props.filterData) this.props.saveFilterData()
+    if (!this.props.tasks) this.props.saveTasks();
   }
 
   get counter() {
@@ -67,20 +63,24 @@ export default class OpenTasks extends React.Component {
           <div id="filter-boxes-section">
             <h2>Filter</h2>
 
-            {Array.isArray(this.props.languages) && this.props.languages.length > 1 && (
-            <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
+            {some(this.props.boxes.languages) && (
+            <FilterBox title="Language" options={this.props.boxes.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
             )}
 
-            {Array.isArray(this.props.agencies) && this.props.agencies.length > 1 && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
+            {some(this.props.boxes.agencies) && (
+            <FilterBox title="Federal Agency" options={this.props.boxes.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
             )}
 
-            <FilterBox title="Skill Level" options={this.skillLevels} onChange={event => this.onFilterBoxChange('skillLevels', event)} />
+            {some(this.props.boxes.skillLevels) && (
+            <FilterBox title="Skill Level" options={this.props.boxes.skillLevels} onChange={event => this.onFilterBoxChange('skillLevels', event)} />
+            )}
 
-            <FilterBox title="Time Required" options={this.timeRequired} onChange={event => this.onFilterBoxChange('timeRequired', event)} />
+            {some(this.props.boxes.timeRequired) && (
+            <FilterBox title="Time Required" options={this.props.boxes.timeRequired} onChange={event => this.onFilterBoxChange('timeRequired', event)} />
+            )}
 
-            {Array.isArray(this.props.categories) && this.props.categories.length > 1 && (
-            <FilterBox title="Type" options={this.category} onChange={event => this.onFilterBoxChange('Category', event)} />
+            {some(this.props.categories) && (
+            <FilterBox title="Type" options={this.categories} onChange={event => this.onFilterBoxChange('categories', event)} />
             )}
           </div>
         </div>

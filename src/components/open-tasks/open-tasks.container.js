@@ -1,36 +1,71 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { getConfigValue, getFilterData, normalize } from 'utils'
 import OpenTasksComponent from './open-tasks.component'
 import updateTaskFilters from 'actions/update-task-filters'
+import saveTaskFilterOptions from 'actions/save-task-filter-options'
+import saveTasks from 'actions/save-tasks'
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
 import { push } from 'connected-react-router'
+import { has, includes } from 'safely'
 
-const mapStateToProps = ({ filters, siteConfig, taskFilters, taskHistory }) => {
-  const currentTasks = taskHistory && taskHistory.length ? taskHistory[0] : null
+const mapStateToProps = ({ filters, taskFilterOptions, tasks, taskFilters, taskHistory }) => {
 
-  const selectedAgencies = normalize(taskFilters ? taskFilters.agencies : [])
-  const selectedSkillLevels = normalize(taskFilters ? taskFilters.skillLevels : [])
-  const selectedLanguages = normalize(taskFilters ? taskFilters.languages : [])
-  const selectedUsageTypes = normalize(taskFilters ? taskFilters.usageTypes : [])
-  const selectedCategories = normalize(taskFilters ? taskFilters.categories : [])
-  const selectedDurations = normalize(taskFilters ? taskFilters.durations : [])
+ try {
 
-  let agencies = getFilterData('agencies', 'agency.acronym', currentTasks, filters)
-  if (agencies) {
-    agencies = agencies.map(({name, value}) => {
-      return { name, value, checked: includes(selectedAgencies, normalize(value)) }
-    })
-  }
+  console.log("taskFilterOptions:", taskFilterOptions)
 
-  let languages = getFilterData('languages', 'languages', currentTasks, filters)
-  if (languages) {
-    languages = languages.map(({name, value}) => {
-      return { name, value, checked: includes(selectedLanguages, normalize(value)) }
-    })
-  }
+  const currentTasks = tasks
 
-  return {}
+  const keys = ['agencies', 'skillLevels', 'languages', 'categories', 'timeRequired']
+
+  const selections = {}
+  keys.forEach(key => {
+    if (has(taskFilters, key)) {
+      selections[key] = normalize(taskFilters[key])
+    }
+  })
+  console.log("selections:", selections)
+
+  const filterBoxItems = {}
+  keys.forEach(key => {
+    if (has(taskFilterOptions, key)) {
+      filterBoxItems[key] = taskFilterOptions[key].map(({ name, value }) => {
+        return { name, value, checked: includes(selections[key], normalize(value)) } 
+      })
+    }
+  })
+
+  const filteredResults = currentTasks && currentTasks.filter(task => {
+    if (some(selections.agencies) && includes(selections.agencies, normalize(task.agency.acronym))) {
+      return false
+    }
+
+    if (some(selections.skillLevels) && includes(selections.skillLevels, normalize(task.skill))) {
+      return false
+    }
+
+    if (some(selections.languages) && overlaps(selections.languages, normalize(task.languages))) {
+      return false
+    }
+
+    if (some(selections.categories) && includes(selections.categories, normalize(task.type))) {
+      return false
+    }
+
+    if (some(selections.timeRequired) && includes(selections.timeRequired, normalize(task.effort))) {
+      return false
+    }
+
+    return true
+  })
+
+  console.log("filteredResults:", filteredResults)
+
+  return { boxes: filterBoxItems, filteredResults, tasks }
+ } catch (error) {
+  console.error(error)
+ }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -52,7 +87,9 @@ const mapDispatchToProps = dispatch => {
 
         dispatch(push(newUrl))
       }
-    }
+    },
+    saveFilterData: () => dispatch(saveTaskFilterOptions()),
+    saveTasks: () => dispatch(saveTasks())
   }
 }
 
