@@ -1,9 +1,19 @@
 import get from 'lodash.get'
+import intersection from 'lodash.intersection'
+import { run } from './safely'
+
+export function overlaps(array1, array2) {
+  return array1.some(item => array2.includes(item))
+}
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
 export function isFalse(input) {
   return falses.includes(input)
+}
+
+export function isSet(input) {
+  return input && typeof input === 'object' && input.has && input.add
 }
 
 export function getConfigValue(siteConfig, path) {
@@ -33,25 +43,26 @@ export function includes(items, item) {
   }
 }
 
-/* lower case the input, including any elements in it */
-export function lower(input) {
+export function onEachItem(input, func) {
   if (Array.isArray(input)) {
-    return input.map(item => item.toLowerCase())
-  } else if (typeof input === 'object' && input.has && input.add) {
-    return Set(Array.from(input).map(item => item.toLowerCase()))
-  } else if (typeof input === "string") {
-    return input.toLowerCase()
+    return input.map(item => run(item, func))
+  } else if (isSet(input)) {
+    return Set(Array.from(input).map(item => run(item, func)))
+  } else {
+    return run(input, func) 
   }
 }
 
+export function lower(input) {
+  return onEachItem(input, 'toLowerCase')
+}
+
+export function upper(input) {
+  return onEachItem(input, 'toUpperCase')
+}
+
 export function trim(input) {
-  if (Array.isArray(input)) {
-    return input.map(item => item.trim())
-  } else if (typeof input === 'object' && input.has && input.add) {
-    return Set(Array.from(input).map(item => item.trim()))
-  } else if (typeof input === "string") {
-    return input.trim()
-  }
+  return onEachItem(input, 'trim')
 }
 
 /* runs when each page component is loaded */
@@ -119,3 +130,7 @@ export function getFilterData(key, path, currentSearchResults, filters) {
 export function hasLicense(repo) {
   return repo.permissions && Array.isArray(repo.permissions.licenses) && repo.permissions.licenses.length > 0
 }
+
+export function hasItems(array) {
+  return Array.isArray(array) && array.length > 0
+} 
