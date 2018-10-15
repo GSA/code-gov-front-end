@@ -14,6 +14,10 @@ export function includes(array, item) {
   }
 }
 
+export function excludes(array, item) {
+  return includes(array, item) === false
+}
+
 export function has(obj, key) {
   try {
     return obj.hasOwnProperty(key)
