@@ -7,7 +7,7 @@ import saveTasks from 'actions/save-tasks'
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
 import { push } from 'connected-react-router'
-import { has, includes } from 'safely'
+import { has, excludes, includes, some, overlaps } from 'safely'
 
 const mapStateToProps = ({ filters, taskFilterOptions, tasks, taskFilters, taskHistory }) => {
 
@@ -37,23 +37,23 @@ const mapStateToProps = ({ filters, taskFilterOptions, tasks, taskFilters, taskH
   })
 
   const filteredResults = currentTasks && currentTasks.filter(task => {
-    if (some(selections.agencies) && includes(selections.agencies, normalize(task.agency.acronym))) {
+    if (some(selections.agencies) && excludes(selections.agencies, normalize(task.agency.acronym))) {
       return false
     }
 
-    if (some(selections.skillLevels) && includes(selections.skillLevels, normalize(task.skill))) {
+    if (some(selections.skillLevels) && excludes(selections.skillLevels, normalize(task.skill))) {
       return false
     }
 
-    if (some(selections.languages) && overlaps(selections.languages, normalize(task.languages))) {
+    if (some(selections.languages) && !overlaps(selections.languages, normalize(task.languages))) {
       return false
     }
 
-    if (some(selections.categories) && includes(selections.categories, normalize(task.type))) {
+    if (some(selections.categories) && excludes(selections.categories, normalize(task.type))) {
       return false
     }
 
-    if (some(selections.timeRequired) && includes(selections.timeRequired, normalize(task.effort))) {
+    if (some(selections.timeRequired) && excludes(selections.timeRequired, normalize(task.effort))) {
       return false
     }
 
