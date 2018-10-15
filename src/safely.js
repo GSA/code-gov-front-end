@@ -14,6 +14,14 @@ export function includes(array, item) {
   }
 }
 
+export function has(obj, key) {
+  try {
+    return obj.hasOwnProperty(key)
+  } catch (error) {
+    return false
+  }
+}
+
 export function overlaps(array1, array2) {
   return Array.isArray(array1) && array1.some(item => includes(array2, item))
 }
@@ -21,3 +29,4 @@ export function overlaps(array1, array2) {
 export function some(array) {
   return Array.isArray(array) && array.length > 0;
 }
+
