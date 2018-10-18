@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import FilterBox from 'components/filter-box'
+import SiteBanner from 'components/site-banner'
 import { refreshView } from 'utils'
+import { some } from 'cautious'
 
 
 export default class BrowseProjects extends React.Component {
@@ -70,7 +73,7 @@ export default class BrowseProjects extends React.Component {
     const agencies = JSON.stringify(this.props.agencies)
     return (
       <div className="search-results-content">
-        <simple-banner image={this.props.backgroundImage} title='Browse Projects' />
+        <SiteBanner title='Browse Projects' />
         <div className="indented">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
@@ -87,29 +90,21 @@ export default class BrowseProjects extends React.Component {
           <div id="filter-boxes-section">
             <h2>Filter</h2>
 
-            <filter-box
-              title="Language"
-              options={this.languages}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {some(this.languages) && (
+            <FilterBox title="Language" options={this.languages} onChange={this.onFilterBoxChange} />
+            )}
 
-            <filter-box
-              title="Federal Agency"
-              options={this.agencies}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {some(this.agencies) && (
+            <FilterBox title="Federal Agency" options={this.agencies} onChange={this.onFilterBoxChange} />
+            )}
 
-            <filter-box
-              title="License"
-              options={this.licenses}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {some(this.licenses) && (
+            <FilterBox title="License" options={this.licenses} onChange={this.onFilterBoxChange} />
+            )}
 
-            <filter-box
-              title="Usage Type"
-              options='[{"name":"Open Source","value":"openSource"},{"name":"Government-Wide Reuse","value":"governmentWideReuse"}]'
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {some(this.usageTypes) && (
+            <FilterBox title="Usage Type" options={this.usageTypes} onChange={this.onFilterBoxChange} />
+            )}
 
           </div>
           <div id="filter-results-section">
