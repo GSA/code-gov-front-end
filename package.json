@@ -24,6 +24,7 @@
   "private": "true",
   "dependencies": {
     "@code.gov/api-client": "0.2.0",
+    "@code.gov/cautious": "github:GSA/cautious",
     "@code.gov/code-gov-font": "^0.7.0",
     "@code.gov/code-gov-style": "^1.10.1",
     "@code.gov/coding-languages": "^1.0.0",
