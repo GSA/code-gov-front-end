@@ -111,7 +111,7 @@ export function getFilterData(key, path, currentSearchResults, filters) {
   if (currentSearchResults && filters && filters[key]) {
     const names = getLowerSet(currentSearchResults.repos, path)
     return filters[key].filter(({ name, value }) => {
-      return names.has(name.toLowerCase()) || names.has(value.toLowerCase())
+      return names.has(normalize(name)) || names.has(normalize(value))
     })
   }
 }
