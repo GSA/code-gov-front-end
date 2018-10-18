@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
-import { some } from 'safely'
+import { some } from 'cautious'
 
 
 export default class RepoCardComponent extends Component {
