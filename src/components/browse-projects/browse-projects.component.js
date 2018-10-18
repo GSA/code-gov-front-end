@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import FilterBox from 'components/filter-box'
+import RepoCard from 'components/repo-card'
 import { refreshView } from 'utils'
 
 
@@ -8,27 +10,10 @@ export default class BrowseProjects extends React.Component {
   componentDidMount () {
     refreshView()
     if (!this.props.filterData) this.props.saveFilterData()
-  }
-
-  getFilterData(key) {
-    const filters = this.props.filters;
-    if (filters && filters[key]) {
-      return JSON.stringify(filters[key])
-    } else {
-      return JSON.stringify([])
-    }
-  }
-
-  get agencies() {
-    return this.getFilterData('agencies')
-  }
-
-  get languages() {
-    return this.getFilterData('languages')
-  }
-
-  get licenses() {
-    return this.getFilterData('licenses')
+    this.usageTypes = [
+      {"name":"Open Source","value":"openSource"},
+      {"name":"Government-Wide Reuse","value":"governmentWideReuse"}
+    ]
   }
 
   get repoCounter() {
@@ -60,6 +45,49 @@ export default class BrowseProjects extends React.Component {
     }
   }
 
+  get reposContainer() {
+    const filteredResults = this.props.filteredResults
+    console.log("starting reposContainers with filteredResults:", filteredResults)
+
+    if (filteredResults) {
+      return (
+        <div className="repos-container">
+          <ul className="repos-list repos-list--infinite-scrolled">
+          {filteredResults.slice(0, 50).map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+          </ul>
+          <ul className="repos-list repos-list--paged">
+          </ul>
+        </div>
+      )
+    }
+  }
+
+  onFilterBoxChange(category, event) {
+    if (event.target.tagName.toLowerCase() === 'filter-box') {
+      const values = event.target.values
+
+      this.scrollToTopOfResults()
+
+      const filters = {
+        agencies: this.props.agencies,
+        languages: this.props.languages,
+        licenses: this.props.licenses,
+        usageTypes: this.props.usageTypes
+      }
+
+      filters[category] = values
+
+      console.warn("cat val:", category, values)
+      console.warn("filters:", filters)
+      this.props.onFilterBoxChange(filters)
+    }
+  }
+
+  scrollToTopOfResults() {
+    this.refs.crumbs.scrollIntoView()
+    window.scrollBy(0, -100)
+  }
+
   removeFilterTag(selectedTag) {
     console.log("starting removeFilterTag")
     const filterTags = this.state.filterTags.filter(tag => tag !== selectedTag);
@@ -67,11 +95,10 @@ export default class BrowseProjects extends React.Component {
   }
 
   render() {
-    const agencies = JSON.stringify(this.props.agencies)
     return (
       <div className="search-results-content">
         <simple-banner image={this.props.backgroundImage} title='Browse Projects' />
-        <div className="indented">
+        <div className="indented" ref="crumbs">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
             <li>Browse Projects</li>
@@ -87,29 +114,21 @@ export default class BrowseProjects extends React.Component {
           <div id="filter-boxes-section">
             <h2>Filter</h2>
 
-            <filter-box
-              title="Language"
-              options={this.languages}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {Array.isArray(this.props.languages) && this.props.languages.length > 1 && (
+            <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
+            )}
 
-            <filter-box
-              title="Federal Agency"
-              options={this.agencies}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {Array.isArray(this.props.agencies) && this.props.agencies.length > 1 && (
+            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
+            )}
 
-            <filter-box
-              title="License"
-              options={this.licenses}
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {Array.isArray(this.props.licenses) && this.props.licenses.length > 1 && (
+            <FilterBox title="License" options={this.props.licenses} onChange={event => this.onFilterBoxChange('licenses', event)} />
+            )}
 
-            <filter-box
-              title="Usage Type"
-              options='[{"name":"Open Source","value":"openSource"},{"name":"Government-Wide Reuse","value":"governmentWideReuse"}]'
-              onChange={this.onFilterBoxChange}
-            ></filter-box>
+            {this.usageTypes && (
+            <FilterBox title="Usage Type" options={this.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
+            )}
 
           </div>
           <div id="filter-results-section">
@@ -123,10 +142,9 @@ export default class BrowseProjects extends React.Component {
                 </select>
               </h2>
             </div>
-            {/*
-            {this.state.isLoading && <div>Loading</div>}
-            <repo-list *ngIf="!isLoading" [queryValue]="queryValue" [results]="finalResults" [pageSize]="pageSize"></repo-list>
-            */}
+            <div className="repo-list">
+              {this.reposContainer}
+            </div>
           </div>
         </div>
       </div>
