@@ -7,7 +7,7 @@ import saveTasks from 'actions/save-tasks'
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
 import { push } from 'connected-react-router'
-import { has, excludes, includes, some, overlaps } from 'safely'
+import { has, excludes, includes, some, overlaps } from 'cautious'
 
 const mapStateToProps = ({ filters, taskFilterOptions, tasks, taskFilters, taskHistory }) => {
 

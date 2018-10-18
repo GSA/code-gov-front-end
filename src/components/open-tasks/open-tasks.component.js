@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
 import SiteBanner from 'components/site-banner'
-import { some } from 'safely'
+import TaskCard from 'components/task-card'
+import { map, some } from 'cautious'
 
 export default class OpenTasks extends React.Component {
 
@@ -83,6 +84,18 @@ export default class OpenTasks extends React.Component {
             <FilterBox title="Type" options={this.categories} onChange={event => this.onFilterBoxChange('categories', event)} />
             )}
           </div>
+        </div>
+        <div id="filter-results-section">
+          <div className="sort-section">
+            <h2>
+              <span>Explore Open Tasks</span>
+            </h2>
+          </div>
+          <ul className="help-wanted-content-items">
+            {map(this.props.filteredResults, task => {
+              return (<li className="help-wanted-content-item" key={JSON.stringify(task.id)}><TaskCard task={task} /></li>)
+            })}
+         </ul>
         </div>
       </div>
     )
