@@ -21,9 +21,11 @@ export default class SearchBox extends Component {
   render() {
     return (
       <form className="search-form" onSubmit={::this.handleSubmit}>
-        <div className="search-input-and-button-wrapper">
-          <input placeholder={this.props.placeholder} onChange={::this.handleChange} value={this.state.value}/>
-          <button className="go">Go</button>
+        <div className="search-input-wrapper">
+          <div className="search-input-and-button-wrapper">
+            <input placeholder={this.props.placeholder} onChange={::this.handleChange} value={this.state.value}/>
+            <button className="go">Go</button>
+          </div>
         </div>
       </form>
     )

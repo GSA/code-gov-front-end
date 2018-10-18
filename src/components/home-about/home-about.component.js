@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import './home-about.scss'
-
 
 export default class HomeAbout extends React.Component {
 

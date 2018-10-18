@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { refreshView } from 'utils'
+import SiteBanner from 'components/site-banner'
+import { normalize, refreshView } from 'utils'
 
 const Row = ({ todo }) => {
   let iconClass = 'icon'
-  if (todo.status === 'Released') {
+  let status = normalize(todo.status)
+  if (status === 'released') {
     iconClass += ' icon-ok'
-  } else if (todo.status === 'In Progress') {
+  } else if (status === 'in progress') {
     iconClass += ' icon-circle'
   }
   return (
@@ -28,7 +30,7 @@ const Column = ({ phase, todos }) => {
             <th colSpan="2">{phase}</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{background: 'white'}}>
           {todos && todos.map(todo => <Row key={todo.name} todo={todo}/>)}
         </tbody>
       </table>
@@ -58,7 +60,7 @@ export default class Roadmap extends React.Component {
   render() {
     return (
     <div className="roadmap-general">
-      <simple-banner image={this.props.backgroundImage} title='Roadmap' />
+      <SiteBanner title='Roadmap' />
       <div className="indented">
         <ul className="breadcrumbs">
           <li><Link to='/'>Home</Link></li>
@@ -74,9 +76,9 @@ export default class Roadmap extends React.Component {
       </div>
 
       <div className="indented roadmap-table">
-        <Column name='Near-term' todos={this.props.near}/>
-        <Column name='Mid-term' todos={this.props.mid}/>
-        <Column name='Long-term' todos={this.props.long}/>
+        <Column phase='Near-term' todos={this.props.near}/>
+        <Column phase='Mid-term' todos={this.props.mid}/>
+        <Column phase='Long-term' todos={this.props.long}/>
       </div>
 
       <div className="indented roadmap-legend">

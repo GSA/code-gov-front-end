@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
+import SiteBanner from 'components/site-banner'
 import RepoCard from 'components/repo-card'
 import { refreshView } from 'utils'
+import { some } from 'cautious'
 
 
 export default class BrowseProjects extends React.Component {
@@ -97,7 +99,7 @@ export default class BrowseProjects extends React.Component {
   render() {
     return (
       <div className="search-results-content">
-        <simple-banner image={this.props.backgroundImage} title='Browse Projects' />
+        <SiteBanner title='Browse Projects' />
         <div className="indented" ref="crumbs">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
@@ -114,20 +116,20 @@ export default class BrowseProjects extends React.Component {
           <div id="filter-boxes-section">
             <h2>Filter</h2>
 
-            {Array.isArray(this.props.languages) && this.props.languages.length > 1 && (
-            <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
+            {some(this.props.languages) && (
+            <FilterBox title="Language" options={this.props.languages} onChange={this.onFilterBoxChange} />
             )}
 
-            {Array.isArray(this.props.agencies) && this.props.agencies.length > 1 && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
+            {some(this.props.agencies) && (
+            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={this.onFilterBoxChange} />
             )}
 
-            {Array.isArray(this.props.licenses) && this.props.licenses.length > 1 && (
-            <FilterBox title="License" options={this.props.licenses} onChange={event => this.onFilterBoxChange('licenses', event)} />
+            {some(this.props.licenses) && (
+            <FilterBox title="License" options={this.props.licenses} onChange={this.onFilterBoxChange} />
             )}
 
-            {this.usageTypes && (
-            <FilterBox title="Usage Type" options={this.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
+            {some(this.props.usageTypes) && (
+            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={this.onFilterBoxChange} />
             )}
 
           </div>

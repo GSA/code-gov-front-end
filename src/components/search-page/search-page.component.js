@@ -4,6 +4,7 @@ import { refreshView, getLowerSet } from 'utils'
 import FilterBox from 'components/filter-box'
 import RepoCard from 'components/repo-card'
 import SearchPageSearchBox from 'components/search-page-search-box'
+import SiteBanner from 'components/site-banner'
 
 export default class SearchPage extends React.Component {
 
@@ -26,9 +27,9 @@ export default class SearchPage extends React.Component {
     return JSON.stringify(nextProps) !== this.props || JSON.stringify(nextState) !== this.state
   }
 
-  onFilterBoxChange(category, values) {
+  onFilterBoxChange(category, event) {
     this.scrollToTopOfResults()
-    this.props.onFilterBoxChange(category, values)
+    this.props.onFilterBoxChange(category, event)
   }
 
   scrollToTopOfResults() {
@@ -37,15 +38,19 @@ export default class SearchPage extends React.Component {
   }
 
   get repoCounter() {
-    const total = (this.props.filteredResults || []).length
-    const query = this.props.query
     let textContent
-    if (total === 0) {
-      textContent = `We found no Repositories for "${query}"`
-    } else if (total === 1) {
-      textContent = `We found 1 Repository for "${query}"`
-    } else if (total >= 2) {
-      textContent = `We found ${total} Repositories for "${query}"`
+    if (this.props.filteredResults) {
+      const total = this.props.filteredResults.length
+      const query = this.props.query
+      if (total === 0) {
+        textContent = `We found no Repositories for "${query}"`
+      } else if (total === 1) {
+        textContent = `We found 1 Repository for "${query}"`
+      } else if (total >= 2) {
+        textContent = `We found ${total} Repositories for "${query}"`
+      } else {
+        textContent = 'Loading Repositories'
+      }
     } else {
       textContent = 'Loading Repositories'
     }
@@ -92,7 +97,7 @@ export default class SearchPage extends React.Component {
   render() {
     return (
       <div className="search-results-content">
-        <simple-banner image={this.props.backgroundImage} title='Search Results' />
+        <SiteBanner title='Search Results' />
         <div className="indented" ref="crumbs">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>

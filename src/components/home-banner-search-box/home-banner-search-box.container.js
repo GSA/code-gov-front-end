@@ -8,7 +8,7 @@ import { getConfigValue } from 'utils'
 
 const mapStateToProps = ({ query, siteConfig }) => {
   return {
-    searchPlaceholder: getConfigValue(siteConfig, 'content.home.banner.search_placeholder_text'),
+    placeholder: getConfigValue(siteConfig, 'content.home.banner.search_placeholder_text'),
     query
   }
 }

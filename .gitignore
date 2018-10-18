@@ -62,3 +62,9 @@ typings/
 
 # docs
 /docs
+
+# swap files
+*.swm
+*.swn
+*.swo
+*.swp

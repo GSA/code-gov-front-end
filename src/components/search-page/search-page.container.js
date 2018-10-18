@@ -6,12 +6,10 @@ import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchFilters from 'actions/update-search-filters'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
-import intersection from 'lodash.intersection'
 import { push } from 'connected-react-router'
+import { overlaps, some } from 'cautious'
 
 const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) => {
-
-  const backgroundImage = getConfigValue(siteConfig, 'images.background')
 
   const currentSearchResults = searchHistory && searchHistory.length ? searchHistory[0] : null
 
@@ -42,20 +40,20 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
     })
   }
 
-  let filteredResults = []
+  let filteredResults
   if (currentSearchResults) {
     filteredResults = currentSearchResults.repos.filter(repo => {
       if (filters) {
 
-        if (Array.isArray(selectedAgencies) && selectedAgencies.length > 0 && selectedAgencies.includes(normalize(repo.agency.acronym)) === false) {
+        if (some(selectedAgencies) && selectedAgencies.includes(normalize(repo.agency.acronym)) === false) {
           return false
         }
 
-        if (Array.isArray(selectedLanguages) && selectedLanguages.length > 0 && intersection(normalize(repo.languages), selectedLanguages).length === 0) {
+        if (some(selectedLanguages) && overlaps(normalize(repo.languages), selectedLanguages)) {
           return false
         }
 
-        if (Array.isArray(selectedLicenses) && selectedLicenses.length > 0) {
+        if (some(selectedLicenses)) {
 
           // no licenses assigned on the repo
           if (hasLicense(repo) === false) {
@@ -63,13 +61,13 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
           }
 
           const repoLicenses = repo.permissions.licenses.map(license => normalize(license.name))
-          if (intersection(repoLicenses, selectedLicenses).length === 0) {
+          if (overlaps(repoLicenses, selectedLicenses)) {
             return false
           }
         }
 
         const normalizedRepoUsageType = normalize(repo.permissions.usageType)
-        if (Array.isArray(selectedUsageTypes) && selectedUsageTypes.length > 0 && selectedUsageTypes.includes(normalizedRepoUsageType) === false) {
+        if (some(selectedUsageTypes) && selectedUsageTypes.includes(normalizedRepoUsageType) === false) {
           return false
         }
 
@@ -87,7 +85,6 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
 
   return {
     agencies,
-    backgroundImage,
     currentSearchResults,
     filteredResults,
     filters,

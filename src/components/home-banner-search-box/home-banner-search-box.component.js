@@ -7,7 +7,7 @@ export default class HomeBannerSearchBoxComponent extends React.Component {
   render() {
     return (
       <SearchBox
-        placeholder={this.props.searchPlaceholder}
+        placeholder={this.props.placeholder}
         onSubmit={this.props.onSubmit}
         query={this.props.query}
       />

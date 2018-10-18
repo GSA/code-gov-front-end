@@ -13,17 +13,20 @@ export default class Menu extends Component {
 
   constructor(props) {
     super(props)
-    console.log("starting consturctor with props:", props)
     this.state = {
-      color: props.color,
       expanded: false,
       height: 'auto',
-      isAtTop: false,
+      notAtTop: false,
       menu: props.menu,
       searchBoxShown: false
     }
 
     this.onClickMenuOption = this.onClickMenuOption.bind(this)
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      this.setState({ notAtTop: scrollTop !== 0 })
+    })
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -56,11 +59,13 @@ export default class Menu extends Component {
 
     const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
 
-    this.setState({ menu, height })
+    const expanded = this.state.menu.some(menuOption => menuOption.expanded)
+
+    this.setState({ expanded, menu, height })
   }
 
   get expanded() {
-    return this.state.menu.filter(option => option.expanded).length > 0
+    return this.state.menu.some(option => option.expanded)
   }
 
   get logo() {
@@ -112,11 +117,12 @@ export default class Menu extends Component {
 
   render() {
 
-    let headerClassName = `main ${this.state.color} transparent`
+    let headerClassName = `main ${this.props.color}`
+    if (this.props.transparent) headerClassName += ' transparent'
 
-    let navClassName = `main ${this.state.color}`
+    let navClassName = `main ${this.props.color}`
     if (this.state.expanded) navClassName += ' expanded'
-    if (!this.state.isAtTop) navClassName += ' not-at-top'
+    if (this.state.notAtTop) navClassName += ' not-at-top'
 
     let navStyle = { 'height': this.state.height }
 

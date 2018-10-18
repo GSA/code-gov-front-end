@@ -24,6 +24,7 @@
   "private": "true",
   "dependencies": {
     "@code.gov/api-client": "0.2.0",
+    "@code.gov/cautious": "github:GSA/cautious",
     "@code.gov/code-gov-font": "^0.7.0",
     "@code.gov/code-gov-style": "^1.10.1",
     "@code.gov/coding-languages": "^1.0.0",
@@ -74,8 +75,8 @@
     "html-webpack-plugin": "^3.2.0",
     "markdown-loader": "^4.0.0",
     "mini-css-extract-plugin": "^0.4.2",
-    "node-sass": "^4.9.3",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.14.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.20.2"
