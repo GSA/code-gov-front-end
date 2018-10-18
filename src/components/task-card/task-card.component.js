@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
-import { capitalize, join, some } from 'safely'
+import { capitalize, join, some } from 'cautious'
 
 
-function Part(title, text) {
+function Part({ title, text }) {
+  console.warn("title:", title)
   return (
     <div>
       <dt>{title + ':'}</dt>
@@ -36,12 +37,12 @@ export default class RepoCardComponent extends Component {
   }
 
   get agencyLink() {
-    const agencyAcronym = get(repo, 'agency.acronym')
-    const agencyName = get(repo, 'agency.name')
+    const agencyAcronym = get(this.props, 'task.agency.acronym')
+    const agencyName = get(this.props, 'task.agency.name')
     if (agencyAcronym && agencyName) {
       return (
         <div>
-          <dt>Agency:
+          <dt>Agency:</dt>
           <dd><Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</Link></dd>
         </div>
       )
@@ -49,31 +50,13 @@ export default class RepoCardComponent extends Component {
  }
 
   get dateLastModified() {
-    const dateLastModified = get(this.props.repo, 'date.lastModified')
+    const dateLastModified = get(this.props, 'task.date.lastModified')
     const text = dateLastModified ? new Date(dateLastModified).toLocaleDateString() : 'N/A'
     return Part('Last updated', text)
   }
 
-  get goToButton() {
-    const url = get(this.props.repo, 'repositoryURL')
-    if (typeof url === 'string' && url.includes('github.com')) {
-      return (
-        <div className="repo-button width-quarter">
-          <a href={url} target="_blank">
-            <button>Go to Repo</button>
-          </a>
-        </div>
-      )
-    }
-  }
-
   render() {
     const task = this.props.task
-    const agencyAcronym = get(repo, 'agency.acronym')
-    const agencyName = get(repo, 'agency.name')
-    const issueURL = get(task, 'issueURL')
-    const projectURL = get(task, 'projectURL')
-    const title = get(task, 'title')
 
     return (
       <div className="card focusable">
