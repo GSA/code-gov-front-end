@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => {
         let url = '/browse-projects'
         if (value !== 'All') {
           url += '?agencies=' + value
-          dispatch(updateBrowseFilters('agencies'), normalize(value))
+          dispatch(updateBrowseFilters('agencies', normalize(value)))
         }
         dispatch(push(url))
       }
