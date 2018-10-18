@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import newSearch from 'actions/new-search'
 import saveSiteConfig from 'actions/save-site-config'
 import saveInitialSelections from 'actions/save-initial-selections'
+import updateBrowseFilters from 'actions/update-browse-filters'
 import updateSearchFilters from 'actions/update-search-filters'
 
 const mapDispatchToProps = dispatch => {
@@ -13,6 +14,7 @@ const mapDispatchToProps = dispatch => {
     },
     saveSiteConfig: (siteConfig) => dispatch(saveSiteConfig(siteConfig)),
     saveInitialSelections: (saveInitialSelections) => dispatch(saveSiteConfig(saveInitialSelections)),
+    updateBrowseFilters: (category, values) => dispatch(updateBrowseFilters(category, values)),
     updateSearchFilters: (category, values) => dispatch(updateSearchFilters(category, values))
   }
 }
