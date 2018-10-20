@@ -4,7 +4,7 @@ import FilterBox from 'components/filter-box'
 import SiteBanner from 'components/site-banner'
 import RepoCard from 'components/repo-card'
 import { refreshView } from 'utils'
-import { some } from 'cautious'
+import { some } from '@code.gov/cautious'
 
 
 export default class BrowseProjects extends React.Component {

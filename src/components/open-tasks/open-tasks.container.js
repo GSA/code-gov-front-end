@@ -7,7 +7,7 @@ import saveTasks from 'actions/save-tasks'
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
 import { push } from 'connected-react-router'
-import { has, excludes, includes, some, overlaps } from 'cautious'
+import { has, excludes, includes, some, overlaps } from '@code.gov/cautious'
 
 const mapStateToProps = ({ filters, taskFilterOptions, tasks, taskFilters, taskHistory }) => {
 
@@ -31,7 +31,7 @@ const mapStateToProps = ({ filters, taskFilterOptions, tasks, taskFilters, taskH
   keys.forEach(key => {
     if (has(taskFilterOptions, key)) {
       filterBoxItems[key] = taskFilterOptions[key].map(({ name, value }) => {
-        return { name, value, checked: includes(selections[key], normalize(value)) } 
+        return { name, value, checked: includes(selections[key], normalize(value)) }
       })
     }
   })

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
-import { capitalize, join, some } from 'cautious'
+import { capitalize, join, some } from '@code.gov/cautious'
 
 
 function Part({ title, text }) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
-import { map, some } from 'cautious'
+import { map, some } from '@code.gov/cautious'
 
 export default class OpenTasks extends React.Component {
 

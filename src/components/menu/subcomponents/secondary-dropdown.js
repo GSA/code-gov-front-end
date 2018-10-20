@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { some } from 'safely'
+import { some } from '@code.gov/cautious'
 
 export default function SecondaryDropdown({ menuOption, onClick }) {
   if (some(menuOption.links)) {

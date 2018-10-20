@@ -2,7 +2,8 @@
 
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
-import { getConfigValue, getFilterData, includes, normalize } from 'utils'
+import { includes } from '@code.gov/cautious'
+import { getConfigValue, getFilterData, normalize } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseResults from 'actions/update-browse-results'

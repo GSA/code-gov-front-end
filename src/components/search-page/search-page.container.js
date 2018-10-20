@@ -1,13 +1,13 @@
 /* global URLSearchParams */
 
 import { connect } from 'react-redux';
-import { getConfigValue, getFilterData, getSearchParams, hasLicense, includes, normalize } from 'utils'
+import { getConfigValue, getFilterData, getSearchParams, hasLicense, normalize } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchFilters from 'actions/update-search-filters'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
 import { push } from 'connected-react-router'
-import { overlaps, some } from 'cautious'
+import { includes, overlaps, some } from '@code.gov/cautious'
 
 const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) => {
 

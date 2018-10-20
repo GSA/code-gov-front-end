@@ -1,10 +1,6 @@
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
-import { run } from './safely'
-
-export function overlaps(array1, array2) {
-  return array1.some(item => array2.includes(item))
-}
+import { run } from '@code.gov/cautious'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -35,21 +31,13 @@ export function normalize(input) {
   return trim(lower(input))
 }
 
-export function includes(items, item) {
-  try {
-    return items.includes(item)
-  } catch (error) {
-    return false
-  }
-}
-
 export function onEachItem(input, func) {
   if (Array.isArray(input)) {
     return input.map(item => run(item, func))
   } else if (isSet(input)) {
     return Set(Array.from(input).map(item => run(item, func)))
   } else {
-    return run(input, func) 
+    return run(input, func)
   }
 }
 
@@ -130,7 +118,3 @@ export function getFilterData(key, path, currentSearchResults, filters) {
 export function hasLicense(repo) {
   return repo.permissions && Array.isArray(repo.permissions.licenses) && repo.permissions.licenses.length > 0
 }
-
-export function hasItems(array) {
-  return Array.isArray(array) && array.length > 0
-} 
