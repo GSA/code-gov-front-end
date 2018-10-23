@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { refreshView, getLowerSet } from 'utils'
+import { refreshView, scrollToTopOfResults } from 'utils'
 import FilterBox from 'components/filter-box'
+import Pagination from 'components/pagination'
 import RepoCard from 'components/repo-card'
 import SearchPageSearchBox from 'components/search-page-search-box'
 import SiteBanner from 'components/site-banner'
+import { length, some } from '@code.gov/cautious'
 
 export default class SearchPage extends React.Component {
 
   constructor() {
     super()
-    this.state = {
-    }
   }
 
   componentDidMount () {
@@ -32,15 +32,10 @@ export default class SearchPage extends React.Component {
     this.props.onFilterBoxChange(category, event)
   }
 
-  scrollToTopOfResults() {
-    this.refs.crumbs.scrollIntoView()
-    window.scrollBy(0, -100)
-  }
-
   get repoCounter() {
     let textContent
     if (this.props.filteredResults) {
-      const total = this.props.filteredResults.length
+      const total = this.props.total;
       const query = this.props.query
       if (total === 0) {
         textContent = `We found no Repositories for "${query}"`
@@ -84,17 +79,21 @@ export default class SearchPage extends React.Component {
     if (filteredResults) {
       return (
         <div className="repos-container">
-          <ul className="repos-list repos-list--infinite-scrolled">
-          {filteredResults.slice(0, 50).map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
-          </ul>
           <ul className="repos-list repos-list--paged">
+            {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
         </div>
       )
     }
   }
 
+  updatePage(newPage) {
+    scrollToTopOfResults()
+    this.props.updatePage(newPage)
+  }
+
   render() {
+    const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
         <SiteBanner title='Search Results' />
@@ -117,20 +116,20 @@ export default class SearchPage extends React.Component {
 
             <h2>Filter</h2>
 
-            {Array.isArray(this.props.languages) && this.props.languages.length > 1 && (
+            {some(this.props.languages) && (
             <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
             )}
 
-            {Array.isArray(this.props.agencies) && this.props.agencies.length > 1 && (
+            {some(this.props.agencies) && (
             <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
             )}
 
-            {Array.isArray(this.props.licenses) && this.props.licenses.length > 1 && (
+            {some(this.props.licenses) && (
             <FilterBox title="License" options={this.props.licenses} onChange={event => this.onFilterBoxChange('licenses', event)} />
             )}
 
-            {this.usageTypes && (
-            <FilterBox title="Usage Type" options={this.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
+            {some(this.props.usageTypes) && (
+            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
             )}
 
           </div>
@@ -146,12 +145,9 @@ export default class SearchPage extends React.Component {
                 </select>
               </h2>
             </div>
-            {/*
-            {this.state.isLoading && <div>Loading</div>}
-            <repo-list *ngIf="!isLoading" [queryValue]="queryValue" [results]="finalResults" [pageSize]="pageSize"></repo-list>
-            */}
             <div className="repo-list">
               {this.reposContainer}
+              {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
             </div>
           </div>
         </div>

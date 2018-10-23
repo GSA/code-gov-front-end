@@ -59,6 +59,15 @@ export function refreshView() {
   document.activeElement.blur()
 }
 
+
+export function scrollToTopOfResults() {
+  const headerHeight = document.querySelector("header.main").clientHeight
+  const bannerHeight = document.querySelector(".banner").clientHeight
+  const navHeight = document.querySelector("header.main nav").clientHeight
+  const scrollDepth = headerHeight + bannerHeight - navHeight
+  window.scrollTo(0, scrollDepth)
+}
+
 /* gets a set of values given a path */
 export function getSet(items, path) {
   const results = new Set()

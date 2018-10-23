@@ -7,7 +7,7 @@ import updateSearchFilters from 'actions/update-search-filters'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
 import { push } from 'connected-react-router'
-import { includes, overlaps, some } from '@code.gov/cautious'
+import { includes, length, overlaps, some } from '@code.gov/cautious'
 
 const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) => {
 
@@ -19,6 +19,8 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
   const selectedLicenses = normalize(searchFilters ? searchFilters.licenses : [])
   const selectedLanguages = normalize(searchFilters ? searchFilters.languages : [])
   const selectedUsageTypes = normalize(searchFilters ? searchFilters.usageTypes : [])
+  const selectedPage = get(searchFilters, 'page') || 0
+  const selectedPageSize = get(searchFilters, 'pageSize') || 10
 
   let agencies = getFilterData('agencies', 'agency.acronym', currentSearchResults, filters)
   if (agencies) {
@@ -40,9 +42,19 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
     })
   }
 
+  let usageTypes = getFilterData('licenses', 'permissions.usageType', currentSearchResults, filters)
+  if (usageTypes) {
+    usageTypes = usageTypes.map(({name, value}) => {
+      return { name, value, checked: includes(selectedLicenses, normalize(value)) }
+    })
+  }
+
+  let total = 0
+
   let filteredResults
   if (currentSearchResults) {
-    filteredResults = currentSearchResults.repos.filter(repo => {
+    filteredResults = currentSearchResults.repos
+    .filter(repo => {
       if (filters) {
 
         if (some(selectedAgencies) && selectedAgencies.includes(normalize(repo.agency.acronym)) === false) {
@@ -81,6 +93,10 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
 
       return false
     })
+
+    total = length(filteredResults)
+
+    filteredResults = filteredResults.slice(selectedPage * selectedPageSize, (selectedPage + 1) * selectedPageSize)
   }
 
   return {
@@ -91,7 +107,11 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
     languages,
     licenses,
     searchFilters,
-    query
+    selectedPage,
+    selectedPageSize,
+    query,
+    total,
+    usageTypes
   }
 }
 
@@ -115,7 +135,15 @@ const mapDispatchToProps = dispatch => {
         dispatch(push(newUrl))
       }
     },
-    saveFilterData: () => dispatch(saveFilterOptions())
+    saveFilterData: () => dispatch(saveFilterOptions()),
+    updatePage: newPage => {
+      const urlSearchParams = new URLSearchParams(window.location.search)
+      urlSearchParams.set('page', newPage + 1)
+      const newUrl = window.location.pathname + "?" + urlSearchParams.toString()
+      dispatch(push(newUrl))
+
+      dispatch(updateSearchFilters('page', newPage))
+    }
   }
 }
 
