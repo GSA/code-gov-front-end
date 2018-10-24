@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
+import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import RepoCard from 'components/repo-card'
 import { refreshView } from 'utils'
-import { some } from '@code.gov/cautious'
+import { length, some } from '@code.gov/cautious'
 
 
 export default class BrowseProjects extends React.Component {
@@ -97,6 +98,7 @@ export default class BrowseProjects extends React.Component {
   }
 
   render() {
+    const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
         <SiteBanner title='Browse Projects' />
@@ -146,6 +148,7 @@ export default class BrowseProjects extends React.Component {
             </div>
             <div className="repo-list">
               {this.reposContainer}
+              {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
             </div>
           </div>
         </div>

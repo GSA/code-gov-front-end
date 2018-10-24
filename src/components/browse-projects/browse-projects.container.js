@@ -2,7 +2,8 @@
 
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
-import { includes } from '@code.gov/cautious'
+import { includes, length } from '@code.gov/cautious'
+import get from 'lodash.get'
 import { getConfigValue, getFilterData, normalize } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
@@ -11,12 +12,12 @@ import BrowseProjectsComponent from './browse-projects.component'
 
 const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) => {
 
-  const backgroundImage = getConfigValue(siteConfig, 'images.background')
-
   const selectedAgencies = normalize(browseFilters ? browseFilters.agencies : [])
   const selectedLicenses = normalize(browseFilters ? browseFilters.licenses : [])
   const selectedLanguages = normalize(browseFilters ? browseFilters.languages : [])
   const selectedUsageTypes = normalize(browseFilters ? browseFilters.usageTypes : [])
+  const selectedPage = get(browseFilters, 'page') || 0
+  const selectedPageSize = get(browseFilters, 'pageSize') || 10
 
   /* initialize filters to empty arrays */
   let agencies = []
@@ -49,13 +50,15 @@ const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) 
     }
   }
 
+  const total = get(browseResults, 'total') || 0
+
   return {
     agencies,
-    backgroundImage,
     browseResults,
     languages,
     licenses,
-    usageTypes
+    usageTypes,
+    total
   }
 }
 
