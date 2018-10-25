@@ -8,6 +8,7 @@ import { getConfigValue, getFilterData, normalize } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseResults from 'actions/update-browse-results'
+import updatePage from 'actions/update-page'
 import BrowseProjectsComponent from './browse-projects.component'
 
 const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) => {
@@ -16,7 +17,7 @@ const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) 
   const selectedLicenses = normalize(browseFilters ? browseFilters.licenses : [])
   const selectedLanguages = normalize(browseFilters ? browseFilters.languages : [])
   const selectedUsageTypes = normalize(browseFilters ? browseFilters.usageTypes : [])
-  const selectedPage = get(browseFilters, 'page') || 0
+  const selectedPage = get(browseFilters, 'page') || 1
   const selectedPageSize = get(browseFilters, 'pageSize') || 10
 
   /* initialize filters to empty arrays */
@@ -57,6 +58,8 @@ const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) 
     browseResults,
     languages,
     licenses,
+    selectedPage,
+    selectedPageSize,
     usageTypes,
     total
   }
@@ -83,6 +86,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(push(newUrl))
       const apiFilters = {...filters, size: 10}
       dispatch(updateBrowseResults(apiFilters))
+    },
+    updatePage: newPage => {
+      dispatch(updatePage(newPage))
+      dispatch(updateBrowseFilters('page', newPage))
     }
   }
 }

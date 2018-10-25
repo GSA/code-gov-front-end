@@ -28,7 +28,7 @@ export default class SearchPage extends React.Component {
   }
 
   onFilterBoxChange(category, event) {
-    this.scrollToTopOfResults()
+    scrollToTopOfResults()
     this.props.onFilterBoxChange(category, event)
   }
 
@@ -79,7 +79,7 @@ export default class SearchPage extends React.Component {
     if (filteredResults) {
       return (
         <div className="repos-container">
-          <ul className="repos-list repos-list--paged">
+          <ul className="repos-list">
             {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
         </div>

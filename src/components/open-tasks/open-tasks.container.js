@@ -1,7 +1,9 @@
+/* global URLSearchParams */
 import { connect } from 'react-redux'
 import { getConfigValue, getFilterData, normalize } from 'utils'
 import OpenTasksComponent from './open-tasks.component'
 import updateTaskFilters from 'actions/update-task-filters'
+import updatePage from 'actions/update-page'
 import saveTaskFilterOptions from 'actions/save-task-filter-options'
 import saveTasks from 'actions/save-tasks'
 import get from 'lodash.get'
@@ -89,7 +91,11 @@ const mapDispatchToProps = dispatch => {
       }
     },
     saveFilterData: () => dispatch(saveTaskFilterOptions()),
-    saveTasks: () => dispatch(saveTasks())
+    saveTasks: () => dispatch(saveTasks()),
+    updatePage: newPage => {
+      dispatch(updatePage(newPage))
+      dispatch(updateTaskFilters('page', newPage))
+    }
   }
 }
 

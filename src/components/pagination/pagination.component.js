@@ -30,13 +30,13 @@ export default class Pagination extends Component {
   }
 
   get isLastPage() {
-    return this.props.page === Math.ceil(this.props.count / this.props.pagesize) - 1
+    return this.props.page === Math.ceil(this.props.count / this.props.pagesize)
   }
 
   get leftIcon() {
-    if (this.props.page === 0) {
+    if (this.props.page === 1) {
       return <span aria-label="Previous"><i className="icon icon-angle-circled-left"></i> Prev</span>
-    } else if (this.props.page > 0) {
+    } else if (this.props.page > 1) {
       return <a><i className="icon icon-angle-circled-up"></i> Prev</a>
     }
   }
@@ -49,9 +49,9 @@ export default class Pagination extends Component {
     }
   }
 
-  getSummary({ count, minPageIndex, maxPageIndex}) {
+  getSummary({ count, minItemIndex, maxItemIndex}) {
     if (count > 0) {
-      return <Fragment>Results <strong>{minPageIndex + '-' + maxPageIndex}</strong> of <strong>{count}</strong></Fragment>
+      return <Fragment>Results <strong>{minItemIndex + '-' + maxItemIndex}</strong> of <strong>{count}</strong></Fragment>
     } else {
       return <Fragment>No results found.</Fragment>
     }
@@ -64,19 +64,19 @@ export default class Pagination extends Component {
 
     /*
       ex: if on second page when 10 items per page
-      minPageIndex is 10 because 1 * 10
+      minItemIndex is 11 because (2-1) * 10 + 1
       This is displayed as 11 however because it's the 11th item in the array
     */
-    const minPageIndex = page * pagesize
+    const minItemIndex = (page - 1) * pagesize + 1
     /*
       ex: if on second page when 10 items per page
-      maxPageIndex is 20, which is 11 + 9
+      maxItemIndex is 20, which is 11 + 9
     */
-    const maxPageIndex = minPageIndex + (pagesize - 1)
+    const maxItemIndex = minItemIndex + (pagesize - 1)
 
     const pagecount = Math.ceil(count / pagesize)
 
-    const summary = this.getSummary({ count, minPageIndex, maxPageIndex })
+    const summary = this.getSummary({ count, minItemIndex, maxItemIndex })
 
     console.log("range page:", page, range(pagecount + 1))
 
@@ -89,17 +89,17 @@ export default class Pagination extends Component {
           <li className={'pagination-previous ' + (page === 0 ? 'className="disabled" ' : '')} tabIndex="0">
             {this.leftIcon}
           </li>
-          {range(pagecount + 1).map(i => {
+          {range(pagecount + 1)
+          .map(n => n + 1) // convert from starting at 0 to 1
+          .map(i => {
             let current = i === this.props.page
-            let label = i + 1
-            console.log("label:", label)
             let className = 'page'
-            if (i === 0) className += ' first'
+            if (i === 1) className += ' first'
             if (current) className += ' current'
             return (
               <li className={className} key={i} tabIndex='0'>
-                {current && <span aria-label={`Current Page ${label}`} aria-current="true">{label}</span> }
-                {!current && <a aria-label={`Go to page ${label}`} onClick={() => this.handleChangePage(i)}>{label}</a> }
+                {current && <span aria-label={`Current Page ${i}`} aria-current="true">{i}</span> }
+                {!current && <a aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
               </li>
             )
           })}

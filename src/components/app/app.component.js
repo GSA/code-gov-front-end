@@ -30,17 +30,28 @@ export default class AppComponent extends React.Component {
     const agencies = params.has('agencies') ? normalize(params.get('agencies').split(',')) : null
     const languages = params.has('languages') ? normalize(params.get('languages').split(',')) : null
     const licenses = params.has('licenses') ? normalize(params.get('licenses').split(',')) : null
+    const skillLevels = params.has('skillLevels') ? normalize(params.get('skillLevels').split(',')) : null
+    const timeRequired = params.has('timeRequired') ? normalize(params.get('timeRequired').split(',')) : null
+    const page = params.has('page') ? params.get('page') : null
 
     if (pathname.includes('browse-projects')) {
       if (languages) { this.props.updateBrowseFilters('languages', languages) }
       if (agencies) { this.props.updateBrowseFilters('agencies', agencies) }
       if (licenses) { this.props.updateBrowseFilters('licenses', licenses) }
+      if (page) { this.props.updateBrowseFilters('page', page) }
     } if (pathname.includes('search')) {
       const query = params.get('query')
       if (query) { this.props.loadInitialSearch(query) }
       if (languages) { this.props.updateSearchFilters('languages', languages) }
       if (agencies) { this.props.updateSearchFilters('agencies', agencies) }
       if (licenses) { this.props.updateSearchFilters('licenses', licenses) }
+      if (page) { this.props.updateSearchFilters('page', page) }
+    } else if (pathname.includes('open-tasks')) {
+      if (languages) { this.props.updateTaskFilters('languages', languages) }
+      if (agencies) { this.props.updateTaskFilters('agencies', agencies) }
+      if (skillLevels) { this.props.updateTaskFilters('skillLevels', skillLevels) }
+      if (timeRequired) { this.props.updateTaskFilters('timeRequired', timeRequired) }
+      if (page) { this.props.updateSearchFilters('page', page) }
     }
   }
 

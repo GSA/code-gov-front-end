@@ -91,22 +91,7 @@
 
 .repos-list {
   clear: both;
-
-  &--paged {
-    display: none;
-
-    @media screen and (min-width: $medium-screen) {
-      display: block;
-    }
-  }
-
-  &--infinite-scrolled {
-    display: block;
-
-    @media screen and (min-width: $medium-screen) {
-      display: none;
-    }
-  }
+  display: block;
 }
 
 .repo:last-child {

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
-import { some } from '@code.gov/cautious'
+import { round, some } from '@code.gov/cautious'
 
 
 export default class RepoCardComponent extends Component {
@@ -72,9 +72,12 @@ export default class RepoCardComponent extends Component {
     const repo = this.props.repo
     const agencyAcronym = get(repo, 'agency.acronym')
     const agencyName = get(repo, 'agency.name')
+    const score = get(repo, 'score')
 
     return (
       <div className="repo-list-item card card--focusable">
+
+        <quality-tag score={score}></quality-tag>
 
         <h3 className="card-title">
           <Link to={`/projects/${repo.repoID}`}>{repo.name}</Link>
