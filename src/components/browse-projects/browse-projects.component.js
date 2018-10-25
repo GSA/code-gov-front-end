@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
 import Pagination from 'components/pagination'
+import QualityPopover from 'components/quality-popover'
 import SiteBanner from 'components/site-banner'
 import RepoCard from 'components/repo-card'
 import { refreshView } from 'utils'
@@ -55,10 +56,9 @@ export default class BrowseProjects extends React.Component {
     if (filteredResults) {
       return (
         <div className="repos-container">
-          <ul className="repos-list repos-list--infinite-scrolled">
-          {filteredResults.slice(0, 50).map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
-          </ul>
-          <ul className="repos-list repos-list--paged">
+          <QualityPopover />
+          <ul className="repos-list">
+            {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
         </div>
       )

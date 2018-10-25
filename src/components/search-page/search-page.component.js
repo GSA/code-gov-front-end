@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { refreshView, scrollToTopOfResults } from 'utils'
 import FilterBox from 'components/filter-box'
 import Pagination from 'components/pagination'
+import QualityPopover from 'components/quality-popover'
 import RepoCard from 'components/repo-card'
 import SearchPageSearchBox from 'components/search-page-search-box'
 import SiteBanner from 'components/site-banner'
@@ -79,6 +80,7 @@ export default class SearchPage extends React.Component {
     if (filteredResults) {
       return (
         <div className="repos-container">
+          <QualityPopover />
           <ul className="repos-list">
             {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
