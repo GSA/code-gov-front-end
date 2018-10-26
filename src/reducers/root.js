@@ -7,6 +7,7 @@ import query from './query'
 import searchHistory from './search'
 import browseFilters from './browse-filters'
 import browseResults from './browse-results'
+import browseSorting from './browse-sorting'
 import searchFilters from './search-filters'
 import searchSorting from './search-sorting'
 import tasks from './tasks'
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   agencies,
   browseFilters,
   browseResults,
+  browseSorting,
   filters,
   query,
   repo,
