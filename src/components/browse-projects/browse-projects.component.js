@@ -4,6 +4,7 @@ import FilterBox from 'components/filter-box'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import SiteBanner from 'components/site-banner'
+import SortSection from 'components/sort-section'
 import RepoCard from 'components/repo-card'
 import { refreshView, scrollToTopOfResults } from 'utils'
 import { length, some } from '@code.gov/cautious'
@@ -144,16 +145,10 @@ export default class BrowseProjects extends React.Component {
 
           </div>
           <div id="filter-results-section">
-            <div className="sort-section">
-              <h2>
-                <span>Sort by</span>
-                <select onChange={this.onSortSelectionChange}>
-                  <option value="Data Quality">Data Quality</option>
-                  <option value="A-Z">A-Z</option>
-                  <option value="Last Updated">Last Updated</option>
-                </select>
-              </h2>
-            </div>
+            <SortSection
+              options={['Data Quality', 'A-Z', 'Last Updated']}
+              onSortChange={this.props.onSortChange}
+            />
             <div className="repo-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}

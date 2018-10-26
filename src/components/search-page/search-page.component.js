@@ -6,6 +6,7 @@ import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import RepoCard from 'components/repo-card'
 import SearchPageSearchBox from 'components/search-page-search-box'
+import SortSection from 'components/sort-section'
 import SiteBanner from 'components/site-banner'
 import { length, some } from '@code.gov/cautious'
 
@@ -136,17 +137,10 @@ export default class SearchPage extends React.Component {
 
           </div>
           <div id="filter-results-section">
-            <div className="sort-section">
-              <h2>
-                <span>Sort by</span>
-                <select onChange={this.onSortSelectionChange}>
-                  <option value="Best Match">Best Match</option>
-                  <option value="Data Quality">Data Quality</option>
-                  <option value="A-Z">A-Z</option>
-                  <option value="Last Updated">Last Updated</option>
-                </select>
-              </h2>
-            </div>
+            <SortSection
+              options={['Best Match', 'Data Quality', 'A-Z', 'Last Updated']}
+              onSortChange={this.props.onSortChange}
+            />
             <div className="repo-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}

@@ -166,3 +166,29 @@ export function getFilterData(key, path, currentSearchResults, filters) {
 export function hasLicense(repo) {
   return repo.permissions && Array.isArray(repo.permissions.licenses) && repo.permissions.licenses.length > 0
 }
+
+export function clean(string) {
+  try {
+    return string.toLowerCase().replace(/-/g,' ').trim()
+  } catch (error) {
+    return string
+  }
+}
+
+export function sortByBestMatch(a, b) {
+  return Number(a.searchScore) > Number(b.searchScore) ? -1 : 1
+}
+
+export function sortByName(a, b) {
+  return clean(a.name) > clean(b.name) ? 1 : -1
+}
+
+export function sortByDate(a, b) {
+  const aTime = a.date && a.date.lastModified ? new Date(a.date.lastModified).getTime() :  -10e10;
+  const bTime = b.date && b.date.lastModified ? new Date(b.date.lastModified).getTime() :  -10e10;
+  return Math.sign(bTime - aTime) || 0;
+}
+
+export function sortByDataQuality(a, b) {
+  return Number(a.score) > Number(b.score) ? -1 : 1
+}

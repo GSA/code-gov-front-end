@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 
-import { endsWith, equal, last, penultimate, range } from '@code.gov/cautious'
+import { endsWith, equal, last, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
 
@@ -11,7 +11,6 @@ export default class Pagination extends Component {
   }
 
   handleChangePage(newPage) {
-    console.log("starting handleChangePage with:", newPage)
     if (this.props.updatePage) {
       this.props.updatePage(newPage)
     } else {
@@ -59,7 +58,6 @@ export default class Pagination extends Component {
 
     const { count, pagesize } = this.props
     const page = Number(this.props.page)
-    console.log("pagination count, page, pagesize", [count, page, pagesize])
 
     /*
       ex: if on second page when 10 items per page
@@ -77,8 +75,6 @@ export default class Pagination extends Component {
 
     const summary = this.getSummary({ count, minItemIndex, maxItemIndex })
 
-    console.log("range page:", page, range(pagecount + 1))
-
     const pageIndexes = range(pagecount)
       .map(n => n + 1) // convert from starting at 0 to 1
 
@@ -92,7 +88,7 @@ export default class Pagination extends Component {
       const right = page + 1
 
       if (pageCount <= 7) {
-        displayPages = range(pagecount + 1).map(n => n + 1)
+        displayPages = pageIndexes
       } else if (1 <= page && page <= 4) {
         displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
       } else if (4 < page && right < ultimate - 2) {
@@ -100,8 +96,6 @@ export default class Pagination extends Component {
       } else if (page >= ultimate - 3) {
         displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
       }
-
-      console.log("displayPages:", displayPages)
 
     } catch (error) {
       console.warn(error);
@@ -113,24 +107,25 @@ export default class Pagination extends Component {
           <div className="repo-list-summary-wrapper" tabIndex="0">
             <p className="repo-list-summary">{summary}</p>
           </div>
-          <li className={'pagination-previous ' + (page === 0 ? 'className="disabled" ' : '')} tabIndex="0">
+          <li className={'pagination-previous' + (page === 1 ? ' disabled' : '')} tabIndex="0">
             {this.leftIcon}
           </li>
-          {displayPages.map(i => {
+          {displayPages.map((i, index) => {
             const ellipsis = endsWith(i, 'ellipsis')
             let current = equal(i, page)
             let className = 'page'
+            const tabIndex = index + 1
             if (i === 1) className += ' first'
             if (current) className += ' current'
             return (
-              <li className={className} key={i} tabIndex='0'>
-                {ellipsis && <span>...</span> }
-                {current && <span aria-label={`Current Page ${i}`} aria-current="true">{i}</span> }
-                {!ellipsis && !current && <a aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
+              <li className={className} key={i}>
+                {ellipsis && <span tabIndex={tabIndex}>...</span> }
+                {current && <span tabIndex={tabIndex} aria-label={`Current Page ${i}`} aria-current="true">{i}</span> }
+                {!ellipsis && !current && <a tabIndex={tabIndex} aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
               </li>
             )
           })}
-          <li className={'pagination-next' + (this.isLastPage ? ' disabled' : '')} tabIndex="6">
+          <li className={'pagination-next' + (this.isLastPage ? ' disabled' : '')} tabIndex="8">
             {this.rightIcon}
           </li>
         </ul>

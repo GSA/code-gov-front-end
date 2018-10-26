@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import { getConfigValue, getFilterData, getSearchParams, hasLicense, normalize } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchFilters from 'actions/update-search-filters'
+import updateSearchSorting from 'actions/update-search-sorting'
 import updatePage from 'actions/update-page'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
 import { push } from 'connected-react-router'
-import { includes, len, overlaps, some } from '@code.gov/cautious'
+import { clone, includes, len, overlaps, some, sortBy } from '@code.gov/cautious'
+import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils'
 
-const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) => {
+const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, searchSorting }) => {
 
   try {
 
@@ -56,7 +58,22 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory }) 
 
     let filteredResults
     if (currentSearchResults) {
+
+      searchSorting = searchSorting || 'Best Match'
+      console.log("searchSorting is", searchSorting)
+
       filteredResults = currentSearchResults.repos
+      .sort((a, b) => {
+        if (searchSorting === 'Best Match') {
+          return sortByBestMatch(a, b)
+        } else if (searchSorting === 'Data Quality') {
+          return sortByDataQuality(a, b)
+        } else if (searchSorting === 'A-Z') {
+          return sortByName(a, b)
+        } else if (searchSorting === 'Last Updated') {
+          return sortByDate(a, b)
+        }
+      })
       .filter(repo => {
         if (filters) {
 
@@ -140,6 +157,12 @@ const mapDispatchToProps = dispatch => {
 
         dispatch(push(newUrl))
       }
+    },
+    onSortChange: value => {
+      dispatch(updateSearchSorting(value))
+      const newPage = 1
+      dispatch(updatePage(newPage))
+      dispatch(updateSearchFilters('page', newPage))
     },
     saveFilterData: () => dispatch(saveFilterOptions()),
     updatePage: newPage => {

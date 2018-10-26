@@ -89,6 +89,9 @@ const mapDispatchToProps = dispatch => {
       const apiFilters = {...filters, size: 10}
       dispatch(updateBrowseResults(apiFilters))
     },
+    onSortChange: option => {
+      console.log("onSortChange for browse projects", option)
+    },
     updatePage: newPage => {
       dispatch(updatePage(newPage))
       dispatch(updateBrowseFilters('page', newPage))
