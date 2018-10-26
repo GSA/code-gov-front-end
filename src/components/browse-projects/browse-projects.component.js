@@ -80,10 +80,10 @@ export default class BrowseProjects extends React.Component {
       scrollToTopOfResults()
 
       const filters = {
-        agencies: this.props.agencies,
-        languages: this.props.languages,
-        licenses: this.props.licenses,
-        usageTypes: this.props.usageTypes
+        agencies: this.props.agencies.filter(item => item.checked),
+        languages: this.props.languages.filter(item => item.checked),
+        licenses: this.props.licenses.filter(item => item.checked),
+        usageTypes: this.props.usageTypes.filter(item => item.checked)
       }
 
       filters[category] = values
@@ -127,19 +127,19 @@ export default class BrowseProjects extends React.Component {
             <h2>Filter</h2>
 
             {some(this.props.languages) && (
-            <FilterBox title="Language" options={this.props.languages} onChange={this.onFilterBoxChange} />
+            <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
             )}
 
             {some(this.props.agencies) && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={this.onFilterBoxChange} />
+            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
             )}
 
             {some(this.props.licenses) && (
-            <FilterBox title="License" options={this.props.licenses} onChange={this.onFilterBoxChange} />
+            <FilterBox title="License" options={this.props.licenses} onChange={event => this.onFilterBoxChange('licenses', event)} />
             )}
 
             {some(this.props.usageTypes) && (
-            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={this.onFilterBoxChange} />
+            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
             )}
 
           </div>
