@@ -33,7 +33,7 @@ export default class AppComponent extends React.Component {
     const licenses = params.has('licenses') ? normalize(params.get('licenses').split(',')) : null
     const skillLevels = params.has('skillLevels') ? normalize(params.get('skillLevels').split(',')) : null
     const timeRequired = params.has('timeRequired') ? normalize(params.get('timeRequired').split(',')) : null
-    const page = params.has('page') ? params.get('page') : null
+    const page = params.has('page') ? Number(params.get('page')) : null
 
     if (pathname.includes('browse-projects')) {
       if (languages) { this.props.updateBrowseFilters('languages', languages) }

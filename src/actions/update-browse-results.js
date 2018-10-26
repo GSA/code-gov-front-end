@@ -4,7 +4,7 @@ import client from 'api'
 export default function (filters) {
   return async dispatch => {
     const results = await client.repos(filters)
-    console.error("results from client.repos with filters", filters, "is", results)
+    console.error("results from client.repos with filters", filters, "is", results.repos.length)
     results.filters = filters
     dispatch({ type: UPDATE_BROWSE_RESULTS, results })
   }

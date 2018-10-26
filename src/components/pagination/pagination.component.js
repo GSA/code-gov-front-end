@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 
-import { range } from '@code.gov/cautious'
+import { endsWith, equal, last, penultimate, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
 
@@ -20,24 +20,22 @@ export default class Pagination extends Component {
   }
 
   handleNext() {
-    console.log("starting handleNext")
-    this.handleChangePage(this.props.page + 1)
+    this.handleChangePage(Number(this.props.page) + 1)
   }
 
   handlePrevious() {
-    console.log("starting handlePrevious")
-    this.handleChangePage(this.props.page - 1)
+    this.handleChangePage(Number(this.props.page) - 1)
   }
 
   get isLastPage() {
-    return this.props.page === Math.ceil(this.props.count / this.props.pagesize)
+    return equal(this.props.page,  Math.ceil(this.props.count / this.props.pagesize))
   }
 
   get leftIcon() {
-    if (this.props.page === 1) {
+    if (equal(this.props.page, 1)) {
       return <span aria-label="Previous"><i className="icon icon-angle-circled-left"></i> Prev</span>
-    } else if (this.props.page > 1) {
-      return <a><i className="icon icon-angle-circled-up"></i> Prev</a>
+    } else if (Number(this.props.page) > 1) {
+      return <a onClick={::this.handlePrevious}><i className="icon icon-angle-circled-up"></i> Prev</a>
     }
   }
 
@@ -59,7 +57,8 @@ export default class Pagination extends Component {
 
   render() {
 
-    const { count, page, pagesize } = this.props
+    const { count, pagesize } = this.props
+    const page = Number(this.props.page)
     console.log("pagination count, page, pagesize", [count, page, pagesize])
 
     /*
@@ -72,13 +71,41 @@ export default class Pagination extends Component {
       ex: if on second page when 10 items per page
       maxItemIndex is 20, which is 11 + 9
     */
-    const maxItemIndex = minItemIndex + (pagesize - 1)
+    const maxItemIndex = minItemIndex + pagesize >= count ? count : minItemIndex + pagesize - 1
 
     const pagecount = Math.ceil(count / pagesize)
 
     const summary = this.getSummary({ count, minItemIndex, maxItemIndex })
 
     console.log("range page:", page, range(pagecount + 1))
+
+    const pageIndexes = range(pagecount)
+      .map(n => n + 1) // convert from starting at 0 to 1
+
+    const pageCount = pageIndexes.length
+
+    let displayPages = []
+    try {
+
+      const ultimate = last(pageIndexes)
+      const left = page - 1
+      const right = page + 1
+
+      if (pageCount <= 7) {
+        displayPages = range(pagecount + 1).map(n => n + 1)
+      } else if (1 <= page && page <= 4) {
+        displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
+      } else if (4 < page && right < ultimate - 2) {
+        displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
+      } else if (page >= ultimate - 3) {
+        displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
+      }
+
+      console.log("displayPages:", displayPages)
+
+    } catch (error) {
+      console.warn(error);
+    }
 
     return (
       <nav role="navigation" aria-label="Pagination Navigation" tabIndex="0">
@@ -89,21 +116,21 @@ export default class Pagination extends Component {
           <li className={'pagination-previous ' + (page === 0 ? 'className="disabled" ' : '')} tabIndex="0">
             {this.leftIcon}
           </li>
-          {range(pagecount + 1)
-          .map(n => n + 1) // convert from starting at 0 to 1
-          .map(i => {
-            let current = i === this.props.page
+          {displayPages.map(i => {
+            const ellipsis = endsWith(i, 'ellipsis')
+            let current = equal(i, page)
             let className = 'page'
             if (i === 1) className += ' first'
             if (current) className += ' current'
             return (
               <li className={className} key={i} tabIndex='0'>
+                {ellipsis && <span>...</span> }
                 {current && <span aria-label={`Current Page ${i}`} aria-current="true">{i}</span> }
-                {!current && <a aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
+                {!ellipsis && !current && <a aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
               </li>
             )
           })}
-          <li className={'pagination-next' + (this.isLastPage ? ' disabled' : '')} tabIndex="0">
+          <li className={'pagination-next' + (this.isLastPage ? ' disabled' : '')} tabIndex="6">
             {this.rightIcon}
           </li>
         </ul>

@@ -5,7 +5,7 @@ import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import SiteBanner from 'components/site-banner'
 import RepoCard from 'components/repo-card'
-import { refreshView } from 'utils'
+import { refreshView, scrollToTopOfResults } from 'utils'
 import { length, some } from '@code.gov/cautious'
 
 
@@ -14,6 +14,17 @@ export default class BrowseProjects extends React.Component {
   componentDidMount () {
     refreshView()
     if (!this.props.filterData) this.props.saveFilterData()
+
+    // triggers initial load
+    if (!this.props.browseResults) {
+      this.props.onFilterBoxChange({
+        agencies: this.props.agencies,
+        languages: this.props.languages,
+        licenses: this.props.licenses,
+        usageTypes: this.props.usageTypes
+      })
+    }
+
     this.usageTypes = [
       {"name":"Open Source","value":"openSource"},
       {"name":"Government-Wide Reuse","value":"governmentWideReuse"}
@@ -69,7 +80,7 @@ export default class BrowseProjects extends React.Component {
     if (event.target.tagName.toLowerCase() === 'filter-box') {
       const values = event.target.values
 
-      this.scrollToTopOfResults()
+      scrollToTopOfResults()
 
       const filters = {
         agencies: this.props.agencies,
@@ -86,15 +97,15 @@ export default class BrowseProjects extends React.Component {
     }
   }
 
-  scrollToTopOfResults() {
-    this.refs.crumbs.scrollIntoView()
-    window.scrollBy(0, -100)
-  }
-
   removeFilterTag(selectedTag) {
     console.log("starting removeFilterTag")
     const filterTags = this.state.filterTags.filter(tag => tag !== selectedTag);
     this.setState({ filterTags })
+  }
+
+  updatePage(newPage) {
+    scrollToTopOfResults()
+    this.props.updatePage(newPage)
   }
 
   render() {
