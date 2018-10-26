@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './home-press.scss'
-
+import { map } from '@code.gov/cautious'
 
 export default class HomePressComponent extends Component {
   render() {
@@ -18,15 +17,15 @@ export default class HomePressComponent extends Component {
                 <div className="quote light">
                   <blockquote>{this.props.quote}</blockquote>
                   <div className="attribution">
-                    <a href={this.props.attribution.url}>
-                      <img className="press-logo" src={this.props.attribution.image} alt="Wired"/>
+                    <a href={this.props.attributionUrl}>
+                      <img className="press-logo" src={this.props.attributionImage} alt="Wired"/>
                     </a>
                   </div>
                 </div>
                 <div>
                   <hr />
                   <ul className="press-links">
-                    {this.props.links && this.props.links.map(({image, url, alt}) => {
+                    {map(this.props.links, ({image, url, alt}) => {
                       return (
                         <li key={alt}>
                           <a href={url}>

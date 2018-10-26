@@ -60,7 +60,8 @@ typings/
 # next.js build output
 .next
 
-# docs
+# builds
+/dist
 /docs
 
 # swap files

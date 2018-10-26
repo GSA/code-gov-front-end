@@ -11,8 +11,6 @@ const store = buildStore();
 /* load url parameters */
 
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

@@ -9,13 +9,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const rootDir = path.dirname(path.dirname(__dirname))
 console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
-const docsDir = path.join(rootDir, 'docs')
+
+// https://webpack.js.org/guides/public-path/
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+console.log("process.env.ASSET_PATH:", process.env.ASSET_PATH)
+
+let OUTPUT_PATH;
+if (process.env.OUTPUT_PATH) {
+  OUTPUT_PATH = process.env.OUTPUT_PATH
+} else if (process.env.OUTPUT_RELATIVE_PATH) {
+  OUTPUT_PATH = path.join(rootDir, process.env.OUTPUT_RELATIVE_PATH)
+} else {
+  OUTPUT_PATH = path.join(rootDir, '/dist')
+}
+console.log("OUTPUT_PATH:", OUTPUT_PATH)
+
+if (!OUTPUT_PATH) {
+  throw new Error("Please define an output path")
+}
 
 module.exports = {
   output: {
     filename: '[name].bundle.js',
-    path: docsDir,
-    publicPath: '/'
+    path: OUTPUT_PATH,
+    publicPath: ASSET_PATH
   },
   entry: {
     index: ['@babel/polyfill', './src/index.js']
@@ -87,16 +104,23 @@ module.exports = {
     ]
   },
   plugins: [
+    new DefinePlugin({
+      'ASSET_PATH': JSON.stringify(ASSET_PATH)
+    }),
     new EnvironmentPlugin(["CODE_GOV_API_KEY"]),
-    new CleanWebpackPlugin(['docs'], { root: rootDir }),
+    new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin([
       {
+        from: '.nojekyll',
+        to: path.join(OUTPUT_PATH, '.nojekyll')
+      },
+      {
         from: './assets/img',
-        to: path.join(docsDir, '/assets/img')
+        to: path.join(OUTPUT_PATH, '/assets/img')
       },
       {
         from: './404.html',
-        to: path.join(docsDir, '404.html')
+        to: path.join(OUTPUT_PATH, '404.html')
       },
       {
         from: 'node_modules/@code.gov/code-gov-style/dist/js/code-gov-web-components.js',
@@ -121,7 +145,11 @@ module.exports = {
     ]),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),
     new HtmlWebpackPlugin({
+      hash: true,
       template: 'index.html',
+      templateParameters: {
+        ASSET_PATH
+      },
       title: 'caribou',
     })
   ],

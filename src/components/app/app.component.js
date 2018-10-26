@@ -23,6 +23,7 @@ import siteConfig from '../../../config/site/site.json'
 export default class AppComponent extends React.Component {
 
   loadParamsFromURL() {
+    console.log("starting loadParamsFromURL")
     const location = this.props.location
     const pathname = location.pathname
     const params = new URLSearchParams(location.search)
@@ -53,6 +54,7 @@ export default class AppComponent extends React.Component {
       if (timeRequired) { this.props.updateTaskFilters('timeRequired', timeRequired) }
       if (page) { this.props.updateSearchFilters('page', page) }
     }
+    console.log("finishing loadParamsFromURL")
   }
 
   componentDidMount() {

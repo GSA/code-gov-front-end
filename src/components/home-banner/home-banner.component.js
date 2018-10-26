@@ -1,3 +1,5 @@
+/* global ASSET_PATH */
+
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import HomeBannerSearchBox from '../home-banner-search-box'
@@ -97,7 +99,7 @@ export default class HomeBanner extends React.Component {
           <br/>
           <div className="banner-subsection">
             <div className="banner-subsection-subtitle" id="issue-banner-subsection-subtitle">
-              <img className="chat" src="/assets/img/icons/chat_bubble.png" />
+              <img className="chat" src={ASSET_PATH + 'assets/img/icons/chat_bubble.png'}/>
               <span>Have questions or feedback? Open an issue on our open source repository <a className="link" href={this.props.issueUrl} id="issue-link" target="_blank">here</a>.</span>
             </div>
           </div>

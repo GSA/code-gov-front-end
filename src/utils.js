@@ -1,6 +1,8 @@
+/*global ASSET_PATH */
+
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
-import { run } from '@code.gov/cautious'
+import { run, startsWith } from '@code.gov/cautious'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -12,9 +14,46 @@ export function isSet(input) {
   return input && typeof input === 'object' && input.has && input.add
 }
 
+export function adjustAssetPath(thing) {
+  const pattern = /.?\/?assets\//
+  const newAssetPath = ASSET_PATH + 'assets/'
+  if (startsWith(thing, './assets') || startsWith(thing, '/assets/') || startsWith(thing, 'assets/')) {
+    return thing.replace(pattern, newAssetPath)
+  } else if (typeof value === 'object') {
+    for (let key in thing) {
+      const subvalue = thing[key]
+      if (typeof subvalue === 'string') {
+        thing[key] = adjustAssetPath(subvalue)
+      }
+    }
+    return thing
+  } else {
+    return thing
+  }
+}
+
 export function getConfigValue(siteConfig, path) {
   if (siteConfig) {
-    const value = get(siteConfig, path)
+    let value = get(siteConfig, path)
+    if (typeof value === 'string') {
+      try {
+        value = adjustAssetPath(value)
+      } catch (error) {
+        console.error("couldn't check if the following started with assets", [value])
+      }
+    } else if (Array.isArray(value)) {
+      value = value.map(item => {
+        if (typeof item === 'object') {
+          for (let subkey in item) {
+            let subvalue = item[subkey]
+            if (typeof subvalue === 'string') {
+              item[subkey] = adjustAssetPath(subvalue)
+            }
+          }
+        }
+        return item
+      });
+    }
     if (!value) {
       console.warn(`We weren't able to find the value for ${path} in your code-gov-config.json file.
       You can consult examples under the folder found at config/site/examples
