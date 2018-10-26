@@ -52,12 +52,14 @@ const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) 
   }
 
   const total = get(browseResults, 'total') || 0
+  const repos = get(browseResults, 'repos')
 
   return {
     agencies,
     browseResults,
     languages,
     licenses,
+    repos,
     selectedPage,
     selectedPageSize,
     usageTypes,

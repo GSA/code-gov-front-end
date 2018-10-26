@@ -16,7 +16,7 @@ export default class BrowseProjects extends React.Component {
     if (!this.props.filterData) this.props.saveFilterData()
 
     // triggers initial load
-    if (!this.props.browseResults) {
+    if (!this.props.repos) {
       this.props.onFilterBoxChange({
         agencies: this.props.agencies,
         languages: this.props.languages,
@@ -61,15 +61,12 @@ export default class BrowseProjects extends React.Component {
   }
 
   get reposContainer() {
-    const filteredResults = this.props.filteredResults
-    console.log("starting reposContainers with filteredResults:", filteredResults)
-
-    if (filteredResults) {
+    if (Array.isArray(this.props.repos)) {
       return (
         <div className="repos-container">
           <QualityPopover />
           <ul className="repos-list">
-            {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+            {this.props.repos.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
         </div>
       )
