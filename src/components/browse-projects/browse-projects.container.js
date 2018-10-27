@@ -8,6 +8,7 @@ import { getConfigValue, getFilterData, normalize } from 'utils'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseResults from 'actions/update-browse-results'
+import updateBrowseSorting from 'actions/update-browse-sorting'
 import updatePage from 'actions/update-page'
 import BrowseProjectsComponent from './browse-projects.component'
 
@@ -89,8 +90,11 @@ const mapDispatchToProps = dispatch => {
       const apiFilters = {...filters, size: 10}
       dispatch(updateBrowseResults(apiFilters))
     },
-    onSortChange: option => {
-      console.log("onSortChange for browse projects", option)
+    onSortChange: value => {
+      dispatch(updateBrowseSorting(value))
+      const newPage = 1
+      dispatch(updatePage(newPage))
+      dispatch(updateBrowseFilters('page', newPage))
     },
     updatePage: newPage => {
       dispatch(updatePage(newPage))

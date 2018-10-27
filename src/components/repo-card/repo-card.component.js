@@ -8,7 +8,7 @@ export default class RepoCardComponent extends Component {
 
 
   get dateLastModified() {
-    const dateLastModified = get(this.props.repo, 'date.lastModified')
+    const dateLastModified = get(this.props, 'repo.date.lastModified') ||  get(this.props, 'repo.ghUpdatedAt')
     if (dateLastModified) {
       return (
         <Fragment>
