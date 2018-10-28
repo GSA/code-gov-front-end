@@ -10,11 +10,13 @@ import Roadmap from 'components/roadmap'
 import Home from 'components/home'
 import BrowseProjects from 'components/browse-projects'
 import OpenTasks from 'components/open-tasks'
+import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView, normalize } from 'utils'
+import { last } from '@code.gov/cautious'
 
 
 import siteConfig from '../../../config/site/site.json'
@@ -53,6 +55,9 @@ export default class AppComponent extends React.Component {
       if (skillLevels) { this.props.updateTaskFilters('skillLevels', skillLevels) }
       if (timeRequired) { this.props.updateTaskFilters('timeRequired', timeRequired) }
       if (page) { this.props.updateSearchFilters('page', page) }
+    } else if (pathname.includes('projects/')) {
+      const repoID = last(pathname.split('/'))
+      if (repoID) { this.props.loadProject(repoID) }
     }
     console.log("finishing loadParamsFromURL")
   }
@@ -73,6 +78,7 @@ export default class AppComponent extends React.Component {
             <Route path='/browse-projects' component={BrowseProjects}/>
             <Route path='/open-tasks' component={OpenTasks}/>
             <Route path='/privacy-policy' component={PrivacyPolicy}/>
+            <Route path='/projects/:repoID' component={ProjectPage}/>
             <Route path='/roadmap' component={Roadmap}/>
             <Route path='/search' component={SearchPage}/>
             <Redirect to='/' />

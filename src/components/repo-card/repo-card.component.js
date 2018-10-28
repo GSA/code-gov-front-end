@@ -2,20 +2,26 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
 import { round, some } from '@code.gov/cautious'
+import {
+  getDisplayTextForUsageType,
+  getLicenseName
+} from 'parsing'
+import { getLastModifiedDateString } from 'utils'
 
 
 export default class RepoCardComponent extends Component {
 
-
   get dateLastModified() {
-    const dateLastModified = get(this.props, 'repo.date.lastModified') ||  get(this.props, 'repo.ghUpdatedAt')
-    if (dateLastModified) {
-      return (
-        <Fragment>
-          <span>Last updated: </span>
-          <span>{new Date(dateLastModified).toLocaleDateString()}</span>
-        </Fragment>
-      )
+    if (this.props.repo) {
+      const dateLastModified = getLastModifiedDateString(this.props.repo)
+      if (dateLastModified) {
+        return (
+          <Fragment>
+            <span>Last updated: </span>
+            <span>{dateLastModified}</span>
+          </Fragment>
+        )
+      }
     }
   }
 
@@ -50,21 +56,12 @@ export default class RepoCardComponent extends Component {
   }
 
   get repoLicense() {
-    const license = get(this.props.repo, 'permissions.licenses[0].name') || 'N/A'
+    const license = getLicenseName(this.props.repo) || 'N/A'
     return <li>License: <span>{license}</span></li>
   }
 
   get usageType() {
-    let text = '';
-    let usageType = get(this.props.repo, 'permissions.usageType')
-    if (usageType === 'openSource') {
-      text = 'Open Source'
-    } else if (usageType === 'governmentWideReuse') {
-      text = 'Gov-wide Reuse'
-    } else {
-      text = usageType
-    }
-
+    const text = getDisplayTextForUsageType(this.props.repo)
     return <li>Usage Type: <span>{text}</span></li>
   }
 

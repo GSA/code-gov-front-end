@@ -221,3 +221,14 @@ export function sortByDate(a, b) {
 export function sortByDataQuality(a, b) {
   return Number(a.score) > Number(b.score) ? -1 : 1
 }
+
+export function getLastModifiedDateString(repo) {
+  try {
+    const dateLastModified = get(repo, 'date.lastModified') ||  get(repo, 'ghUpdatedAt')
+    if (dateLastModified) {
+      return new Date(dateLastModified).toLocaleDateString()
+    }
+  } catch (error) {
+    console.warn(error)
+  }
+}

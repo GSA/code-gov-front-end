@@ -12,7 +12,7 @@ import updateBrowseSorting from 'actions/update-browse-sorting'
 import updatePage from 'actions/update-page'
 import BrowseProjectsComponent from './browse-projects.component'
 
-const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) => {
+const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters, siteConfig }) => {
 
   const selectedAgencies = normalize(browseFilters ? browseFilters.agencies : [])
   const selectedLicenses = normalize(browseFilters ? browseFilters.licenses : [])
@@ -55,9 +55,13 @@ const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) 
   const total = get(browseResults, 'total') || 0
   const repos = get(browseResults, 'repos')
 
+  browseSorting = browseSorting || 'Data Quality'
+
   return {
     agencies,
+    browseFilters,
     browseResults,
+    browseSorting,
     languages,
     licenses,
     repos,
@@ -68,10 +72,13 @@ const mapStateToProps = ({ browseFilters, browseResults, filters, siteConfig }) 
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     saveFilterData: () => dispatch(saveFilterOptions()),
-    onFilterBoxChange: (filters) => {
+    onFilterBoxChange: filters => {
+      const { browseSorting } = ownProps
+
+      console.log("starting onFilterBoxChange with:", filters)
       dispatch(updateBrowseFilters(filters))
 
       const urlSearchParams = new URLSearchParams(window.location.search)
@@ -88,13 +95,18 @@ const mapDispatchToProps = dispatch => {
 
       dispatch(push(newUrl))
       const apiFilters = {...filters, size: 10}
+      if (browseSorting) apiFilters.sort = browseSorting
+      console.log("apiFIlters:", apiFilters)
       dispatch(updateBrowseResults(apiFilters))
     },
     onSortChange: value => {
+      const { browseFilters } = ownProps
       dispatch(updateBrowseSorting(value))
       const newPage = 1
       dispatch(updatePage(newPage))
       dispatch(updateBrowseFilters('page', newPage))
+      const apiFilters = {...browseFilters, size: 10, sort: value}
+      dispatch(updateBrowseResults(apiFilters))
     },
     updatePage: newPage => {
       dispatch(updatePage(newPage))
