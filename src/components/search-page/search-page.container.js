@@ -5,7 +5,7 @@ import { getFilterData, hasLicense, normalize } from 'utils/other'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchFilters from 'actions/update-search-filters'
 import updateSearchSorting from 'actions/update-search-sorting'
-import updatePage from 'actions/update-page'
+import updateUrlParam from 'actions/update-url-param'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
 import { push } from 'connected-react-router'
@@ -161,12 +161,12 @@ const mapDispatchToProps = dispatch => {
     onSortChange: value => {
       dispatch(updateSearchSorting(value))
       const newPage = 1
-      dispatch(updatePage(newPage))
+      dispatch(updateUrlParam('page', newPage))
       dispatch(updateSearchFilters('page', newPage))
     },
     saveFilterData: () => dispatch(saveFilterOptions()),
     updatePage: newPage => {
-      dispatch(updatePage(newPage))
+      dispatch(updateUrlParam('page', newPage))
       dispatch(updateSearchFilters('page', newPage))
     }
   }

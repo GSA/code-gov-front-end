@@ -1,10 +1,10 @@
 /* global URLSearchParams */
 import { push } from 'connected-react-router'
 
-export default function(newPage) {
+export default function(key, value) {
   return async dispatch => {
     const urlSearchParams = new URLSearchParams(window.location.search)
-    urlSearchParams.set('page', newPage)
+    urlSearchParams.set(key, value)
     const newUrl = window.location.pathname + "?" + urlSearchParams.toString()
     dispatch(push(newUrl))
   }

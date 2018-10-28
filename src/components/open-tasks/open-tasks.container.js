@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { getConfigValue, getFilterData, normalize } from 'utils/other'
 import OpenTasksComponent from './open-tasks.component'
 import updateTaskFilters from 'actions/update-task-filters'
-import updatePage from 'actions/update-page'
+import updateUrlParam from 'actions/update-url-param'
 import saveTaskFilterOptions from 'actions/save-task-filter-options'
 import saveTasks from 'actions/save-tasks'
 import get from 'lodash.get'
@@ -93,7 +93,7 @@ const mapDispatchToProps = dispatch => {
     saveFilterData: () => dispatch(saveTaskFilterOptions()),
     saveTasks: () => dispatch(saveTasks()),
     updatePage: newPage => {
-      dispatch(updatePage(newPage))
+      dispatch(updateUrlParam('page', newPage))
       dispatch(updateTaskFilters('page', newPage))
     }
   }

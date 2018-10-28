@@ -10,7 +10,7 @@ import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseResults from 'actions/update-browse-results'
 import updateBrowseSorting from 'actions/update-browse-sorting'
-import updatePage from 'actions/update-page'
+import updateUrlParam from 'actions/update-url-param'
 import BrowseProjectsComponent from './browse-projects.component'
 
 const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters, siteConfig }) => {
@@ -121,13 +121,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const { browseFilters } = ownProps
       dispatch(updateBrowseSorting(value))
       const newPage = 1
-      dispatch(updatePage(newPage))
+      dispatch(updateUrlParam('page', newPage))
       dispatch(updateBrowseFilters('page', newPage))
       const apiFilters = {...browseFilters, size: 10, sort: value}
       dispatch(updateBrowseResults(apiFilters))
     },
     updatePage: newPage => {
-      dispatch(updatePage(newPage))
+      dispatch(updateUrlParam('page', newPage))
       dispatch(updateBrowseFilters('page', newPage))
     }
   }
