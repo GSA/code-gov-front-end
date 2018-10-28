@@ -56,7 +56,25 @@ const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters,
   const total = get(browseResults, 'total') || 0
   const repos = get(browseResults, 'repos')
 
-  browseSorting = browseSorting || 'Data Quality'
+  browseSorting = browseSorting || 'data_quality'
+
+  const sortOptions = [
+    {
+      label: 'Data Quality',
+      value: 'data_quality',
+      selected: browseSorting === 'data_quality'
+    },
+    {
+      label: 'A-Z',
+      value: 'a-z',
+      selected: browseSorting === 'a-z'
+    },
+    {
+      label: 'Last Updated',
+      value: 'last_updated',
+      selected: browseSorting === 'last_updated'
+    }
+  ]
 
   return {
     agencies,
@@ -68,6 +86,7 @@ const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters,
     repos,
     selectedPage,
     selectedPageSize,
+    sortOptions,
     usageTypes,
     total
   }
@@ -119,11 +138,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     onSortChange: value => {
       const { browseFilters } = ownProps
+      dispatch(updateUrlParam('sort', value))
       dispatch(updateBrowseSorting(value))
+
       const newPage = 1
       dispatch(updateUrlParam('page', newPage))
       dispatch(updateBrowseFilters('page', newPage))
       const apiFilters = {...browseFilters, size: 10, sort: value}
+
       dispatch(updateBrowseResults(apiFilters))
     },
     updatePage: newPage => {

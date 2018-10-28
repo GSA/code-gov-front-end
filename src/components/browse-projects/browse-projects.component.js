@@ -151,7 +151,7 @@ export default class BrowseProjects extends React.Component {
           </div>
           <div id="filter-results-section">
             <SortSection
-              options={['Data Quality', 'A-Z', 'Last Updated']}
+              options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
             <div className="repo-list">

@@ -21,7 +21,7 @@ export default class SortSection extends Component {
           <span>Sort by</span>
           <select onChange={::this.onSortChange}>
           {map(this.props.options, option => {
-            return <option key={option} value={option}>{option}</option>
+            return <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
           })}
           </select>
         </h2>
