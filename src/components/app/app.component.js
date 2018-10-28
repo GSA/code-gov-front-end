@@ -15,7 +15,8 @@ import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
 import PrivacyPolicy from 'components/privacy-policy'
-import { refreshView, normalize } from 'utils'
+import { refreshView, normalize } from 'utils/other'
+import { parseLocation } from 'utils/url-parsing'
 import { last } from '@code.gov/cautious'
 
 
@@ -26,16 +27,16 @@ export default class AppComponent extends React.Component {
 
   loadParamsFromURL() {
     console.log("starting loadParamsFromURL")
-    const location = this.props.location
-    const pathname = location.pathname
-    const params = new URLSearchParams(location.search)
-
-    const agencies = params.has('agencies') ? normalize(params.get('agencies').split(',')) : null
-    const languages = params.has('languages') ? normalize(params.get('languages').split(',')) : null
-    const licenses = params.has('licenses') ? normalize(params.get('licenses').split(',')) : null
-    const skillLevels = params.has('skillLevels') ? normalize(params.get('skillLevels').split(',')) : null
-    const timeRequired = params.has('timeRequired') ? normalize(params.get('timeRequired').split(',')) : null
-    const page = params.has('page') ? Number(params.get('page')) : null
+    const {
+      agencies,
+      languages,
+      licenses,
+      page,
+      pathname,
+      query,
+      skillLevels,
+      timeRequired
+    } = parseLocation(this.props.location)
 
     if (pathname.includes('browse-projects')) {
       if (languages) { this.props.updateBrowseFilters('languages', languages) }
@@ -43,7 +44,6 @@ export default class AppComponent extends React.Component {
       if (licenses) { this.props.updateBrowseFilters('licenses', licenses) }
       if (page) { this.props.updateBrowseFilters('page', page) }
     } if (pathname.includes('search')) {
-      const query = params.get('query')
       if (query) { this.props.loadInitialSearch(query) }
       if (languages) { this.props.updateSearchFilters('languages', languages) }
       if (agencies) { this.props.updateSearchFilters('agencies', agencies) }

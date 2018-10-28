@@ -1,6 +1,6 @@
 /* global URLSearchParams */
 import { connect } from 'react-redux'
-import { getConfigValue, getFilterData, normalize } from 'utils'
+import { getConfigValue, getFilterData, normalize } from 'utils/other'
 import OpenTasksComponent from './open-tasks.component'
 import updateTaskFilters from 'actions/update-task-filters'
 import updatePage from 'actions/update-page'

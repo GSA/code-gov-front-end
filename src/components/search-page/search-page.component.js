@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { refreshView, scrollToTopOfResults } from 'utils'
+import { refreshView, scrollToTopOfResults } from 'utils/other'
 import FilterBox from 'components/filter-box'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'

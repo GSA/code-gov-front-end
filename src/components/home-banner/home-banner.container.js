@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router'
-import { getConfigValue, normalize } from 'utils'
+import { getConfigValue, normalize } from 'utils/other'
 import saveAgencies from 'actions/save-agencies'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import HomeBannerComponent from './home-banner.component'

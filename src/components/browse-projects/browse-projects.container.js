@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { includes, length } from '@code.gov/cautious'
 import get from 'lodash.get'
-import { getConfigValue, getFilterData, normalize } from 'utils'
+import { getConfigValue, getFilterData, normalize } from 'utils/other'
+import { parseLocation } from 'utils/url-parsing'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseResults from 'actions/update-browse-results'
@@ -75,6 +76,23 @@ const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters,
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     saveFilterData: () => dispatch(saveFilterOptions()),
+    loadPage: () => {
+      const {
+        agencies,
+        languages,
+        licenses,
+        page,
+      } = parseLocation(this.props.location)
+
+      dispatch(updateBrowseFilters('agencies', agencies))
+      dispatch(updateBrowseFilters('languages', languages))
+      dispatch(updateBrowseFilters('licenses', licenses))
+      dispatch(updateBrowseFilters('page', page))
+      const apiFilters = { agencies, languages, licenses, page, size: 10}
+      //if (browseSorting) apiFilters.sort = browseSorting
+      console.log("apiFIlters:", apiFilters)
+      dispatch(updateBrowseResults(apiFilters))
+    },
     onFilterBoxChange: filters => {
       const { browseSorting } = ownProps
 

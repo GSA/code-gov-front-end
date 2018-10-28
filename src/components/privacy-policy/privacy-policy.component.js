@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { refreshView } from 'utils'
+import { refreshView } from 'utils/other'
 import SiteBanner from 'components/site-banner'
 
 export default class PrivacyPolicy extends React.Component {

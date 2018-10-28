@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import SiteBannerComponent from './site-banner.component'
-import { getConfigValue } from 'utils'
+import { getConfigValue } from 'utils/other'
 
 const mapStateToProps = ({ siteConfig }) => {
   return {

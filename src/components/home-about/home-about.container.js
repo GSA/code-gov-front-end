@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getConfigValue } from '../../utils'
+import { getConfigValue } from 'utils/other'
 import HomeAboutComponent from './home-about.component'
 
 const mapStateToProps = ({ siteConfig }) => {

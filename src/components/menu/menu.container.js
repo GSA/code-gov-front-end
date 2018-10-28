@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import get from 'lodash.get'
-import { getConfigValue } from 'utils'
+import { getConfigValue } from 'utils/other'
 import MenuComponent from './menu.component';
 
 const mapStateToProps = ({ router, siteConfig }) => {

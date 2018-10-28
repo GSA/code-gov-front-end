@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import get from 'lodash.get'
 import SiteBanner from 'components/site-banner'
 import {
+  getLastModifiedDateString,
   getDisplayTextForUsageType,
   getLaborHours,
   getLicenseName,
@@ -10,8 +11,7 @@ import {
   parseLanguages,
   parseRepositoryURL,
   parseTags
-} from 'parsing'
-import { getLastModifiedDateString } from 'utils'
+} from 'utils/repo-parsing'
 import { filter, isURL, map, some } from '@code.gov/cautious'
 
 export default class ProjectPage extends Component {

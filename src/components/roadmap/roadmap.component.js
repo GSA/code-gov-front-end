@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import SiteBanner from 'components/site-banner'
-import { normalize, refreshView } from 'utils'
+import { normalize, refreshView } from 'utils/other'
 
 const Row = ({ todo }) => {
   let iconClass = 'icon'

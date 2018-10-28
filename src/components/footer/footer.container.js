@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getConfigValue } from '../../utils'
+import { getConfigValue } from 'utils/other'
 import Footer from './footer.component'
 
 const mapStateToProps = ({ siteConfig }) => {

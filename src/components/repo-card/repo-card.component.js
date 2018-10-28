@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 import get from 'lodash.get'
 import { round, some } from '@code.gov/cautious'
 import {
+  getLastModifiedDateString,
   getDisplayTextForUsageType,
   getLicenseName
-} from 'parsing'
-import { getLastModifiedDateString } from 'utils'
-
+} from 'utils/repo-parsing'
 
 export default class RepoCardComponent extends Component {
 

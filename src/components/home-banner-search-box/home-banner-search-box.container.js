@@ -3,7 +3,7 @@ import { push } from 'connected-react-router'
 import updateQuery from 'actions/update-query'
 import newSearch from 'actions/new-search'
 import HomeBannerSearchBoxComponent from './home-banner-search-box.component'
-import { getConfigValue } from 'utils'
+import { getConfigValue } from 'utils/other'
 
 
 const mapStateToProps = ({ query, siteConfig }) => {

@@ -6,7 +6,8 @@ import QualityPopover from 'components/quality-popover'
 import SiteBanner from 'components/site-banner'
 import SortSection from 'components/sort-section'
 import RepoCard from 'components/repo-card'
-import { refreshView, scrollToTopOfResults } from 'utils'
+import { refreshView, scrollToTopOfResults } from 'utils/other'
+import { parseLocation } from 'utils/url-parsing'
 import { length, some } from '@code.gov/cautious'
 
 
@@ -15,6 +16,15 @@ export default class BrowseProjects extends React.Component {
   componentDidMount () {
     refreshView()
     if (!this.props.filterData) this.props.saveFilterData()
+
+    const {
+      agencies,
+      languages,
+      licenses,
+      page,
+    } = parseLocation(this.props.location)
+
+   // if (!equal(this.props.repos.params)
 
     // triggers initial load
     if (!this.props.repos) {
@@ -25,11 +35,6 @@ export default class BrowseProjects extends React.Component {
         usageTypes: this.props.usageTypes
       })
     }
-
-    this.usageTypes = [
-      {"name":"Open Source","value":"openSource"},
-      {"name":"Government-Wide Reuse","value":"governmentWideReuse"}
-    ]
   }
 
   get repoCounter() {
