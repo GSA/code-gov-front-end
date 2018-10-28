@@ -56,21 +56,21 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
 
     let total = 0
 
+    searchSorting = searchSorting || 'best_match'
+    console.log("searchSorting is", searchSorting)
+
     let filteredResults
     if (currentSearchResults) {
 
-      searchSorting = searchSorting || 'Best Match'
-      console.log("searchSorting is", searchSorting)
-
       filteredResults = currentSearchResults.repos
       .sort((a, b) => {
-        if (searchSorting === 'Best Match') {
+        if (searchSorting === 'best_match') {
           return sortByBestMatch(a, b)
-        } else if (searchSorting === 'Data Quality') {
+        } else if (searchSorting === 'data_quality') {
           return sortByDataQuality(a, b)
-        } else if (searchSorting === 'A-Z') {
+        } else if (searchSorting === 'a-z') {
           return sortByName(a, b)
-        } else if (searchSorting === 'Last Updated') {
+        } else if (searchSorting === 'last_updated') {
           return sortByDate(a, b)
         }
       })
@@ -119,6 +119,30 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
       filteredResults = filteredResults.slice((selectedPage-1) * selectedPageSize, selectedPage * selectedPageSize)
     }
 
+
+    const sortOptions = [
+      {
+        label: 'Best Match',
+        value: 'best_match',
+        selected: searchSorting === 'best_match'
+      },
+      {
+        label: 'Data Quality',
+        value: 'data_quality',
+        selected: searchSorting === 'data_quality'
+      },
+      {
+        label: 'A-Z',
+        value: 'a-z',
+        selected: searchSorting === 'a-z'
+      },
+      {
+        label: 'Last Updated',
+        value: 'last_updated',
+        selected: searchSorting === 'last_updated'
+      }
+    ]
+
     return {
       agencies,
       currentSearchResults,
@@ -129,6 +153,7 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
       searchFilters,
       selectedPage,
       selectedPageSize,
+      sortOptions,
       query,
       total,
       usageTypes
@@ -162,6 +187,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateSearchSorting(value))
       const newPage = 1
       dispatch(updateUrlParam('page', newPage))
+      dispatch(updateUrlParam('sort', value))
       dispatch(updateSearchFilters('page', newPage))
     },
     saveFilterData: () => dispatch(saveFilterOptions()),

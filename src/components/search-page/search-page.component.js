@@ -138,7 +138,7 @@ export default class SearchPage extends React.Component {
           </div>
           <div id="filter-results-section">
             <SortSection
-              options={['Best Match', 'Data Quality', 'A-Z', 'Last Updated']}
+              options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
             <div className="repo-list">

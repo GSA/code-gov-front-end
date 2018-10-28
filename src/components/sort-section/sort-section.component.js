@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 
-import { map } from '@code.gov/cautious'
+import { find, map } from '@code.gov/cautious'
 
 export default class SortSection extends Component {
 
@@ -15,13 +15,14 @@ export default class SortSection extends Component {
 
   render() {
     console.log("rendering sort-section", this.props.options)
+    const selection = find(this.props.options, option => option.selected).value
     return (
       <div className="sort-section">
         <h2>
           <span>Sort by</span>
-          <select onChange={::this.onSortChange}>
+          <select onChange={::this.onSortChange} value={selection}>
           {map(this.props.options, option => {
-            return <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+            return <option key={option.value} value={option.value}>{option.label}</option>
           })}
           </select>
         </h2>
