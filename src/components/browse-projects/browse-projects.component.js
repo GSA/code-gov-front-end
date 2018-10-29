@@ -70,7 +70,7 @@ export default class BrowseProjects extends React.Component {
   get reposContainer() {
     if (Array.isArray(this.props.repos)) {
       return (
-        <div className="repos-container">
+        <div className="card-container">
           <QualityPopover />
           <ul className="repos-list">
             {this.props.repos.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
@@ -152,7 +152,7 @@ export default class BrowseProjects extends React.Component {
               options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
-            <div className="repo-list">
+            <div className="card-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
             </div>

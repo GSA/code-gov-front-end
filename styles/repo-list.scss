@@ -1,4 +1,4 @@
-.repos-container {
+.card-container {
   position: relative;
 
   .data-quality-title {
@@ -8,7 +8,7 @@
   }
 }
 
-.repos-container,
+.card-container,
 .no-repos {
   margin-top: 2rem;
 }
@@ -42,7 +42,7 @@
   margin-top: 0;
 }
 
-.repo-list .ngx-pagination {
+.card-list .ngx-pagination {
   float: right;
   font-size: 0.8em;
   font-weight: bold;

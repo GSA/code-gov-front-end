@@ -12,10 +12,6 @@ import { length, some } from '@code.gov/cautious'
 
 export default class SearchPage extends React.Component {
 
-  constructor() {
-    super()
-  }
-
   componentDidMount () {
     refreshView();
     if (!this.props.filterData) this.props.saveFilterData();
@@ -80,7 +76,7 @@ export default class SearchPage extends React.Component {
 
     if (filteredResults) {
       return (
-        <div className="repos-container">
+        <div className="card-container">
           <QualityPopover />
           <ul className="repos-list">
             {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
@@ -141,7 +137,7 @@ export default class SearchPage extends React.Component {
               options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
-            <div className="repo-list">
+            <div className="card-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
             </div>

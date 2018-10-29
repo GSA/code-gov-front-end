@@ -25,8 +25,8 @@
   "homepage": "https://github.com/GSA/caribou#readme",
   "private": "true",
   "dependencies": {
-    "@code.gov/api-client": "0.2.0",
-    "@code.gov/cautious": "0.1.0",
+    "@code.gov/api-client": "0.2.4",
+    "@code.gov/cautious": "0.2.1",
     "@code.gov/code-gov-font": "^0.7.0",
     "@code.gov/code-gov-style": "^1.10.2",
     "custom-event-polyfill": "^1.0.6",

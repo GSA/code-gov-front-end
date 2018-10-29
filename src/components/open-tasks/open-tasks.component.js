@@ -105,7 +105,7 @@ export default class OpenTasks extends React.Component {
               <span>Explore Open Tasks</span>
             </h2>
           </div>
-          <ul className="help-wanted-content-items">
+          <ul className="card-list">
             {map(this.props.tasks, task => {
               return (<li className="help-wanted-content-item" key={JSON.stringify(task.id)}><TaskCard task={task} /></li>)
             })}
