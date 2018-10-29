@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import get from 'lodash.get'
 import { capitalize, join, some } from '@code.gov/cautious'
+import { getLastModifiedDateString } from 'utils/repo-parsing'
 
 
 function Part({ title, text }) {
-  console.warn("title:", title)
   return (
     <div>
       <dt>{title + ':'}</dt>
@@ -14,7 +14,7 @@ function Part({ title, text }) {
   )
 }
 
-export default class RepoCardComponent extends Component {
+export default class TaskCardComponent extends Component {
 
 
   get cardTitle() {
@@ -50,8 +50,7 @@ export default class RepoCardComponent extends Component {
  }
 
   get dateLastModified() {
-    const dateLastModified = get(this.props, 'task.date.lastModified')
-    const text = dateLastModified ? new Date(dateLastModified).toLocaleDateString() : 'N/A'
+    const text = getLastModifiedDateString(this.props.task) || 'N/A'
     return Part('Last updated', text)
   }
 
@@ -65,7 +64,7 @@ export default class RepoCardComponent extends Component {
 
         {this.cardDescription}
 
-        <dl class="show-w-gt-900">
+        <dl className="show-w-gt-900">
 
           {this.agencyLink}
 

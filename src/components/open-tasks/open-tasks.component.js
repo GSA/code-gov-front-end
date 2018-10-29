@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { map, some } from '@code.gov/cautious'
 import FilterBox from 'components/filter-box'
+import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
 import { scrollToTopOfResults } from 'utils/other'
@@ -12,7 +13,7 @@ export default class OpenTasks extends React.Component {
   componentDidMount() {
     const boxes = this.props.boxes || {}
     if (Object.keys(boxes).length === 0) this.props.saveFilterData()
-    if (!Array.isArray(this.props.tasks)) this.props.saveTasks();
+    if (!this.props.tasks) this.props.syncResults();
   }
 
   get counter() {
@@ -50,6 +51,11 @@ export default class OpenTasks extends React.Component {
     console.warn("cat val:", category, values)
     console.warn("filters:", filters)
     this.props.onFilterBoxChange(filters)
+  }
+
+  updatePage(newPage) {
+    scrollToTopOfResults()
+    this.props.updatePage(newPage)
   }
 
   render() {

@@ -17,8 +17,6 @@ const mapStateToProps = ({ taskFilterOptions, taskFilters, taskResults }) => {
 
   console.log("taskFilterOptions:", taskFilterOptions)
 
-  taskResults = taskResults || {}
-
   const selections = {
     agencies: normalize(taskFilters ? taskFilters.agencies : []),
     categories: normalize(taskFilters ? taskFilters.categories : []),
@@ -44,9 +42,9 @@ const mapStateToProps = ({ taskFilterOptions, taskFilters, taskResults }) => {
 
   console.log("tasks:", tasks)
 
-  const tasks = taskResults.tasks
+  const tasks = get(taskResults, 'tasks')
 
-  const total = taskResults.total
+  const total = get(taskResults, 'total')
 
   return { boxes: filterBoxItems, selections, tasks, total }
  } catch (error) {
@@ -64,6 +62,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     updatePage: newPage => {
       dispatch(updateUrlParam('page', newPage))
       dispatch(updateTaskFilters('page', newPage))
+    },
+    syncResults: () => {
+      console.log("starting open-task.container syncResults with selections", ownProps.selections)
+      dispatch(updateTaskResults(ownProps.selections))
     }
   }
 }
