@@ -117,7 +117,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
       console.log("starting onFilterBoxChange with:", filters)
       dispatch(updateBrowseFilters(filters))
-
       const urlSearchParams = new URLSearchParams(window.location.search)
       Object.keys(filters).forEach(category => {
         const values = filters[category]

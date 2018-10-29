@@ -165,23 +165,19 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFilterBoxChange: (category, event) => {
-      // we want to make sure we get the event for the filter-box and not its subcomponents
-      if (event.target.tagName.toLowerCase() === 'filter-box') {
-        const values = event.target.values
-        dispatch(updateSearchFilters(category, values))
+    onFilterBoxChange: (category, values) => {
+      dispatch(updateSearchFilters(category, values))
 
-        const urlSearchParams = new URLSearchParams(window.location.search)
-        if (values.length === 0) {
-          urlSearchParams.delete(category)
-        } else {
-          urlSearchParams.set(category, values.join(','))
-        }
-
-        const newUrl = window.location.pathname + "?" + urlSearchParams.toString()
-
-        dispatch(push(newUrl))
+      const urlSearchParams = new URLSearchParams(window.location.search)
+      if (values.length === 0) {
+        urlSearchParams.delete(category)
+      } else {
+        urlSearchParams.set(category, values.join(','))
       }
+
+      const newUrl = window.location.pathname + "?" + urlSearchParams.toString()
+
+      dispatch(push(newUrl))
     },
     onSortChange: value => {
       dispatch(updateSearchSorting(value))

@@ -3,7 +3,7 @@
 
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
-import { run, startsWith } from '@code.gov/cautious'
+import { lower, run, startsWith, trim } from '@code.gov/cautious'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -11,9 +11,6 @@ export function isFalse(input) {
   return falses.includes(input)
 }
 
-export function isSet(input) {
-  return input && typeof input === 'object' && input.has && input.add
-}
 
 export function adjustAssetPath(thing) {
   const pattern = /.?\/?assets\//
@@ -69,28 +66,6 @@ export function getConfigValue(siteConfig, path) {
 
 export function normalize(input) {
   return trim(lower(input))
-}
-
-export function onEachItem(input, func) {
-  if (Array.isArray(input)) {
-    return input.map(item => run(item, func))
-  } else if (isSet(input)) {
-    return Set(Array.from(input).map(item => run(item, func)))
-  } else {
-    return run(input, func)
-  }
-}
-
-export function lower(input) {
-  return onEachItem(input, 'toLowerCase')
-}
-
-export function upper(input) {
-  return onEachItem(input, 'toUpperCase')
-}
-
-export function trim(input) {
-  return onEachItem(input, 'trim')
 }
 
 /* runs when each page component is loaded */

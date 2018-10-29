@@ -29,9 +29,9 @@ export default class SearchPage extends React.Component {
     return JSON.stringify(nextProps) !== this.props || JSON.stringify(nextState) !== this.state
   }
 
-  onFilterBoxChange(category, event) {
+  onFilterBoxChange(category, values) {
     scrollToTopOfResults()
-    this.props.onFilterBoxChange(category, event)
+    this.props.onFilterBoxChange(category, values)
   }
 
   get repoCounter() {
@@ -120,19 +120,19 @@ export default class SearchPage extends React.Component {
             <h2>Filter</h2>
 
             {some(this.props.languages) && (
-            <FilterBox title="Language" options={this.props.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
+            <FilterBox title="Language" options={this.props.languages} onChange={values => this.onFilterBoxChange('languages', values)} />
             )}
 
             {some(this.props.agencies) && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
+            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={values => this.onFilterBoxChange('agencies', values)} />
             )}
 
             {some(this.props.licenses) && (
-            <FilterBox title="License" options={this.props.licenses} onChange={event => this.onFilterBoxChange('licenses', event)} />
+            <FilterBox title="License" options={this.props.licenses} onChange={values => this.onFilterBoxChange('licenses', values)} />
             )}
 
             {some(this.props.usageTypes) && (
-            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={event => this.onFilterBoxChange('usageTypes', event)} />
+            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={values => this.onFilterBoxChange('usageTypes', values)} />
             )}
 
           </div>

@@ -1,25 +1,24 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { map, some } from '@code.gov/cautious'
 import FilterBox from 'components/filter-box'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
-import { map, some } from '@code.gov/cautious'
+import { scrollToTopOfResults } from 'utils/other'
+import { isChecked } from 'utils/filtering'
 
 export default class OpenTasks extends React.Component {
 
-  constructor() {
-    super()
-  }
-
   componentDidMount() {
-    if (!this.props.filterData) this.props.saveFilterData()
-    if (!this.props.tasks) this.props.saveTasks();
+    const boxes = this.props.boxes || {}
+    if (Object.keys(boxes).length === 0) this.props.saveFilterData()
+    if (!Array.isArray(this.props.tasks)) this.props.saveTasks();
   }
 
   get counter() {
+    const { total } = this.props
     let textContent
-    if (this.props.filteredResults) {
-      const total = this.props.filteredResults.length
+    if (total) {
       if (total === 0) {
         textContent = 'There are currently no open tasks'
       } else if (total === 1) {
@@ -35,21 +34,30 @@ export default class OpenTasks extends React.Component {
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }
 
-  scrollToTopOfResults() {
-    this.refs.crumbs.scrollIntoView()
-    window.scrollBy(0, -100)
-  }
-
   onFilterBoxChange(category, values) {
-    this.scrollToTopOfResults()
-    this.props.onFilterBoxChange(category, values)
+    scrollToTopOfResults()
+
+    const filters = {
+      agencies: this.props.boxes.agencies.filter(isChecked),
+      categories: this.props.boxes.categories.filter(isChecked),
+      languages: this.props.boxes.languages.filter(isChecked),
+      skillLevels: this.props.boxes.skillLevels.filter(isChecked),
+      timeRequired: this.props.boxes.timeRequired.filter(isChecked)
+    }
+
+    filters[category] = values
+
+    console.warn("cat val:", category, values)
+    console.warn("filters:", filters)
+    this.props.onFilterBoxChange(filters)
   }
 
   render() {
+    const total = this.props.total || 0
     return (
       <div className="search-results-content">
         <SiteBanner title='Open Tasks' />
-        <div className="indented" ref="crumbs">
+        <div className="indented">
           <ul className="breadcrumbs">
             <li><Link to="/">Home</Link></li>
             <li>Open Tasks</li>
@@ -65,23 +73,23 @@ export default class OpenTasks extends React.Component {
             <h2>Filter</h2>
 
             {some(this.props.boxes.languages) && (
-            <FilterBox title="Language" options={this.props.boxes.languages} onChange={event => this.onFilterBoxChange('languages', event)} />
+            <FilterBox title="Language" options={this.props.boxes.languages} onChange={values => this.onFilterBoxChange('languages', values)} />
             )}
 
             {some(this.props.boxes.agencies) && (
-            <FilterBox title="Federal Agency" options={this.props.boxes.agencies} onChange={event => this.onFilterBoxChange('agencies', event)} />
+            <FilterBox title="Federal Agency" options={this.props.boxes.agencies} onChange={values => this.onFilterBoxChange('agencies', values)} />
             )}
 
             {some(this.props.boxes.skillLevels) && (
-            <FilterBox title="Skill Level" options={this.props.boxes.skillLevels} onChange={event => this.onFilterBoxChange('skillLevels', event)} />
+            <FilterBox title="Skill Level" options={this.props.boxes.skillLevels} onChange={values => this.onFilterBoxChange('skillLevels', values)} />
             )}
 
             {some(this.props.boxes.timeRequired) && (
-            <FilterBox title="Time Required" options={this.props.boxes.timeRequired} onChange={event => this.onFilterBoxChange('timeRequired', event)} />
+            <FilterBox title="Time Required" options={this.props.boxes.timeRequired} onChange={values => this.onFilterBoxChange('timeRequired', values)} />
             )}
 
             {some(this.props.categories) && (
-            <FilterBox title="Type" options={this.categories} onChange={event => this.onFilterBoxChange('categories', event)} />
+            <FilterBox title="Type" options={this.categories} onChange={values => this.onFilterBoxChange('categories', values)} />
             )}
           </div>
         </div>
@@ -92,10 +100,11 @@ export default class OpenTasks extends React.Component {
             </h2>
           </div>
           <ul className="help-wanted-content-items">
-            {map(this.props.filteredResults, task => {
+            {map(this.props.tasks, task => {
               return (<li className="help-wanted-content-item" key={JSON.stringify(task.id)}><TaskCard task={task} /></li>)
             })}
-         </ul>
+            {total > 0 && <Pagination count={total} pagesize={this.props.selections.pageSize} page={this.props.selections.page} updatePage={::this.updatePage} />}
+          </ul>
         </div>
       </div>
     )

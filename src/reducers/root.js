@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import repo from './repo'
 import agencies from './agencies'
 import filters from './filters'
 import siteConfig from './site-config'
@@ -11,9 +10,10 @@ import browseSorting from './browse-sorting'
 import project from './project'
 import searchFilters from './search-filters'
 import searchSorting from './search-sorting'
-import tasks from './tasks'
 import taskFilters from './task-filters'
 import taskFilterOptions from './task-filter-options'
+import taskResults from './task-results'
+
 
 const rootReducer = combineReducers({
   agencies,
@@ -23,14 +23,13 @@ const rootReducer = combineReducers({
   filters,
   project,
   query,
-  repo,
   searchFilters,
-  taskFilters,
   searchHistory,
   searchSorting,
   siteConfig,
+  taskFilters,
   taskFilterOptions,
-  tasks
+  taskResults
 })
 
 export default rootReducer
