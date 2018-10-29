@@ -6,7 +6,9 @@
   "scripts": {
     "analyze": "webpack --config ./config/webpack/webpack.analyze.js",
     "build": "webpack --config ./config/webpack/webpack.prod.js",
-    "deploy-to-gh-pages": "ASSET_PATH='/caribou/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' CODE_GOV_API_KEY=eQjuCayvuIpnxRjFZ0ev0jDHoTvhidzrX0hL3ttC npm run build  && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run publish",
+    "deploy-to-gh-pages": "ASSET_PATH='/caribou/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' npm run build && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run publish",
+    "deploy-to-staging": "ASSET_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' npm run publish",
+    "deploy-to-production": "ASSET_PATH='/' CODE_GOV_API_KEY=OC457325hyT6DpFm5HBBZ1i8SR6gtp5U2CdqtHZQ OUTPUT_RELATIVE_PATH='/dist/federalist-prod' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-prod' CODE_GOV_BRANCH='federalist-prod' npm run publish",
     "publish": "node publish.js",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
