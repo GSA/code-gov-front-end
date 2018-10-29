@@ -34,8 +34,7 @@ export default class HomeBanner extends React.Component {
 
     return (
       <div className="browse">
-        Or
-        <br/>
+        <span>or </span>
         <select onChange={this.props.onBrowseByEntityChange}>
           <option>{this.props.browseByText}</option>
           <option value="All">All</option>
@@ -94,13 +93,13 @@ export default class HomeBanner extends React.Component {
   get issueSection() {
     if (this.props.issueUrl) {
       return (
-        <div className="indented">
+        <div>
           <br/>
           <br/>
           <div className="banner-subsection">
             <div className="banner-subsection-subtitle" id="issue-banner-subsection-subtitle">
               <img className="chat" src={ASSET_PATH + 'assets/img/icons/chat_bubble.png'}/>
-              <span>Have questions or feedback? Open an issue on our open source repository <a className="link" href={this.props.issueUrl} id="issue-link" target="_blank">here</a>.</span>
+              <span>Have questions or feedback? Open an issue on our <a className="link" href={this.props.issueUrl} id="issue-link" target="_blank">open source repository</a>.</span>
             </div>
           </div>
         </div>
