@@ -3,7 +3,7 @@ import agencies from './agencies'
 import filters from './filters'
 import siteConfig from './site-config'
 import query from './query'
-import searchHistory from './search'
+import searchResults from './search'
 import browseFilters from './browse-filters'
 import browseResults from './browse-results'
 import browseSorting from './browse-sorting'
@@ -24,7 +24,7 @@ const rootReducer = combineReducers({
   project,
   query,
   searchFilters,
-  searchHistory,
+  searchResults,
   searchSorting,
   siteConfig,
   taskFilters,

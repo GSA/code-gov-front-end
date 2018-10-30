@@ -12,42 +12,40 @@ import { push } from 'connected-react-router'
 import { clone, includes, len, overlaps, some, sortBy } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 
-const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, searchSorting }) => {
+const mapStateToProps = ({ filters, siteConfig, searchFilters, searchResults, searchSorting }) => {
 
   try {
 
-    const currentSearchResults = searchHistory && searchHistory.length ? searchHistory[0] : null
+    const query = get(searchResults, 'filters.query')
 
-    const query = get(currentSearchResults, 'filters.query')
-
-    const selectedAgencies = normalize(searchFilters ? searchFilters.agencies : [])
-    const selectedLicenses = normalize(searchFilters ? searchFilters.licenses : [])
-    const selectedLanguages = normalize(searchFilters ? searchFilters.languages : [])
+    const selectedAgencies = searchFilters ? normalize(searchFilters.agencies) : []
+    const selectedLicenses = searchFilters ? normalize(searchFilters.licenses) : []
+    const selectedLanguages = searchFilters ? normalize(searchFilters.languages) : []
     const selectedUsageTypes = normalize(searchFilters ? searchFilters.usageTypes : [])
     const selectedPage = get(searchFilters, 'page') || 1
     const selectedPageSize = get(searchFilters, 'pageSize') || 10
 
-    let agencies = getFilterData('agencies', 'agency.acronym', currentSearchResults, filters)
+    let agencies = getFilterData('agencies', 'agency.acronym', searchResults, filters)
     if (agencies) {
       agencies = agencies.map(({name, value}) => {
         return { name, value, checked: includes(selectedAgencies, normalize(value)) }
       })
     }
-    let languages = getFilterData('languages', 'languages', currentSearchResults, filters)
+    let languages = getFilterData('languages', 'languages', searchResults, filters)
     if (languages) {
       languages = languages.map(({name, value}) => {
         return { name, value, checked: includes(selectedLanguages, normalize(value)) }
       })
     }
 
-    let licenses = getFilterData('licenses', 'permissions.licenses[0].name', currentSearchResults, filters)
+    let licenses = getFilterData('licenses', 'permissions.licenses[0].name', searchResults, filters)
     if (licenses) {
       licenses = licenses.map(({name, value}) => {
         return { name, value, checked: includes(selectedLicenses, normalize(value)) }
       })
     }
 
-    let usageTypes = getFilterData('licenses', 'permissions.usageType', currentSearchResults, filters)
+    let usageTypes = getFilterData('licenses', 'permissions.usageType', searchResults, filters)
     if (usageTypes) {
       usageTypes = usageTypes.map(({name, value}) => {
         return { name, value, checked: includes(selectedLicenses, normalize(value)) }
@@ -60,9 +58,9 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
     console.log("searchSorting is", searchSorting)
 
     let filteredResults
-    if (currentSearchResults) {
+    if (searchResults) {
 
-      filteredResults = currentSearchResults.repos
+      filteredResults = searchResults.repos
       .sort((a, b) => {
         if (searchSorting === 'best_match') {
           return sortByBestMatch(a, b)
@@ -77,11 +75,11 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
       .filter(repo => {
         if (filters) {
 
-          if (some(selectedAgencies) && selectedAgencies.includes(normalize(repo.agency.acronym)) === false) {
+          if (some(selectedAgencies) && !selectedAgencies.includes(normalize(repo.agency.acronym))) {
             return false
           }
 
-          if (some(selectedLanguages) && overlaps(normalize(repo.languages), selectedLanguages)) {
+          if (some(selectedLanguages) && !overlaps(normalize(repo.languages), selectedLanguages)) {
             return false
           }
 
@@ -93,13 +91,13 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
             }
 
             const repoLicenses = repo.permissions.licenses.map(license => normalize(license.name))
-            if (overlaps(repoLicenses, selectedLicenses)) {
+            if (!overlaps(repoLicenses, selectedLicenses)) {
               return false
             }
           }
 
           const normalizedRepoUsageType = normalize(repo.permissions.usageType)
-          if (some(selectedUsageTypes) && selectedUsageTypes.includes(normalizedRepoUsageType) === false) {
+          if (some(selectedUsageTypes) && !selectedUsageTypes.includes(normalizedRepoUsageType)) {
             return false
           }
 
@@ -145,7 +143,6 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
 
     return {
       agencies,
-      currentSearchResults,
       filteredResults,
       filters,
       languages,
@@ -153,6 +150,7 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchHistory, se
       searchFilters,
       selectedPage,
       selectedPageSize,
+      searchResults,
       sortOptions,
       query,
       total,
