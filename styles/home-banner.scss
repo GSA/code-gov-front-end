@@ -5,7 +5,9 @@ section#banner-home {
 
   .banner-content {
 
-    padding-top: 60px;
+    padding-top: 100px;
+    position: absolute;
+    top: 50%;
 
     /* adds some additional spacing between sections */
     .indented {
