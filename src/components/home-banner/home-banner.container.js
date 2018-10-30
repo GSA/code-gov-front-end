@@ -5,19 +5,19 @@ import saveAgencies from 'actions/save-agencies'
 import updateBrowseParams from 'actions/update-browse-params'
 import HomeBannerComponent from './home-banner.component'
 
-const mapStateToProps = ({ agencies, siteConfig }) => {
+const mapStateToProps = ({ agencies }) => {
   return {
     agencies,
-    backgroundImage: getConfigValue(siteConfig, 'images.background'),
-    motto: getConfigValue(siteConfig, 'content.home.banner.motto'),
-    subtitle: getConfigValue(siteConfig, 'content.home.banner.subtitle'),
-    helpWantedTitle: getConfigValue(siteConfig, 'content.home.banner.help_wanted.title'),
-    helpWantedDescription: getConfigValue(siteConfig, 'content.home.banner.help_wanted.description'),
-    helpWantedButton: getConfigValue(siteConfig, 'content.home.banner.help_wanted.button'),
-    issueUrl: getConfigValue(siteConfig, 'content.home.banner.issue_url'),
-    searchDescriptionText: getConfigValue(siteConfig, 'content.home.banner.search_description_text'),
-    searchDescriptionTextMobile: getConfigValue(siteConfig, 'content.home.banner.search_description_text_mobile'),
-    browseByText: getConfigValue(siteConfig, 'content.home.banner.browse_by_text')
+    backgroundImage: getConfigValue('images.background'),
+    motto: getConfigValue('content.home.banner.motto'),
+    subtitle: getConfigValue('content.home.banner.subtitle'),
+    helpWantedTitle: getConfigValue('content.home.banner.help_wanted.title'),
+    helpWantedDescription: getConfigValue('content.home.banner.help_wanted.description'),
+    helpWantedButton: getConfigValue('content.home.banner.help_wanted.button'),
+    issueUrl: getConfigValue('content.home.banner.issue_url'),
+    searchDescriptionText: getConfigValue('content.home.banner.search_description_text'),
+    searchDescriptionTextMobile: getConfigValue('content.home.banner.search_description_text_mobile'),
+    browseByText: getConfigValue('content.home.banner.browse_by_text')
   }
 }
 

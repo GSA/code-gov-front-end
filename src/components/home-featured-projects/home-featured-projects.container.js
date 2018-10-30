@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import HomeFeaturedProjects from './home-featured-projects.component'
 import { getConfigValue } from 'utils/other'
 
-const mapStateToProps = ({ siteConfig }) => {
+const mapStateToProps = () => {
   return {
-    featuredProjects: getConfigValue(siteConfig, 'content.home.featured')
+    featuredProjects: getConfigValue('content.home.featured')
   }
 }
 

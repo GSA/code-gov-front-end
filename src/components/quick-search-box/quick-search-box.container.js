@@ -7,7 +7,7 @@ import newSearch from 'actions/new-search'
 import updateUrlParam from 'actions/update-url-param'
 import QuickSearchBoxComponent from './quick-search-box.component'
 
-const mapStateToProps = ({ query, siteConfig }) => {
+const mapStateToProps = ({ query }) => {
   return {
     query
   }

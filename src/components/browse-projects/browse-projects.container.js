@@ -12,7 +12,7 @@ import updateBrowseResults from 'actions/update-browse-results'
 import updateUrlParam from 'actions/update-url-param'
 import BrowseProjectsComponent from './browse-projects.component'
 
-const mapStateToProps = ({ browseParams, browseResults, filters, siteConfig }) => {
+const mapStateToProps = ({ browseParams, browseResults, filters }) => {
 
   const selectedAgencies = normalize(browseParams ? browseParams.agencies : [])
   const selectedLicenses = normalize(browseParams ? browseParams.licenses : [])

@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import { getConfigValue } from 'utils/other'
 import HomeFeaturedProjects from './home-press.component'
 
-const mapStateToProps = ({ siteConfig }) => {
+const mapStateToProps = () => {
   return {
-    backgroundImage: getConfigValue(siteConfig, 'images.background'),
-    quote: getConfigValue(siteConfig, 'content.home.press.quote') || '',
-    attributionImage: getConfigValue(siteConfig, 'content.home.press.attribution.image') || '',
-    attributionUrl: getConfigValue(siteConfig, 'content.home.press.attribution.url') || '',
-    links: getConfigValue(siteConfig, 'content.home.press.links')
+    backgroundImage: getConfigValue('images.background'),
+    quote: getConfigValue('content.home.press.quote') || '',
+    attributionImage: getConfigValue('content.home.press.attribution.image') || '',
+    attributionUrl: getConfigValue('content.home.press.attribution.url') || '',
+    links: getConfigValue('content.home.press.links')
   }
 }
 

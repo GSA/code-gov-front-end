@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import { getConfigValue } from 'utils/other'
 import RoadmapComponent from './roadmap.component'
 
-const mapStateToProps = ({ siteConfig }) => {
+const mapStateToProps = () => {
   return {
-    overview: getConfigValue(siteConfig, 'content.roadmap.overview'),
-    near: getConfigValue(siteConfig, 'content.roadmap.near'),
-    mid: getConfigValue(siteConfig, 'content.roadmap.mid'),
-    long: getConfigValue(siteConfig, 'content.roadmap.long'),
-    disclaimer: getConfigValue(siteConfig, 'content.roadmap.disclaimer')
+    overview: getConfigValue('content.roadmap.overview'),
+    near: getConfigValue('content.roadmap.near'),
+    mid: getConfigValue('content.roadmap.mid'),
+    long: getConfigValue('content.roadmap.long'),
+    disclaimer: getConfigValue('content.roadmap.disclaimer')
   }
 }
 

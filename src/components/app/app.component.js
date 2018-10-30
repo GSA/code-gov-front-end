@@ -19,10 +19,6 @@ import { refreshView } from 'utils/other'
 import { parseLocation } from 'utils/url-parsing'
 import { last } from '@code.gov/cautious'
 
-
-import siteConfig from '../../../config/site/site.json'
-
-
 export default class AppComponent extends React.Component {
 
   loadParamsFromURL() {
@@ -68,7 +64,6 @@ export default class AppComponent extends React.Component {
 
   componentDidMount() {
     refreshView()
-    this.props.saveSiteConfig(siteConfig)
     this.loadParamsFromURL()
   }
 

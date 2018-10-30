@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import agencies from './agencies'
 import filters from './filters'
-import siteConfig from './site-config'
 import query from './query'
 import searchResults from './search'
 import browseParams from './browse-params'
@@ -22,7 +21,6 @@ const rootReducer = combineReducers({
   query,
   searchParams,
   searchResults,
-  siteConfig,
   taskFilters,
   taskFilterOptions,
   taskResults

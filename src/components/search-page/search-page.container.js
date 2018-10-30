@@ -11,7 +11,7 @@ import { push } from 'connected-react-router'
 import { includes, len, overlaps, some, sortBy } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 
-const mapStateToProps = ({ filters, siteConfig, searchParams, searchResults, selectedSorting }) => {
+const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting }) => {
 
   try {
 

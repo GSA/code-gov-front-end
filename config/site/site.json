@@ -8,6 +8,9 @@
   "twitter": {
     "handle": "codedotgov"
   },
+  "plugins": [
+    "@code.gov/policy-guide"
+  ],
   "content": {
     "header": {
       "fork_me_url": "https://github.com/GSA/code-gov-web",
