@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import SiteBanner from 'components/site-banner'
 import { normalize, refreshView } from 'utils/other'
+import { map } from '@code.gov/cautious'
 
 const Row = ({ todo }) => {
   let iconClass = 'icon'
@@ -31,7 +32,7 @@ const Column = ({ phase, todos }) => {
           </tr>
         </thead>
         <tbody style={{background: 'white'}}>
-          {todos && todos.map(todo => <Row key={todo.name} todo={todo}/>)}
+          {map(todos, todo => <Row key={todo.name} todo={todo}/>)}
         </tbody>
       </table>
     </div>
@@ -48,11 +49,7 @@ export default class Roadmap extends React.Component {
     return (
       <div className="indented roadmap-overview">
         <h3>Overview</h3>
-        {Array.isArray(this.props.overview) && this.props.overview.map(paragraph => {
-          return (
-            <p key={paragraph} dangerouslySetInnerHTML={{ __html: this.props.overview }}></p>
-          )
-        })}
+        {map(this.props.overview, paragraph => <p key={paragraph} dangerouslySetInnerHTML={{ __html: paragraph }}></p>)}
       </div>
     )
   }
