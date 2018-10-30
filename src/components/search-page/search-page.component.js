@@ -15,10 +15,6 @@ export default class SearchPage extends React.Component {
   componentDidMount () {
     refreshView();
     if (!this.props.filterData) this.props.saveFilterData();
-    this.usageTypes = [
-      {"name":"Open Source","value":"openSource"},
-      {"name":"Government-Wide Reuse","value":"governmentWideReuse"}
-    ]
   }
 
   shouldComponentUpdate(nextProps, nextState) {

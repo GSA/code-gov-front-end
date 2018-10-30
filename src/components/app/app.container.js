@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import newSearch from 'actions/new-search'
 import saveSiteConfig from 'actions/save-site-config'
 import loadProject from 'actions/load-project'
-import updateBrowseFilters from 'actions/update-browse-filters'
-import updateSearchFilters from 'actions/update-search-filters'
+import updateBrowseParams from 'actions/update-browse-params'
+import updateSearchParams from 'actions/update-search-params'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => {
     },
     loadProject: repoID => dispatch(loadProject(repoID)),
     saveSiteConfig: (siteConfig) => dispatch(saveSiteConfig(siteConfig)),
-    updateBrowseFilters: (category, values) => dispatch(updateBrowseFilters(category, values)),
-    updateSearchFilters: (category, values) => dispatch(updateSearchFilters(category, values))
+    updateBrowseParams: (category, value) => dispatch(updateBrowseParams(category, value)),
+    updateSearchParams: (category, value) => dispatch(updateSearchParams(category, value))
   }
 }
 

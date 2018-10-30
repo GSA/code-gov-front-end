@@ -3,27 +3,27 @@
 import { connect } from 'react-redux';
 import { getFilterData, hasLicense, normalize } from 'utils/other'
 import saveFilterOptions from 'actions/save-filter-options'
-import updateSearchFilters from 'actions/update-search-filters'
-import updateSearchSorting from 'actions/update-search-sorting'
+import updateSearchParams from 'actions/update-search-params'
 import updateUrlParam from 'actions/update-url-param'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
 import { push } from 'connected-react-router'
-import { clone, includes, len, overlaps, some, sortBy } from '@code.gov/cautious'
+import { includes, len, overlaps, some, sortBy } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 
-const mapStateToProps = ({ filters, siteConfig, searchFilters, searchResults, searchSorting }) => {
+const mapStateToProps = ({ filters, siteConfig, searchParams, searchResults, selectedSorting }) => {
 
   try {
 
     const query = get(searchResults, 'filters.query')
 
-    const selectedAgencies = searchFilters ? normalize(searchFilters.agencies) : []
-    const selectedLicenses = searchFilters ? normalize(searchFilters.licenses) : []
-    const selectedLanguages = searchFilters ? normalize(searchFilters.languages) : []
-    const selectedUsageTypes = normalize(searchFilters ? searchFilters.usageTypes : [])
-    const selectedPage = get(searchFilters, 'page') || 1
-    const selectedPageSize = get(searchFilters, 'pageSize') || 10
+    const selectedAgencies = searchParams ? normalize(searchParams.agencies) : []
+    const selectedLicenses = searchParams ? normalize(searchParams.licenses) : []
+    const selectedLanguages = searchParams ? normalize(searchParams.languages) : []
+    const selectedUsageTypes = normalize(searchParams ? searchParams.usageTypes : [])
+    const selectedPage = get(searchParams, 'page') || 1
+    const selectedPageSize = get(searchParams, 'pageSize') || 10
+    const selectedSorting = get(searchParams, 'sort') || 'best_match'
 
     let agencies = getFilterData('agencies', 'agency.acronym', searchResults, filters)
     if (agencies) {
@@ -54,21 +54,18 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchResults, se
 
     let total = 0
 
-    searchSorting = searchSorting || 'best_match'
-    console.log("searchSorting is", searchSorting)
-
     let filteredResults
     if (searchResults) {
 
       filteredResults = searchResults.repos
       .sort((a, b) => {
-        if (searchSorting === 'best_match') {
+        if (selectedSorting === 'best_match') {
           return sortByBestMatch(a, b)
-        } else if (searchSorting === 'data_quality') {
+        } else if (selectedSorting === 'data_quality') {
           return sortByDataQuality(a, b)
-        } else if (searchSorting === 'a-z') {
+        } else if (selectedSorting === 'a-z') {
           return sortByName(a, b)
-        } else if (searchSorting === 'last_updated') {
+        } else if (selectedSorting === 'last_updated') {
           return sortByDate(a, b)
         }
       })
@@ -122,22 +119,22 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchResults, se
       {
         label: 'Best Match',
         value: 'best_match',
-        selected: searchSorting === 'best_match'
+        selected: selectedSorting === 'best_match'
       },
       {
         label: 'Data Quality',
         value: 'data_quality',
-        selected: searchSorting === 'data_quality'
+        selected: selectedSorting === 'data_quality'
       },
       {
         label: 'A-Z',
         value: 'a-z',
-        selected: searchSorting === 'a-z'
+        selected: selectedSorting === 'a-z'
       },
       {
         label: 'Last Updated',
         value: 'last_updated',
-        selected: searchSorting === 'last_updated'
+        selected: selectedSorting === 'last_updated'
       }
     ]
 
@@ -147,7 +144,7 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchResults, se
       filters,
       languages,
       licenses,
-      searchFilters,
+      searchParams,
       selectedPage,
       selectedPageSize,
       searchResults,
@@ -164,7 +161,7 @@ const mapStateToProps = ({ filters, siteConfig, searchFilters, searchResults, se
 const mapDispatchToProps = dispatch => {
   return {
     onFilterBoxChange: (category, values) => {
-      dispatch(updateSearchFilters(category, values))
+      dispatch(updateSearchParams(category, values))
 
       const urlSearchParams = new URLSearchParams(window.location.search)
       if (values.length === 0) {
@@ -178,16 +175,17 @@ const mapDispatchToProps = dispatch => {
       dispatch(push(newUrl))
     },
     onSortChange: value => {
-      dispatch(updateSearchSorting(value))
       const newPage = 1
       dispatch(updateUrlParam('page', newPage))
+      dispatch(updateSearchParams('page', newPage))
+
+      dispatch(updateSearchParams('sort', value))
       dispatch(updateUrlParam('sort', value))
-      dispatch(updateSearchFilters('page', newPage))
     },
     saveFilterData: () => dispatch(saveFilterOptions()),
     updatePage: newPage => {
       dispatch(updateUrlParam('page', newPage))
-      dispatch(updateSearchFilters('page', newPage))
+      dispatch(updateSearchParams('page', newPage))
     }
   }
 }

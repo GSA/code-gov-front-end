@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router'
 import { getConfigValue, normalize } from 'utils/other'
 import saveAgencies from 'actions/save-agencies'
-import updateBrowseFilters from 'actions/update-browse-filters'
+import updateBrowseParams from 'actions/update-browse-params'
 import HomeBannerComponent from './home-banner.component'
 
 const mapStateToProps = ({ agencies, siteConfig }) => {
@@ -28,8 +28,8 @@ const mapDispatchToProps = dispatch => {
       if (value !== 'Browse by Agency') {
         let url = '/browse-projects'
         if (value !== 'All') {
-          url += '?agencies=' + value
-          dispatch(updateBrowseFilters('agencies', normalize(value)))
+          url += '?agencies=' + value.join(',')
+          dispatch(updateBrowseParams('agencies', normalize(value)))
         }
         dispatch(push(url))
       }

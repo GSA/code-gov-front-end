@@ -1,18 +1,11 @@
+import get from 'lodash.get'
+import { getDate } from './repo-parsing'
+
 export function clean(string) {
   try {
     return string.toLowerCase().replace(/-/g,' ').trim()
   } catch (error) {
     return string
-  }
-}
-
-export function getDate(repo, path) {
-  if (repo.ghUpdatedAt) {
-    return new Date(repo.ghUpdatedAt).getTime()
-  } else if (repo.date && repo.date.lastModified) {
-    return new Date(repo.date.lastModified).getTime()
-  } else {
-    return
   }
 }
 
@@ -38,12 +31,13 @@ export function sortByDataQuality(a, b) {
 
 export function sortByDate(a, b) {
   try {
-    const aDate = get(a, 'date.lastModified') || get(a, 'ghUpdatedAt')
-    const bDate = get(b, 'date.lastModified') || get(b, 'ghUpdatedAt')
+    const aDate = getDate(a)
+    const bDate = getDate(b)
     const aTime = getTime(aDate)
     const bTime = getTime(bDate)
-    return Math.sign(bTime - aTime) || 0;
+    return Math.sign(bTime - aTime) || 0
   } catch (error) {
+    console.error(error)
     return 0
   }
 }
