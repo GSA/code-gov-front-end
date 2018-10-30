@@ -195,18 +195,17 @@
         { "name": "Code.gov configurability with Angular", "status": "Released" },
         { "name": "Update Navigation and Homepage content", "status": "Released" },
         { "name": "Usability sessions, round 1", "status": "Released" },
-        { "name": "Phase 1 SEO improvements", "status": "In Progress" },
+        { "name": "Phase 1 SEO improvements", "status": "Released" },
         { "name": "Licenses documentation", "status": "In Progress" },
-        { "name": "Search scoring phase 1", "status": "In Progress" },
-        { "name": "Update search filters", "status": "In Progress" }
+        { "name": "Search scoring phase 1", "status": "Released" },
+        { "name": "Update search filters", "status": "Released" }
       ],
       "mid": [
-        { "name": "Update help wanted phase 1", "status": null },
-        { "name": "Update UI for search results", "status": null },
-        { "name": "Usability sessions, round 2", "status": null }
+        { "name": "Update open tasks phase 1", "status": "Released" },
+        { "name": "Update UI for search results", "status": "Released" },
+        { "name": "Usability sessions, round 2", "status": "Released" }
       ],
       "long": [
-        { "name": "States and cities pilot program", "status": null },
         { "name": "Phase 2 SEO improvements", "status": null },
         { "name": "User profiles", "status": null },
         { "name": "Gamification/badges", "status": null },
