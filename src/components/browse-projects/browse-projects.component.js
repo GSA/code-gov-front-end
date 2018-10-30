@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import FilterBox from 'components/filter-box'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
+import QuickSearchBox from 'components/quick-search-box'
 import SiteBanner from 'components/site-banner'
 import SortSection from 'components/sort-section'
 import RepoCard from 'components/repo-card'
@@ -122,7 +123,9 @@ export default class BrowseProjects extends React.Component {
         </div>
         <div className="search-results-header">
             <div className="indented">
-              <div className="width-quarter"></div>
+              <div className="width-quarter">
+                <QuickSearchBox />
+              </div>
               {this.repoCounter}
             </div>
           </div>
