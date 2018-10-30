@@ -1,4 +1,4 @@
-.repo-list-item {
+.card-list-item {
   display: block;
   margin-bottom: 1em;
   padding: 1em;
@@ -14,7 +14,6 @@
   button {
     @media screen and (min-width: $medium-screen) {
       margin: 0;
-      margin-top: 5rem;
       padding: 1rem 1rem;
     }
   }
@@ -22,41 +21,7 @@
   .repo-button {
     margin-left: 3.5818%; //to achieve the same margin as the text column on the left side
     text-align: right;
-  }
-
-  hr {
-    visibility: hidden;
-    display: none;
-
-    @media screen and (min-width: $medium-screen) {
-      border-top: 1px solid $color-gray-light;
-      display: block;
-      margin-left: -1.2em;
-      margin-right: -1.25em;
-      margin-bottom: 0;
-      margin-top: 2rem;
-      max-width: none;
-      visibility: visible;
-      width: auto;
-    }
-  }
-
-  .agency-details {
-    font-size: .85714286em;
-
-      &> span{
-      font-weight: $font-bold;
-      margin-left: 2rem;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    @media screen and (min-width: $medium-screen) {
-      margin-top: 14px;
-      padding: 0.75rem 0rem;
-    }
+    vertical-align: bottom;
   }
 
   @media screen and (max-width: $small-screen - 1) {

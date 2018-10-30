@@ -72,7 +72,7 @@ export default class BrowseProjects extends React.Component {
       return (
         <div className="card-container">
           <QualityPopover />
-          <ul className="repos-list">
+          <ul className="card-ul">
             {this.props.repos.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
         </div>

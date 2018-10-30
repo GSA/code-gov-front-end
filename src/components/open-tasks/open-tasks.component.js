@@ -98,19 +98,23 @@ export default class OpenTasks extends React.Component {
             <FilterBox title="Type" options={this.categories} onChange={values => this.onFilterBoxChange('categories', values)} />
             )}
           </div>
-        </div>
-        <div id="filter-results-section">
-          <div className="sort-section">
-            <h2>
-              <span>Explore Open Tasks</span>
-            </h2>
+          <div id="filter-results-section">
+            <div className="sort-section">
+              <h2>
+                <span>Explore Open Tasks</span>
+              </h2>
+            </div>
+            <div className="card-list">
+              <div className="card-container">
+                <ul className="card-ul">
+                  {map(this.props.tasks, task => {
+                    return <TaskCard key={task.id} task={task} />
+                  })}
+                </ul>
+              </div>
+              {total > 0 && <Pagination count={total} pagesize={this.props.selections.pageSize} page={this.props.selections.page} updatePage={::this.updatePage} />}
+            </div>
           </div>
-          <ul className="card-list">
-            {map(this.props.tasks, task => {
-              return (<li className="help-wanted-content-item" key={JSON.stringify(task.id)}><TaskCard task={task} /></li>)
-            })}
-            {total > 0 && <Pagination count={total} pagesize={this.props.selections.pageSize} page={this.props.selections.page} updatePage={::this.updatePage} />}
-          </ul>
         </div>
       </div>
     )

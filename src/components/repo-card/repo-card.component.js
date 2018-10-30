@@ -7,22 +7,9 @@ import {
   getDisplayTextForUsageType,
   getLicenseName
 } from 'utils/repo-parsing'
+import CardPart from 'components/card-part'
 
 export default class RepoCardComponent extends Component {
-
-  get dateLastModified() {
-    if (this.props.repo) {
-      const dateLastModified = getLastModifiedDateString(this.props.repo)
-      if (dateLastModified) {
-        return (
-          <Fragment>
-            <span>Last updated: </span>
-            <span>{dateLastModified}</span>
-          </Fragment>
-        )
-      }
-    }
-  }
 
   get goToButton() {
     const url = get(this.props.repo, 'repositoryURL')
@@ -48,30 +35,25 @@ export default class RepoCardComponent extends Component {
     const repo = this.props.repo
     if (some(repo.languages)) {
       const languages = repo.languages
-      return <li>Languages: {languages.map(language => <span key={language}>&nbsp;{language}&nbsp;</span>)}</li>
+      return <CardPart title='Languages' text={languages.map(language => <span key={language}>&nbsp;{language}&nbsp;</span>)} />
     } else {
-      return <li>Languages: <span>N/A </span></li>
+      return <CardPart title='Languages' text='N/A' />
     }
   }
 
-  get repoLicense() {
-    const license = getLicenseName(this.props.repo) || 'N/A'
-    return <li>License: <span>{license}</span></li>
-  }
 
-  get usageType() {
-    const text = getDisplayTextForUsageType(this.props.repo)
-    return <li>Usage Type: <span>{text}</span></li>
-  }
 
   render() {
     const repo = this.props.repo
     const agencyAcronym = get(repo, 'agency.acronym')
     const agencyName = get(repo, 'agency.name')
     const score = get(repo, 'score')
+    const dateLastModified = getLastModifiedDateString(this.props.repo)
+    const usageType = getDisplayTextForUsageType(this.props.repo)
+    const license = getLicenseName(this.props.repo)
 
     return (
-      <div className="repo-list-item card card--focusable">
+      <div className="card-list-item card focusable">
 
         <quality-tag score={score}></quality-tag>
 
@@ -87,25 +69,25 @@ export default class RepoCardComponent extends Component {
 
         {this.repoDescription}
 
-        <div className="agency-details">
-          <span>Agency: </span>
-
-          <Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</Link>
-
+        <dl className="inline-after-600px">
+          <dt>Agency:</dt>
+          <dd><Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</Link></dd>
           {this.dateLastModified}
 
-          <hr />
+          <CardPart title='Last Updated' text={dateLastModified} />
 
-          <div className="repo-features width-three-quarters">
-            <ul className="repo-features-list">
-              {this.usageType}
+        </dl>
 
-              {this.repoLanguages}
+        <hr className="show-w-gt-600"/>
 
-              {this.repoLicense}
-            </ul>
-          </div>
+        <div>
+          <dl className="width-three-quarters">
 
+            <CardPart title='Usage Type' text={usageType} />
+            {this.repoLanguages}
+            <CardPart title='License' text={license} />
+
+          </dl>
           {this.goToButton}
         </div>
       </div>

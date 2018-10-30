@@ -89,14 +89,14 @@
   }
 }
 
-.repos-list {
+.card-ul {
   clear: both;
   display: block;
 }
 
 .repo:last-child {
   @media screen and (max-width: $small-screen - 1) {
-    .repo-list-item {
+    .card-list-item {
       border-bottom: 0;
     }
   }

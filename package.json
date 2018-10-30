@@ -30,7 +30,7 @@
     "@code.gov/api-client": "0.2.4",
     "@code.gov/cautious": "0.2.1",
     "@code.gov/code-gov-font": "^0.7.0",
-    "@code.gov/code-gov-style": "^1.10.2",
+    "@code.gov/code-gov-style": "1.10.6",
     "custom-event-polyfill": "^1.0.6",
     "devicons": "^1.8.0",
     "dotenv": "^6.0.0",

@@ -78,7 +78,7 @@ export default class SearchPage extends React.Component {
       return (
         <div className="card-container">
           <QualityPopover />
-          <ul className="repos-list">
+          <ul className="card-ul">
             {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
           </ul>
         </div>
