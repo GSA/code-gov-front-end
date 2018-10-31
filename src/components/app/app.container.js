@@ -8,8 +8,9 @@ import updateSearchParams from 'actions/update-search-params'
 import { getConfigValue } from 'utils/other'
 
 const mapStateToProps = () => {
-  const plugins = getConfigValue('plugins')
-  console.error("plugins:", plugins)
+  return {
+    plugins: getConfigValue('plugins')
+  }
 }
 
 const mapDispatchToProps = dispatch => {

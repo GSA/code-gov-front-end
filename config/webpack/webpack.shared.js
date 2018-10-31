@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const get = require("lodash.get")
+const { map } = require("@code.gov/cautious")
 
 const rootDir = path.dirname(path.dirname(__dirname))
 console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
@@ -28,15 +30,28 @@ if (!OUTPUT_PATH) {
   throw new Error("Please define an output path")
 }
 
+const entry = {
+  index: ['@babel/polyfill', './src/index.js'],
+}
+
+/*
+code to load plugins
+const { plugins } = require(path.join(rootDir, "/config/site/site.json"))
+console.log("plugins:", plugins)
+map(plugins, ({component, route}) => {
+  entry[path.join('plugins/', component)] = component
+})
+console.log("entry:", entry)
+*/
+
 module.exports = {
   output: {
+    chunkFilename: '[name].bundle.js',
     filename: '[name].bundle.js',
     path: OUTPUT_PATH,
     publicPath: ASSET_PATH
   },
-  entry: {
-    index: ['@babel/polyfill', './src/index.js']
-  },
+  entry,
   resolve: {
     modules: ['node_modules', 'src', 'config'],
     extensions: ['.js', '.json', '.md']

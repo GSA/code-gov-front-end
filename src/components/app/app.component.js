@@ -1,7 +1,7 @@
 /* global history */
 /* global URLSearchParams */
 
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
@@ -14,12 +14,15 @@ import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
+import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
-import { refreshView } from 'utils/other'
+import { getConfigValue, refreshView } from 'utils/other'
 import { parseLocation } from 'utils/url-parsing'
-import { last } from '@code.gov/cautious'
+import { last, map } from '@code.gov/cautious'
 
-export default class AppComponent extends React.Component {
+console.log("PolicyGuide:", PolicyGuide)
+
+export default class AppComponent extends Component {
 
   loadParamsFromURL() {
     console.log("starting loadParamsFromURL")
@@ -63,11 +66,14 @@ export default class AppComponent extends React.Component {
   }
 
   componentDidMount() {
+    console.error("app component did mount")
     refreshView()
     this.loadParamsFromURL()
   }
 
   render() {
+
+
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
@@ -80,6 +86,7 @@ export default class AppComponent extends React.Component {
             <Route path='/projects/:repoID' component={ProjectPage}/>
             <Route path='/roadmap' component={Roadmap}/>
             <Route path='/search' component={SearchPage}/>
+            <Route path='/policy-guide' component={PolicyGuide}/>
             <Redirect to='/' />
           </Switch>
           <Footer />

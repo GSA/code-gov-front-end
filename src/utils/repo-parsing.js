@@ -75,5 +75,5 @@ export function getLastModifiedDateString(repo) {
 }
 
 export function getDate(item) {
-  return get(item, 'date.lastModified') || get(item, 'ghUpdatedAt')
+  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
 }

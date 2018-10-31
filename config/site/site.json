@@ -9,7 +9,7 @@
     "handle": "codedotgov"
   },
   "plugins": [
-    "@code.gov/policy-guide"
+    { "route": "/policy-guide", "component": "@code.gov/policy-guide/src/index.js" }
   ],
   "content": {
     "header": {
@@ -21,7 +21,7 @@
       "menu": [{
           "name": "ABOUT",
           "links": [
-            { "name": "Source Code Policy", "url": "/policy-guide/docs/overview/introduction" },
+            { "name": "Source Code Policy", "url": "/policy-guide" },
             { "name": "Open Source Pilot", "url": "/policy-guide/docs/open-source/introduction" }
           ]
         },
