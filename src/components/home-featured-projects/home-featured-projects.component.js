@@ -10,8 +10,9 @@ export default class HomeFeaturedProjects extends Component {
         placeholder: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired*/
   }
-
+ 
   render() {
+    const count=0;
     return (
       <section className="featured-projects block block--white">
         <div id="featured-projects-title">
@@ -20,8 +21,8 @@ export default class HomeFeaturedProjects extends Component {
           </div>
         </div>
         <div>
-          {this.props.featuredProjects && this.props.featuredProjects.map(project => {
-            return <HomeFeaturedProject key={project.short_name} project={project}/>
+          {this.props.featuredProjects && this.props.featuredProjects.map((project, index) => {
+            return <HomeFeaturedProject index={index} key={project.short_name} project={project}/>
           })}
         </div>
 
