@@ -5,7 +5,7 @@ import FilterBox from 'components/filter-box'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import RepoCard from 'components/repo-card'
-import SearchPageSearchBox from 'components/search-page-search-box'
+import QuickSearchBox from 'components/quick-search-box'
 import SortSection from 'components/sort-section'
 import SiteBanner from 'components/site-banner'
 import { length, some } from '@code.gov/cautious'
@@ -15,10 +15,6 @@ export default class SearchPage extends React.Component {
   componentDidMount () {
     refreshView();
     if (!this.props.filterData) this.props.saveFilterData();
-    this.usageTypes = [
-      {"name":"Open Source","value":"openSource"},
-      {"name":"Government-Wide Reuse","value":"governmentWideReuse"}
-    ]
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -105,7 +101,7 @@ export default class SearchPage extends React.Component {
         <div className="search-results-header">
           <div className="indented">
             <div className="width-quarter">
-              <SearchPageSearchBox />
+              <QuickSearchBox />
             </div>
             {this.repoCounter}
           </div>

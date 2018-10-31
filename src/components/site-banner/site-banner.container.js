@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import SiteBannerComponent from './site-banner.component'
 import { getConfigValue } from 'utils/other'
 
-const mapStateToProps = ({ siteConfig }) => {
+const mapStateToProps = () => {
   return {
-    backgroundImage: getConfigValue(siteConfig, 'images.background')
+    backgroundImage: getConfigValue('images.background')
   }
 }
 
