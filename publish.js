@@ -19,6 +19,8 @@ if (process.env.CODE_GOV_BRANCH) {
   throw new Error("no branch specified")
 }
 
+ghpages.clean()
+
 ghpages.publish(DIR, options, err => {
   if (err) {
     console.error(err);
