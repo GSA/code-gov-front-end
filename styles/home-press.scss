@@ -1,6 +1,13 @@
 @import '~@code.gov/code-gov-style/_sass/_variables';
 
 #press-section {
+  .banner-content {
+    transform: none;
+    @media screen and (min-width:$medium-screen) {
+      transform: translateY(-50%);
+    }
+  }
+
   #press-banner {
     background-attachment: "initial";
     background-position: top center;
@@ -12,8 +19,14 @@
 
     .press-container {
       @include clearfix;
+      font-size: 1rem;
       margin: 0 auto;
-      max-width: 43em;
+      max-width: 23em;
+
+      @media screen and (min-width: $medium-screen) {
+        font-size: 2rem;
+        max-width: 250rem;
+      }
 
       .press-links {
         margin-top: 2em;
