@@ -3,9 +3,9 @@ import React, { Component, Fragment } from 'react'
 export default class HomeFeaturedProject extends Component {
 
   render() {
-    const { index, image, short_name, verbose_name, author, description, links } = this.props.project;
+    const { image, short_name, verbose_name, author, description, links } = this.props.project;
 
-    const place = index % 2 === 0 ? 'even' : 'odd'
+    const place = this.props.index % 2 === 0 ? 'even' : 'odd'
 
     return (
       <div className="block featured-project">
