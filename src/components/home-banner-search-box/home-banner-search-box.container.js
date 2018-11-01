@@ -6,9 +6,9 @@ import HomeBannerSearchBoxComponent from './home-banner-search-box.component'
 import { getConfigValue } from 'utils/other'
 
 
-const mapStateToProps = ({ query, siteConfig }) => {
+const mapStateToProps = ({ query }) => {
   return {
-    placeholder: getConfigValue(siteConfig, 'content.home.banner.search_placeholder_text'),
+    placeholder: getConfigValue('content.home.banner.search_placeholder_text'),
     query
   }
 }

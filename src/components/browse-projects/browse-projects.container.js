@@ -7,20 +7,20 @@ import get from 'lodash.get'
 import { getConfigValue, getFilterData, normalize } from 'utils/other'
 import { parseLocation } from 'utils/url-parsing'
 import saveFilterOptions from 'actions/save-filter-options'
-import updateBrowseFilters from 'actions/update-browse-filters'
+import updateBrowseParams from 'actions/update-browse-params'
 import updateBrowseResults from 'actions/update-browse-results'
-import updateBrowseSorting from 'actions/update-browse-sorting'
 import updateUrlParam from 'actions/update-url-param'
 import BrowseProjectsComponent from './browse-projects.component'
 
-const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters, siteConfig }) => {
+const mapStateToProps = ({ browseParams, browseResults, filters }) => {
 
-  const selectedAgencies = normalize(browseFilters ? browseFilters.agencies : [])
-  const selectedLicenses = normalize(browseFilters ? browseFilters.licenses : [])
-  const selectedLanguages = normalize(browseFilters ? browseFilters.languages : [])
-  const selectedUsageTypes = normalize(browseFilters ? browseFilters.usageTypes : [])
-  const selectedPage = get(browseFilters, 'page') || 1
-  const selectedPageSize = get(browseFilters, 'pageSize') || 10
+  const selectedAgencies = normalize(browseParams ? browseParams.agencies : [])
+  const selectedLicenses = normalize(browseParams ? browseParams.licenses : [])
+  const selectedLanguages = normalize(browseParams ? browseParams.languages : [])
+  const selectedUsageTypes = normalize(browseParams ? browseParams.usageTypes : [])
+  const selectedPage = get(browseParams, 'page') || 1
+  const selectedPageSize = get(browseParams, 'pageSize') || 10
+  const selectedSorting = get(browseParams, 'sort') || 'data_quality'
 
   /* initialize filters to empty arrays */
   let agencies = []
@@ -56,31 +56,29 @@ const mapStateToProps = ({ browseFilters, browseResults, browseSorting, filters,
   const total = get(browseResults, 'total') || 0
   const repos = get(browseResults, 'repos')
 
-  browseSorting = browseSorting || 'data_quality'
-
   const sortOptions = [
     {
       label: 'Data Quality',
       value: 'data_quality',
-      selected: browseSorting === 'data_quality'
+      selected: selectedSorting === 'data_quality'
     },
     {
       label: 'A-Z',
       value: 'a-z',
-      selected: browseSorting === 'a-z'
+      selected: selectedSorting === 'a-z'
     },
     {
       label: 'Last Updated',
       value: 'last_updated',
-      selected: browseSorting === 'last_updated'
+      selected: selectedSorting === 'last_updated'
     }
   ]
 
   return {
     agencies,
-    browseFilters,
+    browseParams,
     browseResults,
-    browseSorting,
+    selectedSorting,
     languages,
     licenses,
     repos,
@@ -103,20 +101,20 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         page,
       } = parseLocation(this.props.location)
 
-      dispatch(updateBrowseFilters('agencies', agencies))
-      dispatch(updateBrowseFilters('languages', languages))
-      dispatch(updateBrowseFilters('licenses', licenses))
-      dispatch(updateBrowseFilters('page', page))
+      dispatch(updateBrowseParams('agencies', agencies))
+      dispatch(updateBrowseParams('languages', languages))
+      dispatch(updateBrowseParams('licenses', licenses))
+      dispatch(updateBrowseParams('page', page))
       const apiFilters = { agencies, languages, licenses, page, size: 10}
-      //if (browseSorting) apiFilters.sort = browseSorting
+      //if (selectedSorting) apiFilters.sort = selectedSorting
       console.log("apiFIlters:", apiFilters)
       dispatch(updateBrowseResults(apiFilters))
     },
     onFilterBoxChange: filters => {
-      const { browseSorting } = ownProps
+      const selectedSorting = get(ownProps, 'browseParams.sort')
 
       console.log("starting onFilterBoxChange with:", filters)
-      dispatch(updateBrowseFilters(filters))
+      dispatch(updateBrowseParams(filters))
       const urlSearchParams = new URLSearchParams(window.location.search)
       Object.keys(filters).forEach(category => {
         const values = filters[category]
@@ -131,25 +129,25 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
       dispatch(push(newUrl))
       const apiFilters = {...filters, size: 10}
-      if (browseSorting) apiFilters.sort = browseSorting
+      if (selectedSorting) apiFilters.sort = selectedSorting
       console.log("apiFIlters:", apiFilters)
       dispatch(updateBrowseResults(apiFilters))
     },
     onSortChange: value => {
-      const { browseFilters } = ownProps
+      const { browseParams } = ownProps
       dispatch(updateUrlParam('sort', value))
-      dispatch(updateBrowseSorting(value))
+      dispatch(updateBrowseParams('sort', value))
 
       const newPage = 1
       dispatch(updateUrlParam('page', newPage))
-      dispatch(updateBrowseFilters('page', newPage))
-      const apiFilters = {...browseFilters, size: 10, sort: value}
+      dispatch(updateBrowseParams('page', newPage))
+      const apiFilters = {...browseParams, size: 10, sort: value}
 
       dispatch(updateBrowseResults(apiFilters))
     },
     updatePage: newPage => {
       dispatch(updateUrlParam('page', newPage))
-      dispatch(updateBrowseFilters('page', newPage))
+      dispatch(updateBrowseParams('page', newPage))
     }
   }
 }

@@ -72,8 +72,6 @@ export default class RepoCardComponent extends Component {
         <dl className="inline-after-600px">
           <dt>Agency:</dt>
           <dd><Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</Link></dd>
-          {this.dateLastModified}
-
           <CardPart title='Last Updated' text={dateLastModified} />
 
         </dl>

@@ -1,7 +1,7 @@
 /* global history */
 /* global URLSearchParams */
 
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
@@ -14,16 +14,15 @@ import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
+import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
-import { refreshView, normalize } from 'utils/other'
+import { getConfigValue, refreshView } from 'utils/other'
 import { parseLocation } from 'utils/url-parsing'
-import { last } from '@code.gov/cautious'
+import { last, map } from '@code.gov/cautious'
 
+console.log("PolicyGuide:", PolicyGuide)
 
-import siteConfig from '../../../config/site/site.json'
-
-
-export default class AppComponent extends React.Component {
+export default class AppComponent extends Component {
 
   loadParamsFromURL() {
     console.log("starting loadParamsFromURL")
@@ -33,28 +32,32 @@ export default class AppComponent extends React.Component {
       licenses,
       page,
       pathname,
+      sort,
       query,
       skillLevels,
       timeRequired
     } = parseLocation(this.props.location)
+    console.error("sort from location is :", sort)
 
     if (pathname.includes('browse-projects')) {
-      if (languages) { this.props.updateBrowseFilters('languages', languages) }
-      if (agencies) { this.props.updateBrowseFilters('agencies', agencies) }
-      if (licenses) { this.props.updateBrowseFilters('licenses', licenses) }
-      if (page) { this.props.updateBrowseFilters('page', page) }
+      if (languages) { this.props.updateBrowseParams('languages', languages) }
+      if (agencies) { this.props.updateBrowseParams('agencies', agencies) }
+      if (licenses) { this.props.updateBrowseParams('licenses', licenses) }
+      if (page) { this.props.updateBrowseParams('page', page) }
+      if (sort) { this.props.updateBrowseParams('sort', sort) }
     } if (pathname.includes('search')) {
       if (query) { this.props.loadInitialSearch(query) }
-      if (languages) { this.props.updateSearchFilters('languages', languages) }
-      if (agencies) { this.props.updateSearchFilters('agencies', agencies) }
-      if (licenses) { this.props.updateSearchFilters('licenses', licenses) }
-      if (page) { this.props.updateSearchFilters('page', page) }
+      if (languages) { this.props.updateSearchParams('languages', languages) }
+      if (agencies) { this.props.updateSearchParams('agencies', agencies) }
+      if (licenses) { this.props.updateSearchParams('licenses', licenses) }
+      if (page) { this.props.updateSearchParams('page', page) }
+      if (sort) { this.props.updateSearchParams('sort', sort) }
     } else if (pathname.includes('open-tasks')) {
       if (languages) { this.props.updateTaskFilters('languages', languages) }
       if (agencies) { this.props.updateTaskFilters('agencies', agencies) }
       if (skillLevels) { this.props.updateTaskFilters('skillLevels', skillLevels) }
       if (timeRequired) { this.props.updateTaskFilters('timeRequired', timeRequired) }
-      if (page) { this.props.updateSearchFilters('page', page) }
+      if (page) { this.props.updateSearchParams('page', page) }
     } else if (pathname.includes('projects/')) {
       const repoID = last(pathname.split('/'))
       if (repoID) { this.props.loadProject(repoID) }
@@ -63,12 +66,14 @@ export default class AppComponent extends React.Component {
   }
 
   componentDidMount() {
+    console.error("app component did mount")
     refreshView()
-    this.props.saveSiteConfig(siteConfig)
     this.loadParamsFromURL()
   }
 
   render() {
+
+
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
@@ -81,6 +86,7 @@ export default class AppComponent extends React.Component {
             <Route path='/projects/:repoID' component={ProjectPage}/>
             <Route path='/roadmap' component={Roadmap}/>
             <Route path='/search' component={SearchPage}/>
+            <Route path='/policy-guide' component={PolicyGuide}/>
             <Redirect to='/' />
           </Switch>
           <Footer />

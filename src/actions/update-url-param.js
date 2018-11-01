@@ -8,7 +8,7 @@ export default function(key, value) {
       if (value.length === 0) {
         urlSearchParams.delete(key)
       } else {
-        urlSearchParams.set(key, value)
+        urlSearchParams.set(key, value.join(','))
       }
     } else if (value === undefined || value === null) {
       urlSearchParams.delete(key)

@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBox from 'components/search-box'
 
-export default class SearchPageSearchBoxComponent extends React.Component {
+export default class QuickSearchBoxComponent extends React.Component {
 
   render() {
     return (

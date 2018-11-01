@@ -65,11 +65,15 @@ export function parseTags(repo) {
 
 export function getLastModifiedDateString(repo) {
   try {
-    const dateLastModified = get(repo, 'date.lastModified') ||  get(repo, 'ghUpdatedAt')
+    const dateLastModified = getDate(repo)
     if (dateLastModified) {
       return new Date(dateLastModified).toLocaleDateString()
     }
   } catch (error) {
     console.warn(error)
   }
+}
+
+export function getDate(item) {
+  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
 }
