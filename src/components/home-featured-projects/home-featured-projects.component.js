@@ -12,7 +12,6 @@ export default class HomeFeaturedProjects extends Component {
   }
  
   render() {
-    const count=0;
     return (
       <section className="featured-projects block block--white">
         <div id="featured-projects-title">
