@@ -8,7 +8,7 @@ export default class HomeAbout extends React.Component {
       <section id="about" className="about">
         <header>
           <h2>Our Mission</h2>
-          <p class="indented">{this.props.mission}</p>
+          <p className="indented">{this.props.mission}</p>
         </header>
        <br />
         <hr />
