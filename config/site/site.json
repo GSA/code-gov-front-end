@@ -21,8 +21,10 @@
       "menu": [{
           "name": "ABOUT",
           "links": [
-            { "name": "Source Code Policy", "url": "/policy-guide" },
-            { "name": "Open Source Pilot", "url": "/policy-guide/docs/open-source/introduction" }
+            { "name": "OVERVIEW", "url": "/about/overview" },
+            { "name": "COMPLIANCE", "url": "/about/compliance" },
+            { "name": "OPEN SOURCE PILOT", "url": "/about/open-source-pilot" },
+            { "name": "SOURCE CODE POLICY", "url": "/policy-guide/introduction" },
           ]
         },
         {
