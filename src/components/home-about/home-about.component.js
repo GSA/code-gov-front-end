@@ -5,10 +5,10 @@ export default class HomeAbout extends React.Component {
 
   render() {
     return (
-      <section id="about" className="about indented">
+      <section id="about" className="about">
         <header>
           <h2>Our Mission</h2>
-          <p>{this.props.mission}</p>
+          <p className="indented">{this.props.mission}</p>
         </header>
        <br />
         <hr />
