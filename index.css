@@ -597,7 +597,6 @@ header.main nav .mobile-menu-button {
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: -15px;
   position: absolute;
   width: 64px;
 }
@@ -3607,10 +3606,10 @@ header.main .fork_me a:hover rect {
 }
 
 html {
-  background: #F0F3F7;
+  background: #ffffff;
 }
 html #app {
-  background: #F0F3F7;
+  background: #ffffff;
 }
 
 /* styles that apply to stuff around search box on multiple pages */
@@ -4048,6 +4047,14 @@ section#banner-home img.chat {
   }
 }
 
+#press-section .banner-content {
+  transform: none;
+}
+@media screen and (min-width: 600px) {
+  #press-section .banner-content {
+    transform: translateY(-50%);
+  }
+}
 #press-section #press-banner {
   background-attachment: "initial";
   background-position: top center;
@@ -4060,13 +4067,20 @@ section#banner-home img.chat {
   }
 }
 #press-section #press-banner .press-container {
+  font-size: 1rem;
   margin: 0 auto;
-  max-width: 43em;
+  max-width: 23em;
 }
 #press-section #press-banner .press-container::after {
   clear: both;
   content: "";
   display: block;
+}
+@media screen and (min-width: 600px) {
+  #press-section #press-banner .press-container {
+    font-size: 2rem;
+    max-width: 250rem;
+  }
 }
 #press-section #press-banner .press-container .press-links {
   margin-top: 2em;
