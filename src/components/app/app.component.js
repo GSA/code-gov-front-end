@@ -6,6 +6,7 @@ import { Redirect } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import history from 'browser-history'
+import AboutPage from 'components/plugins/about-page'
 import Roadmap from 'components/roadmap'
 import Home from 'components/home'
 import BrowseProjects from 'components/browse-projects'
@@ -80,6 +81,7 @@ export default class AppComponent extends Component {
           <Menu />
           <Switch>
             <Route exact path='/' component={Home}/>
+            <Route path='/about' component={AboutPage}/>
             <Route path='/browse-projects' component={BrowseProjects}/>
             <Route path='/open-tasks' component={OpenTasks}/>
             <Route path='/privacy-policy' component={PrivacyPolicy}/>
