@@ -24,7 +24,7 @@
             { "name": "OVERVIEW", "url": "/about/overview" },
             { "name": "COMPLIANCE", "url": "/about/compliance" },
             { "name": "OPEN SOURCE PILOT", "url": "/about/open-source-pilot" },
-            { "name": "SOURCE CODE POLICY", "url": "/policy-guide/introduction" },
+            { "name": "SOURCE CODE POLICY", "url": "/policy-guide/introduction" }
           ]
         },
         {
