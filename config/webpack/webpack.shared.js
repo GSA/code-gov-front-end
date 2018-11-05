@@ -10,6 +10,7 @@ const get = require("lodash.get")
 const { map } = require("@code.gov/cautious")
 
 const rootDir = path.dirname(path.dirname(__dirname))
+console.log("process.env.CODE_GOV_API_BASE:", process.env.CODE_GOV_API_BASE)
 console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
 
 // https://webpack.js.org/guides/public-path/
@@ -122,7 +123,7 @@ module.exports = {
     new DefinePlugin({
       'ASSET_PATH': JSON.stringify(ASSET_PATH)
     }),
-    new EnvironmentPlugin(["CODE_GOV_API_KEY"]),
+    new EnvironmentPlugin(["CODE_GOV_API_BASE", "CODE_GOV_API_KEY"]),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin([
       {

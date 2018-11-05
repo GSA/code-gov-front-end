@@ -1,41 +1,8 @@
 /* global fetch */
 import React, { Component, Fragment } from 'react'
 import { Link, NavLink, Route, Switch } from 'react-router-dom'
+import LazyHTML from 'components/lazy-html'
 import SiteBanner from 'components/site-banner'
-
-class PolicyGuidePage extends Component {
-
-  constructor(props) {
-    super(props)
-    this.mounted = false
-    this.state = {}
-  }
-
-  componentDidMount() {
-    this.mounted = true
-    if (this.props.url) {
-      fetch(this.props.url)
-      .then(response => response.text())
-      .then(html => {
-        if (!this.state.html && this.mounted) {
-          this.setState({ html })
-        }
-      })
-    }
-  }
-
-  componentWillUnmount() {
-    this.mounted = false
-  }
-
-  render() {
-    if (this.state.html) {
-      return <div dangerouslySetInnerHTML={{ __html: this.state.html }} style={{background: 'white', padding: '2em 2em 3em', wordBreak: 'break-word'}}></div>
-    } else {
-      return <div></div>
-    }
-  }
-}
 
 export default class PolicyGuide extends Component {
 
@@ -79,7 +46,7 @@ export default class PolicyGuide extends Component {
             {pages.map(({ route, filename }) => {
               const path = `${matchUrl}/${route}`
               const url = baseurl + filename + '.html'
-              return <Route key={path} path={path} component={() => <PolicyGuidePage url={url}/>} />
+              return <Route key={path} path={path} component={() => <LazyHTML url={url}/>} />
             })}
           </div>
         </div>

@@ -1,11 +1,17 @@
-import { UPDATE_BROWSE_RESULTS } from 'constants/actions';
-import client from 'api'
+import { CLEAR_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS } from 'constants/actions';
+import client from 'api-client'
 
 export default function (filters) {
   return async dispatch => {
-    const results = await client.repos(filters)
-    console.error("results from client.repos with filters", filters, "is", results)
-    results.filters = filters
-    dispatch({ type: UPDATE_BROWSE_RESULTS, results })
+    const query = filters.query
+    if (query) {
+      // we're filtering client size, so we don't need most filters
+      const results = await client.search(query)
+      console.error("results from client.repos with filters", filters, "is", results)
+      results.filters = filters
+      dispatch({ type: UPDATE_SEARCH_RESULTS, results })
+    } else {
+      dispatch({ type: CLEAR_SEARCH_RESULTS })
+    }
   }
 }

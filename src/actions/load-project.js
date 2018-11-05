@@ -1,5 +1,5 @@
 import { LOAD_PROJECT } from 'constants/actions';
-import client from 'api'
+import client from 'api-client'
 
 export default function (repoId) {
   return async dispatch => {

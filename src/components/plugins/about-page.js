@@ -1,6 +1,7 @@
 /* global fetch */
 import React, { Component, Fragment } from 'react'
 import { Link, NavLink, Route, Switch } from 'react-router-dom'
+import LazyHTML from 'components/lazy-html'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
 
@@ -50,6 +51,7 @@ export default class AboutPage extends Component {
         ]
       }
     ]
+    const basedataurl = 'https://raw.githubusercontent.com/GSA/code-gov-about-page/master/pages/html/'
     return (
       <div>
         <SiteBanner title='ABOUT' />
@@ -63,6 +65,12 @@ export default class AboutPage extends Component {
         <div className="indented">
           <div className="width-quarter">
             <SideNav alignment="left" baseurl={matchUrl} links={links} />
+          </div>
+          <div className="width-three-quarters">
+            <Switch>
+              <Route path={`${matchUrl}/overview/introduction`} component={() => <LazyContent url={`${basedataurl}overview/introduction.html`}/>}/>
+              <Route path={`${matchUrl}/overview/tracking-progress`} component={() => <LazyContent url={`${basedataurl}overview/tracking-progress.html`}/>}/>
+            </Switch>
           </div>
         </div>
       </div>

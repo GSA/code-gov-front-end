@@ -1,5 +1,5 @@
 import { UPDATE_SEARCH_PARAMS } from 'constants/actions';
 
-export default function (category, value) {
-  return { type: UPDATE_SEARCH_PARAMS, category, value };
+export default function (data) {
+  return { type: UPDATE_SEARCH_PARAMS, data };
 }

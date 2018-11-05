@@ -13,7 +13,6 @@ export default class OpenTasks extends React.Component {
   componentDidMount() {
     const boxes = this.props.boxes || {}
     if (Object.keys(boxes).length === 0) this.props.saveFilterData()
-    if (!this.props.tasks) this.props.syncResults();
   }
 
   get counter() {
@@ -37,20 +36,7 @@ export default class OpenTasks extends React.Component {
 
   onFilterBoxChange(category, values) {
     scrollToTopOfResults()
-
-    const filters = {
-      agencies: this.props.boxes.agencies.filter(isChecked),
-      categories: this.props.boxes.categories.filter(isChecked),
-      languages: this.props.boxes.languages.filter(isChecked),
-      skillLevels: this.props.boxes.skillLevels.filter(isChecked),
-      timeRequired: this.props.boxes.timeRequired.filter(isChecked)
-    }
-
-    filters[category] = values
-
-    console.warn("cat val:", category, values)
-    console.warn("filters:", filters)
-    this.props.onFilterBoxChange(filters)
+    this.props.onFilterBoxChange(category, values)
   }
 
   updatePage(newPage) {

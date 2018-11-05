@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import FilterBox from 'components/filter-box'
+import FilterBoxes from 'components/filter-boxes'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import QuickSearchBox from 'components/quick-search-box'
@@ -18,25 +18,6 @@ export default class BrowseProjects extends React.Component {
   componentDidMount () {
     refreshView()
     if (!this.props.filterData) this.props.saveFilterData()
-
-    const {
-      agencies,
-      languages,
-      licenses,
-      page,
-    } = parseLocation(this.props.location)
-
-   // if (!equal(this.props.repos.params)
-
-    // triggers initial load
-    if (!this.props.repos) {
-      this.props.onFilterBoxChange({
-        agencies: this.props.agencies,
-        languages: this.props.languages,
-        licenses: this.props.licenses,
-        usageTypes: this.props.usageTypes
-      })
-    }
   }
 
   get repoCounter() {
@@ -82,21 +63,8 @@ export default class BrowseProjects extends React.Component {
   }
 
   onFilterBoxChange(category, values) {
-
     scrollToTopOfResults()
-
-    const filters = {
-      agencies: this.props.agencies.filter(isChecked),
-      languages: this.props.languages.filter(isChecked),
-      licenses: this.props.licenses.filter(isChecked),
-      usageTypes: this.props.usageTypes.filter(isChecked)
-    }
-
-    filters[category] = values
-
-    console.warn("cat val:", category, values)
-    console.warn("filters:", filters)
-    this.props.onFilterBoxChange(filters)
+    this.props.onFilterBoxChange(category, values)
   }
 
   removeFilterTag(selectedTag) {
@@ -133,21 +101,16 @@ export default class BrowseProjects extends React.Component {
           <div id="filter-boxes-section">
             <h2>Filter</h2>
 
-            {some(this.props.languages) && (
-            <FilterBox title="Language" options={this.props.languages} onChange={values => this.onFilterBoxChange('languages', values)} />
-            )}
-
-            {some(this.props.agencies) && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={values => this.onFilterBoxChange('agencies', values)} />
-            )}
-
-            {some(this.props.licenses) && (
-            <FilterBox title="License" options={this.props.licenses} onChange={values => this.onFilterBoxChange('licenses', values)} />
-            )}
-
-            {some(this.props.usageTypes) && (
-            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={values => this.onFilterBoxChange('usageTypes', values)} />
-            )}
+            <FilterBoxes
+              boxes={this.props.boxes}
+              config={[
+                ['Language', 'languages'],
+                ['Federal Agency', 'agencies'],
+                ['Licenses', 'licenses'],
+                ['Usage Types', 'usageTypes']
+                ]}
+              onFilterBoxChange={::this.onFilterBoxChange}
+            />
 
           </div>
           <div id="filter-results-section">

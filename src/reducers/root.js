@@ -1,29 +1,25 @@
 import { combineReducers } from 'redux'
 import agencies from './agencies'
 import filters from './filters'
-import query from './query'
-import searchResults from './search'
-import browseParams from './browse-params'
-import browseResults from './browse-results'
-import project from './project'
-import searchParams from './search-params'
-import taskFilters from './task-filters'
-import taskFilterOptions from './task-filter-options'
-import taskResults from './task-results'
 
+import project from './project'
+
+import taskFilterOptions from './task-filter-options'
+
+import createParamsReducer from 'utils/reducers/create-params-reducer'
+import createResultsReducer from 'utils/reducers/create-results-reducer'
 
 const rootReducer = combineReducers({
   agencies,
-  browseParams,
-  browseResults,
+  browseParams: createParamsReducer('BROWSE'),
+  browseResults: createResultsReducer('BROWSE'),
   filters,
   project,
-  query,
-  searchParams,
-  searchResults,
-  taskFilters,
+  searchParams: createParamsReducer('SEARCH'),
+  searchResults: createResultsReducer('SEARCH'),
+  taskParams: createParamsReducer('TASK'),
   taskFilterOptions,
-  taskResults
+  taskResults: createResultsReducer('TASK')
 })
 
 export default rootReducer

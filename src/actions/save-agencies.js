@@ -1,5 +1,5 @@
 import { SAVE_AGENCIES } from 'constants/actions';
-import client from 'api'
+import client from 'api-client'
 
 export default function () {
   return async dispatch => {

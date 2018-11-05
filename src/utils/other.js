@@ -144,4 +144,12 @@ export function hasLicense(repo) {
   return repo.permissions && Array.isArray(repo.permissions.licenses) && repo.permissions.licenses.length > 0
 }
 
+export function now() {
+  return new Date().getTime()
+}
 
+export function getFilterValuesFromParamsByCategory(params, category) {
+  return params.filters
+    .filter(entry => entry.category === category)
+    .map(entry => entry.value)
+}

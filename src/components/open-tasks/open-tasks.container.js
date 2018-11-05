@@ -2,8 +2,7 @@
 import { connect } from 'react-redux'
 import { getConfigValue, getFilterData, normalize } from 'utils/other'
 import OpenTasksComponent from './open-tasks.component'
-import updateTaskFilters from 'actions/update-task-filters'
-import updateUrlParam from 'actions/update-url-param'
+import updateTaskParams from 'actions/update-task-params'
 import saveTaskFilterOptions from 'actions/save-task-filter-options'
 import updateTaskResults from 'actions/update-task-results'
 import get from 'lodash.get'
@@ -11,20 +10,20 @@ import intersection from 'lodash.intersection'
 import { push } from 'connected-react-router'
 import { excludes, filter, has, includes, overlaps, some } from '@code.gov/cautious'
 
-const mapStateToProps = ({ taskFilterOptions, taskFilters, taskResults }) => {
+const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
 
  try {
 
   console.log("taskFilterOptions:", taskFilterOptions)
 
   const selections = {
-    agencies: normalize(taskFilters ? taskFilters.agencies : []),
-    categories: normalize(taskFilters ? taskFilters.categories : []),
-    languages: normalize(taskFilters ? taskFilters.languages : []),
-    skillLevels: normalize(taskFilters ? taskFilters.skillLevels : []),
-    timeRequired: normalize(taskFilters ? taskFilters.timeRequired : []),
-    page: get(taskFilters, 'page') || 1,
-    pageSize: get(taskFilters, 'pageSize') || 10
+    agencies: normalize(taskParams ? taskParams.agencies : []),
+    categories: normalize(taskParams ? taskParams.categories : []),
+    languages: normalize(taskParams ? taskParams.languages : []),
+    skillLevels: normalize(taskParams ? taskParams.skillLevels : []),
+    timeRequired: normalize(taskParams ? taskParams.timeRequired : []),
+    page: get(taskParams, 'page') || 1,
+    pageSize: get(taskParams, 'pageSize') || 10
   }
 
   console.log("selections:", selections)
@@ -55,17 +54,11 @@ const mapStateToProps = ({ taskFilterOptions, taskFilters, taskResults }) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onFilterBoxChange: (category, values) => {
-      dispatch(updateTaskFilters(category, values))
-      dispatch(updateUrlParam(category, values))
+      dispatch(updateTaskParams({ [category]: values }))
     },
     saveFilterData: () => dispatch(saveTaskFilterOptions()),
     updatePage: newPage => {
-      dispatch(updateUrlParam('page', newPage))
-      dispatch(updateTaskFilters('page', newPage))
-    },
-    syncResults: () => {
-      console.log("starting open-task.container syncResults with selections", ownProps.selections)
-      dispatch(updateTaskResults(ownProps.selections))
+      dispatch(updateTaskParams({ page: newPage }))
     }
   }
 }

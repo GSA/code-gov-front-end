@@ -3,22 +3,22 @@
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 
-import newSearch from 'actions/new-search'
-import updateUrlParam from 'actions/update-url-param'
+import updateSearchParams from 'actions/update-search-params'
 import QuickSearchBoxComponent from './quick-search-box.component'
 
-const mapStateToProps = ({ query }) => {
+const mapStateToProps = ({ searchParams }) => {
   return {
-    query
+    query: searchParams ? searchParams.query : undefined
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmit: (query) => {
-      dispatch(push('/search'))
-      dispatch(newSearch(query))
-      dispatch(updateUrlParam('query', query))
+    onSubmit: query => {
+      dispatch(updateSearchParams( { query }))
+      if (!window.location.pathname.includes('/search')) {
+        dispatch(push('/search'))
+      }
     }
   }
 }

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getFilterData, hasLicense, normalize } from 'utils/other'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchParams from 'actions/update-search-params'
-import updateUrlParam from 'actions/update-url-param'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
 import { push } from 'connected-react-router'
@@ -15,8 +14,7 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
 
   try {
 
-    const query = get(searchResults, 'filters.query')
-
+    const query = searchParams ? searchParams.query : 'Unknown Query (Please Report this Bug at https://github.com/GSA/code-gov-web/issues'
     const selectedAgencies = searchParams ? normalize(searchParams.agencies) : []
     const selectedLicenses = searchParams ? normalize(searchParams.licenses) : []
     const selectedLanguages = searchParams ? normalize(searchParams.languages) : []
@@ -161,31 +159,14 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
 const mapDispatchToProps = dispatch => {
   return {
     onFilterBoxChange: (category, values) => {
-      dispatch(updateSearchParams(category, values))
-
-      const urlSearchParams = new URLSearchParams(window.location.search)
-      if (values.length === 0) {
-        urlSearchParams.delete(category)
-      } else {
-        urlSearchParams.set(category, values.join(','))
-      }
-
-      const newUrl = window.location.pathname + "?" + urlSearchParams.toString()
-
-      dispatch(push(newUrl))
+      dispatch(updateSearchParams({ [category]: values }))
     },
     onSortChange: value => {
-      const newPage = 1
-      dispatch(updateUrlParam('page', newPage))
-      dispatch(updateSearchParams('page', newPage))
-
-      dispatch(updateSearchParams('sort', value))
-      dispatch(updateUrlParam('sort', value))
+      dispatch(updateSearchParams({ page: 1, sort: value }))
     },
     saveFilterData: () => dispatch(saveFilterOptions()),
     updatePage: newPage => {
-      dispatch(updateUrlParam('page', newPage))
-      dispatch(updateSearchParams('page', newPage))
+      dispatch(updateSearchParams({ page: newPage }))
     }
   }
 }

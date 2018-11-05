@@ -1,5 +1,5 @@
 import { UPDATE_TASK_RESULTS } from 'constants/actions';
-import client from 'api'
+import client from 'api-client'
 
 export default function (params) {
   return async dispatch => {
