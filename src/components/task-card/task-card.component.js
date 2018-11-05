@@ -42,7 +42,7 @@ export default class TaskCardComponent extends Component {
 
   render() {
     const task = this.props.task
-    const lastModifiedString = getLastModifiedDateString(this.props.task) || 'N/A'
+    const lastModifiedString = getLastModifiedDateString(this.props.task) || 'Not Available'
 
     return (
       <div className="card-list-item card focusable">

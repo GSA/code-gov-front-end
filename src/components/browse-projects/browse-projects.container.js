@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
-import { includes, length, map } from '@code.gov/cautious'
+import { find, includes, length, map } from '@code.gov/cautious'
 import get from 'lodash.get'
 import {
   getConfigValue,
@@ -63,10 +63,26 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     }
   ]
 
+  const filterTags = browseParams.filters
+  .map(({ category, modified, value}) => {
+    const normalizedValue = value.toLowerCase()
+    const found = find(get(filters, category), item => item.value.toLowerCase() === normalizedValue)
+    let title = 'loading'
+    if (found) {
+      if (found.name) title = found.name
+      if (found.value) value = found.value
+    }
+    return { category, modified, value, title }
+  })
+  .sort((a, b) => Math.sign(a.modified - b.modified))
+
+  console.log("filterTags:", filterTags)
+
   return {
     boxes,
     browseParams,
     browseResults,
+    filterTags,
     selectedSorting,
     repos,
     selectedPage,
@@ -81,6 +97,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     saveFilterData: () => dispatch(saveFilterOptions()),
     onFilterBoxChange: (category, change) => {
       dispatch(updateBrowseFilters(category, change.value, change.type))
+    },
+    onFilterTagClick: (category, value) => {
+      dispatch(updateBrowseFilters(category, value, 'removed'))
     },
     onSortChange: value => {
       dispatch(updateBrowseParams({

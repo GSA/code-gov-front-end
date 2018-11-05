@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import FilterBoxes from 'components/filter-boxes'
+import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import QuickSearchBox from 'components/quick-search-box'
@@ -35,30 +36,21 @@ export default class BrowseProjects extends React.Component {
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }
 
-  get filterTags() {
-    if (this.state.filterTags) {
-      return (
-        <div className="filter-tags">
-          {this.state.filterTags.map(tag => {
-            <div className="filter-tag" onClick={() => this.removeFilterTag(tag)}>
-              <div className="filter-tag-title">{tag.name}</div>
-            </div>
-          })}
-        </div>
-      )
-    }
-  }
-
   get reposContainer() {
-    if (Array.isArray(this.props.repos)) {
-      return (
-        <div className="card-container">
-          <QualityPopover />
-          <ul className="card-ul">
-            {this.props.repos.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
-          </ul>
-        </div>
-      )
+    if (some(this.props.repos)) {
+      try {
+        return (
+          <div className="card-container">
+            <QualityPopover />
+            <ul className="card-ul">
+              {this.props.repos.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+            </ul>
+          </div>
+        )
+      } catch (error) {
+        console.error("reposContainer error with this.props.repos", this.props.repos)
+        throw error
+      }
     }
   }
 
@@ -67,10 +59,8 @@ export default class BrowseProjects extends React.Component {
     this.props.onFilterBoxChange(category, values)
   }
 
-  removeFilterTag(selectedTag) {
-    console.log("starting removeFilterTag")
-    const filterTags = this.state.filterTags.filter(tag => tag !== selectedTag);
-    this.setState({ filterTags })
+  onFilterTagClick(category, value) {
+    this.props.onFilterTagClick(category, value)
   }
 
   updatePage(newPage) {
@@ -118,6 +108,7 @@ export default class BrowseProjects extends React.Component {
               options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
+            <FilterTags filters={this.props.filterTags} onClick={::this.onFilterTagClick} />
             <div className="card-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
