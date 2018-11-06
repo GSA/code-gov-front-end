@@ -695,12 +695,12 @@ header.main ul li a svg {
 }
 @font-face {
   font-family: 'code-gov';
-  src: url(/fonts/code-gov.eot);
-  src: url(/fonts/code-gov.eot#iefix) format('embedded-opentype'),
-  url(/fonts/code-gov.woff2) format('woff2'),
-  url(/fonts/code-gov.woff) format('woff'),
-  url(/fonts/code-gov.ttf) format('truetype'),
-  url(/fonts/code-gov.svg#code-gov) format('svg');
+  src: url(/site/gsa/caribou/fonts/code-gov.eot);
+  src: url(/site/gsa/caribou/fonts/code-gov.eot#iefix) format('embedded-opentype'),
+  url(/site/gsa/caribou/fonts/code-gov.woff2) format('woff2'),
+  url(/site/gsa/caribou/fonts/code-gov.woff) format('woff'),
+  url(/site/gsa/caribou/fonts/code-gov.ttf) format('truetype'),
+  url(/site/gsa/caribou/fonts/code-gov.svg#code-gov) format('svg');
   font-weight: normal;
   font-style: normal;
 }
