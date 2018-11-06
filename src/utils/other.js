@@ -168,3 +168,12 @@ export function getFilterTags(params, filters) {
     })
     .sort((a, b) => Math.sign(a.modified - b.modified))
 }
+
+export function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement(script)
+    script.src = src
+    script.onload = resolve
+    document.body.appendChild(script)
+  })
+}

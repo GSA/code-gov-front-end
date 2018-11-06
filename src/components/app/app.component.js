@@ -55,6 +55,10 @@ export default class AppComponent extends Component {
             <Route path='/privacy-policy' component={PrivacyPolicy}/>
             <Route path='/projects/:repoID' component={ProjectPage}/>
             <Route path='/roadmap' component={Roadmap}/>
+
+            <Route path='/policy-guide' component={PolicyGuide}/>
+            <Route path='/about' component={AboutPage}/>
+
             <Redirect to='/' />
           </Switch>
           <Footer />

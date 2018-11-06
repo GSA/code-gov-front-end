@@ -135,6 +135,10 @@ module.exports = {
         to: path.join(OUTPUT_PATH, '/assets/img')
       },
       {
+        from: './assets/plugins',
+        to: path.join(OUTPUT_PATH, '/assets/plugins')
+      },
+      {
         from: './404.html',
         to: path.join(OUTPUT_PATH, '404.html')
       },
@@ -157,7 +161,11 @@ module.exports = {
       {
         from: 'node_modules/url-search-params-polyfill/index.js',
         to: 'polyfills/url-search-params.js'
-      }
+      },
+      {
+        from: 'node_modules/@code.gov/json-schema-web-component/index.js',
+        to: 'json-schema-web-component.js'
+      },
     ]),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),
     new HtmlWebpackPlugin({
