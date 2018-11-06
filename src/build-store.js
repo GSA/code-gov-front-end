@@ -7,10 +7,10 @@ import { getCurrentTime } from 'utils/other'
 import { clone, forEach, last, map, some, trimUndefined } from '@code.gov/cautious'
 import hydrate from './hydrate'
 
-const initialState = hydrate() || {}
+const initialState = hydrate()
 
 const buildStore = () => {
-  const composeTool = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeTool = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   return createStore(
     connectRouter(history)(rootReducer), // new root reducer with router state
     initialState,
@@ -20,7 +20,7 @@ const buildStore = () => {
         thunk
       )
     )
-  );
+  )
 }
 
-export default buildStore;
+export default buildStore

@@ -7,6 +7,7 @@ import get from 'lodash.get'
 import {
   getConfigValue,
   getFilterData,
+  getFilterTags,
   getFilterValuesFromParamsByCategory,
   normalize
 } from 'utils/other'
@@ -63,22 +64,9 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     }
   ]
 
-  const filterTags = browseParams.filters
-  .map(({ category, modified, value}) => {
-    const normalizedValue = value.toLowerCase()
-    const found = find(get(filters, category), item => item.value.toLowerCase() === normalizedValue)
-    let title = 'loading'
-    if (found) {
-      if (found.name) title = found.name
-      if (found.value) value = found.value
-    }
-    return { category, modified, value, title }
-  })
-  .sort((a, b) => Math.sign(a.modified - b.modified))
+  const filterTags = getFilterTags(browseParams, filters)
 
-  console.log("filterTags:", filterTags)
-
-  return {
+  const result = {
     boxes,
     browseParams,
     browseResults,
@@ -90,11 +78,13 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     sortOptions,
     total
   }
+
+  console.log("result:", result)
+  return result
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
-    saveFilterData: () => dispatch(saveFilterOptions()),
     onFilterBoxChange: (category, change) => {
       dispatch(updateBrowseFilters(category, change.value, change.type))
     },
@@ -102,11 +92,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(updateBrowseFilters(category, value, 'removed'))
     },
     onSortChange: value => {
-      dispatch(updateBrowseParams({
-        page: 1,
-        sort: value
-      }))
+      dispatch(updateBrowseParams({ page: 1, sort: value }))
     },
+    saveFilterData: () => dispatch(saveFilterOptions()),
     updatePage: newPage => {
       dispatch(updateBrowseParams({ page: newPage }))
     }

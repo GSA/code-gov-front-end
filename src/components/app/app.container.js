@@ -8,7 +8,7 @@ import { getConfigValue } from 'utils/other'
 
 const mapStateToProps = () => {
   return {
-    plugins: getConfigValue('plugins')
+    plugins: getConfigValue('plugins'),
   }
 }
 

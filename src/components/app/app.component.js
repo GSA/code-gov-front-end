@@ -30,22 +30,31 @@ export default class AppComponent extends Component {
     refreshView()
   }
 
-  render() {
+  /*
+  shouldComponentUpdate(nextProps) {
+    console.log("running app component shouldComponentUpdate")
+    return window.location.pathname !== this.props.location.pathname
+  }
+  */
 
+  render() {
+    console.error("starting app component render with pathname", this.props.location.pathname)
+
+    const location = window.location
 
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
           <Menu />
-          <Switch>
+          <Switch location={location}>
             <Route exact path='/' component={Home}/>
+            <Route path='/search' component={SearchPage}/>
             <Route path='/about' component={AboutPage}/>
             <Route path='/browse-projects' component={BrowseProjects}/>
             <Route path='/open-tasks' component={OpenTasks}/>
             <Route path='/privacy-policy' component={PrivacyPolicy}/>
             <Route path='/projects/:repoID' component={ProjectPage}/>
             <Route path='/roadmap' component={Roadmap}/>
-            <Route path='/search' component={SearchPage}/>
             <Redirect to='/' />
           </Switch>
           <Footer />

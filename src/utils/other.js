@@ -3,7 +3,7 @@
 
 import get from 'lodash.get'
 import intersection from 'lodash.intersection'
-import { lower, run, startsWith, trim } from '@code.gov/cautious'
+import { find, lower, run, startsWith, trim } from '@code.gov/cautious'
 import siteConfig from '../../config/site/site.json'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
@@ -152,4 +152,19 @@ export function getFilterValuesFromParamsByCategory(params, category) {
   return params.filters
     .filter(entry => entry.category === category)
     .map(entry => entry.value)
+}
+
+export function getFilterTags(params, filters) {
+  return params.filters
+    .map(({ category, modified, value}) => {
+      const normalizedValue = value.toLowerCase()
+      const found = find(get(filters, category), item => item.value.toLowerCase() === normalizedValue)
+      let title = 'loading'
+      if (found) {
+        if (found.name) title = found.name
+        if (found.value) value = found.value
+      }
+      return { category, modified, value, title }
+    })
+    .sort((a, b) => Math.sign(a.modified - b.modified))
 }

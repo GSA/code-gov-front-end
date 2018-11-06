@@ -1,8 +1,15 @@
 /* global URLSearchParams */
 
 import { connect } from 'react-redux';
-import { getFilterData, hasLicense, normalize } from 'utils/other'
+import {
+  getFilterData,
+  getFilterTags,
+  getFilterValuesFromParamsByCategory,
+  hasLicense,
+  normalize
+} from 'utils/other'
 import saveFilterOptions from 'actions/save-filter-options'
+import updateSearchFilters from 'actions/update-search-filters'
 import updateSearchParams from 'actions/update-search-params'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
@@ -14,41 +21,29 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
 
   try {
 
-    const query = searchParams ? searchParams.query : 'Unknown Query (Please Report this Bug at https://github.com/GSA/code-gov-web/issues'
-    const selectedAgencies = searchParams ? normalize(searchParams.agencies) : []
-    const selectedLicenses = searchParams ? normalize(searchParams.licenses) : []
-    const selectedLanguages = searchParams ? normalize(searchParams.languages) : []
-    const selectedUsageTypes = normalize(searchParams ? searchParams.usageTypes : [])
-    const selectedPage = get(searchParams, 'page') || 1
-    const selectedPageSize = get(searchParams, 'pageSize') || 10
-    const selectedSorting = get(searchParams, 'sort') || 'best_match'
+    const categories = ['agencies', 'languages', 'licenses', 'usageTypes']
 
-    let agencies = getFilterData('agencies', 'agency.acronym', searchResults, filters)
-    if (agencies) {
-      agencies = agencies.map(({name, value}) => {
-        return { name, value, checked: includes(selectedAgencies, normalize(value)) }
-      })
-    }
-    let languages = getFilterData('languages', 'languages', searchResults, filters)
-    if (languages) {
-      languages = languages.map(({name, value}) => {
-        return { name, value, checked: includes(selectedLanguages, normalize(value)) }
-      })
-    }
+    const selections = categories.reduce((accumulator, key) => {
+      accumulator[key] = normalize(getFilterValuesFromParamsByCategory(searchParams, key))
+      return accumulator
+    }, {})
+    console.log("selections:", selections)
 
-    let licenses = getFilterData('licenses', 'permissions.licenses[0].name', searchResults, filters)
-    if (licenses) {
-      licenses = licenses.map(({name, value}) => {
-        return { name, value, checked: includes(selectedLicenses, normalize(value)) }
-      })
-    }
+    const query = searchParams.query
+    const selectedPage = searchParams.page
+    const selectedPageSize = searchParams.size
+    const selectedSorting = searchParams.sort
 
-    let usageTypes = getFilterData('licenses', 'permissions.usageType', searchResults, filters)
-    if (usageTypes) {
-      usageTypes = usageTypes.map(({name, value}) => {
-        return { name, value, checked: includes(selectedLicenses, normalize(value)) }
-      })
+    let boxes = {}
+    if (filters) {
+      boxes = categories.reduce((accumulator, key) => {
+        accumulator[key] = filters[key].map(({ name, value}) => {
+          return { name, value, checked: includes(selections[key], normalize(value)) }
+        })
+        return accumulator
+      }, {})
     }
+    console.log("boxes:", boxes)
 
     let total = 0
 
@@ -70,15 +65,15 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
       .filter(repo => {
         if (filters) {
 
-          if (some(selectedAgencies) && !selectedAgencies.includes(normalize(repo.agency.acronym))) {
+          if (some(selections.agencies) && !selections.agencies.includes(normalize(repo.agency.acronym))) {
             return false
           }
 
-          if (some(selectedLanguages) && !overlaps(normalize(repo.languages), selectedLanguages)) {
+          if (some(selections.languages) && !overlaps(normalize(repo.languages), selections.languages)) {
             return false
           }
 
-          if (some(selectedLicenses)) {
+          if (some(selections.licenses)) {
 
             // no licenses assigned on the repo
             if (hasLicense(repo) === false) {
@@ -86,13 +81,13 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
             }
 
             const repoLicenses = repo.permissions.licenses.map(license => normalize(license.name))
-            if (!overlaps(repoLicenses, selectedLicenses)) {
+            if (!overlaps(repoLicenses, selections.licenses)) {
               return false
             }
           }
 
           const normalizedRepoUsageType = normalize(repo.permissions.usageType)
-          if (some(selectedUsageTypes) && !selectedUsageTypes.includes(normalizedRepoUsageType)) {
+          if (some(selections.usageTypes) && !selections.usageTypes.includes(normalizedRepoUsageType)) {
             return false
           }
 
@@ -136,21 +131,25 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
       }
     ]
 
-    return {
-      agencies,
+    const filterTags = getFilterTags(searchParams, filters)
+
+    const result = {
+      boxes,
       filteredResults,
+      filterTags,
       filters,
-      languages,
-      licenses,
       searchParams,
       selectedPage,
       selectedPageSize,
       searchResults,
       sortOptions,
       query,
-      total,
-      usageTypes
+      total
     }
+
+    console.log("search-page.container's mapStateToProps function is returning", result)
+
+    return result
   } catch (error) {
     console.error(error)
   }
@@ -158,8 +157,11 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFilterBoxChange: (category, values) => {
-      dispatch(updateSearchParams({ [category]: values }))
+    onFilterBoxChange: (category, change) => {
+      dispatch(updateSearchFilters(category, change.value, change.type))
+    },
+    onFilterTagClick: (category, value) => {
+      dispatch(updateSearchFilters(category, value, 'removed'))
     },
     onSortChange: value => {
       dispatch(updateSearchParams({ page: 1, sort: value }))

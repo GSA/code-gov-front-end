@@ -59,10 +59,6 @@ export default class BrowseProjects extends React.Component {
     this.props.onFilterBoxChange(category, values)
   }
 
-  onFilterTagClick(category, value) {
-    this.props.onFilterTagClick(category, value)
-  }
-
   updatePage(newPage) {
     scrollToTopOfResults()
     this.props.updatePage(newPage)
@@ -108,7 +104,7 @@ export default class BrowseProjects extends React.Component {
               options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
-            <FilterTags filters={this.props.filterTags} onClick={::this.onFilterTagClick} />
+            <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
             <div className="card-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}

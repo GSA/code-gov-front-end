@@ -10,7 +10,7 @@ export default {
   searchParams: {
     page: 1,
     query: '',
-    size: 100,
+    size: 10,
     sort: 'best_match',
     filters: []
   },

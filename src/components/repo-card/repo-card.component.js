@@ -35,7 +35,6 @@ export default class RepoCardComponent extends Component {
     const repo = this.props.repo
     if (some(repo.languages)) {
       const languages = repo.languages
-      console.log("languages:", languages)
       return <CardPart title='Languages' text={languages.map(language => <span key={language}>&nbsp;{language}&nbsp;</span>)} />
     } else {
       return <CardPart title='Languages' text='Not Available' />

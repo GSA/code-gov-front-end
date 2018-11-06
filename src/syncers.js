@@ -42,9 +42,9 @@ const syncers = [
       count++
       if (count < threshold) {
         if (state.searchParams && state.searchParams.query && state.searchParams.query !== '') {
-          dispatch(clearSearchResults())
-        } else {
           dispatch(updateSearchResults(state.searchParams))
+        } else {
+          dispatch(clearSearchResults())
         }
       }
     }

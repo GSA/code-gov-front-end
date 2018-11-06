@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
-import FilterBox from 'components/filter-box'
+import FilterBoxes from 'components/filter-boxes'
+import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
 import RepoCard from 'components/repo-card'
@@ -46,26 +47,6 @@ export default class SearchPage extends React.Component {
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }
 
-  get filterTags() {
-    if (this.state.filterTags) {
-      return (
-        <div className="filter-tags">
-          {this.state.filterTags.map(tag => {
-            <div className="filter-tag" key={tag.name} onClick={() => this.removeFilterTag(tag)}>
-              <div className="filter-tag-title">{tag.name}</div>
-            </div>
-          })}
-        </div>
-      )
-    }
-  }
-
-  removeFilterTag(selectedTag) {
-    console.log("starting removeFilterTag")
-    const filterTags = this.state.filterTags.filter(tag => tag !== selectedTag);
-    this.setState({ filterTags })
-  }
-
   get reposContainer() {
     const filteredResults = this.props.filteredResults
     console.log("starting reposContainers with filteredResults:", filteredResults)
@@ -108,24 +89,18 @@ export default class SearchPage extends React.Component {
         </div>
         <div className="indented">
           <div id="filter-boxes-section">
-
             <h2>Filter</h2>
 
-            {some(this.props.languages) && (
-            <FilterBox title="Language" options={this.props.languages} onChange={values => this.onFilterBoxChange('languages', values)} />
-            )}
-
-            {some(this.props.agencies) && (
-            <FilterBox title="Federal Agency" options={this.props.agencies} onChange={values => this.onFilterBoxChange('agencies', values)} />
-            )}
-
-            {some(this.props.licenses) && (
-            <FilterBox title="License" options={this.props.licenses} onChange={values => this.onFilterBoxChange('licenses', values)} />
-            )}
-
-            {some(this.props.usageTypes) && (
-            <FilterBox title="Usage Type" options={this.props.usageTypes} onChange={values => this.onFilterBoxChange('usageTypes', values)} />
-            )}
+            <FilterBoxes
+              boxes={this.props.boxes}
+              config={[
+                ['Language', 'languages'],
+                ['Federal Agency', 'agencies'],
+                ['Licenses', 'licenses'],
+                ['Usage Types', 'usageTypes']
+                ]}
+              onFilterBoxChange={::this.onFilterBoxChange}
+            />
 
           </div>
           <div id="filter-results-section">
@@ -133,6 +108,7 @@ export default class SearchPage extends React.Component {
               options={this.props.sortOptions}
               onSortChange={this.props.onSortChange}
             />
+            <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
             <div className="card-list">
               {this.reposContainer}
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
