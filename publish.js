@@ -10,8 +10,11 @@ if (!DIR) {
 }
 
 const options = {
-  dotfiles: false
+  dotfiles: false,
+  repo: process.env.CODE_GOV_REPO || 'git@github.com:GSA/caribou'
 }
+
+console.log("options:", options)
 
 if (process.env.CODE_GOV_BRANCH) {
   options.branch = process.env.CODE_GOV_BRANCH
