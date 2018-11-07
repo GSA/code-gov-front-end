@@ -27,28 +27,22 @@
 
 .repo-list-summary-wrapper,
 .ngx-pagination {
-  display: none;
+  display: block;
+  text-align: center;
 
-  @media screen and (min-width: $medium-screen) {
+  @media screen and (min-width: $large-screen) {
     display: inline-block;
   }
 }
 
-.repo-list-summary {
-  display: inline-block;
-  font-size: 0.8em;
-  line-height: 22px;
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-
 .card-list .ngx-pagination {
-  float: right;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: bold;
-  margin: 0;
-  margin-top: 10px;
+  margin: 10px 0;
   user-select: none;
+  @media screen and (min-width: $large-screen) {
+    float: right;
+  }
 
   li {
     display: inline-block;
@@ -79,9 +73,16 @@
     }
   }
 
-  .page:not(.first) {
-    border-left: 2px solid $color-gray;
+  .page {
+    display: none;
+    @media screen and (min-width: $medium-screen) {
+      display: inline;
+      .page:not(.first) {
+        border-left: 2px solid $color-gray;
+      }
   }
+}
+
 
   .current {
     background: none;
