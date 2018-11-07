@@ -170,10 +170,12 @@ export function getFilterTags(params, filters) {
 }
 
 export function loadScript(src) {
+  console.log("starting loadScript with", src)
   return new Promise((resolve, reject) => {
-    const script = document.createElement(script)
+    const script = document.createElement('script')
     script.src = src
     script.onload = resolve
     document.body.appendChild(script)
+    console.log("appended:", script, "to body")
   })
 }

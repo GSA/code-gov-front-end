@@ -164,8 +164,20 @@ module.exports = {
       },
       {
         from: 'node_modules/@code.gov/json-schema-web-component/index.js',
-        to: 'json-schema-web-component.js'
+        to: 'webcomponents/json-schema.js'
       },
+      {
+        from: 'node_modules/@code.gov/compliance-dashboard-web-component/index.js',
+        to: 'webcomponents/compliance-dashboard.js'
+      },
+      {
+        from: 'node_modules/@code.gov/json-schema-validator-web-component/index.js',
+        to: 'webcomponents/json-schema-validator.js'
+      },
+      {
+        from: 'node_modules/ajv/dist/ajv.min.js',
+        to: 'external/ajv.min.js'
+      }
     ]),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),
     new HtmlWebpackPlugin({
