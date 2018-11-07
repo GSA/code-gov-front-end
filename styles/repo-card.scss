@@ -72,4 +72,13 @@
       }
     }
   }
+
+.language:after {
+  content: ", "
+}
+
+.language:last-of-type:after {
+  content: "";
+}
+
 }
