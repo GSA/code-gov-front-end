@@ -131,6 +131,10 @@ module.exports = {
         to: path.join(OUTPUT_PATH, '.nojekyll')
       },
       {
+        from: './assets/data',
+        to: path.join(OUTPUT_PATH, '/assets/data')
+      },
+      {
         from: './assets/img',
         to: path.join(OUTPUT_PATH, '/assets/img')
       },
