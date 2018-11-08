@@ -12,6 +12,8 @@
 
 
   button {
+    font-size: 1.4rem;
+    padding: 1rem .6rem;
     @media screen and (min-width: $medium-screen) {
       margin: 0;
       padding: 1rem 1rem;
