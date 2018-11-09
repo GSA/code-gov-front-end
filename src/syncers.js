@@ -6,11 +6,21 @@ import updateTaskResults from 'actions/update-task-results'
 
 import syncURLSearchParams from 'actions/sync-url-search-params'
 
+import collapseAllMobileMenuOptions from 'actions/collapse-all-mobile-menu-options'
+
 let count = 0
 let threshold = 20
 
 const syncers = [
 
+  {
+    select: state => state.displayMobileMenu,
+    sync: (state, dispatch) => {
+      if (state.displayMobileMenu === false) {
+        dispatch(collapseAllMobileMenuOptions())
+      }
+    }
+  },
   {
     select: state => ([
       state.router.location.pathname,

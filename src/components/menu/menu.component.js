@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { PrimaryMenuOption, SecondaryDropdown } from './subcomponents'
-import './menu.scss'
+import MobileMenuControl from 'components/mobile-menu-control'
+import { map } from '@code.gov/cautious'
 
 export default class Menu extends Component {
   /*
@@ -18,7 +19,8 @@ export default class Menu extends Component {
       height: 'auto',
       notAtTop: false,
       menu: props.menu,
-      searchBoxShown: false
+      searchBoxShown: false,
+      showMobileMenu: false
     }
 
     this.onClickMenuOption = this.onClickMenuOption.bind(this)
@@ -77,8 +79,8 @@ export default class Menu extends Component {
   }
 
   get menus() {
-    return this.props.menu.map((menuOption) => (
-      <Fragment>
+    return this.props.menu.map(menuOption => (
+      <Fragment key={menuOption.name}>
         <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption}/>
         <SecondaryMenuOption menuOption={menuOption} />
       </Fragment>
@@ -130,14 +132,12 @@ export default class Menu extends Component {
       <header className={headerClassName}>
         <nav className={navClassName} style={navStyle} aria-label="primary">
 
-          <div className="mobile-menu-button show-w-lte-700">
-            <div className="icon icon-menu"></div>
-          </div>
+          <MobileMenuControl />
 
           {this.logo}
 
           <ul role="menubar" aria-label="primary">
-            {this.props.menu && this.props.menu.map(menuOption => {
+            {map(this.props.menu, menuOption => {
               return (
                 <li className={(menuOption.expanded ? 'expanded' : '')} key={menuOption.name} role="none">
                   <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption}/>

@@ -1,33 +1,13 @@
-@import '~@code.gov/code-gov-style/_sass/_variables';
-
-
-
 header.main {
-  height: 50px;
+  height: $header-height;
 
 
   nav {
 
-    .mobile-menu-button {
-      float: left;
-      font-size: 44px;
-      height: 50px;
-      margin: 0;
-      padding: 0;
-      padding-bottom: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-      position: absolute;
-      width: 64px;
-
-      .icon {
-        color: white;
-        height: 44px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 44px;
-      }
+    @media screen and (max-width: $header-switch) {
+      height: 100%;
+      min-height: $header-height;
+      position: relative;
     }
 
     a {
@@ -35,18 +15,39 @@ header.main {
         height: 33px;
         width: 175px;
 
-        @media screen and (max-width: 600px) {
-          padding-top: 10px;
+        @media screen and (max-width: $header-switch) {
+          padding: 5px;
         }
       }
     }
-  }
 
-  ul {
-    li {
-      a {
-        svg {
-          float: left;
+    mobile-menu-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      .mobile-menu-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        .icon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    .mobile-menu {
+      top: calc(#{$header-height} + 10px);
+    }
+
+    ul {
+      li {
+        a {
+          svg {
+            float: left;
+          }
         }
       }
     }

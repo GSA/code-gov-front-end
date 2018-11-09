@@ -8,11 +8,15 @@ import taskFilterOptions from './task-filter-options'
 
 import createParamsReducer from 'utils/reducers/create-params-reducer'
 import createResultsReducer from 'utils/reducers/create-results-reducer'
+import displayMobileMenu from './mobile-menu'
+import expandedMobileMenuOptions from './expanded-mobile-menu-options'
 
 const rootReducer = combineReducers({
   agencies,
   browseParams: createParamsReducer('BROWSE'),
   browseResults: createResultsReducer('BROWSE'),
+  displayMobileMenu,
+  expandedMobileMenuOptions,
   filters,
   project,
   searchParams: createParamsReducer('SEARCH'),

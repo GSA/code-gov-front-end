@@ -23,8 +23,8 @@
           "links": [
             { "name": "OVERVIEW", "url": "/about/overview" },
             { "name": "COMPLIANCE", "url": "/about/compliance" },
-            { "name": "OPEN SOURCE PILOT", "url": "/about/open-source-pilot" },
-            { "name": "SOURCE CODE POLICY", "url": "/policy-guide/introduction" }
+            { "name": "OPEN SOURCE PILOT", "url": "/about/open-source" },
+            { "name": "SOURCE CODE POLICY", "url": "/policy-guide" }
           ]
         },
         {
@@ -50,6 +50,47 @@
         },
         {
           "name": "SOCIAL",
+          "links": [
+            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-web" },
+            { "name": "Blog", "url": "https://medium.com/codedotgov" },
+            { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
+            { "name": "Twitter", "url": "https://twitter.com/codedotgov" },
+            { "name": "Contact Us", "url": "mailto:code@gsa.gov" }
+          ]
+        }
+      ],
+      "mobile_menu": [{
+          "name": "About",
+          "links": [
+            { "name": "Overview", "url": "/about/overview" },
+            { "name": "Compliance", "url": "/about/compliance" },
+            { "name": "Open Source Pilot", "url": "/about/open-source" },
+            { "name": "Source Code Policy", "url": "/policy-guide" }
+          ]
+        },
+        {
+          "name": "Browse Projects",
+          "url": "/browse-projects"
+        },
+        {
+          "name": "Federal Agencies",
+          "links": [
+            { "name": "How to Inventory Code", "url": "/policy-guide/docs/compliance/inventory-code" },
+            { "name": "Tools", "url": "/policy-guide/docs/compliance/inventory-code/tools/validate-schema" },
+            { "name": "Compliance Dashboard", "url": "/policy-guide/docs/compliance/dashboard" }
+          ]
+        },
+        {
+          "name": "Developers",
+          "links": [
+            { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
+            { "name": "Open Tasks", "url": "/open-tasks" },
+            { "name": "Notebooks", "url": "https://beta.observablehq.com/search?query=%22code.gov%22" },
+            { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
+          ]
+        },
+        {
+          "name": "Social",
           "links": [
             { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-web" },
             { "name": "Blog", "url": "https://medium.com/codedotgov" },

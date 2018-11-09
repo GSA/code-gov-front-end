@@ -3,8 +3,9 @@ import get from 'lodash.get'
 import { getConfigValue } from 'utils/other'
 import MenuComponent from './menu.component';
 
-const mapStateToProps = ({ router }) => {
-  const onHomePage = get(router, 'location.pathname') === '/'
+const mapStateToProps = () => {
+  // not using router from redux store because it's not reliable here
+  const onHomePage = window.location.pathname === '/'
   return {
     color: onHomePage ? 'dark' : 'white',
     logoDark: getConfigValue('content.header.logos.dark'),

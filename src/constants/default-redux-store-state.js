@@ -6,6 +6,8 @@ export default {
     sort: 'data_quality',
     filters: []
   },
+  displayMobileMenu: false,
+  expandedMobileMenuOptions: [],
   project: null,
   searchParams: {
     page: 1,
