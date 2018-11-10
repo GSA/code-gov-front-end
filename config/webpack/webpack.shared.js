@@ -14,8 +14,8 @@ console.log("process.env.CODE_GOV_API_BASE:", process.env.CODE_GOV_API_BASE)
 console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
 
 // https://webpack.js.org/guides/public-path/
-const ASSET_PATH = process.env.ASSET_PATH || '/';
-console.log("process.env.ASSET_PATH:", process.env.ASSET_PATH)
+const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
+console.log("process.env.PUBLIC_PATH:", process.env.PUBLIC_PATH)
 
 let OUTPUT_PATH;
 if (process.env.OUTPUT_PATH) {
@@ -50,7 +50,7 @@ module.exports = {
     chunkFilename: '[name].bundle.js',
     filename: '[name].bundle.js',
     path: OUTPUT_PATH,
-    publicPath: ASSET_PATH
+    publicPath: PUBLIC_PATH
   },
   entry,
   resolve: {
@@ -121,7 +121,7 @@ module.exports = {
   },
   plugins: [
     new DefinePlugin({
-      'ASSET_PATH': JSON.stringify(ASSET_PATH)
+      'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH)
     }),
     new EnvironmentPlugin(["CODE_GOV_API_BASE", "CODE_GOV_API_KEY"]),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
@@ -188,7 +188,7 @@ module.exports = {
       hash: true,
       template: 'index.html',
       templateParameters: {
-        ASSET_PATH
+        PUBLIC_PATH
       },
       title: 'caribou',
     })

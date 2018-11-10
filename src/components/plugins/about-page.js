@@ -1,4 +1,4 @@
-/* global ASSET_PATH */
+/* global PUBLIC_PATH */
 /* global customElements */
 /* global fetch */
 import React, { Component, Fragment } from 'react'
@@ -9,9 +9,9 @@ import LazyHTML from 'components/lazy-html'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
 
-const abouturl = ASSET_PATH + 'about'
+const abouturl = PUBLIC_PATH + 'about'
 
-const dataurl = ASSET_PATH + "assets/plugins/about-page/"
+const dataurl = PUBLIC_PATH + "assets/plugins/about-page/"
 
 const onDashboard = ["DHS", "DOC", "DOD", "DOE", "DOI", "DOJ", "DOL", "DOS", "DOT", "ED", "EPA", "GSA", "HHS", "HUD", "NASA", "NRC", "OPM", "SBA", "SSA", "TREASURY", "USAID", "USDA", "VA"]
 
@@ -100,12 +100,12 @@ class ComplianceDashboard extends Component {
     if (!this.loading) {
       const webcomponent = customElements.get('compliance-dashboard')
       if (!webcomponent) {
-        loadScript(ASSET_PATH + 'webcomponents/compliance-dashboard.js', true)
+        loadScript(PUBLIC_PATH + 'webcomponents/compliance-dashboard.js', true)
       }
       client.getCompliance().then(compliance => {
         compliance = compliance.filter(agency => onDashboard.includes(agency.acronym))
         compliance.forEach(agency => {
-          agency.img = ASSET_PATH + `assets/img/logos/agencies/${agency.acronym}-50x50.png`
+          agency.img = PUBLIC_PATH + `assets/img/logos/agencies/${agency.acronym}-50x50.png`
         })
         this.setState( { compliance })
       })
@@ -141,7 +141,7 @@ class InventoryCode extends Component {
       this.loading = true
       const webcomponent = customElements.get('json-schema')
       if (!webcomponent) {
-        loadScript(ASSET_PATH + 'webcomponents/json-schema.js', true)
+        loadScript(PUBLIC_PATH + 'webcomponents/json-schema.js', true)
       }
     }
   }
@@ -150,7 +150,7 @@ class InventoryCode extends Component {
     return (
       <Fragment>
         <LazyHTML url={`${dataurl}compliance/how-to-inventory-a.html`}/>
-        <json-schema url={ASSET_PATH + 'assets/data/schema.json'} />
+        <json-schema url={PUBLIC_PATH + 'assets/data/schema.json'} />
         <LazyHTML url={`${dataurl}compliance/how-to-inventory-b.html`}/>
       </Fragment>
     )
@@ -170,7 +170,7 @@ class JSONValidator extends React.Component {
       this.loading = true
       const webcomponent = customElements.get('json-schema-validator')
       if (!webcomponent) {
-        loadScript(ASSET_PATH + 'webcomponents/json-schema-validator.js', true)
+        loadScript(PUBLIC_PATH + 'webcomponents/json-schema-validator.js', true)
       }
     }
   }
@@ -180,7 +180,7 @@ class JSONValidator extends React.Component {
       <Fragment>
         <h1>Code.json Validator</h1>
         <p>Please enter your code.json file below in order to validate it correctly meets the specification.</p>
-        <json-schema-validator ajv={ASSET_PATH + 'external/ajv.min.js'} metaschema={ASSET_PATH + 'assets/data/json-schema-draft-04.json'} schema={ASSET_PATH + 'assets/data/schema.json'} />
+        <json-schema-validator ajv={PUBLIC_PATH + 'external/ajv.min.js'} metaschema={PUBLIC_PATH + 'assets/data/json-schema-draft-04.json'} schema={PUBLIC_PATH + 'assets/data/schema.json'} />
       </Fragment>
     )
   }

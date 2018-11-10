@@ -11,8 +11,8 @@
 
     <meta property="og:title" content="code.gov">
     <meta property="og:site_name" content="Code.gov">
-    <meta property="og:image" content="<%= ASSET_PATH %>assets/img/og.jpg">
-    <meta property="og:image:url" content="<%= ASSET_PATH %>assets/img/og.jpg">
+    <meta property="og:image" content="<%= PUBLIC_PATH %>assets/img/og.jpg">
+    <meta property="og:image:url" content="<%= PUBLIC_PATH %>assets/img/og.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -24,11 +24,11 @@
     <meta name="twitter:site" content="@CodeDotGov">
     <meta name="twitter:title" content="Code.gov">
     <meta name="twitter:description" content="Code.gov is a platform designed to improve access to the federal government’s custom-developed software.">
-    <meta name="twitter:image" content="<%= ASSET_PATH %>assets/img/og.jpg">
+    <meta name="twitter:image" content="<%= PUBLIC_PATH %>assets/img/og.jpg">
 
     <meta name="google-site-verification" content="FeV1oMKur5PZSGJtUKhKM5EnNGVXn3tTK13iUk_7NZc">
 
-    <link rel="image_src" type="image/jpeg" href="<%= ASSET_PATH %>assets/img/og.jpg">
+    <link rel="image_src" type="image/jpeg" href="<%= PUBLIC_PATH %>assets/img/og.jpg">
   </head>
   <body>
     <div id="app">
@@ -61,7 +61,7 @@
         </svg>
       </div>
     </div>
-    <script src="<%= ASSET_PATH %>code-gov-web-components.js" defer></script>
+    <script src="<%= PUBLIC_PATH %>code-gov-web-components.js" defer></script>
     <script>
 
       function addToLoadScreen(text) {
@@ -78,12 +78,12 @@
       // load fetch polyfill if required
       if (window.fetch === undefined) {
         console.warn("this browser doesn't support fetch, so we'll load a polyfill");
-        loadScript('<%= ASSET_PATH %>polyfills/fetch.js');
+        loadScript('<%= PUBLIC_PATH %>polyfills/fetch.js');
       }
 
       if (window.customElements === undefined) {
         console.warn("this browser doesn't support custom elements, so we'll load a polyfill");
-        loadScript('<%= ASSET_PATH %>polyfills/custom-elements.js');
+        loadScript('<%= PUBLIC_PATH %>polyfills/custom-elements.js');
       }
 
       try {
@@ -91,7 +91,7 @@
         new CustomEvent('test');
       } catch (error) {
         console.warn("This browser doesn't support CustomEvent, which is used by code-gov-style, so we'll load a polyfill");
-        loadScript('<%= ASSET_PATH %>polyfills/custom-event.js');
+        loadScript('<%= PUBLIC_PATH %>polyfills/custom-event.js');
       }
 
       try {
@@ -99,7 +99,7 @@
         new URLSearchParams("?test=test").delete("test");
       } catch (error) {
         console.warn("This browser doesn't support URLSearchParams, so we'll load a polyfill");
-        loadScript('<%= ASSET_PATH %>polyfills/url-search-params.js');
+        loadScript('<%= PUBLIC_PATH %>polyfills/url-search-params.js');
       }
 
       addToLoadScreen("loading index.bundle.js")

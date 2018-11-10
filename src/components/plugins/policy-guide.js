@@ -1,11 +1,11 @@
-/* global ASSET_PATH */
+/* global PUBLIC_PATH */
 /* global fetch */
 import React, { Component, Fragment } from 'react'
 import { Link, NavLink, Route, Switch } from 'react-router-dom'
 import LazyHTML from 'components/lazy-html'
 import SiteBanner from 'components/site-banner'
 
-const baseurl = ASSET_PATH + "assets/plugins/fscp-react-component/"
+const baseurl = PUBLIC_PATH + "assets/plugins/fscp-react-component/"
 
 const pages = [
   { display: 'Introduction', route: 'introduction', filename: '0-introduction' },

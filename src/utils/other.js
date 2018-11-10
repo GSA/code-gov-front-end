@@ -1,4 +1,4 @@
-/* global ASSET_PATH */
+/* global PUBLIC_PATH */
 /* global URLSearchParams */
 
 import get from 'lodash.get'
@@ -15,7 +15,7 @@ export function isFalse(input) {
 
 export function adjustAssetPath(thing) {
   const pattern = /.?\/?assets\//
-  const newAssetPath = ASSET_PATH + 'assets/'
+  const newAssetPath = PUBLIC_PATH + 'assets/'
   if (startsWith(thing, './assets') || startsWith(thing, '/assets/') || startsWith(thing, 'assets/')) {
     return thing.replace(pattern, newAssetPath)
   } else if (typeof value === 'object') {
