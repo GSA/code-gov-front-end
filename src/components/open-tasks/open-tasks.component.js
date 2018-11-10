@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { map, some } from '@code.gov/cautious'
-import FilterBox from 'components/filter-box'
+import FilterBoxes from 'components/filter-boxes'
+import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
@@ -64,25 +65,18 @@ export default class OpenTasks extends React.Component {
           <div id="filter-boxes-section">
             <h2>Filter</h2>
 
-            {some(this.props.boxes.languages) && (
-            <FilterBox title="Language" options={this.props.boxes.languages} onChange={values => this.onFilterBoxChange('languages', values)} />
-            )}
+            <FilterBoxes
+              boxes={this.props.boxes}
+              config={[
+                ['Language', 'languages'],
+                ['Federal Agency', 'agencies'],
+                ['Skill Level', 'skillLevels'],
+                ['Time Required', 'timeRequired'],
+                ['Type', 'categories']
+                ]}
+              onFilterBoxChange={::this.onFilterBoxChange}
+            />
 
-            {some(this.props.boxes.agencies) && (
-            <FilterBox title="Federal Agency" options={this.props.boxes.agencies} onChange={values => this.onFilterBoxChange('agencies', values)} />
-            )}
-
-            {some(this.props.boxes.skillLevels) && (
-            <FilterBox title="Skill Level" options={this.props.boxes.skillLevels} onChange={values => this.onFilterBoxChange('skillLevels', values)} />
-            )}
-
-            {some(this.props.boxes.timeRequired) && (
-            <FilterBox title="Time Required" options={this.props.boxes.timeRequired} onChange={values => this.onFilterBoxChange('timeRequired', values)} />
-            )}
-
-            {some(this.props.categories) && (
-            <FilterBox title="Type" options={this.categories} onChange={values => this.onFilterBoxChange('categories', values)} />
-            )}
           </div>
           <div id="filter-results-section">
             <div className="sort-section">
@@ -90,6 +84,7 @@ export default class OpenTasks extends React.Component {
                 <span>Explore Open Tasks</span>
               </h2>
             </div>
+            <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
             <div className="card-list">
               <div className="card-container">
                 <ul className="card-ul">

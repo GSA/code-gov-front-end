@@ -1,7 +1,8 @@
 /* global URLSearchParams */
 import { connect } from 'react-redux'
-import { getConfigValue, getFilterData, normalize } from 'utils/other'
+import { getConfigValue, getFilterData, getFilterTags, normalize } from 'utils/other'
 import OpenTasksComponent from './open-tasks.component'
+import updateTaskFilters from 'actions/update-task-filters'
 import updateTaskParams from 'actions/update-task-params'
 import saveTaskFilterOptions from 'actions/save-task-filter-options'
 import updateTaskResults from 'actions/update-task-results'
@@ -45,7 +46,17 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
 
   const total = get(taskResults, 'total')
 
-  return { boxes: filterBoxItems, selections, tasks, total }
+  const filterTags = getFilterTags(taskParams, taskFilterOptions)
+
+  const result = {
+    boxes: filterBoxItems,
+    selections,
+    filterTags,
+    tasks,
+    total
+  }
+  console.log("open-tasks.container passing to component:", result)
+  return result
  } catch (error) {
   console.error(error)
  }
@@ -53,8 +64,11 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onFilterBoxChange: (category, values) => {
-      dispatch(updateTaskParams({ [category]: values }))
+    onFilterBoxChange: (category, change) => {
+      dispatch(updateTaskFilters(category, change.value, change.type))
+    },
+    onFilterTagClick: (category, value) => {
+      dispatch(updateTaskFilters(category, value, 'removed'))
     },
     saveFilterData: () => dispatch(saveTaskFilterOptions()),
     updatePage: newPage => {
