@@ -35,7 +35,7 @@
     "@code.gov/code-gov-font": "^0.7.0",
     "@code.gov/code-gov-style": "1.10.10",
     "@code.gov/compliance-dashboard-web-component": "^0.1.1",
-    "@code.gov/fscp-react-component": "0.2.0",
+    "@code.gov/fscp-react-component": "0.3.0",
     "@code.gov/json-schema-validator-web-component": "^0.1.0",
     "@code.gov/json-schema-web-component": "^0.1.1",
     "ajv": "^6.5.5",
