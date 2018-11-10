@@ -32,14 +32,9 @@ export default class Menu extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    try {
-
-    } catch (error) {
-      console.log("This error happened in menu.component's shouldComponentUpdate")
-    }
     /* We have to use JSON stringify here for change detection because
       the expanded object is nested inside an object */
-    const propsChanged = JSON.stringify(nextProps) !== JSON.stringify(this.props)
+    const propsChanged = JSON.stringify(nextProps.menu) !== JSON.stringify(this.props.menu)
     const stateChanged = JSON.stringify(nextState) !== JSON.stringify(this.state);
 
     if (propsChanged || stateChanged) {
