@@ -47,6 +47,7 @@ export default class OpenTasks extends React.Component {
 
   render() {
     const total = this.props.total || 0
+    const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
         <SiteBanner title='Open Tasks' />
@@ -93,7 +94,7 @@ export default class OpenTasks extends React.Component {
                   })}
                 </ul>
               </div>
-              {total > 0 && <Pagination count={total} pagesize={this.props.selections.pageSize} page={this.props.selections.page} updatePage={::this.updatePage} />}
+              {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
             </div>
           </div>
         </div>

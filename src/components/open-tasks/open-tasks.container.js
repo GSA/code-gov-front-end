@@ -1,6 +1,12 @@
 /* global URLSearchParams */
 import { connect } from 'react-redux'
-import { getConfigValue, getFilterData, getFilterTags, normalize } from 'utils/other'
+import {
+  getConfigValue,
+  getFilterData,
+  getFilterValuesFromParamsByCategory,
+  getFilterTags,
+  normalize
+} from 'utils/other'
 import OpenTasksComponent from './open-tasks.component'
 import updateTaskFilters from 'actions/update-task-filters'
 import updateTaskParams from 'actions/update-task-params'
@@ -15,43 +21,43 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
 
  try {
 
-  console.log("taskFilterOptions:", taskFilterOptions)
+  const categories = ['agencies', 'categories', 'languages', 'skillLevels', 'timeRequired']
 
-  const selections = {
-    agencies: normalize(taskParams ? taskParams.agencies : []),
-    categories: normalize(taskParams ? taskParams.categories : []),
-    languages: normalize(taskParams ? taskParams.languages : []),
-    skillLevels: normalize(taskParams ? taskParams.skillLevels : []),
-    timeRequired: normalize(taskParams ? taskParams.timeRequired : []),
-    page: get(taskParams, 'page') || 1,
-    pageSize: get(taskParams, 'pageSize') || 10
-  }
+  const selections = categories.reduce((accumulator, key) => {
+    accumulator[key] = getFilterValuesFromParamsByCategory(taskParams, key)
+    return accumulator
+  }, {})
+  console.log("selections:", selections)
+
+  const selectedPage = taskParams.page
+  const selectedPageSize = taskParams.size
+
+  console.log("taskFilterOptions:", taskFilterOptions)
 
   console.log("selections:", selections)
 
-  const keys = ['agencies', 'skillLevels', 'languages', 'categories', 'timeRequired']
-
-  const filterBoxItems = {}
-  keys.forEach(key => {
-    if (has(taskFilterOptions, key)) {
-      filterBoxItems[key] = taskFilterOptions[key].map(({ name, value }) => {
+  let boxes = {}
+  if (taskFilterOptions) {
+    boxes = categories.reduce((accumulator, key) => {
+      accumulator[key] = taskFilterOptions[key].map(({ name, value}) => {
         return { name, value, checked: includes(selections[key], normalize(value)) }
       })
-    }
-  })
+      return accumulator
+    }, {})
+  }
+  console.log("boxes:", boxes)
 
-  console.log("tasks:", tasks)
-
+  const total = get(taskResults, 'total') || 0
   const tasks = get(taskResults, 'tasks')
-
-  const total = get(taskResults, 'total')
 
   const filterTags = getFilterTags(taskParams, taskFilterOptions)
 
   const result = {
-    boxes: filterBoxItems,
+    boxes,
     selections,
     filterTags,
+    selectedPage,
+    selectedPageSize,
     tasks,
     total
   }
