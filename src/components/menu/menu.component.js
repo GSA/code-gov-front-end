@@ -117,6 +117,19 @@ export default class Menu extends Component {
     return null;
   }
 
+  collapse() {
+    const menu = this.state.menu.map(menuOption => {
+        menuOption.expanded = false
+        return menuOption
+    })
+
+    this.setState({
+      expanded: false,
+      height: 'auto',
+      menu
+    })
+  }
+
   render() {
 
     let headerClassName = `main ${this.props.color}`
@@ -141,7 +154,7 @@ export default class Menu extends Component {
               return (
                 <li className={(menuOption.expanded ? 'expanded' : '')} key={menuOption.name} role="none">
                   <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption}/>
-                  <SecondaryDropdown menuOption={menuOption} onClick={::this.onClickMenuOption}/>
+                  <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse}/>
                 </li>
               )
             })}

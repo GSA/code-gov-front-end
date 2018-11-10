@@ -34,9 +34,9 @@
         {
           "name": "FEDERAL AGENCIES",
           "links": [
-            { "name": "How to Inventory Code", "url": "/policy-guide/docs/compliance/inventory-code" },
-            { "name": "Tools", "url": "/policy-guide/docs/compliance/inventory-code/tools/validate-schema" },
-            { "name": "Compliance Dashboard", "url": "/policy-guide/docs/compliance/dashboard" }
+            { "name": "How to Inventory Code", "url": "/about/compliance/inventory-code" },
+            { "name": "Tools", "url": "/about/compliance/inventory-code/validate-schema" },
+            { "name": "Compliance Dashboard", "url": "/about/compliance/dashboard" }
           ]
         },
         {
@@ -75,9 +75,9 @@
         {
           "name": "Federal Agencies",
           "links": [
-            { "name": "How to Inventory Code", "url": "/policy-guide/docs/compliance/inventory-code" },
-            { "name": "Tools", "url": "/policy-guide/docs/compliance/inventory-code/tools/validate-schema" },
-            { "name": "Compliance Dashboard", "url": "/policy-guide/docs/compliance/dashboard" }
+            { "name": "How to Inventory Code", "url": "/about/compliance/inventory-code" },
+            { "name": "Tools", "url": "/about/compliance/inventory-code/validate-schema" },
+            { "name": "Compliance Dashboard", "url": "/about/compliance/dashboard" }
           ]
         },
         {
