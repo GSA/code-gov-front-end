@@ -50,7 +50,6 @@ export default class PolicyGuide extends Component {
   }
 
   render() {
-    console.log("this.props.match:", this.props.match)
     const matchUrl = this.props.match.url
     return (
       <div>
@@ -78,6 +77,8 @@ export default class PolicyGuide extends Component {
             <Redirect to={`${this.props.match.url}/introduction`} />
           </Switch>
         </div>
+        <br/>
+        <br/>
       </div>
     )
   }
