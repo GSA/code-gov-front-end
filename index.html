@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <script>
+      // before anything else change ?p=/open-tasks to /open-tasks
+      if (window.location.search.indexOf('p=') > -1) {
+        var pattern = /(\?|&)p=[/a-z-]{3,100}/
+        const newSearch = window.location.search
+          .replace(pattern, '') // remove p=... param from url
+          .replace(/^./, '?'); // mark sure starting search param in a question mark
+
+        // newPathName is usually something like '/open-tasks'
+        const newPathName = (window.location.pathname + window.location.search.match(pattern)[0].substring(3)).replace('//','/')
+        console.log("newPathName:", newPathName)
+
+        // newUrl is usually something like .../federalist-stag/open-tasks?agencies=...
+        const newUrl = newPathName + newSearch
+        console.log("newUrl:", newUrl)
+
+        /* global history */
+        history.replaceState({}, 'title', newUrl);
+      }
+    </script>
+
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
