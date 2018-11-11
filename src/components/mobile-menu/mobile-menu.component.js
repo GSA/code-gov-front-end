@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { map } from '@code.gov/cautious'
-import { MobileMenuOption } from 'components/mobile-menu-option'
+import MobileMenuOption from 'components/mobile-menu-option'
+import MobileMenuSearchBox from 'components/mobile-menu-search-box'
 
 export default class Menu extends Component {
 
@@ -15,6 +16,9 @@ export default class Menu extends Component {
       <Fragment>
         <div className={`mobile-menu ${open ? 'open' : ''}`}>
           <ul>
+            <li className="search">
+              <MobileMenuSearchBox />
+            </li>
             {map(menu, menuOption => {
               return (
                 <MobileMenuOption

@@ -6,9 +6,8 @@ export default class QuickSearchBoxComponent extends React.Component {
   render() {
     return (
       <SearchBox
-        placeholder={this.props.query}
+        placeholder={this.props.placeholder || this.props.query}
         onSubmit={this.props.onSubmit}
-        query={this.props.query}
       />
     )
   }

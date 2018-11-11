@@ -47,6 +47,16 @@
   }
 }
 
+.mobile-menu {
+  .search-input-and-button-wrapper {
+    text-align: center;
+
+    button.go {
+      position: static;
+    }
+  }
+}
+
 .browse {
   font-size: 1.6rem;
   font-weight: bold;
