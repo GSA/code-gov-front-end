@@ -5,6 +5,10 @@ import { some } from '@code.gov/cautious'
 
 export default class FilterBoxes extends React.Component {
 
+  shouldComponentUpdate(nextProps) {
+    return JSON.stringify(nextProps) !== JSON.stringify(this.props)
+  }
+
   render() {
     console.log("starting filterboxes with", this.props)
     if (this.props.boxes && this.props.config) {

@@ -40,7 +40,7 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
   if (taskFilterOptions) {
     boxes = categories.reduce((accumulator, key) => {
       accumulator[key] = taskFilterOptions[key].map(({ name, value}) => {
-        return { name, value, checked: includes(selections[key], normalize(value)) }
+        return { name, value, checked: includes(normalize(selections[key]), normalize(value)) }
       })
       return accumulator
     }, {})

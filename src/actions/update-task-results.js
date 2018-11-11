@@ -8,7 +8,7 @@ export default function (params) {
     if (params.size) options.size = params.size
     if (params.page) options.page = params.page
     if (params.filters) {
-      ['agencies', 'languages', 'skillLevels', 'timeRequired'].forEach(key => {
+      ['agencies', 'categories', 'languages', 'skillLevels', 'timeRequired'].forEach(key => {
         options[key] = getFilterValuesFromParamsByCategory(params, key)
       })
     }

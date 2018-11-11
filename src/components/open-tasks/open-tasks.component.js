@@ -11,6 +11,10 @@ import { isChecked } from 'utils/filtering'
 
 export default class OpenTasks extends React.Component {
 
+  shouldComponentUpdate(nextProps) {
+    return JSON.stringify(nextProps) !== JSON.stringify(this.props)
+  }
+
   componentDidMount() {
     const boxes = this.props.boxes || {}
     if (Object.keys(boxes).length === 0) this.props.saveFilterData()

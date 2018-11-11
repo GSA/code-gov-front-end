@@ -17,8 +17,8 @@ export default function(state) {
         storeParams = state.searchParams
       }
     } else if (pathname.includes('/open-tasks')) {
-      if (state.taskFilters) {
-        storeParams = state.taskFilters
+      if (state.taskParams) {
+        storeParams = state.taskParams
       }
     }
 

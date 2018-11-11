@@ -15,6 +15,10 @@ export default class FilterBox extends React.Component {
     })
   }
 
+  shouldComponentUpdate(nextProps) {
+    return JSON.stringify(nextProps) !== JSON.stringify(this.props)
+  }
+
   render() {
     return (
       <filter-box
