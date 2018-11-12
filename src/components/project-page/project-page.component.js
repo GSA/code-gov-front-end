@@ -45,7 +45,7 @@ export default class ProjectPage extends Component {
       <Fragment>
       {map(tags, tag => {
         return (
-          <Link key={tag} to={`/search?q=${tag}`}>
+          <Link key={tag} to={`/search?query=${tag}`}>
             <span>
               <button className="tag">{tag}</button>
             </span>
