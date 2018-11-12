@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { PrimaryMenuOption, SecondaryDropdown } from './subcomponents'
+import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
 
@@ -81,22 +81,6 @@ export default class Menu extends Component {
     ));
   }
 
-  get search() {
-    if (this.props.displaySearchIcon) {
-      return (
-        <div className={'search-box' + (this.state.searchBoxShown && 'active')}>
-          <a className="close-search-box-button">
-            <i className="icon icon-cancel"></i>
-          </a>
-          <form className="search-form">
-          </form>
-        </div>
-      );
-    }
-
-    return null;
-  }
-
   collapse() {
     const menu = this.state.menu.map(menuOption => {
         menuOption.expanded = false
@@ -147,10 +131,7 @@ export default class Menu extends Component {
             </li>
           </ul>
         </nav>
-{/*
-
-        { this.search }
-      */}
+        <SearchBoxDropDown />
       </header>
     );
   }
