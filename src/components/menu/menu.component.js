@@ -141,7 +141,7 @@ export default class Menu extends Component {
           </ul>
           <ul className="right">
             <li>
-              <a className="no-underline">
+              <a className="no-underline" onClick={this.props.toggleSearchDropdown}>
                 <i className="icon icon-search"></i>
               </a>
             </li>

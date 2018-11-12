@@ -9,6 +9,7 @@ export default {
   displayMobileMenu: false,
   expandedMobileMenuOptions: [],
   project: null,
+  searchDropdown: false,
   searchParams: {
     page: 1,
     query: '',
