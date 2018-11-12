@@ -8,8 +8,7 @@ import { map } from '@code.gov/cautious'
 export default class Menu extends Component {
   /*
   static propTypes = {
-    menu: PropTypes.array.isRequired,
-    displaySearchIcon: PropTypes.bool.isRequired,
+    menu: PropTypes.array.isRequired
   }*/
 
   constructor(props) {
@@ -98,20 +97,6 @@ export default class Menu extends Component {
     return null;
   }
 
-  get searchIcon() {
-    if (this.props.displaySearchIcon) {
-      return (
-        <li>
-          <a className="no-underline">
-            <i className="icon icon-search"></i>
-          </a>
-        </li>
-      );
-    }
-
-    return null;
-  }
-
   collapse() {
     const menu = this.state.menu.map(menuOption => {
         menuOption.expanded = false
@@ -154,14 +139,16 @@ export default class Menu extends Component {
               )
             })}
           </ul>
-
+          <ul className="right">
+            <li>
+              <a className="no-underline">
+                <i className="icon icon-search"></i>
+              </a>
+            </li>
+          </ul>
         </nav>
-{/*          <mobile-menu-button></mobile-menu-button>
-          <a className="svg-container">
-            <img src={this.props.logoDark} />
-          </a>
-          <ul>{ this.menus }</ul>
-          <ul className="right">{ this.searchIcon }</ul>
+{/*
+
         { this.search }
       */}
       </header>

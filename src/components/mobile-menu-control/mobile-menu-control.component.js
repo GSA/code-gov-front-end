@@ -6,7 +6,7 @@ import MobileMenu from 'components/mobile-menu'
 export default class MobileMenuControl extends Component {
 
   render() {
-    let className = 'show-w-lte-700'
+    let className = 'show-w-lte-800'
     if (this.props.color === 'dark') {
       className += ' dark'
     }
