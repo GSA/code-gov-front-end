@@ -30,15 +30,7 @@ export default class AppComponent extends Component {
     refreshView()
   }
 
-  /*
-  shouldComponentUpdate(nextProps) {
-    console.log("running app component shouldComponentUpdate")
-    return window.location.pathname !== this.props.location.pathname
-  }
-  */
-
   render() {
-    console.error("starting app component render with pathname", this.props.location.pathname)
 
     const location = window.location
 
