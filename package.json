@@ -30,7 +30,7 @@
   "homepage": "https://github.com/GSA/caribou#readme",
   "private": "true",
   "dependencies": {
-    "@code.gov/api-client": "0.2.8",
+    "@code.gov/api-client": "0.2.9",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.7.0",
     "@code.gov/code-gov-style": "1.10.13",

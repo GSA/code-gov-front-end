@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import CustomLink from 'components/custom-link'
 
 export default class HomeFeaturedProject extends Component {
 
@@ -21,13 +22,23 @@ export default class HomeFeaturedProject extends Component {
               <p className="fp-description">{description}</p>
               <div className="buttons">
                 {links.map(link => {
-                  return (
-                    <span key={link.url}>
-                      <a href={link.url}>
-                        <button className="alt">{link.name}</button>
-                      </a>
-                    </span>
-                  )
+                  if (link.url.startsWith('http')) {
+                    return (
+                      <span key={link.url}>
+                        <a href={link.url}>
+                          <button className="alt">{link.name}</button>
+                        </a>
+                      </span>
+                    )
+                  } else {
+                    return (
+                      <span key={link.url}>
+                        <CustomLink to={link.url}>
+                          <button className="alt">{link.name}</button>
+                        </CustomLink>
+                      </span>
+                    )
+                  }
                 })}
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
+import Breadcrumbs from 'components/breadcrumbs'
 import SiteBanner from 'components/site-banner'
 import {
   getLastModifiedDateString,
