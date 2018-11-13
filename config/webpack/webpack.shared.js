@@ -101,6 +101,10 @@ const patterns = [
   {
     from: 'node_modules/ajv/dist/ajv.min.js',
     to: 'external/ajv.min.js'
+  },
+  {
+    from: 'node_modules/jsoneditor',
+    to: 'external/jsoneditor'
   }
 ]
 
