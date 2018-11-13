@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import { refreshView } from 'utils/other'
+import Breadcrumbs from 'components/breadcrumbs'
 import SiteBanner from 'components/site-banner'
 
 export default class PrivacyPolicy extends React.Component {
@@ -13,6 +13,10 @@ export default class PrivacyPolicy extends React.Component {
     return (
       <div style={{background: 'white'}}>
         <SiteBanner title="Privacy Policy" />
+        <Breadcrumbs crumbs={[
+          { text: 'Home', to: '/' },
+          { text: 'Privacy Policy' }
+        ]}/>
         <div className="indented markdown privacy-content">
           <br/>
           <br/>
