@@ -1,6 +1,7 @@
+/* global PUBLIC_PATH */
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import CustomLink from 'components/custom-link'
+import { map } from '@code.gov/cautious'
 
 export default class Footer extends Component {
 
@@ -10,12 +11,12 @@ export default class Footer extends Component {
         <div className="footer-content">
           <div className="footer-part links">
             <ul>
-              {this.props.links && this.props.links.map(link => {
+              {map(this.props.links, link => {
                 return (
                   <li key={link.name}>
-                    <Link to={link.url} className="link">
+                    <CustomLink to={link.url} className="link">
                       <span>{link.name}</span>
-                    </Link>
+                    </CustomLink>
                   </li>
                 )
               })}
@@ -23,7 +24,7 @@ export default class Footer extends Component {
           </div>
           <div className="footer-part logos">
             <ul>
-              {this.props.logos && this.props.logos.map(logo => {
+              {map(this.props.logos, logo => {
                 return (
                   <li key={logo.name}>
                     <a href={logo.url} target="_blank" rel="noopener">
