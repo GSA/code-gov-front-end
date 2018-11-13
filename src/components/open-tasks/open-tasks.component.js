@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import Breadcrumbs from 'components/breadcrumbs'
 import { map, some } from '@code.gov/cautious'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
@@ -55,12 +55,10 @@ export default class OpenTasks extends React.Component {
     return (
       <div className="search-results-content">
         <SiteBanner title='Open Tasks' />
-        <div className="indented">
-          <ul className="breadcrumbs">
-            <li><Link to="/">Home</Link></li>
-            <li>Open Tasks</li>
-          </ul>
-        </div>
+        <Breadcrumbs crumbs={[
+          { text: 'Home', to: '/' },
+          { text: 'Open Tasks' }
+        ]}/>
         <div className="search-results-header">
           <div className="width-quarter">
           </div>
