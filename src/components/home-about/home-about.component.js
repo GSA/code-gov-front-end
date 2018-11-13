@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 
 export default class HomeAbout extends React.Component {
 
@@ -16,11 +16,11 @@ export default class HomeAbout extends React.Component {
           {this.props.aboutItems && this.props.aboutItems.map(item => {
             return (
               <li className="about-action width-third" key={item.title}>
-                <Link to={item.link}>
+                <CustomLink to={item.link}>
                   <img alt="About Icon" src={item.image}/>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                </Link>
+                </CustomLink>
               </li>
             )
           })}
