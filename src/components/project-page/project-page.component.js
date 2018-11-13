@@ -144,6 +144,7 @@ export default class ProjectPage extends Component {
       if (some(keys)) {
         return (
           <div>
+            <br/>
             {map(keys, key => {
               const value = data[key]
               return (
@@ -204,7 +205,6 @@ export default class ProjectPage extends Component {
                   {this.contact}
                 </ul>
                 <p>{repo.description}</p>
-                <br/>
                 {this.additionalData}
                 <br/>
                 {this.repositoryURL}

@@ -25,9 +25,14 @@
   }
 }
 
+.repo-list-summary {
+  font-size: 1em;
+}
+
 .repo-list-summary-wrapper,
 .ngx-pagination {
   display: block;
+  font-size: 1em;
   text-align: center;
 
   @media screen and (min-width: $large-screen) {
