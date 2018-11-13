@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import Breadcrumbs from 'components/breadcrumbs'
 import SiteBanner from 'components/site-banner'
 import { normalize, refreshView } from 'utils/other'
 import { map } from '@code.gov/cautious'
@@ -58,13 +58,10 @@ export default class Roadmap extends React.Component {
     return (
     <div className="roadmap-general">
       <SiteBanner title='Roadmap' />
-      <div className="indented">
-        <ul className="breadcrumbs">
-          <li><Link to='/'>Home</Link></li>
-          <li>Roadmap</li>
-        </ul>
-      </div>
-
+      <Breadcrumbs crumbs={[
+        { text: 'Home', to: '/' },
+        { text: 'Roadmap' }
+      ]}/>
 
       {this.overview}
 
