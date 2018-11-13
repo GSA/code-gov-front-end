@@ -1,12 +1,9 @@
 /* global URLSearchParams */
 
 import { connect } from 'react-redux'
-import { push } from 'connected-react-router'
-import { find, includes, length, map } from '@code.gov/cautious'
+import { includes } from '@code.gov/cautious'
 import get from 'lodash.get'
 import {
-  getConfigValue,
-  getFilterData,
   getFilterTags,
   getFilterValuesFromParamsByCategory,
   normalize
@@ -15,8 +12,6 @@ import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
 import BrowseProjectsComponent from './browse-projects.component'
-import paramDefaults from 'constants/param-defaults'
-import paramTypes from 'constants/param-types'
 
 const mapStateToProps = ({ browseParams, browseResults, filters }) => {
 

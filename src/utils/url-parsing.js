@@ -20,16 +20,25 @@ export function getParamAsString(params, key) {
   }
 }
 
-export function getNormalizedURLSearchParams() {
-  const params = new URLSearchParams(window.location.search)
+export function getNormalizedURLSearchParams(search) {
+  const params = new URLSearchParams(search || window.location.search)
   return {
     agencies: getParamAsArray(params, 'agencies'),
     languages: getParamAsArray(params, 'languages'),
     licenses: getParamAsArray(params, 'licenses'),
     skillLevels: getParamAsArray(params, 'skillLevels'),
     timeRequired: getParamAsArray(params, 'timeRequired'),
+    usageType: getParamAsArray(params, 'usageType'),
     page: getParamAsNumber(params, 'page'),
     sort: getParamAsString(params, 'sort'),
     query: getParamAsString(params, 'query')
   }
 }
+
+export function getSearchFromUrl(url) {
+  const searchMatch = url.match(/\?.*/)
+  if (searchMatch) {
+    return searchMatch[0]
+  }
+}
+

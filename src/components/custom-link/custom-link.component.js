@@ -8,6 +8,7 @@ export default class CustomLinkComponent extends Component {
       this.props.onClick()
     }
     this.props.updateRouter(this.props.to)
+    this.props.updateStore(this.props.to)
   }
 
   render() {

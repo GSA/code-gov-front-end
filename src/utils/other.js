@@ -179,3 +179,17 @@ export function loadScript(src) {
     console.log("appended:", script, "to body")
   })
 }
+
+export function fillFilters(keys, params, result) {
+  keys.forEach(key => {
+    if (Array.isArray(params[key])) {
+      params[key].forEach(value => {
+        result.filters.push({
+          category: key,
+          value: value.toLowerCase(),
+          modified: now()
+        })
+      })
+    }
+  })
+}
