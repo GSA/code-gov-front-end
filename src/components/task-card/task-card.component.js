@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
 import { capitalize, join, some } from '@code.gov/cautious'
 import { getLastModifiedDateString } from 'utils/repo-parsing'
@@ -34,7 +34,7 @@ export default class TaskCardComponent extends Component {
       return (
         <Fragment>
           <dt>Agency:</dt>
-          <dd><Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</Link></dd>
+          <dd><CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink></dd>
         </Fragment>
       )
     }
