@@ -14,10 +14,6 @@ export default class NavSelect extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.pathname !== this.props.pathname
-  }
-
   render() {
 
     const { pathname, pages } = this.props
