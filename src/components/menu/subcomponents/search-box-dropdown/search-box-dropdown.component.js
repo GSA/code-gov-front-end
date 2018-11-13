@@ -24,7 +24,7 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <div className={'search-box' + (this.props.searchDropdown ? ' active' : '')}>
+      <div className={'search-box show-w-gt-800' + (this.props.searchDropdown ? ' active' : '')}>
         <a className="close-search-box-button" onClick={::this.hideSearchDropdown}>
           <i className="icon icon-cancel"></i>
         </a>
@@ -32,7 +32,7 @@ export default class Menu extends Component {
           <div className="search-input-wrapper">
             <div className="search-input-and-button-wrapper">
               <input
-                autocomplete="off"
+                autoComplete="off"
                 className="no-search-icon-on-mobile"
                 title="Search Code.gov"
                 type="search"

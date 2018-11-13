@@ -1,5 +1,7 @@
+/* global PUBLIC_PATH */
+
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 import PropTypes from 'prop-types'
 import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 import MobileMenuControl from 'components/mobile-menu-control'
@@ -30,18 +32,6 @@ export default class Menu extends Component {
     })
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    /* We have to use JSON stringify here for change detection because
-      the expanded object is nested inside an object */
-    const propsChanged = JSON.stringify(nextProps.menu) !== JSON.stringify(this.props.menu)
-    const stateChanged = JSON.stringify(nextState) !== JSON.stringify(this.state);
-
-    if (propsChanged || stateChanged) {
-      this.setState(nextProps)
-    }
-    return true;
-  }
-
   onClickMenuOption(selected, event) {
 
     const menu = this.state.menu.map(menuOption => {
@@ -62,14 +52,6 @@ export default class Menu extends Component {
 
   get expanded() {
     return this.state.menu.some(option => option.expanded)
-  }
-
-  get logo() {
-    return (
-      <Link to="/" className="svg-container" title={this.props.siteTitle + ' Home'}>
-        <img src={this.props.color === 'white' ? this.props.logoDark : this.props.logoLight} alt="code.gov"/>
-    </Link>
-    )
   }
 
   get menus() {
@@ -96,10 +78,12 @@ export default class Menu extends Component {
 
   render() {
 
-    let headerClassName = `main ${this.props.color}`
-    if (this.props.transparent) headerClassName += ' transparent'
+    const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
 
-    let navClassName = `main ${this.props.color}`
+    let headerClassName = `main ${color}`
+    if (onHomePage) headerClassName += ' transparent'
+
+    let navClassName = `main ${color}`
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 
@@ -111,7 +95,9 @@ export default class Menu extends Component {
 
           <MobileMenuControl />
 
-          {this.logo}
+          <CustomLink to="/" className="svg-container" title={siteTitle + ' Home'}>
+            <img src={color === 'white' ? this.props.logoDark : this.props.logoLight} alt="code.gov"/>
+          </CustomLink>
 
           <ul role="menubar" aria-label="primary">
             {map(this.props.menu, menuOption => {
@@ -123,15 +109,15 @@ export default class Menu extends Component {
               )
             })}
           </ul>
-          <ul className="right">
+          {onHomePage === false && <ul className="right show-w-gt-800">
             <li>
-              <a className="no-underline" onClick={this.props.toggleSearchDropdown}>
+              <a className="no-underline" onClick={toggleSearchDropdown}>
                 <i className="icon icon-search"></i>
               </a>
             </li>
-          </ul>
+          </ul> }
         </nav>
-        <SearchBoxDropDown />
+        {onHomePage === false && <SearchBoxDropDown /> }
       </header>
     );
   }

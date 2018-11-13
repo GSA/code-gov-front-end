@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 import { some, startsWith } from '@code.gov/cautious'
 
 function LinkPart({name, onClick, url}) {
   if (startsWith(url, 'https')) {
     return <a href={url} onClick={onClick} target='_blank'>{name}</a>
   } else {
-    return <Link to={url} onClick={onClick}>{name}</Link>
+    return <CustomLink to={url} onClick={onClick}>{name}</CustomLink>
   }
 }
 

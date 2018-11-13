@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 
 export default function PrimaryMenuOption ({ menuOption, onClick }) {
   const textContent = menuOption.name;
   if (menuOption.url) {
     return (
-      <Link
+      <CustomLink
         to={menuOption.url}
         role="menuitem"
         /*onClick={this.closeAllMenus}*/
-      >{textContent}</Link>
+      >{textContent}</CustomLink>
     )
   }
   else {
