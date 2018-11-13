@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
 import SiteBanner from 'components/site-banner'
 import {
@@ -45,11 +45,11 @@ export default class ProjectPage extends Component {
       <Fragment>
       {map(tags, tag => {
         return (
-          <Link key={tag} to={`/search?query=${tag}`}>
+          <CustomLink key={tag} to={`/search?query=${tag}`}>
             <span>
               <button className="tag">{tag}</button>
             </span>
-          </Link>
+          </CustomLink>
         )
       })}
       </Fragment>
@@ -184,18 +184,12 @@ export default class ProjectPage extends Component {
       return (
         <div className="repo-general">
           <SiteBanner title='Browse Projects' />
+          <Breadcrumbs crumbs={[
+            { text: 'Home', to: '/' },
+            { text: agencyAcronym, to: `/browse-projects?agencies=${agencyAcronym}` },
+            { text: repoName }
+          ]}/>
           <section className="repo-container indented">
-            <div>
-              <ul className="breadcrumbs">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyAcronym}</Link>
-                </li>
-                <li>{repoName}</li>
-              </ul>
-            </div>
             <header>
               <div className="repo-header-container">
                 <h2>{ repoName }</h2>
