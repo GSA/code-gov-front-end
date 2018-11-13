@@ -45,6 +45,73 @@ map(plugins, ({component, route}) => {
 console.log("entry:", entry)
 */
 
+const patterns = [
+  {
+    from: '.nojekyll',
+    to: path.join(OUTPUT_PATH, '.nojekyll')
+  },
+  {
+    from: './assets/data',
+    to: path.join(OUTPUT_PATH, '/assets/data')
+  },
+  {
+    from: './assets/img',
+    to: path.join(OUTPUT_PATH, '/assets/img')
+  },
+  {
+    from: './assets/plugins',
+    to: path.join(OUTPUT_PATH, '/assets/plugins')
+  },
+  {
+    from: './404.html',
+    to: path.join(OUTPUT_PATH, '404.html')
+  },
+  {
+    from: 'node_modules/@code.gov/code-gov-style/dist/js/code-gov-web-components.js',
+    to: 'code-gov-web-components.js'
+  },
+  {
+    from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
+    to: 'polyfills/custom-elements.js'
+  },
+  {
+    from: 'node_modules/custom-event-polyfill/polyfill.js',
+    to: 'polyfills/custom-event.js'
+  },
+  {
+    from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
+    to: 'polyfills/fetch.js'
+  },
+  {
+    from: 'node_modules/url-search-params-polyfill/index.js',
+    to: 'polyfills/url-search-params.js'
+  },
+  {
+    from: 'node_modules/@code.gov/json-schema-web-component/index.js',
+    to: 'webcomponents/json-schema.js'
+  },
+  {
+    from: 'node_modules/@code.gov/compliance-dashboard-web-component/index.js',
+    to: 'webcomponents/compliance-dashboard.js'
+  },
+  {
+    from: 'node_modules/@code.gov/json-schema-validator-web-component/index.js',
+    to: 'webcomponents/json-schema-validator.js'
+  },
+  {
+    from: 'node_modules/ajv/dist/ajv.min.js',
+    to: 'external/ajv.min.js'
+  }
+]
+
+/* only include sitemap if building for production on code.gov */
+if (process.env.CODE_GOV_BRANCH === 'federalist-prod') {
+  patterns.push({
+    from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
+    to: path.join(OUTPUT_PATH, 'sitemap.xml')
+  })
+}
+
 module.exports = {
   output: {
     chunkFilename: '[name].bundle.js',
@@ -125,68 +192,7 @@ module.exports = {
     }),
     new EnvironmentPlugin(["CODE_GOV_API_BASE", "CODE_GOV_API_KEY"]),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
-    new CopyWebpackPlugin([
-      {
-        from: '.nojekyll',
-        to: path.join(OUTPUT_PATH, '.nojekyll')
-      },
-      {
-        from: './assets/data',
-        to: path.join(OUTPUT_PATH, '/assets/data')
-      },
-      {
-        from: './assets/img',
-        to: path.join(OUTPUT_PATH, '/assets/img')
-      },
-      {
-        from: './assets/plugins',
-        to: path.join(OUTPUT_PATH, '/assets/plugins')
-      },
-      {
-        from: './404.html',
-        to: path.join(OUTPUT_PATH, '404.html')
-      },
-      {
-        from: 'node_modules/@code.gov/code-gov-style/dist/js/code-gov-web-components.js',
-        to: 'code-gov-web-components.js'
-      },
-      {
-        from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
-        to: 'polyfills/custom-elements.js'
-      },
-      {
-        from: 'node_modules/custom-event-polyfill/polyfill.js',
-        to: 'polyfills/custom-event.js'
-      },
-      {
-        from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
-        to: 'polyfills/fetch.js'
-      },
-      {
-        from: 'node_modules/url-search-params-polyfill/index.js',
-        to: 'polyfills/url-search-params.js'
-      },
-      {
-        from: 'node_modules/@code.gov/json-schema-web-component/index.js',
-        to: 'webcomponents/json-schema.js'
-      },
-      {
-        from: 'node_modules/@code.gov/compliance-dashboard-web-component/index.js',
-        to: 'webcomponents/compliance-dashboard.js'
-      },
-      {
-        from: 'node_modules/@code.gov/json-schema-validator-web-component/index.js',
-        to: 'webcomponents/json-schema-validator.js'
-      },
-      {
-        from: 'node_modules/ajv/dist/ajv.min.js',
-        to: 'external/ajv.min.js'
-      },
-      {
-        from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
-        to: path.join(OUTPUT_PATH, 'sitemap.xml')
-      }
-    ]),
+    new CopyWebpackPlugin(patterns),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),
     new HtmlWebpackPlugin({
       hash: true,
