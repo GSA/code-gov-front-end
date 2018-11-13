@@ -181,6 +181,10 @@ module.exports = {
       {
         from: 'node_modules/ajv/dist/ajv.min.js',
         to: 'external/ajv.min.js'
+      },
+      {
+        from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
+        to: path.join(OUTPUT_PATH, 'sitemap.xml')
       }
     ]),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),

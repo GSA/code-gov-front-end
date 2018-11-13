@@ -38,6 +38,7 @@
     "@code.gov/fscp-react-component": "0.3.1",
     "@code.gov/json-schema-validator-web-component": "^0.1.0",
     "@code.gov/json-schema-web-component": "^0.1.1",
+    "@code.gov/site-map-generator": "^1.0.1",
     "ajv": "^6.5.5",
     "custom-event-polyfill": "^1.0.6",
     "devicons": "^1.8.0",
