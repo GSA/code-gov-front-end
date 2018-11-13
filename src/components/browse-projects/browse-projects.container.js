@@ -89,7 +89,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateBrowseFilters(category, change.value, change.type))
     },
     onFilterTagClick: (category, value) => {
-      dispatch(updateBrowseFilters(category, value, 'removed'))
+      dispatch(updateBrowseFilters(category, value, 'remove'))
     },
     onSortChange: value => {
       dispatch(updateBrowseParams({ page: 1, sort: value }))

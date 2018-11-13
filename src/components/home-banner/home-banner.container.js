@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router'
 import { getConfigValue, normalize } from 'utils/other'
 import saveAgencies from 'actions/save-agencies'
-import updateBrowseParams from 'actions/update-browse-params'
+import updateBrowseFilters from 'actions/update-browse-filters'
 import HomeBannerComponent from './home-banner.component'
 
 const mapStateToProps = ({ agencies }) => {
@@ -24,12 +24,12 @@ const mapStateToProps = ({ agencies }) => {
 const mapDispatchToProps = dispatch => {
   return {
     onBrowseByEntityChange: event => {
-      const value = event.target.value
-      if (value !== 'Browse by Agency') {
+      const value = normalize(event.target.value)
+      if (value !== 'browse by agency') {
         let url = '/browse-projects'
-        if (value !== 'All') {
-          url += '?agencies=' + value.join(',')
-          dispatch(updateBrowseParams('agencies', normalize(value)))
+        if (value !== 'all') {
+          url += '?agencies=' + value
+          dispatch(updateBrowseFilters('agencies', value, 'checked'))
         }
         dispatch(push(url))
       }
