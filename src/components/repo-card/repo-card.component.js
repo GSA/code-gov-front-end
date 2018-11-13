@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
 import { round, some } from '@code.gov/cautious'
 import {
@@ -58,7 +58,7 @@ export default class RepoCardComponent extends Component {
         <quality-tag score={score}></quality-tag>
 
         <h3 className="card-title">
-          <Link to={`/projects/${repo.repoID}`}>{repo.name}</Link>
+          <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
         </h3>
 
         {agencyName && (
@@ -71,7 +71,7 @@ export default class RepoCardComponent extends Component {
 
         <dl className="inline-after-600px">
           <dt>Agency:</dt>
-          <dd><Link to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</Link></dd>
+          <dd><CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink></dd>
           <CardPart title='Last Updated' text={dateLastModified} />
 
         </dl>
