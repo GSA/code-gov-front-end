@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
+import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
@@ -73,12 +73,10 @@ export default class SearchPage extends React.Component {
     return (
       <div className="search-results-content">
         <SiteBanner title='Search Results' />
-        <div className="indented" ref="crumbs">
-          <ul className="breadcrumbs">
-            <li><Link to="/">Home</Link></li>
-            <li>Search Results</li>
-          </ul>
-        </div>
+        <Breadcrumbs crumbs={[
+          { text: 'Home', to: '/' },
+          { text: 'Search Results' }
+        ]}/>
         <div className="search-results-header">
           <div className="indented">
             <div className="width-quarter">
