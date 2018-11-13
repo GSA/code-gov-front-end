@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
 
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import CustomLink from 'components/custom-link'
 import HomeBannerSearchBox from '../home-banner-search-box'
 
 export default class HomeBanner extends React.Component {
@@ -68,9 +68,9 @@ export default class HomeBanner extends React.Component {
     if (this.props.helpWantedButton) {
       return (
         <div className="buttons">
-            <Link to="/help-wanted">
+            <CustomLink to="/help-wanted">
               <button className="alt">{this.props.helpWantedButton}</button>
-            </Link>
+            </CustomLink>
         </div>
       )
     }
