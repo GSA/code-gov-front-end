@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
@@ -69,12 +69,10 @@ export default class BrowseProjects extends React.Component {
     return (
       <div className="search-results-content">
         <SiteBanner title='Browse Projects' />
-        <div className="indented" ref="crumbs">
-          <ul className="breadcrumbs">
-            <li><Link to="/">Home</Link></li>
-            <li>Browse Projects</li>
-          </ul>
-        </div>
+        <Breadcrumbs crumbs={[
+          { text: 'Home', to: '/' },
+          { text: 'Browse Projects' }
+        ]}/>
         <div className="search-results-header">
             <div className="indented">
               <div className="width-quarter">
