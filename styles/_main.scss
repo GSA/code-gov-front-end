@@ -44,3 +44,12 @@ html {
 @import './repo-list.scss';
 
 @import './roadmap.scss';
+
+
+// overwrites and fixes
+// weird fix for https://github.com/GSA/caribou/issues/76
+ul.breadcrumbs {
+  li {
+    margin-right: 5px;
+  }
+}
