@@ -68,7 +68,7 @@ export default class HomeBanner extends React.Component {
     if (this.props.helpWantedButton) {
       return (
         <div className="buttons">
-            <CustomLink to="/help-wanted">
+            <CustomLink to="/open-tasks">
               <button className="alt">{this.props.helpWantedButton}</button>
             </CustomLink>
         </div>
