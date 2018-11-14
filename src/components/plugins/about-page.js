@@ -6,14 +6,15 @@ import { Link, NavLink, Redirect, Route, Switch } from 'react-router-dom'
 import client from 'api-client'
 import { loadScript } from 'utils/other'
 import LazyHTML from 'components/lazy-html'
+import NavSelect from 'components/nav-select'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
 
 const abouturl = PUBLIC_PATH + 'about'
 
-const dataurl = PUBLIC_PATH + "assets/plugins/about-page/"
+const dataurl = PUBLIC_PATH + 'assets/plugins/about-page/'
 
-const onDashboard = ["DHS", "DOC", "DOD", "DOE", "DOI", "DOJ", "DOL", "DOS", "DOT", "ED", "EPA", "GSA", "HHS", "HUD", "NASA", "NRC", "OPM", "SBA", "SSA", "TREASURY", "USAID", "USDA", "VA"]
+const onDashboard = ['DHS', 'DOC', 'DOD', 'DOE', 'DOI', 'DOJ', 'DOL', 'DOS', 'DOT', 'ED', 'EPA', 'GSA', 'HHS', 'HUD', 'NASA', 'NRC', 'OPM', 'SBA', 'SSA', 'TREASURY', 'USAID', 'USDA', 'VA']
 
 const configJSON = {
   scores: {
@@ -23,27 +24,27 @@ const configJSON = {
   },
   text: [
     {
-      req: "agencyWidePolicy",
+      req: 'agencyWidePolicy',
       variants: {
-        compliant: "Agency policy is consistent with the Federal Source Code Policy.",
-        noncompliant: "Agency policy has not been reviewed for consistency with the Federal Source Code Policy.",
-        partial: "Agency policy is being updated for consistency with the Federal Source Code Policy."
+        compliant: 'Agency policy is consistent with the Federal Source Code Policy.',
+        noncompliant: 'Agency policy has not been reviewed for consistency with the Federal Source Code Policy.',
+        partial: 'Agency policy is being updated for consistency with the Federal Source Code Policy.'
       }
     },
     {
-      req: "openSourceRequirement",
+      req: 'openSourceRequirement',
       variants: {
-        compliant: "Agency has open sourced greater than 20% of their custom developed code.",
-        noncompliant: "Agency has open sourced less than 10% of their custom developed code.",
-        partial: "Agency has open sourced greater than 10% of their custom developed code."
+        compliant: 'Agency has open sourced greater than 20% of their custom developed code.',
+        noncompliant: 'Agency has open sourced less than 10% of their custom developed code.',
+        partial: 'Agency has open sourced greater than 10% of their custom developed code.'
       }
     },
     {
-      req: "inventoryRequirement",
+      req: 'inventoryRequirement',
       variants: {
-        compliant: "Agency has inventoried 100% of new custom code.",
-        noncompliant: "Agency has inventoried less than 50% of new custom code.",
-        partial: "Agency has inventoried more than 50% of new custom code."
+        compliant: 'Agency has inventoried 100% of new custom code.',
+        noncompliant: 'Agency has inventoried less than 50% of new custom code.',
+        partial: 'Agency has inventoried more than 50% of new custom code.'
       }
     }
   ]
@@ -85,6 +86,20 @@ const links = [
   }
 ]
 
+const pagesForSelect = [
+  { display: 'Overview - Introduction', route: '/overview/introduction' },
+  { display: 'Overview - Tracking Progress', route: '/overview/tracking-progress' },
+  { display: 'Compliance - Agency Compliance', route: '/compliance/dashboard' },
+  { display: 'Compliance - How to Procure Software', route: '/compliance/procurement' },
+  { display: 'Compliance - How to Inventory', route: '/compliance/inventory-code' },
+  { display: 'Compliance - Validate Schema', route: '/compliance/inventory-code/validate-schema' },
+  { display: 'Open Source Pilot - Introduction', route: '/open-source/introduction' },
+  { display: 'Open Source Pilot - Tools and Resources', route: '/open-source/resources' },
+  { display: 'Open Source Pilot - How to Measure', route: '/open-source/measuring-code' },
+  { display: 'Open Source Pilot - Licensing', route: '/open-source/licensing' }
+]
+.map(({display, route}) => ({display, route: abouturl + route}))
+
 const OverviewIntroduction = () => <LazyHTML url={`${dataurl}overview/introduction.html`}/>
 const OverviewTrackingProgress = () => <LazyHTML url={`${dataurl}overview/tracking-progress.html`}/>
 
@@ -117,7 +132,7 @@ class ComplianceDashboard extends Component {
       <Fragment>
         <LazyHTML url={`${dataurl}compliance/agency-compliance.html`}/>
         <compliance-dashboard
-          id="compliance-dashboard"
+          id='compliance-dashboard'
           config={JSON.stringify(configJSON)}
           data={JSON.stringify(this.state.compliance)}
         />
@@ -201,18 +216,21 @@ const AboutPage = () => {
   return (
     <div>
       <SiteBanner title='ABOUT' />
-      <div className="indented">
-        <ul className="breadcrumbs">
+      <div className='indented'>
+        <ul className='breadcrumbs'>
           <li><Link to='/'>Home</Link></li>
           <li>ABOUT</li>
         </ul>
       </div>
       <br/>
-      <div className="indented">
-        <div className="width-quarter">
-          <SideNav alignment="left" baseurl={abouturl} links={links} />
+      <div className='indented'>
+        <div className='show-w-lte-600' style={{padding: '30px', textAlign: 'center'}}>
+          <NavSelect pages={pagesForSelect} />
         </div>
-        <div className="docs-content">
+        <div className='width-quarter show-w-gt-600'>
+          <SideNav alignment='left' baseurl={abouturl} links={links} />
+        </div>
+        <div className='docs-content'>
           <Switch>
 
             <Route path={`${abouturl}/overview/introduction`} component={OverviewIntroduction}/>
