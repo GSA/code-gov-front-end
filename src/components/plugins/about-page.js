@@ -234,6 +234,8 @@ const AboutPage = () => {
           </Switch>
         </div>
       </div>
+      <br/>
+      <br/>
     </div>
   )
 }
