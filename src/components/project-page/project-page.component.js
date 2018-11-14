@@ -104,9 +104,11 @@ export default class ProjectPage extends Component {
           <li>
             <i className="icon icon-code"></i>
             {map(langs, (lang, i) => {
-              <span className={'language' + (i === lastIndex && ' last')} key={lang}>
-                {lang}<span className="comma">,</span>
-              </span>
+              return (
+                <span className={'language' + (i === lastIndex && ' last')} key={lang}>
+                  {lang}<span className="comma">, </span>
+                </span>
+              )
             })}
           </li>
         </span>
