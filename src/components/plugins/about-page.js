@@ -5,6 +5,7 @@ import React, { Component, Fragment } from 'react'
 import { Link, NavLink, Redirect, Route, Switch } from 'react-router-dom'
 import client from 'api-client'
 import { loadScript } from 'utils/other'
+import Breadcrumbs from 'components/breadcrumbs'
 import LazyHTML from 'components/lazy-html'
 import NavSelect from 'components/nav-select'
 import SiteBanner from 'components/site-banner'
@@ -216,12 +217,10 @@ const AboutPage = () => {
   return (
     <div>
       <SiteBanner title='ABOUT' />
-      <div className='indented'>
-        <ul className='breadcrumbs'>
-          <li><Link to='/'>Home</Link></li>
-          <li>ABOUT</li>
-        </ul>
-      </div>
+      <Breadcrumbs crumbs={[
+        { text: 'Home', to: '/' },
+        { text: 'About' }
+      ]}/>
       <br/>
       <div className='indented'>
         <div className='show-w-lte-600' style={{padding: '30px', textAlign: 'center'}}>
