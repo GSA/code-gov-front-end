@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
 import React, { Component } from 'react'
 import CustomLink from 'components/custom-link'
-import { map } from '@code.gov/cautious'
+import { map, startsWith } from '@code.gov/cautious'
 
 export default class Footer extends Component {
 
@@ -12,13 +12,21 @@ export default class Footer extends Component {
           <div className="footer-part links">
             <ul>
               {map(this.props.links, link => {
-                return (
-                  <li key={link.name}>
-                    <CustomLink to={link.url} className="link">
+                if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
+                  return (
+                    <a className="link" href={link.url} target="_blank" key={link.name}>
                       <span>{link.name}</span>
-                    </CustomLink>
-                  </li>
-                )
+                    </a>
+                  )
+                } else {
+                  return (
+                    <li key={link.name}>
+                      <CustomLink to={link.url} className="link">
+                        <span>{link.name}</span>
+                      </CustomLink>
+                    </li>
+                  )
+                }
               })}
             </ul>
           </div>
