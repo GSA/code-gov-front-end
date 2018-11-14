@@ -3,7 +3,7 @@ import CustomLink from 'components/custom-link'
 import { some, startsWith } from '@code.gov/cautious'
 
 function LinkPart({name, onClick, url}) {
-  if (startsWith(url, 'https')) {
+  if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
     return <a href={url} onClick={onClick} target='_blank'>{name}</a>
   } else {
     return <CustomLink to={url} onClick={onClick}>{name}</CustomLink>
