@@ -68,7 +68,7 @@ const patterns = [
   },
   {
     from: 'node_modules/@code.gov/code-gov-style/dist/js/code-gov-web-components.js',
-    to: 'code-gov-web-components.js'
+    to: 'webcomponents/code-gov-web-components.js'
   },
   {
     from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
