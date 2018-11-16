@@ -25,6 +25,7 @@
 
   .search-input-and-button-wrapper {
     margin: 0 auto;
+    position: relative;
     text-align: left;
     width: 100%;
 
@@ -39,6 +40,10 @@
       height: 40px;
       margin-right: 0;
       position: absolute;
+    }
+
+    .autocomplete {
+      width: calc(100% - 10px);
     }
   }
 

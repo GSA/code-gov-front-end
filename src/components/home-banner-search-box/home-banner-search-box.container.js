@@ -8,6 +8,8 @@ import { getConfigValue } from 'utils/other'
 const mapStateToProps = ({ query }) => {
   return {
     placeholder: getConfigValue('content.home.banner.search_placeholder_text'),
+    searchDescriptionText: getConfigValue('content.home.banner.search_description_text'),
+    searchDescriptionTextMobile: getConfigValue('content.home.banner.search_description_text_mobile'),
     query
   }
 }

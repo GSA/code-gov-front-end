@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 export default class CustomLinkComponent extends Component {
 
-  onClick() {
+  onClick(event) {
     if (this.props.onClick) {
-      this.props.onClick()
+      this.props.onClick(event)
     }
     this.props.updateRouter(this.props.to)
     this.props.updateStore(this.props.to)

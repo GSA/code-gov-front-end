@@ -6,11 +6,24 @@ export default class SearchBox extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: props.value || '' };
+  }
+
+
+  // need to update value when props value changes
+  componentDidUpdate(prevProps) {
+    const value = this.props.value
+    if (value !== prevProps.value) {
+      this.setState({ value })
+    }
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    const value = event.target.value
+    this.setState({value});
+    if (this.props.onChange) {
+      this.props.onChange(value)
+    }
   }
 
   handleSubmit(event) {

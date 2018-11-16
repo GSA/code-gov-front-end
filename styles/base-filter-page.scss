@@ -68,6 +68,20 @@ h3 {
   border-top: 1px solid $color-gray-light;
   margin-bottom: 2rem;
 
+  .width-quarter {
+    // done to make autocomplete fit
+    position: relative;
+
+    // done to make autocomplete not get pushed too far below
+    .search-form {
+      margin-bottom: 0;
+    }
+
+    .autocomplete {
+      width: calc(100% - 10px);
+    }
+  }
+
   h3 {
     display: inline-block;
   }

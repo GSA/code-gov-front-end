@@ -77,19 +77,6 @@ export default class HomeBanner extends React.Component {
     return null
   }
 
-  get searchDescriptionSection() {
-    return (
-      <Fragment>
-        {this.props.searchDescriptionText &&
-          <div className="show-w-gt-800">{this.props.searchDescriptionText}</div>
-        }
-        {this.props.searchDescriptionTextMobile &&
-          <div className="show-w-lte-800">{this.props.searchDescriptionTextMobile}</div>
-        }
-      </Fragment>
-    )
-  }
-
   get issueSection() {
     if (this.props.issueUrl) {
       return (
@@ -121,18 +108,7 @@ export default class HomeBanner extends React.Component {
             <div className="banner-subsection width-half" style={{zIndex: 30}}>
               <div className="banner-subsection-content">
                 <div className="banner-subsection-content-padder">
-                  <div className="search-input-container">
-                    <div className="search-input-wrapper">
-                      <div className="search-description-wrapper">
-                        {this.searchDescriptionSection}
-                      </div>
-                      <div className="search-input-and-button-wrapper">
-                        <HomeBannerSearchBox
-                          placeholder={this.props.searchPlaceholder}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  <HomeBannerSearchBox />
                   {this.browseDropdown}
                 </div>
               </div>
@@ -146,7 +122,6 @@ export default class HomeBanner extends React.Component {
                   {this.helpWantedTitleSubsection}
                   {this.helpWantedDescriptionSubsection}
                   {this.helpWantedButtonSubsection}
-
                 </div>
               </div>
             </div>
