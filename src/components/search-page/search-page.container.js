@@ -1,10 +1,11 @@
 /* global URLSearchParams */
 
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import {
   getFilterData,
   getFilterTags,
   getFilterValuesFromParamsByCategory,
+  getLowerSet,
   hasLicense,
   normalize
 } from 'utils/other'
@@ -27,7 +28,19 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
       accumulator[key] = normalize(getFilterValuesFromParamsByCategory(searchParams, key))
       return accumulator
     }, {})
-    console.log("selections:", selections)
+
+
+
+    let optionsinResults
+    if (searchResults && searchResults.repos) {
+      const repos = searchResults.repos
+      optionsinResults = {
+        agencies: getLowerSet(repos, 'agency.acronym'),
+        languages: getLowerSet(repos, 'languages'),
+        licenses: getLowerSet(repos, 'permissions.licenses[0].name'),
+        usageTypes: getLowerSet(repos, 'permissions.usageType')
+      }
+    }
 
     const query = searchParams.query
     const selectedPage = searchParams.page
@@ -37,13 +50,20 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
     let boxes = {}
     if (filters) {
       boxes = categories.reduce((accumulator, key) => {
-        accumulator[key] = filters[key].map(({ name, value}) => {
+        accumulator[key] = filters[key]
+        .filter(({name, value}) => {
+          if (optionsinResults && optionsinResults[key]) {
+            return optionsinResults[key].has(normalize(value))
+          } else {
+            return false
+          }
+        })
+        .map(({ name, value}) => {
           return { name, value, checked: includes(selections[key], normalize(value)) }
         })
         return accumulator
       }, {})
     }
-    console.log("boxes:", boxes)
 
     let total = 0
 
