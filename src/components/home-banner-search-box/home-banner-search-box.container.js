@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmit: (query) => {
       console.log("home-banner-search-box.container starting onSubmit with query:", query)
-      dispatch(updateSearchParams({ query, size: 100 }))
+      dispatch(updateSearchParams({ query, size: 10 }))
       dispatch(push(`/search?query=${query}`))
     }
   }

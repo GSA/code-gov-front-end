@@ -64,12 +64,12 @@ export default class Pagination extends Component {
       minItemIndex is 11 because (2-1) * 10 + 1
       This is displayed as 11 however because it's the 11th item in the array
     */
-    const minItemIndex = (page - 1) * pagesize + 1
+    const minItemIndex = ( (page - 1) * pagesize ) + 1
     /*
       ex: if on second page when 10 items per page
       maxItemIndex is 20, which is 11 + 9
     */
-    const maxItemIndex = minItemIndex + pagesize >= count ? count : minItemIndex + pagesize - 1
+    const maxItemIndex = minItemIndex + (pagesize - 1) > count - 1 ? count : minItemIndex + (pagesize - 1)
 
     const pagecount = Math.ceil(count / pagesize)
 

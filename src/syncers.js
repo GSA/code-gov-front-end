@@ -7,7 +7,7 @@ import updateTaskResults from 'actions/update-task-results'
 import syncURLSearchParams from 'actions/sync-url-search-params'
 
 let count = 0
-let threshold = 20
+let threshold = 50
 
 const syncers = [
   {
