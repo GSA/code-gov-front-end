@@ -34,7 +34,7 @@ export default class Pagination extends Component {
     if (equal(this.props.page, 1)) {
       return <span aria-label="Previous"><i className="icon icon-angle-circled-left"></i> Prev</span>
     } else if (Number(this.props.page) > 1) {
-      return <a onClick={::this.handlePrevious}><i className="icon icon-angle-circled-up"></i> Prev</a>
+      return <a onClick={::this.handlePrevious}><i className="icon icon-angle-circled-left"></i> Prev</a>
     }
   }
 
