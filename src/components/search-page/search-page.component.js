@@ -80,7 +80,7 @@ export default class SearchPage extends React.Component {
         <div className="search-results-header">
           <div className="indented">
             <div className="width-quarter">
-              <QuickSearchBox />
+              <QuickSearchBox value={this.props.searchParams.query}/>
             </div>
             {this.repoCounter}
           </div>

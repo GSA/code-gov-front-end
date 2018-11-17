@@ -11,7 +11,23 @@ export default class QuickSearchBoxComponent extends React.Component {
     this.state = {
       showAutocomplete: false,
       suggestions: [],
-      value: ''
+      value: props.value || ''
+    }
+  }
+
+  componentDidMount() {
+    this.mounted = true
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
+  }
+
+  // need to update value when props value changes
+  componentDidUpdate(prevProps) {
+    const { value } = this.props
+    if (value !== prevProps.value) {
+      this.setState({ value })
     }
   }
 
@@ -31,11 +47,12 @@ export default class QuickSearchBoxComponent extends React.Component {
           to: `/search?query=${term}&page=1&size=10`
         }
       })
-      this.setState({
-        showAutocomplete: true,
-        suggestions,
-        value
-      })
+      if (this.mounted) {
+        this.setState({
+          showAutocomplete: true,
+          suggestions
+        })
+      }
     })
   }
 
@@ -51,7 +68,7 @@ export default class QuickSearchBoxComponent extends React.Component {
     return (
       <Fragment>
         <SearchBox
-          placeholder={this.props.placeholder || this.props.query}
+          placeholder={this.props.placeholder}
           onBlur={::this.handleBlur}
           onFocus={::this.handleFocus}
           onChange={::this.handleChange}
