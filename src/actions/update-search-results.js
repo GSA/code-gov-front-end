@@ -7,7 +7,6 @@ export default function (filters) {
     if (query) {
       // we're filtering client size, so we don't need most filters
       const results = await client.search(query)
-      console.error("results from client.repos with filters", filters, "is", results)
       results.filters = filters
       dispatch({ type: UPDATE_SEARCH_RESULTS, results })
     } else {
