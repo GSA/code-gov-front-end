@@ -1,8 +1,5 @@
-/* global URLSearchParams */
 import { connect } from 'react-redux'
 import {
-  getConfigValue,
-  getFilterData,
   getFilterValuesFromParamsByCategory,
   getFilterTags,
   normalize
@@ -11,11 +8,8 @@ import OpenTasksComponent from './open-tasks.component'
 import updateTaskFilters from 'actions/update-task-filters'
 import updateTaskParams from 'actions/update-task-params'
 import saveTaskFilterOptions from 'actions/save-task-filter-options'
-import updateTaskResults from 'actions/update-task-results'
 import get from 'lodash.get'
-import intersection from 'lodash.intersection'
-import { push } from 'connected-react-router'
-import { excludes, filter, has, includes, overlaps, some } from '@code.gov/cautious'
+import { includes } from '@code.gov/cautious'
 
 const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
 
@@ -27,14 +21,9 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
     accumulator[key] = getFilterValuesFromParamsByCategory(taskParams, key)
     return accumulator
   }, {})
-  console.log("selections:", selections)
 
   const selectedPage = taskParams.page
   const selectedPageSize = taskParams.size
-
-  console.log("taskFilterOptions:", taskFilterOptions)
-
-  console.log("selections:", selections)
 
   let boxes = {}
   if (taskFilterOptions) {
@@ -45,7 +34,6 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
       return accumulator
     }, {})
   }
-  console.log("boxes:", boxes)
 
   const total = get(taskResults, 'total') || 0
   const tasks = get(taskResults, 'tasks')
