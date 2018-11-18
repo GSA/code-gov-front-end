@@ -33,10 +33,10 @@ const mapDispatchToProps = dispatch => {
         dispatch(updateBrowseParams(result))
       } else if (to.startsWith('/search')) {
         const result = {
-          page: params.page || defaultState.browseParams.page,
-          query: params.query || defaultState.browseParams.query,
-          size: params.size || defaultState.browseParams.size,
-          sort: params.sort || defaultState.browseParams.sort,
+          page: params.page || defaultState.searchParams.page,
+          query: params.query || defaultState.searchParams.query,
+          size: params.size || defaultState.searchParams.size,
+          sort: params.sort || defaultState.searchParams.sort,
           filters: []
         }
         const categories = ['agencies', 'languages', 'licenses', 'usageType']
