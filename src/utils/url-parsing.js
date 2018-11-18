@@ -31,7 +31,7 @@ export function getNormalizedURLSearchParams(search) {
     usageType: getParamAsArray(params, 'usageType'),
     page: getParamAsNumber(params, 'page'),
     sort: getParamAsString(params, 'sort'),
-    query: getParamAsString(params, 'query')
+    query: params.has('query') ? params.get('query').trim() : undefined
   }
 }
 
@@ -42,3 +42,15 @@ export function getSearchFromUrl(url) {
   }
 }
 
+export function getSection() {
+  const pathname = window.location.pathname
+  if (pathname.includes('/browse-projects')) {
+    return 'browse'
+  } else if (pathname.includes('/search')) {
+    return 'search'
+  } else if (pathname.includes('/open-tasks')) {
+    return 'tasks'
+  } else if (pathname.includes('/projects/')) {
+    return 'project'
+  }
+}
