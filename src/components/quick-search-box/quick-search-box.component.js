@@ -27,16 +27,22 @@ export default class QuickSearchBoxComponent extends React.Component {
   componentDidUpdate(prevProps) {
     const { value } = this.props
     if (value !== prevProps.value) {
-      this.setState({ value })
+      if (this.mounted) {
+        this.setState({ value })
+      }
     }
   }
 
   handleBlur() {
-    this.setState({ showAutocomplete: false })
+    if (this.mounted) {
+      this.setState({ showAutocomplete: false })
+    }
   }
 
   handleFocus() {
-    this.setState({ showAutocomplete: true })
+    if (this.mounted) {
+      this.setState({ showAutocomplete: true })
+    }
   }
 
   handleChange(value) {
@@ -57,11 +63,13 @@ export default class QuickSearchBoxComponent extends React.Component {
   }
 
   handleSelection(value) {
-    this.setState({
-      showAutocomplete: false,
-      suggestions: [],
-      value: value.text
-    })
+    if (this.mounted) {
+      this.setState({
+        showAutocomplete: false,
+        suggestions: [],
+        value: value.text
+      })
+    }
   }
 
   render() {
