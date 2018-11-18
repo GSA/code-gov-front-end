@@ -4,13 +4,18 @@ import MobileMenuSearchBoxComponent from './mobile-menu-search-box.component'
 import hideMobileMenu from 'actions/hide-mobile-menu'
 import collapseAllMobileMenuOptions from 'actions/collapse-all-mobile-menu-options'
 import updateSearchParams from 'actions/update-search-params'
+import { getSection } from 'utils/url-parsing'
 
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: query => {
-      dispatch(updateSearchParams( { query }))
-      if (!window.location.pathname.includes('/search')) {
-        dispatch(push('/search'))
+      dispatch(updateSearchParams({
+        page: 1,
+        size: 10,
+        query
+      }))
+      if (getSection() !== 'search') {
+        dispatch(push(`/search?page=1&query=${query}&size=10&sort=best_match`))
       }
       dispatch(collapseAllMobileMenuOptions())
       dispatch(hideMobileMenu())
