@@ -5,7 +5,7 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers/root'
 import { getCurrentTime } from 'utils/other'
 import { clone, forEach, last, map, some, trimUndefined } from '@code.gov/cautious'
-import hydrate from './hydrate'
+import { hydrate } from './hydrator'
 
 const initialState = hydrate()
 
