@@ -1,8 +1,5 @@
-/* global URLSearchParams */
-
 import { connect } from 'react-redux'
 import {
-  getFilterData,
   getFilterTags,
   getFilterValuesFromParamsByCategory,
   getLowerSet,
@@ -14,8 +11,7 @@ import updateSearchFilters from 'actions/update-search-filters'
 import updateSearchParams from 'actions/update-search-params'
 import SearchPageComponent from './search-page.component'
 import get from 'lodash.get'
-import { push } from 'connected-react-router'
-import { includes, len, overlaps, some, sortBy } from '@code.gov/cautious'
+import { includes, len, overlaps, some } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 
 const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting }) => {
