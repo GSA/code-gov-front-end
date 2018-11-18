@@ -195,3 +195,7 @@ export function fillFilters(keys, params, result) {
     }
   })
 }
+
+export function onHomePage() {
+  return window.location.pathname === PUBLIC_PATH
+}
