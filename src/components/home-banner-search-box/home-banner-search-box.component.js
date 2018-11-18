@@ -14,12 +14,24 @@ export default class HomeBannerSearchBoxComponent extends Component {
     }
   }
 
+  componentDidMount() {
+    this.mounted = true
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
+  }
+
   handleBlur() {
-    this.setState({ showAutocomplete: false })
+    if (this.mounted) {
+      this.setState({ showAutocomplete: false })
+    }
   }
 
   handleFocus() {
-    this.setState({ showAutocomplete: true })
+    if (this.mounted) {
+      this.setState({ showAutocomplete: true })
+    }
   }
 
   handleChange(value) {
@@ -30,11 +42,17 @@ export default class HomeBannerSearchBoxComponent extends Component {
           to: `/search?query=${term}&page=1&size=10`
         }
       })
-      this.setState({
-        showAutocomplete: true,
-        suggestions
-      })
+      if (this.mounted) {
+        this.setState({
+          showAutocomplete: true,
+          suggestions
+        })
+      }
     })
+  }
+
+  handleClick({text, to}) {
+    this.props.onSubmit(text)
   }
 
   render() {
@@ -55,7 +73,7 @@ export default class HomeBannerSearchBoxComponent extends Component {
               onSubmit={onSubmit}
               query={query}
             />
-            {this.state.showAutocomplete && some(this.state.suggestions) && <Autocomplete options={this.state.suggestions} onClick={onSubmit}/>}
+            {this.state.showAutocomplete && some(this.state.suggestions) && <Autocomplete options={this.state.suggestions} onClick={::this.handleClick}/>}
           </div>
         </div>
       </div>
