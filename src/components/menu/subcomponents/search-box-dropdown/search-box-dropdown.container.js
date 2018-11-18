@@ -3,6 +3,7 @@ import { push } from 'connected-react-router'
 import hideSearchDropdown from 'actions/hide-search-dropdown'
 import SearchBoxDropDownComponent from './search-box-dropdown.component'
 import updateSearchParams from 'actions/update-search-params'
+import getSection from 'utils/other-parsing'
 
 const mapStateToProps = ({ searchDropdown }) => {
   return {
@@ -14,9 +15,17 @@ const mapDispatchToProps = dispatch => {
   return {
     hideSearchDropdown: () => dispatch(hideSearchDropdown()),
     onSubmit: query => {
-      console.log("home-banner-search-box.container starting onSubmit with query:", query)
-      dispatch(updateSearchParams({ query, size: 100 }))
-      dispatch(push(`/search?query=${query}`))
+      if (getSection() === 'search') {
+        dispatch(updateSearchParams({ page: 1, query }))
+      } else {
+        dispatch(updateSearchParams({
+          page: 1,
+          query,
+          size: 10,
+          sort: 'best_match'
+        }))
+        dispatch(push(`/search?page=1&query=${query}&size=10&sort=best_match`))
+      }
       dispatch(hideSearchDropdown())
     }
   }
