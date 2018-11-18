@@ -1,7 +1,6 @@
 /* global URLSearchParams */
 import { push } from 'connected-react-router'
 import { setArrayAsParam, setNumberAsParam, setStringAsParam } from 'utils/url-setting'
-import { some } from '@code.gov/cautious'
 
 export default function(state) {
   return async dispatch => {
@@ -45,7 +44,14 @@ export default function(state) {
       Let's not do that for string legibility purposes.
       Very few browsers don't support commas in urls these days.
     */
-    const newUrl = (window.location.pathname + "?" + urlSearchParams.toString()).replace('%2C', ',')
-    dispatch(push(newUrl))
+    urlSearchParams.sort() // sorts urlSearchParams alphabetically
+
+    const currentUrlSearchParams = new URLSearchParams(window.location.search)
+    currentUrlSearchParams.sort()
+    if (urlSearchParams.toString() !== currentUrlSearchParams.toString()) {
+      const newUrl = (window.location.pathname + "?" + urlSearchParams.toString()).replace('%2C', ',')
+      console.error("newUrl:", newUrl)
+      dispatch(push(newUrl))
+    }
   }
 }
