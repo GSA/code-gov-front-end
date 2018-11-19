@@ -12,7 +12,7 @@ export default class MobileMenuOption extends Component {
         <ul>
         {map(menuOption.links, link => {
           const {name, url} = link
-          if (startsWith(url, 'http')) {
+          if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
             return (
               <li key={url}>
                 <a href={url} onClick={this.props.hideMobileMenu} target="_blank">
@@ -61,7 +61,7 @@ export default class MobileMenuOption extends Component {
     if (hasChildren) {
       const className = 'dropdown' + (active ? ' active' : '')
       return <a className={className} onClick={() => this.props.toggleMobileMenuOption(name)}>{name}</a>
-    } else if (startsWith(url, 'http')) {
+    } else if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
       return <a href={url} onClick={this.props.hideMobileMenu} target="_blank">{name}</a>
     } else {
       const className = active ? ' active' : ''
