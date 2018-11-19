@@ -13,7 +13,7 @@
   ],
   "content": {
     "header": {
-      "fork_me_url": "https://github.com/GSA/code-gov-web",
+      "fork_me_url": "https://github.com/GSA/code-gov-front-end",
       "logos": {
         "dark": "./assets/img/logos/code-gov-dark.svg",
         "light": "./assets/img/logos/code-gov-light.svg"
@@ -51,7 +51,7 @@
         {
           "name": "SOCIAL",
           "links": [
-            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-web" },
+            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-front-end" },
             { "name": "Blog", "url": "https://medium.com/codedotgov" },
             { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
             { "name": "Twitter", "url": "https://twitter.com/codedotgov" },
@@ -92,7 +92,7 @@
         {
           "name": "Social",
           "links": [
-            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-web" },
+            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-front-end" },
             { "name": "Blog", "url": "https://medium.com/codedotgov" },
             { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
             { "name": "Twitter", "url": "https://twitter.com/codedotgov" },
@@ -114,7 +114,7 @@
         "search_description_text_mobile": "Search projects",
         "search_placeholder_text": "e.g. JavaScript, NASA, web standards",
         "browse_by_text": "Browse by Agency",
-        "issue_url": "https://github.com/GSA/code-gov-web/issues"
+        "issue_url": "https://github.com/GSA/code-gov-front-end/issues"
       },
       "mission": "Code.gov leverages the power of code sharing and collaboration to help the US Government cut down on duplicative software development and save millions of taxpayer dollars for the American people.",
       "about": [{
@@ -206,7 +206,7 @@
         },
         {
           "name": "Visit Project Page",
-          "url": "https://github.com/GSA/code-gov-web"
+          "url": "https://github.com/GSA/code-gov-front-end"
         }
       ],
       "logos": [{
