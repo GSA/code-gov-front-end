@@ -108,8 +108,8 @@ const patterns = [
   }
 ]
 
-/* only include sitemap if building for production on code.gov */
 if (process.env.CODE_GOV_BRANCH === 'federalist-prod') {
+  // only include sitemap if building for production on code.gov
   patterns.push({
     from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
     to: path.join(OUTPUT_PATH, 'sitemap.xml')
@@ -192,6 +192,7 @@ module.exports = {
   },
   plugins: [
     new DefinePlugin({
+      'ENABLE_GOOGLE_ANALYTICS': JSON.stringify(process.env.CODE_GOV_BRANCH === 'federalist-prod'),
       'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH)
     }),
     new EnvironmentPlugin(["CODE_GOV_API_BASE", "CODE_GOV_API_KEY"]),
