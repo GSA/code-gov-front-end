@@ -205,7 +205,7 @@ module.exports = {
       templateParameters: {
         PUBLIC_PATH
       },
-      title: 'caribou',
+      title: 'code.gov',
     })
   ],
 }

@@ -11,7 +11,7 @@ if (!DIR) {
 
 const options = {
   dotfiles: false,
-  repo: process.env.CODE_GOV_REPO || 'git@github.com:GSA/caribou'
+  repo: process.env.CODE_GOV_REPO || 'git@github.com:GSA/code-gov-front-end'
 }
 
 console.log("options:", options)

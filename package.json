@@ -1,12 +1,12 @@
 {
-  "name": "caribou",
+  "name": "code-gov-front-end",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "analyze": "webpack --config ./config/webpack/webpack.analyze.js",
     "build": "webpack --config ./config/webpack/webpack.prod.js",
-    "deploy-to-gh-pages": "PUBLIC_PATH='/caribou/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' npm run build && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run publish",
+    "deploy-to-gh-pages": "PUBLIC_PATH='/code-gov-front-end/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' npm run build && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run publish",
     "deploy-to-staging": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' CODE_GOV_REPO='git@github.com:GSA/code-gov-web' npm run publish",
     "deploy-to-production": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-prod' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-prod' CODE_GOV_BRANCH='federalist-prod' npm run publish",
     "download-data": "wget https://raw.githubusercontent.com/GSA/code-gov-data/master/schemas/schema-2.0.0.json -O ./assets/data/schema.json",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GSA/caribou.git"
+    "url": "git+https://github.com/GSA/code-gov-front-end.git"
   },
   "author": "Daniel J. Dufour",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/GSA/caribou/issues"
+    "url": "https://github.com/GSA/code-gov-front-end/issues"
   },
-  "homepage": "https://github.com/GSA/caribou#readme",
+  "homepage": "https://github.com/GSA/code-gov-front-end#readme",
   "private": "true",
   "dependencies": {
     "@code.gov/about-page": "^0.1.4",
