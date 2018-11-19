@@ -12,14 +12,29 @@ export default class Menu extends Component {
       showAutocomplete: false,
       value: ''
     }
+    this.mounted = false
+  }
+
+  componentDidMount() {
+    this.mounted = true
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
+  }
+
+  setStateIfMounted(state) {
+    if (this.mounted) {
+      this.setState(state)
+    }
   }
 
   handleBlur() {
-    this.setState({ showAutocomplete: false })
+    this.setStateIfMounted({ showAutocomplete: false })
   }
 
   handleFocus() {
-    this.setState({ showAutocomplete: true })
+    this.setStateIfMounted({ showAutocomplete: true })
   }
 
   handleChange(value) {
@@ -27,10 +42,10 @@ export default class Menu extends Component {
       const suggestions = map(terms, term => {
         return {
           text: term,
-          to: `/search?query=${term}&page=1&size=10`
+          to: `/search?page=1&query=${term}&size=10&sort=best_match`
         }
       })
-      this.setState({
+      this.setStateIfMounted({
         showAutocomplete: true,
         suggestions
       })
@@ -38,13 +53,13 @@ export default class Menu extends Component {
   }
 
   handleSubmit(value) {
-    this.setState({ value: ''})
+    this.setStateIfMounted({ value: ''})
     this.props.onSubmit(value)
     event.preventDefault()
   }
 
   hideSearchDropdown() {
-    this.setState({ value: ''})
+    this.setStateIfMounted({ value: ''})
     this.props.hideSearchDropdown()
   }
 

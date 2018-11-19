@@ -28,6 +28,9 @@ export default class AppComponent extends Component {
   componentDidMount() {
     console.error("app component did mount")
     refreshView()
+    window.onpopstate = event => {
+      this.props.rehydrate()
+    }
   }
 
   render() {

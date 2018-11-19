@@ -3,7 +3,7 @@ import { push } from 'connected-react-router'
 import hideSearchDropdown from 'actions/hide-search-dropdown'
 import SearchBoxDropDownComponent from './search-box-dropdown.component'
 import updateSearchParams from 'actions/update-search-params'
-import getSection from 'utils/other-parsing'
+import { getSection } from 'utils/url-parsing'
 
 const mapStateToProps = ({ searchDropdown }) => {
   return {

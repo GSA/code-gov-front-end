@@ -29,7 +29,7 @@
         },
         {
           "name": "BROWSE PROJECTS",
-          "url": "/browse-projects"
+          "url": "/browse-projects?page=1&size=10&sort=data_quality"
         },
         {
           "name": "FEDERAL AGENCIES",
@@ -43,7 +43,7 @@
           "name": "DEVELOPERS",
           "links": [
             { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
-            { "name": "Open Tasks", "url": "/open-tasks" },
+            { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
             { "name": "Notebooks", "url": "https://beta.observablehq.com/search?query=%22code.gov%22" },
             { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
           ]
@@ -70,7 +70,7 @@
         },
         {
           "name": "Browse Projects",
-          "url": "/browse-projects"
+          "url": "/browse-projects?page=1&size=10&sort=data_quality"
         },
         {
           "name": "Federal Agencies",
@@ -84,7 +84,7 @@
           "name": "Developers",
           "links": [
             { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
-            { "name": "Open Tasks", "url": "/open-tasks" },
+            { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
             { "name": "Notebooks", "url": "https://beta.observablehq.com/search?query=%22code.gov%22" },
             { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
           ]
