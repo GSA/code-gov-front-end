@@ -25,10 +25,21 @@ export default class Menu extends Component {
     }
 
     this.onClickMenuOption = this.onClickMenuOption.bind(this)
+    this.header = React.createRef()
+  }
 
+  componentDidMount() {
     window.addEventListener('scroll', () => {
       const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
       this.setState({ notAtTop: scrollTop !== 0 })
+    })
+
+    document.addEventListener('click', event => {
+      const target = event.target
+      const header = this.header.current
+      if (target !== header && !header.contains(target)) {
+        this.collapse()
+      }
     })
   }
 
@@ -90,7 +101,7 @@ export default class Menu extends Component {
     let navStyle = { 'height': this.state.height }
 
     return (
-      <header className={headerClassName}>
+      <header className={headerClassName} ref={this.header}>
         <nav className={navClassName} style={navStyle} aria-label="primary">
 
           <MobileMenuControl />
