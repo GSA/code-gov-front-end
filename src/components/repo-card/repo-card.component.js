@@ -61,12 +61,6 @@ export default class RepoCardComponent extends Component {
           <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
         </h3>
 
-        {agencyName && (
-          <p className="repo-agency-icon">
-            <span>{ agencyName }</span>
-          </p>
-        )}
-
         {this.repoDescription}
 
         <dl className="inline-after-600px">
