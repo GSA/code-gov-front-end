@@ -8,6 +8,19 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 /* to do, fix bugs with using MiniCssExtractPlugin
  */
 
+const plugins = [
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: "[name].css",
+    chunkFilename: "[id].css"
+  })
+]
+
+if (process.env.CODE_GOV_BRANCH === 'federalist-prod') {
+  plugins.push(new CnameWebpackPlugin({ domain: 'code.gov' }))
+}
+
 const prod = {
   mode: 'production',
   module: {
@@ -26,18 +39,6 @@ const prod = {
       ]
     }]
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    }),
-    /*
-    new CnameWebpackPlugin({
-      domain: 'code.gov',
-    })
-    */
-  ]
+  plugins
 };
 module.exports = merge(shared, prod);
