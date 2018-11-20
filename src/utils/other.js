@@ -188,7 +188,7 @@ export function fillFilters(keys, params, result) {
       params[key].forEach(value => {
         result.filters.push({
           category: key,
-          value: value.toLowerCase(),
+          value: value,
           modified: now()
         })
       })

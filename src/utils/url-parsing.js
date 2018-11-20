@@ -4,19 +4,19 @@ export function getParamAsArray(params, key) {
   if (params.has(key)) {
     return params.get(key)
       .split(',')
-      .map(item => item.toLowerCase().trim())
+      .map(item => item.trim())
   }
 }
 
 export function getParamAsNumber(params, key) {
   if (params.has(key)) {
-    return Number(params.get(key).toLowerCase().trim())
+    return Number(params.get(key).trim())
   }
 }
 
 export function getParamAsString(params, key) {
   if (params.has(key)) {
-    return params.get(key).toLowerCase().trim()
+    return params.get(key).trim()
   }
 }
 

@@ -9,13 +9,13 @@
     "deploy-to-gh-pages": "PUBLIC_PATH='/code-gov-front-end/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' npm run build && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run publish",
     "deploy-to-staging": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' CODE_GOV_REPO='git@github.com:GSA/code-gov-web' npm run publish",
     "deploy-to-production": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-prod' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-prod' CODE_GOV_BRANCH='federalist-prod' npm run publish",
-    "download-data": "wget https://raw.githubusercontent.com/GSA/code-gov-data/master/schemas/schema-2.0.0.json -O ./assets/data/schema.json",
     "install-about-plugin": "cp ./node_modules/@code.gov/about-page/index.js ./src/components/plugins/about-page.js && cp -fr ./node_modules/@code.gov/about-page/pages/html/* ./assets/plugins/about-page/.",
     "install-fscp-plugin": "cp ./node_modules/@code.gov/fscp-react-component/src/index.js ./src/components/plugins/policy-guide.js && cp ./node_modules/@code.gov/fscp-react-component/pages/html/* ./assets/plugins/fscp-react-component/.",
     "publish": "node publish.js",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
     "webpack": "node ./node_modules/webpack/bin/webpack.js",
+    "update-data": "node update-data.js",
     "update-fonts": "cp node_modules/@code.gov/code-gov-font/font/* ./assets/fonts/."
   },
   "repository": {
