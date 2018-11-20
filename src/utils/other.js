@@ -154,6 +154,7 @@ export function getFilterValuesFromParamsByCategory(params, category) {
   return params.filters
     .filter(entry => entry.category === category)
     .map(entry => entry.value)
+    .map(value => typeof value === 'string' ? value.toLowerCase().trim() : value)
 }
 
 export function getFilterTags(params, filters) {

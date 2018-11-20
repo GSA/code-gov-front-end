@@ -21,7 +21,7 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     accumulator[key] = getFilterValuesFromParamsByCategory(browseParams, key)
     return accumulator
   }, {})
-  console.log("selections:", selections)
+  //console.log("selections:", selections)
 
   const selectedSorting = browseParams.sort
   const selectedPage = browseParams.page
@@ -36,7 +36,6 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
       return accumulator
     }, {})
   }
-  console.log("boxes:", boxes)
 
   const total = get(browseResults, 'total') || 0
   const repos = get(browseResults, 'repos')
@@ -74,7 +73,7 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     total
   }
 
-  console.log("result:", result)
+  //console.log("browse-projects's container passing following to component:", result)
   return result
 }
 
