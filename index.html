@@ -101,13 +101,7 @@
         addToLoadScreen('<p>loading ' + url + '</p>');
       }
 
-      try {
-        /* global URLSearchParams */
-        new URLSearchParams("?test=test").delete("test");
-      } catch (error) {
-        console.warn("This browser doesn't support URLSearchParams, so we'll load a polyfill");
-        loadScript('<%= PUBLIC_PATH %>polyfills/url-search-params.js');
-      }
+      /* removed URLSearchParams polyfill */
 
       // load fetch polyfill if required
       if (window.fetch === undefined) {

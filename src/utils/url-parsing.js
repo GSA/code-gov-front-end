@@ -1,27 +1,59 @@
-/* global URLSearchParams */
+export function getURLSearchParamsAsSimpleObj(search) {
+  search = search || window.location.search
+  if (typeof search === 'string') {
+    return search.substring(1).split('&').reduce((result, part) => {
+      try {
+        const [ key, value] = part.split("=");
+        result[key] = decodeURIComponent(value);
+      } catch (error) {
+        console.error(error);
+      }
+      return result
+    }, {});
+  }
+}
+
+export function convertObjToSortedSearchString(obj) {
+  return Object.keys(obj)
+    .sort() // sort keys alphabetically
+    .map(key => [key, obj[key]])
+    .map(([key, value]) => {
+      console.warn("sorting value:", [key, value])
+      if (Array.isArray(value)) {
+        return [key, value.sort()]
+      } else {
+        return [key, value]
+      }
+    })
+    .reduce((result, [key, value]) => {
+      return result + '&' + key + "=" + encodeURIComponent(Array.isArray(value) ? value.join(',') : value)
+    }, '')
+}
+
+convertObjToSortedSearchString(getURLSearchParamsAsSimpleObj(window.location.search))
 
 export function getParamAsArray(params, key) {
-  if (params.has(key)) {
-    return params.get(key)
+  if (params[key]) {
+    return params[key]
       .split(',')
       .map(item => item.trim())
   }
 }
 
 export function getParamAsNumber(params, key) {
-  if (params.has(key)) {
-    return Number(params.get(key).trim())
+  if (params[key]) {
+    return Number(params[key].trim())
   }
 }
 
 export function getParamAsString(params, key) {
-  if (params.has(key)) {
-    return params.get(key).trim()
+  if (params[key]) {
+    return params[key].trim()
   }
 }
 
 export function getNormalizedURLSearchParams(search) {
-  const params = new URLSearchParams(search || window.location.search)
+  const params = getURLSearchParamsAsSimpleObj(search || window.location.search)
   return {
     agencies: getParamAsArray(params, 'agencies'),
     languages: getParamAsArray(params, 'languages'),
@@ -31,7 +63,7 @@ export function getNormalizedURLSearchParams(search) {
     usageType: getParamAsArray(params, 'usageType'),
     page: getParamAsNumber(params, 'page'),
     sort: getParamAsString(params, 'sort'),
-    query: params.has('query') ? params.get('query').trim() : undefined
+    query: getParamAsString(params, 'query')
   }
 }
 

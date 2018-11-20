@@ -1,11 +1,14 @@
 /* global URLSearchParams */
 import { push } from 'connected-react-router'
-import { setArrayAsParam, setNumberAsParam, setStringAsParam } from 'utils/url-setting'
+import {
+  convertObjToSortedSearchString,
+  getURLSearchParamsAsSimpleObj
+} from 'utils/url-parsing'
 
 export default function(state) {
-  return async dispatch => {
+  return dispatch => {
     const pathname = window.location.pathname
-    const urlSearchParams = new URLSearchParams()
+    const urlSearchParams = {}
     let storeParams
     if (pathname.includes('/browse-projects')) {
       if (state.browseParams) {
@@ -30,27 +33,23 @@ export default function(state) {
           else params[category] = [value]
         })
         for (let category in params) {
-          setArrayAsParam(urlSearchParams, category, params[category])
+          urlSearchParams[category] = params[category]
         }
       } else if (typeof value === 'string') {
-        setStringAsParam(urlSearchParams, key, value)
+        urlSearchParams[key] = value
       } else if (typeof value === 'number') {
-        setNumberAsParam(urlSearchParams, key, value)
+        urlSearchParams[key] = value
       }
     }
 
-    /*
-      URLSearchParam's toString method URL encodes commas.
-      Let's not do that for string legibility purposes.
-      Very few browsers don't support commas in urls these days.
-    */
-    urlSearchParams.sort() // sorts urlSearchParams alphabetically
 
-    const currentUrlSearchParams = new URLSearchParams(window.location.search)
-    currentUrlSearchParams.sort()
-    if (urlSearchParams.toString() !== currentUrlSearchParams.toString()) {
-      const newUrl = (window.location.pathname + "?" + urlSearchParams.toString()).replace('%2C', ',')
-      console.error("newUrl:", newUrl)
+    const newURLSearchAsString = convertObjToSortedSearchString(urlSearchParams)
+    const currentUrlSearchParams = convertObjToSortedSearchString(getURLSearchParamsAsSimpleObj())
+    if (newURLSearchAsString !== currentUrlSearchParams) {
+      let newUrl = window.location.pathname
+      if (typeof currentUrlSearchParams === 'string' && currentUrlSearchParams.length > 0) {
+        newUrl += "?" + newURLSearchAsString
+      }
       dispatch(push(newUrl))
     }
   }
