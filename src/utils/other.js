@@ -1,9 +1,6 @@
 /* global PUBLIC_PATH */
-/* global URLSearchParams */
-
 import get from 'lodash.get'
-import intersection from 'lodash.intersection'
-import { find, lower, run, startsWith, trim } from '@code.gov/cautious'
+import { find, lower, startsWith, trim } from '@code.gov/cautious'
 import siteConfig from '../../config/site/site.json'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
