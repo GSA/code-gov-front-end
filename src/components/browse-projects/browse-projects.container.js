@@ -1,5 +1,3 @@
-/* global URLSearchParams */
-
 import { connect } from 'react-redux'
 import { includes } from '@code.gov/cautious'
 import get from 'lodash.get'
