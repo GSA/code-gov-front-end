@@ -101,13 +101,8 @@
         addToLoadScreen('<p>loading ' + url + '</p>');
       }
 
-      /* removed URLSearchParams polyfill */
-
-      // load fetch polyfill if required
-      if (window.fetch === undefined) {
-        console.warn("this browser doesn't support fetch, so we'll load a polyfill");
-        loadScript('<%= PUBLIC_PATH %>polyfills/fetch.js');
-      }
+      /* replaced URLSearchParams polyfill with utils/url-parsing */
+      /* replaced fetch polyfill with fetchJSON and fetchText */
 
       if (window.customElements === undefined) {
         console.warn("this browser doesn't support custom elements, so we'll load a polyfill");

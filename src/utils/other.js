@@ -197,3 +197,21 @@ export function fillFilters(keys, params, result) {
 export function onHomePage() {
   return window.location.pathname === PUBLIC_PATH
 }
+
+/* I'd prefer to use fetch but IE polyfilling is complicated */
+export function getText(url) {
+  return new Promise(resolve => {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        resolve(xhr.response);
+      }
+    }
+    xhr.open('GET', url, true);
+    xhr.send('');
+  });
+}
+
+export function getJSON(url) {
+  return getText(url).then(JSON.parse)
+}

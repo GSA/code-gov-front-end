@@ -1,5 +1,5 @@
-/* global fetch */
 import React, { Component } from 'react'
+import { getText } from 'utils/other'
 
 export default class LazyHTML extends Component {
 
@@ -14,8 +14,7 @@ export default class LazyHTML extends Component {
     this.mounted = true
     if (!this.loading) {
       this.loading = true
-      fetch(this.props.url)
-        .then(response => response.text())
+      getText(this.props.url)
         .then(html => {
           if (this.mounted) {
             this.setState({ html })
