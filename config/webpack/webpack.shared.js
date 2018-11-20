@@ -87,7 +87,7 @@ const patterns = [
     to: 'polyfills/url-search-params.js'
   },
   {
-    from: 'node_modules/@code.gov/json-schema-web-component/index.js',
+    from: 'node_modules/@code.gov/json-schema-web-component/dist/json-schema.js',
     to: 'webcomponents/json-schema.js'
   },
   {
