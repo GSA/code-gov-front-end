@@ -1,0 +1,22 @@
+/* overwrite code-gov-style */
+
+.banner {
+  background-image: none;
+}
+
+/* for internet explorer */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .card {
+    .corner-tag {
+      &.high {
+        background: url("/assets/img/corner-tags/high.svg");
+      }
+      &.medium {
+        background: url("/assets/img/corner-tags/medium.svg");
+      }
+      &.low {
+        background: url("/assets/img/corner-tags/low.svg");
+      }
+    }
+  }
+}

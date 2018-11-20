@@ -5,8 +5,7 @@ const shared = require('./webpack.shared');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-/* to do, fix bugs with using MiniCssExtractPlugin
- */
+const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
 
 const plugins = [
   new MiniCssExtractPlugin({

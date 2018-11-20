@@ -94,8 +94,19 @@
       function loadScript(url) {
         var script = document.createElement('script');
         script.src = url;
+        script.onload = function() {
+          console.warn("loaded " + url);
+        };
         document.head.appendChild(script);
         addToLoadScreen('<p>loading ' + url + '</p>');
+      }
+
+      try {
+        /* global URLSearchParams */
+        new URLSearchParams("?test=test").delete("test");
+      } catch (error) {
+        console.warn("This browser doesn't support URLSearchParams, so we'll load a polyfill");
+        loadScript('<%= PUBLIC_PATH %>polyfills/url-search-params.js');
       }
 
       // load fetch polyfill if required
@@ -115,14 +126,6 @@
       } catch (error) {
         console.warn("This browser doesn't support CustomEvent, which is used by code-gov-style, so we'll load a polyfill");
         loadScript('<%= PUBLIC_PATH %>polyfills/custom-event.js');
-      }
-
-      try {
-        /* global URLSearchParams */
-        new URLSearchParams("?test=test").delete("test");
-      } catch (error) {
-        console.warn("This browser doesn't support URLSearchParams, so we'll load a polyfill");
-        loadScript('<%= PUBLIC_PATH %>polyfills/url-search-params.js');
       }
 
       function injectScript(innerHTML) {
