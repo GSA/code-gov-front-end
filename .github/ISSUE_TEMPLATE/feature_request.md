@@ -4,6 +4,8 @@ about: Suggest an idea for this project
 
 ---
 
+<!-- New Issues should follow our [Issue Guidelines](https://github.com/GSA/code-gov-front-end/blob/master/CONTRIBUTING.md#issue-guidelines).  They should be **specific**, **measurable**, **achievable**, **realistic**, and **time-aware**. --> 
+
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
