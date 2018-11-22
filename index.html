@@ -87,10 +87,6 @@
     <script src="<%= PUBLIC_PATH %>webcomponents/code-gov-web-components.js" defer></script>
     <script>
 
-      function addToLoadScreen(text) {
-        document.getElementById('load-screen').innerHTML += "<p>" + text + "</p>";
-      }
-
       function loadScript(url) {
         var script = document.createElement('script');
         script.src = url;
@@ -98,7 +94,6 @@
           console.warn("loaded " + url);
         };
         document.head.appendChild(script);
-        addToLoadScreen('<p>loading ' + url + '</p>');
       }
 
       /* replaced URLSearchParams polyfill with utils/url-parsing */
