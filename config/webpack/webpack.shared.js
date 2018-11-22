@@ -103,8 +103,8 @@ const patterns = [
     to: 'external/ajv.min.js'
   },
   {
-    from: 'node_modules/jsoneditor',
-    to: 'external/jsoneditor'
+    from: 'node_modules/jsoneditor/dist',
+    to: 'external/jsoneditor/dist'
   }
 ]
 
