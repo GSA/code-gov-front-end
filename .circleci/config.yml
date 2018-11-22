@@ -18,9 +18,11 @@ jobs:
       - run: npm install
       - run: npm run analyze
       - run: cd dist && mkdir report && cp report.html report/report.html
-      - run: configure git
-        - git config --global user.email "code@gsa.gov"
-        - git config --global user.name "code.gov ci"
+      - run:
+        - name: configure git
+        - command: |
+          git config --global user.email "code@gsa.gov"
+          git config --global user.name "code.gov ci"
       - run: CODE_GOV_RELATIVE_DIR='/dist/report' CODE_GOV_BRANCH='federalist-bundle-analysis' npm run deploy
 workflows:
   version: 2
