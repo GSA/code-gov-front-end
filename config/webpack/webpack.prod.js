@@ -1,8 +1,5 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
-const path = require('path');
 const shared = require('./webpack.shared');
-const CnameWebpackPlugin = require('cname-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
@@ -15,10 +12,6 @@ const plugins = [
     chunkFilename: "[id].css"
   })
 ]
-
-if (process.env.CODE_GOV_BRANCH === 'federalist-prod') {
-  plugins.push(new CnameWebpackPlugin({ domain: 'code.gov' }))
-}
 
 const prod = {
   mode: 'production',
