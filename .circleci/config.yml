@@ -17,8 +17,8 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run analyze
-      - run: cd dist/ && rm -fr !(report.html)
-      - run: CODE_GOV_RELATIVE_DIR='/dist' CODE_GOV_BRANCH='federalist-bundle-analysis' npm publish
+      - run: mkdir report && cp dist/report.html report/report.html
+      - run: CODE_GOV_RELATIVE_DIR='/report' CODE_GOV_BRANCH='federalist-bundle-analysis' npm publish
 workflows:
   version: 2
   build-test-deploy:
