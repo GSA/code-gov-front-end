@@ -24,7 +24,7 @@ workflows:
   build-test-deploy:
     jobs:
       - build
-      - deploy-bundle-analysis
+      - deploy-bundle-analysis:
           filters:
             branches:
               only: master
