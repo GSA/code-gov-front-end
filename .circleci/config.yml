@@ -13,15 +13,18 @@ jobs:
       - image: ubuntu
     steps:
       - run: apt-get update
-      - run: apt-get install -y build-essential npm nodejs
+      - run: apt-get install -y build-essential git npm nodejs
       - checkout
       - run: npm install
       - run: npm run analyze
-      - run: mkdir report && cp dist/report.html report/report.html
-      - run: CODE_GOV_RELATIVE_DIR='/report' CODE_GOV_BRANCH='federalist-bundle-analysis' npm run deploy
+      - run: cd dist && mkdir report && cp report.html report/report.html
+      - run: CODE_GOV_RELATIVE_DIR='/dist/report' CODE_GOV_BRANCH='federalist-bundle-analysis' npm run deploy
 workflows:
   version: 2
   build-test-deploy:
     jobs:
       - build
       - deploy-bundle-analysis
+          filters:
+            branches:
+              only: master
