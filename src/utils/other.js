@@ -69,6 +69,12 @@ export function normalize(input) {
 /* runs when each page component is loaded */
 export function refreshView() {
   window.scrollTo(0, 0)
+  if (document && document.documentElement && document.documentElement.scrollTop) {
+    document.documentElement.scrollTop = 0
+  }
+  if (document.body && document.body.scrollTop) {
+    document.body.scrollTop = 0
+  }
   if (document.activeElement) {
     document.activeElement.blur()
   }

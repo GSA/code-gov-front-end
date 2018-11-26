@@ -18,16 +18,14 @@ import { getConfigValue, refreshView } from 'utils/other'
 import { parseLocation } from 'utils/url-parsing'
 import { last, map } from '@code.gov/cautious'
 
-console.log("PolicyGuide:", PolicyGuide)
-
 export default class AppComponent extends Component {
 
   componentDidMount() {
     console.error("app component did mount")
     refreshView()
-    window.onpopstate = event => {
+    window.addEventListener('popstate', event => {
       this.props.rehydrate()
-    }
+    })
   }
 
   render() {
