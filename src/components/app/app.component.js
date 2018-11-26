@@ -14,14 +14,11 @@ import Menu from 'components/menu'
 import Footer from 'components/footer'
 import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
-import { getConfigValue, refreshView } from 'utils/other'
-import { parseLocation } from 'utils/url-parsing'
-import { last, map } from '@code.gov/cautious'
+import { refreshView } from 'utils/other'
 
 export default class AppComponent extends Component {
 
   componentDidMount() {
-    console.error("app component did mount")
     refreshView()
     window.addEventListener('popstate', event => {
       this.props.rehydrate()
