@@ -16,7 +16,7 @@
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
     "webpack": "node ./node_modules/webpack/bin/webpack.js",
     "update-data": "node update-data.js",
-    "update-fonts": "cp node_modules/@code.gov/code-gov-font/font/* ./assets/fonts/."
+    "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/."
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "@code.gov/api-client": "0.3.1",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.7.1",
-    "@code.gov/code-gov-style": "1.12.0",
+    "@code.gov/code-gov-style": "1.13.0",
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
     "@code.gov/fscp-react-component": "0.3.1",
     "@code.gov/json-schema-validator-web-component": "^0.2.0",

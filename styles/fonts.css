@@ -9,3 +9,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('../assets/fonts/tt_lakes_medium-webfont.eot');
+  src: url('../assets/fonts/tt_lakes_medium-webfont.eot') format('embedded-opentype'),
+       url('../assets/fonts/tt_lakes_medium-webfont-subset.woff2') format("woff2"),
+       url('../assets/fonts/tt_lakes_medium-webfont-subset.zopfli.woff') format("woff"),
+       url('../assets/fonts/tt_lakes_medium-webfont-subset.ttf') format("truetype"),
+       url('../assets/fonts/tt_lakes_medium-webfont.svg') format("svg");
+  unicode-range: U+20-7E;
+}

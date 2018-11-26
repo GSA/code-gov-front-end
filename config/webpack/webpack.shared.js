@@ -47,10 +47,6 @@ console.log("entry:", entry)
 
 const patterns = [
   {
-    from: '.nojekyll',
-    to: path.join(OUTPUT_PATH, '.nojekyll')
-  },
-  {
     from: './assets/data',
     to: path.join(OUTPUT_PATH, '/assets/data')
   },
