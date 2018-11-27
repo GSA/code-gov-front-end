@@ -20,7 +20,12 @@ export default class MobileMenuSearchBoxComponent extends React.Component {
   render() {
     return (
       <form className="search-form" onSubmit={::this.handleSubmit}>
-        <input placeholder='Search Projects...' onChange={::this.handleChange} value={this.state.value}/>
+        <input
+          onChange={::this.handleChange}
+          placeholder='Search Projects...'
+          type='search'
+          value={this.state.value}
+        />
         <button className="go">Go</button>
       </form>
     )

@@ -48,7 +48,13 @@ export default class SearchBox extends Component {
       <form className="search-form" onSubmit={::this.handleSubmit}>
         <div className="search-input-wrapper">
           <div className="search-input-and-button-wrapper">
-            <input placeholder={this.props.placeholder} ref={this.textInput} onChange={::this.handleChange} value={this.state.value}/>
+            <input
+              onChange={::this.handleChange}
+              placeholder={this.props.placeholder}
+              ref={this.textInput}
+              type={this.props.inputType || 'search'}
+              value={this.state.value}
+            />
             <button className="go">Go</button>
           </div>
         </div>

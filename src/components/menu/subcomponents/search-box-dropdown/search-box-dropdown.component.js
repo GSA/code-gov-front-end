@@ -71,6 +71,7 @@ export default class Menu extends Component {
             <i className="icon icon-cancel"></i>
           </a>
           <SearchBox
+            inputType='text'
             onBlur={::this.handleBlur}
             onChange={::this.handleChange}
             onFocus={::this.handleFocus}

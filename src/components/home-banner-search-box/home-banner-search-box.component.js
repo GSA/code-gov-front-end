@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { map, some, truncate } from '@code.gov/cautious'
+import { map, some } from '@code.gov/cautious'
 import Autocomplete from 'components/autocomplete'
 import SearchBox from 'components/search-box'
 import client from 'api-client'
