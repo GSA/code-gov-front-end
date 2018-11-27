@@ -66,15 +66,19 @@ export function normalize(input) {
   return trim(lower(input))
 }
 
+export function setScrollDepth(scrollDepth) {
+  if (document && document.documentElement && document.documentElement.scrollTop) {
+    document.documentElement.scrollTop = scrollDepth
+  }
+  if (document.body && document.body.scrollTop) {
+    document.body.scrollTop = scrollDepth
+  }
+}
+
 /* runs when each page component is loaded */
 export function refreshView() {
   window.scrollTo(0, 0)
-  if (document && document.documentElement && document.documentElement.scrollTop) {
-    document.documentElement.scrollTop = 0
-  }
-  if (document.body && document.body.scrollTop) {
-    document.body.scrollTop = 0
-  }
+  setScrollDepth(0)
   if (document.activeElement) {
     document.activeElement.blur()
   }
@@ -82,11 +86,22 @@ export function refreshView() {
 
 
 export function scrollToTopOfResults() {
+  console.log("starting scrollToTopOfResults")
   const headerHeight = document.querySelector("header.main").clientHeight
   const bannerHeight = document.querySelector(".banner").clientHeight
   const navHeight = document.querySelector("header.main nav").clientHeight
   const scrollDepth = headerHeight + bannerHeight - navHeight
-  window.scrollTo(0, scrollDepth)
+  const scrollOptionsSupported = document.documentElement.style.scrollBehavior !== undefined
+  if (scrollOptionsSupported) {
+    window.scrollTo({
+      behavior: 'smooth',
+      left: 0,
+      top: scrollDepth
+    })
+  } else {
+    window.scrollTo(0, scrollDepth)
+  }
+  setScrollDepth(scrollDepth)
 }
 
 /* gets a set of values given a path */
