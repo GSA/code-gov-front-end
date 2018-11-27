@@ -69,3 +69,6 @@ typings/
 *.swn
 *.swo
 *.swp
+
+# code.gov plugins
+/src/components/plugins

@@ -9,7 +9,16 @@
     "handle": "codedotgov"
   },
   "plugins": [
-    { "route": "/policy-guide", "component": "@code.gov/policy-guide/src/index.js" }
+    {
+      "route": "/policy-guide",
+      "component": "@code.gov/fscp-react-component",
+      "filename": "policy-guide.js"
+    },
+    {
+      "route": "/about",
+      "component": "@code.gov/about-page",
+      "filename": "about-page.js"
+    }
   ],
   "content": {
     "header": {

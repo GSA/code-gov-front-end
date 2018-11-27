@@ -1,15 +1,18 @@
-const path = require('path');
-const webpack = require('webpack');
+const { copyFileSync, readFileSync } = require('fs');
+const { dirname, join } = require('path');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin');
+const EventHooksPlugin = require('event-hooks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const get = require("lodash.get")
 const { map } = require("@code.gov/cautious")
 
-const rootDir = path.dirname(path.dirname(__dirname))
+const rootDir = dirname(dirname(__dirname))
+const nodeModulesDir = join(rootDir, 'node_modules')
+
 console.log("process.env.CODE_GOV_API_BASE:", process.env.CODE_GOV_API_BASE)
 console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
 
@@ -21,9 +24,9 @@ let OUTPUT_PATH;
 if (process.env.OUTPUT_PATH) {
   OUTPUT_PATH = process.env.OUTPUT_PATH
 } else if (process.env.OUTPUT_RELATIVE_PATH) {
-  OUTPUT_PATH = path.join(rootDir, process.env.OUTPUT_RELATIVE_PATH)
+  OUTPUT_PATH = join(rootDir, process.env.OUTPUT_RELATIVE_PATH)
 } else {
-  OUTPUT_PATH = path.join(rootDir, '/dist')
+  OUTPUT_PATH = join(rootDir, '/dist')
 }
 console.log("OUTPUT_PATH:", OUTPUT_PATH)
 
@@ -35,35 +38,34 @@ const entry = {
   index: ['@babel/polyfill', './src/index.js'],
 }
 
-/*
-code to load plugins
-const { plugins } = require(path.join(rootDir, "/config/site/site.json"))
+let { plugins } = require(join(rootDir, "/config/site/site.json"))
 console.log("plugins:", plugins)
+const pluginsDir = join(rootDir, '/src/components/plugins')
+/*
 map(plugins, ({component, route}) => {
-  entry[path.join('plugins/', component)] = component
+  entry[join('plugins/', component)] = component
 })
 console.log("entry:", entry)
 */
-
 const patterns = [
   {
     from: './assets/data',
-    to: path.join(OUTPUT_PATH, '/assets/data')
+    to: join(OUTPUT_PATH, '/assets/data')
   },
   {
     from: './assets/img',
-    to: path.join(OUTPUT_PATH, '/assets/img')
+    to: join(OUTPUT_PATH, '/assets/img')
   },
   {
     from: './assets/plugins',
-    to: path.join(OUTPUT_PATH, '/assets/plugins')
+    to: join(OUTPUT_PATH, '/assets/plugins')
   },
   {
     from: './404.html',
-    to: path.join(OUTPUT_PATH, '404.html')
+    to: join(OUTPUT_PATH, '404.html')
   },
   {
-    from: 'node_modules/@code.gov/code-gov-style/dist/js/code-gov-web-components.js',
+    from: join(nodeModulesDir, '@code.gov/code-gov-style/dist/js/code-gov-web-components.js'),
     to: 'webcomponents/code-gov-web-components.js'
   },
   {
@@ -108,7 +110,7 @@ if (process.env.CODE_GOV_BRANCH === 'federalist-prod') {
   // only include sitemap if building for production on code.gov
   patterns.push({
     from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
-    to: path.join(OUTPUT_PATH, 'sitemap.xml')
+    to: join(OUTPUT_PATH, 'sitemap.xml')
   })
 }
 
@@ -187,6 +189,26 @@ module.exports = {
     ]
   },
   plugins: [
+    new EventHooksPlugin({
+      'beforeCompile': () => {
+        if (Array.isArray(plugins)) {
+          plugins.map(plugin => {
+            const packageDir = join(nodeModulesDir, plugin.component);
+            const relativeMainPath = require(join(packageDir, 'package.json')).main;
+            const absoluteMainPath = join(packageDir, relativeMainPath);
+            const to = join(pluginsDir, plugin.filename);
+            const inFileText = readFileSync(absoluteMainPath, 'utf-8');
+            const outFileText = readFileSync(to, 'utf-8');
+            const shouldCopy = inFileText !== outFileText;
+            console.log(`checking if text of ${plugin.component} has changed`);
+            if (inFileText !== outFileText) {
+              console.log(`\tinstalling plugin from ${absoluteMainPath} to ${to}`);
+              copyFileSync(absoluteMainPath, to);
+            }
+          });
+        }
+      }
+    }),
     new DefinePlugin({
       'ENABLE_GOOGLE_ANALYTICS': JSON.stringify(process.env.CODE_GOV_BRANCH === 'federalist-prod'),
       'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH)
@@ -204,4 +226,7 @@ module.exports = {
       title: 'code.gov',
     })
   ],
+  watchOptions: {
+    ignored: ['plugins']
+  }
 }
