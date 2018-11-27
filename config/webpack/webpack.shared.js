@@ -9,6 +9,7 @@ const EventHooksPlugin = require('event-hooks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const get = require("lodash.get")
 const { map } = require("@code.gov/cautious")
+const { copyOverPluginIfNecessary } = require('./webpack.utils');
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
@@ -41,12 +42,13 @@ const entry = {
 let { plugins } = require(join(rootDir, "/config/site/site.json"))
 console.log("plugins:", plugins)
 const pluginsDir = join(rootDir, '/src/components/plugins')
-/*
-map(plugins, ({component, route}) => {
-  entry[join('plugins/', component)] = component
-})
-console.log("entry:", entry)
-*/
+
+const loadPlugins = () => {
+  if (Array.isArray(plugins)) {
+    plugins.map(plugin => copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir));
+  }
+}
+loadPlugins();
 const patterns = [
   {
     from: './assets/data',
@@ -191,22 +193,7 @@ module.exports = {
   plugins: [
     new EventHooksPlugin({
       'beforeCompile': () => {
-        if (Array.isArray(plugins)) {
-          plugins.map(plugin => {
-            const packageDir = join(nodeModulesDir, plugin.component);
-            const relativeMainPath = require(join(packageDir, 'package.json')).main;
-            const absoluteMainPath = join(packageDir, relativeMainPath);
-            const to = join(pluginsDir, plugin.filename);
-            const inFileText = readFileSync(absoluteMainPath, 'utf-8');
-            const outFileText = readFileSync(to, 'utf-8');
-            const shouldCopy = inFileText !== outFileText;
-            console.log(`checking if text of ${plugin.component} has changed`);
-            if (inFileText !== outFileText) {
-              console.log(`\tinstalling plugin from ${absoluteMainPath} to ${to}`);
-              copyFileSync(absoluteMainPath, to);
-            }
-          });
-        }
+        loadPlugins();
       }
     }),
     new DefinePlugin({
