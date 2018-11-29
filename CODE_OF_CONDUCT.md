@@ -6,10 +6,10 @@ This Code of Conduct applies to Code.gov, its repositories, communications, even
 
 We expect all visitors and contributors to Code.gov to have a safe and engaging experience that is beneficial to our community. Members of our community have a diverse set of experiences and skillsets. As you engage our community, please ensure you are:  
 
-- __Considerate__: as an open source community, what you do will affect others. Ensure what you do is in the best interest of the project, and community at large. 
-- __Collaborative__: the essences of open source is collaborative in nature. Attempt to honor the spirit of open source by working together before conflict.
+- __Considerate__: As an open source community, what you do will affect others. Ensure what you do is in the best interest of the project, and community at large. 
+- __Collaborative__: Open source is collaborative in nature.  Attempt to honor the spirit of open source by working together and resolving issues before conflict arises.
 - __Patient__: Remember that open source is a culture change in government and while Code.gov is a testament to that change, change is occurring thanks to many in this community. Be patient if your question or issue is not answered right away. Many are juggling multiple duties. Contributing to open-source projects is often an after hours affair. 
-- __Be Mindful__: Be aware of your actions, others actions. Treat others with dignity and respect --the way you want to be treated. Be kind. 
+- __Be Mindful__: Be aware of your actions. Treat others with dignity and respect -- the way you want to be treated. Be kind.
 - __Using clear communication__: We don’t all speak the same language. Further, written, or typed words lack tone or body language to help interpret intent or meaning. If your words could have more than one meaning, take time to be clearer and always air on the side of being kind. 
 
 # What we won’t accept
