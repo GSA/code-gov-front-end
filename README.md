@@ -48,10 +48,10 @@ By default, the development server will listen on <http://localhost:8080/>. You 
 ## Testing
 Development of tests is in progress
 
-# Deployment
+## Deployment
 Read about how to publish to Github pages, Federalist and elsewhere [here](DEPLOYMENT.md)
 
-# Bundle analysis
+## Bundle analysis
 https://federalist-proxy.app.cloud.gov/preview/gsa/code-gov-front-end/federalist-bundle-analysis/report.html
 
 
