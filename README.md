@@ -28,13 +28,13 @@ Here’s how you can help contribute to code.gov:
   * To provide feedback on the [Federal Source Code Policy](https://sourcecode.cio.gov/), you should follow [this issue tracker](https://github.com/WhiteHouse/source-code-policy/issues)
 
 * Code.gov
-    * To provide feedback on [code-gov-front-end], please checkout our [Contributing Guildelines](CONTRIBUTING.MD).
+    * To provide feedback on code-gov-front-end, please checkout our [Contributing Guildelines](CONTRIBUTING.md).
     * To contribute to the Code.gov style guide, head over to the [code-gov-style](https://github.com/GSA/code-gov-style) repo.
     * Checkout [code-gov](https://github.com/GSA/code-gov) for a list of additional project repositories. If you aren't sure where your question or idea fits, this is a good place to share it.
 
 ## Questions?
 
-If you have questions, please feel free to [send us an email] at (mailto:code@gsa.gov).
+If you have questions, please feel free to [send us an email](mailto:code@gsa.gov).
 
 ## Getting Started
 
