@@ -1,6 +1,6 @@
 # Code of Conduct
 
-This Code of Conduct applies to Code.gov, its repositories, communications, events and anyone participating in the Code.gov community [link to about page]. Your use of Code.gov means you accept and agree to abide by this Code of Conduct, which we may revise periodically. You should review this page from time to time. 
+This Code of Conduct applies to Code.gov, its repositories, communications, events and anyone participating in the Code.gov community. Your use of Code.gov means you accept and agree to abide by this Code of Conduct, which we may revise periodically. You should review this page from time to time. 
 
 ## What we expect
 
