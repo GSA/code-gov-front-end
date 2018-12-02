@@ -1,23 +1,23 @@
 @font-face {
   font-family: 'code-gov';
-  src: url(/demo/gsa/code-gov-front-end/fonts/code-gov.eot);
-  src: url(/demo/gsa/code-gov-front-end/fonts/code-gov.eot#iefix) format('embedded-opentype'),
-  url(/demo/gsa/code-gov-front-end/fonts/code-gov.woff2) format('woff2'),
-  url(/demo/gsa/code-gov-front-end/fonts/code-gov.woff) format('woff'),
-  url(/demo/gsa/code-gov-front-end/fonts/code-gov.ttf) format('truetype'),
-  url(/demo/gsa/code-gov-front-end/fonts/code-gov.svg#code-gov) format('svg');
+  src: url(/fonts/code-gov.eot);
+  src: url(/fonts/code-gov.eot#iefix) format('embedded-opentype'),
+  url(/fonts/code-gov.woff2) format('woff2'),
+  url(/fonts/code-gov.woff) format('woff'),
+  url(/fonts/code-gov.ttf) format('truetype'),
+  url(/fonts/code-gov.svg#code-gov) format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TT Lakes';
-  src: url(/demo/gsa/code-gov-front-end/fonts/tt_lakes_medium-webfont.eot);
-  src: url(/demo/gsa/code-gov-front-end/fonts/tt_lakes_medium-webfont.eot) format('embedded-opentype'),
-       url(/demo/gsa/code-gov-front-end/fonts/tt_lakes_medium-webfont-subset.woff2) format("woff2"),
-       url(/demo/gsa/code-gov-front-end/fonts/tt_lakes_medium-webfont-subset.zopfli.woff) format("woff"),
-       url(/demo/gsa/code-gov-front-end/fonts/tt_lakes_medium-webfont-subset.ttf) format("truetype"),
-       url(/demo/gsa/code-gov-front-end/fonts/tt_lakes_medium-webfont.svg) format("svg");
+  src: url(/fonts/tt_lakes_medium-webfont.eot);
+  src: url(/fonts/tt_lakes_medium-webfont.eot) format('embedded-opentype'),
+       url(/fonts/tt_lakes_medium-webfont-subset.woff2) format("woff2"),
+       url(/fonts/tt_lakes_medium-webfont-subset.zopfli.woff) format("woff"),
+       url(/fonts/tt_lakes_medium-webfont-subset.ttf) format("truetype"),
+       url(/fonts/tt_lakes_medium-webfont.svg) format("svg");
   unicode-range: U+20-7E;
 }
 @charset "UTF-8";
