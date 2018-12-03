@@ -129,13 +129,13 @@
       "about": [{
           "title": "About Us",
           "description": "Code.gov is on track to become the nation’s primary platform for sharing America’s code.  Find out how we’ll get there.",
-          "link": "/policy-guide/docs/overview/introduction",
+          "link": "/about/overview/introduction",
           "image": "/assets/img/icons/info_bl.png"
         },
         {
           "title": "Policy Info",
           "description": "The Federal Source Code Policy helps government agencies reduce duplicative software development and save taxpayer dollars.",
-          "link": "/policy-guide/policy/introduction",
+          "link": "/policy-guide/introduction",
           "image": "/assets/img/icons/policy_bl.png"
         },
         {
