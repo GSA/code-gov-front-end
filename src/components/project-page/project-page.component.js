@@ -135,7 +135,7 @@ export default class ProjectPage extends Component {
   get repositoryURL() {
     const url = parseRepositoryURL(this.props.repo)
     if (Boolean(url)) {
-      return <a href={url}><button className="button">Visit Repo</button></a>
+      return <a href={url} target="_blank"><button className="button">Visit Repo</button></a>
     }
   }
 
