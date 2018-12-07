@@ -1,0 +1,16 @@
+name: Code.gov
+description: 'Implementation of code.gov and the federal source code policy'
+license: 'https://github.com/GSA/code-gov-front-end/blob/master/LICENSE.md'
+openSourceProject: 1
+governmentWideReuseProject: 1
+tags:
+    - code.gov
+    - open
+    - source
+    - code
+    - open source
+    - source code
+    - sourcecode
+    - government code
+contact:
+    email: code@gsa.gov
