@@ -200,7 +200,11 @@ module.exports = {
       'ENABLE_GOOGLE_ANALYTICS': JSON.stringify(process.env.CODE_GOV_BRANCH === 'federalist-prod'),
       'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH)
     }),
-    new EnvironmentPlugin(["CODE_GOV_API_BASE", "CODE_GOV_API_KEY"]),
+    new EnvironmentPlugin([
+      "CODE_GOV_API_BASE",
+      "CODE_GOV_API_KEY",
+      "CODE_GOV_TASKS_URL"
+    ]),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
     new FaviconsWebpackPlugin('./assets/img/favicon.png'),

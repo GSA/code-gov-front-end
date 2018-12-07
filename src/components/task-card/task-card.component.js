@@ -21,9 +21,9 @@ export default class TaskCardComponent extends Component {
   }
 
   get cardDescription() {
-    const description = get(this.props.task, 'description').substring(0, 250)
+    const description = get(this.props.task, 'description')
     if (description) {
-      return <p className="card-description">{description}</p>
+      return <p className="card-description">{description.substring(0, 250)}</p>
     }
   }
 
