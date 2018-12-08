@@ -4,7 +4,7 @@ import CustomLink from 'components/custom-link'
 export default class HomeFeaturedProject extends Component {
 
   render() {
-    const { image, short_name, verbose_name, author, description, links } = this.props.project;
+    const { image, alt, short_name, verbose_name, author, description, links } = this.props.project;
 
     const place = this.props.index % 2 === 0 ? 'even' : 'odd'
 
@@ -12,7 +12,7 @@ export default class HomeFeaturedProject extends Component {
       <div className="block featured-project">
         <div className="indented">
 
-          {place === 'even' && (<div className="width-half"><img src={image}/></div>)}
+          {place === 'even' && (<div className="width-half"><img src={image} alt={alt}/></div>)}
 
           <div className="width-half">
             <div className="featured-project-info">
@@ -44,7 +44,7 @@ export default class HomeFeaturedProject extends Component {
             </div>
           </div>
 
-          {place === 'odd' && (<div className="width-half"><img src={image}/></div>)}
+          {place === 'odd' && (<div className="width-half"><img src={image} alt={alt}/></div>)}
 
         </div>
       </div>

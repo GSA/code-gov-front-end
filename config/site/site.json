@@ -151,6 +151,7 @@
           "author": "Environmental Protection Agency",
           "description": "A python package designed to simulate and analyze resilience of water distribution networks.",
           "image": "/assets/img/featured-projects/pipes4.png",
+          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge",
           "links": [
             { "name": "View Project", "url": "/projects/doe_sandia_national_laboratories_snl_water_network_tool_for_resilience_v_1_0" },
             { "name": "Go to Repo", "url": "https://github.com/usepa/wntr" }
@@ -162,6 +163,7 @@
           "author": "Department of Transportation",
           "description": "A real-time virtual data router that ingests and processes operational data from various connected devices including vehicles, infrastructure, and traffic management centers and distributes it to other devices and subscribing transportation management applications.",
           "image": "/assets/img/featured-projects/smartcity4.png",
+          "alt": "Cartoon truck navigating windy road with caution sign and wireless towers",
           "links": [
             { "name": "View Project", "url": "/projects/dot_fhwa_intelligent_transportation_systems_operational_data_environment_its_ode_" },
             { "name": "Go to Repo", "url": "https://github.com/usdot-jpo-ode/jpo-ode" }
@@ -173,6 +175,7 @@
           "author": "National Security Agency",
           "description": "Enables security teams to integrate apps, workflows, and analytics tools that would otherwise need to be created from scratch.",
           "image": "/assets/img/featured-projects/WALKOFF.png",
+          "alt": "Cartoon hand pressing buttons connected to phone and laptop",
           "links": [
             { "name": "View Project", "url": "/projects/nsa_walkoff" },
             { "name": "Go to Repo", "url": "https://github.com/iadgov/WALKOFF" }
