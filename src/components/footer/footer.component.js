@@ -4,7 +4,7 @@ import CustomLink from 'components/custom-link'
 import { map, startsWith } from '@code.gov/cautious'
 
 export default class Footer extends Component {
-
+''
   render() {
     return (
       <footer className={this.props.color} role="contentinfo">
@@ -14,9 +14,11 @@ export default class Footer extends Component {
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
                   return (
-                    <a className="link" href={link.url} target="_blank" key={link.name}>
-                      <span>{link.name}</span>
-                    </a>
+                    <li key={link.name}>
+                      <a className="link" href={link.url} target="_blank" key={link.name}>
+                        <span>{link.name}</span>
+                      </a>
+                    </li>
                   )
                 } else {
                   return (
