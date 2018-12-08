@@ -4,7 +4,6 @@ import CustomLink from 'components/custom-link'
 import { map, startsWith } from '@code.gov/cautious'
 
 export default class Footer extends Component {
-''
   render() {
     return (
       <footer className={this.props.color} role="contentinfo">
