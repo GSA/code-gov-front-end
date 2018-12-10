@@ -19,9 +19,7 @@ export default class Menu extends Component {
       expanded: false,
       height: 'auto',
       notAtTop: false,
-      menu: props.menu,
-      searchBoxShown: false,
-      showMobileMenu: false
+      menu: props.menu
     }
 
     this.onClickMenuOption = this.onClickMenuOption.bind(this)

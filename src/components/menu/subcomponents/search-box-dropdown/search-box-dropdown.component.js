@@ -9,8 +9,7 @@ export default class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAutocomplete: false,
-      value: ''
+      showAutocomplete: false
     }
     this.mounted = false
   }
@@ -53,13 +52,11 @@ export default class Menu extends Component {
   }
 
   handleSubmit(value) {
-    this.setStateIfMounted({ value: ''})
     this.props.onSubmit(value)
     event.preventDefault()
   }
 
   hideSearchDropdown() {
-    this.setStateIfMounted({ value: ''})
     this.props.hideSearchDropdown()
   }
 
