@@ -18,9 +18,9 @@ export default class QualityPopover extends Component {
   }
 
   onClick() {
-    this.setState({
-      activated: !this.state.activated
-    })
+    this.setState(state => ({
+      activated: !state.activated
+    }))
   }
 
   render() {
