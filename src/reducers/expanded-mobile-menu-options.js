@@ -11,7 +11,7 @@ export default function (state = null, action) {
       return []
     case EXPAND_MOBILE_MENU_OPTION:
       // there can only be one option expanded at once
-      return state = [action.name]
+      return [action.name]
     case COLLAPSE_MOBILE_MENU_OPTION:
       return [].filter(name => name !== action.name)
     case TOGGLE_MOBILE_MENU_OPTION:
