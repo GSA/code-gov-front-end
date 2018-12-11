@@ -13,7 +13,7 @@ header.main {
     a {
       img {
         height: 33px;
-        width: 175px;
+        max-width: 175px;
 
         @media screen and (max-width: $header-switch) {
           padding: 5px;
