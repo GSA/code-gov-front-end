@@ -39,7 +39,7 @@
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
     "@code.gov/fscp-react-component": "0.3.2",
     "@code.gov/json-schema-validator-web-component": "^0.2.0",
-    "@code.gov/json-schema-web-component": "0.3.0",
+    "@code.gov/json-schema-web-component": "0.4.0",
     "@code.gov/site-map-generator": "^1.0.1",
     "@webcomponents/custom-elements": "^1.2.1",
     "@webcomponents/webcomponentsjs": "^2.1.3",
