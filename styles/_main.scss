@@ -51,3 +51,15 @@ ul.breadcrumbs {
     margin-right: 5px;
   }
 }
+
+// pads footnotes
+[id*=fn] {
+  @media screen and (max-width: $header-switch) {
+    margin-top: -60px;
+    padding-top: 60px;
+  }
+  @media screen and (min-width: $header-switch) {
+    margin-top: -90px; /* Size of fixed header */
+    padding-top: 90px;
+  }
+}
