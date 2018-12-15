@@ -2536,6 +2536,11 @@ blockquote p:last-child {
   line-height: 1rem;
 }
 
+.sticky {
+  position: sticky;
+  top: 90px;
+}
+
 .sidebar {
   position: relative;
   border-bottom: none;
@@ -2907,10 +2912,12 @@ header.main.dark nav.main .hamburger-inner::before, header.main.dark nav.main .h
 header.main.dark nav.main svg .cls-1 {
   fill: #ffffff;
 }
-header.main.dark nav.main > ul > li > div, header.main.dark nav.main > ul > li > a {
+header.main.dark nav.main > ul > li > div,
+header.main.dark nav.main > ul > li > a {
   color: #e4e4e4;
 }
-header.main.dark nav.main > ul > li > div:hover, header.main.dark nav.main > ul > li > a:hover {
+header.main.dark nav.main > ul > li > div:hover,
+header.main.dark nav.main > ul > li > a:hover {
   color: white;
 }
 header.main.dark nav.main > ul > li ul li a {
@@ -3037,7 +3044,7 @@ header.main nav.main > ul.right > li .follow-us {
 header.main nav.main > ul > li {
   display: inline-block;
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: initial;
   vertical-align: top;
   /* title of first level option */
   /* sub options */
@@ -3052,7 +3059,8 @@ header.main nav.main > ul > li {
     margin-left: 4rem;
   }
 }
-header.main nav.main > ul > li > div, header.main nav.main > ul > li > a {
+header.main nav.main > ul > li > div,
+header.main nav.main > ul > li > a {
   border-bottom: 4px solid transparent;
   color: #5b616b;
   cursor: pointer;
@@ -3064,16 +3072,19 @@ header.main nav.main > ul > li > div, header.main nav.main > ul > li > a {
   vertical-align: top;
 }
 @media screen and (min-width: 800.5px) {
-  header.main nav.main > ul > li > div, header.main nav.main > ul > li > a {
+  header.main nav.main > ul > li > div,
+header.main nav.main > ul > li > a {
     font-size: 0.8em;
   }
 }
 @media screen and (min-width: 1000px) {
-  header.main nav.main > ul > li > div, header.main nav.main > ul > li > a {
+  header.main nav.main > ul > li > div,
+header.main nav.main > ul > li > a {
     font-size: 1em;
   }
 }
-header.main nav.main > ul > li > div:hover, header.main nav.main > ul > li > a:hover {
+header.main nav.main > ul > li > div:hover,
+header.main nav.main > ul > li > a:hover {
   border-color: #23C0BA;
   color: #004370;
 }
@@ -3244,6 +3255,11 @@ h3 {
   border-bottom: 1px solid #aeb0b5;
   border-top: 1px solid #aeb0b5;
   margin-bottom: 2rem;
+}
+@media screen and (max-width: 600px) {
+  .search-results-header {
+    text-align: center;
+  }
 }
 .search-results-header .width-quarter {
   position: relative;
@@ -4001,7 +4017,7 @@ header.main {
 }
 header.main nav a img {
   height: 33px;
-  width: 175px;
+  max-width: 175px;
 }
 @media screen and (max-width: 800.5px) {
   header.main nav a img {
