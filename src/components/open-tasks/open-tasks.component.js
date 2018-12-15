@@ -71,7 +71,7 @@ export default class OpenTasks extends React.Component {
             <FilterBoxes
               boxes={this.props.boxes}
               config={[
-                ['Language', 'languages'],
+                //['Language', 'languages'],
                 ['Federal Agency', 'agencies'],
                 ['Skill Level', 'skillLevels'],
                 ['Time Required', 'timeRequired'],
