@@ -13,6 +13,10 @@ export default function (params) {
       })
     }
     console.log("filtersAsObject", options)
+
+    // overwriting default size because need to get all tasks in order to do filtering client side
+    options.size = 10000
+
     const results = await client.tasks(options)
     console.error("results from client.tasks with filters", params, "is", results.total)
     results.params = params
