@@ -7,19 +7,19 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin');
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const get = require("lodash.get")
-const { map } = require("@code.gov/cautious")
+const get = require('lodash.get')
+const { map } = require('@code.gov/cautious')
 const { copyOverPluginIfNecessary } = require('./webpack.utils');
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
 
-console.log("process.env.CODE_GOV_API_BASE:", process.env.CODE_GOV_API_BASE)
-console.log("process.env.CODE_GOV_API_KEY:", process.env.CODE_GOV_API_KEY)
+console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
+console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
 
 // https://webpack.js.org/guides/public-path/
 const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
-console.log("process.env.PUBLIC_PATH:", process.env.PUBLIC_PATH)
+console.log('process.env.PUBLIC_PATH:', process.env.PUBLIC_PATH)
 
 let OUTPUT_PATH;
 if (process.env.OUTPUT_PATH) {
@@ -29,19 +29,25 @@ if (process.env.OUTPUT_PATH) {
 } else {
   OUTPUT_PATH = join(rootDir, '/dist')
 }
-console.log("OUTPUT_PATH:", OUTPUT_PATH)
+console.log('OUTPUT_PATH:', OUTPUT_PATH)
 
 if (!OUTPUT_PATH) {
-  throw new Error("Please define an output path")
+  throw new Error('Please define an output path')
 }
 
 const entry = {
   index: ['@babel/polyfill', './src/index.js'],
 }
 
-let { plugins } = require(join(rootDir, "/config/site/site.json"))
-console.log("plugins:", plugins)
-const pluginsDir = join(rootDir, '/src/components/plugins')
+
+const siteConfigPath = process.env.CODE_GOV_CONFIG_JSON || join(rootDir, '/config/site/site.json')
+console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSON)
+
+const SITE_CONFIG = require(siteConfigPath);
+
+let { plugins } = SITE_CONFIG;
+console.log('plugins:', plugins);
+const pluginsDir = join(rootDir, '/src/components/plugins');
 
 const loadPlugins = () => {
   if (Array.isArray(plugins)) {
@@ -142,10 +148,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
+          'style-loader', // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
           {
-            loader: "sass-loader", // compiles Sass to CSS
+            loader: 'sass-loader', // compiles Sass to CSS
             options: {
               implementation: require('sass')
             }
@@ -168,8 +174,8 @@ module.exports = {
               '@babel/plugin-transform-regenerator'
             ],
             presets: [
-              "@babel/preset-env",
-              "@babel/preset-react"
+              '@babel/preset-env',
+              '@babel/preset-react'
             ]
           }
         }
@@ -178,10 +184,10 @@ module.exports = {
         test: /\.md$/,
         use: [
             {
-                loader: "html-loader"
+                loader: 'html-loader'
             },
             {
-                loader: "markdown-loader",
+                loader: 'markdown-loader',
                 options: {
                     /* your options here */
                 }
@@ -198,12 +204,13 @@ module.exports = {
     }),
     new DefinePlugin({
       'ENABLE_GOOGLE_ANALYTICS': JSON.stringify(process.env.CODE_GOV_BRANCH === 'federalist-prod'),
-      'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH)
+      'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
+      'SITE_CONFIG': JSON.stringify(SITE_CONFIG)
     }),
     new EnvironmentPlugin([
-      "CODE_GOV_API_BASE",
-      "CODE_GOV_API_KEY",
-      "CODE_GOV_TASKS_URL"
+      'CODE_GOV_API_BASE',
+      'CODE_GOV_API_KEY',
+      'CODE_GOV_TASKS_URL'
     ]),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
