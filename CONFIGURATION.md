@@ -4,6 +4,9 @@ code-gov-front-end is configurable.  More details are below.
 # code-gov-config.json
 You can customize the styling, content and much more by adding to and updating the `site.json` file found at [/config/site/site.json](/config/site/site.json).  You can also see examples of configurations in [/config/site/examples](/config/site/examples/).
 
+# Environmental Variable
+In order to customize the site, you can alternatively create a JSON file like the site.json then point to it with the `CODE_GOV_CONFIG_JSON` environmental variable.  Using this during build is like `CODE_GOV_CONFIG_JSON=/tmp/yourstate.json npm run build`.
+
 ## title
 To change the title of the website change the `title` property in `/config/site/site.json`
 

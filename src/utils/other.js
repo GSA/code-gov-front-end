@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
+/* global SITE_CONFIG */
 import get from 'lodash.get'
 import { find, lower, startsWith, trim } from '@code.gov/cautious'
-import siteConfig from '../../config/site/site.json'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -29,8 +29,8 @@ export function adjustAssetPath(thing) {
 }
 
 export function getConfigValue(path) {
-  if (siteConfig) {
-    let value = get(siteConfig, path)
+  if (SITE_CONFIG) {
+    let value = get(SITE_CONFIG, path)
     if (typeof value === 'string') {
       try {
         value = adjustAssetPath(value)
