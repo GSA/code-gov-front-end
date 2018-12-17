@@ -1,15 +1,19 @@
 export function getURLSearchParamsAsSimpleObj(search) {
   search = search || window.location.search
-  if (typeof search === 'string') {
+  if (search && typeof search === 'string') {
     return search.substring(1).split('&').reduce((result, part) => {
       try {
-        const [ key, value] = part.split("=");
-        result[key] = decodeURIComponent(value);
+        if (part && part.includes('=')) {
+          const [ key, value] = part.split('=');
+          result[key] = decodeURIComponent(value);
+        }
       } catch (error) {
         console.error(error);
       }
       return result
     }, {});
+  } else {
+    return {}
   }
 }
 
