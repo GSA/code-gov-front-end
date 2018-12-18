@@ -23,6 +23,12 @@ export default class LazyHTML extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.props.onUpdate) {
+      this.props.onUpdate()
+    }
+  }
+
   componentWillUnmount() {
     this.mounted = false
   }
