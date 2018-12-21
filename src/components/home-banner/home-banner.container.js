@@ -25,21 +25,21 @@ const mapDispatchToProps = dispatch => {
       const value = normalize(event.target.value)
       if (value !== 'browse by agency') {
         let url
+        const params = {
+          page: 1,
+          size: 10,
+          sort: 'data_quality',
+          filters: []
+        }
         if (value === 'all') {
           url = '/browse-projects?page=1&size=10&sort=data_quality'
         } else {
           url =`/browse-projects?agencies=${value}&page=1&size=10&sort=data_quality`
+          params.filters.push({ category: 'agencies', value, modified: now() })
         }
         // we can't use updateBrowseFilters because of
         // https://github.com/GSA/code-gov-front-end/issues/130
-        dispatch(updateBrowseParams({
-          page: 1,
-          size: 10,
-          sort: 'data_quality',
-          filters: [
-            { category: 'agencies', value, modified: now() }
-          ]
-        }))
+        dispatch(updateBrowseParams(params))
         dispatch(push(url))
       }
     },
