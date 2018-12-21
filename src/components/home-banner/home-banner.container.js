@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router'
-import { getConfigValue, normalize } from 'utils/other'
+import { getConfigValue, normalize, now } from 'utils/other'
 import saveAgencies from 'actions/save-agencies'
-import updateBrowseFilters from 'actions/update-browse-filters'
+import updateBrowseParams from 'actions/update-browse-params'
 import HomeBannerComponent from './home-banner.component'
 
 const mapStateToProps = ({ agencies }) => {
@@ -24,11 +24,22 @@ const mapDispatchToProps = dispatch => {
     onBrowseByEntityChange: event => {
       const value = normalize(event.target.value)
       if (value !== 'browse by agency') {
-        let url = '/browse-projects'
-        if (value !== 'all') {
-          url += '?agencies=' + value
-          dispatch(updateBrowseFilters('agencies', value, 'checked'))
+        let url
+        if (value === 'all') {
+          url = '/browse-projects?page=1&size=10&sort=data_quality'
+        } else {
+          url =`/browse-projects?agencies=${value}&page=1&size=10&sort=data_quality`
         }
+        // we can't use updateBrowseFilters because of
+        // https://github.com/GSA/code-gov-front-end/issues/130
+        dispatch(updateBrowseParams({
+          page: 1,
+          size: 10,
+          sort: 'data_quality',
+          filters: [
+            { category: 'agencies', value, modified: now() }
+          ]
+        }))
         dispatch(push(url))
       }
     },
