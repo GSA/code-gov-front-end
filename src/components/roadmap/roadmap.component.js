@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Breadcrumbs from 'components/breadcrumbs'
 import SiteBanner from 'components/site-banner'
 import { normalize, refreshView } from 'utils/other'

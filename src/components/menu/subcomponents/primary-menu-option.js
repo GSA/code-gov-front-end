@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import CustomLink from 'components/custom-link'
 
 export default function PrimaryMenuOption ({ menuOption, onClick }) {
@@ -12,15 +12,13 @@ export default function PrimaryMenuOption ({ menuOption, onClick }) {
       >{textContent}</CustomLink>
     )
   }
-  else {
-    return (
-      <a
-        aria-haspopup="true"
-        href="javascript:void(0);"
-        tabIndex="0"
-        role="menuitem"
-        onClick={(event) => onClick(menuOption, event)}
-      >{textContent}</a>
-    );
-  }
+  return (
+    <a
+      aria-haspopup="true"
+      href="javascript:void(0);"
+      tabIndex="0"
+      role="menuitem"
+      onClick={(event) => onClick(menuOption, event)}
+    >{textContent}</a>
+  );
 }

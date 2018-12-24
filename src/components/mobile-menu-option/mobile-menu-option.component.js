@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react'
 import CustomLink from 'components/custom-link'
 import { map, startsWith } from '@code.gov/cautious'
 
@@ -24,7 +23,7 @@ export default class MobileMenuOption extends Component {
             return (
               <li key={url}>
                 <CustomLink
-                  className={this.isLinkActive({name, url}) ? 'active' : ''}
+                  className={this.isLinkActive({url}) ? 'active' : ''}
                   onClick={this.props.hideMobileMenu}
                   to={url}
                 >{name}</CustomLink>
@@ -40,17 +39,16 @@ export default class MobileMenuOption extends Component {
   }
 
   isTopOptionActive() {
-    const { name, links, url } = this.props.menuOption
+    const { links, url } = this.props.menuOption
     if (url) {
-      return this.isLinkActive({ name, url })
+      return this.isLinkActive({ url })
     } else if (links) {
       return links.some(this.isLinkActive)
-    } else {
-      return false
     }
+    return false
   }
 
-  isLinkActive({ name, url }) {
+  isLinkActive({ url }) {
     return window.location.href.includes(url)
   }
 
@@ -63,10 +61,9 @@ export default class MobileMenuOption extends Component {
       return <a className={className} onClick={() => this.props.toggleMobileMenuOption(name)}>{name}</a>
     } else if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
       return <a href={url} onClick={this.props.hideMobileMenu} target="_blank">{name}</a>
-    } else {
-      const className = active ? ' active' : ''
-      return <CustomLink className={className} to={url} onClick={this.props.hideMobileMenu}>{name}</CustomLink>
     }
+    const className = active ? ' active' : ''
+    return <CustomLink className={className} to={url} onClick={this.props.hideMobileMenu}>{name}</CustomLink>
   }
 
   render() {

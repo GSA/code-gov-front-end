@@ -2,7 +2,6 @@ import { forEach } from '@code.gov/cautious'
 import AppComponent from './app.component'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import loadProject from 'actions/load-project'
 import updateBrowseParams from 'actions/update-browse-params'
 import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
@@ -69,7 +68,6 @@ const mapDispatchToProps = dispatch => {
             params[key] = parsed[key] || defaultState.taskParams[key]
           })
           dispatch(updateTaskParams(params))
-        } else {
         }
       }
 

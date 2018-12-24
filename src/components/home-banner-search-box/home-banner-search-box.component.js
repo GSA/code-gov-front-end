@@ -51,7 +51,7 @@ export default class HomeBannerSearchBoxComponent extends Component {
     })
   }
 
-  handleClick({text, to}) {
+  handleClick({text}) {
     this.props.onSubmit(text)
   }
 

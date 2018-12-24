@@ -1,5 +1,5 @@
 /* global PUBLIC_PATH */
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { find, map } from '@code.gov/cautious'
 import get from 'lodash.get'
 
@@ -18,7 +18,7 @@ export default class NavSelect extends Component {
 
     const { pathname, pages } = this.props
     console.log("pages:", pages)
-    let current = get(find(pages, ({route}) => pathname.includes(route)), 'route')
+    const current = get(find(pages, ({route}) => pathname.includes(route)), 'route')
     return (
       <select onChange={::this.handleChange} value={current}>
       {map(pages, ({display, route}) => {

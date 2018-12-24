@@ -3,8 +3,6 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import history from 'browser-history'
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/root'
-import { getCurrentTime } from 'utils/other'
-import { clone, forEach, last, map, some, trimUndefined } from '@code.gov/cautious'
 import { hydrate } from './hydrator'
 
 const initialState = hydrate()

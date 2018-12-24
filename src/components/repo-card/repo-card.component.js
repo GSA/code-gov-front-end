@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
-import { round, some } from '@code.gov/cautious'
+import { some } from '@code.gov/cautious'
 import {
   getLastModifiedDateString,
   getDisplayTextForUsageType,
@@ -36,9 +36,8 @@ export default class RepoCardComponent extends Component {
     if (some(repo.languages)) {
       const languages = repo.languages
       return <CardPart title='Languages' text={languages.map(language => <span key={language} className="language">{language}</span>)} />
-    } else {
-      return <CardPart title='Languages' text='Not Available' />
     }
+    return <CardPart title='Languages' text='Not Available' />
   }
 
 

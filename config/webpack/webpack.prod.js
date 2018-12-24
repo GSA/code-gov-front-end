@@ -2,8 +2,6 @@ const merge = require('webpack-merge');
 const shared = require('./webpack.shared');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
-
 const plugins = [
   new MiniCssExtractPlugin({
     // Options similar to the same options in webpackOptions.output

@@ -23,9 +23,8 @@ export function adjustAssetPath(thing) {
       }
     }
     return thing
-  } else {
-    return thing
   }
+  return thing
 }
 
 export function getConfigValue(path) {
@@ -57,9 +56,7 @@ export function getConfigValue(path) {
     }
     return value
   }
-  else {
-    return null
-  }
+  return null
 }
 
 export function normalize(input) {
@@ -180,7 +177,7 @@ export function getFilterTags(params, filters) {
     .map(({ category, modified, value}) => {
       const normalizedValue = value.toLowerCase()
       const found = find(get(filters, category), item => item.value.toLowerCase() === normalizedValue)
-      let title = 'loading'
+      const title = 'loading'
       if (found) {
         if (found.name) title = found.name
         if (found.value) value = found.value
@@ -192,7 +189,7 @@ export function getFilterTags(params, filters) {
 
 export function loadScript(src) {
   console.log("starting loadScript with", src)
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const script = document.createElement('script')
     script.src = src
     script.onload = resolve

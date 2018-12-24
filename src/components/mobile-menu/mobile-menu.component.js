@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import { Link, NavLink } from 'react-router-dom'
 import { map } from '@code.gov/cautious'
 import MobileMenuOption from 'components/mobile-menu-option'
 import MobileMenuSearchBox from 'components/mobile-menu-search-box'

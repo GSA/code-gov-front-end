@@ -14,8 +14,7 @@ export default class CustomLinkComponent extends Component {
     const { children, className, title, to } = this.props
     if (children) {
       return <Link className={className} title={title} to={to} onClick={::this.onClick}>{children}</Link>
-    } else {
-      return <Link className={className} title={title} to={to} onClick={::this.onClick} />
     }
+    return <Link className={className} title={title} to={to} onClick={::this.onClick} />
   }
 }

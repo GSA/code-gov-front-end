@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
@@ -8,10 +8,8 @@ import QuickSearchBox from 'components/quick-search-box'
 import SiteBanner from 'components/site-banner'
 import SortSection from 'components/sort-section'
 import RepoCard from 'components/repo-card'
-import { isChecked } from 'utils/filtering'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
-import { parseLocation } from 'utils/url-parsing'
-import { length, some } from '@code.gov/cautious'
+import { some } from '@code.gov/cautious'
 
 
 export default class BrowseProjects extends React.Component {

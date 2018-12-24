@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { map } from '@code.gov/cautious'
 
 export default class HomePressComponent extends Component {

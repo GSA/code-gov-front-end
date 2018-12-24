@@ -1,6 +1,6 @@
 // https://reactjs.org/docs/forms.html
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 import { find, map } from '@code.gov/cautious'
 

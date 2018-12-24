@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import CustomLink from 'components/custom-link'
 
 export default class HomeFeaturedProject extends Component {
@@ -30,15 +30,14 @@ export default class HomeFeaturedProject extends Component {
                         </a>
                       </span>
                     )
-                  } else {
-                    return (
-                      <span key={link.url}>
-                        <CustomLink to={link.url}>
-                          <button className="alt">{link.name}</button>
-                        </CustomLink>
-                      </span>
-                    )
                   }
+                  return (
+                    <span key={link.url}>
+                      <CustomLink to={link.url}>
+                        <button className="alt">{link.name}</button>
+                      </CustomLink>
+                    </span>
+                  )
                 })}
               </div>
             </div>

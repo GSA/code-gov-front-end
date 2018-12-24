@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import ReactDOM from 'react-dom'
 import FilterBox from 'components/filter-box'
 import { some } from '@code.gov/cautious'
 
@@ -30,8 +29,7 @@ export default class FilterBoxes extends React.Component {
         })}
         </Fragment>
       )
-    } else {
-      return null
     }
+    return null
   }
 }

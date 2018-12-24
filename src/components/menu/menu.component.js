@@ -2,7 +2,6 @@
 
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
-import PropTypes from 'prop-types'
 import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
@@ -89,14 +88,14 @@ export default class Menu extends Component {
 
     const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
 
-    let headerClassName = `main ${color}`
+    const headerClassName = `main ${color}`
     if (onHomePage) headerClassName += ' transparent'
 
-    let navClassName = `main ${color}`
+    const navClassName = `main ${color}`
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 
-    let navStyle = { 'height': this.state.height }
+    const navStyle = { 'height': this.state.height }
 
     return (
       <header className={headerClassName} ref={this.header}>

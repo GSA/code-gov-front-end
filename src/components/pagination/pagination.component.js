@@ -1,8 +1,8 @@
 // https://reactjs.org/docs/forms.html
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
-import { endsWith, equal, last, range } from '@code.gov/cautious'
+import { equal, last, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
 
@@ -41,17 +41,15 @@ export default class Pagination extends Component {
   get rightIcon() {
     if (this.isLastPage) {
       return <span>Next <i className="icon icon-angle-circled-right"></i></span>
-    } else {
-      return <a onClick={::this.handleNext}>Next <i className="icon icon-angle-circled-right"></i></a>
     }
+    return <a onClick={::this.handleNext}>Next <i className="icon icon-angle-circled-right"></i></a>
   }
 
   getSummary({ count, minItemIndex, maxItemIndex}) {
     if (count > 0) {
       return <Fragment>Results <strong>{minItemIndex + '-' + maxItemIndex}</strong> of <strong>{count}</strong></Fragment>
-    } else {
-      return <Fragment>No results found.</Fragment>
     }
+    return <Fragment>No results found.</Fragment>
   }
 
   render() {

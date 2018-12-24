@@ -1,6 +1,6 @@
 /* global PUBLIC_PATH */
 
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import MobileMenu from 'components/mobile-menu'
 
 export default function MobileMenuControl ({ color, displayMobileMenu, toggleMobileMenu }) {

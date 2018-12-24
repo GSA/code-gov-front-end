@@ -1,4 +1,3 @@
-const { copyFileSync, readFileSync } = require('fs');
 const { dirname, join } = require('path');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -7,8 +6,6 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin');
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const get = require('lodash.get')
-const { map } = require('@code.gov/cautious')
 const { copyOverPluginIfNecessary } = require('./webpack.utils');
 
 const rootDir = dirname(dirname(__dirname))

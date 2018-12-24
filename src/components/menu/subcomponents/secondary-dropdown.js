@@ -1,13 +1,12 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import { some, startsWith } from '@code.gov/cautious'
 
 function LinkPart({name, onClick, url}) {
   if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
     return <a href={url} onClick={onClick} target='_blank'>{name}</a>
-  } else {
-    return <CustomLink to={url} onClick={onClick}>{name}</CustomLink>
   }
+  return <CustomLink to={url} onClick={onClick}>{name}</CustomLink>
 }
 
 export default function SecondaryDropdown({ menuOption, onClick }) {
@@ -20,7 +19,6 @@ export default function SecondaryDropdown({ menuOption, onClick }) {
         })}
       </ul>
     )
-  } else {
-    return <Fragment></Fragment>
   }
+  return <Fragment></Fragment>
 }

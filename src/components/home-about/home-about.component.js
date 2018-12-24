@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CustomLink from 'components/custom-link'
 
 export default class HomeAbout extends React.Component {
@@ -10,7 +10,7 @@ export default class HomeAbout extends React.Component {
           <h2>Our Mission</h2>
           <p className="indented">{this.props.mission}</p>
         </header>
-       <br />
+        <br />
         <hr />
         <ul className="indented about-actions">
           {this.props.aboutItems && this.props.aboutItems.map(item => {

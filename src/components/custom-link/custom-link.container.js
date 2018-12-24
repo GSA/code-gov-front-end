@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { onLocationChanged } from 'connected-react-router/lib/actions'
 import CustomLinkComponent from './custom-link.component'
 import {
   getNormalizedURLSearchParams,
@@ -10,9 +9,8 @@ import defaultState from 'constants/default-redux-store-state'
 import updateBrowseParams from 'actions/update-browse-params'
 import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
-import history from 'browser-history'
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, _ownProps) => {
   return {
     updateStore: to => {
       console.log("starting updateStore with to", to)

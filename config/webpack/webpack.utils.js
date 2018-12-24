@@ -1,5 +1,5 @@
 const { copyFileSync, existsSync, readFileSync } = require('fs');
-const { dirname, join } = require('path');
+const { join } = require('path');
 
 function copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir) {
   const packageDir = join(nodeModulesDir, plugin.component);

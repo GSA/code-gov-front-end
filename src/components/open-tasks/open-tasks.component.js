@@ -7,7 +7,6 @@ import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
 import { scrollToTopOfResults } from 'utils/other'
-import { isChecked } from 'utils/filtering'
 
 export default class OpenTasks extends React.Component {
 
@@ -22,7 +21,7 @@ export default class OpenTasks extends React.Component {
 
   get counter() {
     const { total } = this.props
-    let textContent
+    let textContent = 'Loading Tasks'
     if (total) {
       if (total === 0) {
         textContent = 'There are currently no open tasks'
@@ -30,11 +29,7 @@ export default class OpenTasks extends React.Component {
         textContent = 'There is currently 1 open task'
       } else if (total >= 2) {
         textContent = `There are ${total} open tasks`
-      } else {
-        textContent = 'Loading Tasks'
       }
-    } else {
-      textContent = 'Loading Tasks'
     }
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }
@@ -50,7 +45,6 @@ export default class OpenTasks extends React.Component {
   }
 
   render() {
-    const total = this.props.total || 0
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">

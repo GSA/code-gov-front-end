@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
 import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
@@ -9,7 +9,6 @@ import RepoCard from 'components/repo-card'
 import QuickSearchBox from 'components/quick-search-box'
 import SortSection from 'components/sort-section'
 import SiteBanner from 'components/site-banner'
-import { length, some } from '@code.gov/cautious'
 
 export default class SearchPage extends React.Component {
 
@@ -28,7 +27,7 @@ export default class SearchPage extends React.Component {
   }
 
   get repoCounter() {
-    let textContent
+    let textContent = 'Loading Repositories'
     if (this.props.filteredResults) {
       const total = this.props.total;
       const query = this.props.query
@@ -38,11 +37,7 @@ export default class SearchPage extends React.Component {
         textContent = `We found 1 Repository for "${query}"`
       } else if (total >= 2) {
         textContent = `We found ${total} Repositories for "${query}"`
-      } else {
-        textContent = 'Loading Repositories'
       }
-    } else {
-      textContent = 'Loading Repositories'
     }
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }

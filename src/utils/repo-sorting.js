@@ -1,4 +1,3 @@
-import get from 'lodash.get'
 import { getDate } from './repo-parsing'
 
 export function clean(string) {
@@ -13,9 +12,8 @@ export function getTime(date) {
   try {
     if (date) {
       return new Date(date).getTime()
-    } else {
-      return -10e10
     }
+    return -10e10
   } catch (error) {
     return -10e10
   }

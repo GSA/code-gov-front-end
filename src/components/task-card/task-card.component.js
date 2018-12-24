@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
-import { capitalize, join, some } from '@code.gov/cautious'
+import { capitalize, join } from '@code.gov/cautious'
 import { getLastModifiedDateString } from 'utils/repo-parsing'
 import CardPart from 'components/card-part'
 

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { map, some } from '@code.gov/cautious'
 import Autocomplete from 'components/autocomplete'
 import SearchBox from 'components/search-box'

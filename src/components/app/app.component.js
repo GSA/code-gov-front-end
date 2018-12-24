@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Redirect } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
@@ -20,7 +20,7 @@ export default class AppComponent extends Component {
 
   componentDidMount() {
     refreshView()
-    window.addEventListener('popstate', event => {
+    window.addEventListener('popstate', _event => {
       this.props.rehydrate()
     })
   }
