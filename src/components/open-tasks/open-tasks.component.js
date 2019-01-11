@@ -7,6 +7,7 @@ import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
 import { scrollToTopOfResults } from 'utils/other'
+import { getReposCount } from '../../utils/repos-count';
 
 export default class OpenTasks extends React.Component {
 
@@ -21,17 +22,13 @@ export default class OpenTasks extends React.Component {
 
   get counter() {
     const { total } = this.props
-    let textContent = 'Loading Tasks'
-    if (total) {
-      if (total === 0) {
-        textContent = 'There are currently no open tasks'
-      } else if (total === 1) {
-        textContent = 'There is currently 1 open task'
-      } else if (total >= 2) {
-        textContent = `There are ${total} open tasks`
-      }
-    }
-    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
+
+    return getReposCount(total, {
+        default: "Loading Tasks",
+        "0": "There are currently no open tasks",
+        "1": "There is currently 1 open task",
+        "2": `There are [VALUE] open tasks`
+      }, 'repos-count width-three-quarters')
   }
 
   onFilterBoxChange(category, values) {

@@ -10,7 +10,7 @@ import SortSection from 'components/sort-section'
 import RepoCard from 'components/repo-card'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
 import { some } from '@code.gov/cautious'
-
+import { getReposCount } from '../../utils/repos-count';
 
 export default class BrowseProjects extends React.Component {
 
@@ -21,15 +21,15 @@ export default class BrowseProjects extends React.Component {
 
   get repoCounter() {
     const { total } = this.props
-    let textContent = 'Loading Repositories'
-    if (total === 0) {
-      textContent = 'No Repositories'
-    } else if (total === 1) {
-      textContent = '1 Repository'
-    } else if (total >= 2) {
-      textContent = `${total} Repositories`
-    }
-    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
+
+    const messages = {
+      default: "Loading Repositories",
+      "0": "No Repositories",
+      "1": "1 Repository",
+      "2": `[VALUE] Repositories`
+    };
+
+    return getReposCount(total, messages, 'repos-count width-three-quarters')
   }
 
   get reposContainer() {
