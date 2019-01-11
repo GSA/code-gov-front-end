@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Breadcrumbs from 'components/breadcrumbs'
-import { map, some } from '@code.gov/cautious'
+import { map } from '@code.gov/cautious'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'

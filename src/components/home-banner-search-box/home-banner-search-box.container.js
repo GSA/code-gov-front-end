@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmit: (query) => {
       console.log("home-banner-search-box.container starting onSubmit with query:", query)
-      if (getSection === 'search') {
+      if (getSection() === 'search') {
         dispatch(updateSearchParams({ page: 1, query, size: 10 }))
       } else {
         dispatch(updateSearchParams({ page: 1, query, size: 10, sort: 'best_match' }))
