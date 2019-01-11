@@ -81,7 +81,7 @@
     max-height: 4%;
   }
   a {
-    color: #23C0BA;
+    color: $brand-teal-medium;
     text-decoration: underline;
 
     &:hover {
@@ -112,7 +112,7 @@
     margin: 1.25rem -0.5rem 8.5rem 4.5rem;
   }
   a {
-    color: #23C0BA;
+    color: $brand-teal-medium;
     text-decoration: underline;
 
     &:hover {
@@ -137,7 +137,7 @@
   text-align: center;
 
   #featured-projects-title {
-    background: white;
+    background-color: $color-white;
     color: $featured-dark;
 
     h2 {
@@ -262,7 +262,7 @@
   }
 
   &:nth-of-type(odd) {
-    background: $featured-dark;
+    background-color: $featured-dark;
     color: $color-white;
 
     button,
@@ -282,7 +282,7 @@
   }
 
   &:nth-of-type(even) {
-    background: $featured-light;
+    background-color: $featured-light;
     color: $color-white;
 
     >div {
