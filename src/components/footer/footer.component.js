@@ -19,15 +19,14 @@ export default class Footer extends Component {
                       </a>
                     </li>
                   )
-                } else {
-                  return (
-                    <li key={link.name}>
-                      <CustomLink to={link.url} className="link">
-                        <span>{link.name}</span>
-                      </CustomLink>
-                    </li>
-                  )
                 }
+                return (
+                  <li key={link.name}>
+                    <CustomLink to={link.url} className="link">
+                      <span>{link.name}</span>
+                    </CustomLink>
+                  </li>
+                )
               })}
             </ul>
           </div>

@@ -8,9 +8,8 @@ export default function Breadcrumbs({ crumbs }) {
       {crumbs.map(({ text, to}) => {
         if (to) {
           return <li key={text}><CustomLink to={to}>{text}</CustomLink></li>
-        } else {
-          return <li key={text}>{text}</li>
         }
+        return <li key={text}>{text}</li>
       })}
       </ul>
     </div>

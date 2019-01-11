@@ -21,15 +21,13 @@ export default class BrowseProjects extends React.Component {
 
   get repoCounter() {
     const { total } = this.props
-    let textContent
+    let textContent = 'Loading Repositories'
     if (total === 0) {
       textContent = 'No Repositories'
     } else if (total === 1) {
       textContent = '1 Repository'
     } else if (total >= 2) {
       textContent = `${total} Repositories`
-    } else {
-      textContent = 'Loading Repositories'
     }
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }
@@ -90,7 +88,7 @@ export default class BrowseProjects extends React.Component {
                 ['Federal Agency', 'agencies'],
                 ['Licenses', 'licenses'],
                 ['Usage Types', 'usageTypes']
-                ]}
+              ]}
               onFilterBoxChange={::this.onFilterBoxChange}
             />
 

@@ -14,11 +14,11 @@ export default class FilterBoxes extends React.Component {
 
       // filter by whether have filter options from server
       const filtered = this.props.config
-        .filter(([text, category]) => some(this.props.boxes[category]))
+        .filter(([_text, category]) => some(this.props.boxes[category]))
 
       return (
         <Fragment>
-        {filtered.map(([text, category], index) => {
+        {filtered.map(([text, category], _index) => {
           return (
             <FilterBox
               key={text}

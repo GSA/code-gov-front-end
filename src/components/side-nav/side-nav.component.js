@@ -19,10 +19,7 @@ const SideNavPart = ({baseurl, links, onLinkClick}) => {
   }
 }
 
-const SideNav = ({alignment, baseurl, links, onLinkClick}) => {
-  alignment = alignment || ''
-  baseurl = baseurl || ''
-  links = links || []
+const SideNav = ({alignment = '', baseurl = '', links = [], onLinkClick}) => {
   return (
     <nav className={`sidebar ${alignment}`}>
       <SideNavPart baseurl={baseurl} links={links} onLinkClick={onLinkClick}/>

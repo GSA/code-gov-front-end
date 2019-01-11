@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch, _ownProps) => {
       console.log("search:", search)
       const params = getNormalizedURLSearchParams(search)
       console.log("params:", params)
+      const categories = ['agencies', 'languages', 'licenses', 'usageType']
       if (to.startsWith('/browse')) {
         const result = {
           page: params.page || defaultState.browseParams.page,
@@ -27,7 +28,6 @@ const mapDispatchToProps = (dispatch, _ownProps) => {
           sort: params.sort || defaultState.browseParams.sort,
           filters: []
         }
-        const categories = ['agencies', 'languages', 'licenses', 'usageType']
         fillFilters(categories, params, result)
         dispatch(updateBrowseParams(result))
       } else if (to.startsWith('/search')) {
@@ -38,7 +38,6 @@ const mapDispatchToProps = (dispatch, _ownProps) => {
           sort: params.sort || defaultState.searchParams.sort,
           filters: []
         }
-        const categories = ['agencies', 'languages', 'licenses', 'usageType']
         fillFilters(categories, params, result)
         dispatch(updateSearchParams(result))
       } else if (to.startsWith('/open-tasks')) {
@@ -47,7 +46,6 @@ const mapDispatchToProps = (dispatch, _ownProps) => {
           size: params.size || defaultState.browseParams.size,
           filters: []
         }
-        const categories = ['agencies', 'categories', 'languages', 'skillLevels', 'timeRequired']
         fillFilters(categories, params, result)
         dispatch(updateTaskParams(result))
       }
