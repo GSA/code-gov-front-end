@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import createParamsReducer from 'utils/reducers/create-params-reducer'
+import createResultsReducer from 'utils/reducers/create-results-reducer'
 import agencies from './agencies'
 import filters from './filters'
 
@@ -6,8 +8,6 @@ import project from './project'
 
 import taskFilterOptions from './task-filter-options'
 
-import createParamsReducer from 'utils/reducers/create-params-reducer'
-import createResultsReducer from 'utils/reducers/create-results-reducer'
 import displayMobileMenu from './mobile-menu'
 import expandedMobileMenuOptions from './expanded-mobile-menu-options'
 import searchDropdown from './search-dropdown'

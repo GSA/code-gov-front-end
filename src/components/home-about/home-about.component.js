@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import CustomLink from 'components/custom-link'
 
-export default class HomeAbout extends React.Component {
-
+export default class HomeAbout extends PureComponent {
   render() {
     return (
       <section id="about" className="about">
@@ -13,17 +12,16 @@ export default class HomeAbout extends React.Component {
         <br />
         <hr />
         <ul className="indented about-actions">
-          {this.props.aboutItems && this.props.aboutItems.map(item => {
-            return (
+          {this.props.aboutItems &&
+            this.props.aboutItems.map(item => (
               <li className="about-action width-third" key={item.title}>
                 <CustomLink to={item.link}>
-                  <img alt="About Icon" src={item.image}/>
+                  <img alt="About Icon" src={item.image} />
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </CustomLink>
               </li>
-            )
-          })}
+            ))}
         </ul>
       </section>
     )

@@ -1,5 +1,5 @@
-import { TOGGLE_SEARCH_DROPDOWN } from 'constants/actions';
+import { TOGGLE_SEARCH_DROPDOWN } from 'constants/actions'
 
-export default function () {
-  return { type: TOGGLE_SEARCH_DROPDOWN };
+export default function() {
+  return { type: TOGGLE_SEARCH_DROPDOWN }
 }

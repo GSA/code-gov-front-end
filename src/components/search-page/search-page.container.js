@@ -9,23 +9,18 @@ import {
 import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchFilters from 'actions/update-search-filters'
 import updateSearchParams from 'actions/update-search-params'
-import SearchPageComponent from './search-page.component'
-import get from 'lodash.get'
 import { includes, len, overlaps, some } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
+import SearchPageComponent from './search-page.component'
 
-const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting }) => {
-
+const mapStateToProps = ({ filters, searchParams, searchResults }) => {
   try {
-
     const categories = ['agencies', 'languages', 'licenses', 'usageTypes']
 
     const selections = categories.reduce((accumulator, key) => {
       accumulator[key] = normalize(getFilterValuesFromParamsByCategory(searchParams, key))
       return accumulator
     }, {})
-
-
 
     let optionsinResults
     if (searchResults && searchResults.repos) {
@@ -47,16 +42,17 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
     if (filters) {
       boxes = categories.reduce((accumulator, key) => {
         accumulator[key] = filters[key]
-        .filter(({name, value}) => {
-          if (optionsinResults && optionsinResults[key]) {
-            return optionsinResults[key].has(normalize(value))
-          } else {
+          .filter(({ value }) => {
+            if (optionsinResults && optionsinResults[key]) {
+              return optionsinResults[key].has(normalize(value))
+            }
             return false
-          }
-        })
-        .map(({ name, value}) => {
-          return { name, value, checked: includes(selections[key], normalize(value)) }
-        })
+          })
+          .map(({ name, value }) => ({
+            name,
+            value,
+            checked: includes(selections[key], normalize(value))
+          }))
         return accumulator
       }, {})
     }
@@ -65,64 +61,78 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
 
     let filteredResults
     if (searchResults) {
-
       filteredResults = searchResults.repos
-      .sort((a, b) => {
-        if (selectedSorting === 'best_match') {
+        .sort((a, b) => {
+          if (selectedSorting === 'best_match') {
+            return sortByBestMatch(a, b)
+          }
+          if (selectedSorting === 'data_quality') {
+            return sortByDataQuality(a, b)
+          }
+          if (selectedSorting === 'a-z') {
+            return sortByName(a, b)
+          }
+          if (selectedSorting === 'last_updated') {
+            return sortByDate(a, b)
+          }
+
+          // I assumed by default that would be interesting we use 'best_match'
           return sortByBestMatch(a, b)
-        } else if (selectedSorting === 'data_quality') {
-          return sortByDataQuality(a, b)
-        } else if (selectedSorting === 'a-z') {
-          return sortByName(a, b)
-        } else if (selectedSorting === 'last_updated') {
-          return sortByDate(a, b)
-        }
-      })
-      .filter(repo => {
-        if (filters) {
-
-          if (some(selections.agencies) && !selections.agencies.includes(normalize(repo.agency.acronym))) {
-            return false
-          }
-
-          if (some(selections.languages) && !overlaps(normalize(repo.languages), selections.languages)) {
-            return false
-          }
-
-          if (some(selections.licenses)) {
-
-            // no licenses assigned on the repo
-            if (hasLicense(repo) === false) {
+        })
+        .filter(repo => {
+          if (filters) {
+            if (
+              some(selections.agencies) &&
+              !selections.agencies.includes(normalize(repo.agency.acronym))
+            ) {
               return false
             }
 
-            const repoLicenses = repo.permissions.licenses.map(license => normalize(license.name))
-            if (!overlaps(repoLicenses, selections.licenses)) {
+            if (
+              some(selections.languages) &&
+              !overlaps(normalize(repo.languages), selections.languages)
+            ) {
               return false
             }
+
+            if (some(selections.licenses)) {
+              // no licenses assigned on the repo
+              if (hasLicense(repo) === false) {
+                return false
+              }
+
+              const repoLicenses = repo.permissions.licenses.map(license => normalize(license.name))
+              if (!overlaps(repoLicenses, selections.licenses)) {
+                return false
+              }
+            }
+
+            const normalizedRepoUsageType = normalize(repo.permissions.usageType)
+            if (
+              some(selections.usageTypes) &&
+              !selections.usageTypes.includes(normalizedRepoUsageType)
+            ) {
+              return false
+            }
+
+            // don't want to visualize exempt repos
+            if (normalizedRepoUsageType.includes('exempt')) {
+              return false
+            }
+
+            return true
           }
 
-          const normalizedRepoUsageType = normalize(repo.permissions.usageType)
-          if (some(selections.usageTypes) && !selections.usageTypes.includes(normalizedRepoUsageType)) {
-            return false
-          }
-
-          // don't want to visualize exempt repos
-          if (normalizedRepoUsageType.includes('exempt')) {
-            return false
-          }
-
-          return true
-        }
-
-        return false
-      })
+          return false
+        })
 
       total = len(filteredResults)
 
-      filteredResults = filteredResults.slice((selectedPage-1) * selectedPageSize, selectedPage * selectedPageSize)
+      filteredResults = filteredResults.slice(
+        (selectedPage - 1) * selectedPageSize,
+        selectedPage * selectedPageSize
+      )
     }
-
 
     const sortOptions = [
       {
@@ -171,22 +181,23 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onFilterBoxChange: (category, change) => {
-      dispatch(updateSearchFilters(category, change.value, change.type))
-    },
-    onFilterTagClick: (category, value) => {
-      dispatch(updateSearchFilters(category, value, 'removed'))
-    },
-    onSortChange: value => {
-      dispatch(updateSearchParams({ page: 1, sort: value }))
-    },
-    saveFilterData: () => dispatch(saveFilterOptions()),
-    updatePage: newPage => {
-      dispatch(updateSearchParams({ page: newPage }))
-    }
+const mapDispatchToProps = dispatch => ({
+  onFilterBoxChange: (category, change) => {
+    dispatch(updateSearchFilters(category, change.value, change.type))
+  },
+  onFilterTagClick: (category, value) => {
+    dispatch(updateSearchFilters(category, value, 'removed'))
+  },
+  onSortChange: value => {
+    dispatch(updateSearchParams({ page: 1, sort: value }))
+  },
+  saveFilterData: () => dispatch(saveFilterOptions()),
+  updatePage: newPage => {
+    dispatch(updateSearchParams({ page: newPage }))
   }
-}
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPageComponent)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchPageComponent)

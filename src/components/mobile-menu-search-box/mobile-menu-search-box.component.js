@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default class MobileMenuSearchBoxComponent extends React.Component {
-
+export default class MobileMenuSearchBoxComponent extends Component {
   constructor(props) {
-    super(props);
-    this.state = { value: '' };
+    super(props)
+    this.state = { value: '' }
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value })
   }
 
   handleSubmit(event) {
     this.props.onSubmit(this.state.value)
     event.preventDefault()
-    this.setState({ value: ''})
+    this.setState({ value: '' })
   }
 
   render() {
@@ -22,8 +21,8 @@ export default class MobileMenuSearchBoxComponent extends React.Component {
       <form className="search-form" onSubmit={::this.handleSubmit}>
         <input
           onChange={::this.handleChange}
-          placeholder='Search Projects...'
-          type='search'
+          placeholder="Search Projects..."
+          type="search"
           value={this.state.value}
         />
         <button className="go">Go</button>

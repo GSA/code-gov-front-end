@@ -1,5 +1,5 @@
 /* global PUBLIC_PATH */
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { getConfigValue } from 'utils/other'
 import Footer from './footer.component'
 

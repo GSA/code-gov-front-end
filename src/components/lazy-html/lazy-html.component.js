@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { getText } from 'utils/other'
 
 export default class LazyHTML extends Component {
-
   constructor(props) {
     super(props)
     this.loading = false
@@ -14,12 +13,11 @@ export default class LazyHTML extends Component {
     this.mounted = true
     if (!this.loading) {
       this.loading = true
-      getText(this.props.url)
-        .then(html => {
-          if (this.mounted) {
-            this.setState({ html })
-          }
-        })
+      getText(this.props.url).then(html => {
+        if (this.mounted) {
+          this.setState({ html })
+        }
+      })
     }
   }
 
@@ -34,6 +32,6 @@ export default class LazyHTML extends Component {
   }
 
   render() {
-    return <div dangerouslySetInnerHTML={{ __html: this.state.html }}></div>
+    return <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
   }
 }

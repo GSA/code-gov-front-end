@@ -1,16 +1,14 @@
-/* global PUBLIC_PATH */
-
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
-import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
+import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 
 export default class Menu extends Component {
   /*
   static propTypes = {
     menu: PropTypes.array.isRequired
-  }*/
+  } */
 
   constructor(props) {
     super(props)
@@ -27,7 +25,8 @@ export default class Menu extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', () => {
-      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      const scrollTop =
+        (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
       this.setState({ notAtTop: scrollTop !== 0 })
     })
 
@@ -40,8 +39,10 @@ export default class Menu extends Component {
     })
   }
 
-  onClickMenuOption(selected, event) {
-
+  onClickMenuOption(selected) {
+    console.log('menu.component -> onClickMenuOption')
+    console.log(':: PLEASE remove (eslint-disable-next-line)')
+    // eslint-disable-next-line react/no-access-state-in-setstate
     const menu = this.state.menu.map(menuOption => {
       if (menuOption !== selected) {
         menuOption.expanded = false
@@ -49,11 +50,11 @@ export default class Menu extends Component {
       return menuOption
     })
 
-    selected.expanded = !selected.expanded;
+    selected.expanded = !selected.expanded
 
     const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
 
-    const expanded = this.state.menu.some(menuOption => menuOption.expanded)
+    const expanded = this.props.menu.some(menuOption => menuOption.expanded)
 
     this.setState({ expanded, menu, height })
   }
@@ -65,16 +66,16 @@ export default class Menu extends Component {
   get menus() {
     return this.props.menu.map(menuOption => (
       <Fragment key={menuOption.name}>
-        <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption}/>
-        <SecondaryMenuOption menuOption={menuOption} />
+        <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption} />
       </Fragment>
-    ));
+    ))
   }
 
   collapse() {
-    const menu = this.state.menu.map(menuOption => {
-        menuOption.expanded = false
-        return menuOption
+    const { menu } = this.state
+    menu.map(menuOption => {
+      menuOption.expanded = false
+      return menuOption
     })
 
     this.setState({
@@ -85,48 +86,53 @@ export default class Menu extends Component {
   }
 
   render() {
-
     const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
 
-    const headerClassName = `main ${color}`
+    let headerClassName = `main ${color}`
     if (onHomePage) headerClassName += ' transparent'
 
-    const navClassName = `main ${color}`
+    let navClassName = `main ${color}`
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 
-    const navStyle = { 'height': this.state.height }
+    const navStyle = { height: this.state.height }
 
     return (
       <header className={headerClassName} ref={this.header}>
         <nav className={navClassName} style={navStyle} aria-label="primary">
-
           <MobileMenuControl />
 
-          <CustomLink to="/" className="svg-container" title={siteTitle + ' Home'}>
-            <img src={color === 'white' ? this.props.logoDark : this.props.logoLight} alt="code.gov"/>
+          <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
+            <img
+              src={color === 'white' ? this.props.logoDark : this.props.logoLight}
+              alt="code.gov"
+            />
           </CustomLink>
 
           <ul role="menubar" aria-label="primary">
-            {map(this.props.menu, menuOption => {
-              return (
-                <li className={(menuOption.expanded ? 'expanded' : '')} key={menuOption.name} role="none">
-                  <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption}/>
-                  <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse}/>
-                </li>
-              )
-            })}
+            {map(this.props.menu, menuOption => (
+              <li
+                className={menuOption.expanded ? 'expanded' : ''}
+                key={menuOption.name}
+                role="none"
+              >
+                <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
+                <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
+              </li>
+            ))}
           </ul>
-          {onHomePage === false && <ul className="right show-w-gt-800">
-            <li>
-              <a className="no-underline" onClick={toggleSearchDropdown}>
-                <i className="icon icon-search"></i>
-              </a>
-            </li>
-          </ul> }
+          {onHomePage === false && (
+            <ul className="right show-w-gt-800">
+              <li>
+                <a className="no-underline" onClick={toggleSearchDropdown}>
+                  <i className="icon icon-search" />
+                </a>
+              </li>
+            </ul>
+          )}
         </nav>
-        {onHomePage === false && <SearchBoxDropDown /> }
+        {onHomePage === false && <SearchBoxDropDown />}
       </header>
-    );
+    )
   }
-};
+}

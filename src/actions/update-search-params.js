@@ -1,5 +1,5 @@
-import { UPDATE_SEARCH_PARAMS } from 'constants/actions';
+import { UPDATE_SEARCH_PARAMS } from 'constants/actions'
 
-export default function (data) {
-  return { type: UPDATE_SEARCH_PARAMS, data };
+export default function(data) {
+  return { type: UPDATE_SEARCH_PARAMS, data }
 }

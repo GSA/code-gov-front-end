@@ -2,7 +2,10 @@ import { getDate } from './repo-parsing'
 
 export function clean(string) {
   try {
-    return string.toLowerCase().replace(/-/g,' ').trim()
+    return string
+      .toLowerCase()
+      .replace(/-/g, ' ')
+      .trim()
   } catch (error) {
     return string
   }

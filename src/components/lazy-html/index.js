@@ -1,2 +1,3 @@
-import LazyHTMLComponent from './lazy-html.component';
-export default LazyHTMLComponent;
+import LazyHTMLComponent from './lazy-html.component'
+
+export default LazyHTMLComponent

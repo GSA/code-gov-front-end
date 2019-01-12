@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
 import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
@@ -10,11 +10,10 @@ import QuickSearchBox from 'components/quick-search-box'
 import SortSection from 'components/sort-section'
 import SiteBanner from 'components/site-banner'
 
-export default class SearchPage extends React.Component {
-
-  componentDidMount () {
-    refreshView();
-    if (!this.props.filterData) this.props.saveFilterData();
+export default class SearchPage extends Component {
+  componentDidMount() {
+    refreshView()
+    if (!this.props.filterData) this.props.saveFilterData()
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -29,8 +28,7 @@ export default class SearchPage extends React.Component {
   get repoCounter() {
     let textContent = 'Loading Repositories'
     if (this.props.filteredResults) {
-      const total = this.props.total;
-      const query = this.props.query
+      const { total, query } = this.props
       if (total === 0) {
         textContent = `We found no Repositories for "${query}"`
       } else if (total === 1) {
@@ -43,15 +41,17 @@ export default class SearchPage extends React.Component {
   }
 
   get reposContainer() {
-    const filteredResults = this.props.filteredResults
-    console.log("starting reposContainers with filteredResults:", filteredResults)
+    const { filteredResults } = this.props
+    console.log('starting reposContainers with filteredResults:', filteredResults)
 
     if (filteredResults) {
       return (
         <div className="card-container">
           <QualityPopover />
           <ul className="card-ul">
-            {filteredResults.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+            {filteredResults.map(repo => (
+              <RepoCard key={repo.repoID} repo={repo} />
+            ))}
           </ul>
         </div>
       )
@@ -67,15 +67,12 @@ export default class SearchPage extends React.Component {
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
-        <SiteBanner title='Search Results' />
-        <Breadcrumbs crumbs={[
-          { text: 'Home', to: '/' },
-          { text: 'Search Results' }
-        ]}/>
+        <SiteBanner title="Search Results" />
+        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Search Results' }]} />
         <div className="search-results-header">
           <div className="indented">
             <div className="width-quarter">
-              <QuickSearchBox value={this.props.searchParams.query}/>
+              <QuickSearchBox value={this.props.searchParams.query} />
             </div>
             {this.repoCounter}
           </div>
@@ -91,20 +88,23 @@ export default class SearchPage extends React.Component {
                 ['Federal Agency', 'agencies'],
                 ['Licenses', 'licenses'],
                 ['Usage Types', 'usageTypes']
-                ]}
+              ]}
               onFilterBoxChange={::this.onFilterBoxChange}
             />
-
           </div>
           <div id="filter-results-section">
-            <SortSection
-              options={this.props.sortOptions}
-              onSortChange={this.props.onSortChange}
-            />
+            <SortSection options={this.props.sortOptions} onSortChange={this.props.onSortChange} />
             <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
             <div className="card-list">
               {this.reposContainer}
-              {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
+              {numPages > 0 && (
+                <Pagination
+                  count={this.props.total}
+                  pagesize={this.props.selectedPageSize}
+                  page={this.props.selectedPage}
+                  updatePage={::this.updatePage}
+                />
+              )}
             </div>
           </div>
         </div>

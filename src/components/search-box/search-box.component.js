@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 export default class SearchBox extends Component {
-
   constructor(props) {
     super(props)
     this.state = { value: props.value || '' }
@@ -14,10 +13,8 @@ export default class SearchBox extends Component {
         if (this.props.onFocus) {
           this.props.onFocus()
         }
-      } else {
-        if (this.props.onBlur) {
-          this.props.onBlur()
-        }
+      } else if (this.props.onBlur) {
+        this.props.onBlur()
       }
     })
   }
@@ -32,7 +29,7 @@ export default class SearchBox extends Component {
 
   handleChange(event) {
     const value = event.target.value
-    this.setState({value});
+    this.setState({ value })
     if (this.props.onChange) {
       this.props.onChange(value)
     }
@@ -61,5 +58,4 @@ export default class SearchBox extends Component {
       </form>
     )
   }
-
 }

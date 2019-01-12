@@ -1,11 +1,9 @@
-import { connect } from 'react-redux';
-import HomeFeaturedProjects from './home-featured-projects.component'
+import { connect } from 'react-redux'
 import { getConfigValue } from 'utils/other'
+import HomeFeaturedProjects from './home-featured-projects.component'
 
-const mapStateToProps = () => {
-  return {
-    featuredProjects: getConfigValue('content.home.featured')
-  }
-}
+const mapStateToProps = () => ({
+  featuredProjects: getConfigValue('content.home.featured')
+})
 
 export default connect(mapStateToProps)(HomeFeaturedProjects)

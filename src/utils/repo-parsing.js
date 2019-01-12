@@ -22,11 +22,11 @@ export function getLicenseName(repo) {
 
 export function getLaborHours(repo) {
   try {
-    const laborHours =  Number(get(repo, 'contact.laborHours'))
+    const laborHours = Number(get(repo, 'contact.laborHours'))
     if (laborHours > 0) {
       return laborHours
     }
-  } catch (error){
+  } catch (error) {
     console.warn(error)
   }
 }
@@ -35,22 +35,20 @@ export function parseLanguages(repo) {
   const languages = get(repo, 'languages')
   if (Array.isArray(languages)) {
     return filter(languages, Boolean)
-  } else {
-    return []
   }
+  return []
 }
 
 export function parseEmail(repo) {
   const email = get(repo, 'contact.email')
-  if (Boolean(email)) {
+  if (email) {
     return email
   }
 }
 
 export function parseRepositoryURL(repo) {
   let url = get(repo, 'repositoryURL')
-  if (Boolean(url)) {
-
+  if (url) {
     if (url.startsWith('git://github.com/')) {
       url = url.replace('git://github.com/', 'https://github.com/')
     }
@@ -75,6 +73,9 @@ export function parseTags(repo) {
   }
 }
 
+export function getDate(item) {
+  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
+}
 
 export function getLastModifiedDateString(repo) {
   try {
@@ -85,8 +86,4 @@ export function getLastModifiedDateString(repo) {
   } catch (error) {
     console.warn(error)
   }
-}
-
-export function getDate(item) {
-  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
 }

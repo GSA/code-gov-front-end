@@ -5,9 +5,8 @@ import SearchBox from 'components/search-box'
 import client from 'api-client'
 
 export default class Menu extends Component {
-
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showAutocomplete: false
     }
@@ -38,12 +37,10 @@ export default class Menu extends Component {
 
   handleChange(value) {
     client.suggest(value, 5).then(terms => {
-      const suggestions = map(terms, term => {
-        return {
-          text: term,
-          to: `/search?page=1&query=${term}&size=10&sort=best_match`
-        }
-      })
+      const suggestions = map(terms, term => ({
+        text: term,
+        to: `/search?page=1&query=${term}&size=10&sort=best_match`
+      }))
       this.setStateIfMounted({
         showAutocomplete: true,
         suggestions
@@ -52,7 +49,10 @@ export default class Menu extends Component {
   }
 
   handleSubmit(value) {
+    console.log('search-box-dropdown.component -> handleSubmit')
+    console.log(':: PLEASE remove (eslint-disable-next-line)')
     this.props.onSubmit(value)
+    // eslint-disable-next-line no-restricted-globals
     event.preventDefault()
   }
 
@@ -62,20 +62,22 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <div className={'search-box show-w-gt-800' + (this.props.searchDropdown ? ' active' : '')}>
-        <div style={{marginLeft: 'auto', position: 'relative', width: 'calc(36rem + 42px)'}}>
+      <div className={`search-box show-w-gt-800${this.props.searchDropdown ? ' active' : ''}`}>
+        <div style={{ marginLeft: 'auto', position: 'relative', width: 'calc(36rem + 42px)' }}>
           <a className="close-search-box-button" onClick={::this.hideSearchDropdown}>
-            <i className="icon icon-cancel"></i>
+            <i className="icon icon-cancel" />
           </a>
           <SearchBox
-            inputType='text'
+            inputType="text"
             onBlur={::this.handleBlur}
             onChange={::this.handleChange}
             onFocus={::this.handleFocus}
             onSubmit={::this.handleSubmit}
             placeholder="Search Projects..."
           />
-          {this.state.showAutocomplete && some(this.state.suggestions) && <Autocomplete options={this.state.suggestions} onClick={::this.handleSubmit}/>}
+          {this.state.showAutocomplete && some(this.state.suggestions) && (
+            <Autocomplete options={this.state.suggestions} onClick={::this.handleSubmit} />
+          )}
         </div>
       </div>
     )

@@ -17,36 +17,34 @@ import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView } from 'utils/other'
 
 export default class AppComponent extends Component {
-
   componentDidMount() {
     refreshView()
-    window.addEventListener('popstate', _event => {
+    window.addEventListener('popstate', () => {
       this.props.rehydrate()
     })
   }
 
   render() {
-
     const location = window.location
 
     return (
       <ConnectedRouter history={history}>
-        <div className='App'>
+        <div className="App">
           <Menu />
           <Switch location={location}>
-            <Route exact path='/' component={Home}/>
-            <Route path='/search' component={SearchPage}/>
-            <Route path='/about' component={AboutPage}/>
-            <Route path='/browse-projects' component={BrowseProjects}/>
-            <Route path='/open-tasks' component={OpenTasks}/>
-            <Route path='/privacy-policy' component={PrivacyPolicy}/>
-            <Route path='/projects/:repoID' component={ProjectPage}/>
-            <Route path='/roadmap' component={Roadmap}/>
+            <Route exact path="/" component={Home} />
+            <Route path="/search" component={SearchPage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/browse-projects" component={BrowseProjects} />
+            <Route path="/open-tasks" component={OpenTasks} />
+            <Route path="/privacy-policy" component={PrivacyPolicy} />
+            <Route path="/projects/:repoID" component={ProjectPage} />
+            <Route path="/roadmap" component={Roadmap} />
 
-            <Route path='/policy-guide' component={PolicyGuide}/>
-            <Route path='/about' component={AboutPage}/>
+            <Route path="/policy-guide" component={PolicyGuide} />
+            <Route path="/about" component={AboutPage} />
 
-            <Redirect to='/' />
+            <Redirect to="/" />
           </Switch>
           <Footer />
         </div>
