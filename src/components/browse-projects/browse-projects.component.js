@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactHtmlParser from 'react-html-parser'
 import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
@@ -74,7 +75,7 @@ export default class BrowseProjects extends React.Component {
               <div className="width-quarter">
                 <QuickSearchBox />
               </div>
-              {this.repoCounter}
+              {ReactHtmlParser(this.repoCounter)}
             </div>
           </div>
         <div className="indented">

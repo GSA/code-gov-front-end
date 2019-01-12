@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactHtmlParser from 'react-html-parser'
 import Breadcrumbs from 'components/breadcrumbs'
 import { map } from '@code.gov/cautious'
 import FilterBoxes from 'components/filter-boxes'
@@ -53,7 +54,7 @@ export default class OpenTasks extends React.Component {
         <div className="search-results-header">
           <div className="width-quarter">
           </div>
-          {this.counter}
+          {ReactHtmlParser(this.counter)}
         </div>
         <div className="indented">
           <div id="filter-boxes-section">
