@@ -1,0 +1,80 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "globals": {
+    "document": true,
+    "window": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "camelcase": "warn",
+    "class-methods-use-this": "warn",
+    "comma-dangle": 0,
+    "consistent-return": [
+      "warn",
+      {
+        "treatUndefinedAsUnspecified": true
+      }
+    ],
+    "getter-return": 0,
+    "guard-for-in": "warn",
+    "import/extensions": "ignorePackages",
+    "import/imports-first": [
+      "absolute-first",
+      "error"
+    ],
+    "import/newline-after-import": "error",
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": false,
+    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-noninteractive-tabindex": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/tabindex-no-positive": "warn",
+    "no-bitwise": "warn",
+    "no-case-declarations": "warn",
+    "no-console": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      "BinaryExpression[operator='in']",
+      "WithStatement"
+    ],
+    "no-undef": "warn",
+    "no-underscore-dangle": 0,
+    "prefer-destructuring": 0,
+    "react/button-has-type": "never",
+    "react/destructuring-assignment": "never",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-no-bind": "never",
+    "react/no-did-update-set-state": "never",
+    "react/no-string-refs": "warn",
+    "react/prop-types": 0,
+    "semi": [2, "never"]
+  }
+}

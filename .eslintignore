@@ -1,0 +1,7 @@
+# code.gov plugins
+/src/components/plugins
+
+# Ignore dist and docs files
+dist/*
+docs/*
+src/**/**/*.json
