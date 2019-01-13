@@ -56,22 +56,20 @@ export default class ProjectPage extends Component {
 
   get usageType() {
     const text = getDisplayTextForUsageType(this.props.repo)
+
+    let icon = 'icon'
     if (text === 'Open Source') {
-      return (
-        <li>
-          <span>
-            <i className="icon icon-ok-circled2" />
-            Open Source
-          </span>
-        </li>
-      )
+      icon = ' icon-ok-circled2'
+    } else if (text === 'Gov-wide Reuse') {
+      icon = ' icon-ok-circled2'
     }
-    if (text === 'Gov-wide Reuse') {
+
+    if (icon !== 'icon') {
       return (
         <li>
           <span>
-            <i className="icon icon-arrows-cw" />
-            Government-Wide Reuse
+            <i className={icon} />
+            text
           </span>
         </li>
       )

@@ -1,6 +1,7 @@
 /* global PUBLIC_PATH */
 
 import React, { Component } from 'react'
+import ReactHtmlParser from 'react-html-parser'
 import CustomLink from 'components/custom-link'
 import HomeBannerSearchBox from '../home-banner-search-box'
 
@@ -70,6 +71,9 @@ export default class HomeBanner extends Component {
 
   get issueSection() {
     if (this.props.issueUrl) {
+      const openSourceRepositoryLink = ReactHtmlParser(`<a
+        className="link" href=${this.props.issueUrl}
+        id="issue-link" target="_blank" rel="noopener noreferrer">open source repository</a>`)
       return (
         <div>
           <br />
@@ -82,17 +86,7 @@ export default class HomeBanner extends Component {
                 alt="Balloon icon representing a chat"
               />
               <span>
-                Have questions or feedback? Open an issue on our
-                <a
-                  className="link"
-                  href={this.props.issueUrl}
-                  id="issue-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  open source repository
-                </a>
-                .
+                Have questions or feedback? Open an issue on our {openSourceRepositoryLink}.
               </span>
             </div>
           </div>

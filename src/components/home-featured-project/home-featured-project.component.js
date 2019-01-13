@@ -7,14 +7,15 @@ export default class HomeFeaturedProject extends PureComponent {
 
     const place = this.props.index % 2 === 0 ? 'even' : 'odd'
 
+    const getImage = (
+      <div className="width-half">
+        <img src={image} alt={alt} />
+      </div>
+    )
     return (
       <div className="block featured-project">
         <div className="indented">
-          {place === 'even' && (
-            <div className="width-half">
-              <img src={image} alt={alt} />
-            </div>
-          )}
+          {place === 'even' && getImage}
 
           <div className="width-half">
             <div className="featured-project-info">
@@ -22,7 +23,7 @@ export default class HomeFeaturedProject extends PureComponent {
               <div className="fp-verbose-name">{verbose_name}</div>
               <div className="fp-developed-by">
                 developed by
-                {author}
+                {` ${author}`}
               </div>
               <p className="fp-description">{description}</p>
               <div className="buttons">
@@ -37,11 +38,7 @@ export default class HomeFeaturedProject extends PureComponent {
             </div>
           </div>
 
-          {place === 'odd' && (
-            <div className="width-half">
-              <img src={image} alt={alt} />
-            </div>
-          )}
+          {place === 'odd' && getImage}
         </div>
       </div>
     )

@@ -5,7 +5,7 @@ import { getJSON } from 'utils/other'
 export default function() {
   return async dispatch => {
     const url = `${PUBLIC_PATH}assets/data/filters/repos.json`
-    const options = await getJSON(url)
-    dispatch({ type: SAVE_FILTER_OPTIONS, options })
+    const repos = await getJSON(url)
+    dispatch({ type: SAVE_FILTER_OPTIONS, options: repos })
   }
 }
