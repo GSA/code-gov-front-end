@@ -31,7 +31,7 @@
   "homepage": "https://github.com/GSA/code-gov-front-end#readme",
   "private": "true",
   "dependencies": {
-    "@code.gov/about-page": "0.1.9",
+    "@code.gov/about-page": "0.1.10",
     "@code.gov/api-client": "0.3.3",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.7.1",
