@@ -51,8 +51,8 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     },
     {
       label: 'Last Updated',
-      value: 'last_updated',
-      selected: selectedSorting === 'last_updated'
+      value: 'last_update',
+      selected: selectedSorting === 'last_update'
     }
   ]
 
