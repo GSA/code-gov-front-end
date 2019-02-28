@@ -13,11 +13,12 @@
     "install-about-plugin": "cp -fr ./node_modules/@code.gov/about-page/pages/html/* ./assets/plugins/about-page/.",
     "install-fscp-plugin": "cp ./node_modules/@code.gov/fscp-react-component/pages/html/* ./assets/plugins/fscp-react-component/.",
     "licenses": "license-checker --json --relativeLicensePath --out dependency_licenses.json",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --disableHostCheck=true",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
     "webpack": "node ./node_modules/webpack/bin/webpack.js",
     "update-data": "node update-data.js",
-    "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/."
+    "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
+    "test": "snyk test"
   },
   "repository": {
     "type": "git",
@@ -67,7 +68,7 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-create-file-plugin": "^1.0.0",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-dev-server": "^3.1.11",
     "webpack-merge": "^4.1.4",
     "whatwg-fetch": "^3.0.0"
   },
@@ -104,6 +105,7 @@
     "sass": "^1.14.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.23.1"
+    "webpack": "^4.23.1",
+    "snyk": "^1.134.2"
   }
 }
