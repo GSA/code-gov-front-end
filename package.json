@@ -13,7 +13,7 @@
     "install-about-plugin": "cp -fr ./node_modules/@code.gov/about-page/pages/html/* ./assets/plugins/about-page/.",
     "install-fscp-plugin": "cp ./node_modules/@code.gov/fscp-react-component/pages/html/* ./assets/plugins/fscp-react-component/.",
     "licenses": "license-checker --json --relativeLicensePath --out dependency_licenses.json",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --disableHostCheck=true",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
     "webpack": "node ./node_modules/webpack/bin/webpack.js",
     "update-data": "node update-data.js",
