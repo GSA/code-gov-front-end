@@ -88,10 +88,10 @@ export default class Menu extends Component {
 
     const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
 
-    const headerClassName = `main ${color}`
+    let headerClassName = `main ${color}`
     if (onHomePage) headerClassName += ' transparent'
 
-    const navClassName = `main ${color}`
+    let navClassName = `main ${color}`
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 

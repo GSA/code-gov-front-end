@@ -177,7 +177,7 @@ export function getFilterTags(params, filters) {
     .map(({ category, modified, value}) => {
       const normalizedValue = value.toLowerCase()
       const found = find(get(filters, category), item => item.value.toLowerCase() === normalizedValue)
-      const title = 'loading'
+      let title = 'loading'
       if (found) {
         if (found.name) title = found.name
         if (found.value) value = found.value

@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch, _ownProps) => {
       console.log("search:", search)
       const params = getNormalizedURLSearchParams(search)
       console.log("params:", params)
-      const categories = ['agencies', 'languages', 'licenses', 'usageType']
+      let categories = ['agencies', 'languages', 'licenses', 'usageType']
       if (to.startsWith('/browse')) {
         const result = {
           page: params.page || defaultState.browseParams.page,
@@ -46,6 +46,8 @@ const mapDispatchToProps = (dispatch, _ownProps) => {
           size: params.size || defaultState.browseParams.size,
           filters: []
         }
+
+        categories = ['agencies', 'categories', 'languages', 'skillLevels', 'timeRequired'];
         fillFilters(categories, params, result)
         dispatch(updateTaskParams(result))
       }
