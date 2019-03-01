@@ -10,6 +10,7 @@ import BrowseProjects from 'components/browse-projects'
 import OpenTasks from 'components/open-tasks'
 import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
+import OfficialBanner from 'components/official-banner'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
 import PolicyGuide from 'components/plugins/policy-guide'
@@ -32,6 +33,7 @@ export default class AppComponent extends Component {
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
+          <OfficialBanner />
           <Menu />
           <Switch location={location}>
             <Route exact path='/' component={Home}/>

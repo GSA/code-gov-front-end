@@ -22,6 +22,12 @@
   ],
   "content": {
     "header": {
+      "official_banner": {
+        "title": "An official Federal Government website",
+        "flag_icon": "../../assets/img/favicon.png",
+        "alt": "United States Flag",
+        "show": true
+      },
       "fork_me_url": "https://github.com/GSA/code-gov-front-end",
       "logos": {
         "dark": "./assets/img/logos/code-gov-dark.svg",

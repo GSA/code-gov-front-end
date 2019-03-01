@@ -1,0 +1,31 @@
+.official-banner {
+  width: 100%;
+  position: fixed;
+  background-color:#f1f1f1;
+  z-index: 5;
+  height: $official-banner-height;
+
+  .banner-flag {
+    height: $official-banner-height;
+    display: flex;
+    align-items: center;
+  }
+  
+  img {
+    max-height: 30px;
+    margin-right: 7px;
+  }
+  
+  span {
+    vertical-align: center;
+  }
+    
+  + header {
+    nav,
+    .mobile-menu,
+    .mobile-menu-underlay,
+    + div {
+      margin-top: $official-banner-height;
+    }
+  }
+}
