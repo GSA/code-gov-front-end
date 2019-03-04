@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - App render should render correctly 1`] = `
+<Connect(ConnectedRouter)
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <div
+    className="App"
+  >
+    <withRouter(Connect(Menu)) />
+    <Switch
+      location={
+        Location {
+          "assign": [Function],
+          "hash": "",
+          "host": "test.com",
+          "hostname": "test.com",
+          "href": "http://test.com/",
+          "origin": "http://test.com",
+          "pathname": "/",
+          "port": "",
+          "protocol": "http:",
+          "reload": [Function],
+          "replace": [Function],
+          "search": "",
+          "toString": [Function],
+        }
+      }
+    >
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/search"
+      />
+      <Route
+        component={[Function]}
+        path="/about"
+      />
+      <Route
+        component={[Function]}
+        path="/browse-projects"
+      />
+      <Route
+        component={[Function]}
+        path="/open-tasks"
+      />
+      <Route
+        component={[Function]}
+        path="/privacy-policy"
+      />
+      <Route
+        component={[Function]}
+        path="/projects/:repoID"
+      />
+      <Route
+        component={[Function]}
+        path="/roadmap"
+      />
+      <Route
+        component={[Function]}
+        path="/policy-guide"
+      />
+      <Route
+        component={[Function]}
+        path="/about"
+      />
+      <Redirect
+        push={false}
+        to="/"
+      />
+    </Switch>
+    <Connect(Footer) />
+  </div>
+</Connect(ConnectedRouter)>
+`;
