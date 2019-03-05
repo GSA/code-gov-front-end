@@ -55,6 +55,7 @@
     "lodash.assign": "^4.2.0",
     "lodash.get": "^4.4.2",
     "lodash.intersection": "^4.4.0",
+    "lodash.pick": "^4.4.0",
     "lodash.set": "^4.3.2",
     "offline-plugin": "^5.0.5",
     "prop-types": "^15.6.2",
@@ -132,7 +133,8 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!/node_modules/",
-      "!src/index.js"
+      "!src/index.js",
+      "!src/**/index.js"
     ],
     "moduleNameMapper": {
       ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|md)$": "<rootDir>/tests/mocks/asset.js"

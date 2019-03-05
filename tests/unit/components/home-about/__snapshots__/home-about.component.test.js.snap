@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomeAbout should render correctly 1`] = `
+<section
+  className="about"
+  id="about"
+>
+  <header>
+    <h2>
+      Our Mission
+    </h2>
+    <p
+      className="indented"
+    >
+      test-mission
+    </p>
+  </header>
+  <br />
+  <hr />
+  <ul
+    className="indented about-actions"
+  >
+    <li
+      className="about-action width-third"
+      key="t1"
+    >
+      <Connect(CustomLinkComponent)
+        to="l1"
+      >
+        <img
+          alt="About Icon"
+          src="i1"
+        />
+        <h3>
+          t1
+        </h3>
+        <p>
+          d1
+        </p>
+      </Connect(CustomLinkComponent)>
+    </li>
+    <li
+      className="about-action width-third"
+      key="t2"
+    >
+      <Connect(CustomLinkComponent)
+        to="l2"
+      >
+        <img
+          alt="About Icon"
+          src="i2"
+        />
+        <h3>
+          t2
+        </h3>
+        <p>
+          d2
+        </p>
+      </Connect(CustomLinkComponent)>
+    </li>
+  </ul>
+</section>
+`;

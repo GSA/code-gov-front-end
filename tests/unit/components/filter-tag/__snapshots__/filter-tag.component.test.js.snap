@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - FilterTag should render correctly 1`] = `
+<div
+  className="filter-tag"
+  onClick={[Function]}
+>
+  <div
+    className="filter-tag-title"
+  >
+    test-title
+  </div>
+</div>
+`;

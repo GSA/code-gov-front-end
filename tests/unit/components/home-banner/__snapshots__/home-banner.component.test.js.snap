@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomeBanner render should render correctly 1`] = `
+<section
+  className="banner large"
+  id="banner-home"
+  style={
+    Object {
+      "backgroundImage": "url('test-bg-image')",
+    }
+  }
+>
+  <div
+    className="banner-content"
+  >
+    <div
+      className="banner-title"
+    >
+      test-motto
+    </div>
+    <div
+      className="banner-subtitle show-w-gt-1200"
+    >
+      test-subtitle
+    </div>
+    <div
+      className="indented"
+    >
+      <div
+        className="banner-subsection width-half"
+        style={
+          Object {
+            "zIndex": 30,
+          }
+        }
+      >
+        <div
+          className="banner-subsection-content"
+        >
+          <div
+            className="banner-subsection-content-padder"
+          >
+            <Connect(HomeBannerSearchBoxComponent) />
+            <div
+              className="browse"
+            >
+              <span>
+                or 
+              </span>
+              <select
+                onChange={[MockFunction]}
+              >
+                <option>
+                  browse-by-text
+                </option>
+                <option
+                  value="All"
+                >
+                  All
+                </option>
+                <option
+                  key="a1"
+                  value="a1"
+                >
+                  agency-1
+                </option>
+                <option
+                  key="a2"
+                  value="a2"
+                >
+                  agency-2
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="vertical-row"
+      />
+      <div
+        className="banner-subsection show-w-gt-600 width-half"
+        id="banner-subsection-engage"
+      >
+        <div
+          className="banner-subsection-content"
+        >
+          <div
+            className="banner-subsection-content-padder"
+          >
+            <div
+              className="banner-subsection-title"
+            >
+              help-wanted-title
+            </div>
+            <div
+              className="banner-subsection-subtitle"
+            >
+              help-wanted-desc
+            </div>
+            <div
+              className="buttons"
+            >
+              <Connect(CustomLinkComponent)
+                to="/open-tasks"
+              >
+                <button
+                  className="alt"
+                >
+                  help-wanted-button
+                </button>
+              </Connect(CustomLinkComponent)>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <br />
+      <br />
+      <div
+        className="banner-subsection"
+      >
+        <div
+          className="banner-subsection-subtitle"
+          id="issue-banner-subsection-subtitle"
+        >
+          <img
+            className="chat"
+            src="/assets/img/icons/chat_bubble.png"
+          />
+          <span>
+            Have questions or feedback? Open an issue on our 
+            <a
+              className="link"
+              href="/test-issue-url"
+              id="issue-link"
+              target="_blank"
+            >
+              open source repository
+            </a>
+            .
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a
+    className="scroll-indicator"
+    onClick={[Function]}
+    title="Scroll Down"
+  >
+    <i
+      className="icon icon-angle-down"
+    />
+  </a>
+</section>
+`;

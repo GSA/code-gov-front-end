@@ -5,7 +5,7 @@ import saveAgencies from 'actions/save-agencies'
 import updateBrowseParams from 'actions/update-browse-params'
 import HomeBannerComponent from './home-banner.component'
 
-const mapStateToProps = ({ agencies }) => {
+export const mapStateToProps = ({ agencies }) => {
   return {
     agencies,
     backgroundImage: getConfigValue('images.background'),
@@ -19,7 +19,7 @@ const mapStateToProps = ({ agencies }) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     onBrowseByEntityChange: event => {
       const value = normalize(event.target.value)

@@ -1,7 +1,6 @@
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
-import { getNormalizedURLSearchParams, getSection } from 'utils/url-parsing';
 import * as otherUtils from 'utils/other';
 import { mapStateToProps, mapDispatchToProps } from 'components/browse-projects/browse-projects.container.js';
 
@@ -85,6 +84,11 @@ describe('containers - BrowseProjects', () => {
     it('should return the correct properties', () => {
       expect(mapStateToProps({ browseParams, browseResults, filters })).toMatchSnapshot();
     });
+
+    it('should default to 0 `total` if none provided in `browseResults`', () => {
+      const newBrowseResults = { ...browseResults, total: undefined };
+      expect(mapStateToProps({ browseParams, browseResults: newBrowseResults }).total).toBe(0);
+    });
   });
 
   describe('mapDispatchToProps', () => {
@@ -92,9 +96,40 @@ describe('containers - BrowseProjects', () => {
       it('should dispatch the `updateBrowseFilters` action with the correct params', () => {
         const change = { value: 123, type: 'test-type' };
         mapDispatchToProps(dispatch).onFilterBoxChange('category', change);
-
         expect(dispatch).toBeCalled();
         expect(updateBrowseFilters).toBeCalledWith('category', change.value, change.type);
+      });
+    });
+
+    describe('onFilterTagClick', () => {
+      it('should dispatch the `updateBrowseFilters` action with the correct params', () => {
+        mapDispatchToProps(dispatch).onFilterTagClick('category', 'value');
+        expect(dispatch).toBeCalled();
+        expect(updateBrowseFilters).toBeCalledWith('category', 'value', 'remove');
+      });
+    });
+
+    describe('onSortChange', () => {
+      it('should dispatch the `updateBrowseParams` action with the correct params', () => {
+        mapDispatchToProps(dispatch).onSortChange('value');
+        expect(dispatch).toBeCalled();
+        expect(updateBrowseParams).toBeCalledWith({ page: 1, sort: 'value' });
+      });
+    });
+
+    describe('saveFilterData', () => {
+      it('should dispatch the `saveFilterOptions` action', () => {
+        mapDispatchToProps(dispatch).saveFilterData();
+        expect(dispatch).toBeCalled();
+        expect(saveFilterOptions).toBeCalled();
+      });
+    });
+
+    describe('updatePage', () => {
+      it('should dispatch the `updateBrowseParams` action', () => {
+        mapDispatchToProps(dispatch).updatePage(123);
+        expect(dispatch).toBeCalled();
+        expect(updateBrowseParams).toBeCalledWith({ page: 123 });
       });
     });
   });

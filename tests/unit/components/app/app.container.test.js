@@ -1,15 +1,17 @@
+import pick from 'lodash.pick';
+
 import updateBrowseParams from 'actions/update-browse-params';
 import updateSearchParams from 'actions/update-search-params';
 import updateTaskParams from 'actions/update-task-params';
 import { getNormalizedURLSearchParams, getSection } from 'utils/url-parsing';
-import * as otherUtils from 'utils/other';
+import { now } from 'utils/other';
+import defaultState from 'constants/default-redux-store-state';
 import { mapStateToProps, mapDispatchToProps } from 'components/app/app.container.js';
 
 jest.mock('actions/update-browse-params');
 jest.mock('actions/update-search-params');
 jest.mock('actions/update-task-params');
 jest.mock('utils/url-parsing');
-otherUtils.now = () => 123; // mock date to be consistent
 
 const searchParams = {
   agencies: ['a1', 'a2'],
@@ -20,7 +22,22 @@ const searchParams = {
   query: 'test-query',
 };
 
+// filters that get mapped out from `searchParams`
+const filters =  [
+  { category: 'agencies', value: 'a1', modified: now() },
+  { category: 'agencies', value: 'a2', modified: now() },
+  { category: 'languages', value: 'l1', modified: now() },
+];
+
 const dispatch = jest.fn();
+
+// helper function for testing `rehydrate` dispatches an action with expected params
+const testBySection = ({ section, action, expected }) => {
+  getSection.mockImplementation(() => section);
+  mapDispatchToProps(dispatch).rehydrate();
+  expect(dispatch).toBeCalled();
+  expect(action).toBeCalledWith(expected);
+};
 
 describe('containers - App', () => {
   beforeEach(() => {
@@ -35,68 +52,52 @@ describe('containers - App', () => {
 
   describe('mapDispatchToProps', () => {
     describe('rehydrate', () => {
-      it('should dispatch the `updateBrowseParams` action with the correct params if the section is `browse`', () => {
-        const expectedParams = {
-          page: 'test-page',
-          sort: 'test-sort',
-          size: 'test-size',
-          filters: [
-            { category: 'agencies', value: 'a1', modified: otherUtils.now() },
-            { category: 'agencies', value: 'a2', modified: otherUtils.now() },
-            { category: 'languages', value: 'l1', modified: otherUtils.now() },
-          ],
-        };
+      describe('section is `browse`', () => {
+        it('should dispatch the `updateBrowseParams` action with the correct params', () => {
+          const expected = { ...pick(searchParams, ['page', 'sort', 'size']), filters };
+          testBySection({ section: 'browse',  action: updateBrowseParams, expected });
+        });
 
-        getSection.mockImplementation(() => 'browse');
-        mapDispatchToProps(dispatch).rehydrate();
-
-        expect(dispatch).toBeCalled();
-        expect(updateBrowseParams).toBeCalledWith(expectedParams);
+        it('should dispatch the `updateBrowseParams` action with the default browse params if none provided', () => {
+          const expected = pick(defaultState.browseParams, ['page', 'sort', 'size', 'filters']);
+          getNormalizedURLSearchParams.mockImplementation(() => ({}));
+          testBySection({ section: 'browse',  action: updateBrowseParams, expected });
+        });
       });
     });
 
-    it('should dispatch the `updateSearchParams` action with the correct params if the section is `search`', () => {
-      const expectedParams = {
-        page: 'test-page',
-        query: 'test-query',
-        sort: 'test-sort',
-        size: 'test-size',
-        filters: [
-          { category: 'agencies', value: 'a1', modified: otherUtils.now() },
-          { category: 'agencies', value: 'a2', modified: otherUtils.now() },
-          { category: 'languages', value: 'l1', modified: otherUtils.now() },
-        ],
-      };
+    describe('section is `search`', () => {
+      it('should dispatch the `updateSearchParams` action with the correct params', () => {
+        const expected = { ...pick(searchParams, ['page', 'query', 'sort', 'size']), filters };
+        testBySection({ section: 'search',  action: updateSearchParams, expected });
+      });
 
-      getSection.mockImplementation(() => 'search');
-      mapDispatchToProps(dispatch).rehydrate();
-
-      expect(dispatch).toBeCalled();
-      expect(updateSearchParams).toBeCalledWith(expectedParams);
+      it('should dispatch the `updateSearchParams` action with the default search params if none provided', () => {
+        const expected = pick(defaultState.searchParams, ['page', 'query', 'sort', 'size', 'filters']);
+        getNormalizedURLSearchParams.mockImplementation(() => ({}));
+        testBySection({ section: 'search',  action: updateSearchParams, expected });
+      });
     });
 
-    it('should dispatch the `updateTaskParams` action with the correct params if the section is `tasks`', () => {
-      const expectedParams = {
-        page: 'test-page',
-        size: 'test-size',
-        filters: [
-          { category: 'agencies', value: 'a1', modified: otherUtils.now() },
-          { category: 'agencies', value: 'a2', modified: otherUtils.now() },
-          { category: 'languages', value: 'l1', modified: otherUtils.now() },
-        ],
-      };
+    describe('section is `tasks`', () => {
+      it('should dispatch the `updateTaskParams` action with the correct params if the section is `tasks`', () => {
+        const expected = { ...pick(searchParams, ['page', 'size']), filters };
+        testBySection({ section: 'tasks',  action: updateTaskParams, expected });
+      });
 
-      getSection.mockImplementation(() => 'tasks');
-      mapDispatchToProps(dispatch).rehydrate();
-
-      expect(dispatch).toBeCalled();
-      expect(updateTaskParams).toBeCalledWith(expectedParams);
+      it('should dispatch the `updateTaskParams` action with the default task params if none provided', () => {
+        const expected = pick(defaultState.taskParams, ['page', 'query', 'sort', 'size', 'filters']);
+        getNormalizedURLSearchParams.mockImplementation(() => ({}));
+        testBySection({ section: 'tasks',  action: updateTaskParams, expected });
+      });
     });
 
-    it('should not dispatch an action for unknown sections', () => {
-      getSection.mockImplementation(() => 'unknown');
-      mapDispatchToProps(dispatch).rehydrate();
-      expect(dispatch).not.toBeCalled();
+    describe('section is unknown', () => {
+      it('should not dispatch any actions', () => {
+        getSection.mockImplementation(() => 'unknown');
+        mapDispatchToProps(dispatch).rehydrate();
+        expect(dispatch).not.toBeCalled();
+      });
     });
   });
 });

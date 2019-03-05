@@ -12,7 +12,7 @@ import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
 import history from 'browser-history'
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateStore: to => {
       console.log("starting updateStore with to", to)
