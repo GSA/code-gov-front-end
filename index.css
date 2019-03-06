@@ -894,12 +894,12 @@ button:only-child {
   left: auto;
   right: 0;
   top: 0;
-  width: 3.75em;
+  width: 4.5em;
   height: 3.75em;
 }
 .card .corner-tag.high {
   background-color: #33CC66;
-  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22500%22%20width%3D%22500%22%3E%0A%20%20%3Cpolygon%20points%3D%220%2C0%20500%2C0%20500%2C500%200%2C0%22%20fill%3D%22%2333CC66%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E");
+  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22500%22%20width%3D%22700%22%3E%0A%20%20%3Cpolygon%20points%3D%220%2C0%20700%2C0%20700%2C500%200%2C0%22%20fill%3D%22%2333CC66%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E");
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .card .corner-tag.high {
@@ -908,7 +908,7 @@ button:only-child {
 }
 .card .corner-tag.medium {
   background-color: #FF9933;
-  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22500%22%20width%3D%22500%22%3E%0A%20%20%3Cpolygon%20points%3D%220%2C0%20500%2C0%20500%2C500%200%2C0%22%20fill%3D%22%23FF9933%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E");
+  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22500%22%20width%3D%22700%22%3E%0A%20%20%3Cpolygon%20points%3D%220%2C0%20700%2C0%20700%2C500%200%2C0%22%20fill%3D%22%23FF9933%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E");
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .card .corner-tag.medium {
@@ -917,7 +917,7 @@ button:only-child {
 }
 .card .corner-tag.low {
   background-color: #F00;
-  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22500%22%20width%3D%22500%22%3E%0A%20%20%3Cpolygon%20points%3D%220%2C0%20500%2C0%20500%2C500%200%2C0%22%20fill%3D%22%23F00%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E");
+  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22500%22%20width%3D%22700%22%3E%0A%20%20%3Cpolygon%20points%3D%220%2C0%20700%2C0%20700%2C500%200%2C0%22%20fill%3D%22%23F00%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E");
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .card .corner-tag.low {
@@ -4611,4 +4611,18 @@ header.main nav ul li a svg {
 
 ul.breadcrumbs li {
   margin-right: 5px;
+}
+
+@media screen and (max-width: 800.5px) {
+  [id*=fn] {
+    margin-top: -60px;
+    padding-top: 60px;
+  }
+}
+@media screen and (min-width: 800.5px) {
+  [id*=fn] {
+    margin-top: -90px;
+    /* Size of fixed header */
+    padding-top: 90px;
+  }
 }
