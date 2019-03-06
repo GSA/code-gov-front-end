@@ -1,6 +1,6 @@
 {
   "name": "code-gov-front-end",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "url": "https://github.com/GSA/code-gov-front-end/issues"
   },
   "homepage": "https://github.com/GSA/code-gov-front-end#readme",
-  "private": "true",
+  "private": "false",
   "dependencies": {
     "@code.gov/about-page": "0.1.10",
     "@code.gov/api-client": "0.3.3",
