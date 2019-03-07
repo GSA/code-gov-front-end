@@ -12,26 +12,10 @@ const props = {
 
 const dispatch = jest.fn();
 
-// helper function for testing `onBrowseByEntityChange` dispatches an action with expected params
-const testByValue = ({ value, action, expected }) => {
-  const event = { target: { value } };
-  mapDispatchToProps(dispatch).onBrowseByEntityChange(event);
-  expect(dispatch).toBeCalled();
-  expect(action).toBeCalledWith(expected);
-};
-
 describe('containers - HomeBannerSearchBox', () => {
   describe('mapStateToProps', () => {
-    it('should map the query passed to the `query` key', () => {
-      const { query } = mapStateToProps(props);
-      expect(query).toBe(props.query);
-    });
-
-    it('should get the values from config', () => {
-      const values = mapStateToProps(props);
-      expect(values.placeholder).toBeDefined();
-      expect(values.searchDescriptionText).toBeDefined();
-      expect(values.searchDescriptionTextMobile).toBeDefined();
+    it('should return the correct properties', () => {
+      expect(mapStateToProps(props)).toMatchSnapshot();
     });
   });
 

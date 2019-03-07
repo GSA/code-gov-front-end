@@ -4,13 +4,13 @@ import hideMobileMenu from 'actions/hide-mobile-menu'
 import toggleMobileMenuOption from 'actions/toggle-mobile-menu-option'
 import collapseAllMobileMenuOptions from 'actions/collapse-all-mobile-menu-options'
 
-const mapStateToProps = ({ expandedMobileMenuOptions }) => {
+export const mapStateToProps = ({ expandedMobileMenuOptions }) => {
   return {
     expandedMobileMenuOptions
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     hideMobileMenu: () => {
       dispatch(collapseAllMobileMenuOptions()),

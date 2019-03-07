@@ -35,21 +35,8 @@ const testByValue = ({ value, action, expected }) => {
 
 describe('containers - HomeBanner', () => {
   describe('mapStateToProps', () => {
-    it('should map the agencies passed to the `agencies` key', () => {
-      const { agencies } = mapStateToProps(props);
-      expect(agencies).toBe(props.agencies);
-    });
-
-    it('should get the values from config', () => {
-      const values = mapStateToProps(props);
-      expect(values.backgroundImage).toBeDefined();
-      expect(values.motto).toBeDefined();
-      expect(values.subtitle).toBeDefined();
-      expect(values.helpWantedTitle).toBeDefined();
-      expect(values.helpWantedDescription).toBeDefined();
-      expect(values.helpWantedButton).toBeDefined();
-      expect(values.issueUrl).toBeDefined();
-      expect(values.browseByText).toBeDefined();
+    it('should return the correct properties', () => {
+      expect(mapStateToProps(props)).toMatchSnapshot();
     });
   });
 

@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - Menu render should render correctly 1`] = `
+<header
+  className="main white"
+>
+  <nav
+    aria-label="primary"
+    className="main white"
+    style={
+      Object {
+        "height": "auto",
+      }
+    }
+  >
+    <Connect(MobileMenuControl) />
+    <Connect(CustomLinkComponent)
+      className="svg-container"
+      title="test-title Home"
+      to="/"
+    >
+      <img
+        alt="code.gov"
+        src="logo-src-dark"
+      />
+    </Connect(CustomLinkComponent)>
+    <ul
+      aria-label="primary"
+      role="menubar"
+    >
+      <li
+        className=""
+        key="menu-opt-1"
+        role="none"
+      >
+        <PrimaryMenuOption
+          menuOption={
+            Object {
+              "expanded": false,
+              "links": Array [
+                Object {
+                  "id": "menu-link-1",
+                },
+              ],
+              "name": "menu-opt-1",
+            }
+          }
+          onClick={[Function]}
+        />
+        <SecondaryDropdown
+          menuOption={
+            Object {
+              "expanded": false,
+              "links": Array [
+                Object {
+                  "id": "menu-link-1",
+                },
+              ],
+              "name": "menu-opt-1",
+            }
+          }
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="expanded"
+        key="menu-opt-2"
+        role="none"
+      >
+        <PrimaryMenuOption
+          menuOption={
+            Object {
+              "expanded": true,
+              "links": Array [
+                Object {
+                  "id": "menu-link-2",
+                },
+              ],
+              "name": "menu-opt-2",
+            }
+          }
+          onClick={[Function]}
+        />
+        <SecondaryDropdown
+          menuOption={
+            Object {
+              "expanded": true,
+              "links": Array [
+                Object {
+                  "id": "menu-link-2",
+                },
+              ],
+              "name": "menu-opt-2",
+            }
+          }
+          onClick={[Function]}
+        />
+      </li>
+    </ul>
+    <ul
+      className="right show-w-gt-800"
+    >
+      <li>
+        <a
+          className="no-underline"
+          onClick={[MockFunction]}
+        >
+          <i
+            className="icon icon-search"
+          />
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <Connect(Menu) />
+</header>
+`;

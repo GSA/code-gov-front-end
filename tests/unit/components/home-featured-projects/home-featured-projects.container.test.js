@@ -1,6 +1,6 @@
-import { mapStateToProps } from 'components/home-about/home-about.container.js';
+import { mapStateToProps } from 'components/home-featured-projects/home-featured-projects.container';
 
-describe('containers - HomeAbout', () => {
+describe('containers - HomeFeaturedProjects', () => {
   describe('mapStateToProps', () => {
     it('should return the correct properties', () => {
       expect(mapStateToProps()).toMatchSnapshot();

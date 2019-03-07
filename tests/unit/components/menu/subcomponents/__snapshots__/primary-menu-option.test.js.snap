@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - Menu - PrimaryMenuOption should render correctly 1`] = `
+<a
+  aria-haspopup="true"
+  href="javascript:void(0);"
+  onClick={[Function]}
+  role="menuitem"
+  tabIndex="0"
+>
+  option-name
+</a>
+`;

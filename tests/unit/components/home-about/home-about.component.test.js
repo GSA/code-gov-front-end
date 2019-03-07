@@ -27,6 +27,6 @@ describe('components - HomeAbout', () => {
 
   it('should not throw if `aboutItems` not provided', () => {
     wrapper.setProps({ aboutItems: undefined });
-    expect(wrapper.html()).not.toBeNull();
+    expect(wrapper.html()).not.toBeFalsy();
   });
 });

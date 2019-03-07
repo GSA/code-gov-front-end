@@ -44,12 +44,12 @@ describe('components - FilterBoxes', () => {
 
     it('should render nothing if no boxes provided', () => {
       wrapper.setProps({ boxes: undefined });
-      expect(wrapper.html()).toBeNull();
+      expect(wrapper.html()).toBeFalsy();
     });
 
     it('should render nothing if no config provided', () => {
       wrapper.setProps({ config: undefined });
-      expect(wrapper.html()).toBeNull();
+      expect(wrapper.html()).toBeFalsy();
     });
 
     it('should map `onChange` to `onFilterBoxChange` with the correct category', () => {

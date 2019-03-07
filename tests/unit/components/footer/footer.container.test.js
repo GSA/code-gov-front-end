@@ -10,19 +10,13 @@ const props = {
 
 describe('containers - Footer', () => {
   describe('mapStateToProps', () => {
-    it('should map the color based off the current pathname', () => {
-      const color = mapStateToProps(props).color;
-      const homePageProps = { ...props, router: { location: { pathname: PUBLIC_PATH } } };
-      const homeColor = mapStateToProps(homePageProps).color;
-      expect(color).toBeDefined();
-      expect(homeColor).toBeDefined();
-      expect(color).not.toBe(homeColor);
+    it('should return the correct properties', () => {
+      expect(mapStateToProps(props)).toMatchSnapshot();
     });
 
-    it('should get the `links` and `logos` values from config', () => {
-      const { links, logos } = mapStateToProps(props);
-      expect(Array.isArray(links)).toBeTruthy();
-      expect(Array.isArray(logos)).toBeTruthy();
+    it('should set the `color` to `dark` if on the home page', () => {
+      const router = { location: { pathname: PUBLIC_PATH } }
+      expect(mapStateToProps({ ...props, router }).color).toBe('dark');
     });
   });
 });

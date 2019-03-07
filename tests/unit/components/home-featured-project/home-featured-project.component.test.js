@@ -29,4 +29,13 @@ describe('components - HomeFeaturedProject', () => {
   it('should render correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should place the image after the content if the `index` is `odd`', () => {
+    expect(wrapper.find('.width-half').at(1).find('img').length).toBe(1);
+  });
+
+  it('should place the image before the content if the `index` is `even`', () => {
+    wrapper.setProps({ index: 4 });
+    expect(wrapper.find('.width-half').at(0).find('img').length).toBe(1);
+  });
 });

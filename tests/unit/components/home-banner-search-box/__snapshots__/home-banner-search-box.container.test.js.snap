@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - HomeBannerSearchBox mapStateToProps should return the correct properties 1`] = `
+Object {
+  "placeholder": "e.g. JavaScript, NASA, web standards",
+  "query": "test-query",
+  "searchDescriptionText": "Search thousands of Federal Government projects",
+  "searchDescriptionTextMobile": "Search projects",
+}
+`;

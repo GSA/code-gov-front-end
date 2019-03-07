@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - MobileMenuOption mapStateToProps should return the correct properties 1`] = `
+Object {
+  "expandedMobileMenuOptions": Array [
+    "option-1",
+    "option-2",
+  ],
+}
+`;

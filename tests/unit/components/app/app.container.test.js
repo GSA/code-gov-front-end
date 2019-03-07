@@ -45,8 +45,8 @@ describe('containers - App', () => {
   });
 
   describe('mapStateToProps', () => {
-    it('should map `plugins` to the `plugins` config value', () => {
-      expect(mapStateToProps().plugins).toEqual(global.SITE_CONFIG.plugins);
+    it('should return the correct properties', () => {
+      expect(mapStateToProps()).toMatchSnapshot();
     });
   });
 

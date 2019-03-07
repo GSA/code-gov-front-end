@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - HomeBanner mapStateToProps should return the correct properties 1`] = `
+Object {
+  "agencies": Array [
+    Object {
+      "acronym": "a1",
+      "name": "agency-1",
+    },
+    Object {
+      "acronym": "a2",
+      "name": "agency-2",
+    },
+  ],
+  "backgroundImage": "/assets/img/american_flag_1920x1280_gradient.jpg",
+  "browseByText": "Browse by Agency",
+  "helpWantedButton": "Explore Open Tasks",
+  "helpWantedDescription": "Whether you are a beginner or an experienced coder, join the open source community. Help improve America's Code.",
+  "helpWantedTitle": "Ready. Set. Code!",
+  "issueUrl": "https://github.com/GSA/code-gov-front-end/issues",
+  "motto": "Sharing America's Code",
+  "subtitle": "Unlock the tremendous potential of the Federal Government’s software.",
+}
+`;
