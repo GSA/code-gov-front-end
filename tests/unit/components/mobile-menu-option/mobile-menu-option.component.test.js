@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { testRenderList, testRenderEmpty } from 'testUtils/render';
 import MobileMenuOption from 'components/mobile-menu-option/mobile-menu-option.component';
 
 const props = {
@@ -28,12 +29,12 @@ describe('components - MobileMenuOption', () => {
 
   describe('dropdown', () => {
     it('should map the menu options links out', () => {
-      expect(shallow(instance.dropdown).find('li').length).toBe(props.menuOption.links.length);
+      testRenderList(instance.dropdown, 'li', props.menuOption.links.length);
     });
 
     it('should not render anything if the menu option has no links', () => {
       wrapper.setProps({ menuOption: { ...props.menuOption, links: undefined } });
-      expect(shallow(<div>{instance.dropdown}</div>).find('li').length).toBe(0);
+      testRenderEmpty(instance.dropdown);
     });
 
     it('should attach an `active` class name to active custom links', () => {

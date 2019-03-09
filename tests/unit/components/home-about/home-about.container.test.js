@@ -1,4 +1,4 @@
-import { mapStateToProps } from 'components/home-about/home-about.container.js';
+import { mapStateToProps } from 'components/home-about/home-about.container';
 
 describe('containers - HomeAbout', () => {
   describe('mapStateToProps', () => {

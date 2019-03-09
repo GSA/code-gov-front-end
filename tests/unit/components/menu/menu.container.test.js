@@ -1,5 +1,5 @@
 import toggleSearchDropdown from 'actions/toggle-search-dropdown';
-import { mapStateToProps, mapDispatchToProps } from 'components/menu/menu.container.js';
+import { mapStateToProps, mapDispatchToProps } from 'components/menu/menu.container';
 
 jest.mock('actions/toggle-search-dropdown');
 

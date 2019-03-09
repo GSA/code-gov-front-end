@@ -6,7 +6,7 @@ import updateTaskParams from 'actions/update-task-params';
 import { getNormalizedURLSearchParams } from 'utils/url-parsing';
 import { now } from 'utils/other';
 import defaultState from 'constants/default-redux-store-state'
-import { mapDispatchToProps } from 'components/custom-link/custom-link.container.js';
+import { mapDispatchToProps } from 'components/custom-link/custom-link.container';
 
 jest.mock('actions/update-browse-params');
 jest.mock('actions/update-search-params');

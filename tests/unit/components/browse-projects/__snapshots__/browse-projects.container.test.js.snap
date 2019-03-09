@@ -29,17 +29,17 @@ Object {
     "filters": Array [
       Object {
         "category": "agencies",
-        "modified": 123,
+        "modified": 1234567890123,
         "value": "v0",
       },
       Object {
         "category": "agencies",
-        "modified": 123,
+        "modified": 1234567890123,
         "value": "v2",
       },
       Object {
         "category": "languages",
-        "modified": 123,
+        "modified": 1234567890123,
         "value": "v3",
       },
     ],

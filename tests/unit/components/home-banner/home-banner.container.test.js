@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 import saveAgencies from 'actions/save-agencies';
 import updateBrowseParams from 'actions/update-browse-params';
 import { now } from 'utils/other';
-import { mapStateToProps, mapDispatchToProps } from 'components/home-banner/home-banner.container.js';
+import { mapStateToProps, mapDispatchToProps } from 'components/home-banner/home-banner.container';
 
 jest.mock('connected-react-router');
 jest.mock('actions/save-agencies');

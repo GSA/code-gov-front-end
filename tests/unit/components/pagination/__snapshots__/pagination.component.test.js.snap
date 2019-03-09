@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - Pagination render should render correctly 1`] = `
+<nav
+  aria-label="Pagination Navigation"
+  role="navigation"
+  tabIndex="0"
+>
+  <ul
+    className="ngx-pagination"
+  >
+    <div
+      className="repo-list-summary-wrapper"
+      tabIndex="0"
+    >
+      <p
+        className="repo-list-summary"
+      >
+        Results 
+        <strong>
+          11-20
+        </strong>
+         of 
+        <strong>
+          30
+        </strong>
+      </p>
+    </div>
+    <li
+      className="pagination-previous"
+      tabIndex="0"
+    >
+      <a
+        onClick={[Function]}
+      >
+        <i
+          className="icon icon-angle-circled-left"
+        />
+         Prev
+      </a>
+    </li>
+    <li
+      className="page first"
+      key="1"
+    >
+      <a
+        aria-label="Go to page 1"
+        onClick={[Function]}
+        tabIndex={1}
+      >
+        1
+      </a>
+    </li>
+    <li
+      className="page current"
+      key="2"
+    >
+      <span
+        aria-current="true"
+        aria-label="Current Page 2"
+        tabIndex={2}
+      >
+        2
+      </span>
+    </li>
+    <li
+      className="page"
+      key="3"
+    >
+      <a
+        aria-label="Go to page 3"
+        onClick={[Function]}
+        tabIndex={3}
+      >
+        3
+      </a>
+    </li>
+    <li
+      className="pagination-next"
+      tabIndex="8"
+    >
+      <a
+        onClick={[Function]}
+      >
+        Next 
+        <i
+          className="icon icon-angle-circled-right"
+        />
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

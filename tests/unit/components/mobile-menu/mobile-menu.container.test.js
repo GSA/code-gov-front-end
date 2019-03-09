@@ -1,4 +1,4 @@
-import { mapStateToProps } from 'components/mobile-menu/mobile-menu.container.js';
+import { mapStateToProps } from 'components/mobile-menu/mobile-menu.container';
 
 describe('containers - MobileMenu', () => {
   describe('mapStateToProps', () => {

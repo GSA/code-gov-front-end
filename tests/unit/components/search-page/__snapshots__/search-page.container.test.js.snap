@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - SearchPage mapStateToProps should return the correct properties 1`] = `
+Object {
+  "boxes": Object {
+    "agencies": Array [
+      Object {
+        "checked": false,
+        "name": "ag-1-name",
+        "value": "ag-1-value",
+      },
+      Object {
+        "checked": true,
+        "name": "ag-2-name",
+        "value": "ag-2-value",
+      },
+    ],
+    "languages": Array [
+      Object {
+        "checked": true,
+        "name": "la-1-name",
+        "value": "la-1-value",
+      },
+    ],
+    "licenses": Array [],
+    "usageTypes": Array [],
+  },
+  "filterTags": Array [
+    Object {
+      "category": "agencies",
+      "modified": 1234567890123,
+      "title": "loading",
+      "value": "ag-0-value",
+    },
+    Object {
+      "category": "agencies",
+      "modified": 1234567890123,
+      "title": "ag-2-name",
+      "value": "ag-2-value",
+    },
+    Object {
+      "category": "languages",
+      "modified": 1234567890123,
+      "title": "la-1-name",
+      "value": "la-1-value",
+    },
+  ],
+  "filteredResults": Array [],
+  "filters": Object {
+    "agencies": Array [
+      Object {
+        "name": "ag-1-name",
+        "value": "ag-1-value",
+      },
+      Object {
+        "name": "ag-2-name",
+        "value": "ag-2-value",
+      },
+    ],
+    "languages": Array [
+      Object {
+        "name": "la-1-name",
+        "value": "la-1-value",
+      },
+    ],
+    "licenses": Array [],
+    "usageTypes": Array [],
+  },
+  "query": "test-query",
+  "searchParams": Object {
+    "filters": Array [
+      Object {
+        "category": "agencies",
+        "modified": 1234567890123,
+        "value": "ag-0-value",
+      },
+      Object {
+        "category": "agencies",
+        "modified": 1234567890123,
+        "value": "ag-2-value",
+      },
+      Object {
+        "category": "languages",
+        "modified": 1234567890123,
+        "value": "la-1-value",
+      },
+    ],
+    "page": "test-page",
+    "query": "test-query",
+    "size": "test-size",
+    "sort": "test-sort",
+  },
+  "searchResults": Object {
+    "repos": Array [
+      Object {
+        "agency": Object {
+          "acronym": "ag-1-value",
+        },
+        "languages": Array [
+          "la-1-value",
+          "la-1-value",
+        ],
+        "permissions": Object {
+          "licenses": Array [
+            Object {
+              "name": "li-1-value",
+            },
+          ],
+          "usageType": "us-1-value",
+        },
+        "repoId": "repo-1",
+      },
+      Object {
+        "agency": Object {
+          "acronym": "ag-2-value",
+        },
+        "languages": Array [
+          "la-2-value",
+          "la-2-value",
+        ],
+        "permissions": Object {
+          "licenses": Array [
+            Object {
+              "name": "li-2-value",
+            },
+          ],
+          "usageType": "us-2-value",
+        },
+        "repoId": "repo-2",
+      },
+    ],
+    "total": 2,
+  },
+  "selectedPage": "test-page",
+  "selectedPageSize": "test-size",
+  "sortOptions": Array [
+    Object {
+      "label": "Best Match",
+      "selected": false,
+      "value": "best_match",
+    },
+    Object {
+      "label": "Data Quality",
+      "selected": false,
+      "value": "data_quality",
+    },
+    Object {
+      "label": "A-Z",
+      "selected": false,
+      "value": "a-z",
+    },
+    Object {
+      "label": "Last Updated",
+      "selected": false,
+      "value": "last_updated",
+    },
+  ],
+  "total": 0,
+}
+`;

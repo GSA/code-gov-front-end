@@ -1,4 +1,4 @@
-import { mapStateToProps } from 'components/footer/footer.container.js';
+import { mapStateToProps } from 'components/footer/footer.container';
 
 const props = {
   router: {

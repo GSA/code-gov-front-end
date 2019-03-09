@@ -1,7 +1,7 @@
 import { push } from 'connected-react-router';
 
 import updateSearchParams from 'actions/update-search-params';
-import { mapStateToProps, mapDispatchToProps } from 'components/home-banner-search-box/home-banner-search-box.container.js';
+import { mapStateToProps, mapDispatchToProps } from 'components/home-banner-search-box/home-banner-search-box.container';
 
 jest.mock('connected-react-router');
 jest.mock('actions/update-search-params');

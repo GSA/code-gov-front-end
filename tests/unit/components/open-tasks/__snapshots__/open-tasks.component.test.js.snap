@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - OpenTasks render should render correctly 1`] = `
+<div
+  className="search-results-content"
+>
+  <Connect(SiteBanner)
+    title="Open Tasks"
+  />
+  <Breadcrumbs
+    crumbs={
+      Array [
+        Object {
+          "text": "Home",
+          "to": "/",
+        },
+        Object {
+          "text": "Open Tasks",
+        },
+      ]
+    }
+  />
+  <div
+    className="search-results-header"
+  >
+    <div
+      className="width-quarter"
+    />
+    <h3
+      className="repos-count width-three-quarters"
+    >
+      There are 2 open tasks
+    </h3>
+  </div>
+  <div
+    className="indented"
+  >
+    <div
+      id="filter-boxes-section"
+    >
+      <h2>
+        Filter
+      </h2>
+      <FilterBoxes
+        boxes={
+          Array [
+            "box-1",
+            "box-2",
+          ]
+        }
+        config={
+          Array [
+            Array [
+              "Federal Agency",
+              "agencies",
+            ],
+            Array [
+              "Skill Level",
+              "skillLevels",
+            ],
+            Array [
+              "Time Required",
+              "timeRequired",
+            ],
+            Array [
+              "Type",
+              "categories",
+            ],
+          ]
+        }
+        onFilterBoxChange={[Function]}
+      />
+    </div>
+    <div
+      id="filter-results-section"
+    >
+      <div
+        className="sort-section"
+      >
+        <h2>
+          <span>
+            Explore Open Tasks
+          </span>
+        </h2>
+      </div>
+      <_default
+        filters={
+          Array [
+            "filter-1",
+            "filter-2",
+          ]
+        }
+        onClick={[Function]}
+      />
+      <div
+        className="card-list"
+      >
+        <div
+          className="card-container"
+        >
+          <ul
+            className="card-ul"
+          >
+            <TaskCardComponent
+              key="task-1"
+              task={
+                Object {
+                  "id": "task-1",
+                }
+              }
+            />
+            <TaskCardComponent
+              key="task-2"
+              task={
+                Object {
+                  "id": "task-2",
+                }
+              }
+            />
+          </ul>
+        </div>
+        <Pagination
+          count={2}
+          page={1}
+          pagesize={2}
+          updatePage={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

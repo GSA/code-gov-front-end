@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - RepoCard render should render correctly 1`] = `
+<div
+  className="card-list-item card focusable"
+>
+  <quality-tag
+    score="repo-score"
+  />
+  <h3
+    className="card-title"
+  >
+    <Connect(CustomLinkComponent)
+      to="/projects/repo-id"
+    >
+      repo-name
+    </Connect(CustomLinkComponent)>
+  </h3>
+  <p
+    className="card-description"
+  >
+    repo-desc
+  </p>
+  <dl
+    className="inline-after-600px"
+  >
+    <dt>
+      Agency:
+    </dt>
+    <dd>
+      <Connect(CustomLinkComponent)
+        to="/browse-projects?agencies=repo-agency-acronym"
+      >
+        repo-agency-name
+      </Connect(CustomLinkComponent)>
+    </dd>
+    <CardPart
+      text="12/10/2020"
+      title="Last Updated"
+    />
+  </dl>
+  <hr
+    className="show-w-gt-600"
+  />
+  <div>
+    <dl
+      className="width-three-quarters"
+    >
+      <CardPart
+        text="repo-usage"
+        title="Usage Type"
+      />
+      <CardPart
+        text={
+          Array [
+            <span
+              className="language"
+            >
+              repo-lang-1
+            </span>,
+            <span
+              className="language"
+            >
+              repo-lang-2
+            </span>,
+          ]
+        }
+        title="Languages"
+      />
+      <CardPart
+        text="repo-license"
+        title="License"
+      />
+    </dl>
+    <div
+      className="repo-button width-quarter"
+    >
+      <a
+        href="https://github.com/repo-url"
+        target="_blank"
+      >
+        <button>
+          Go to Repo
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;

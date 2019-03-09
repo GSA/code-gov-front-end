@@ -64,9 +64,7 @@ describe('other util', () => {
     });
 
     it('should catch errors while adjusting the asset path', () => {
-      // is the try / catch even needed? This doesnt seem like it will
-      // ever fail... If it is needed it should be around every call
-      // of adjustAssetPath?
+      // is the try / catch even needed?
     });
 
     it('should return the adjusted path of config values that are array`s of objects', () => {

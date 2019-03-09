@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { testRenderText, testRenderList, testRenderEmpty } from 'testUtils/render';
 import { refreshView, scrollToTopOfResults } from 'utils/other';
 import RepoCard from 'components/repo-card';
 import BrowseProjects from 'components/browse-projects/browse-projects.component';
@@ -15,7 +16,7 @@ const props = {
   onSortChange: jest.fn(),
   filterTags: [ 'filter-1', 'filter-2' ],
   onFilterTagClick: jest.fn(),
-  filterData: false, // not passed in container??
+  filterData: false,
   selectedPage: 1,
   selectedPageSize: 2,
   saveFilterData: jest.fn(),
@@ -59,57 +60,59 @@ describe('components - BrowseProjects', () => {
       'should render text that matches $match when the total is $total',
       ({ total, match }) => {
         wrapper.setProps({ total });
-        const repoCount = shallow(instance.repoCounter);
-        expect(repoCount.text()).toMatch(match);
+        testRenderText(instance.repoCounter, match);
       }
     );
   });
 
   describe('reposContainer', () => {
     it('should render a list of all repos in `RepoCard`s', () => {
-      const reposContainer = shallow(instance.reposContainer);
-      expect(reposContainer.find(RepoCard).length).toBe(props.repos.length);
+      testRenderList(instance.reposContainer, RepoCard, props.repos.length);
     });
 
     it('should throw on errors', () => {
       let error;
       try {
         wrapper.setProps({ repos: [undefined] }); // expects array of objects, will throw
-        shallow(instance.reposContainer);
+        shallow(<div>{instance.reposContainer}</div>);
       } catch (err) {
         error = err;
       } finally {
-        expect(console.error).toBeCalled();
         expect(error).toBeDefined();
+        expect(console.error).toBeCalled();
       }
     });
 
     it('should render nothing if no repos', () => {
       wrapper.setProps({ repos: [] });
-      expect(instance.reposContainer).toBeUndefined();
-    })
+      testRenderEmpty(instance.reposContainer);
+    });
   });
 
   describe('onFilterBoxChange', () => {
-    it('should scroll to the top of the results', () => {
+    beforeEach(() => {
       instance.onFilterBoxChange('category', 'values');
+    });
+
+    it('should scroll to the top of the results', () => {
       expect(scrollToTopOfResults).toBeCalled();
     });
 
     it('should change the filter box value', () => {
-      instance.onFilterBoxChange('category', 'values');
       expect(props.onFilterBoxChange).toBeCalledWith('category', 'values');
     });
   });
 
   describe('updatePage', () => {
-    it('should scroll to the top of the results', () => {
+    beforeEach(() => {
       instance.updatePage('page');
+    });
+
+    it('should scroll to the top of the results', () => {
       expect(scrollToTopOfResults).toBeCalled();
     });
 
     it('should udpate the page value', () => {
-      instance.updatePage('page');
       expect(props.updatePage).toBeCalledWith('page');
     });
   });

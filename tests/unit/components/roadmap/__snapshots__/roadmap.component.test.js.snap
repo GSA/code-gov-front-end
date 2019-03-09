@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - Roadmap - Column should render correctly 1`] = `
+<div
+  className="width-third"
+>
+  <table>
+    <thead>
+      <tr>
+        <th
+          colSpan="2"
+        >
+          test-phase
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      style={
+        Object {
+          "background": "white",
+        }
+      }
+    >
+      <Row
+        key="todo-1"
+        todo={
+          Object {
+            "name": "todo-1",
+            "status": "In Progress",
+          }
+        }
+      />
+      <Row
+        key="todo-2"
+        todo={
+          Object {
+            "name": "todo-2",
+            "status": "Released",
+          }
+        }
+      />
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`components - Roadmap - Row should render correctly 1`] = `
+<tr>
+  <td
+    className="graphic-cell"
+  >
+    <i
+      aria-hidden="true"
+      className="icon icon-ok"
+    />
+  </td>
+  <td
+    className="widerow text-cell"
+  >
+    todo-name
+  </td>
+</tr>
+`;
+
+exports[`components - Roadmap render should render correctly 1`] = `
+<div
+  className="roadmap-general"
+>
+  <Connect(SiteBanner)
+    title="Roadmap"
+  />
+  <Breadcrumbs
+    crumbs={
+      Array [
+        Object {
+          "text": "Home",
+          "to": "/",
+        },
+        Object {
+          "text": "Roadmap",
+        },
+      ]
+    }
+  />
+  <div
+    className="indented roadmap-overview"
+  >
+    <h3>
+      Overview
+    </h3>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "overview-1",
+        }
+      }
+      key="overview-1"
+    />
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "overview-2",
+        }
+      }
+      key="overview-2"
+    />
+  </div>
+  <div
+    className="indented roadmap-table-title"
+  >
+    <h3>
+      Roadmap
+    </h3>
+  </div>
+  <div
+    className="indented roadmap-table"
+  >
+    <Column
+      phase="Near-term"
+      todos={
+        Array [
+          Object {
+            "name": "near-1",
+            "status": "In Progress",
+          },
+          Object {
+            "name": "near-1",
+            "status": "Released",
+          },
+        ]
+      }
+    />
+    <Column
+      phase="Mid-term"
+      todos={
+        Array [
+          Object {
+            "name": "mid-1",
+            "status": "Released",
+          },
+          Object {
+            "name": "mid-1",
+            "status": "Released",
+          },
+        ]
+      }
+    />
+    <Column
+      phase="Long-term"
+      todos={
+        Array [
+          Object {
+            "name": "long-1",
+            "status": null,
+          },
+          Object {
+            "name": "long-1",
+            "status": "In Progress",
+          },
+        ]
+      }
+    />
+  </div>
+  <div
+    className="indented roadmap-legend"
+  >
+    <div
+      className="width-third"
+    >
+      <table>
+        <thead />
+        <tbody>
+          <tr>
+            <td
+              className="pull-down"
+            >
+              <i
+                aria-hidden="true"
+                className="icon icon-ok"
+              />
+            </td>
+            <td
+              className="widerow pull-down"
+            >
+              Released
+            </td>
+          </tr>
+          <tr>
+            <td
+              className="push-up"
+            >
+              <i
+                aria-hidden="true"
+                className="icon icon-circle"
+              />
+            </td>
+            <td
+              className="widerow push-up"
+            >
+              In Progress
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    className="indented roadmap-disclaimer"
+  >
+    <h3>
+      Disclaimer
+    </h3>
+    <p>
+      test-disclaimer
+    </p>
+  </div>
+</div>
+`;

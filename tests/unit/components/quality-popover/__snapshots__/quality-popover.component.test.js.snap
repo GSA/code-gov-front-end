@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - QualityPopover render should render correctly 1`] = `
+<div
+  style={
+    Object {
+      "position": "absolute",
+      "right": "0",
+      "top": "-25px",
+    }
+  }
+>
+  <span
+    className="data-quality-title"
+  >
+    Data Quality Score
+  </span>
+  <div
+    className="icon icon-help-circled popper"
+    onClick={[Function]}
+  >
+    <div
+      className="popover desktop left"
+    >
+      The Data Quality Score is determined by using the information provided by Agencies in their 
+      <Connect(CustomLinkComponent)
+        to="/about/compliance/inventory-code"
+      >
+        code.json
+      </Connect(CustomLinkComponent)>
+       and by factors such as completeness and adherence to the 
+      <Connect(CustomLinkComponent)
+        to="/about/compliance/inventory-code"
+      >
+        metadata schema
+      </Connect(CustomLinkComponent)>
+      .
+    </div>
+    <div
+      className="popover mobile left"
+    >
+      <div
+        className="popover-title"
+      >
+        Data Quality Score
+      </div>
+      The Data Quality Score is determined by using the information provided by Agencies in their 
+      <Connect(CustomLinkComponent)
+        to="/about/compliance/inventory-code"
+      >
+        code.json
+      </Connect(CustomLinkComponent)>
+       and by factors such as completeness and adherence to the 
+      <Connect(CustomLinkComponent)
+        to="/about/compliance/inventory-code"
+      >
+        metadata schema
+      </Connect(CustomLinkComponent)>
+      .
+    </div>
+  </div>
+</div>
+`;

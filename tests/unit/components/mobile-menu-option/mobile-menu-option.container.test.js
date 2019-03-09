@@ -22,16 +22,11 @@ describe('containers - MobileMenuOption', () => {
 
   describe('mapDispatchToProps', () => {
     describe('hideMobileMenu', () => {
-      it('should dispatch the `hideMobileMenu` action', () => {
+      it('should dispatch the correct actions', () => {
         mapDispatchToProps(dispatch).hideMobileMenu();
-        expect(dispatch).toBeCalled();
-        expect(hideMobileMenu).toBeCalled();
-      });
-
-      it('should disaptch the `collapseAllMobileMenuOptions` action', () => {
-        mapDispatchToProps(dispatch).hideMobileMenu();
-        expect(dispatch).toBeCalled();
+        expect(dispatch).toBeCalledTimes(2);
         expect(collapseAllMobileMenuOptions).toBeCalled();
+        expect(hideMobileMenu).toBeCalled();
       });
     });
 

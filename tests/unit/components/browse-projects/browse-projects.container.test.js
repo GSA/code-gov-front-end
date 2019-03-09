@@ -2,39 +2,38 @@ import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
 import * as otherUtils from 'utils/other';
-import { mapStateToProps, mapDispatchToProps } from 'components/browse-projects/browse-projects.container.js';
+import { mapStateToProps, mapDispatchToProps } from 'components/browse-projects/browse-projects.container';
 
 jest.mock('actions/save-filter-options');
 jest.mock('actions/update-browse-filters');
 jest.mock('actions/update-browse-params');
-otherUtils.now = () => 123; // mock date to be consistent
 
-const browseParams = {
-  page: 'test-page',
-  sort: 'test-sort',
-  size: 'test-size',
-  filters: [
-    { category: 'agencies', value: 'v0', modified: otherUtils.now() },
-    { category: 'agencies', value: 'v2', modified: otherUtils.now() },
-    { category: 'languages', value: 'v3', modified: otherUtils.now() },
-  ],
-};
-
-const browseResults = {
-  total: 2,
-  repos: [{ repoId: 'repo-1' }, { repoId: 'repo-2' }],
-};
-
-const filters = {
-  agencies: [
-    { name: 'a1', value: 'v1' },
-    { name: 'a2', value: 'v2' },
-  ],
-  languages: [
-    { name: 'l1', value: 'v3' },
-  ],
-  licenses: [],
-  usageTypes: [],
+const props = {
+  browseParams: {
+    page: 'test-page',
+    sort: 'test-sort',
+    size: 'test-size',
+    filters: [
+      { category: 'agencies', value: 'v0', modified: otherUtils.now() },
+      { category: 'agencies', value: 'v2', modified: otherUtils.now() },
+      { category: 'languages', value: 'v3', modified: otherUtils.now() },
+    ],
+  },
+  browseResults: {
+    total: 2,
+    repos: [{ repoId: 'repo-1' }, { repoId: 'repo-2' }],
+  },
+  filters: {
+    agencies: [
+      { name: 'a1', value: 'v1' },
+      { name: 'a2', value: 'v2' },
+    ],
+    languages: [
+      { name: 'l1', value: 'v3' },
+    ],
+    licenses: [],
+    usageTypes: [],
+  }
 };
 
 const dispatch = jest.fn();
@@ -42,7 +41,7 @@ const dispatch = jest.fn();
 describe('containers - BrowseProjects', () => {
   describe('mapStateToProps', () => {
     it('should map `boxes` based off `filters`, checked if a matching browseParam filter value', () => {
-      const actual = mapStateToProps({ browseParams, browseResults, filters }).boxes;
+      const actual = mapStateToProps(props).boxes;
       const expected = {
         agencies: [
           { name: 'a1', value: 'v1', checked: false }, // no matching browseParams value fpor 'v1'
@@ -58,13 +57,13 @@ describe('containers - BrowseProjects', () => {
     });
 
     it('should map no `boxes` if no filters provided', () => {
-      expect(mapStateToProps({ browseParams, browseResults }).boxes).toEqual({});
+      expect(mapStateToProps({ ...props, filters: undefined }).boxes).toEqual({});
     });
 
     it('should map `filterTags` based off `browseParams` and `filters`', () => {
       jest.spyOn(otherUtils, 'getFilterTags');
-      mapStateToProps({ browseParams, browseResults, filters });
-      expect(otherUtils.getFilterTags).toBeCalledWith(browseParams, filters);
+      mapStateToProps(props);
+      expect(otherUtils.getFilterTags).toBeCalledWith(props.browseParams, props.filters);
     });
 
     it.each`
@@ -74,20 +73,19 @@ describe('containers - BrowseProjects', () => {
       ${'last_updated'}
     `('should set the `sortOptions` value as $selected when selected', ({ selected }) => {
       const { sortOptions } = mapStateToProps({
-        browseParams: { ...browseParams, sort: selected },
-        browseResults,
-        filters,
+        ...props,
+        browseParams: { ...props.browseParams, sort: selected },
       });
       expect(sortOptions.find(x => x.selected).value).toBe(selected);
     });
 
     it('should return the correct properties', () => {
-      expect(mapStateToProps({ browseParams, browseResults, filters })).toMatchSnapshot();
+      expect(mapStateToProps(props)).toMatchSnapshot();
     });
 
     it('should default to 0 `total` if none provided in `browseResults`', () => {
-      const newBrowseResults = { ...browseResults, total: undefined };
-      expect(mapStateToProps({ browseParams, browseResults: newBrowseResults }).total).toBe(0);
+      const newBrowseResults = { ...props.browseResults, total: undefined };
+      expect(mapStateToProps({ ...props, browseResults: newBrowseResults }).total).toBe(0);
     });
   });
 
