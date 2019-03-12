@@ -35,4 +35,4 @@ exports[`components - Autocomplete should render correctly 1`] = `
     </Connect(CustomLinkComponent)>
   </li>
 </ul>
-`;
+`

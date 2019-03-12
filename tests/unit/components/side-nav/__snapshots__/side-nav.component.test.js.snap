@@ -39,7 +39,7 @@ exports[`components - SideNav SideNavPart should render correctly 1`] = `
     </NavLink>
   </li>
 </ul>
-`;
+`
 
 exports[`components - SideNav should render correctly 1`] = `
 <nav
@@ -68,4 +68,4 @@ exports[`components - SideNav should render correctly 1`] = `
     onLinkClick={[MockFunction]}
   />
 </nav>
-`;
+`

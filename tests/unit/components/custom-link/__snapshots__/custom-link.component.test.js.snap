@@ -7,4 +7,4 @@ exports[`components - CustomLink should render correctly 1`] = `
   replace={false}
   to="/test-to"
 />
-`;
+`

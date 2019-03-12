@@ -47,4 +47,4 @@ exports[`components - MobileMenu render should render correctly 1`] = `
     className="mobile-menu-underlay "
   />
 </Fragment>
-`;
+`

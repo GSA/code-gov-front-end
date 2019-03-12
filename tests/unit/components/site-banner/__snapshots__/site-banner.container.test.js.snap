@@ -4,4 +4,4 @@ exports[`containers - MobileMenuOption mapStateToProps should return the correct
 Object {
   "backgroundImage": "/assets/img/american_flag_1920x1280_gradient.jpg",
 }
-`;
+`

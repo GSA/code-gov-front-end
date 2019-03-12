@@ -1,5 +1,5 @@
-export const eventMap = {};
+export const eventMap = {}
 
 document.addEventListener = (event, callback) => {
-    eventMap[event] = callback;
-};
+    eventMap[event] = callback
+}

@@ -5,4 +5,4 @@ exports[`components - SiteBanner should render correctly 1`] = `
   image="test-bg-img"
   title="test-title"
 />
-`;
+`

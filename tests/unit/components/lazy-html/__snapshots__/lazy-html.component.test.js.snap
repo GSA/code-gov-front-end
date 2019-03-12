@@ -8,7 +8,7 @@ exports[`components - LazyHTML render should render a loading indicator before h
     }
   }
 />
-`;
+`
 
 exports[`components - LazyHTML render should render correctly 1`] = `
 <div
@@ -18,4 +18,4 @@ exports[`components - LazyHTML render should render correctly 1`] = `
     }
   }
 />
-`;
+`

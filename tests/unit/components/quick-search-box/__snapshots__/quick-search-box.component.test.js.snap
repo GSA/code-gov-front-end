@@ -11,4 +11,4 @@ exports[`components - QuickSearchBox render should render correctly 1`] = `
     value="test-value"
   />
 </Fragment>
-`;
+`

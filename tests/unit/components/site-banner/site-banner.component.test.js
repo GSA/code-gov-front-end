@@ -1,20 +1,20 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import SiteBanner from 'components/site-banner/site-banner.component';
+import SiteBanner from 'components/site-banner/site-banner.component'
 
 const props = {
   backgroundImage: 'test-bg-img',
   title: 'test-title',
-};
+}
 
-let wrapper;
+let wrapper
 describe('components - SiteBanner', () => {
   beforeEach(() => {
-    wrapper = shallow(<SiteBanner {...props} />);
-  });
+    wrapper = shallow(<SiteBanner {...props} />)
+  })
 
   it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-});
+    expect(wrapper).toMatchSnapshot()
+  })
+})

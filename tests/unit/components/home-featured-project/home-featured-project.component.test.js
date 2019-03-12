@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import HomeFeaturedProject from 'components/home-featured-project/home-featured-project.component';
+import HomeFeaturedProject from 'components/home-featured-project/home-featured-project.component'
 
 const props = {
   index: 1,
@@ -18,24 +18,24 @@ const props = {
       { name: 'http-2', url: 'https://test-url-2' },
     ],
   },
-};
+}
 
-let wrapper;
+let wrapper
 describe('components - HomeFeaturedProject', () => {
   beforeEach(() => {
-    wrapper = shallow(<HomeFeaturedProject {...props} />);
-  });
+    wrapper = shallow(<HomeFeaturedProject {...props} />)
+  })
 
   it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('should place the image after the content if the `index` is `odd`', () => {
-    expect(wrapper.find('.width-half').at(1).find('img').length).toBe(1);
-  });
+    expect(wrapper.find('.width-half').at(1).find('img').length).toBe(1)
+  })
 
   it('should place the image before the content if the `index` is `even`', () => {
-    wrapper.setProps({ index: 4 });
-    expect(wrapper.find('.width-half').at(0).find('img').length).toBe(1);
-  });
-});
+    wrapper.setProps({ index: 4 })
+    expect(wrapper.find('.width-half').at(0).find('img').length).toBe(1)
+  })
+})

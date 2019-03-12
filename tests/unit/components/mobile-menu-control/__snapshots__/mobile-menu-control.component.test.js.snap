@@ -11,4 +11,4 @@ exports[`components - MobileMenuControl should render correctly 1`] = `
     open={false}
   />
 </Fragment>
-`;
+`

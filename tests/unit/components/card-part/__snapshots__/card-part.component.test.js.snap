@@ -9,4 +9,4 @@ exports[`components - CardPart should render correctly 1`] = `
     test-text
   </dd>
 </Fragment>
-`;
+`

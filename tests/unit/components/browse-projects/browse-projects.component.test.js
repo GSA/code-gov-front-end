@@ -1,12 +1,12 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import { testRenderText, testRenderList, testRenderEmpty } from 'testUtils/render';
-import { refreshView, scrollToTopOfResults } from 'utils/other';
-import RepoCard from 'components/repo-card';
-import BrowseProjects from 'components/browse-projects/browse-projects.component';
+import { testRenderText, testRenderList, testRenderEmpty } from 'testUtils/render'
+import { refreshView, scrollToTopOfResults } from 'utils/other'
+import RepoCard from 'components/repo-card'
+import BrowseProjects from 'components/browse-projects/browse-projects.component'
 
-jest.mock('utils/other');
+jest.mock('utils/other')
 
 const props = {
   total: 2,
@@ -22,32 +22,32 @@ const props = {
   saveFilterData: jest.fn(),
   onFilterBoxChange: jest.fn(),
   updatePage: jest.fn(),
-};
+}
 
-let wrapper;
-let instance;
+let wrapper
+let instance
 describe('components - BrowseProjects', () => {
   beforeEach(() => {
-    wrapper = shallow(<BrowseProjects {...props} />);
-    instance = wrapper.instance();
-  });
+    wrapper = shallow(<BrowseProjects {...props} />)
+    instance = wrapper.instance()
+  })
 
   describe('componentDidMount', () => {
     it('should refresh the view', () => {
-      expect(refreshView).toBeCalled();
-    });
+      expect(refreshView).toBeCalled()
+    })
 
     it('should save the filter data', () => {
-      expect(props.saveFilterData).toBeCalled();
-    });
+      expect(props.saveFilterData).toBeCalled()
+    })
 
     it('should not save filter data if it already exists', () => {
-      jest.resetAllMocks();
-      wrapper.setProps({ filterData: true });
-      instance.componentDidMount();
-      expect(props.saveFilterData).not.toBeCalled();
-    });
-  });
+      jest.resetAllMocks()
+      wrapper.setProps({ filterData: true })
+      instance.componentDidMount()
+      expect(props.saveFilterData).not.toBeCalled()
+    })
+  })
 
   describe('repoCounter', () => {
     it.each`
@@ -59,67 +59,67 @@ describe('components - BrowseProjects', () => {
     `(
       'should render text that matches $match when the total is $total',
       ({ total, match }) => {
-        wrapper.setProps({ total });
-        testRenderText(instance.repoCounter, match);
+        wrapper.setProps({ total })
+        testRenderText(instance.repoCounter, match)
       }
-    );
-  });
+    )
+  })
 
   describe('reposContainer', () => {
     it('should render a list of all repos in `RepoCard`s', () => {
-      testRenderList(instance.reposContainer, RepoCard, props.repos.length);
-    });
+      testRenderList(instance.reposContainer, RepoCard, props.repos.length)
+    })
 
     it('should throw on errors', () => {
-      let error;
+      let error
       try {
-        wrapper.setProps({ repos: [undefined] }); // expects array of objects, will throw
-        shallow(<div>{instance.reposContainer}</div>);
+        wrapper.setProps({ repos: [undefined] }) // expects array of objects, will throw
+        shallow(<div>{instance.reposContainer}</div>)
       } catch (err) {
-        error = err;
+        error = err
       } finally {
-        expect(error).toBeDefined();
-        expect(console.error).toBeCalled();
+        expect(error).toBeDefined()
+        expect(console.error).toBeCalled()
       }
-    });
+    })
 
     it('should render nothing if no repos', () => {
-      wrapper.setProps({ repos: [] });
-      testRenderEmpty(instance.reposContainer);
-    });
-  });
+      wrapper.setProps({ repos: [] })
+      testRenderEmpty(instance.reposContainer)
+    })
+  })
 
   describe('onFilterBoxChange', () => {
     beforeEach(() => {
-      instance.onFilterBoxChange('category', 'values');
-    });
+      instance.onFilterBoxChange('category', 'values')
+    })
 
     it('should scroll to the top of the results', () => {
-      expect(scrollToTopOfResults).toBeCalled();
-    });
+      expect(scrollToTopOfResults).toBeCalled()
+    })
 
     it('should change the filter box value', () => {
-      expect(props.onFilterBoxChange).toBeCalledWith('category', 'values');
-    });
-  });
+      expect(props.onFilterBoxChange).toBeCalledWith('category', 'values')
+    })
+  })
 
   describe('updatePage', () => {
     beforeEach(() => {
-      instance.updatePage('page');
-    });
+      instance.updatePage('page')
+    })
 
     it('should scroll to the top of the results', () => {
-      expect(scrollToTopOfResults).toBeCalled();
-    });
+      expect(scrollToTopOfResults).toBeCalled()
+    })
 
     it('should udpate the page value', () => {
-      expect(props.updatePage).toBeCalledWith('page');
-    });
-  });
+      expect(props.updatePage).toBeCalledWith('page')
+    })
+  })
 
   describe('render', () => {
     it('should render correctly', () => {
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
-});
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+})

@@ -19,4 +19,4 @@ exports[`components - FilterTags should render correctly 1`] = `
     value="v2"
   />
 </div>
-`;
+`

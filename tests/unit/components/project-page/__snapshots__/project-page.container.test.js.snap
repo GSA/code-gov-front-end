@@ -4,4 +4,4 @@ exports[`containers - ProjectPage mapStateToProps should return the correct prop
 Object {
   "repo": "test-project",
 }
-`;
+`

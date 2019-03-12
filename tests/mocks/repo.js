@@ -26,11 +26,11 @@ const repo = {
     url: 'http://www.repo-meta-url.com',
     string: 'repo-meta-string',
   },
-};
+}
 
 export const getRepo = (overrides) => ({
   ...repo,
   ...overrides,
-});
+})
 
-export default repo;
+export default repo

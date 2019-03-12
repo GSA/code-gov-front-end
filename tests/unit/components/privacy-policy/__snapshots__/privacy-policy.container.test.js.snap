@@ -4,4 +4,4 @@ exports[`containers - PrivacyPolicy mapStateToProps should return the correct pr
 Object {
   "privacyPolicy": "MOCK_ASSET",
 }
-`;
+`

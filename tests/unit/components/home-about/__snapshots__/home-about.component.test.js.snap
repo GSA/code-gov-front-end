@@ -60,4 +60,4 @@ exports[`components - HomeAbout should render correctly 1`] = `
     </li>
   </ul>
 </section>
-`;
+`

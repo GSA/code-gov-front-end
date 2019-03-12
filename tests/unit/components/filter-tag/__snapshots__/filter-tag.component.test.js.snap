@@ -11,4 +11,4 @@ exports[`components - FilterTag should render correctly 1`] = `
     test-title
   </div>
 </div>
-`;
+`

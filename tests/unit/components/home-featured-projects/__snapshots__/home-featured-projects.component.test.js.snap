@@ -36,4 +36,4 @@ exports[`components - HomeFeaturedProjects should render correctly 1`] = `
     />
   </div>
 </section>
-`;
+`

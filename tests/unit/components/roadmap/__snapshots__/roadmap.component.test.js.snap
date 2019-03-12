@@ -42,7 +42,7 @@ exports[`components - Roadmap - Column should render correctly 1`] = `
     </tbody>
   </table>
 </div>
-`;
+`
 
 exports[`components - Roadmap - Row should render correctly 1`] = `
 <tr>
@@ -60,7 +60,7 @@ exports[`components - Roadmap - Row should render correctly 1`] = `
     todo-name
   </td>
 </tr>
-`;
+`
 
 exports[`components - Roadmap render should render correctly 1`] = `
 <div
@@ -215,4 +215,4 @@ exports[`components - Roadmap render should render correctly 1`] = `
     </p>
   </div>
 </div>
-`;
+`

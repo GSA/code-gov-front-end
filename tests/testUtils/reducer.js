@@ -1,24 +1,17 @@
-export const isFunction = (reducer, params) => {
-  it('should return a function', () => {
-    expect(typeof reducer(params)).toBe('function');
-  });
-};
-
-export const hasDefaultState = (reducer, params) => {
+export const hasDefaultState = (reducer) => {
   it('should provide a default state value', () => {
-    expect(reducer(params)(undefined, { type: '' })).not.toBeUndefined();
-  });
-};
+    expect(reducer(undefined, { type: '' })).not.toBeUndefined()
+  })
+}
 
-export const hasDefaultCase = (reducer, params) => {
+export const hasDefaultCase = (reducer) => {
   it('should return state as is by default', () => {
-    expect(reducer(params)({ a: { b: 'c' } }, { type: 'unknown-type' })).toEqual({ a: { b: 'c' } });
-  });
-};
+    expect(reducer({ a: { b: 'c' } }, { type: 'unknown-type' })).toEqual({ a: { b: 'c' } })
+  })
+}
 
 // tests common reducer functionality
-export const testReducerCommon = (reducer, params) => {
-  isFunction(reducer, params);
-  hasDefaultState(reducer, params);
-  hasDefaultCase(reducer, params);
-};
+export const testReducerCommon = (reducer) => {
+  hasDefaultState(reducer)
+  hasDefaultCase(reducer)
+}

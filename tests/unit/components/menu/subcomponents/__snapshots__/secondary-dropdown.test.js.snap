@@ -32,4 +32,4 @@ exports[`components - Menu - SecondaryDropdown should render correctly 1`] = `
     />
   </li>
 </ul>
-`;
+`

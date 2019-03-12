@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import SecondaryDropdown from 'components/menu/subcomponents/secondary-dropdown';
+import SecondaryDropdown from 'components/menu/subcomponents/secondary-dropdown'
 
 const props = {
   menuOption: {
@@ -13,20 +13,20 @@ const props = {
     ],
   },
   onClick: jest.fn(),
-};
+}
 
-let wrapper;
+let wrapper
 describe('components - Menu - SecondaryDropdown', () => {
   beforeEach(() => {
-    wrapper = shallow(<SecondaryDropdown {...props} />);
-  });
+    wrapper = shallow(<SecondaryDropdown {...props} />)
+  })
 
   it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('should render nothing if no menu option links', () => {
-    wrapper.setProps({ menuOption: { ...props.menuOption, links: undefined } });
-    expect(wrapper.html()).toBeFalsy();
-  });
-});
+    wrapper.setProps({ menuOption: { ...props.menuOption, links: undefined } })
+    expect(wrapper.html()).toBeFalsy()
+  })
+})

@@ -4,4 +4,4 @@ exports[`containers - QuickSearchBox mapStateToProps should return the correct p
 Object {
   "query": "test-search-query",
 }
-`;
+`

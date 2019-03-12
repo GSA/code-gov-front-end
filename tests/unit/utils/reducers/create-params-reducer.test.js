@@ -1,10 +1,10 @@
-import cloneDeep from 'lodash.clonedeep';
+import cloneDeep from 'lodash.clonedeep'
 
-import { now } from 'utils/other';
-import { testReducerCommon } from 'testUtils/reducer';
-import createParamsReducer from 'utils/reducers/create-params-reducer';
+import { now } from 'utils/other'
+import { testReducerCommon } from 'testUtils/reducer'
+import createParamsReducer from 'utils/reducers/create-params-reducer'
 
-const PAGE = 'TEST-PAGE';
+const PAGE = 'TEST-PAGE'
 const initialState = {
   other: 'stuff',
   page: 2,
@@ -17,22 +17,24 @@ const initialState = {
   nested: {
     value: '123',
   },
-};
+}
 
-let state;
+const reducer = createParamsReducer(PAGE)
+
+let state
 describe('utils - create-params-reducer', () => {
   beforeEach(() => {
-    state = cloneDeep(initialState);
-  });
+    state = cloneDeep(initialState)
+  })
 
-  testReducerCommon(createParamsReducer, PAGE);
+  testReducerCommon(reducer)
 
   describe('`UPDATE_${PAGE}_FILTERS` case', () => {
     it('should reset the `page` to 1', () => {
-      const action = { type: `UPDATE_${PAGE}_FILTERS`, category: '', value: '', intent: '' };
-      const expected = { ...initialState, page: 1 };
-      expect(createParamsReducer(PAGE)(state, action)).toEqual(expected);
-    });
+      const action = { type: `UPDATE_${PAGE}_FILTERS`, category: '', value: '', intent: '' }
+      const expected = { ...initialState, page: 1 }
+      expect(reducer(state, action)).toEqual(expected)
+    })
 
     it('should remove the filter if the `intent` is `remove`', () => {
       const action = {
@@ -40,7 +42,7 @@ describe('utils - create-params-reducer', () => {
         category: 'CA-1',
         value: 'VA-2',
         intent: 'remove',
-      };
+      }
       const expected = {
         ...initialState,
         filters: [
@@ -48,11 +50,11 @@ describe('utils - create-params-reducer', () => {
           { category: 'ca-2', value: 'va-1', modified: now() },
         ],
         page: 1,
-      };
+      }
 
-      const newState = createParamsReducer(PAGE)(state, action);
-      expect(newState).toEqual(expected);
-    });
+      const newState = reducer(state, action)
+      expect(newState).toEqual(expected)
+    })
 
     it('should add the filter if the `intent` is `add`', () => {
       const action = {
@@ -60,7 +62,7 @@ describe('utils - create-params-reducer', () => {
         category: 'ca-1',
         value: 'va-3',
         intent: 'add',
-      };
+      }
       const expected = {
         ...initialState,
         filters: [
@@ -68,12 +70,12 @@ describe('utils - create-params-reducer', () => {
           { category: 'ca-1', value: 'va-3', modified: now() },
         ],
         page: 1,
-      };
+      }
 
-      const newState = createParamsReducer(PAGE)(state, action);
-      expect(newState).toEqual(expected);
-    });
-  });
+      const newState = reducer(state, action)
+      expect(newState).toEqual(expected)
+    })
+  })
 
   describe('`UPDATE_${PAGE}_PARAMS` case', () => {
     it('should merge the `data` into state', () => {
@@ -85,7 +87,7 @@ describe('utils - create-params-reducer', () => {
             value: 'new-nested-value',
           },
         }
-      };
+      }
       const expected = {
         ...initialState,
         query: 'new-query',
@@ -94,13 +96,13 @@ describe('utils - create-params-reducer', () => {
         },
       }
 
-      const newState = createParamsReducer(PAGE)(state, action);
-      expect(newState).toEqual(expected);
-    });
+      const newState = reducer(state, action)
+      expect(newState).toEqual(expected)
+    })
 
     it('should fall back to an empty object if `state` not defined', () => {
-      const action = { type: `UPDATE_${PAGE}_PARAMS`, data: { test: 'value' } };
-      expect(createParamsReducer(PAGE)(undefined, action)).toEqual({ test: 'value' });
-    });
-  });
-});
+      const action = { type: `UPDATE_${PAGE}_PARAMS`, data: { test: 'value' } }
+      expect(reducer(undefined, action)).toEqual({ test: 'value' })
+    })
+  })
+})

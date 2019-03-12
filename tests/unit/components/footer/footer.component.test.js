@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import Footer from 'components/footer/footer.component';
+import Footer from 'components/footer/footer.component'
 
 const props = {
   color: 'black',
@@ -15,23 +15,23 @@ const props = {
     { name: 'logo-1', url: '/logo-1.png', image: 'logo-src-1' },
     { name: 'logo-2', url: '/logo-2.png', image: 'logo-src-2' },
   ],
-};
+}
 
-let wrapper;
+let wrapper
 describe('components - Footer', () => {
   beforeEach(() => {
-    wrapper = shallow(<Footer {...props} />);
-  });
+    wrapper = shallow(<Footer {...props} />)
+  })
 
   it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('should map all the links out', () => {
-    expect(wrapper.find('[data-test="links"] li').length).toBe(props.links.length);
-  });
+    expect(wrapper.find('[data-test="links"] li').length).toBe(props.links.length)
+  })
 
   it('should map all the logos out', () => {
-    expect(wrapper.find('[data-test="logos"] li').length).toBe(props.logos.length);
-  });
-});
+    expect(wrapper.find('[data-test="logos"] li').length).toBe(props.logos.length)
+  })
+})

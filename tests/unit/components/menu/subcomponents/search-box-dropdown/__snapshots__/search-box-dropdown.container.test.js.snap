@@ -4,4 +4,4 @@ exports[`containers - Menu - SearchBoxDropdown mapStateToProps should return the
 Object {
   "searchDropdown": "test-search-dropdown",
 }
-`;
+`

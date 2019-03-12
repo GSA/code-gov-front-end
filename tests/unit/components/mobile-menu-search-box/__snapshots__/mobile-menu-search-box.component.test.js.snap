@@ -17,4 +17,4 @@ exports[`components - MobileMenuSearchBox render should render correctly 1`] = `
     Go
   </button>
 </form>
-`;
+`

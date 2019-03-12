@@ -33,4 +33,4 @@ exports[`components - FilterBoxes render should render correctly 1`] = `
     title="c2"
   />
 </Fragment>
-`;
+`

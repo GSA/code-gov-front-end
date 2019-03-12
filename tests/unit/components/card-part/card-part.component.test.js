@@ -1,25 +1,25 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import CardPart from 'components/card-part/card-part.component';
+import CardPart from 'components/card-part/card-part.component'
 
 const props = {
   title: 'test-title',
   text: 'test-text',
-};
+}
 
-let wrapper;
+let wrapper
 describe('components - CardPart', () => {
   beforeEach(() => {
-    wrapper = shallow(<CardPart {...props} />);
-  });
+    wrapper = shallow(<CardPart {...props} />)
+  })
 
   it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('should render default text if none provided', () => {
-    wrapper.setProps({ text: undefined });
-    expect(wrapper.find('dd').text()).toMatch(/\w+/);
-  });
-});
+    wrapper.setProps({ text: undefined })
+    expect(wrapper.find('dd').text()).toMatch(/\w+/)
+  })
+})

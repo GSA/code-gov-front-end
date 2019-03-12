@@ -32,4 +32,4 @@ exports[`components - Breadcrumbs should render correctly 1`] = `
     </li>
   </ul>
 </div>
-`;
+`

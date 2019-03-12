@@ -1,12 +1,12 @@
-import saveFilterOptions from 'actions/save-filter-options';
-import updateSearchFilters from 'actions/update-search-filters';
-import updateSearchParams from 'actions/update-search-params';
-import * as otherUtils from 'utils/other';
-import { mapStateToProps, mapDispatchToProps } from 'components/search-page/search-page.container';
+import saveFilterOptions from 'actions/save-filter-options'
+import updateSearchFilters from 'actions/update-search-filters'
+import updateSearchParams from 'actions/update-search-params'
+import * as otherUtils from 'utils/other'
+import { mapStateToProps, mapDispatchToProps } from 'components/search-page/search-page.container'
 
-jest.mock('actions/save-filter-options');
-jest.mock('actions/update-search-filters');
-jest.mock('actions/update-search-params');
+jest.mock('actions/save-filter-options')
+jest.mock('actions/update-search-filters')
+jest.mock('actions/update-search-params')
 
 const props = {
   searchParams: {
@@ -53,14 +53,14 @@ const props = {
     licenses: [],
     usageTypes: [],
   }
-};
+}
 
-const dispatch = jest.fn();
+const dispatch = jest.fn()
 
 describe('containers - SearchPage', () => {
   describe('mapStateToProps', () => {
     it('should map `boxes` based off `filters`, checked if a matching browseParam filter value', () => {
-      const actual = mapStateToProps(props).boxes;
+      const actual = mapStateToProps(props).boxes
       const expected = {
         agencies: [
           { name: 'ag-1-name', value: 'ag-1-value', checked: false }, // no matching searchParams.filters value for 'ag-1-value'
@@ -71,13 +71,13 @@ describe('containers - SearchPage', () => {
         ],
         licenses: [],
         usageTypes: [],
-      };
-      expect(actual).toEqual(expected);
-    });
+      }
+      expect(actual).toEqual(expected)
+    })
 
     it('should map no `boxes` if no filters provided', () => {
-      expect(mapStateToProps({ ...props, filters: undefined }).boxes).toEqual({});
-    });
+      expect(mapStateToProps({ ...props, filters: undefined }).boxes).toEqual({})
+    })
 
     it.each`
       selected
@@ -89,62 +89,55 @@ describe('containers - SearchPage', () => {
       const { sortOptions } = mapStateToProps({
         ...props,
         searchParams: { ...props.searchParams, sort: selected },
-      });
-      expect(sortOptions.find(x => x.selected).value).toBe(selected);
-    });
-
-    // it('should return sorted, filtered search results', () => {
-    //   const actual = mapStateToProps(props).filteredResults;
-    //   const expected = {
-
-    //   };
-    // });
+      })
+      expect(sortOptions.find(x => x.selected).value).toBe(selected)
+    })
 
     it('should return the correct properties', () => {
-      expect(mapStateToProps(props)).toMatchSnapshot();
-    });
-  });
+      expect(mapStateToProps(props)).toMatchSnapshot()
+    })
+  })
 
   describe('mapDispatchToProps', () => {
     describe('onFilterBoxChange', () => {
       it('should dispatch the `updateSearchFilters` action with the correct params', () => {
-        const change = { value: 123, type: 'test-type' };
-        mapDispatchToProps(dispatch).onFilterBoxChange('category', change);
-        expect(dispatch).toBeCalled();
-        expect(updateSearchFilters).toBeCalledWith('category', change.value, change.type);
-      });
-    });
+        const change = { value: 123, type: 'test-type' }
+        mapDispatchToProps(dispatch).onFilterBoxChange('category', change)
+        expect(dispatch).toBeCalled()
+        expect(updateSearchFilters).toBeCalledWith('category', change.value, change.type)
+      })
+    })
 
     describe('onFilterTagClick', () => {
       it('should dispatch the `updateSearchFilters` action with the correct params', () => {
-        mapDispatchToProps(dispatch).onFilterTagClick('category', 'value');
-        expect(dispatch).toBeCalled();
-        expect(updateSearchFilters).toBeCalledWith('category', 'value', 'removed');
-      });
-    });
+        mapDispatchToProps(dispatch).onFilterTagClick('category', 'value')
+        expect(dispatch).toBeCalled()
+        expect(updateSearchFilters).toBeCalledWith('category', 'value', 'removed')
+      })
+    })
 
     describe('onSortChange', () => {
       it('should dispatch the `updateSearchParams` action with the correct params', () => {
-        mapDispatchToProps(dispatch).onSortChange('value');
-        expect(dispatch).toBeCalled();
-        expect(updateSearchParams).toBeCalledWith({ page: 1, sort: 'value' });
-      });
-    });
+        mapDispatchToProps(dispatch).onSortChange('value')
+        expect(dispatch).toBeCalled()
+        expect(updateSearchParams).toBeCalledWith({ page: 1, sort: 'value' })
+      })
+    })
 
     describe('saveFilterData', () => {
       it('should dispatch the `saveFilterOptions` action', () => {
-        mapDispatchToProps(dispatch).saveFilterData();
-        expect(dispatch).toBeCalled();
-        expect(saveFilterOptions).toBeCalled();
-      });
-    });
+        mapDispatchToProps(dispatch).saveFilterData()
+        expect(dispatch).toBeCalled()
+        expect(saveFilterOptions).toBeCalled()
+      })
+    })
 
     describe('updatePage', () => {
       it('should dispatch the `updateSearchParams` action', () => {
-        mapDispatchToProps(dispatch).updatePage(123);
-        expect(dispatch).toBeCalled();
-        expect(updateSearchParams).toBeCalledWith({ page: 123 });
-      });
-    });
-  });
-});
+        mapDispatchToProps(dispatch).updatePage(123)
+        expect(dispatch).toBeCalled()
+        expect(updateSearchParams).toBeCalledWith({ page: 123 })
+      })
+    })
+  })
+})

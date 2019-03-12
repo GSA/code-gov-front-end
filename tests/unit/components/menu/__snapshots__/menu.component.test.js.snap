@@ -114,4 +114,4 @@ exports[`components - Menu render should render correctly 1`] = `
   </nav>
   <Connect(Menu) />
 </header>
-`;
+`

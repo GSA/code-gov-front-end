@@ -1,11 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import { testRenderText } from 'testUtils/render';
-import { scrollToTopOfResults } from 'utils/other';
-import OpenTasks from 'components/open-tasks/open-tasks.component';
+import { testRenderText } from 'testUtils/render'
+import { scrollToTopOfResults } from 'utils/other'
+import OpenTasks from 'components/open-tasks/open-tasks.component'
 
-jest.mock('utils/other');
+jest.mock('utils/other')
 
 const props = {
   total: 2,
@@ -18,38 +18,38 @@ const props = {
   saveFilterData: jest.fn(),
   onFilterBoxChange: jest.fn(),
   updatePage: jest.fn(),
-};
+}
 
-let wrapper;
-let instance;
+let wrapper
+let instance
 describe('components - OpenTasks', () => {
   beforeEach(() => {
-    wrapper = shallow(<OpenTasks {...props} />);
-    instance = wrapper.instance();
-  });
+    wrapper = shallow(<OpenTasks {...props} />)
+    instance = wrapper.instance()
+  })
 
   describe('shouldComponentUpdate', () => {
     it('should update on changes', () => {
-      const nextProps = { ...props, selectedPage: 2 };
-      expect(instance.shouldComponentUpdate(nextProps)).toBeTruthy();
-    });
+      const nextProps = { ...props, selectedPage: 2 }
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTruthy()
+    })
 
     it('should not update when no changes', () => {
-      expect(instance.shouldComponentUpdate(props)).toBeFalsy();
-    });
-  });
+      expect(instance.shouldComponentUpdate(props)).toBeFalsy()
+    })
+  })
 
   describe('componentDidMount', () => {
     it('should save the filter data if no boxes', () => {
-      wrapper.setProps({ boxes: undefined });
-      instance.componentDidMount();
-      expect(props.saveFilterData).toBeCalled();
-    });
+      wrapper.setProps({ boxes: undefined })
+      instance.componentDidMount()
+      expect(props.saveFilterData).toBeCalled()
+    })
 
     it('should not save filter data boxes exist', () => {
-      expect(props.saveFilterData).not.toBeCalled();
-    });
-  });
+      expect(props.saveFilterData).not.toBeCalled()
+    })
+  })
 
   xdescribe('counter', () => {
     // BUG: never gets to total === 0, as evaluates as false (see browse-projects.repoCounter for how should be)
@@ -62,43 +62,43 @@ describe('components - OpenTasks', () => {
     `(
       'should render text that matches $match when the total is $total',
       ({ total, match }) => {
-        wrapper.setProps({ total });
-        testRenderText(instance.counter, match);
+        wrapper.setProps({ total })
+        testRenderText(instance.counter, match)
       }
-    );
-  });
+    )
+  })
 
   describe('onFilterBoxChange', () => {
     beforeEach(() => {
-      instance.onFilterBoxChange('category', 'values');
-    });
+      instance.onFilterBoxChange('category', 'values')
+    })
 
     it('should scroll to the top of the results', () => {
-      expect(scrollToTopOfResults).toBeCalled();
-    });
+      expect(scrollToTopOfResults).toBeCalled()
+    })
 
     it('should change the filter box value', () => {
-      expect(props.onFilterBoxChange).toBeCalledWith('category', 'values');
-    });
-  });
+      expect(props.onFilterBoxChange).toBeCalledWith('category', 'values')
+    })
+  })
 
   describe('updatePage', () => {
     beforeEach(() => {
-      instance.updatePage('page');
-    });
+      instance.updatePage('page')
+    })
 
     it('should scroll to the top of the results', () => {
-      expect(scrollToTopOfResults).toBeCalled();
-    });
+      expect(scrollToTopOfResults).toBeCalled()
+    })
 
     it('should udpate the page value', () => {
-      expect(props.updatePage).toBeCalledWith('page');
-    });
-  });
+      expect(props.updatePage).toBeCalledWith('page')
+    })
+  })
 
   describe('render', () => {
     it('should render correctly', () => {
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
-});
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+})
