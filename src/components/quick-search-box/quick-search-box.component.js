@@ -54,7 +54,6 @@ export default class QuickSearchBoxComponent extends React.Component {
         }
       })
       if (this.mounted) {
-        console.log('changing to showAutocomplete')
         this.setState({
           showAutocomplete: true,
           suggestions
