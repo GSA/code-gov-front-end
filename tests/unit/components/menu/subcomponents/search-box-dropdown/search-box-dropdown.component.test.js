@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-// import 'mocks/api-client'
 import client from 'api-client'
 import Autocomplete from 'components/autocomplete'
 import SearchBoxDropdown from 'components/menu/subcomponents/search-box-dropdown/search-box-dropdown.component'

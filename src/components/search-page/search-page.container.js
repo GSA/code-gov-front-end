@@ -48,10 +48,7 @@ export const mapStateToProps = ({ filters, searchParams, searchResults, selected
       boxes = categories.reduce((accumulator, key) => {
         accumulator[key] = filters[key]
         .filter(({name, value}) => {
-          // console.info('value" ', value)
-          // console.info('optionsinResults" ', optionsinResults)
           if (optionsinResults && optionsinResults[key]) {
-            // console.info('optionsinResults[key]" ', optionsinResults[key])
             return optionsinResults[key].has(normalize(value))
           } else {
             return false
