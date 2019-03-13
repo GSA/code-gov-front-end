@@ -3599,13 +3599,6 @@ h3 {
   width: 100%;
 }
 
-#issue-link {
-  color: #43ddd7;
-}
-#issue-link:hover {
-  text-decoration: none;
-}
-
 #about {
   background: white;
   padding-bottom: 2rem;
@@ -3792,6 +3785,12 @@ section#banner-home .banner-content .search-description-wrapper > div {
 section#banner-home img.chat {
   height: 30px;
   vertical-align: middle;
+}
+section#banner-home .home-link {
+  color: #43ddd7;
+}
+section#banner-home .home-link:hover {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 600px) {
