@@ -86,7 +86,8 @@ export default class HomeBanner extends React.Component {
           <div className="banner-subsection">
             <div className="banner-subsection-subtitle" id="issue-banner-subsection-subtitle">
               <img className="chat" src={PUBLIC_PATH + 'assets/img/icons/chat_bubble.png'}/>
-              <span>Have questions or feedback? Open an issue on our <a className="link" href={this.props.issueUrl} id="issue-link" target="_blank">open source repository</a>.</span>
+              <span>Have questions or feedback? Open an issue on our <a className="home-link link" href={this.props.issueUrl} target="_blank">open source repository</a>.</span>
+              <div>Want to receive our monthly newsletter? <a className="home-link link" href={this.props.newsletterUrl} target="_blank">Sign up here</a>.</div>
             </div>
           </div>
         </div>
