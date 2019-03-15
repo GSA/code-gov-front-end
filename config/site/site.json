@@ -123,7 +123,8 @@
         "search_description_text_mobile": "Search projects",
         "search_placeholder_text": "e.g. JavaScript, NASA, web standards",
         "browse_by_text": "Browse by Agency",
-        "issue_url": "https://github.com/GSA/code-gov-front-end/issues"
+        "issue_url": "https://github.com/GSA/code-gov-front-end/issues",
+        "newsletter_url": "https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?topic_id=USGSATTS_5"
       },
       "mission": "Code.gov leverages the power of code sharing and collaboration to help the US Government cut down on duplicative software development and save millions of taxpayer dollars for the American people.",
       "about": [{
