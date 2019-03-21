@@ -15,6 +15,7 @@ export const mapStateToProps = ({ agencies }) => {
     helpWantedDescription: getConfigValue('content.home.banner.help_wanted.description'),
     helpWantedButton: getConfigValue('content.home.banner.help_wanted.button'),
     issueUrl: getConfigValue('content.home.banner.issue_url'),
+    newsletterUrl: getConfigValue('content.home.banner.newsletter_url'),
     browseByText: getConfigValue('content.home.banner.browse_by_text')
   }
 }
