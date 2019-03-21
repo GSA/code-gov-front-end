@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - SortSection render should render correctly 1`] = `
+<div
+  className="sort-section"
+>
+  <h2>
+    <span>
+      Sort by
+    </span>
+    <select
+      onChange={[Function]}
+      value="opt-2"
+    >
+      <option
+        key="opt-1"
+        value="opt-1"
+      >
+        label-1
+      </option>
+      <option
+        key="opt-2"
+        value="opt-2"
+      >
+        label-2
+      </option>
+    </select>
+  </h2>
+</div>
+`

@@ -46,7 +46,14 @@ You can then run the server using `npm run start`.
 By default, the development server will listen on <http://localhost:8080/>. You can change the default port by setting the `PORT` environment variable before starting the server (for example, `PORT=3000 npm start`).
 
 ## Testing
-Development of tests is in progress
+
+Unit testing is done using the [jest](https://github.com/facebook/jest) framework with [enzyme](https://github.com/airbnb/enzyme). 
+
+Use `npm run test` to run unit tests a single time. This will generate a code coverage report.
+
+Use `npm run test-watch` to run unit tests continuously, re-running each time a file is saved. By default only files changed since the last commit will be ran, follow the command line prompt for customizing how tests are ran. Snapshot tests can be updated while running this command, by pressing `u` to updated them.
+
+Note: console.log/warn/error are mocked in unit tests and will not print anything to avoid cluttering the command line. Use a different logging, such as console.info for debugging while running tests
 
 ## Deployment
 Read about how to publish to Github pages, Federalist and elsewhere [here](DEPLOYMENT.md)

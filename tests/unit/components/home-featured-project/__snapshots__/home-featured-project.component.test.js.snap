@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomeFeaturedProject should render correctly 1`] = `
+<div
+  className="block featured-project"
+>
+  <div
+    className="indented"
+  >
+    <div
+      className="width-half"
+    >
+      <div
+        className="featured-project-info"
+      >
+        <div
+          className="fp-short-name"
+        >
+          short-name
+        </div>
+        <div
+          className="fp-verbose-name"
+        >
+          verbose-name
+        </div>
+        <div
+          className="fp-developed-by"
+        >
+          developed by 
+          test-auth
+        </div>
+        <p
+          className="fp-description"
+        >
+          test-desc
+        </p>
+        <div
+          className="buttons"
+        >
+          <span
+            key="http://test-url"
+          >
+            <a
+              href="http://test-url"
+            >
+              <button
+                className="alt"
+              >
+                http-1
+              </button>
+            </a>
+          </span>
+          <span
+            key="/other-url"
+          >
+            <Connect(CustomLinkComponent)
+              to="/other-url"
+            >
+              <button
+                className="alt"
+              >
+                other-1
+              </button>
+            </Connect(CustomLinkComponent)>
+          </span>
+          <span
+            key="https://test-url-2"
+          >
+            <a
+              href="https://test-url-2"
+            >
+              <button
+                className="alt"
+              >
+                http-2
+              </button>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="width-half"
+    >
+      <img
+        alt="test-alt"
+        src="test-image"
+      />
+    </div>
+  </div>
+</div>
+`;

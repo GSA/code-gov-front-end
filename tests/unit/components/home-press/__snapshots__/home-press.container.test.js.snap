@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - HomePress mapStateToProps should return the correct properties 1`] = `
+Object {
+  "attributionImage": "/assets/img/logos/press/wired.svg",
+  "attributionUrl": "https://www.wired.com/2016/08/open-source-won-now/",
+  "backgroundImage": "/assets/img/american_flag_1920x1280_gradient.jpg",
+  "links": Array [
+    Object {
+      "alt": "techcrunch",
+      "image": "/assets/img/logos/press/techcrunch.jpg",
+      "url": "https://techcrunch.com/2016/08/08/the-white-house-just-released-the-federal-source-code-policy-to-help-government-agencies-go-open-source/",
+    },
+    Object {
+      "alt": "pc magazine",
+      "image": "/assets/img/logos/press/pcmag.png",
+      "url": "http://www.pcmag.com/news/346860/white-house-releases-open-source-software-policy",
+    },
+    Object {
+      "alt": "federal computer week",
+      "image": "/assets/img/logos/press/fcw.png",
+      "url": "https://fcw.com/articles/2016/08/08/open-source-rockwell.aspx",
+    },
+  ],
+  "quote": "It’s the latest in a long line of high-profile victories for the open source movement.",
+}
+`

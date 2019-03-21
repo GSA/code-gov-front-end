@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - Roadmap mapStateToProps should return the correct properties 1`] = `
+Object {
+  "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov, the General Services Agency, the Office of Management and Budget, and the United States Federal Government.",
+  "long": Array [
+    Object {
+      "name": "Phase 2 SEO improvements",
+      "status": null,
+    },
+    Object {
+      "name": "User profiles",
+      "status": null,
+    },
+    Object {
+      "name": "Gamification/badges",
+      "status": null,
+    },
+    Object {
+      "name": "Chatbot",
+      "status": null,
+    },
+    Object {
+      "name": "Code.json creator tool",
+      "status": null,
+    },
+    Object {
+      "name": "Search scoring phase 2",
+      "status": null,
+    },
+  ],
+  "mid": Array [
+    Object {
+      "name": "Update open tasks phase 1",
+      "status": "Released",
+    },
+    Object {
+      "name": "Update UI for search results",
+      "status": "Released",
+    },
+    Object {
+      "name": "Usability sessions, round 2",
+      "status": "Released",
+    },
+  ],
+  "near": Array [
+    Object {
+      "name": "Code.gov configurability with Angular",
+      "status": "Released",
+    },
+    Object {
+      "name": "Update Navigation and Homepage content",
+      "status": "Released",
+    },
+    Object {
+      "name": "Usability sessions, round 1",
+      "status": "Released",
+    },
+    Object {
+      "name": "Phase 1 SEO improvements",
+      "status": "Released",
+    },
+    Object {
+      "name": "Licenses documentation",
+      "status": "In Progress",
+    },
+    Object {
+      "name": "Search scoring phase 1",
+      "status": "Released",
+    },
+    Object {
+      "name": "Update search filters",
+      "status": "Released",
+    },
+  ],
+  "overview": Array [
+    "At Code.gov, we know it’s important to keep an open dialogue with our users. That’s why we’re sharing our plans for the future through this Development Roadmap. Hopefully, it will help you better understand our priorities for the platform.",
+    "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap. If you want to join the Code.gov user testing group, please email us at <a href='mailto:code@gsa.gov'>Code@gsa.gov</a>.",
+  ],
+}
+`

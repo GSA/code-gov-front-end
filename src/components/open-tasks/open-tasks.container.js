@@ -11,7 +11,7 @@ import saveTaskFilterOptions from 'actions/save-task-filter-options'
 import get from 'lodash.get'
 import { includes } from '@code.gov/cautious'
 
-const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
+export const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
 
  try {
 
@@ -56,7 +56,7 @@ const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) => {
  }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onFilterBoxChange: (category, change) => {
       dispatch(updateTaskFilters(category, change.value, change.type))

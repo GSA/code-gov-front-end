@@ -4,13 +4,13 @@ import updateSearchParams from 'actions/update-search-params'
 import QuickSearchBoxComponent from './quick-search-box.component'
 import { getSection } from 'utils/url-parsing'
 
-const mapStateToProps = ({ searchParams }) => {
+export const mapStateToProps = ({ searchParams }) => {
   return {
     query: searchParams ? searchParams.query : undefined
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     onSubmit: query => {
       dispatch(updateSearchParams({
