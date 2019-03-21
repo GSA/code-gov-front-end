@@ -13,7 +13,7 @@ import AboutPage, {
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
 
-// herlper for testing the component does not make changes if it is `loading`
+// helper for testing the component does not make changes if it is `loading`
 const testLoading = (component) => {
   jest.spyOn(component, 'setState')
   component.loading = true
