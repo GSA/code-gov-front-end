@@ -125,6 +125,11 @@ exports[`components - HomeBanner render should render correctly 1`] = `
           className="banner-subsection-subtitle"
           id="issue-banner-subsection-subtitle"
         >
+          <h2
+            className="banner-subsection-title"
+          >
+            Connect with Us
+          </h2>
           <img
             className="chat"
             src="/assets/img/icons/chat_bubble.png"
@@ -132,15 +137,25 @@ exports[`components - HomeBanner render should render correctly 1`] = `
           <span>
             Have questions or feedback? Open an issue on our 
             <a
-              className="link"
+              className="home-link link"
               href="/test-issue-url"
-              id="issue-link"
               target="_blank"
             >
               open source repository
             </a>
             .
           </span>
+          <div>
+            Want to receive our monthly newsletter? 
+            <a
+              className="home-link link"
+              href="/news-letter-url"
+              target="_blank"
+            >
+              Sign up here
+            </a>
+            .
+          </div>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ Object {
   "helpWantedTitle": "Ready. Set. Code!",
   "issueUrl": "https://github.com/GSA/code-gov-front-end/issues",
   "motto": "Sharing America's Code",
+  "newsletterUrl": "https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?topic_id=USGSATTS_5",
   "subtitle": "Unlock the tremendous potential of the Federal Government’s software.",
 }
-`
+`;

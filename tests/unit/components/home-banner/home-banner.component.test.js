@@ -19,6 +19,7 @@ const props = {
   helpWantedDescription: 'help-wanted-desc',
   helpWantedButton: 'help-wanted-button',
   issueUrl: '/test-issue-url',
+  newsletterUrl: '/news-letter-url',
 }
 
 let wrapper
@@ -121,9 +122,10 @@ describe('components - HomeBanner', () => {
   })
 
   describe('issueSection', () => {
-    it('should render the issue section', () => {
+    it('should render the issue section with issue and news letter links', () => {
       const section = shallow(instance.issueSection)
       expect(section.find({ href: props.issueUrl }).length).toBe(1)
+      expect(section.find({ href: props.newsletterUrl }).length).toBe(1)
     })
 
     it('should render nothing if the `issueUrl` is not provided', () => {

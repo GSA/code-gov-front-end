@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import 'mocks/window'
 import 'mocks/date'
 import 'mocks/console'
-import siteConfig from 'mocks/site.json'
+import siteConfig from '../config/site/site.json'
 
 jest.mock('api-client')
 
