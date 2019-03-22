@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - CardPart should render correctly 1`] = `
+<Fragment>
+  <dt>
+    test-title:
+  </dt>
+  <dd>
+    test-text
+  </dd>
+</Fragment>
+`

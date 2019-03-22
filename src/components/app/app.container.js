@@ -12,13 +12,13 @@ import {
 import { getConfigValue, now } from 'utils/other'
 import defaultState from 'constants/default-redux-store-state'
 
-const mapStateToProps = () => {
+export const mapStateToProps = () => {
   return {
     plugins: getConfigValue('plugins'),
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     rehydrate: () => {
       const section = getSection()

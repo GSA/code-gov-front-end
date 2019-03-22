@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { len, map } from '@code.gov/cautious'
 
-const SideNavPart = ({baseurl, links, onLinkClick}) => {
+export const SideNavPart = ({baseurl, links, onLinkClick}) => {
   if (len(links) > 0) {
     return (
       <ul>

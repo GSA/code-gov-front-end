@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - App mapStateToProps should return the correct properties 1`] = `
+Object {
+  "plugins": Array [
+    Object {
+      "component": "@code.gov/fscp-react-component",
+      "filename": "policy-guide.js",
+      "route": "/policy-guide",
+    },
+    Object {
+      "component": "@code.gov/about-page",
+      "filename": "about-page.js",
+      "route": "/about",
+    },
+  ],
+}
+`

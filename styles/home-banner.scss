@@ -95,4 +95,11 @@ section#banner-home {
     height: 30px;
     vertical-align: middle;
   }
+
+  .home-link {
+    color: $brand-teal;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

@@ -12,12 +12,10 @@
 
         // newPathName is usually something like '/open-tasks'
         const newPathName = (window.location.pathname + window.location.search.match(pattern)[0].substring(3)).replace('//','/')
-        console.log("newPathName:", newPathName)
-
+ 
         // newUrl is usually something like .../federalist-stag/open-tasks?agencies=...
         const newUrl = newPathName + newSearch
-        console.log("newUrl:", newUrl)
-
+       
         /* global history */
         history.replaceState({}, 'title', newUrl);
       }

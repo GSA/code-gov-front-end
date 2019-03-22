@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - TaskCard render should render correctly 1`] = `
+<div
+  className="card-list-item card focusable"
+>
+  <h3
+    className="card-title"
+  >
+    <a
+      href="/task-issue-url"
+      target="_blank"
+    >
+      task-title
+    </a>
+  </h3>
+  <p
+    className="card-description"
+  >
+    task-desc
+  </p>
+  <dl
+    className="inline-after-600px show-w-gt-900"
+  >
+    <dt>
+      Agency:
+    </dt>
+    <dd>
+      <Connect(CustomLinkComponent)
+        to="/browse-projects?agencies=task-agency-acronym"
+      >
+        task-agency-name
+      </Connect(CustomLinkComponent)>
+    </dd>
+    <CardPart
+      text="12/10/2020"
+      title="Last Updated"
+    />
+    <hr />
+    <CardPart
+      title="Languages"
+    />
+    <CardPart
+      title="Type"
+    />
+    <CardPart
+      title="Skill Level"
+    />
+    <CardPart
+      title="Effort"
+    />
+  </dl>
+</div>
+`

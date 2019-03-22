@@ -50,7 +50,7 @@ export default class SearchBox extends Component {
           <div className="search-input-and-button-wrapper">
             <input
               onChange={::this.handleChange}
-              placeholder={this.props.placeholder}
+              placeholder={this.props.placeholder || 'Search Projects...'}
               ref={this.textInput}
               type={this.props.inputType || 'search'}
               value={this.state.value}

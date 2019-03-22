@@ -8,7 +8,7 @@ export default class Footer extends Component {
     return (
       <footer className={this.props.color} role="contentinfo">
         <div className="footer-content">
-          <div className="footer-part links">
+          <div className="footer-part links" data-test="links">
             <ul>
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
@@ -30,7 +30,7 @@ export default class Footer extends Component {
               })}
             </ul>
           </div>
-          <div className="footer-part logos">
+          <div className="footer-part logos" data-test="logos">
             <ul>
               {map(this.props.logos, logo => {
                 return (

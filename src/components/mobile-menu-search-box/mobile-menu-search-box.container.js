@@ -6,7 +6,7 @@ import collapseAllMobileMenuOptions from 'actions/collapse-all-mobile-menu-optio
 import updateSearchParams from 'actions/update-search-params'
 import { getSection } from 'utils/url-parsing'
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     onSubmit: query => {
       dispatch(updateSearchParams({

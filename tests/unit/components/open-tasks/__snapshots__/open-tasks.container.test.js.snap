@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - MobileMenuOption mapStateToProps should return the correct properties 1`] = `
+Object {
+  "boxes": Object {
+    "agencies": Array [
+      Object {
+        "checked": false,
+        "name": "a1",
+        "value": "v1",
+      },
+      Object {
+        "checked": true,
+        "name": "a2",
+        "value": "v2",
+      },
+    ],
+    "categories": Array [],
+    "languages": Array [
+      Object {
+        "checked": true,
+        "name": "l1",
+        "value": "v3",
+      },
+    ],
+    "skillLevels": Array [],
+    "timeRequired": Array [],
+  },
+  "filterTags": Array [
+    Object {
+      "category": "agencies",
+      "modified": 1234567890123,
+      "title": "loading",
+      "value": "v0",
+    },
+    Object {
+      "category": "agencies",
+      "modified": 1234567890123,
+      "title": "a2",
+      "value": "v2",
+    },
+    Object {
+      "category": "languages",
+      "modified": 1234567890123,
+      "title": "l1",
+      "value": "v3",
+    },
+  ],
+  "selectedPage": 2,
+  "selectedPageSize": 3,
+  "selections": Object {
+    "agencies": Array [
+      "v0",
+      "v2",
+    ],
+    "categories": Array [],
+    "languages": Array [
+      "v3",
+    ],
+    "skillLevels": Array [],
+    "timeRequired": Array [],
+  },
+  "tasks": Array [
+    Object {
+      "id": "task-1",
+    },
+    Object {
+      "id": "task-2",
+    },
+  ],
+  "total": 2,
+}
+`
