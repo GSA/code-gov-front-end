@@ -6,7 +6,7 @@ import { getConfigValue } from 'utils/other'
 import { getSection } from 'utils/url-parsing'
 
 
-const mapStateToProps = ({ query }) => {
+export const mapStateToProps = ({ query }) => {
   return {
     placeholder: getConfigValue('content.home.banner.search_placeholder_text'),
     searchDescriptionText: getConfigValue('content.home.banner.search_description_text'),
@@ -15,7 +15,7 @@ const mapStateToProps = ({ query }) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     onSubmit: (query) => {
       console.log("home-banner-search-box.container starting onSubmit with query:", query)

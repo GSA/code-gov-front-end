@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomePress should render correctly 1`] = `
+<section
+  className="press"
+  id="press-section"
+>
+  <div
+    className="banner medium"
+    id="press-banner"
+    style={
+      Object {
+        "backgroundImage": "url('test-bg-img')",
+      }
+    }
+  >
+    <div
+      className="banner-content"
+    >
+      <div
+        className="indented"
+      >
+        <div
+          className="banner-title"
+        >
+          Press
+        </div>
+        <div
+          className="press-container"
+        >
+          <div
+            className="quote light"
+          >
+            <blockquote>
+              test-quote
+            </blockquote>
+            <div
+              className="attribution"
+            >
+              <a
+                href="/test-attribution-url"
+              >
+                <img
+                  alt="Wired"
+                  className="press-logo"
+                  src="test-attribution-img"
+                />
+              </a>
+            </div>
+          </div>
+          <div>
+            <hr />
+            <ul
+              className="press-links"
+            >
+              <li
+                key="link-alt-1"
+              >
+                <a
+                  href="/link-url-1"
+                >
+                  <img
+                    alt="link-alt-1"
+                    className="press-logo"
+                    src="link-image-1"
+                  />
+                </a>
+              </li>
+              <li
+                key="link-alt-2"
+              >
+                <a
+                  href="/link-url-2"
+                >
+                  <img
+                    alt="link-alt-2"
+                    className="press-logo"
+                    src="link-image-2"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`

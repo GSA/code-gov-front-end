@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - Breadcrumbs should render correctly 1`] = `
+<div
+  className="indented"
+>
+  <ul
+    className="breadcrumbs"
+  >
+    <li
+      key="text-1"
+    >
+      <Connect(CustomLinkComponent)
+        to="/to-1"
+      >
+        text-1
+      </Connect(CustomLinkComponent)>
+    </li>
+    <li
+      key="text-2"
+    >
+      <Connect(CustomLinkComponent)
+        to="/to-2"
+      >
+        text-2
+      </Connect(CustomLinkComponent)>
+    </li>
+    <li
+      key="text-3"
+    >
+      text-3
+    </li>
+  </ul>
+</div>
+`

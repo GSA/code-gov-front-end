@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - FilterTags should render correctly 1`] = `
+<div
+  className="filter-tags"
+>
+  <FilterTag
+    category="c1"
+    key="c1:v1"
+    onClick={[MockFunction]}
+    title="t1"
+    value="v1"
+  />
+  <FilterTag
+    category="c2"
+    key="c2:v2"
+    onClick={[MockFunction]}
+    title="t2"
+    value="v2"
+  />
+</div>
+`

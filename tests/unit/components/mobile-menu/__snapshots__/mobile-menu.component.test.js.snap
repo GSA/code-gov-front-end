@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - MobileMenu render should render correctly 1`] = `
+<Fragment>
+  <div
+    className="mobile-menu "
+  >
+    <ul>
+      <li
+        className="search"
+      >
+        <Connect(MobileMenuSearchBoxComponent) />
+      </li>
+      <Connect(MobileMenuOption)
+        key="menu-opt-1"
+        menuOption={
+          Object {
+            "expanded": false,
+            "links": Array [
+              Object {
+                "id": "menu-link-1",
+              },
+            ],
+            "name": "menu-opt-1",
+          }
+        }
+        onSelect={[MockFunction]}
+      />
+      <Connect(MobileMenuOption)
+        key="menu-opt-2"
+        menuOption={
+          Object {
+            "expanded": true,
+            "links": Array [
+              Object {
+                "id": "menu-link-2",
+              },
+            ],
+            "name": "menu-opt-2",
+          }
+        }
+        onSelect={[MockFunction]}
+      />
+    </ul>
+  </div>
+  <div
+    className="mobile-menu-underlay "
+  />
+</Fragment>
+`

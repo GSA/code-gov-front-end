@@ -7,7 +7,7 @@ import { getConfigValue } from 'utils/other'
 import MenuComponent from './menu.component'
 import toggleSearchDropdown from 'actions/toggle-search-dropdown'
 
-const mapStateToProps = ({ router, searchDropdown }) => {
+export const mapStateToProps = ({ router, searchDropdown }) => {
   const onHomePage = router.location.pathname === PUBLIC_PATH
   return {
     color: onHomePage ? 'dark' : 'white',
@@ -20,7 +20,7 @@ const mapStateToProps = ({ router, searchDropdown }) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     toggleSearchDropdown: () => dispatch(toggleSearchDropdown())
   }

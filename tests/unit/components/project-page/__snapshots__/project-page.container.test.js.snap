@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - ProjectPage mapStateToProps should return the correct properties 1`] = `
+Object {
+  "repo": "test-project",
+}
+`

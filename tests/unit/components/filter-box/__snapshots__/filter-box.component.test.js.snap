@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - FilterBox render should render correctly 1`] = `
+<FilterBox
+  onChange={[MockFunction]}
+  options={
+    Array [
+      Object {
+        "id": 1,
+        "value": "opt-1",
+      },
+      Object {
+        "id": 2,
+        "value": "opt-2",
+      },
+    ]
+  }
+  title="test-title"
+>
+  <filter-box
+    options="[{\\"id\\":1,\\"value\\":\\"opt-1\\"},{\\"id\\":2,\\"value\\":\\"opt-2\\"}]"
+    title="test-title"
+  />
+</FilterBox>
+`

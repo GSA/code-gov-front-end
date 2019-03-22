@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - CustomLink should render correctly 1`] = `
+<Link
+  className="test-class"
+  onClick={[Function]}
+  replace={false}
+  to="/test-to"
+/>
+`
