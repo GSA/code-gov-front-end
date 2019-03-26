@@ -47,7 +47,7 @@ export function parseEmail(repo) {
 }
 
 export function parseRepositoryURL(repo) {
-  let url = get(repo, 'repositoryURL')
+  const url = get(repo, 'repositoryURL')
   if (Boolean(url)) {
 
     if (url.startsWith('git://github.com/')) {
