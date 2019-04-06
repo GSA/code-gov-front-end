@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - BrowseProjects mapStateToProps should return the correct properties 1`] = `
+Object {
+  "boxes": Object {
+    "agencies": Array [
+      Object {
+        "checked": false,
+        "name": "a1",
+        "value": "v1",
+      },
+      Object {
+        "checked": true,
+        "name": "a2",
+        "value": "v2",
+      },
+    ],
+    "languages": Array [
+      Object {
+        "checked": true,
+        "name": "l1",
+        "value": "v3",
+      },
+    ],
+    "licenses": Array [],
+    "usageTypes": Array [],
+  },
+  "browseParams": Object {
+    "filters": Array [
+      Object {
+        "category": "agencies",
+        "modified": 1234567890123,
+        "value": "v0",
+      },
+      Object {
+        "category": "agencies",
+        "modified": 1234567890123,
+        "value": "v2",
+      },
+      Object {
+        "category": "languages",
+        "modified": 1234567890123,
+        "value": "v3",
+      },
+    ],
+    "page": "test-page",
+    "size": "test-size",
+    "sort": "test-sort",
+  },
+  "browseResults": Object {
+    "repos": Array [
+      Object {
+        "repoId": "repo-1",
+      },
+      Object {
+        "repoId": "repo-2",
+      },
+    ],
+    "total": 2,
+  },
+  "filterTags": undefined,
+  "repos": Array [
+    Object {
+      "repoId": "repo-1",
+    },
+    Object {
+      "repoId": "repo-2",
+    },
+  ],
+  "selectedPage": "test-page",
+  "selectedPageSize": "test-size",
+  "selectedSorting": "test-sort",
+  "sortOptions": Array [
+    Object {
+      "label": "Data Quality",
+      "selected": false,
+      "value": "data_quality",
+    },
+    Object {
+      "label": "A-Z",
+      "selected": false,
+      "value": "a-z",
+    },
+    Object {
+      "label": "Last Updated",
+      "selected": false,
+      "value": "last_updated",
+    },
+  ],
+  "total": 2,
+}
+`

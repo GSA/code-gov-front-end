@@ -14,7 +14,7 @@ import get from 'lodash.get'
 import { includes, len, overlaps, some } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 
-const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting }) => {
+export const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting }) => {
 
   try {
 
@@ -171,7 +171,7 @@ const mapStateToProps = ({ filters, searchParams, searchResults, selectedSorting
   }
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     onFilterBoxChange: (category, change) => {
       dispatch(updateSearchFilters(category, change.value, change.type))

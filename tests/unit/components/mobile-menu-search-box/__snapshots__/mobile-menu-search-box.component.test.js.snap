@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - MobileMenuSearchBox render should render correctly 1`] = `
+<form
+  className="search-form"
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Search Projects..."
+    type="search"
+    value=""
+  />
+  <button
+    className="go"
+  >
+    Go
+  </button>
+</form>
+`

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - PrivacyPolicy render should render correctly 1`] = `
+<div
+  style={
+    Object {
+      "background": "white",
+    }
+  }
+>
+  <Connect(SiteBanner)
+    title="Privacy Policy"
+  />
+  <Breadcrumbs
+    crumbs={
+      Array [
+        Object {
+          "text": "Home",
+          "to": "/",
+        },
+        Object {
+          "text": "Privacy Policy",
+        },
+      ]
+    }
+  />
+  <div
+    className="indented markdown privacy-content"
+  >
+    <br />
+    <br />
+    <div
+      className="width-three-quarters"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "test-privacy-policy",
+        }
+      }
+    />
+  </div>
+</div>
+`

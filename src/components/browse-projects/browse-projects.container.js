@@ -11,7 +11,7 @@ import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
 import BrowseProjectsComponent from './browse-projects.component'
 
-const mapStateToProps = ({ browseParams, browseResults, filters }) => {
+export const mapStateToProps = ({ browseParams, browseResults, filters }) => {
 
   const categories = ['agencies', 'languages', 'licenses', 'usageTypes']
 
@@ -75,7 +75,7 @@ const mapStateToProps = ({ browseParams, browseResults, filters }) => {
   return result
 }
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     onFilterBoxChange: (category, change) => {
       dispatch(updateBrowseFilters(category, change.value, change.type))

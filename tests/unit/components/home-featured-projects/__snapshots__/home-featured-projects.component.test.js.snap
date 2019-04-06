@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomeFeaturedProjects should render correctly 1`] = `
+<section
+  className="featured-projects block block--white"
+>
+  <div
+    id="featured-projects-title"
+  >
+    <div
+      className="indented"
+    >
+      <h2>
+        Featured Projects
+      </h2>
+    </div>
+  </div>
+  <div>
+    <HomeFeaturedProject
+      index={0}
+      key="project-1"
+      project={
+        Object {
+          "short_name": "project-1",
+        }
+      }
+    />
+    <HomeFeaturedProject
+      index={1}
+      key="project-2"
+      project={
+        Object {
+          "short_name": "project-2",
+        }
+      }
+    />
+  </div>
+</section>
+`

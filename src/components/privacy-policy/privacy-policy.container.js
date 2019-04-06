@@ -3,7 +3,7 @@ import { getConfigValue } from 'utils/other'
 import PrivacyPolicyComponent from './privacy-policy.component'
 import privacyPolicy from '../../../config/site/docs/privacy-policy.md'
 
-const mapStateToProps = () => {
+export const mapStateToProps = () => {
   return {
     privacyPolicy
   }

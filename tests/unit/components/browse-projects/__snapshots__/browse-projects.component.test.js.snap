@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - BrowseProjects render should render correctly 1`] = `
+<div
+  className="search-results-content"
+>
+  <Connect(SiteBanner)
+    title="Browse Projects"
+  />
+  <Breadcrumbs
+    crumbs={
+      Array [
+        Object {
+          "text": "Home",
+          "to": "/",
+        },
+        Object {
+          "text": "Browse Projects",
+        },
+      ]
+    }
+  />
+  <div
+    className="search-results-header"
+  >
+    <div
+      className="indented"
+    >
+      <div
+        className="width-quarter"
+      >
+        <Connect(QuickSearchBoxComponent) />
+      </div>
+      <h3
+        className="repos-count width-three-quarters"
+      >
+        2 Repositories
+      </h3>
+    </div>
+  </div>
+  <div
+    className="indented"
+  >
+    <div
+      id="filter-boxes-section"
+    >
+      <h2>
+        Filter
+      </h2>
+      <FilterBoxes
+        boxes={
+          Array [
+            "box-1",
+            "box-2",
+          ]
+        }
+        config={
+          Array [
+            Array [
+              "Language",
+              "languages",
+            ],
+            Array [
+              "Federal Agency",
+              "agencies",
+            ],
+            Array [
+              "Licenses",
+              "licenses",
+            ],
+            Array [
+              "Usage Types",
+              "usageTypes",
+            ],
+          ]
+        }
+        onFilterBoxChange={[Function]}
+      />
+    </div>
+    <div
+      id="filter-results-section"
+    >
+      <SortSection
+        onSortChange={[MockFunction]}
+        options={
+          Array [
+            "sort-1",
+            "sort-2",
+          ]
+        }
+      />
+      <_default
+        filters={
+          Array [
+            "filter-1",
+            "filter-2",
+          ]
+        }
+        onClick={[Function]}
+      />
+      <div
+        className="card-list"
+      >
+        <div
+          className="card-container"
+        >
+          <QualityPopover />
+          <ul
+            className="card-ul"
+          >
+            <RepoCardComponent
+              repo={
+                Object {
+                  "repoId": "repo-1",
+                }
+              }
+            />
+            <RepoCardComponent
+              repo={
+                Object {
+                  "repoId": "repo-2",
+                }
+              }
+            />
+          </ul>
+        </div>
+        <Pagination
+          count={2}
+          page={1}
+          pagesize={2}
+          updatePage={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`

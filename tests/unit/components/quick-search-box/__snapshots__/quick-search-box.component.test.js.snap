@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - QuickSearchBox render should render correctly 1`] = `
+<Fragment>
+  <SearchBox
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onSubmit={[MockFunction]}
+    placeholder="test-placeholder"
+    value="test-value"
+  />
+</Fragment>
+`
