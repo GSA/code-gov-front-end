@@ -8,7 +8,7 @@
 </ol>
 <p>Each of these is discussed below.  For the sake of simplicity, this article addresses the retroactive release of code that has already been created. In cases where code development is being conducted in the open, the same principles apply.</p>
 <h3>Securing and Documenting Rights</h3>
-<p>Your agency must ensure it has adequate data rights to the code prior to its publication as open source software.  Advice on how to ensure that adequate rights to release data are secured during procurement can be found on <a href="http://code.gov/">Code.gov</a>.</p>
+<p>Your agency must ensure it has adequate data rights to the code prior to its publication as open source software.  Advice on how to ensure that adequate rights to release data are secured during procurement can be found on <a href="https://code.gov/about/compliance/procurement">Code.gov</a>.</p>
 <h3>Selecting an Open Source License</h3>
 <p>Assuming your agency's rights to a codebase are well understood and documented, the next step in the process is to apply an open source license.</p>
 <p>As outlined in Section 7.5 of the Federal Source Code Policy:</p>
