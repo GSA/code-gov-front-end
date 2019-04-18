@@ -35,9 +35,8 @@ export function parseLanguages(repo) {
   const languages = get(repo, 'languages')
   if (Array.isArray(languages)) {
     return filter(languages, Boolean)
-  } else {
-    return []
   }
+  return []
 }
 
 export function parseEmail(repo) {
@@ -48,19 +47,19 @@ export function parseEmail(repo) {
 }
 
 export function parseRepositoryURL(repo) {
-  let url = get(repo, 'repositoryURL')
+  const url = get(repo, 'repositoryURL')
   if (Boolean(url)) {
 
     if (url.startsWith('git://github.com/')) {
-      url = url.replace('git://github.com/', 'https://github.com/')
+      return url.replace('git://github.com/', 'https://github.com/')
     }
 
     if (url.startsWith('git@github.com:')) {
-      url = url.replace('git@github.com:', 'https://github.com/')
+      return url.replace('git@github.com:', 'https://github.com/')
     }
 
     if (url.startsWith('https://github.com') && url.endsWith('.git')) {
-      url = url.replace('.git', '')
+      return url.replace('.git', '')
     }
 
     return url
