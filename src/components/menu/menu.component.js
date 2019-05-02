@@ -42,10 +42,9 @@ export default class Menu extends Component {
   }
 
   onClickMenuOption(selected, event) {
-
     const menu = this.state.menu.map(menuOption => {
-      if (menuOption !== selected) {
-        menuOption.expanded = false
+      if (menuOption.name == selected.name) {
+        menuOption.expanded = true
       }
       return menuOption
     })
@@ -55,7 +54,6 @@ export default class Menu extends Component {
     const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
 
     const expanded = this.state.menu.some(menuOption => menuOption.expanded)
-
     this.setState({ expanded, menu, height })
   }
 
