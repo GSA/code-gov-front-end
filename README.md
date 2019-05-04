@@ -13,28 +13,17 @@ To learn more about the project, check out this [blog post](https://www.whitehou
 
 Code.gov is an open source project, so we invite your contributions, be it in the form of code, design, or ideas.
 
-## Requirements
-
-The development of code.gov is guided by the requirements set forth in https://sourcecode.cio.gov/.
-
-## Configuration
-For documentation on how to configure code-gov-front-end, go [here](CONFIGURATION.md).
-
 ## Contributing
 
 Here’s how you can help contribute to code.gov:
 
 * Source Code Policy
-  * To provide feedback on the [Federal Source Code Policy](https://sourcecode.cio.gov/), you should follow [this issue tracker](https://github.com/WhiteHouse/source-code-policy/issues)
+  * To provide feedback on the [Federal Source Code Policy](https://sourcecode.cio.gov/), follow [this issue tracker](https://github.com/WhiteHouse/source-code-policy/issues)
 
 * Code.gov
     * To provide feedback on code-gov-front-end, please checkout our [Contributing Guildelines](CONTRIBUTING.md).
     * To contribute to the Code.gov style guide, head over to the [code-gov-style](https://github.com/GSA/code-gov-style) repo.
     * Checkout [code-gov](https://github.com/GSA/code-gov) for a list of additional project repositories. If you aren't sure where your question or idea fits, this is a good place to share it.
-
-## Questions?
-
-If you have questions, please feel free to [send us an email](mailto:code@gsa.gov).
 
 ## Getting Started
 
@@ -45,7 +34,40 @@ You can then run the server using `npm run start`.
 
 By default, the development server will listen on <http://localhost:8080/>. You can change the default port by setting the `PORT` environment variable before starting the server (for example, `PORT=3000 npm start`).
 
-## Testing
+### Specifying an API Key
+The app uses the API key provided in the site.json by default.
+If you want to override that, specify an `CODE_GOV_API_KEY` environmental variable.  Here's an example:
+```
+CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
+```
+
+You can sign up for an API key at [developers.code.gov](https://developers.code.gov/key.html).
+
+### File Structure
+The directories in `src` are organized around the pillars of React, along
+with several additional custom file types. When creating new files, be sure to
+add your file and any necessary templates, styles, and tests to a directory
+dedicated to your new file in the appropriate place.
+
+### Style Guide
+
+The bulk of the CSS for this application is at [Style Guide repository](https://github.com/GSA/code-gov-style) so that we can more easily keep things consistent and deploy changes more quickly.
+
+You'll need to clone/download the [Style Guide repository](https://github.com/GSA/code-gov-style) to get started.
+
+If you need to make CSS changes, make them within this directory and commit them to that repository.
+
+For more instructions on how to make changes, view the readme inside of the [Style Guide repository](https://github.com/GSA/code-gov-style).
+
+### Changes to the Policy Guide
+
+The code for the [Policy Guide](https://code.gov/policy-guide/) section of the site is located in the [code-gov-fscp-react-component](https://github.com/GSA/code-gov-fscp-react-component) repo. Any changes or issues related to the Policy Guide should be made in that repository.
+
+### Changes to the About Page
+
+The code for the [About](https://code.gov/about/overview/introduction) section of the site is located in the [code-gov-about-page](https://github.com/GSA/code-gov-about-page) repo.  Any changes or issues related to the About section should be made in that repository.
+
+### Testing
 
 Unit testing is done using the [jest](https://github.com/facebook/jest) framework with [enzyme](https://github.com/airbnb/enzyme). 
 
@@ -66,33 +88,15 @@ https://federalist-proxy.app.cloud.gov/preview/gsa/code-gov-front-end/federalist
 Coming soon!
 
 
-## Specifying an API Key
-The app uses the API key provided in the site.json by default.
-If you want to override that, specify an `CODE_GOV_API_KEY` environmental variable.  Here's an example:
-```
-CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
-```
-
-
 ## Generating License Data
 To update the `dependency_licenses.json` file, run `npm run licenses`.
 
-## File Structure
-The directories in `src` are organized around the pillars of  React, along
-with several additional custom file types. When creating new files, be sure to
-add your file and any necessary templates, styles, and tests to a directory
-dedicated to your new file in the appropriate place.
+## Configuration
+For documentation on how to configure code-gov-front-end, go [here](CONFIGURATION.md).
 
+## Questions?
 
-## Style Guide
-We've moved the bulk of the CSS for this application into a [Style Guide repository](https://github.com/GSA/code-gov-style) so that we can more easily keep things consistent and deploy changes more quickly.
-
-You'll need to clone/download the [Style Guide repository](https://github.com/GSA/code-gov-style) to get started.
-
-If you need to make CSS changes, make them within this directory and commit them to that repository.
-
-For more instructions on how to make changes, view the readme inside of the [Style Guide repository](https://github.com/GSA/code-gov-style).
-
+If you have questions, please feel free to [send us an email](mailto:code@gsa.gov).
 
 ## License
 
