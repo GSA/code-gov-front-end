@@ -60,7 +60,7 @@
         {
           "name": "SOCIAL",
           "links": [
-            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-front-end" },
+            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov" },
             { "name": "Blog", "url": "https://medium.com/codedotgov" },
             { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
             { "name": "Twitter", "url": "https://twitter.com/codedotgov" },
@@ -101,7 +101,7 @@
         {
           "name": "Social",
           "links": [
-            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov-front-end" },
+            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov" },
             { "name": "Blog", "url": "https://medium.com/codedotgov" },
             { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
             { "name": "Twitter", "url": "https://twitter.com/codedotgov" },

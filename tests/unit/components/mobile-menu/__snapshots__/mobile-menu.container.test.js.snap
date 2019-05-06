@@ -70,7 +70,7 @@ Object {
       "links": Array [
         Object {
           "name": "code.gov Repo",
-          "url": "http://github.com/GSA/code-gov-front-end",
+          "url": "http://github.com/GSA/code-gov",
         },
         Object {
           "name": "Blog",
