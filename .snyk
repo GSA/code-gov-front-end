@@ -6,4 +6,8 @@ ignore:
     - jsoneditor > mobius1-selectr:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-AXIOS-174505:
+    - '@code.gov/site-map-generator > @code.gov/api-client > axios':
+        patched: '2019-05-07T21:58:48.457Z'
