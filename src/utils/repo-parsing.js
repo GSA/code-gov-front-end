@@ -55,7 +55,7 @@ export function parseRepositoryURL(repo) {
     }
 
     if (url.startsWith('git@github.com:')) {
-      return url.replace('git@github.com:', 'https://github.com/')
+      return url.replace('git@github.com:', 'https://github.com/').replace('.git', '')
     }
 
     if (url.startsWith('https://github.com') && url.endsWith('.git')) {
