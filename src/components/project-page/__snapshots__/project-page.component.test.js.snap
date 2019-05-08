@@ -38,7 +38,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           className="updated"
         >
           <div>
-            Last updated on 12/10/2020
+            Last updated on 2020-12-10
           </div>
         </span>
         <Connect(CustomLinkComponent)

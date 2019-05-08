@@ -35,7 +35,7 @@ exports[`components - RepoCard render should render correctly 1`] = `
       </Connect(CustomLinkComponent)>
     </dd>
     <CardPart
-      text="12/10/2020"
+      text="2020-12-10"
       title="Last Updated"
     />
   </dl>
@@ -86,4 +86,4 @@ exports[`components - RepoCard render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
+`;
