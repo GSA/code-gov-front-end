@@ -2,8 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.11.0
+      - image: ubuntu
     steps:
+      - run: apt-get update
+      - run: apt-get install -y build-essential npm nodejs
       - checkout
       - run: npm install
       - run: npm test
