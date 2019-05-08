@@ -76,6 +76,9 @@ export function parseTags(repo) {
   }
 }
 
+export function getDate(item) {
+  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
+}
 
 export function getLastModifiedDateString(repo) {
   try {
@@ -86,8 +89,4 @@ export function getLastModifiedDateString(repo) {
   } catch (error) {
     console.warn(error)
   }
-}
-
-export function getDate(item) {
-  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
 }
