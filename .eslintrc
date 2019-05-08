@@ -8,6 +8,9 @@
     "document": true,
     "window": true
   },
+  "env": {
+    "jest": true
+  },
   "parser": "babel-eslint",
   "plugins": [
     "prettier"
