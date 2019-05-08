@@ -47,23 +47,25 @@ export function parseEmail(repo) {
 }
 
 export function parseRepositoryURL(repo) {
-  const url = get(repo, 'repositoryURL')
-  if (Boolean(url)) {
+  let url = get(repo, 'repositoryURL')
+  if (url) {
 
     if (url.startsWith('git://github.com/')) {
-      return url.replace('git://github.com/', 'https://github.com/')
+      url = url.replace('git://github.com/', 'https://github.com/')
     }
 
     if (url.startsWith('git@github.com:')) {
-      return url.replace('git@github.com:', 'https://github.com/').replace('.git', '')
+      url = url.replace('git@github.com:', 'https://github.com/').replace('.git', '')
     }
 
     if (url.startsWith('https://github.com') && url.endsWith('.git')) {
-      return url.replace('.git', '')
+      url = url.replace('.git', '')
     }
 
     return url
   }
+
+  return ''
 }
 
 export function parseTags(repo) {
