@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import { eventMap, push } from '../../../mocks/window'
 import { refreshView, scrollToTopOfResults } from '../../../../src/utils/other'
-import PolicyGuide, { PolicyGuidePage } from '../../../../components/plugins/policy-guide'
+import PolicyGuide, { PolicyGuidePage } from 'components/plugins/policy-guide'
 
 jest.mock('utils/other')
 

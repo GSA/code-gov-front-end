@@ -8,7 +8,7 @@ import AboutPage, {
   ComplianceDashboard,
   InventoryCode,
   JSONValidator,
-} from '../../../../components/plugins/about-page'
+} from 'components/plugins/about-page'
 
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
