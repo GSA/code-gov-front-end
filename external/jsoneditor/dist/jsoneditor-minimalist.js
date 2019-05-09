@@ -21,11 +21,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  *
- * Copyright (c) 2011-2017 Jos de Jong, http://jsoneditoronline.org
+ * Copyright (c) 2011-2019 Jos de Jong, http://jsoneditoronline.org
  *
  * @author  Jos de Jong, <wjosdejong@gmail.com>
- * @version 5.26.2
- * @date    2018-11-13
+ * @version 5.32.5
+ * @date    2019-04-27
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -97,8 +97,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var VanillaPicker = __webpack_require__(5); // may be undefined in case of minimalist bundle
 
 	var treemode = __webpack_require__(6);
-	var textmode = __webpack_require__(28);
-	var util = __webpack_require__(12);
+	var textmode = __webpack_require__(29);
+	var util = __webpack_require__(9);
 
 	if (typeof Promise === 'undefined') {
 	  console.error('Promise undefined. Please load a Promise polyfill in the browser in order to use JSONEditor');
@@ -149,11 +149,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *                               {boolean} sortObjectKeys If true, object keys are
 	 *                                                        sorted before display.
 	 *                                                        false by default.
-	 *                               {function} onSelectionChange Callback method, 
+	 *                               {function} onSelectionChange Callback method,
 	 *                                                            triggered on node selection change
 	 *                                                            Only applicable for modes
 	 *                                                            'tree', 'view', and 'form'
-	 *                               {function} onTextSelectionChange Callback method, 
+	 *                               {function} onTextSelectionChange Callback method,
 	 *                                                                triggered on text selection change
 	 *                                                                Only applicable for modes
 	 *                               {HTMLElement} modalAnchor        The anchor element to apply an
@@ -167,6 +167,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *                                                  Only applicable for
 	 *                                                  modes 'form', 'tree' and
 	 *                                                  'view'
+	 *                               {function} onClassName Callback method, triggered
+	 *                                                  when a Node DOM is rendered. Function returns
+	 *                                                  a css class name to be set on a node.
+	 *                                                  Only applicable for
+	 *                                                  modes 'form', 'tree' and
+	 *                                                  'view'
+	 *                               {Number} maxVisibleChilds Number of children allowed for a node 
+	 *                                                         in 'tree', 'view', or 'form' mode before 
+	 *                                                         the "show more/show all" buttons appear.  
+	 *                                                         100 by default.
+	 *
 	 * @param {Object | undefined} json JSON object
 	 */
 	function JSONEditor (container, options, json) {
@@ -247,12 +258,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  'ajv', 'schema', 'schemaRefs','templates',
 	  'ace', 'theme', 'autocomplete',
 	  'onChange', 'onChangeJSON', 'onChangeText',
-	  'onEditable', 'onError', 'onEvent', 'onModeChange', 'onValidate',
-	  'onSelectionChange', 'onTextSelectionChange',
+	  'onEditable', 'onError', 'onEvent', 'onModeChange', 'onNodeName', 'onValidate', 'onCreateMenu',
+	  'onSelectionChange', 'onTextSelectionChange', 'onClassName',
 	  'colorPicker', 'onColorPicker',
 	  'timestampTag',
 	  'escapeUnicode', 'history', 'search', 'mode', 'modes', 'name', 'indentation',
-	  'sortObjectKeys', 'navigationBar', 'statusBar', 'mainMenuBar', 'languages', 'language', 'enableSort', 'enableTransform'
+	  'sortObjectKeys', 'navigationBar', 'statusBar', 'mainMenuBar', 'languages', 'language', 'enableSort', 'enableTransform',
+	  'maxVisibleChilds'
 	];
 
 	/**
@@ -1454,18 +1466,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	var VanillaPicker = __webpack_require__(5);
 	var Highlighter = __webpack_require__(7);
 	var History = __webpack_require__(8);
-	var SearchBox = __webpack_require__(9);
-	var ContextMenu = __webpack_require__(10);
-	var TreePath = __webpack_require__(16);
-	var Node = __webpack_require__(17);
-	var ModeSwitcher = __webpack_require__(26);
-	var util = __webpack_require__(12);
-	var autocomplete = __webpack_require__(27);
-	var showSortModal = __webpack_require__(22);
-	var showTransformModal = __webpack_require__(24);
-	var translate = __webpack_require__(15).translate;
-	var setLanguages = __webpack_require__(15).setLanguages;
-	var setLanguage = __webpack_require__(15).setLanguage;
+	var SearchBox = __webpack_require__(14);
+	var ContextMenu = __webpack_require__(15);
+	var TreePath = __webpack_require__(17);
+	var Node = __webpack_require__(18);
+	var ModeSwitcher = __webpack_require__(27);
+	var util = __webpack_require__(9);
+	var autocomplete = __webpack_require__(28);
+	var showSortModal = __webpack_require__(23);
+	var showTransformModal = __webpack_require__(25);
+	var translate = __webpack_require__(13).translate;
+	var setLanguages = __webpack_require__(13).setLanguages;
+	var setLanguage = __webpack_require__(13).setLanguage;
 
 	var DEFAULT_MODAL_ANCHOR = document.body; // TODO: this constant is defined twice
 
@@ -1734,13 +1746,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @return {Object | undefined} json
 	 */
 	treemode.get = function () {
-	  // remove focus from currently edited node
-	  if (this.focusTarget) {
-	    var node = Node.getNodeFromTarget(this.focusTarget);
-	    if (node) {
-	      node.blur();
-	    }
-	  }
+	  // TODO: resolve pending debounced input changes if any, but do not resolve invalid inputs
 
 	  if (this.node) {
 	    return this.node.getValue();
@@ -2000,6 +2006,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	      console.error('Error in onChangeText callback: ', err);
 	    }
 	  }
+
+	  // trigger the onClassName callback
+	  if(this.options.onClassName) {
+	    this.node.recursivelyUpdateCssClassesOnNodes();
+	  }
+
+	  // trigger the onNodeName callback
+	  if (this.options.onNodeName && this.node.childs) {
+	    try {
+	      this.node.recursivelyUpdateNodeName();
+	    } catch (err) {
+	      console.error("Error in onNodeName callback: ", err);
+	    }  
+	  }
 	};
 
 	/**
@@ -2013,9 +2033,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  var json = root.getValue();
-
-	  // check for duplicate keys
-	  var duplicateErrors = root.validate();
 
 	  // execute JSON schema validation
 	  var schemaErrors = [];
@@ -2048,7 +2065,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        .then(function (customValidationErrors) {
 	          // only apply when there was no other validation started whilst resolving async results
 	          if (seq === me.validationSequence) {
-	            var errorNodes = [].concat(duplicateErrors, schemaErrors, customValidationErrors || []);
+	            var errorNodes = [].concat(schemaErrors, customValidationErrors || []);
 	            me._renderValidationErrors(errorNodes);
 	          }
 	        })
@@ -3130,6 +3147,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      Node.onRemove(selectedNodes);
 	    }
 	  });
+	  
+	  if (this.options.onCreateMenu) {
+			items = this.options.onCreateMenu(items, { path : node.getPath() });
+		}
 
 	  var menu = new ContextMenu(items, {close: onClose});
 	  menu.show(anchor, this.frame);
@@ -3162,8 +3183,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Callback registration for selection change
-	 * @param {selectionCallback} callback 
-	 * 
+	 * @param {selectionCallback} callback
+	 *
 	 * @callback selectionCallback
 	 */
 	treemode.onSelectionChange = function (callback) {
@@ -3177,7 +3198,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * For selecting single node send only the start parameter
 	 * For clear the selection do not send any parameter
 	 * If the nodes are not from the same level the first common parent will be selected
-	 * @param {{path: Array.<String>}} start object contains the path for selection start 
+	 * @param {{path: Array.<String>}} start object contains the path for selection start
 	 * @param {{path: Array.<String>}} end object contains the path for selection end
 	 */
 	treemode.setSelection = function (start, end) {
@@ -3188,7 +3209,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  var nodes = this._getNodeInstancesByRange(start, end);
-	  
+
 	  nodes.forEach(function(node) {
 	    node.expandTo();
 	  });
@@ -3197,7 +3218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Returns a set of Nodes according to a range of selection
-	 * @param {{path: Array.<String>}} start object contains the path for range start 
+	 * @param {{path: Array.<String>}} start object contains the path for range start
 	 * @param {{path: Array.<String>}=} end object contains the path for range end
 	 * @return {Array.<Node>} Node instances on the given range
 	 * @private
@@ -3367,9 +3388,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	var util = __webpack_require__(9);
 
 	/**
 	 * @constructor History
@@ -3492,6 +3515,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var nodes = params.paths.map(findNode);
 	        nodes.forEach(function (node) {
 	          var clone = node.clone();
+	          if (parentNode.type === 'object') {
+	            var existingFieldNames = parentNode.getFieldNames();
+	            clone.field = util.findUniqueName(node.field, existingFieldNames);
+	          }
 	          parentNode.insertAfter(clone, afterNode);
 	          afterNode = clone;
 	        });
@@ -3704,897 +3731,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 9 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/**
-	 * @constructor SearchBox
-	 * Create a search box in given HTML container
-	 * @param {JSONEditor} editor    The JSON Editor to attach to
-	 * @param {Element} container               HTML container element of where to
-	 *                                          create the search box
-	 */
-	function SearchBox (editor, container) {
-	  var searchBox = this;
-
-	  this.editor = editor;
-	  this.timeout = undefined;
-	  this.delay = 200; // ms
-	  this.lastText = undefined;
-
-	  this.dom = {};
-	  this.dom.container = container;
-
-	  var table = document.createElement('table');
-	  this.dom.table = table;
-	  table.className = 'jsoneditor-search';
-	  container.appendChild(table);
-	  var tbody = document.createElement('tbody');
-	  this.dom.tbody = tbody;
-	  table.appendChild(tbody);
-	  var tr = document.createElement('tr');
-	  tbody.appendChild(tr);
-
-	  var td = document.createElement('td');
-	  tr.appendChild(td);
-	  var results = document.createElement('div');
-	  this.dom.results = results;
-	  results.className = 'jsoneditor-results';
-	  td.appendChild(results);
-
-	  td = document.createElement('td');
-	  tr.appendChild(td);
-	  var divInput = document.createElement('div');
-	  this.dom.input = divInput;
-	  divInput.className = 'jsoneditor-frame';
-	  divInput.title = 'Search fields and values';
-	  td.appendChild(divInput);
-
-	  // table to contain the text input and search button
-	  var tableInput = document.createElement('table');
-	  divInput.appendChild(tableInput);
-	  var tbodySearch = document.createElement('tbody');
-	  tableInput.appendChild(tbodySearch);
-	  tr = document.createElement('tr');
-	  tbodySearch.appendChild(tr);
-
-	  var refreshSearch = document.createElement('button');
-	  refreshSearch.type = 'button';
-	  refreshSearch.className = 'jsoneditor-refresh';
-	  td = document.createElement('td');
-	  td.appendChild(refreshSearch);
-	  tr.appendChild(td);
-
-	  var search = document.createElement('input');
-	  // search.type = 'button';
-	  this.dom.search = search;
-	  search.oninput = function (event) {
-	    searchBox._onDelayedSearch(event);
-	  };
-	  search.onchange = function (event) { // For IE 9
-	    searchBox._onSearch();
-	  };
-	  search.onkeydown = function (event) {
-	    searchBox._onKeyDown(event);
-	  };
-	  search.onkeyup = function (event) {
-	    searchBox._onKeyUp(event);
-	  };
-	  refreshSearch.onclick = function (event) {
-	    search.select();
-	  };
-
-	  // TODO: ESC in FF restores the last input, is a FF bug, https://bugzilla.mozilla.org/show_bug.cgi?id=598819
-	  td = document.createElement('td');
-	  td.appendChild(search);
-	  tr.appendChild(td);
-
-	  var searchNext = document.createElement('button');
-	  searchNext.type = 'button';
-	  searchNext.title = 'Next result (Enter)';
-	  searchNext.className = 'jsoneditor-next';
-	  searchNext.onclick = function () {
-	    searchBox.next();
-	  };
-	  td = document.createElement('td');
-	  td.appendChild(searchNext);
-	  tr.appendChild(td);
-
-	  var searchPrevious = document.createElement('button');
-	  searchPrevious.type = 'button';
-	  searchPrevious.title = 'Previous result (Shift+Enter)';
-	  searchPrevious.className = 'jsoneditor-previous';
-	  searchPrevious.onclick = function () {
-	    searchBox.previous();
-	  };
-	  td = document.createElement('td');
-	  td.appendChild(searchPrevious);
-	  tr.appendChild(td);
-	}
-
-	/**
-	 * Go to the next search result
-	 * @param {boolean} [focus]   If true, focus will be set to the next result
-	 *                            focus is false by default.
-	 */
-	SearchBox.prototype.next = function(focus) {
-	  if (this.results != undefined) {
-	    var index = (this.resultIndex != undefined) ? this.resultIndex + 1 : 0;
-	    if (index > this.results.length - 1) {
-	      index = 0;
-	    }
-	    this._setActiveResult(index, focus);
-	  }
-	};
-
-	/**
-	 * Go to the prevous search result
-	 * @param {boolean} [focus]   If true, focus will be set to the next result
-	 *                            focus is false by default.
-	 */
-	SearchBox.prototype.previous = function(focus) {
-	  if (this.results != undefined) {
-	    var max = this.results.length - 1;
-	    var index = (this.resultIndex != undefined) ? this.resultIndex - 1 : max;
-	    if (index < 0) {
-	      index = max;
-	    }
-	    this._setActiveResult(index, focus);
-	  }
-	};
-
-	/**
-	 * Set new value for the current active result
-	 * @param {Number} index
-	 * @param {boolean} [focus]   If true, focus will be set to the next result.
-	 *                            focus is false by default.
-	 * @private
-	 */
-	SearchBox.prototype._setActiveResult = function(index, focus) {
-	  // de-activate current active result
-	  if (this.activeResult) {
-	    var prevNode = this.activeResult.node;
-	    var prevElem = this.activeResult.elem;
-	    if (prevElem == 'field') {
-	      delete prevNode.searchFieldActive;
-	    }
-	    else {
-	      delete prevNode.searchValueActive;
-	    }
-	    prevNode.updateDom();
-	  }
-
-	  if (!this.results || !this.results[index]) {
-	    // out of range, set to undefined
-	    this.resultIndex = undefined;
-	    this.activeResult = undefined;
-	    return;
-	  }
-
-	  this.resultIndex = index;
-
-	  // set new node active
-	  var node = this.results[this.resultIndex].node;
-	  var elem = this.results[this.resultIndex].elem;
-	  if (elem == 'field') {
-	    node.searchFieldActive = true;
-	  }
-	  else {
-	    node.searchValueActive = true;
-	  }
-	  this.activeResult = this.results[this.resultIndex];
-	  node.updateDom();
-
-	  // TODO: not so nice that the focus is only set after the animation is finished
-	  node.scrollTo(function () {
-	    if (focus) {
-	      node.focus(elem);
-	    }
-	  });
-	};
-
-	/**
-	 * Cancel any running onDelayedSearch.
-	 * @private
-	 */
-	SearchBox.prototype._clearDelay = function() {
-	  if (this.timeout != undefined) {
-	    clearTimeout(this.timeout);
-	    delete this.timeout;
-	  }
-	};
-
-	/**
-	 * Start a timer to execute a search after a short delay.
-	 * Used for reducing the number of searches while typing.
-	 * @param {Event} event
-	 * @private
-	 */
-	SearchBox.prototype._onDelayedSearch = function (event) {
-	  // execute the search after a short delay (reduces the number of
-	  // search actions while typing in the search text box)
-	  this._clearDelay();
-	  var searchBox = this;
-	  this.timeout = setTimeout(function (event) {
-	    searchBox._onSearch();
-	  },
-	  this.delay);
-	};
-
-	/**
-	 * Handle onSearch event
-	 * @param {boolean} [forceSearch]  If true, search will be executed again even
-	 *                                 when the search text is not changed.
-	 *                                 Default is false.
-	 * @private
-	 */
-	SearchBox.prototype._onSearch = function (forceSearch) {
-	  this._clearDelay();
-
-	  var value = this.dom.search.value;
-	  var text = (value.length > 0) ? value : undefined;
-	  if (text !== this.lastText || forceSearch) {
-	    // only search again when changed
-	    this.lastText = text;
-	    this.results = this.editor.search(text);
-	    var MAX_SEARCH_RESULTS = this.results[0]
-	        ? this.results[0].node.MAX_SEARCH_RESULTS
-	        : Infinity;
-
-	    // try to maintain the current active result if this is still part of the new search results
-	    var activeResultIndex = 0;
-	    if (this.activeResult) {
-	      for (var i = 0; i < this.results.length; i++) {
-	        if (this.results[i].node === this.activeResult.node) {
-	          activeResultIndex = i;
-	          break;
-	        }
-	      }
-	    }
-
-	    this._setActiveResult(activeResultIndex, false);
-
-	    // display search results
-	    if (text !== undefined) {
-	      var resultCount = this.results.length;
-	      if (resultCount === 0) {
-	        this.dom.results.innerHTML = 'no&nbsp;results';
-	      }
-	      else if (resultCount === 1) {
-	        this.dom.results.innerHTML = '1&nbsp;result';
-	      }
-	      else if (resultCount > MAX_SEARCH_RESULTS) {
-	        this.dom.results.innerHTML = MAX_SEARCH_RESULTS + '+&nbsp;results';
-	      }
-	      else {
-	        this.dom.results.innerHTML = resultCount + '&nbsp;results';
-	      }
-	    }
-	    else {
-	      this.dom.results.innerHTML = '';
-	    }
-	  }
-	};
-
-	/**
-	 * Handle onKeyDown event in the input box
-	 * @param {Event} event
-	 * @private
-	 */
-	SearchBox.prototype._onKeyDown = function (event) {
-	  var keynum = event.which;
-	  if (keynum == 27) { // ESC
-	    this.dom.search.value = '';  // clear search
-	    this._onSearch();
-	    event.preventDefault();
-	    event.stopPropagation();
-	  }
-	  else if (keynum == 13) { // Enter
-	    if (event.ctrlKey) {
-	      // force to search again
-	      this._onSearch(true);
-	    }
-	    else if (event.shiftKey) {
-	      // move to the previous search result
-	      this.previous();
-	    }
-	    else {
-	      // move to the next search result
-	      this.next();
-	    }
-	    event.preventDefault();
-	    event.stopPropagation();
-	  }
-	};
-
-	/**
-	 * Handle onKeyUp event in the input box
-	 * @param {Event} event
-	 * @private
-	 */
-	SearchBox.prototype._onKeyUp = function (event) {
-	  var keynum = event.keyCode;
-	  if (keynum != 27 && keynum != 13) { // !show and !Enter
-	    this._onDelayedSearch(event);   // For IE 9
-	  }
-	};
-
-	/**
-	 * Clear the search results
-	 */
-	SearchBox.prototype.clear = function () {
-	  this.dom.search.value = '';
-	  this._onSearch();
-	};
-
-	/**
-	 * Refresh searchResults if there is a search value
-	 */
-	SearchBox.prototype.forceSearch = function () {
-	  this._onSearch(true);
-	};
-
-	/**
-	 * Test whether the search box value is empty
-	 * @returns {boolean} Returns true when empty.
-	 */
-	SearchBox.prototype.isEmpty = function () {
-	  return this.dom.search.value === '';
-	};
-
-	/**
-	 * Destroy the search box
-	 */
-	SearchBox.prototype.destroy = function () {
-	  this.editor = null;
-	  this.dom.container.removeChild(this.dom.table);
-	  this.dom = null;
-
-	  this.results = null;
-	  this.activeResult = null;
-
-	  this._clearDelay();
-
-	};
-
-	module.exports = SearchBox;
-
-
-/***/ },
-/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createAbsoluteAnchor = __webpack_require__(11).createAbsoluteAnchor;
-	var util = __webpack_require__(12);
-	var translate = __webpack_require__(15).translate;
-
-	/**
-	 * A context menu
-	 * @param {Object[]} items    Array containing the menu structure
-	 *                            TODO: describe structure
-	 * @param {Object} [options]  Object with options. Available options:
-	 *                            {function} close    Callback called when the
-	 *                                                context menu is being closed.
-	 * @constructor
-	 */
-	function ContextMenu (items, options) {
-	  this.dom = {};
-
-	  var me = this;
-	  var dom = this.dom;
-	  this.anchor = undefined;
-	  this.items = items;
-	  this.eventListeners = {};
-	  this.selection = undefined; // holds the selection before the menu was opened
-	  this.onClose = options ? options.close : undefined;
-
-	  // create root element
-	  var root = document.createElement('div');
-	  root.className = 'jsoneditor-contextmenu-root';
-	  dom.root = root;
-
-	  // create a container element
-	  var menu = document.createElement('div');
-	  menu.className = 'jsoneditor-contextmenu';
-	  dom.menu = menu;
-	  root.appendChild(menu);
-
-	  // create a list to hold the menu items
-	  var list = document.createElement('ul');
-	  list.className = 'jsoneditor-menu';
-	  menu.appendChild(list);
-	  dom.list = list;
-	  dom.items = []; // list with all buttons
-
-	  // create a (non-visible) button to set the focus to the menu
-	  var focusButton = document.createElement('button');
-	  focusButton.type = 'button';
-	  dom.focusButton = focusButton;
-	  var li = document.createElement('li');
-	  li.style.overflow = 'hidden';
-	  li.style.height = '0';
-	  li.appendChild(focusButton);
-	  list.appendChild(li);
-
-	  function createMenuItems (list, domItems, items) {
-	    items.forEach(function (item) {
-	      if (item.type == 'separator') {
-	        // create a separator
-	        var separator = document.createElement('div');
-	        separator.className = 'jsoneditor-separator';
-	        li = document.createElement('li');
-	        li.appendChild(separator);
-	        list.appendChild(li);
-	      }
-	      else {
-	        var domItem = {};
-
-	        // create a menu item
-	        var li = document.createElement('li');
-	        list.appendChild(li);
-
-	        // create a button in the menu item
-	        var button = document.createElement('button');
-	        button.type = 'button';
-	        button.className = item.className;
-	        domItem.button = button;
-	        if (item.title) {
-	          button.title = item.title;
-	        }
-	        if (item.click) {
-	          button.onclick = function (event) {
-	            event.preventDefault();
-	            me.hide();
-	            item.click();
-	          };
-	        }
-	        li.appendChild(button);
-
-	        // create the contents of the button
-	        if (item.submenu) {
-	          // add the icon to the button
-	          var divIcon = document.createElement('div');
-	          divIcon.className = 'jsoneditor-icon';
-	          button.appendChild(divIcon);
-	          var divText = document.createElement('div');
-	          divText.className = 'jsoneditor-text' +
-	              (item.click ? '' : ' jsoneditor-right-margin');
-	          divText.appendChild(document.createTextNode(item.text));
-	          button.appendChild(divText);
-
-	          var buttonSubmenu;
-	          if (item.click) {
-	            // submenu and a button with a click handler
-	            button.className += ' jsoneditor-default';
-
-	            var buttonExpand = document.createElement('button');
-	            buttonExpand.type = 'button';
-	            domItem.buttonExpand = buttonExpand;
-	            buttonExpand.className = 'jsoneditor-expand';
-	            buttonExpand.innerHTML = '<div class="jsoneditor-expand"></div>';
-	            li.appendChild(buttonExpand);
-	            if (item.submenuTitle) {
-	              buttonExpand.title = item.submenuTitle;
-	            }
-
-	            buttonSubmenu = buttonExpand;
-	          }
-	          else {
-	            // submenu and a button without a click handler
-	            var divExpand = document.createElement('div');
-	            divExpand.className = 'jsoneditor-expand';
-	            button.appendChild(divExpand);
-
-	            buttonSubmenu = button;
-	          }
-
-	          // attach a handler to expand/collapse the submenu
-	          buttonSubmenu.onclick = function (event) {
-	            event.preventDefault();
-	            me._onExpandItem(domItem);
-	            buttonSubmenu.focus();
-	          };
-
-	          // create the submenu
-	          var domSubItems = [];
-	          domItem.subItems = domSubItems;
-	          var ul = document.createElement('ul');
-	          domItem.ul = ul;
-	          ul.className = 'jsoneditor-menu';
-	          ul.style.height = '0';
-	          li.appendChild(ul);
-	          createMenuItems(ul, domSubItems, item.submenu);
-	        }
-	        else {
-	          // no submenu, just a button with clickhandler
-	          button.innerHTML = '<div class="jsoneditor-icon"></div>' +
-	              '<div class="jsoneditor-text">' + translate(item.text) + '</div>';
-	        }
-
-	        domItems.push(domItem);
-	      }
-	    });
-	  }
-	  createMenuItems(list, this.dom.items, items);
-
-	  // TODO: when the editor is small, show the submenu on the right instead of inline?
-
-	  // calculate the max height of the menu with one submenu expanded
-	  this.maxHeight = 0; // height in pixels
-	  items.forEach(function (item) {
-	    var height = (items.length + (item.submenu ? item.submenu.length : 0)) * 24;
-	    me.maxHeight = Math.max(me.maxHeight, height);
-	  });
-	}
-
-	/**
-	 * Get the currently visible buttons
-	 * @return {Array.<HTMLElement>} buttons
-	 * @private
-	 */
-	ContextMenu.prototype._getVisibleButtons = function () {
-	  var buttons = [];
-	  var me = this;
-	  this.dom.items.forEach(function (item) {
-	    buttons.push(item.button);
-	    if (item.buttonExpand) {
-	      buttons.push(item.buttonExpand);
-	    }
-	    if (item.subItems && item == me.expandedItem) {
-	      item.subItems.forEach(function (subItem) {
-	        buttons.push(subItem.button);
-	        if (subItem.buttonExpand) {
-	          buttons.push(subItem.buttonExpand);
-	        }
-	        // TODO: change to fully recursive method
-	      });
-	    }
-	  });
-
-	  return buttons;
-	};
-
-	// currently displayed context menu, a singleton. We may only have one visible context menu
-	ContextMenu.visibleMenu = undefined;
-
-	/**
-	 * Attach the menu to an anchor
-	 * @param {HTMLElement} anchor  Anchor where the menu will be attached as sibling.
-	 * @param {HTMLElement} frame   The root of the JSONEditor window
-	 */
-	ContextMenu.prototype.show = function (anchor, frame) {
-	  this.hide();
-
-	  // determine whether to display the menu below or above the anchor
-	  var showBelow = true;
-	  var parent = anchor.parentNode;
-	  var anchorRect = anchor.getBoundingClientRect();
-	  var parentRect = parent.getBoundingClientRect();
-	  var frameRect = frame.getBoundingClientRect();
-
-	  var me = this;
-	  this.dom.absoluteAnchor = createAbsoluteAnchor(anchor, frame, function () {
-	    me.hide()
-	  });
-
-	  if (anchorRect.bottom + this.maxHeight < frameRect.bottom) {
-	    // fits below -> show below
-	  }
-	  else if (anchorRect.top - this.maxHeight > frameRect.top) {
-	    // fits above -> show above
-	    showBelow = false;
-	  }
-	  else {
-	    // doesn't fit above nor below -> show below
-	  }
-
-	  var topGap = anchorRect.top - parentRect.top;
-
-	  // position the menu
-	  if (showBelow) {
-	    // display the menu below the anchor
-	    var anchorHeight = anchor.offsetHeight;
-	    this.dom.menu.style.left = '0';
-	    this.dom.menu.style.top = topGap + anchorHeight + 'px';
-	    this.dom.menu.style.bottom = '';
-	  }
-	  else {
-	    // display the menu above the anchor
-	    this.dom.menu.style.left = '0';
-	    this.dom.menu.style.top = '';
-	    this.dom.menu.style.bottom = '0px';
-	  }
-
-	  // attach the menu to the temporary, absolute anchor
-	  // parent.insertBefore(this.dom.root, anchor);
-	  this.dom.absoluteAnchor.appendChild(this.dom.root);
-
-	  // move focus to the first button in the context menu
-	  this.selection = util.getSelection();
-	  this.anchor = anchor;
-	  setTimeout(function () {
-	    me.dom.focusButton.focus();
-	  }, 0);
-
-	  if (ContextMenu.visibleMenu) {
-	    ContextMenu.visibleMenu.hide();
-	  }
-	  ContextMenu.visibleMenu = this;
-	};
-
-	/**
-	 * Hide the context menu if visible
-	 */
-	ContextMenu.prototype.hide = function () {
-	  // remove temporary absolutely positioned anchor
-	  if (this.dom.absoluteAnchor) {
-	    this.dom.absoluteAnchor.destroy();
-	    delete this.dom.absoluteAnchor;
-	  }
-
-	  // remove the menu from the DOM
-	  if (this.dom.root.parentNode) {
-	    this.dom.root.parentNode.removeChild(this.dom.root);
-	    if (this.onClose) {
-	      this.onClose();
-	    }
-	  }
-
-	  if (ContextMenu.visibleMenu == this) {
-	    ContextMenu.visibleMenu = undefined;
-	  }
-	};
-
-	/**
-	 * Expand a submenu
-	 * Any currently expanded submenu will be hided.
-	 * @param {Object} domItem
-	 * @private
-	 */
-	ContextMenu.prototype._onExpandItem = function (domItem) {
-	  var me = this;
-	  var alreadyVisible = (domItem == this.expandedItem);
-
-	  // hide the currently visible submenu
-	  var expandedItem = this.expandedItem;
-	  if (expandedItem) {
-	    //var ul = expandedItem.ul;
-	    expandedItem.ul.style.height = '0';
-	    expandedItem.ul.style.padding = '';
-	    setTimeout(function () {
-	      if (me.expandedItem != expandedItem) {
-	        expandedItem.ul.style.display = '';
-	        util.removeClassName(expandedItem.ul.parentNode, 'jsoneditor-selected');
-	      }
-	    }, 300); // timeout duration must match the css transition duration
-	    this.expandedItem = undefined;
-	  }
-
-	  if (!alreadyVisible) {
-	    var ul = domItem.ul;
-	    ul.style.display = 'block';
-	    var height = ul.clientHeight; // force a reflow in Firefox
-	    setTimeout(function () {
-	      if (me.expandedItem == domItem) {
-	        var childsHeight = 0;
-	        for (var i = 0; i < ul.childNodes.length; i++) {
-	          childsHeight += ul.childNodes[i].clientHeight;
-	        }
-	        ul.style.height = childsHeight + 'px';
-	        ul.style.padding = '5px 10px';
-	      }
-	    }, 0);
-	    util.addClassName(ul.parentNode, 'jsoneditor-selected');
-	    this.expandedItem = domItem;
-	  }
-	};
-
-	/**
-	 * Handle onkeydown event
-	 * @param {Event} event
-	 * @private
-	 */
-	ContextMenu.prototype._onKeyDown = function (event) {
-	  var target = event.target;
-	  var keynum = event.which;
-	  var handled = false;
-	  var buttons, targetIndex, prevButton, nextButton;
-
-	  if (keynum == 27) { // ESC
-	    // hide the menu on ESC key
-
-	    // restore previous selection and focus
-	    if (this.selection) {
-	      util.setSelection(this.selection);
-	    }
-	    if (this.anchor) {
-	      this.anchor.focus();
-	    }
-
-	    this.hide();
-
-	    handled = true;
-	  }
-	  else if (keynum == 9) { // Tab
-	    if (!event.shiftKey) { // Tab
-	      buttons = this._getVisibleButtons();
-	      targetIndex = buttons.indexOf(target);
-	      if (targetIndex == buttons.length - 1) {
-	        // move to first button
-	        buttons[0].focus();
-	        handled = true;
-	      }
-	    }
-	    else { // Shift+Tab
-	      buttons = this._getVisibleButtons();
-	      targetIndex = buttons.indexOf(target);
-	      if (targetIndex == 0) {
-	        // move to last button
-	        buttons[buttons.length - 1].focus();
-	        handled = true;
-	      }
-	    }
-	  }
-	  else if (keynum == 37) { // Arrow Left
-	    if (target.className == 'jsoneditor-expand') {
-	      buttons = this._getVisibleButtons();
-	      targetIndex = buttons.indexOf(target);
-	      prevButton = buttons[targetIndex - 1];
-	      if (prevButton) {
-	        prevButton.focus();
-	      }
-	    }
-	    handled = true;
-	  }
-	  else if (keynum == 38) { // Arrow Up
-	    buttons = this._getVisibleButtons();
-	    targetIndex = buttons.indexOf(target);
-	    prevButton = buttons[targetIndex - 1];
-	    if (prevButton && prevButton.className == 'jsoneditor-expand') {
-	      // skip expand button
-	      prevButton = buttons[targetIndex - 2];
-	    }
-	    if (!prevButton) {
-	      // move to last button
-	      prevButton = buttons[buttons.length - 1];
-	    }
-	    if (prevButton) {
-	      prevButton.focus();
-	    }
-	    handled = true;
-	  }
-	  else if (keynum == 39) { // Arrow Right
-	    buttons = this._getVisibleButtons();
-	    targetIndex = buttons.indexOf(target);
-	    nextButton = buttons[targetIndex + 1];
-	    if (nextButton && nextButton.className == 'jsoneditor-expand') {
-	      nextButton.focus();
-	    }
-	    handled = true;
-	  }
-	  else if (keynum == 40) { // Arrow Down
-	    buttons = this._getVisibleButtons();
-	    targetIndex = buttons.indexOf(target);
-	    nextButton = buttons[targetIndex + 1];
-	    if (nextButton && nextButton.className == 'jsoneditor-expand') {
-	      // skip expand button
-	      nextButton = buttons[targetIndex + 2];
-	    }
-	    if (!nextButton) {
-	      // move to first button
-	      nextButton = buttons[0];
-	    }
-	    if (nextButton) {
-	      nextButton.focus();
-	      handled = true;
-	    }
-	    handled = true;
-	  }
-	  // TODO: arrow left and right
-
-	  if (handled) {
-	    event.stopPropagation();
-	    event.preventDefault();
-	  }
-	};
-
-	module.exports = ContextMenu;
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var util = __webpack_require__(12);
-
-	/**
-	 * Create an anchor element absolutely positioned in the `parent`
-	 * element.
-	 * @param {HTMLElement} anchor
-	 * @param {HTMLElement} parent
-	 * @param [onDestroy(function(anchor)]  Callback when the anchor is destroyed
-	 * @returns {HTMLElement}
-	 */
-	exports.createAbsoluteAnchor = function (anchor, parent, onDestroy) {
-	  var root = getRootNode(anchor);
-	  var eventListeners = {};
-
-	  var anchorRect = anchor.getBoundingClientRect();
-	  var frameRect = parent.getBoundingClientRect();
-
-	  var absoluteAnchor = document.createElement('div');
-	  absoluteAnchor.className = 'jsoneditor-anchor';
-	  absoluteAnchor.style.position = 'absolute';
-	  absoluteAnchor.style.left = (anchorRect.left - frameRect.left) + 'px';
-	  absoluteAnchor.style.top = (anchorRect.top - frameRect.top) + 'px';
-	  absoluteAnchor.style.width = (anchorRect.width - 2) + 'px';
-	  absoluteAnchor.style.height = (anchorRect.height - 2) + 'px';
-	  absoluteAnchor.style.boxSizing = 'border-box';
-	  parent.appendChild(absoluteAnchor);
-
-	  function destroy () {
-	    // remove temporary absolutely positioned anchor
-	    if (absoluteAnchor && absoluteAnchor.parentNode) {
-	      absoluteAnchor.parentNode.removeChild(absoluteAnchor);
-
-	      // remove all event listeners
-	      // all event listeners are supposed to be attached to document.
-	      for (var name in eventListeners) {
-	        if (eventListeners.hasOwnProperty(name)) {
-	          var fn = eventListeners[name];
-	          if (fn) {
-	            util.removeEventListener(root, name, fn);
-	          }
-	          delete eventListeners[name];
-	        }
-	      }
-
-	      if (typeof onDestroy === 'function') {
-	        onDestroy(anchor);
-	      }
-	    }
-	  }
-
-	  // create and attach event listeners
-	  var destroyIfOutside = function (event) {
-	    var target = event.target;
-	    if ((target !== absoluteAnchor) && !util.isChildOf(target, absoluteAnchor)) {
-	      destroy();
-	    }
-	  }
-
-	  eventListeners.mousedown = util.addEventListener(root, 'mousedown', destroyIfOutside);
-	  eventListeners.mousewheel = util.addEventListener(root, 'mousewheel', destroyIfOutside);
-	  // eventListeners.scroll = util.addEventListener(root, 'scroll', destroyIfOutside);
-
-	  absoluteAnchor.destroy = destroy;
-
-	  return absoluteAnchor
-	}
-
-	/**
-	 * Node.getRootNode shim
-	 * @param  {HTMLElement} node node to check
-	 * @return {HTMLElement}      node's rootNode or `window` if there is ShadowDOM is not supported.
-	 */
-	function getRootNode(node){
-	  return (typeof node.getRootNode === 'function')
-	      ? node.getRootNode()
-	      : window;
-	}
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var jsonlint = __webpack_require__(13);
-	var jsonMap = __webpack_require__(14);
+	__webpack_require__(10);
+	var jsonlint = __webpack_require__(11);
+	var jsonMap = __webpack_require__(12);
+	var translate = __webpack_require__(13).translate;
 
 	/**
 	 * Parse JSON using the parser built-in in the browser.
@@ -4658,19 +3802,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function next()  { return jsString.charAt(i + 1); }
 	  function prev()  { return jsString.charAt(i - 1); }
 
+	  function isWhiteSpace(c) {
+	    return c === ' ' || c === '\n' || c === '\r' || c === '\t';
+	  }
+
 	  // get the last parsed non-whitespace character
 	  function lastNonWhitespace () {
 	    var p = chars.length - 1;
 
 	    while (p >= 0) {
 	      var pp = chars[p];
-	      if (pp !== ' ' && pp !== '\n' && pp !== '\r' && pp !== '\t') { // non whitespace
+	      if (!isWhiteSpace(pp)) {
 	        return pp;
 	      }
 	      p--;
 	    }
 
 	    return '';
+	  }
+
+	  // get at the first next non-white space character
+	  function nextNonWhiteSpace() {
+	    var iNext = i + 1;
+	    while (iNext < jsString.length && isWhiteSpace(jsString[iNext])) {
+	      iNext++;
+	    }
+
+	    return jsString[iNext];
 	  }
 
 	  // skip a block comment '/* ... */'
@@ -4759,7 +3917,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    else if (c === '\u00A0' || (c >= '\u2000' && c <= '\u200A') || c === '\u202F' || c === '\u205F' || c === '\u3000') {
 	      // special white spaces (like non breaking space)
-	      chars.push(' ')
+	      chars.push(' ');
 	      i++
 	    }
 	    else if (c === quote) {
@@ -4776,6 +3934,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    else if (c === quoteDblLeft) {
 	      parseString(quoteDblRight);
+	    }
+	    else if (c === ',' && [']', '}'].indexOf(nextNonWhiteSpace()) !== -1) {
+	      // skip trailing commas
+	      i++;
 	    }
 	    else if (/[a-zA-Z_$]/.test(c) && ['{', ','].indexOf(lastNonWhitespace()) !== -1) {
 	      // an unquoted object key (like a in '{a:2}')
@@ -4934,6 +4096,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    classes.push(className); // add the class to the array
 	    elem.className = classes.join(' ');
 	  }
+	};
+
+	/**
+	 * remove all classes from the given elements style
+	 * @param {Element} elem 
+	 */
+	exports.removeAllClassNames = function removeAllClassNames(elem) {
+	    elem.className = "";
 	};
 
 	/**
@@ -5307,43 +4477,77 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @return {Array}
 	 */
 	exports.parsePath = function parsePath(jsonPath) {
-	  var prop, remainder;
+	  var path = [];
+	  var i = 0;
 
-	  if (jsonPath.length === 0) {
-	    return [];
-	  }
-
-	  // find a match like '.prop'
-	  var match = jsonPath.match(/^\.([\w$]+)/);
-	  if (match) {
-	    prop = match[1];
-	    remainder = jsonPath.substr(prop.length + 1);
-	  }
-	  else if (jsonPath[0] === '[') {
-	    // find a match like
-	    var end = jsonPath.indexOf(']');
-	    if (end === -1) {
-	      throw new SyntaxError('Character ] expected in path');
-	    }
-	    if (end === 1) {
-	      throw new SyntaxError('Index expected after [');
+	  function parseProperty () {
+	    var prop = ''
+	    while (jsonPath[i] !== undefined && /[\w$]/.test(jsonPath[i])) {
+	      prop += jsonPath[i];
+	      i++;
 	    }
 
-	    var value = jsonPath.substring(1, end);
-	    if (value[0] === '\'') {
-	      // ajv produces string prop names with single quotes, so we need
-	      // to reformat them into valid double-quoted JSON strings
-	      value = '\"' + value.substring(1, value.length - 1) + '\"';
+	    if (prop === '') {
+	      throw new Error('Invalid JSON path: property name expected at index ' + i);
 	    }
 
-	    prop = value === '*' ? value : JSON.parse(value); // parse string and number
-	    remainder = jsonPath.substr(end + 1);
-	  }
-	  else {
-	    throw new SyntaxError('Failed to parse path');
+	    return prop;
 	  }
 
-	  return [prop].concat(parsePath(remainder))
+	  function parseIndex (end) {
+	    var name = ''
+	    while (jsonPath[i] !== undefined && jsonPath[i] !== end) {
+	      name += jsonPath[i];
+	      i++;
+	    }
+
+	    if (jsonPath[i] !== end) {
+	      throw new Error('Invalid JSON path: unexpected end, character ' + end + ' expected')
+	    }
+
+	    return name;
+	  }
+
+	  while (jsonPath[i] !== undefined) {
+	    if (jsonPath[i] === '.') {
+	      i++;
+	      path.push(parseProperty());
+	    }
+	    else if (jsonPath[i] === '[') {
+	      i++;
+
+	      if (jsonPath[i] === '\'' || jsonPath[i] === '"') {
+	        var end = jsonPath[i]
+	        i++;
+
+	        path.push(parseIndex(end));
+
+	        if (jsonPath[i] !== end) {
+	          throw new Error('Invalid JSON path: closing quote \' expected at index ' + i)
+	        }
+	        i++;
+	      }
+	      else {
+	        var index = parseIndex(']').trim()
+	        if (index.length === 0) {
+	          throw new Error('Invalid JSON path: array value expected at index ' + i)
+	        }
+	        // Coerce numeric indices to numbers, but ignore star
+	        index = index === '*' ? index : JSON.parse(index);
+	        path.push(index);
+	      }
+
+	      if (jsonPath[i] !== ']') {
+	        throw new Error('Invalid JSON path: closing bracket ] expected at index ' + i)
+	      }
+	      i++;
+	    }
+	    else {
+	      throw new Error('Invalid JSON path: unexpected character "' + jsonPath[i] + '" at index ' + i);
+	    }
+	  }
+
+	  return path;
 	};
 
 	/**
@@ -5354,7 +4558,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.stringifyPath = function stringifyPath(path) {
 	  return path
 	      .map(function (p) {
-	        return typeof p === 'number' ? ('[' + p + ']') : ('.' + p);
+	        if (typeof p === 'number'){
+	          return ('[' + p + ']');
+	        } else if(typeof p === 'string' && p.match(/^[A-Za-z0-9_$]+$/)) {
+	          return '.' + p;
+	        } else {
+	          return '["' + p + '"]';
+	        }
 	      })
 	      .join('');
 	};
@@ -5629,6 +4839,96 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return !!exports.getColorCSS(color);
 	}
 
+	/**
+	 * Make a tooltip for a field based on the field's schema.
+	 * @param {object} schema JSON schema
+	 * @param {string} [locale] Locale code (for example, zh-CN)
+	 * @returns {string} Field tooltip, may be empty string if all relevant schema properties are missing
+	 */
+	exports.makeFieldTooltip = function (schema, locale) {
+	  if (!schema) {
+	    return '';
+	  }
+	  
+	  var tooltip = '';
+	  if (schema.title) {
+	    tooltip += schema.title;
+	  }
+	  
+	  if (schema.description) {
+	    if (tooltip.length > 0) {
+	      tooltip += '\n';
+	    }
+	    tooltip += schema.description;
+	  }
+
+	  if (schema.default) {
+	    if (tooltip.length > 0) {
+	      tooltip += '\n\n';
+	    }
+	    tooltip += translate('default', undefined, locale) + '\n';
+	    tooltip += JSON.stringify(schema.default, null, 2);
+	  }
+
+	  if (Array.isArray(schema.examples) && schema.examples.length > 0) {
+	    if (tooltip.length > 0) {
+	      tooltip += '\n\n';
+	    }
+	    tooltip += translate('examples', undefined, locale) + '\n';
+	    schema.examples.forEach(function (example, index) {
+	      tooltip += JSON.stringify(example, null, 2);
+	      if (index !== schema.examples.length - 1) {
+	        tooltip += '\n';
+	      }
+	    });
+	  }
+
+	  return tooltip;
+	}
+
+	/**
+	 * Get a nested property from an object.
+	 * Returns undefined when the property does not exist.
+	 * @param {Object} object
+	 * @param {string[]} path
+	 * @return {*}
+	 */
+	exports.get = function (object, path) {
+	  var value = object
+
+	  for (var i = 0; i < path.length && value !== undefined && value !== null; i++) {
+	    value = value[path[i]]
+	  }
+
+	  return value;
+	}
+
+	/**
+	 * Find a unique name. Suffix the name with ' (copy)', '(copy 2)', etc
+	 * until a unique name is found
+	 * @param {string} name
+	 * @param {Array} existingPropNames    Array with existing prop names
+	 */
+	exports.findUniqueName = function(name, existingPropNames) {
+	  var strippedName = name.replace(/ \(copy( \d+)?\)$/, '')
+	  var validName = strippedName
+	  var i = 1
+
+	  while (existingPropNames.indexOf(validName) !== -1) {
+	    var copy = 'copy' + (i > 1 ? (' ' + i) : '')
+	    validName = strippedName + ' (' + copy + ')'
+	    i++
+	  }
+
+	  return validName
+	}
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	
 	if (typeof Element !== 'undefined') {
 	  // Polyfill for array remove
 	  (function () {
@@ -5656,15 +4956,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// Polyfill for startsWith
 	if (!String.prototype.startsWith) {
-	    String.prototype.startsWith = function (searchString, position) {
-	        position = position || 0;
-	        return this.substr(position, searchString.length) === searchString;
-	    };
+	  String.prototype.startsWith = function (searchString, position) {
+	    position = position || 0;
+	    return this.substr(position, searchString.length) === searchString;
+	  };
 	}
 
 	// Polyfill for Array.find
 	if (!Array.prototype.find) {
-	  Array.prototype.find = function(callback) {    
+	  Array.prototype.find = function(callback) {
 	    for (var i = 0; i < this.length; i++) {
 	      var element = this[i];
 	      if ( callback.call(this, element, i, this) ) {
@@ -5674,8 +4974,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
+	// Polyfill for String.trim
+	if (!String.prototype.trim) {
+	  String.prototype.trim = function () {
+	    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+	  };
+	}
+
+
 /***/ },
-/* 13 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Jison generated parser */
@@ -6098,7 +5406,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 14 */
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6514,186 +5822,382 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 15 */
-/***/ function(module, exports) {
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _locales = ['en', 'pt-BR'];
+	__webpack_require__(10);
+
+	var _locales = ['en', 'pt-BR', 'zh-CN', 'tr'];
 	var _defs = {
 	  en: {
-	    'array': 'Array',
-	    'auto': 'Auto',
-	    'appendText': 'Append',
-	    'appendTitle': 'Append a new field with type \'auto\' after this field (Ctrl+Shift+Ins)',
-	    'appendSubmenuTitle': 'Select the type of the field to be appended',
-	    'appendTitleAuto': 'Append a new field with type \'auto\' (Ctrl+Shift+Ins)',
-	    'ascending': 'Ascending',
-	    'ascendingTitle': 'Sort the childs of this ${type} in ascending order',
-	    'actionsMenu': 'Click to open the actions menu (Ctrl+M)',
-	    'collapseAll': 'Collapse all fields',
-	    'descending': 'Descending',
-	    'descendingTitle': 'Sort the childs of this ${type} in descending order',
-	    'drag': 'Drag to move this field (Alt+Shift+Arrows)',
-	    'duplicateKey': 'duplicate key',
-	    'duplicateText': 'Duplicate',
-	    'duplicateTitle': 'Duplicate selected fields (Ctrl+D)',
-	    'duplicateField': 'Duplicate this field (Ctrl+D)',
-	    'empty': 'empty',
-	    'expandAll': 'Expand all fields',
-	    'expandTitle': 'Click to expand/collapse this field (Ctrl+E). \n' +
-	    'Ctrl+Click to expand/collapse including all childs.',
-	    'insert': 'Insert',
-	    'insertTitle': 'Insert a new field with type \'auto\' before this field (Ctrl+Ins)',
-	    'insertSub': 'Select the type of the field to be inserted',
-	    'object': 'Object',
-	    'ok': 'Ok',
-	    'redo': 'Redo (Ctrl+Shift+Z)',
-	    'removeText': 'Remove',
-	    'removeTitle': 'Remove selected fields (Ctrl+Del)',
-	    'removeField': 'Remove this field (Ctrl+Del)',
-	    'selectNode': 'Select a node...',
-	    'showAll': 'show all',
-	    'showMore': 'show more',
-	    'showMoreStatus': 'displaying ${visibleChilds} of ${totalChilds} items.',
-	    'sort': 'Sort',
-	    'sortTitle': 'Sort the childs of this ${type}',
-	    'sortTitleShort': 'Sort contents',
-	    'sortFieldLabel': 'Field:',
-	    'sortDirectionLabel': 'Direction:',
-	    'sortFieldTitle': 'Select the nested field by which to sort the array or object',
-	    'sortAscending': 'Ascending',
-	    'sortAscendingTitle': 'Sort the selected field in ascending order',
-	    'sortDescending': 'Descending',
-	    'sortDescendingTitle': 'Sort the selected field in descending order',
-	    'string': 'String',
-	    'transform': 'Transform',
-	    'transformTitle': 'Filter, sort, or transform the childs of this ${type}',
-	    'transformTitleShort': 'Filter, sort, or transform contents',
-	    'transformQueryTitle': 'Enter a JMESPath query',
-	    'transformWizardLabel': 'Wizard',
-	    'transformWizardFilter': 'Filter',
-	    'transformWizardSortBy': 'Sort by',
-	    'transformWizardSelectFields': 'Select fields',
-	    'transformQueryLabel': 'Query',
-	    'transformPreviewLabel': 'Preview',
-	    'type': 'Type',
-	    'typeTitle': 'Change the type of this field',
-	    'openUrl': 'Ctrl+Click or Ctrl+Enter to open url in new window',
-	    'undo': 'Undo last action (Ctrl+Z)',
-	    'validationCannotMove': 'Cannot move a field into a child of itself',
-	    'autoType': 'Field type "auto". ' +
-	    'The field type is automatically determined from the value ' +
-	    'and can be a string, number, boolean, or null.',
-	    'objectType': 'Field type "object". ' +
-	    'An object contains an unordered set of key/value pairs.',
-	    'arrayType': 'Field type "array". ' +
-	    'An array contains an ordered collection of values.',
-	    'stringType': 'Field type "string". ' +
-	    'Field type is not determined from the value, ' +
-	    'but always returned as string.'
+	    array: 'Array',
+	    auto: 'Auto',
+	    appendText: 'Append',
+	    appendTitle: 'Append a new field with type \'auto\' after this field (Ctrl+Shift+Ins)',
+	    appendSubmenuTitle: 'Select the type of the field to be appended',
+	    appendTitleAuto: 'Append a new field with type \'auto\' (Ctrl+Shift+Ins)',
+	    ascending: 'Ascending',
+	    ascendingTitle: 'Sort the childs of this ${type} in ascending order',
+	    actionsMenu: 'Click to open the actions menu (Ctrl+M)',
+	    collapseAll: 'Collapse all fields',
+	    descending: 'Descending',
+	    descendingTitle: 'Sort the childs of this ${type} in descending order',
+	    drag: 'Drag to move this field (Alt+Shift+Arrows)',
+	    duplicateKey: 'duplicate key',
+	    duplicateText: 'Duplicate',
+	    duplicateTitle: 'Duplicate selected fields (Ctrl+D)',
+	    duplicateField: 'Duplicate this field (Ctrl+D)',
+	    duplicateFieldError: 'Duplicate field name',
+	    cannotParseFieldError: 'Cannot parse field into JSON',
+	    cannotParseValueError: 'Cannot parse value into JSON',
+	    empty: 'empty',
+	    expandAll: 'Expand all fields',
+	    expandTitle: 'Click to expand/collapse this field (Ctrl+E). \n' +
+	      'Ctrl+Click to expand/collapse including all childs.',
+	    insert: 'Insert',
+	    insertTitle: 'Insert a new field with type \'auto\' before this field (Ctrl+Ins)',
+	    insertSub: 'Select the type of the field to be inserted',
+	    object: 'Object',
+	    ok: 'Ok',
+	    redo: 'Redo (Ctrl+Shift+Z)',
+	    removeText: 'Remove',
+	    removeTitle: 'Remove selected fields (Ctrl+Del)',
+	    removeField: 'Remove this field (Ctrl+Del)',
+	    selectNode: 'Select a node...',
+	    showAll: 'show all',
+	    showMore: 'show more',
+	    showMoreStatus: 'displaying ${visibleChilds} of ${totalChilds} items.',
+	    sort: 'Sort',
+	    sortTitle: 'Sort the childs of this ${type}',
+	    sortTitleShort: 'Sort contents',
+	    sortFieldLabel: 'Field:',
+	    sortDirectionLabel: 'Direction:',
+	    sortFieldTitle: 'Select the nested field by which to sort the array or object',
+	    sortAscending: 'Ascending',
+	    sortAscendingTitle: 'Sort the selected field in ascending order',
+	    sortDescending: 'Descending',
+	    sortDescendingTitle: 'Sort the selected field in descending order',
+	    string: 'String',
+	    transform: 'Transform',
+	    transformTitle: 'Filter, sort, or transform the childs of this ${type}',
+	    transformTitleShort: 'Filter, sort, or transform contents',
+	    transformQueryTitle: 'Enter a JMESPath query',
+	    transformWizardLabel: 'Wizard',
+	    transformWizardFilter: 'Filter',
+	    transformWizardSortBy: 'Sort by',
+	    transformWizardSelectFields: 'Select fields',
+	    transformQueryLabel: 'Query',
+	    transformPreviewLabel: 'Preview',
+	    type: 'Type',
+	    typeTitle: 'Change the type of this field',
+	    openUrl: 'Ctrl+Click or Ctrl+Enter to open url in new window',
+	    undo: 'Undo last action (Ctrl+Z)',
+	    validationCannotMove: 'Cannot move a field into a child of itself',
+	    autoType: 'Field type "auto". ' +
+	      'The field type is automatically determined from the value ' +
+	      'and can be a string, number, boolean, or null.',
+	    objectType: 'Field type "object". ' +
+	      'An object contains an unordered set of key/value pairs.',
+	    arrayType: 'Field type "array". ' +
+	      'An array contains an ordered collection of values.',
+	    stringType: 'Field type "string". ' +
+	      'Field type is not determined from the value, ' +
+	      'but always returned as string.',
+	    modeCodeText: 'Code',
+	    modeCodeTitle: 'Switch to code highlighter',
+	    modeFormText: 'Form',
+	    modeFormTitle: 'Switch to form editor',
+	    modeTextText: 'Text',
+	    modeTextTitle: 'Switch to plain text editor',
+	    modeTreeText: 'Tree',
+	    modeTreeTitle: 'Switch to tree editor',
+	    modeViewText: 'View',
+	    modeViewTitle: 'Switch to tree view',
+	    examples: 'Examples',
+	    default: 'Default',
+	  },
+	  'zh-CN': {
+	    array: '数组',
+	    auto: '自动',
+	    appendText: '追加',
+	    appendTitle: '在此字段后追加一个类型为“auto”的新字段 (Ctrl+Shift+Ins)',
+	    appendSubmenuTitle: '选择要追加的字段类型',
+	    appendTitleAuto: '追加类型为“auto”的新字段 (Ctrl+Shift+Ins)',
+	    ascending: '升序',
+	    ascendingTitle: '升序排列${type}的子节点',
+	    actionsMenu: '点击打开动作菜单(Ctrl+M)',
+	    collapseAll: '缩进所有字段',
+	    descending: '降序',
+	    descendingTitle: '降序排列${type}的子节点',
+	    drag: '拖拽移动该节点(Alt+Shift+Arrows)',
+	    duplicateKey: '重复键',
+	    duplicateText: '复制',
+	    duplicateTitle: '复制选中字段(Ctrl+D)',
+	    duplicateField: '复制该字段(Ctrl+D)',
+	    duplicateFieldError: '重复的字段名称',
+	    cannotParseFieldError: '无法将字段解析为JSON',
+	    cannotParseValueError: '无法将值解析为JSON',
+	    empty: '清空',
+	    expandAll: '展开所有字段',
+	    expandTitle: '点击 展开/收缩 该字段(Ctrl+E). \n' +
+	      'Ctrl+Click 展开/收缩 包含所有子节点.',
+	    insert: '插入',
+	    insertTitle: '在此字段前插入类型为“auto”的新字段 (Ctrl+Ins)',
+	    insertSub: '选择要插入的字段类型',
+	    object: '对象',
+	    ok: 'Ok',
+	    redo: '重做 (Ctrl+Shift+Z)',
+	    removeText: '移除',
+	    removeTitle: '移除选中字段 (Ctrl+Del)',
+	    removeField: '移除该字段 (Ctrl+Del)',
+	    selectNode: '选择一个节点...',
+	    showAll: '展示全部',
+	    showMore: '展示更多',
+	    showMoreStatus: '显示${totalChilds}的${visibleChilds}项目.',
+	    sort: '排序',
+	    sortTitle: '排序${type}的子节点',
+	    sortTitleShort: '内容排序',
+	    sortFieldLabel: '字段：',
+	    sortDirectionLabel: '方向：',
+	    sortFieldTitle: '选择用于对数组或对象排序的嵌套字段',
+	    sortAscending: '升序排序',
+	    sortAscendingTitle: '按照该字段升序排序',
+	    sortDescending: '降序排序',
+	    sortDescendingTitle: '按照该字段降序排序',
+	    string: '字符串',
+	    transform: '变换',
+	    transformTitle: '筛选，排序，或者转换${type}的子节点',
+	    transformTitleShort: '筛选，排序，或者转换内容',
+	    transformQueryTitle: '输入JMESPath查询',
+	    transformWizardLabel: '向导',
+	    transformWizardFilter: '筛选',
+	    transformWizardSortBy: '排序',
+	    transformWizardSelectFields: '选择字段',
+	    transformQueryLabel: '查询',
+	    transformPreviewLabel: '预览',
+	    type: '类型',
+	    typeTitle: '更改字段类型',
+	    openUrl: 'Ctrl+Click 或者 Ctrl+Enter 在新窗口打开链接',
+	    undo: '撤销上次动作 (Ctrl+Z)',
+	    validationCannotMove: '无法将字段移入其子节点',
+	    autoType: '字段类型 "auto". ' +
+	      '字段类型由值自动确定 ' +
+	      '可以为 string，number，boolean，或者 null.',
+	    objectType: '字段类型 "object". ' +
+	      '对象包含一组无序的键/值对.',
+	    arrayType: '字段类型 "array". ' +
+	      '数组包含值的有序集合.',
+	    stringType: '字段类型 "string". ' +
+	      '字段类型由值自动确定，' +
+	      '但始终作为字符串返回.',
+	    modeCodeText: '代码',
+	    modeCodeTitle: '切换至代码高亮',
+	    modeFormText: '表单',
+	    modeFormTitle: '切换至表单编辑',
+	    modeTextText: '文本',
+	    modeTextTitle: '切换至文本编辑',
+	    modeTreeText: '树',
+	    modeTreeTitle: '切换至树编辑',
+	    modeViewText: '视图',
+	    modeViewTitle: '切换至树视图',
+	    examples: '例子',
+	    default: '缺省',
 	  },
 	  'pt-BR': {
-	    'array': 'Lista',
-	    'auto': 'Automatico',
-	    'appendText': 'Adicionar',
-	    'appendTitle': 'Adicionar novo campo com tipo \'auto\' depois deste campo (Ctrl+Shift+Ins)',
-	    'appendSubmenuTitle': 'Selecione o tipo do campo a ser adicionado',
-	    'appendTitleAuto': 'Adicionar novo campo com tipo \'auto\' (Ctrl+Shift+Ins)',
-	    'ascending': 'Ascendente',
-	    'ascendingTitle': 'Organizar filhor do tipo ${type} em crescente',
-	    'actionsMenu': 'Clique para abrir o menu de ações (Ctrl+M)',
-	    'collapseAll': 'Fechar todos campos',
-	    'descending': 'Descendente',
-	    'descendingTitle': 'Organizar o filhos do tipo ${type} em decrescente',
-	    'duplicateKey': 'chave duplicada',
-	    'drag': 'Arraste para mover este campo (Alt+Shift+Arrows)',
-	    'duplicateText': 'Duplicar',
-	    'duplicateTitle': 'Duplicar campos selecionados (Ctrl+D)',
-	    'duplicateField': 'Duplicar este campo (Ctrl+D)',
-	    'empty': 'vazio',
-	    'expandAll': 'Expandir todos campos',
-	    'expandTitle': 'Clique para expandir/encolher este campo (Ctrl+E). \n' +
-	    'Ctrl+Click para expandir/encolher incluindo todos os filhos.',
-	    'insert': 'Inserir',
-	    'insertTitle': 'Inserir um novo campo do tipo \'auto\' antes deste campo (Ctrl+Ins)',
-	    'insertSub': 'Selecionar o tipo de campo a ser inserido',
-	    'object': 'Objeto',
-	    'ok': 'Ok',
-	    'redo': 'Refazer (Ctrl+Shift+Z)',
-	    'removeText': 'Remover',
-	    'removeTitle': 'Remover campos selecionados (Ctrl+Del)',
-	    'removeField': 'Remover este campo (Ctrl+Del)',
+	    array: 'Lista',
+	    auto: 'Automatico',
+	    appendText: 'Adicionar',
+	    appendTitle: 'Adicionar novo campo com tipo \'auto\' depois deste campo (Ctrl+Shift+Ins)',
+	    appendSubmenuTitle: 'Selecione o tipo do campo a ser adicionado',
+	    appendTitleAuto: 'Adicionar novo campo com tipo \'auto\' (Ctrl+Shift+Ins)',
+	    ascending: 'Ascendente',
+	    ascendingTitle: 'Organizar filhor do tipo ${type} em crescente',
+	    actionsMenu: 'Clique para abrir o menu de ações (Ctrl+M)',
+	    collapseAll: 'Fechar todos campos',
+	    descending: 'Descendente',
+	    descendingTitle: 'Organizar o filhos do tipo ${type} em decrescente',
+	    duplicateKey: 'chave duplicada',
+	    drag: 'Arraste para mover este campo (Alt+Shift+Arrows)',
+	    duplicateText: 'Duplicar',
+	    duplicateTitle: 'Duplicar campos selecionados (Ctrl+D)',
+	    duplicateField: 'Duplicar este campo (Ctrl+D)',
+	    duplicateFieldError: 'Nome do campo duplicado',
+	    cannotParseFieldError: 'Não é possível analisar o campo no JSON',
+	    cannotParseValueError: 'Não é possível analisar o valor em JSON',
+	    empty: 'vazio',
+	    expandAll: 'Expandir todos campos',
+	    expandTitle: 'Clique para expandir/encolher este campo (Ctrl+E). \n' +
+	      'Ctrl+Click para expandir/encolher incluindo todos os filhos.',
+	    insert: 'Inserir',
+	    insertTitle: 'Inserir um novo campo do tipo \'auto\' antes deste campo (Ctrl+Ins)',
+	    insertSub: 'Selecionar o tipo de campo a ser inserido',
+	    object: 'Objeto',
+	    ok: 'Ok',
+	    redo: 'Refazer (Ctrl+Shift+Z)',
+	    removeText: 'Remover',
+	    removeTitle: 'Remover campos selecionados (Ctrl+Del)',
+	    removeField: 'Remover este campo (Ctrl+Del)',
 	    // TODO: correctly translate
-	    'selectNode': 'Select a node...',
+	    selectNode: 'Select a node...',
 	    // TODO: correctly translate
-	    'showAll': 'mostre tudo',
+	    showAll: 'mostre tudo',
 	    // TODO: correctly translate
-	    'showMore': 'mostre mais',
+	    showMore: 'mostre mais',
 	    // TODO: correctly translate
-	    'showMoreStatus': 'exibindo ${visibleChilds} de ${totalChilds} itens.',
-	    'sort': 'Organizar',
-	    'sortTitle': 'Organizar os filhos deste ${type}',
+	    showMoreStatus: 'exibindo ${visibleChilds} de ${totalChilds} itens.',
+	    sort: 'Organizar',
+	    sortTitle: 'Organizar os filhos deste ${type}',
 	    // TODO: correctly translate
-	    'sortTitleShort': 'Organizar os filhos',
+	    sortTitleShort: 'Organizar os filhos',
 	    // TODO: correctly translate
-	    'sortFieldLabel': 'Field:',
+	    sortFieldLabel: 'Field:',
 	    // TODO: correctly translate
-	    'sortDirectionLabel': 'Direction:',
+	    sortDirectionLabel: 'Direction:',
 	    // TODO: correctly translate
-	    'sortFieldTitle': 'Select the nested field by which to sort the array or object',
+	    sortFieldTitle: 'Select the nested field by which to sort the array or object',
 	    // TODO: correctly translate
-	    'sortAscending': 'Ascending',
+	    sortAscending: 'Ascending',
 	    // TODO: correctly translate
-	    'sortAscendingTitle': 'Sort the selected field in ascending order',
+	    sortAscendingTitle: 'Sort the selected field in ascending order',
 	    // TODO: correctly translate
-	    'sortDescending': 'Descending',
+	    sortDescending: 'Descending',
 	    // TODO: correctly translate
-	    'sortDescendingTitle': 'Sort the selected field in descending order',
-	    'string': 'Texto',
+	    sortDescendingTitle: 'Sort the selected field in descending order',
+	    string: 'Texto',
 	    // TODO: correctly translate
-	    'transform': 'Transform',
+	    transform: 'Transform',
 	    // TODO: correctly translate
-	    'transformTitle': 'Filter, sort, or transform the childs of this ${type}',
+	    transformTitle: 'Filter, sort, or transform the childs of this ${type}',
 	    // TODO: correctly translate
-	    'transformTitleShort': 'Filter, sort, or transform contents',
+	    transformTitleShort: 'Filter, sort, or transform contents',
 	    // TODO: correctly translate
-	    'transformQueryTitle': 'Enter a JMESPath query',
+	    transformQueryTitle: 'Enter a JMESPath query',
 	    // TODO: correctly translate
-	    'transformWizardLabel': 'Wizard',
+	    transformWizardLabel: 'Wizard',
 	    // TODO: correctly translate
-	    'transformWizardFilter': 'Filter',
+	    transformWizardFilter: 'Filter',
 	    // TODO: correctly translate
-	    'transformWizardSortBy': 'Sort by',
+	    transformWizardSortBy: 'Sort by',
 	    // TODO: correctly translate
-	    'transformWizardSelectFields': 'Select fields',
+	    transformWizardSelectFields: 'Select fields',
 	    // TODO: correctly translate
-	    'transformQueryLabel': 'Query',
+	    transformQueryLabel: 'Query',
 	    // TODO: correctly translate
-	    'transformPreviewLabel': 'Preview',
-	    'type': 'Tipo',
-	    'typeTitle': 'Mudar o tipo deste campo',
-	    'openUrl': 'Ctrl+Click ou Ctrl+Enter para abrir link em nova janela',
-	    'undo': 'Desfazer último ação (Ctrl+Z)',
-	    'validationCannotMove': 'Não pode mover um campo como filho dele mesmo',
-	    'autoType': 'Campo do tipo "auto". ' +
-	    'O tipo do campo é determinao automaticamente a partir do seu valor ' +
-	    'e pode ser texto, número, verdade/falso ou nulo.',
-	    'objectType': 'Campo do tipo "objeto". ' +
-	    'Um objeto contém uma lista de pares com chave e valor.',
-	    'arrayType': 'Campo do tipo "lista". ' +
-	    'Uma lista contem uma coleção de valores ordenados.',
-	    'stringType': 'Campo do tipo "string". ' +
-	    'Campo do tipo nao é determinado através do seu valor, ' +
-	    'mas sempre retornara um texto.'
+	    transformPreviewLabel: 'Preview',
+	    type: 'Tipo',
+	    typeTitle: 'Mudar o tipo deste campo',
+	    openUrl: 'Ctrl+Click ou Ctrl+Enter para abrir link em nova janela',
+	    undo: 'Desfazer último ação (Ctrl+Z)',
+	    validationCannotMove: 'Não pode mover um campo como filho dele mesmo',
+	    autoType: 'Campo do tipo "auto". ' +
+	      'O tipo do campo é determinao automaticamente a partir do seu valor ' +
+	      'e pode ser texto, número, verdade/falso ou nulo.',
+	    objectType: 'Campo do tipo "objeto". ' +
+	      'Um objeto contém uma lista de pares com chave e valor.',
+	    arrayType: 'Campo do tipo "lista". ' +
+	      'Uma lista contem uma coleção de valores ordenados.',
+	    stringType: 'Campo do tipo "string". ' +
+	      'Campo do tipo nao é determinado através do seu valor, ' +
+	      'mas sempre retornara um texto.',
+	    examples: 'Exemplos',
+	    default: 'Revelia',
+	  },
+	  tr: {
+	    array: 'Dizin',
+	    auto: 'Otomatik',
+	    appendText: 'Ekle',
+	    appendTitle: 'Bu alanın altına \'otomatik\' tipinde yeni bir alan ekle (Ctrl+Shift+Ins)',
+	    appendSubmenuTitle: 'Eklenecek alanın tipini seç',
+	    appendTitleAuto: '\'Otomatik\' tipinde yeni bir alan ekle (Ctrl+Shift+Ins)',
+	    ascending: 'Artan',
+	    ascendingTitle: '${type}\'ın alt tiplerini artan düzende sırala',
+	    actionsMenu: 'Aksiyon menüsünü açmak için tıklayın (Ctrl+M)',
+	    collapseAll: 'Tüm alanları kapat',
+	    descending: 'Azalan',
+	    descendingTitle: '${type}\'ın alt tiplerini azalan düzende sırala',
+	    drag: 'Bu alanı taşımak için sürükleyin (Alt+Shift+Arrows)',
+	    duplicateKey: 'Var olan anahtar',
+	    duplicateText: 'Aşağıya kopyala',
+	    duplicateTitle: 'Seçili alanlardan bir daha oluştur (Ctrl+D)',
+	    duplicateField: 'Bu alandan bir daha oluştur (Ctrl+D)',
+	    duplicateFieldError: 'Duplicate field name',
+	    cannotParseFieldError: 'Alan JSON\'a ayrıştırılamıyor',
+	    cannotParseValueError: 'JSON\'a değer ayrıştırılamıyor',
+	    empty: 'boş',
+	    expandAll: 'Tüm alanları aç',
+	    expandTitle: 'Bu alanı açmak/kapatmak için tıkla (Ctrl+E). \n' +
+	      'Alt alanlarda dahil tüm alanları açmak için Ctrl+Click ',
+	    insert: 'Ekle',
+	    insertTitle: 'Bu alanın üstüne \'otomatik\' tipinde yeni bir alan ekle (Ctrl+Ins)',
+	    insertSub: 'Araya eklenecek alanın tipini seç',
+	    object: 'Nesne',
+	    ok: 'Tamam',
+	    redo: 'Yeniden yap (Ctrl+Shift+Z)',
+	    removeText: 'Kaldır',
+	    removeTitle: 'Seçilen alanları kaldır (Ctrl+Del)',
+	    removeField: 'Bu alanı kaldır (Ctrl+Del)',
+	    selectNode: 'Bir nesne seç...',
+	    showAll: 'tümünü göster',
+	    showMore: 'daha fazla göster',
+	    showMoreStatus: '${totalChilds} alanın ${visibleChilds} alt alanları gösteriliyor',
+	    sort: 'Sırala',
+	    sortTitle: '${type}\'ın alt alanlarını sırala',
+	    sortTitleShort: 'İçerikleri sırala',
+	    sortFieldLabel: 'Alan:',
+	    sortDirectionLabel: 'Yön:',
+	    sortFieldTitle: 'Diziyi veya nesneyi sıralamak için iç içe geçmiş alanı seçin',
+	    sortAscending: 'Artan',
+	    sortAscendingTitle: 'Seçili alanı artan düzende sırala',
+	    sortDescending: 'Azalan',
+	    sortDescendingTitle: 'Seçili alanı azalan düzende sırala',
+	    string: 'Karakter Dizisi',
+	    transform: 'Dönüştür',
+	    transformTitle: '${type}\'ın alt alanlarını filtrele, sırala veya dönüştür',
+	    transformTitleShort: 'İçerikleri filterele, sırala veya dönüştür',
+	    transformQueryTitle: 'JMESPath sorgusu gir',
+	    transformWizardLabel: 'Sihirbaz',
+	    transformWizardFilter: 'Filtre',
+	    transformWizardSortBy: 'Sırala',
+	    transformWizardSelectFields: 'Alanları seç',
+	    transformQueryLabel: 'Sorgu',
+	    transformPreviewLabel: 'Önizleme',
+	    type: 'Tip',
+	    typeTitle: 'Bu alanın tipini değiştir',
+	    openUrl: 'URL\'i yeni bir pencerede açmak için Ctrl+Click veya Ctrl+Enter',
+	    undo: 'Son değişikliği geri al (Ctrl+Z)',
+	    validationCannotMove: 'Alt alan olarak taşınamıyor',
+	    autoType: 'Alan tipi "otomatik". ' +
+	      'Alan türü otomatik olarak değerden belirlenir' +
+	      've bir dize, sayı, boolean veya null olabilir.',
+	    objectType: 'Alan tipi "nesne". ' +
+	      'Bir nesne, sıralanmamış bir anahtar / değer çifti kümesi içerir.',
+	    arrayType: 'Alan tipi "dizi". ' +
+	      'Bir dizi, düzenli değerler koleksiyonu içerir.',
+	    stringType: 'Alan tipi "karakter dizisi". ' +
+	      'Alan türü değerden belirlenmez,' +
+	      'ancak her zaman karakter dizisi olarak döndürülür.',
+	    modeCodeText: 'Kod',
+	    modeCodeTitle: 'Kod vurgulayıcıya geç',
+	    modeFormText: 'Form',
+	    modeFormTitle: 'Form düzenleyiciye geç',
+	    modeTextText: 'Metin',
+	    modeTextTitle: 'Düz metin düzenleyiciye geç',
+	    modeTreeText: 'Ağaç',
+	    modeTreeTitle: 'Ağaç düzenleyiciye geç',
+	    modeViewText: 'Görünüm',
+	    modeViewTitle: 'Ağaç görünümüne geç',
+	    examples: 'Örnekler',
+	    default: 'Varsayılan',
 	  }
 	};
 
 	var _defaultLang = 'en';
 	var _lang;
-	var userLang = typeof navigator !== 'undefined'
-	    ? navigator.language || navigator.userLanguage
-	    : undefined;
+	var userLang = typeof navigator !== 'undefined' ?
+	  navigator.language || navigator.userLanguage :
+	  undefined;
 	_lang = _locales.find(function (l) {
 	  return l === userLang;
 	});
@@ -6748,13 +6252,900 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 16 */
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * @constructor SearchBox
+	 * Create a search box in given HTML container
+	 * @param {JSONEditor} editor    The JSON Editor to attach to
+	 * @param {Element} container               HTML container element of where to
+	 *                                          create the search box
+	 */
+	function SearchBox (editor, container) {
+	  var searchBox = this;
+
+	  this.editor = editor;
+	  this.timeout = undefined;
+	  this.delay = 200; // ms
+	  this.lastText = undefined;
+
+	  this.dom = {};
+	  this.dom.container = container;
+
+	  var table = document.createElement('table');
+	  this.dom.table = table;
+	  table.className = 'jsoneditor-search';
+	  container.appendChild(table);
+	  var tbody = document.createElement('tbody');
+	  this.dom.tbody = tbody;
+	  table.appendChild(tbody);
+	  var tr = document.createElement('tr');
+	  tbody.appendChild(tr);
+
+	  var td = document.createElement('td');
+	  tr.appendChild(td);
+	  var results = document.createElement('div');
+	  this.dom.results = results;
+	  results.className = 'jsoneditor-results';
+	  td.appendChild(results);
+
+	  td = document.createElement('td');
+	  tr.appendChild(td);
+	  var divInput = document.createElement('div');
+	  this.dom.input = divInput;
+	  divInput.className = 'jsoneditor-frame';
+	  divInput.title = 'Search fields and values';
+	  td.appendChild(divInput);
+
+	  // table to contain the text input and search button
+	  var tableInput = document.createElement('table');
+	  divInput.appendChild(tableInput);
+	  var tbodySearch = document.createElement('tbody');
+	  tableInput.appendChild(tbodySearch);
+	  tr = document.createElement('tr');
+	  tbodySearch.appendChild(tr);
+
+	  var refreshSearch = document.createElement('button');
+	  refreshSearch.type = 'button';
+	  refreshSearch.className = 'jsoneditor-refresh';
+	  td = document.createElement('td');
+	  td.appendChild(refreshSearch);
+	  tr.appendChild(td);
+
+	  var search = document.createElement('input');
+	  // search.type = 'button';
+	  this.dom.search = search;
+	  search.oninput = function (event) {
+	    searchBox._onDelayedSearch(event);
+	  };
+	  search.onchange = function (event) { // For IE 9
+	    searchBox._onSearch();
+	  };
+	  search.onkeydown = function (event) {
+	    searchBox._onKeyDown(event);
+	  };
+	  search.onkeyup = function (event) {
+	    searchBox._onKeyUp(event);
+	  };
+	  refreshSearch.onclick = function (event) {
+	    search.select();
+	  };
+
+	  // TODO: ESC in FF restores the last input, is a FF bug, https://bugzilla.mozilla.org/show_bug.cgi?id=598819
+	  td = document.createElement('td');
+	  td.appendChild(search);
+	  tr.appendChild(td);
+
+	  var searchNext = document.createElement('button');
+	  searchNext.type = 'button';
+	  searchNext.title = 'Next result (Enter)';
+	  searchNext.className = 'jsoneditor-next';
+	  searchNext.onclick = function () {
+	    searchBox.next();
+	  };
+	  td = document.createElement('td');
+	  td.appendChild(searchNext);
+	  tr.appendChild(td);
+
+	  var searchPrevious = document.createElement('button');
+	  searchPrevious.type = 'button';
+	  searchPrevious.title = 'Previous result (Shift+Enter)';
+	  searchPrevious.className = 'jsoneditor-previous';
+	  searchPrevious.onclick = function () {
+	    searchBox.previous();
+	  };
+	  td = document.createElement('td');
+	  td.appendChild(searchPrevious);
+	  tr.appendChild(td);
+	}
+
+	/**
+	 * Go to the next search result
+	 * @param {boolean} [focus]   If true, focus will be set to the next result
+	 *                            focus is false by default.
+	 */
+	SearchBox.prototype.next = function(focus) {
+	  if (this.results != undefined) {
+	    var index = (this.resultIndex != undefined) ? this.resultIndex + 1 : 0;
+	    if (index > this.results.length - 1) {
+	      index = 0;
+	    }
+	    this._setActiveResult(index, focus);
+	  }
+	};
+
+	/**
+	 * Go to the prevous search result
+	 * @param {boolean} [focus]   If true, focus will be set to the next result
+	 *                            focus is false by default.
+	 */
+	SearchBox.prototype.previous = function(focus) {
+	  if (this.results != undefined) {
+	    var max = this.results.length - 1;
+	    var index = (this.resultIndex != undefined) ? this.resultIndex - 1 : max;
+	    if (index < 0) {
+	      index = max;
+	    }
+	    this._setActiveResult(index, focus);
+	  }
+	};
+
+	/**
+	 * Set new value for the current active result
+	 * @param {Number} index
+	 * @param {boolean} [focus]   If true, focus will be set to the next result.
+	 *                            focus is false by default.
+	 * @private
+	 */
+	SearchBox.prototype._setActiveResult = function(index, focus) {
+	  // de-activate current active result
+	  if (this.activeResult) {
+	    var prevNode = this.activeResult.node;
+	    var prevElem = this.activeResult.elem;
+	    if (prevElem == 'field') {
+	      delete prevNode.searchFieldActive;
+	    }
+	    else {
+	      delete prevNode.searchValueActive;
+	    }
+	    prevNode.updateDom();
+	  }
+
+	  if (!this.results || !this.results[index]) {
+	    // out of range, set to undefined
+	    this.resultIndex = undefined;
+	    this.activeResult = undefined;
+	    return;
+	  }
+
+	  this.resultIndex = index;
+
+	  // set new node active
+	  var node = this.results[this.resultIndex].node;
+	  var elem = this.results[this.resultIndex].elem;
+	  if (elem == 'field') {
+	    node.searchFieldActive = true;
+	  }
+	  else {
+	    node.searchValueActive = true;
+	  }
+	  this.activeResult = this.results[this.resultIndex];
+	  node.updateDom();
+
+	  // TODO: not so nice that the focus is only set after the animation is finished
+	  node.scrollTo(function () {
+	    if (focus) {
+	      node.focus(elem);
+	    }
+	  });
+	};
+
+	/**
+	 * Cancel any running onDelayedSearch.
+	 * @private
+	 */
+	SearchBox.prototype._clearDelay = function() {
+	  if (this.timeout != undefined) {
+	    clearTimeout(this.timeout);
+	    delete this.timeout;
+	  }
+	};
+
+	/**
+	 * Start a timer to execute a search after a short delay.
+	 * Used for reducing the number of searches while typing.
+	 * @param {Event} event
+	 * @private
+	 */
+	SearchBox.prototype._onDelayedSearch = function (event) {
+	  // execute the search after a short delay (reduces the number of
+	  // search actions while typing in the search text box)
+	  this._clearDelay();
+	  var searchBox = this;
+	  this.timeout = setTimeout(function (event) {
+	    searchBox._onSearch();
+	  },
+	  this.delay);
+	};
+
+	/**
+	 * Handle onSearch event
+	 * @param {boolean} [forceSearch]  If true, search will be executed again even
+	 *                                 when the search text is not changed.
+	 *                                 Default is false.
+	 * @private
+	 */
+	SearchBox.prototype._onSearch = function (forceSearch) {
+	  this._clearDelay();
+
+	  var value = this.dom.search.value;
+	  var text = (value.length > 0) ? value : undefined;
+	  if (text !== this.lastText || forceSearch) {
+	    // only search again when changed
+	    this.lastText = text;
+	    this.results = this.editor.search(text);
+	    var MAX_SEARCH_RESULTS = this.results[0]
+	        ? this.results[0].node.MAX_SEARCH_RESULTS
+	        : Infinity;
+
+	    // try to maintain the current active result if this is still part of the new search results
+	    var activeResultIndex = 0;
+	    if (this.activeResult) {
+	      for (var i = 0; i < this.results.length; i++) {
+	        if (this.results[i].node === this.activeResult.node) {
+	          activeResultIndex = i;
+	          break;
+	        }
+	      }
+	    }
+
+	    this._setActiveResult(activeResultIndex, false);
+
+	    // display search results
+	    if (text !== undefined) {
+	      var resultCount = this.results.length;
+	      if (resultCount === 0) {
+	        this.dom.results.innerHTML = 'no&nbsp;results';
+	      }
+	      else if (resultCount === 1) {
+	        this.dom.results.innerHTML = '1&nbsp;result';
+	      }
+	      else if (resultCount > MAX_SEARCH_RESULTS) {
+	        this.dom.results.innerHTML = MAX_SEARCH_RESULTS + '+&nbsp;results';
+	      }
+	      else {
+	        this.dom.results.innerHTML = resultCount + '&nbsp;results';
+	      }
+	    }
+	    else {
+	      this.dom.results.innerHTML = '';
+	    }
+	  }
+	};
+
+	/**
+	 * Handle onKeyDown event in the input box
+	 * @param {Event} event
+	 * @private
+	 */
+	SearchBox.prototype._onKeyDown = function (event) {
+	  var keynum = event.which;
+	  if (keynum == 27) { // ESC
+	    this.dom.search.value = '';  // clear search
+	    this._onSearch();
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+	  else if (keynum == 13) { // Enter
+	    if (event.ctrlKey) {
+	      // force to search again
+	      this._onSearch(true);
+	    }
+	    else if (event.shiftKey) {
+	      // move to the previous search result
+	      this.previous();
+	    }
+	    else {
+	      // move to the next search result
+	      this.next();
+	    }
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+	};
+
+	/**
+	 * Handle onKeyUp event in the input box
+	 * @param {Event} event
+	 * @private
+	 */
+	SearchBox.prototype._onKeyUp = function (event) {
+	  var keynum = event.keyCode;
+	  if (keynum != 27 && keynum != 13) { // !show and !Enter
+	    this._onDelayedSearch(event);   // For IE 9
+	  }
+	};
+
+	/**
+	 * Clear the search results
+	 */
+	SearchBox.prototype.clear = function () {
+	  this.dom.search.value = '';
+	  this._onSearch();
+	};
+
+	/**
+	 * Refresh searchResults if there is a search value
+	 */
+	SearchBox.prototype.forceSearch = function () {
+	  this._onSearch(true);
+	};
+
+	/**
+	 * Test whether the search box value is empty
+	 * @returns {boolean} Returns true when empty.
+	 */
+	SearchBox.prototype.isEmpty = function () {
+	  return this.dom.search.value === '';
+	};
+
+	/**
+	 * Destroy the search box
+	 */
+	SearchBox.prototype.destroy = function () {
+	  this.editor = null;
+	  this.dom.container.removeChild(this.dom.table);
+	  this.dom = null;
+
+	  this.results = null;
+	  this.activeResult = null;
+
+	  this._clearDelay();
+
+	};
+
+	module.exports = SearchBox;
+
+
+/***/ },
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ContextMenu = __webpack_require__(10);
-	var translate = __webpack_require__(15).translate;
+	var createAbsoluteAnchor = __webpack_require__(16).createAbsoluteAnchor;
+	var util = __webpack_require__(9);
+	var translate = __webpack_require__(13).translate;
+
+	/**
+	 * A context menu
+	 * @param {Object[]} items    Array containing the menu structure
+	 *                            TODO: describe structure
+	 * @param {Object} [options]  Object with options. Available options:
+	 *                            {function} close    Callback called when the
+	 *                                                context menu is being closed.
+	 * @constructor
+	 */
+	function ContextMenu (items, options) {
+	  this.dom = {};
+
+	  var me = this;
+	  var dom = this.dom;
+	  this.anchor = undefined;
+	  this.items = items;
+	  this.eventListeners = {};
+	  this.selection = undefined; // holds the selection before the menu was opened
+	  this.onClose = options ? options.close : undefined;
+
+	  // create root element
+	  var root = document.createElement('div');
+	  root.className = 'jsoneditor-contextmenu-root';
+	  dom.root = root;
+
+	  // create a container element
+	  var menu = document.createElement('div');
+	  menu.className = 'jsoneditor-contextmenu';
+	  dom.menu = menu;
+	  root.appendChild(menu);
+
+	  // create a list to hold the menu items
+	  var list = document.createElement('ul');
+	  list.className = 'jsoneditor-menu';
+	  menu.appendChild(list);
+	  dom.list = list;
+	  dom.items = []; // list with all buttons
+
+	  // create a (non-visible) button to set the focus to the menu
+	  var focusButton = document.createElement('button');
+	  focusButton.type = 'button';
+	  dom.focusButton = focusButton;
+	  var li = document.createElement('li');
+	  li.style.overflow = 'hidden';
+	  li.style.height = '0';
+	  li.appendChild(focusButton);
+	  list.appendChild(li);
+
+	  function createMenuItems (list, domItems, items) {
+	    items.forEach(function (item) {
+	      if (item.type == 'separator') {
+	        // create a separator
+	        var separator = document.createElement('div');
+	        separator.className = 'jsoneditor-separator';
+	        li = document.createElement('li');
+	        li.appendChild(separator);
+	        list.appendChild(li);
+	      }
+	      else {
+	        var domItem = {};
+
+	        // create a menu item
+	        var li = document.createElement('li');
+	        list.appendChild(li);
+
+	        // create a button in the menu item
+	        var button = document.createElement('button');
+	        button.type = 'button';
+	        button.className = item.className;
+	        domItem.button = button;
+	        if (item.title) {
+	          button.title = item.title;
+	        }
+	        if (item.click) {
+	          button.onclick = function (event) {
+	            event.preventDefault();
+	            me.hide();
+	            item.click();
+	          };
+	        }
+	        li.appendChild(button);
+
+	        // create the contents of the button
+	        if (item.submenu) {
+	          // add the icon to the button
+	          var divIcon = document.createElement('div');
+	          divIcon.className = 'jsoneditor-icon';
+	          button.appendChild(divIcon);
+	          var divText = document.createElement('div');
+	          divText.className = 'jsoneditor-text' +
+	              (item.click ? '' : ' jsoneditor-right-margin');
+	          divText.appendChild(document.createTextNode(item.text));
+	          button.appendChild(divText);
+
+	          var buttonSubmenu;
+	          if (item.click) {
+	            // submenu and a button with a click handler
+	            button.className += ' jsoneditor-default';
+
+	            var buttonExpand = document.createElement('button');
+	            buttonExpand.type = 'button';
+	            domItem.buttonExpand = buttonExpand;
+	            buttonExpand.className = 'jsoneditor-expand';
+	            buttonExpand.innerHTML = '<div class="jsoneditor-expand"></div>';
+	            li.appendChild(buttonExpand);
+	            if (item.submenuTitle) {
+	              buttonExpand.title = item.submenuTitle;
+	            }
+
+	            buttonSubmenu = buttonExpand;
+	          }
+	          else {
+	            // submenu and a button without a click handler
+	            var divExpand = document.createElement('div');
+	            divExpand.className = 'jsoneditor-expand';
+	            button.appendChild(divExpand);
+
+	            buttonSubmenu = button;
+	          }
+
+	          // attach a handler to expand/collapse the submenu
+	          buttonSubmenu.onclick = function (event) {
+	            event.preventDefault();
+	            me._onExpandItem(domItem);
+	            buttonSubmenu.focus();
+	          };
+
+	          // create the submenu
+	          var domSubItems = [];
+	          domItem.subItems = domSubItems;
+	          var ul = document.createElement('ul');
+	          domItem.ul = ul;
+	          ul.className = 'jsoneditor-menu';
+	          ul.style.height = '0';
+	          li.appendChild(ul);
+	          createMenuItems(ul, domSubItems, item.submenu);
+	        }
+	        else {
+	          // no submenu, just a button with clickhandler
+	          button.innerHTML = '<div class="jsoneditor-icon"></div>' +
+	              '<div class="jsoneditor-text">' + translate(item.text) + '</div>';
+	        }
+
+	        domItems.push(domItem);
+	      }
+	    });
+	  }
+	  createMenuItems(list, this.dom.items, items);
+
+	  // TODO: when the editor is small, show the submenu on the right instead of inline?
+
+	  // calculate the max height of the menu with one submenu expanded
+	  this.maxHeight = 0; // height in pixels
+	  items.forEach(function (item) {
+	    var height = (items.length + (item.submenu ? item.submenu.length : 0)) * 24;
+	    me.maxHeight = Math.max(me.maxHeight, height);
+	  });
+	}
+
+	/**
+	 * Get the currently visible buttons
+	 * @return {Array.<HTMLElement>} buttons
+	 * @private
+	 */
+	ContextMenu.prototype._getVisibleButtons = function () {
+	  var buttons = [];
+	  var me = this;
+	  this.dom.items.forEach(function (item) {
+	    buttons.push(item.button);
+	    if (item.buttonExpand) {
+	      buttons.push(item.buttonExpand);
+	    }
+	    if (item.subItems && item == me.expandedItem) {
+	      item.subItems.forEach(function (subItem) {
+	        buttons.push(subItem.button);
+	        if (subItem.buttonExpand) {
+	          buttons.push(subItem.buttonExpand);
+	        }
+	        // TODO: change to fully recursive method
+	      });
+	    }
+	  });
+
+	  return buttons;
+	};
+
+	// currently displayed context menu, a singleton. We may only have one visible context menu
+	ContextMenu.visibleMenu = undefined;
+
+	/**
+	 * Attach the menu to an anchor
+	 * @param {HTMLElement} anchor    Anchor where the menu will be attached as sibling.
+	 * @param {HTMLElement} frame     The root of the JSONEditor window
+	 * @param {Boolean=} ignoreParent ignore anchor parent in regard to the calculation of the position, needed when the parent position is absolute
+	 */
+	ContextMenu.prototype.show = function (anchor, frame, ignoreParent) {
+	  this.hide();
+
+	  // determine whether to display the menu below or above the anchor
+	  var showBelow = true;
+	  var parent = anchor.parentNode;
+	  var anchorRect = anchor.getBoundingClientRect();
+	  var parentRect = parent.getBoundingClientRect();
+	  var frameRect = frame.getBoundingClientRect();
+
+	  var me = this;
+	  this.dom.absoluteAnchor = createAbsoluteAnchor(anchor, frame, function () {
+	    me.hide()
+	  });
+
+	  if (anchorRect.bottom + this.maxHeight < frameRect.bottom) {
+	    // fits below -> show below
+	  }
+	  else if (anchorRect.top - this.maxHeight > frameRect.top) {
+	    // fits above -> show above
+	    showBelow = false;
+	  }
+	  else {
+	    // doesn't fit above nor below -> show below
+	  }
+
+	  var topGap = ignoreParent ? 0 : (anchorRect.top - parentRect.top);
+
+	  // position the menu
+	  if (showBelow) {
+	    // display the menu below the anchor
+	    var anchorHeight = anchor.offsetHeight;
+	    this.dom.menu.style.left = '0';
+	    this.dom.menu.style.top = topGap + anchorHeight + 'px';
+	    this.dom.menu.style.bottom = '';
+	  }
+	  else {
+	    // display the menu above the anchor
+	    this.dom.menu.style.left = '0';
+	    this.dom.menu.style.top = '';
+	    this.dom.menu.style.bottom = '0px';
+	  }
+
+	  // attach the menu to the temporary, absolute anchor
+	  // parent.insertBefore(this.dom.root, anchor);
+	  this.dom.absoluteAnchor.appendChild(this.dom.root);
+
+	  // move focus to the first button in the context menu
+	  this.selection = util.getSelection();
+	  this.anchor = anchor;
+	  setTimeout(function () {
+	    me.dom.focusButton.focus();
+	  }, 0);
+
+	  if (ContextMenu.visibleMenu) {
+	    ContextMenu.visibleMenu.hide();
+	  }
+	  ContextMenu.visibleMenu = this;
+	};
+
+	/**
+	 * Hide the context menu if visible
+	 */
+	ContextMenu.prototype.hide = function () {
+	  // remove temporary absolutely positioned anchor
+	  if (this.dom.absoluteAnchor) {
+	    this.dom.absoluteAnchor.destroy();
+	    delete this.dom.absoluteAnchor;
+	  }
+
+	  // remove the menu from the DOM
+	  if (this.dom.root.parentNode) {
+	    this.dom.root.parentNode.removeChild(this.dom.root);
+	    if (this.onClose) {
+	      this.onClose();
+	    }
+	  }
+
+	  if (ContextMenu.visibleMenu == this) {
+	    ContextMenu.visibleMenu = undefined;
+	  }
+	};
+
+	/**
+	 * Expand a submenu
+	 * Any currently expanded submenu will be hided.
+	 * @param {Object} domItem
+	 * @private
+	 */
+	ContextMenu.prototype._onExpandItem = function (domItem) {
+	  var me = this;
+	  var alreadyVisible = (domItem == this.expandedItem);
+
+	  // hide the currently visible submenu
+	  var expandedItem = this.expandedItem;
+	  if (expandedItem) {
+	    //var ul = expandedItem.ul;
+	    expandedItem.ul.style.height = '0';
+	    expandedItem.ul.style.padding = '';
+	    setTimeout(function () {
+	      if (me.expandedItem != expandedItem) {
+	        expandedItem.ul.style.display = '';
+	        util.removeClassName(expandedItem.ul.parentNode, 'jsoneditor-selected');
+	      }
+	    }, 300); // timeout duration must match the css transition duration
+	    this.expandedItem = undefined;
+	  }
+
+	  if (!alreadyVisible) {
+	    var ul = domItem.ul;
+	    ul.style.display = 'block';
+	    var height = ul.clientHeight; // force a reflow in Firefox
+	    setTimeout(function () {
+	      if (me.expandedItem == domItem) {
+	        var childsHeight = 0;
+	        for (var i = 0; i < ul.childNodes.length; i++) {
+	          childsHeight += ul.childNodes[i].clientHeight;
+	        }
+	        ul.style.height = childsHeight + 'px';
+	        ul.style.padding = '5px 10px';
+	      }
+	    }, 0);
+	    util.addClassName(ul.parentNode, 'jsoneditor-selected');
+	    this.expandedItem = domItem;
+	  }
+	};
+
+	/**
+	 * Handle onkeydown event
+	 * @param {Event} event
+	 * @private
+	 */
+	ContextMenu.prototype._onKeyDown = function (event) {
+	  var target = event.target;
+	  var keynum = event.which;
+	  var handled = false;
+	  var buttons, targetIndex, prevButton, nextButton;
+
+	  if (keynum == 27) { // ESC
+	    // hide the menu on ESC key
+
+	    // restore previous selection and focus
+	    if (this.selection) {
+	      util.setSelection(this.selection);
+	    }
+	    if (this.anchor) {
+	      this.anchor.focus();
+	    }
+
+	    this.hide();
+
+	    handled = true;
+	  }
+	  else if (keynum == 9) { // Tab
+	    if (!event.shiftKey) { // Tab
+	      buttons = this._getVisibleButtons();
+	      targetIndex = buttons.indexOf(target);
+	      if (targetIndex == buttons.length - 1) {
+	        // move to first button
+	        buttons[0].focus();
+	        handled = true;
+	      }
+	    }
+	    else { // Shift+Tab
+	      buttons = this._getVisibleButtons();
+	      targetIndex = buttons.indexOf(target);
+	      if (targetIndex == 0) {
+	        // move to last button
+	        buttons[buttons.length - 1].focus();
+	        handled = true;
+	      }
+	    }
+	  }
+	  else if (keynum == 37) { // Arrow Left
+	    if (target.className == 'jsoneditor-expand') {
+	      buttons = this._getVisibleButtons();
+	      targetIndex = buttons.indexOf(target);
+	      prevButton = buttons[targetIndex - 1];
+	      if (prevButton) {
+	        prevButton.focus();
+	      }
+	    }
+	    handled = true;
+	  }
+	  else if (keynum == 38) { // Arrow Up
+	    buttons = this._getVisibleButtons();
+	    targetIndex = buttons.indexOf(target);
+	    prevButton = buttons[targetIndex - 1];
+	    if (prevButton && prevButton.className == 'jsoneditor-expand') {
+	      // skip expand button
+	      prevButton = buttons[targetIndex - 2];
+	    }
+	    if (!prevButton) {
+	      // move to last button
+	      prevButton = buttons[buttons.length - 1];
+	    }
+	    if (prevButton) {
+	      prevButton.focus();
+	    }
+	    handled = true;
+	  }
+	  else if (keynum == 39) { // Arrow Right
+	    buttons = this._getVisibleButtons();
+	    targetIndex = buttons.indexOf(target);
+	    nextButton = buttons[targetIndex + 1];
+	    if (nextButton && nextButton.className == 'jsoneditor-expand') {
+	      nextButton.focus();
+	    }
+	    handled = true;
+	  }
+	  else if (keynum == 40) { // Arrow Down
+	    buttons = this._getVisibleButtons();
+	    targetIndex = buttons.indexOf(target);
+	    nextButton = buttons[targetIndex + 1];
+	    if (nextButton && nextButton.className == 'jsoneditor-expand') {
+	      // skip expand button
+	      nextButton = buttons[targetIndex + 2];
+	    }
+	    if (!nextButton) {
+	      // move to first button
+	      nextButton = buttons[0];
+	    }
+	    if (nextButton) {
+	      nextButton.focus();
+	      handled = true;
+	    }
+	    handled = true;
+	  }
+	  // TODO: arrow left and right
+
+	  if (handled) {
+	    event.stopPropagation();
+	    event.preventDefault();
+	  }
+	};
+
+	module.exports = ContextMenu;
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var util = __webpack_require__(9);
+
+	/**
+	 * Create an anchor element absolutely positioned in the `parent`
+	 * element.
+	 * @param {HTMLElement} anchor
+	 * @param {HTMLElement} parent
+	 * @param [onDestroy(function(anchor)]  Callback when the anchor is destroyed
+	 * @returns {HTMLElement}
+	 */
+	exports.createAbsoluteAnchor = function (anchor, parent, onDestroy) {
+	  var root = getRootNode(anchor);
+	  var eventListeners = {};
+
+	  var anchorRect = anchor.getBoundingClientRect();
+	  var frameRect = parent.getBoundingClientRect();
+
+	  var absoluteAnchor = document.createElement('div');
+	  absoluteAnchor.className = 'jsoneditor-anchor';
+	  absoluteAnchor.style.position = 'absolute';
+	  absoluteAnchor.style.left = (anchorRect.left - frameRect.left) + 'px';
+	  absoluteAnchor.style.top = (anchorRect.top - frameRect.top) + 'px';
+	  absoluteAnchor.style.width = (anchorRect.width - 2) + 'px';
+	  absoluteAnchor.style.height = (anchorRect.height - 2) + 'px';
+	  absoluteAnchor.style.boxSizing = 'border-box';
+	  parent.appendChild(absoluteAnchor);
+
+	  function destroy () {
+	    // remove temporary absolutely positioned anchor
+	    if (absoluteAnchor && absoluteAnchor.parentNode) {
+	      absoluteAnchor.parentNode.removeChild(absoluteAnchor);
+
+	      // remove all event listeners
+	      // all event listeners are supposed to be attached to document.
+	      for (var name in eventListeners) {
+	        if (eventListeners.hasOwnProperty(name)) {
+	          var fn = eventListeners[name];
+	          if (fn) {
+	            util.removeEventListener(root, name, fn);
+	          }
+	          delete eventListeners[name];
+	        }
+	      }
+
+	      if (typeof onDestroy === 'function') {
+	        onDestroy(anchor);
+	      }
+	    }
+	  }
+
+	  // create and attach event listeners
+	  var destroyIfOutside = function (event) {
+	    var target = event.target;
+	    if ((target !== absoluteAnchor) && !util.isChildOf(target, absoluteAnchor)) {
+	      destroy();
+	    }
+	  }
+
+	  eventListeners.mousedown = util.addEventListener(root, 'mousedown', destroyIfOutside);
+	  eventListeners.mousewheel = util.addEventListener(root, 'mousewheel', destroyIfOutside);
+	  // eventListeners.scroll = util.addEventListener(root, 'scroll', destroyIfOutside);
+
+	  absoluteAnchor.destroy = destroy;
+
+	  return absoluteAnchor
+	}
+
+	/**
+	 * Node.getRootNode shim
+	 * @param  {HTMLElement} node node to check
+	 * @return {HTMLElement}      node's rootNode or `window` if there is ShadowDOM is not supported.
+	 */
+	function getRootNode(node){
+	  return (typeof node.getRootNode === 'function')
+	      ? node.getRootNode()
+	      : window;
+	}
+
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var ContextMenu = __webpack_require__(15);
+	var translate = __webpack_require__(13).translate;
+	var util = __webpack_require__(9);
 
 	/**
 	 * Creates a component that visualize path selection in tree based editors
@@ -6767,6 +7158,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.root = root;
 	    this.path = document.createElement('div');
 	    this.path.className = 'jsoneditor-treepath';
+	    this.path.setAttribute('tabindex',0);
+	    this.contentMenuClicked;
 	    container.appendChild(this.path);
 	    this.reset();
 	  }
@@ -6805,6 +7198,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        sepEl.innerHTML = '&#9658;';
 
 	        sepEl.onclick = function () {
+	          me.contentMenuClicked = true;
 	          var items = [];
 	          pathObj.children.forEach(function (child) {
 	            items.push({
@@ -6814,19 +7208,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	            });
 	          });
 	          var menu = new ContextMenu(items);
-	          menu.show(sepEl, me.root);
+	          menu.show(sepEl, me.root, true);
 	        };
 
 	        me.path.appendChild(sepEl);
 	      }
 
 	      if(idx === pathObjs.length - 1) {
-	        var leftRectPos = (sepEl || pathEl).getBoundingClientRect().left;
+	        var leftRectPos = (sepEl || pathEl).getBoundingClientRect().right;
 	        if(me.path.offsetWidth < leftRectPos) {
 	          me.path.scrollLeft = leftRectPos;
 	        }
+
+	        if (me.path.scrollLeft) {
+	          var showAllBtn = document.createElement('span');
+	          showAllBtn.className = 'jsoneditor-treepath-show-all-btn';
+	          showAllBtn.title = 'show all path';
+	          showAllBtn.innerHTML = '...';
+	          showAllBtn.onclick = _onShowAllClick.bind(me, pathObjs);
+	          me.path.insertBefore(showAllBtn, me.path.firstChild);
+	        }
 	      }
 	    });
+	  }
+
+	  function _onShowAllClick(pathObjs) {
+	    me.contentMenuClicked = false;
+	    util.addClassName(me.path, 'show-all');
+	    me.path.style.width = me.path.parentNode.getBoundingClientRect().width - 10 + 'px';
+	    me.path.onblur = function() {
+	      if (me.contentMenuClicked) {
+	        me.contentMenuClicked = false;
+	        me.path.focus();
+	        return;
+	      }
+	      util.removeClassName(me.path, 'show-all');
+	      me.path.onblur = undefined;
+	      me.path.style.width = '';
+	      me.setPath(pathObjs);
+	    };
 	  }
 
 	  function _onSegmentClick(pathObj) {
@@ -6865,21 +7285,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TreePath;
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var jmespath = __webpack_require__(18);
-	var naturalSort = __webpack_require__(19);
-	var createAbsoluteAnchor = __webpack_require__(11).createAbsoluteAnchor;
-	var ContextMenu = __webpack_require__(10);
-	var appendNodeFactory = __webpack_require__(20);
-	var showMoreNodeFactory = __webpack_require__(21);
-	var showSortModal = __webpack_require__(22);
-	var showTransformModal = __webpack_require__(24);
-	var util = __webpack_require__(12);
-	var translate = __webpack_require__(15).translate;
+	var jmespath = __webpack_require__(19);
+	var naturalSort = __webpack_require__(20);
+	var createAbsoluteAnchor = __webpack_require__(16).createAbsoluteAnchor;
+	var ContextMenu = __webpack_require__(15);
+	var appendNodeFactory = __webpack_require__(21);
+	var showMoreNodeFactory = __webpack_require__(22);
+	var showSortModal = __webpack_require__(23);
+	var showTransformModal = __webpack_require__(25);
+	var util = __webpack_require__(9);
+	var translate = __webpack_require__(13).translate;
 
 	var DEFAULT_MODAL_ANCHOR = document.body; // TODO: this constant is defined twice
 
@@ -6918,6 +7338,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  this._debouncedOnChangeValue = util.debounce(this._onChangeValue.bind(this), Node.prototype.DEBOUNCE_INTERVAL);
 	  this._debouncedOnChangeField = util.debounce(this._onChangeField.bind(this), Node.prototype.DEBOUNCE_INTERVAL);
+
+	  // starting value for visible children
+	  this.visibleChilds = this.getMaxVisibleChilds();
 	}
 
 	// debounce interval for keyboard input in milliseconds
@@ -6926,11 +7349,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	// search will stop iterating as soon as the max is reached
 	Node.prototype.MAX_SEARCH_RESULTS = 999;
 
-	// number of visible childs rendered initially in large arrays/objects (with a "show more" button to show more)
-	Node.prototype.MAX_VISIBLE_CHILDS = 100;
+	// default number of child nodes to display 
+	var DEFAULT_MAX_VISIBLE_CHILDS = 100;
 
-	// default value for the max visible childs of large arrays
-	Node.prototype.visibleChilds = Node.prototype.MAX_VISIBLE_CHILDS;
+	Node.prototype.getMaxVisibleChilds = function() {
+	  return (this.editor && this.editor.options && this.editor.options.maxVisibleChilds)
+	      ? this.editor.options.maxVisibleChilds
+	      : DEFAULT_MAX_VISIBLE_CHILDS;
+	}
 
 	/**
 	 * Determine whether the field and/or value of this node are editable
@@ -7132,7 +7558,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Render the error
 	 */
 	Node.prototype.updateError = function() {
-	  var error = this.error;
+	  var error = this.fieldError || this.valueError || this.error;
 	  var tdError = this.dom.tdError;
 	  if (error && this.dom && this.dom.tr) {
 	    util.addClassName(this.dom.tr, 'jsoneditor-validation-error');
@@ -7192,7 +7618,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    tdError.appendChild(button);
 	  }
 	  else {
-	    util.removeClassName(this.dom.tr, 'jsoneditor-validation-error');
+	    if (this.dom.tr) {
+	      util.removeClassName(this.dom.tr, 'jsoneditor-validation-error');
+	    }
 
 	    if (tdError) {
 	      this.dom.tdError.parentNode.removeChild(this.dom.tdError);
@@ -7295,7 +7723,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          child = new Node(this.editor, {
 	            value: childValue
 	          });
-	          visible = i < this.MAX_VISIBLE_CHILDS;
+	          visible = i < this.getMaxVisibleChilds();
 	          this.appendChild(child, visible, notUpdateDom);
 	        }
 	      }
@@ -7339,7 +7767,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              field: childField,
 	              value: childValue
 	            });
-	            visible = i < this.MAX_VISIBLE_CHILDS;
+	            visible = i < this.getMaxVisibleChilds();
 	            this.appendChild(child, visible, notUpdateDom);
 	          }
 	        }
@@ -7412,7 +7840,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          child = new Node(this.editor, {
 	            internalValue: childValue
 	          });
-	          visible = i < this.MAX_VISIBLE_CHILDS;
+	          visible = i < this.getMaxVisibleChilds();
 	          this.appendChild(child, visible, notUpdateDom);
 	        }
 	      }
@@ -7447,7 +7875,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            field: childValue.field,
 	            internalValue: childValue.value
 	          });
-	          visible = i < this.MAX_VISIBLE_CHILDS;
+	          visible = i < this.getMaxVisibleChilds();
 	          this.appendChild(child, visible, notUpdateDom);
 	        }
 	      }
@@ -7773,10 +8201,33 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // reset max visible childs
 	  if (!options || options.resetVisibleChilds) {
-	    delete this.visibleChilds;
+	    this.visibleChilds = this.getMaxVisibleChilds();
 	  }
 	};
 
+	/**
+	 * set custom css classes on a node
+	 */
+	Node.prototype._updateCssClassName = function () {
+	  if(this.dom.field
+	    && this.editor
+	    && this.editor.options
+	    && typeof this.editor.options.onClassName ==='function'
+	    && this.dom.tree){
+	      util.removeAllClassNames(this.dom.tree);
+	      var addClasses = this.editor.options.onClassName({ path: this.getPath(), field: this.field, value: this.value }) || "";
+	      util.addClassName(this.dom.tree, "jsoneditor-values " + addClasses);
+	  }
+	};
+
+	Node.prototype.recursivelyUpdateCssClassesOnNodes = function () {
+	  this._updateCssClassName();
+	  if (Array.isArray(this.childs)) {
+	    for (var i = 0; i < this.childs.length; i++) {
+	      this.childs[i].recursivelyUpdateCssClassesOnNodes();
+	    }
+	  }
+	}
 
 	/**
 	 * Goes through the path from the node to the root and ensures that it is expanded
@@ -8043,7 +8494,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        ? node.index
 	        : node.parent.childs.indexOf(node);
 	    while (node.parent.visibleChilds < index + 1) {
-	      node.parent.visibleChilds += Node.prototype.MAX_VISIBLE_CHILDS;
+	      node.parent.visibleChilds += this.getMaxVisibleChilds();
 	    }
 
 	    // expand the parent itself
@@ -8149,15 +8600,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  setTimeout(function () {
 	    util.selectContentEditable(editableDiv);
 	  }, 0);
-	};
-
-	/**
-	 * Update the values from the DOM field and value of this node
-	 */
-	Node.prototype.blur = function() {
-	  // retrieve the actual field and value from the DOM.
-	  this._getDomValue(false);
-	  this._getDomField(false);
 	};
 
 	/**
@@ -8380,11 +8822,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Retrieve value from DOM
-	 * @param {boolean} [silent]  If true (default), no errors will be thrown in
-	 *                            case of invalid data
 	 * @private
 	 */
-	Node.prototype._getDomValue = function(silent) {
+	Node.prototype._getDomValue = function() {
+	  this._clearValueError();
+
 	  if (this.dom.value && this.type != 'array' && this.type != 'object') {
 	    this.valueInnerText = util.getInnerText(this.dom.value);
 	  }
@@ -8406,14 +8848,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	    catch (err) {
-	      this.value = undefined;
-	      // TODO: sent an action with the new, invalid value?
-	      if (silent !== true) {
-	        throw err;
-	      }
+	      // keep the previous value
+	      this._setValueError(translate('cannotParseValueError'));
 	    }
 	  }
 	};
+
+	/**
+	 * Show a local error in case of invalid value
+	 * @param {string} message
+	 * @private
+	 */
+	Node.prototype._setValueError = function (message) {
+	  this.valueError = {
+	    message: message
+	  };
+	  this.updateError();
+	}
+
+	Node.prototype._clearValueError = function () {
+	  if (this.valueError) {
+	    this.valueError = null;
+	    this.updateError();
+	  }
+	}
+
+	/**
+	 * Show a local error in case of invalid or duplicate field
+	 * @param {string} message
+	 * @private
+	 */
+	Node.prototype._setFieldError = function (message) {
+	  this.fieldError = {
+	    message: message
+	  };
+	  this.updateError();
+	}
+
+	Node.prototype._clearFieldError = function () {
+	  if (this.fieldError) {
+	    this.fieldError = null;
+	    this.updateError();
+	  }
+	}
 
 	/**
 	 * Handle a changed value
@@ -8661,6 +9138,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // strip formatting from the contents of the editable div
 	    util.stripFormatting(domValue);
+
+	    this._updateDomDefault();
 	  }
 	};
 
@@ -8684,6 +9163,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	Node.prototype._updateDomField = function () {
 	  var domField = this.dom.field;
 	  if (domField) {
+	    var tooltip = util.makeFieldTooltip(this.schema, this.editor.options.language);
+	    if (tooltip) {
+	      domField.title = tooltip;
+	    }
+
 	    // make backgound color lightgray when empty
 	    var isEmpty = (String(this.field) == '' && this.parent.type != 'array');
 	    if (isEmpty) {
@@ -8714,80 +9198,82 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Retrieve field from DOM
-	 * @param {boolean} [silent]  If true (default), no errors will be thrown in
-	 *                            case of invalid data
+	 * @param {boolean} [forceUnique]  If true, the field name will be changed
+	 *                                 into a unique name in case it is a duplicate.
 	 * @private
 	 */
-	Node.prototype._getDomField = function(silent) {
+	Node.prototype._getDomField = function(forceUnique) {
+	  this._clearFieldError();
+
 	  if (this.dom.field && this.fieldEditable) {
 	    this.fieldInnerText = util.getInnerText(this.dom.field);
 	  }
 
-	  if (this.fieldInnerText != undefined) {
+	  if (this.fieldInnerText !== undefined) {
 	    try {
 	      var field = this._unescapeHTML(this.fieldInnerText);
 
-	      if (field !== this.field) {
-	        this.field = field;
-	        this._debouncedOnChangeField();
+	      var existingFieldNames = this.parent.getFieldNames(this);
+	      var isDuplicate = existingFieldNames.indexOf(field) !== -1;
+
+	      if (!isDuplicate) {
+	        if (field !== this.field) {
+	          this.field = field;
+	          this._debouncedOnChangeField();
+	        }
+	      }
+	      else {
+	        if (forceUnique) {
+	          // fix duplicate field: change it into a unique name
+	          field = util.findUniqueName(field, existingFieldNames);
+	          if (field !== this.field) {
+	            this.field = field;
+
+	            // TODO: don't debounce but resolve right away, and cancel current debounce
+	            this._debouncedOnChangeField();
+	          }
+	        }
+	        else {
+	          this._setFieldError(translate('duplicateFieldError'));
+	        }
 	      }
 	    }
 	    catch (err) {
-	      this.field = undefined;
-	      // TODO: sent an action here, with the new, invalid value?
-	      if (silent !== true) {
-	        throw err;
-	      }
+	      // keep the previous field value
+	      this._setFieldError(translate('cannotParseFieldError'));
 	    }
 	  }
 	};
 
 	/**
-	 * Validate this node and all it's childs
-	 * @return {Array.<{node: Node, error: {message: string}}>} Returns a list with duplicates
+	 * Update the value of the schema default element in the DOM.
+	 * @private
+	 * @returns {undefined}
 	 */
-	Node.prototype.validate = function () {
-	  var errors = [];
-
-	  // find duplicate keys
-	  if (this.type === 'object') {
-	    var keys = {};
-	    var duplicateKeys = [];
-	    for (var i = 0; i < this.childs.length; i++) {
-	      var child = this.childs[i];
-	      if (keys.hasOwnProperty(child.field)) {
-	        duplicateKeys.push(child.field);
-	      }
-	      keys[child.field] = true;
-	    }
-
-	    if (duplicateKeys.length > 0) {
-	      errors = this.childs
-	          .filter(function (node) {
-	            return duplicateKeys.indexOf(node.field) !== -1;
-	          })
-	          .map(function (node) {
-	            return {
-	              node: node,
-	              error: {
-	                message: translate('duplicateKey') + ' "' + node.field + '"'
-	              }
-	            }
-	          });
-	    }
+	Node.prototype._updateDomDefault = function () {
+	  // Short-circuit if schema is missing, has no default, or if Node has children
+	  if (!this.schema || this.schema.default === undefined || this._hasChilds()) {
+	    return;
 	  }
 
-	  // recurse over the childs
-	  if (this.childs) {
-	    for (var i = 0; i < this.childs.length; i++) {
-	      var e = this.childs[i].validate();
-	      if (e.length > 0) {
-	        errors = errors.concat(e);
-	      }
-	    }
+	  // select either enum dropdown (select) or input value
+	  var inputElement = this.dom.select
+	      ? this.dom.select
+	      : this.dom.value;
+
+	  if (!inputElement) {
+	    return;
 	  }
 
-	  return errors;
+	  if (this.value === this.schema.default) {
+	    inputElement.title = translate('default');
+	    util.addClassName(inputElement, 'jsoneditor-is-default');
+	    util.removeClassName(inputElement, 'jsoneditor-is-not-default');
+	  } else {
+	    inputElement.removeAttribute('title');
+	    util.removeClassName(inputElement, 'jsoneditor-is-default');
+	    util.addClassName(inputElement, 'jsoneditor-is-not-default');
+	  }
 	};
 
 	/**
@@ -9262,6 +9748,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Node.prototype.updateValue = function (value) {
 	  this.value = value;
 	  this.previousValue = value;
+	  this.valueError = undefined;
 	  this.updateDom();
 	};
 
@@ -9272,6 +9759,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Node.prototype.updateField = function (field) {
 	  this.field = field;
 	  this.previousField = field;
+	  this.fieldError = undefined;
 	  this.updateDom();
 	};
 
@@ -9328,13 +9816,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // apply value to DOM
 	  var domValue = this.dom.value;
 	  if (domValue) {
-	    var count = this.childs ? this.childs.length : 0;
 	    if (this.type == 'array') {
-	      domValue.innerHTML = '[' + count + ']';
+	      this.updateNodeName();
 	      util.addClassName(this.dom.tr, 'jsoneditor-expandable');
 	    }
 	    else if (this.type == 'object') {
-	      domValue.innerHTML = '{' + count + '}';
+	      this.updateNodeName();
 	      util.addClassName(this.dom.tr, 'jsoneditor-expandable');
 	    }
 	    else {
@@ -9346,6 +9833,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // update field and value
 	  this._updateDomField();
 	  this._updateDomValue();
+
+	  this._updateCssClassName();
 
 	  // update childs indexes
 	  if (options && options.updateIndexes === true) {
@@ -9387,7 +9876,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if(this.editor && this.editor.options) {
 	    // find the part of the json schema matching this nodes path
 	    this.schema = this.editor.options.schema
-	        ? Node._findSchema(this.editor.options.schema, this.getPath())
+	        // fix childSchema with $ref, and not display the select element on the child schema because of not found enum
+	        ? Node._findSchema(this.editor.options.schema, this.editor.options.schemaRefs || {}, this.getPath())
 	        : null;
 	    if (this.schema) {
 	      this.enum = Node._findEnum(this.schema);
@@ -9424,11 +9914,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Return the part of a JSON schema matching given path.
 	 * @param {Object} schema
+	 * @param {Object} schemaRefs
 	 * @param {Array.<string | number>} path
 	 * @return {Object | null}
 	 * @private
 	 */
-	Node._findSchema = function (schema, path) {
+	Node._findSchema = function (schema, schemaRefs, path) {
 	  var childSchema = schema;
 	  var foundSchema = childSchema;
 
@@ -9440,35 +9931,55 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var j = 0; j < allSchemas.length; j++) {
 	    childSchema = allSchemas[j];
 
+	    if ('$ref' in childSchema && typeof childSchema['$ref'] === 'string') {
+	      childSchema = schemaRefs[childSchema['$ref']];
+	      if (childSchema) {
+	        foundSchema = Node._findSchema(childSchema, schemaRefs, path);
+	      }
+	    }
+
 	    for (var i = 0; i < path.length && childSchema; i++) {
+	      var nextPath = path.slice(i + 1, path.length);
 	      var key = path[i];
 
-	      if (typeof key === 'string' && childSchema.patternProperties && i == path.length - 1) {
+	      if (typeof key === 'string' && childSchema.patternProperties && !(childSchema.properties && key in childSchema.properties)) {
 	        for (var prop in childSchema.patternProperties) {
-	          foundSchema = Node._findSchema(childSchema.patternProperties[prop], path.slice(i, path.length));
+	          if (key.match(prop)) {
+	            foundSchema = Node._findSchema(childSchema.patternProperties[prop], schemaRefs, nextPath);
+	          }
 	        }
 	      }
 	      else if (childSchema.items && childSchema.items.properties) {
 	        childSchema = childSchema.items.properties[key];
 	        if (childSchema) {
-	          foundSchema = Node._findSchema(childSchema, path.slice(i, path.length));
+	          foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
 	        }
 	      }
 	      else if (typeof key === 'string' && childSchema.properties) {
-	        childSchema = childSchema.properties[key] || null;
-	        if (childSchema) {
-	          foundSchema = Node._findSchema(childSchema, path.slice(i, path.length));
+	        if (!(key in childSchema.properties)) {
+	          foundSchema = null;
+	        } else {
+	          childSchema = childSchema.properties[key];
+	          if (childSchema) {
+	            foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
+	          }
 	        }
 	      }
 	      else if (typeof key === 'number' && childSchema.items) {
 	        childSchema = childSchema.items;
 	        if (childSchema) {
-	          foundSchema = Node._findSchema(childSchema, path.slice(i, path.length));
+	          foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
 	        }
 	      }
 	    }
 
 	  }
+
+	  // If the found schema is the input schema, the schema does not have the given path
+	  if (foundSchema === schema && path.length > 0) {
+	    return null;
+	  }
+
 	  return foundSchema
 	};
 
@@ -9674,6 +10185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (type == 'change' && target == dom.checkbox) {
 	    this.dom.value.innerHTML = !this.value;
 	    this._getDomValue();
+	    this._updateDomDefault();
 	  }
 
 	  // update the value of the node based on the selected option
@@ -9690,7 +10202,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    switch (type) {
 	      case 'blur':
 	      case 'change':
-	        this._getDomValue(true);
+	        this._getDomValue();
+	        this._clearValueError();
 	        this._updateDomValue();
 	        if (this.value) {
 	          domValue.innerHTML = this._escapeHTML(this.value);
@@ -9699,7 +10212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      case 'input':
 	        //this._debouncedGetDomValue(true); // TODO
-	        this._getDomValue(true);
+	        this._getDomValue();
 	        this._updateDomValue();
 	        break;
 
@@ -9721,14 +10234,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      case 'keyup':
 	        //this._debouncedGetDomValue(true); // TODO
-	        this._getDomValue(true);
+	        this._getDomValue();
 	        this._updateDomValue();
 	        break;
 
 	      case 'cut':
 	      case 'paste':
 	        setTimeout(function () {
-	          node._getDomValue(true);
+	          node._getDomValue();
 	          node._updateDomValue();
 	        }, 1);
 	        break;
@@ -9740,7 +10253,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (target == domField) {
 	    switch (type) {
 	      case 'blur':
-	      case 'change':
 	        this._getDomField(true);
 	        this._updateDomField();
 	        if (this.field) {
@@ -9749,7 +10261,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        break;
 
 	      case 'input':
-	        this._getDomField(true);
+	        this._getDomField();
 	        this._updateSchema();
 	        this._updateDomField();
 	        this._updateDomValue();
@@ -9761,14 +10273,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        break;
 
 	      case 'keyup':
-	        this._getDomField(true);
+	        this._getDomField();
 	        this._updateDomField();
 	        break;
 
 	      case 'cut':
 	      case 'paste':
 	        setTimeout(function () {
-	          node._getDomField(true);
+	          node._getDomField();
 	          node._updateDomField();
 	        }, 1);
 	        break;
@@ -10245,6 +10757,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	/**
+	 * Get all field names of an object
+	 * @param {Node} [excludeNode] Optional node to be excluded from the returned field names
+	 * @return {string[]}
+	 */
+	Node.prototype.getFieldNames = function (excludeNode) {
+	  if (this.type === 'object') {
+	    return this.childs
+	        .filter(function (child) {
+	          return child !== excludeNode;
+	        })
+	        .map(function (child) {
+	          return child.field;
+	        });
+	  }
+
+	  return [];
+	}
+
+	/**
 	 * Remove nodes
 	 * @param {Node[] | Node} nodes
 	 */
@@ -10308,6 +10839,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var afterNode = lastNode;
 	    var clones = nodes.map(function (node) {
 	      var clone = node.clone();
+	      if (node.parent.type === 'object') {
+	        var existingFieldNames = node.parent.getFieldNames();
+	        clone.field = util.findUniqueName(node.field, existingFieldNames);
+	      }
 	      parent.insertAfter(clone, afterNode);
 	      afterNode = clone;
 	      return clone;
@@ -11193,6 +11728,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 
+	  if (this.editor.options.onCreateMenu) {
+			items = this.editor.options.onCreateMenu(items, { path : node.getPath() });
+		}
+	  
 	  var menu = new ContextMenu(items, {close: onClose});
 	  menu.show(anchor, this.editor.frame);
 	};
@@ -11334,6 +11873,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return escaped;
 	};
 
+	/**
+	 * update the object name according to the callback onNodeName
+	 * @private
+	 */
+	Node.prototype.updateNodeName = function () {
+	  var count = this.childs ? this.childs.length : 0;
+	  var nodeName;
+	  if (this.type === 'object' || this.type === 'array') {
+	    if (this.editor.options.onNodeName) {
+	      try {
+	        nodeName = this.editor.options.onNodeName({
+	          path: this.getPath(),
+	          size: count,
+	          type: this.type
+	        });
+	      }
+	      catch (err) {
+	        console.error('Error in onNodeName callback: ', err);
+	      }
+	    }
+
+	    this.dom.value.innerHTML = (this.type === 'object')
+	      ? ('{' + (nodeName || count) + '}')
+	      : ('[' + (nodeName || count) + ']');
+	  }
+	}
+
+	/**
+	 * update recursively the object's and its children's name.
+	 * @private
+	 */
+	Node.prototype.recursivelyUpdateNodeName = function () {
+	  if (this.expanded) {
+	    this.updateNodeName();
+	    if (this.childs !== 'undefined') {
+	      var i;
+	      for (i in this.childs) {
+	        this.childs[i].recursivelyUpdateNodeName();
+	      }
+	    }
+	  }
+	}
+
 	// helper function to get the internal path of a node
 	function getInternalPath (node) {
 	  return node.getInternalPath();
@@ -11353,7 +11935,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(exports) {
@@ -13026,7 +13608,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	/*
@@ -13077,14 +13659,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var util = __webpack_require__(12);
-	var ContextMenu = __webpack_require__(10);
-	var translate = __webpack_require__(15).translate;
+	var util = __webpack_require__(9);
+	var ContextMenu = __webpack_require__(15);
+	var translate = __webpack_require__(13).translate;
 
 	/**
 	 * A factory function to create an AppendNode, which depends on a Node
@@ -13282,9 +13864,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        'submenu': appendSubmenu
 	      }
 	    ];
+	    
+	    if (this.editor.options.onCreateMenu) {
+	      items = this.editor.options.onCreateMenu(items, { path : node.getPath() });
+	    }
 
 	    var menu = new ContextMenu(items, {close: onClose});
-	    menu.show(anchor, this.editor.content);
+	    menu.show(anchor, this.editor.frame);
 	  };
 
 	  /**
@@ -13332,12 +13918,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var translate = __webpack_require__(15).translate;
+	var translate = __webpack_require__(13).translate;
 
 	/**
 	 * A factory function to create an ShowMoreNode, which depends on a Node
@@ -13381,8 +13967,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      showMoreButton.href = '#';
 	      showMoreButton.onclick = function (event) {
 	        // TODO: use callback instead of accessing a method of the parent
-	        parent.visibleChilds = Math.floor(parent.visibleChilds / parent.MAX_VISIBLE_CHILDS + 1) *
-	            parent.MAX_VISIBLE_CHILDS;
+	        parent.visibleChilds = Math.floor(parent.visibleChilds / parent.getMaxVisibleChilds() + 1) *
+	            parent.getMaxVisibleChilds();
 	        me.updateDom();
 	        parent.showChilds();
 
@@ -13495,11 +14081,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var picoModal = __webpack_require__(23);
-	var translate = __webpack_require__(15).translate;
+	var picoModal = __webpack_require__(24);
+	var translate = __webpack_require__(13).translate;
 
 	/**
 	 * Show advanced sorting modal
@@ -13615,7 +14201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -14224,14 +14810,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var jmespath = __webpack_require__(18);
-	var picoModal = __webpack_require__(23);
-	var Selectr = __webpack_require__(25);
-	var translate = __webpack_require__(15).translate;
-	var debounce = __webpack_require__(12).debounce;
+	var jmespath = __webpack_require__(19);
+	var picoModal = __webpack_require__(24);
+	var Selectr = __webpack_require__(26);
+	var translate = __webpack_require__(13).translate;
+	var util = __webpack_require__(9);
+	var debounce = util.debounce;
 
 	var MAX_PREVIEW_LINES = 100;
 
@@ -14250,84 +14837,75 @@ return /******/ (function(modules) { // webpackBootstrap
 	      'Enter a <a href="http://jmespath.org" target="_blank">JMESPath</a> query to filter, sort, or transform the JSON data.<br/>' +
 	      'To learn JMESPath, go to <a href="http://jmespath.org/tutorial.html" target="_blank">the interactive tutorial</a>.' +
 	      '</p>' +
-	      '<table>' +
-	      '<tbody>' +
-	      '<tr>' +
-	      '  <th>' + translate('transformWizardLabel') + ' </th>' +
-	      '  <td>' +
-	      '  <div id="wizard" class="jsoneditor-jmespath-wizard">' +
-	      '  <div>' +
-	      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardFilter') + '</div>' +
-	      '    <div class="jsoneditor-jmespath-filter">' +
-	      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-field" >' +
-	      '        <select id="filterField">' +
-	      '        </select>' +
-	      '      </div>' +
-	      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-relation" >' +
-	      '        <select id="filterRelation">' +
-	      '          <option value="==">==</option>' +
-	      '          <option value="!=">!=</option>' +
-	      '          <option value="<">&lt;</option>' +
-	      '          <option value="<=">&lt;=</option>' +
-	      '          <option value=">">&gt;</option>' +
-	      '          <option value=">=">&gt;=</option>' +
-	      '        </select>' +
-	      '      </div>' +
-	      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-value" >' +
-	      '        <input placeholder="value..." id="filterValue" />' +
-	      '      </div>' +
-	      '    </div>' +
-	      '  </div>' +
-	      '  <div>' +
-	      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardSortBy') + '</div>' +
-	      '    <div class="jsoneditor-jmespath-filter">' +
-	      '      <div class="jsoneditor-inline jsoneditor-jmespath-sort-field">' +
-	      '        <select id="sortField">' +
-	      '        </select>' +
-	      '      </div>' +
-	      '      <div class="jsoneditor-inline jsoneditor-jmespath-sort-order" >' +
-	      '        <select id="sortOrder">' +
-	      '          <option value="asc">Ascending</option>' +
-	      '          <option value="desc">Descending</option>' +
-	      '        </select>' +
-	      '      </div>' +
-	      '    </div>' +
-	      '  </div>' +
-	      '  <div id="selectFieldsPart">' +
-	      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardSelectFields') + '</div>' +
-	      '    <select class="jsoneditor-jmespath-select-fields" id="selectFields" multiple>' +
-	      '    </select>' +
-	      '  </div>' +
-	      '  </div>' +
-	      '  </td>' +
-	      '</tr>' +
-	      '<tr>' +
-	      '  <th>' + translate('transformQueryLabel') + ' </th>' +
-	      '  <td class="jsoneditor-modal-input">' +
-	      '    <textarea id="query" ' +
-	      '              rows="4" ' +
-	      '              autocomplete="off" ' +
-	      '              autocorrect="off" ' +
-	      '              autocapitalize="off" ' +
-	      '              spellcheck="false"' +
-	      '              title="' + translate('transformQueryTitle') + '">[*]</textarea>' +
-	      '  </td>' +
-	      '</tr>' +
-	      '<tr>' +
-	      '  <th>' + translate('transformPreviewLabel') + ' </th>' +
-	      '  <td class="jsoneditor-modal-input">' +
-	      '    <textarea id="preview" ' +
-	      '        class="jsoneditor-transform-preview"' +
-	      '        readonly> </textarea>' +
-	      '  </td>' +
-	      '</tr>' +
-	      '<tr>' +
-	      '<td colspan="2" class="jsoneditor-modal-input jsoneditor-modal-actions">' +
+	      '<div class="jsoneditor-jmespath-label">' + translate('transformWizardLabel') + ' </div>' +
+	      '<div id="wizard" class="jsoneditor-jmespath-block jsoneditor-jmespath-wizard">' +
+	      '  <table class="jsoneditor-jmespath-wizard-table">' +
+	      '    <tbody>' +
+	      '      <tr>' +
+	      '        <th>' + translate('transformWizardFilter') + '</th>' +
+	      '        <td class="jsoneditor-jmespath-filter">' +
+	      '          <div class="jsoneditor-inline jsoneditor-jmespath-filter-field" >' +
+	      '            <select id="filterField">' +
+	      '            </select>' +
+	      '          </div>' +
+	      '          <div class="jsoneditor-inline jsoneditor-jmespath-filter-relation" >' +
+	      '            <select id="filterRelation">' +
+	      '              <option value="==">==</option>' +
+	      '              <option value="!=">!=</option>' +
+	      '              <option value="<">&lt;</option>' +
+	      '              <option value="<=">&lt;=</option>' +
+	      '              <option value=">">&gt;</option>' +
+	      '              <option value=">=">&gt;=</option>' +
+	      '            </select>' +
+	      '          </div>' +
+	      '          <div class="jsoneditor-inline jsoneditor-jmespath-filter-value" >' +
+	      '            <input placeholder="value..." id="filterValue" />' +
+	      '          </div>' +
+	      '        </td>' +
+	      '      </tr>' +
+	      '      <tr>' +
+	      '        <th>' + translate('transformWizardSortBy') + '</th>' +
+	      '        <td class="jsoneditor-jmespath-filter">' +
+	      '          <div class="jsoneditor-inline jsoneditor-jmespath-sort-field">' +
+	      '            <select id="sortField">' +
+	      '            </select>' +
+	      '          </div>' +
+	      '          <div class="jsoneditor-inline jsoneditor-jmespath-sort-order" >' +
+	      '            <select id="sortOrder">' +
+	      '              <option value="asc">Ascending</option>' +
+	      '              <option value="desc">Descending</option>' +
+	      '            </select>' +
+	      '          </div>' +
+	      '        </td>' +
+	      '      </tr>' +
+	      '      <tr id="selectFieldsPart">' +
+	      '        <th>' + translate('transformWizardSelectFields') + '</th>' +
+	      '        <td class="jsoneditor-jmespath-filter">' +
+	      '          <select class="jsoneditor-jmespath-select-fields" id="selectFields" multiple></select>' +
+	      '        </td>' +
+	      '      </tr>' +
+	      '    </tbody>' +
+	      '  </table>' +
+	      '</div>' +
+	      '<div class="jsoneditor-jmespath-label">' + translate('transformQueryLabel') + ' </div>' +
+	      '<div class="jsoneditor-jmespath-block">' +
+	      '  <textarea id="query" ' +
+	      '            rows="4" ' +
+	      '            autocomplete="off" ' +
+	      '            autocorrect="off" ' +
+	      '            autocapitalize="off" ' +
+	      '            spellcheck="false"' +
+	      '            title="' + translate('transformQueryTitle') + '">[*]</textarea>' +
+	      '</div>' +
+	      '<div class="jsoneditor-jmespath-label">' + translate('transformPreviewLabel') + ' </div>' +
+	      '<div class="jsoneditor-jmespath-block">' +
+	      '  <textarea id="preview" ' +
+	      '      class="jsoneditor-transform-preview"' +
+	      '      readonly> </textarea>' +
+	      '</div>' +
+	      '<div class="jsoneditor-jmespath-block jsoneditor-modal-actions">' +
 	      '  <input type="submit" id="ok" value="' + translate('ok') + '" autofocus />' +
-	      '</td>' +
-	      '</tr>' +
-	      '</tbody>' +
-	      '</table>' +
+	      '</div>' +
 	      '</div>';
 
 	  picoModal({
@@ -14352,11 +14930,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var preview = elem.querySelector('#preview');
 
 	        if (!Array.isArray(value)) {
-	          wizard.style.display = 'none';
-	          wizard.parentNode.style.fontStyle = 'italic';
-	          wizard.parentNode.appendChild(
-	              document.createTextNode('(wizard not available for objects, only for arrays)')
-	          );
+	          wizard.style.fontStyle = 'italic';
+	          wizard.innerHTML = '(wizard not available for objects, only for arrays)'
 	        }
 
 	        var paths = node.getChildPaths();
@@ -14387,14 +14962,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	          });
 	        }
 	        else {
-	          elem.querySelector('#selectFieldsPart').style.display = 'none';
+	          var selectFieldsPart = elem.querySelector('#selectFieldsPart');
+	          if (selectFieldsPart) {
+	            selectFieldsPart.style.display = 'none';
+	          }
 	        }
 
 	        var selectrFilterField = new Selectr(filterField, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'field...' });
 	        var selectrFilterRelation = new Selectr(filterRelation, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'compare...' });
 	        var selectrSortField = new Selectr(sortField, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'field...' });
 	        var selectrSortOrder = new Selectr(sortOrder, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'order...' });
-	        var selectrSelectFields = new Selectr(selectFields, {multiple: true, clearable: true, defaultSelected: false});
+	        var selectrSelectFields = new Selectr(selectFields, {multiple: true, clearable: true, defaultSelected: false, placeholder: 'select fields...'});
 
 	        selectrFilterField.on('selectr.change', generateQueryFromWizard);
 	        selectrFilterRelation.on('selectr.change', generateQueryFromWizard);
@@ -14404,8 +14982,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        selectrSelectFields.on('selectr.change', generateQueryFromWizard);
 
 	        elem.querySelector('.pico-modal-contents').onclick = function (event) {
-	          // prevent the first clear button from getting focus when clicking anywhere in the modal
-	          event.preventDefault();
+	          // prevent the first clear button (in any select box) from getting
+	          // focus when clicking anywhere in the modal. Only allow clicking links.
+	          if (event.target.nodeName !== 'A') {
+	            event.preventDefault();
+	          }
 	        };
 
 	        query.value = Array.isArray(value) ? '[*]' : '@';
@@ -14424,12 +15005,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        function generateQueryFromWizard () {
 	          if (filterField.value && filterRelation.value && filterValue.value) {
 	            var field1 = filterField.value;
+	            var examplePath = field1 !== '@'
+	                ? ['0'].concat(util.parsePath('.' + field1))
+	                : ['0']
+	            var exampleValue = util.get(value, examplePath)
 	            // TODO: move _stringCast into a static util function
-	            var value1 = JSON.stringify(node._stringCast(filterValue.value));
+	            var value1 = typeof exampleValue === 'string'
+	                ? filterValue.value
+	                : node._stringCast(filterValue.value);
+
 	            query.value = '[? ' +
 	                field1 + ' ' +
 	                filterRelation.value + ' ' +
-	                '`' + value1 + '`' +
+	                '`' + JSON.stringify(value1) + '`' +
 	                ']';
 	          }
 	          else {
@@ -14450,8 +15038,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var values = [];
 	            for (var i=0; i < selectFields.options.length; i++) {
 	              if (selectFields.options[i].selected) {
-	                var value = selectFields.options[i].value;
-	                values.push(value);
+	                var selectedValue = selectFields.options[i].value;
+	                values.push(selectedValue);
 	              }
 	            }
 
@@ -14460,7 +15048,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            if (values.length === 1) {
-	              query.value += '.' + value;
+	              query.value += '.' + values[0];
 	            }
 	            else if (values.length > 1) {
 	              query.value += '.{' +
@@ -14531,7 +15119,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports) {
 
 	/*!
@@ -16710,12 +17298,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ContextMenu = __webpack_require__(10);
+	var ContextMenu = __webpack_require__(15);
+	var translate = __webpack_require__(13).translate;
 
 	/**
 	 * Create a select box to be used in the editor menu's, which allows to switch mode
@@ -16729,36 +17318,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // available modes
 	  var availableModes = {
 	    code: {
-	      'text': 'Code',
-	      'title': 'Switch to code highlighter',
+	      'text': translate('modeCodeText'),
+	      'title': translate('modeCodeTitle'),
 	      'click': function () {
 	        onSwitch('code')
 	      }
 	    },
 	    form: {
-	      'text': 'Form',
-	      'title': 'Switch to form editor',
+	      'text': translate('modeFormText'),
+	      'title': translate('modeFormTitle'),
 	      'click': function () {
 	        onSwitch('form');
 	      }
 	    },
 	    text: {
-	      'text': 'Text',
-	      'title': 'Switch to plain text editor',
+	      'text': translate('modeTextText'),
+	      'title': translate('modeTextTitle'),
 	      'click': function () {
 	        onSwitch('text');
 	      }
 	    },
 	    tree: {
-	      'text': 'Tree',
-	      'title': 'Switch to tree editor',
+	      'text': translate('modeTreeText'),
+	      'title': translate('modeTreeTitle'),
 	      'click': function () {
 	        onSwitch('tree');
 	      }
 	    },
 	    view: {
-	      'text': 'View',
-	      'title': 'Switch to tree view',
+	      'text': translate('modeViewText'),
+	      'title': translate('modeViewTitle'),
 	      'click': function () {
 	        onSwitch('view');
 	      }
@@ -16829,9 +17418,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ModeSwitcher;
 
-
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -17218,14 +17806,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = completely;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var ace = __webpack_require__(1);
-	var ModeSwitcher = __webpack_require__(26);
-	var util = __webpack_require__(12);
+	var ModeSwitcher = __webpack_require__(27);
+	var util = __webpack_require__(9);
 
 	// create a mixin with the functions for text mode
 	var textmode = {};
@@ -17299,7 +17887,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.theme = options.theme || DEFAULT_THEME;
 	  if (this.theme === DEFAULT_THEME && _ace) {
 	    try {
-	      __webpack_require__(29);
+	      __webpack_require__(30);
 	    }
 	    catch (err) {
 	      console.error(err);
@@ -17318,6 +17906,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.validateSchema = null;
 	  this.validationSequence = 0;
 	  this.annotations = [];
+	  /**
+	   * Visibility of validation error table
+	   * @type {Boolean|undefined} undefined means default behavior for mode
+	   */
+	  this.errorTableVisible = undefined;
 
 	  // create a debounced validate function
 	  this._debouncedValidate = util.debounce(this.validate.bind(this), this.DEBOUNCE_INTERVAL);
@@ -18017,7 +18610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	  else {
-	    this._renderErrors(parseErrors || []);
+	    this._renderErrors(parseErrors || [], true);
 	  }
 	};
 
@@ -18070,10 +18663,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return Promise.resolve(null);
 	};
 
-	textmode._renderErrors = function(errors) {
+	textmode._renderErrors = function(errors, noValidation) {
 	  // clear all current errors
 	  var me = this;
 	  var validationErrorsCount = 0;
+
+	  this.errorTableVisible = (typeof this.errorTableVisible === 'undefined') ? !this.aceEditor : this.errorTableVisible;
 
 	  if (this.dom.validationErrors) {
 	    this.dom.validationErrors.parentNode.removeChild(this.dom.validationErrors);
@@ -18114,8 +18709,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	      this._refreshAnnotations();
 
-	    } else {
-	      var validationErrors = document.createElement('div');
+	    }
+
+	    // keep default behavior for parse errors
+	    if (noValidation ? !this.aceEditor : this.errorTableVisible) {
+	       var validationErrors = document.createElement('div');
 	      validationErrors.innerHTML = '<table class="jsoneditor-text-errors"><tbody></tbody></table>';
 	      var tbody = validationErrors.getElementsByTagName('tbody')[0];
 
@@ -18178,7 +18776,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var height = this.dom.validationErrorsContainer.clientHeight + (this.dom.statusBar ? this.dom.statusBar.clientHeight : 0);
 	      this.content.style.marginBottom = (-height) + 'px';
 	      this.content.style.paddingBottom = height + 'px';
+	    } else {
+	      validationErrorsCount = errors.reduce(function (acc, curr) {return (curr.type === 'validation' ? ++acc: acc)}, 0);
 	    }
+	    
 	  } else {
 	    if (this.aceEditor) {
 	      this.annotations = [];
@@ -18194,6 +18795,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (showIndication) {
 	      this.validationErrorIndication.validationErrorCount.innerText = validationErrorsCount;
 	      this.validationErrorIndication.validationErrorIcon.title = validationErrorsCount + ' schema validation error(s) found';
+	      this.validationErrorIndication.validationErrorCount.onclick = this.validationErrorIndication.validationErrorIcon.onclick = this._toggleErrorTableVisibility.bind(this);
 	    }
 	  }
 
@@ -18202,6 +18804,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var force = false;
 	    this.aceEditor.resize(force);
 	  }
+	};
+
+	textmode._toggleErrorTableVisibility = function () {
+	  this.errorTableVisible = !this.errorTableVisible;
+	  this.validate();
 	};
 
 	/**
@@ -18308,6 +18915,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    };
 	    this.aceEditor.selection.setRange(range);
+	    this.aceEditor.scrollToLine(startPos.row - 1, true);
 	  }
 	};
 
@@ -18338,7 +18946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	/* ***** BEGIN LICENSE BLOCK *****
