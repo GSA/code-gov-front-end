@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
+import PolicyGuide, { PolicyGuidePage } from 'components/plugins/policy-guide'
 import { eventMap, push } from '../../../mocks/window'
 import { refreshView, scrollToTopOfResults } from '../../../../src/utils/other'
-import PolicyGuide, { PolicyGuidePage } from 'components/plugins/policy-guide'
 
 jest.mock('utils/other')
 
@@ -53,7 +53,7 @@ describe('components - PolicyGuide', () => {
 
 describe('components - PolicyGuide - PolicyGuidePage', () => {
   it('should render correctly', () => {
-    wrapper = shallow(<PolicyGuidePage url={'/test-url'} />)
+    wrapper = shallow(<PolicyGuidePage url="/test-url" />)
     expect(wrapper).toMatchSnapshot()
   })
 })
