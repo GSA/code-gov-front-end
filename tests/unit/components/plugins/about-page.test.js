@@ -10,7 +10,6 @@ import AboutPage, {
 import { eventMap, push } from '../../../mocks/window'
 import { refreshView, scrollToTopOfResults, loadScript } from '../../../../src/utils/other'
 
-
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
 
