@@ -5,7 +5,7 @@ jobs:
       - image: ubuntu
     steps:
       - run: apt-get update
-      - run: apt-get install -y build-essential npm nodejs
+      - run: apt-get install -y build-essential npm nodejs git
       - checkout
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
