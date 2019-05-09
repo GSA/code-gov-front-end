@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components - PolicyGuide - PolicyGuidePage should render correctly 1`] = `
+<div
+  className="docs-content"
+>
+  <LazyHTML
+    url="/test-url"
+  />
+</div>
+`;
+
 exports[`components - PolicyGuide render should render correctly 1`] = `
 <div>
   <Connect(SiteBanner)
