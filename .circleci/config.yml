@@ -8,7 +8,7 @@ jobs:
       - run: apt-get install -y build-essential npm nodejs
       - checkout
       - run: npm install
-      - run: npm start
+      - run: npm run build
       - run: npm test -- -u
   deploy-bundle-analysis:
     docker:
