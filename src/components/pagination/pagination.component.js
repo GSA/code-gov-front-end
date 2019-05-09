@@ -1,8 +1,7 @@
 // https://reactjs.org/docs/forms.html
 
-import React, { Component } from 'react'
-
-import { equal, last, range } from '@code.gov/cautious'
+import React, { Component, Fragment } from 'react'
+import { endsWith, equal, last, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
 
