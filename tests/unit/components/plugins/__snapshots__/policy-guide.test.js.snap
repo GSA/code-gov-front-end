@@ -5,6 +5,7 @@ exports[`components - PolicyGuide - PolicyGuidePage should render correctly 1`] 
   className="docs-content"
 >
   <LazyHTML
+    onUpdate={[Function]}
     url="/test-url"
   />
 </div>

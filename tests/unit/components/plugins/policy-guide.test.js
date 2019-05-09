@@ -8,6 +8,9 @@ import { refreshView, scrollToTopOfResults } from '../../../../src/utils/other'
 jest.mock('utils/other')
 
 const props = {
+  location: {
+    pathname: '/test-route',
+  },
   match: {
     url: '/test-route',
   },
