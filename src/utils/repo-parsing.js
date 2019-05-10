@@ -80,7 +80,7 @@ export function getLastModifiedDateString(repo) {
   try {
     const dateLastModified = getDate(repo)
     if (dateLastModified) {
-      return new Date(dateLastModified).toLocaleDateString()
+      return new Date(dateLastModified).toLocaleDateString('en-US')
     }
   } catch (error) {
     console.warn(error)
