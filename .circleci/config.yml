@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
-      - run: npm run test -- -u # -- -u flags needed to update Jest snapshots during the test run
+      - run: npm run test -- -ci # -- -ci flag needed to let Jest know it's running in a CI environment
   deploy-bundle-analysis:
     docker:
       - image: ubuntu
