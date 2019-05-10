@@ -32,8 +32,7 @@ describe('components - ProjectPage', () => {
   describe('lastModifiedDateHTML', () => {
     it('should render the last modified date', () => {
       const expected = new Date(props.repo.date.lastModified).toLocaleDateString('en-US')
-      const rendered = shallow(<div>{instance.lastModifiedDateHTML}</div>)
-      expect(rendered.text()).toContain(expected)
+      testRenderText(instance.lastModifiedDateHTML, expected)
     })
 
     it('should render nothing if no last modfified date', () => {
