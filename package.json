@@ -22,6 +22,7 @@
     "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
     "snyk": "snyk test",
     "test": "jest --coverage",
+    "test:ci": "jest --coverage --ci",
     "test-watch": "jest --watch"
   },
   "husky": {
@@ -51,13 +52,13 @@
   "homepage": "https://github.com/GSA/code-gov-front-end#readme",
   "private": "false",
   "dependencies": {
-    "@code.gov/about-page": "0.1.11",
+    "@code.gov/about-page": "0.1.12",
     "@code.gov/api-client": "0.3.3",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.7.1",
     "@code.gov/code-gov-style": "1.14.1",
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
-    "@code.gov/fscp-react-component": "0.3.3",
+    "@code.gov/fscp-react-component": "0.3.4",
     "@code.gov/json-schema-validator-web-component": "^0.2.0",
     "@code.gov/json-schema-web-component": "0.4.0",
     "@code.gov/site-map-generator": "^1.0.2",
@@ -167,6 +168,7 @@
       "!src/index.js",
       "!src/**/index.js"
     ],
+    "coverageDirectory": "coverage",
     "moduleNameMapper": {
       ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|md)$": "<rootDir>/tests/mocks/asset.js"
     },

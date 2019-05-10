@@ -47,23 +47,21 @@ export function parseEmail(repo) {
 }
 
 export function parseRepositoryURL(repo) {
-  const url = get(repo, 'repositoryURL')
-  if (Boolean(url)) {
-
-    if (url.startsWith('git://github.com/')) {
-      return url.replace('git://github.com/', 'https://github.com/')
-    }
-
-    if (url.startsWith('git@github.com:')) {
-      return url.replace('git@github.com:', 'https://github.com/')
-    }
-
-    if (url.startsWith('https://github.com') && url.endsWith('.git')) {
-      return url.replace('.git', '')
-    }
-
-    return url
+  let url = get(repo, 'repositoryURL')
+  if (!url) {
+    return ''
   }
+
+  if (url.startsWith('git://github.com/')) {
+    url =  url.replace('git://github.com/', 'https://github.com/')
+  } else if (url.startsWith('git@github.com:')) {
+    url = url.replace('git@github.com:', 'https://github.com/')
+      .replace('.git', '')
+  } else if (url.startsWith('https://github.com') && url.endsWith('.git')) {
+    url = url.replace('.git', '')
+  }
+
+  return url
 }
 
 export function parseTags(repo) {
@@ -74,18 +72,17 @@ export function parseTags(repo) {
   }
 }
 
+export function getDate(item) {
+  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
+}
 
 export function getLastModifiedDateString(repo) {
   try {
     const dateLastModified = getDate(repo)
     if (dateLastModified) {
-      return new Date(dateLastModified).toLocaleDateString()
+      return new Date(dateLastModified).toLocaleDateString('en-US')
     }
   } catch (error) {
     console.warn(error)
   }
-}
-
-export function getDate(item) {
-  return get(item, 'ghUpdatedAt') || get(item, 'date.lastModified')
 }

@@ -2,13 +2,13 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import client from 'api-client'
-import { eventMap, push } from 'mocks/window'
-import { refreshView, scrollToTopOfResults, loadScript } from 'utils/other'
 import AboutPage, {
   ComplianceDashboard,
   InventoryCode,
   JSONValidator,
 } from 'components/plugins/about-page'
+import { eventMap, push } from '../../../mocks/window'
+import { refreshView, scrollToTopOfResults, loadScript } from '../../../../src/utils/other'
 
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')

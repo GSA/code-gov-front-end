@@ -107,7 +107,7 @@ describe('utils - repo-parsing', () => {
   describe('getLastModifiedDateString', () => {
     it('should get the date last modified as a local string', () => {
       const repo = { date: { lastModified: '2011/01/02' } }
-      expect(getLastModifiedDateString(repo)).toEqual(new Date('2011/01/02').toLocaleDateString())
+      expect(getLastModifiedDateString(repo)).toEqual(new Date('2011/01/02').toLocaleDateString('en-US'))
     })
 
     it('should return falsy if no date found', () => {

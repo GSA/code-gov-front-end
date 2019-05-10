@@ -31,7 +31,7 @@ describe('components - ProjectPage', () => {
 
   describe('lastModifiedDateHTML', () => {
     it('should render the last modified date', () => {
-      const expected = new Date(props.repo.date.lastModified).toLocaleDateString()
+      const expected = new Date(props.repo.date.lastModified).toLocaleDateString('en-US')
       testRenderText(instance.lastModifiedDateHTML, expected)
     })
 
