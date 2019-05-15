@@ -75,3 +75,5 @@ typings/
 
 # .DS_Store
 .DS_Store
+# Cypress files
+cypress.env.json
