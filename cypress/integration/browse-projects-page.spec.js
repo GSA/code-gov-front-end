@@ -24,7 +24,7 @@ describe('browse projects page tests', () => {
       .each((item) => {
         cy.wrap(item)
           .within(() => {
-            cy.contains('dl > dd > .language', 'c')
+            cy.contains('dl > dd > span', 'c')
             .should('exist')
           })
       })

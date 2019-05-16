@@ -22,7 +22,7 @@ describe('browse projects page tests (direct nav)', () => {
       .each((item) => {
         cy.wrap(item)
           .within(() => {
-            cy.contains('dl > dd > span.language', /^c$/i)
+            cy.contains('dl > dd > span', /^c$/i)
             .should('exist')
           })
       })
