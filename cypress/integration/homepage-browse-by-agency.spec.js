@@ -20,7 +20,7 @@ describe('homepage browse by agency', () => {
     cy.get('select')
       .select(agency)
       .wait(3000)
-      .get('.card-list-item.card.focusable')
+      .get('.card-list-item')
       .each((item) => {
         cy.wrap(item)
           .within(() => {

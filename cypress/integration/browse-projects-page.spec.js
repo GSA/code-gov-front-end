@@ -11,7 +11,7 @@ describe('browse projects page tests', () => {
   })
 
   it('displays a list of projects on the browse projects page', () => {
-    cy.get('.card-list-item.card.focusable')
+    cy.get('.card-list-item')
       .its('length')
       .should('be.greaterThan', 1)
   })
@@ -19,7 +19,8 @@ describe('browse projects page tests', () => {
   it('filters projects by language', () => {
     cy.get('input[value="C"]')
       .check({ force: true })
-      .get('.card-list-item.card.focusable')
+      .wait(3000)
+      .get('.card-list-item')
       .each((item) => {
         cy.wrap(item)
           .within(() => {

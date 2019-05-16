@@ -4,7 +4,7 @@ describe('open task page tests (direct navigation to)', () => {
   })
 
   it('returns at least one open task', () => {
-    cy.get('.card-list-item.card.focusable')
+    cy.get('.card-list-item')
       .its('length')
       .should('be.greaterThan', 0)
   })
@@ -20,7 +20,7 @@ describe('open task page tests (direct navigation to)', () => {
     const agency = 'DOD'
     cy.get(`input[value="${agency}"]`)
       .check({ force: true })
-      .get('.card-list-item.card.focusable')
+      .get('.card-list-item')
       .each((item) => {
         cy.wrap(item)
           .within(() => {

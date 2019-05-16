@@ -4,7 +4,7 @@ describe('browse projects page tests (direct nav)', () => {
   })
 
   it('displays a list of projects on the browse projects page', () => {
-    cy.get('.card-list-item.card.focusable')
+    cy.get('.card-list-item')
       .its('length')
       .should('be.greaterThan', 1)
   })
@@ -18,7 +18,7 @@ describe('browse projects page tests (direct nav)', () => {
       // https://docs.cypress.io/api/commands/wait.html#Alias
       // https://docs.cypress.io/api/commands/route.html#Examples
       .wait(3000)
-      .get('.card-list-item.card.focusable')
+      .get('.card-list-item')
       .each((item) => {
         cy.wrap(item)
           .within(() => {

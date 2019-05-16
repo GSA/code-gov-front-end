@@ -23,14 +23,14 @@ describe('homepage search box (non-mobile)', () => {
 
   it('then displays a list of projects for a search term known to have at least one project', () => {
     searchPrep(defaultSearchString)
-    cy.get('.card-list-item.card.focusable')
+    cy.get('.card-list-item')
       .its('length')
       .should('be.greaterThan', 0)
   })
 
   it('displays no projects for a search term known to have no projects', () => {
     searchPrep('thugnificent')
-    cy.get('.card-list-item.card.focusable')
+    cy.get('.card-list-item')
       .should('not.exist')
   })
 })
