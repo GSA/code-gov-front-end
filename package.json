@@ -53,7 +53,7 @@
   "private": "false",
   "dependencies": {
     "@code.gov/about-page": "0.1.12",
-    "@code.gov/api-client": "0.3.3",
+    "@code.gov/api-client": "^0.3.4",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.7.1",
     "@code.gov/code-gov-style": "1.14.1",
