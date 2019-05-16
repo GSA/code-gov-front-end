@@ -1,13 +1,25 @@
 describe('about page tests', () => {
-  it('visits the about/overview page', () => {
+  beforeEach(() => {
     cy.visit('/')
-    cy.get('li a[role="menuitem"]')
-      .contains('ABOUT')
+      .get('li a[role="menuitem"]')
+      .contains(/about/i)
       .click()
-      .get('ul[role="menu"] > li > a')
-      .contains('OVERVIEW')
+  })
+  it('visits the about/overview page', () => {
+    cy.get('ul[role="menu"] > li > a')
+      .contains(/overview/i)
       .click()
       .get('#aboutthesourcecodepolicy')
-      .should('contain', 'Source Code')
+      .contains(/source code/i)
+      .should('exist')
+  })
+
+  it('visits the federal source code policy page', () => {
+    cy.get('ul[role="menu"] > li > a')
+      .contains(/source code policy/i)
+      .click()
+      .get('#m1621')
+      .contains(/m-16-21/i)
+      .should('exist')
   })
 })
