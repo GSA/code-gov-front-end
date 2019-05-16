@@ -516,15 +516,15 @@ function (_HTMLElement) {
 
       if (rounded > 0 && rounded < 4) {
         category = 'low';
-      } else if (rounded >= 4 && rounded < 7) {
+      } else if (rounded >= 4 && rounded < 6) {
         category = 'medium';
-      } else if (rounded >= 7) {
+      } else if (rounded >= 6) {
         category = 'high';
       } else {
         category = '';
       }
 
-      this.innerHTML = "<div class=\"corner-tag ".concat(category, "\"><div class=\"corner-tag-value\">").concat(rounded, "</div></div>");
+      this.innerHTML = "<div aria-label=\"".concat(category, "\" class=\"corner-tag ").concat(category, "\"><div class=\"corner-tag-value\">").concat(rounded, "</div></div>");
     }
   }], [{
     key: "observedAttributes",
