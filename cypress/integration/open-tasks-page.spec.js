@@ -13,7 +13,6 @@ describe('open task page tests', () => {
     const agency = 'DOD'
     cy.get(`input[value="${agency}"]`)
       .check()
-
-    cy.location('search').should('include', agency)
+      .location('search').should('include', agency)
   })
 })
