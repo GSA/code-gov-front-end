@@ -170,6 +170,7 @@
       "./tests/setup.js",
       "<rootDir>/node_modules/regenerator-runtime/runtime"
     ],
+    "testPathIgnorePatterns": ["cypress"],
     "modulePaths": [
       "<rootDir>/src",
       "<rootDir>/tests"
