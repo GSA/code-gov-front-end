@@ -1,0 +1,42 @@
+{
+  "size": {
+    "height": 600,
+    "width": 1200
+  },
+  "series": {
+    "x": "Date",
+    "Accessibility": "Accessibility",
+    "Performance": "Performance",
+    "Best Practices": "Best Practices",
+    "SEO": "SEO"
+  },
+  "data": {
+    "x": "x",
+    "type": "line"
+  },
+  "axis": {
+    "x": {
+      "type": "timeseries",
+      "tick": {
+        "format": "%Y-%m-%d"
+      }
+    },
+    "y": {
+      "label": {
+        "text": "Score",
+        "position": "outer-middle"
+      }
+    }
+  },
+  "grid": {
+    "x": {
+      "show": true
+    },
+    "y": {
+      "show": true
+    }
+  },
+  "point": {
+    "show": true
+  }
+}

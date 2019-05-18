@@ -1,0 +1,6 @@
+This project uses the google-lighthouse-puppeteer NPM package to run accessibility, performance, best-practices, and SEO score tests on webpages. It then prints out the results to a JSON file which is then used to build a
+CSV file specifically for Accessibility scores. This CSV file lists out the different accessibility warnings each page has (as found by google lighthouse) and records the number of times each of those vilations are
+found per page, and includes a description and a list of page elements that caused the violation.
+
+Additionally, this test will keep a history of the overall scores per category (accessibility, performance, best-practices, SEO) and will generate a line graph so that developers can track the progress of these scores and
+adjust their development accordingly.
