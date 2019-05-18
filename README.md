@@ -69,7 +69,7 @@ The code for the [About](https://code.gov/about/overview/introduction) section o
 
 ### Testing
 
-Unit testing is done using the [jest](https://github.com/facebook/jest) framework with [enzyme](https://github.com/airbnb/enzyme). 
+Unit testing is done using the [jest](https://github.com/facebook/jest) framework with [enzyme](https://github.com/airbnb/enzyme).
 
 Use `npm run test` to run unit tests a single time. This will generate a code coverage report.
 
@@ -97,6 +97,10 @@ For documentation on how to configure code-gov-front-end, go [here](CONFIGURATIO
 ## Questions?
 
 If you have questions, please feel free to [send us an email](mailto:code@gsa.gov).
+Twitter: @CodeDotGov
+Email: code@gsa.gov
+LinkedIn: code-gov
+Join our #opensource-public Slack channel: https://chat.18f.gov/
 
 ## License
 
