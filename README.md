@@ -77,6 +77,8 @@ Use `npm run test-watch` to run unit tests continuously, re-running each time a 
 
 Note: console.log/warn/error are mocked in unit tests and will not print anything to avoid cluttering the command line. Use a different logging, such as console.info for debugging while running tests
 
+Note: site should be running locally before executing npm run test or you might get false errors due to the component plugins being used
+
 ## Deployment
 Read about how to publish to Github pages, Federalist and elsewhere [here](DEPLOYMENT.md)
 
