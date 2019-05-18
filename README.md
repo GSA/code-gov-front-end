@@ -96,7 +96,13 @@ For documentation on how to configure code-gov-front-end, go [here](CONFIGURATIO
 
 ## Questions?
 
-If you have questions, please feel free to [send us an email](mailto:code@gsa.gov).
+If you have questions, please feel free to contact us via: 
+[Twitter](@CodeDotGov) 
+[send us an email](mailto:code@gsa.gov) 
+[LinkedIn](code-gov)  
+
+Or join our #opensource-public Slack channel:  
+[Slack](https://chat.18f.gov/)
 
 ## License
 
