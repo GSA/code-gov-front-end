@@ -11,14 +11,11 @@ const options = {
   filters: [
     { category: 'agencies', value: 'ag-1' },
     { category: 'agencies', value: 'ag-2' },
-    { category: 'languages', value: 'la-1' },
-  ],
-};
+    { category: 'languages', value: 'la-1' }
+  ]
+}
 const results = {
-  repos: [
-    { repoID: 'repo-1' },
-    { repoID: 'repo-2' }
-  ],
+  repos: [{ repoID: 'repo-1' }, { repoID: 'repo-2' }]
 }
 const dispatch = jest.fn()
 
@@ -47,7 +44,7 @@ describe('actions - update-browse-results', () => {
       agencies: ['ag-1', 'ag-2'],
       languages: ['la-1'],
       licenses: [],
-      usageTypes: [],
+      usageTypes: []
     }
 
     await updateBrowseResults(options)(dispatch)

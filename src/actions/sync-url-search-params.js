@@ -1,9 +1,6 @@
 /* global URLSearchParams */
 import { push } from 'connected-react-router'
-import {
-  convertObjToSortedSearchString,
-  getURLSearchParamsAsSimpleObj
-} from 'utils/url-parsing'
+import { convertObjToSortedSearchString, getURLSearchParamsAsSimpleObj } from 'utils/url-parsing'
 
 export default function(state) {
   return dispatch => {
@@ -24,7 +21,7 @@ export default function(state) {
       }
     }
 
-    for (let key in storeParams) {
+    for (const key in storeParams) {
       const value = storeParams[key]
       if (key === 'filters' && Array.isArray(value)) {
         const params = {}
@@ -32,7 +29,7 @@ export default function(state) {
           if (params[category]) params[category].push(value)
           else params[category] = [value]
         })
-        for (let category in params) {
+        for (const category in params) {
           urlSearchParams[category] = params[category]
         }
       } else if (typeof value === 'string') {
@@ -42,13 +39,12 @@ export default function(state) {
       }
     }
 
-
     const newURLSearchAsString = convertObjToSortedSearchString(urlSearchParams)
     const currentUrlSearchParams = convertObjToSortedSearchString(getURLSearchParamsAsSimpleObj())
     if (newURLSearchAsString !== currentUrlSearchParams) {
       let newUrl = window.location.pathname
       if (typeof currentUrlSearchParams === 'string' && currentUrlSearchParams.length > 0) {
-        newUrl += "?" + newURLSearchAsString
+        newUrl += `?${newURLSearchAsString}`
       }
       dispatch(push(newUrl))
     }

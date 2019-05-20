@@ -28,66 +28,17 @@ const options = {
   _unknown: ['--puppeteer-ignoreHTTPSErrors', '--puppeteer-slowMo', '20']
 }
 
-const recordScores = async (file, pageName, categories) => {
-  // data object
-  const today = new Date()
-  const finalRes = []
-  const results = []
+function createNewCategories(today, categories) {
+  return {
+    date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`,
+    accessibility: categories.accessibility.score,
+    performance: categories.performance.score,
+    'best-practices': categories['best-practices'].score,
+    seo: categories.seo.score
+  }
+}
 
-  fs.createReadStream(`${__dirname}\\ScoreTrends\\${pageName}Scores.csv`)
-    .pipe(csv())
-    .on('data', data => results.push(data))
-    .on('end', async () => {
-      for (let i = 0; i < results.length; i++) {
-        finalRes.push({
-          date: results[i].Date,
-          accessibility: results[i].Accessibility,
-          performance: results[i].Performance,
-          'best-practices': results[i]['Best Practices'],
-          seo: results[i].SEO
-        })
-      }
-
-      const newEntry = {
-        date: `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`,
-        accessibility: categories.accessibility.score,
-        performance: categories.performance.score,
-        'best-practices': categories['best-practices'].score,
-        seo: categories.seo.score
-      }
-
-      // add new set of scores to the score history
-      if (
-        finalRes[finalRes.length - 1].date.toString() ===
-        `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`.toString()
-      ) {
-        finalRes[finalRes.length - 1] = newEntry
-        console.log('REPLACED THE LAST ENTRY')
-      } else {
-        finalRes.push(newEntry)
-        console.log('pushed new entry')
-      }
-
-      // writer to create the updated score history csv
-      const csvWriter = createCsvWriter({
-        path: `${__dirname}\\ScoreTrends\\${pageName}Scores.csv`,
-        header: [
-          { id: 'date', title: 'Date' },
-          { id: 'accessibility', title: 'Accessibility' },
-          { id: 'performance', title: 'Performance' },
-          { id: 'best-practices', title: 'Best Practices' },
-          { id: 'seo', title: 'SEO' }
-        ]
-      })
-
-      // output accessibility issues to final CSV report
-      try {
-        await csvWriter.writeRecords(finalRes)
-      } catch (err) {
-        console.log(err)
-      }
-    })
-
+function createScoresChart(pageName) {
   try {
     c3ChartMaker(
       `${__dirname}\\ScoreTrends\\${pageName}Scores.csv`,
@@ -101,108 +52,160 @@ const recordScores = async (file, pageName, categories) => {
   }
 }
 
+function getCsvWriter(filePath) {
+  const writer = createCsvWriter({
+    path: `${__dirname}\\${filePath}.csv`,
+    header: [
+      { id: 'date', title: 'Date' },
+      { id: 'accessibility', title: 'Accessibility' },
+      { id: 'performance', title: 'Performance' },
+      { id: 'best-practices', title: 'Best Practices' },
+      { id: 'seo', title: 'SEO' }
+    ]
+  })
+
+  return writer
+}
+
+async function writeCsvReport(writer, data) {
+  try {
+    await writer.writeRecords(data)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+function getScoreHistory(results) {
+  const scoreHistory = []
+
+  for (let i = 0; i < results.length; i++) {
+    scoreHistory.push({
+      date: results[i].Date,
+      accessibility: results[i].Accessibility,
+      performance: results[i].Performance,
+      'best-practices': results[i]['Best Practices'],
+      seo: results[i].SEO
+    })
+  }
+
+  return scoreHistory
+}
+
+function updateScores(finalRes, today, newEntry) {
+  const temp = finalRes
+
+  // add new set of scores to the score history
+  if (
+    temp[temp.length - 1].date.toString() ===
+    `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`.toString()
+  ) {
+    temp[temp.length - 1] = newEntry
+    console.log('REPLACED THE LAST ENTRY')
+  } else {
+    temp.push(newEntry)
+    console.log('pushed new entry')
+  }
+
+  return temp
+}
+
+const recordScores = async (file, pageName, categories) => {
+  const today = new Date()
+  let finalRes = []
+  const results = []
+
+  fs.createReadStream(`${__dirname}\\ScoreTrends\\${pageName}Scores.csv`)
+    .pipe(csv())
+    .on('data', data => results.push(data))
+    .on('end', async () => {
+      finalRes = getScoreHistory(results)
+
+      const newEntry = createNewCategories(today, categories)
+
+      finalRes = updateScores(finalRes, today, newEntry)
+
+      const csvWriter = getCsvWriter(`\\ScoreTrends\\${pageName}Scores`)
+
+      writeCsvReport(csvWriter, finalRes)
+    })
+
+  createScoresChart(pageName)
+}
+
+function recordWarningSnippets(items) {
+  const snips = []
+  for (let i = 0; i < items.length; i++) {
+    snips.push(items[i].node.snippet)
+  }
+  return snips
+}
+
+function extractAccessibilityWarnings(entries) {
+  const warnings = []
+  for (let i = 0; i < entries.length; i++) {
+    for (let j = 0; j < accessibilityWarnings.length; j++) {
+      if (entries[i][1].id === accessibilityWarnings[j].id && entries[i][1].details !== undefined) {
+        const freq = entries[i][1].details.items.length
+        if (freq > 0) {
+          const snips = recordWarningSnippets(entries[i][1].details.items)
+          warnings.push({
+            ...accessibilityWarnings[j],
+            impact: entries[i][1].details.impact,
+            frequency: freq,
+            title: entries[i][1].title,
+            description: entries[i][1].description,
+            snippets: snips
+          })
+        }
+      }
+    }
+  }
+  return warnings
+}
+
+async function runLighthouseTest(test, testName) {
+  await lightpuppet.exec(test, options).then(async () => {
+    console.log(`Completed test ${testName}.`)
+  })
+}
+
+async function analyzeResults(files, testName) {
+  let tracker = []
+  files.forEach(async file => {
+    if (file.slice(-4) === 'json') {
+      if (file !== 'summary.json') {
+        const audits = require(`${__dirname}\\results\\${file}`).audits
+        const entries = Object.entries(audits)
+        tracker = extractAccessibilityWarnings(entries)
+
+        const csvWriter = getCsvWriter(`AccessibilityCsvReports\\${testName}`)
+        writeCsvReport(csvWriter, tracker)
+        recordScores(file, testName, require(`${__dirname}\\results\\${file}`).categories)
+
+        fs.renameSync(
+          `${__dirname}\\results\\${file}`,
+          `${__dirname}\\JsonReports\\${testName}.json`
+        )
+      }
+    } else if (file.slice(-4) === 'html') {
+      fs.renameSync(`${__dirname}\\results\\${file}`, `${__dirname}\\HtmlReports\\${testName}.html`)
+    } else if (file.slice(-3) === 'csv') {
+      fs.renameSync(
+        `${__dirname}\\results\\${file}`,
+        `${__dirname}\\FullCsvReports\\${testName}.csv`
+      )
+    }
+  })
+}
+
 const runAllTests = async () => {
-  // iterate over tests array
   for (let i = 0; i < govTests.length; i++) {
     try {
-      // run google-lighthouse-puppeteer test
-      await lightpuppet.exec(govTests[i].test, options).then(async () => {
-        console.log(`Completed test ${govTests[i].testName}.`)
-      })
+      await runLighthouseTest(govTests[i].test, govTests[i].testName)
 
       // gets result files from test run on a single page (html, csv, and json)
       const files = fs.readdirSync(`${__dirname}\\results`)
-      // array for tracking Accessibility Warnings found on page
-      const tracker = []
-
-      files.forEach(async file => {
-        // folder being checks has more than just JSON files, need to check for .json extension
-        if (file.slice(-4) === 'json') {
-          console.log(`File: ${__dirname}`)
-          if (file !== 'summary.json') {
-            // all audits (accessibility, performance, best practices, etc.) found
-            const audits = require(`${__dirname}\\results\\${file}`).audits
-
-            // workable array of audits
-            const entries = Object.entries(audits)
-
-            // iterate through audits found and check against list of known accessibility violations
-            // add to entries for each violation type to the tracker array
-            for (let k = 0; k < entries.length; k++) {
-              for (let j = 0; j < accessibilityWarnings.length; j++) {
-                if (
-                  entries[k][1].id === accessibilityWarnings[j].id &&
-                  entries[k][1].details !== undefined
-                ) {
-                  // records the number of times this warning appeared
-                  const freq = entries[k][1].details.items.length
-                  if (freq > 0) {
-                    // array to hold each element that triggered the warning
-                    const snips = []
-                    for (let l = 0; l < entries[k][1].details.items.length; l++) {
-                      snips.push(entries[k][1].details.items[l].node.snippet)
-                    }
-                    // add entry to the tracker array for the given warning
-                    tracker.push({
-                      ...accessibilityWarnings[j],
-                      impact: entries[k][1].details.diagnostic.impact,
-                      frequency: freq,
-                      title: entries[k][1].title,
-                      description: entries[k][1].description,
-                      snippets: snips
-                    })
-                  }
-                }
-              }
-            }
-
-            // writer to create the final accessibility csv file output
-            const csvWriter = createCsvWriter({
-              path: `${__dirname}\\AccessibilityCsvReports\\${govTests[i].testName}.csv`,
-              header: [
-                { id: 'id', title: 'Id' },
-                { id: 'weight', title: 'Weight' },
-                { id: 'group', title: 'Group' },
-                { id: 'impact', title: 'Impact' },
-                { id: 'frequency', title: 'Frequency' },
-                { id: 'title', title: 'Title' },
-                { id: 'description', title: 'Description' },
-                { id: 'snippets', title: 'Elements' }
-              ]
-            })
-
-            // output accessibility issues to final CSV report
-            try {
-              await csvWriter.writeRecords(tracker)
-            } catch (err) {
-              console.log(err)
-            }
-
-            const categories = require(`${__dirname}\\results\\${file}`).categories
-
-            // Record category scores
-            recordScores(file, govTests[i].testName, categories)
-
-            // move json report to the json reports folder and rename
-            fs.renameSync(
-              `${__dirname}\\results\\${file}`,
-              `${__dirname}\\JsonReports\\${govTests[i].testName}.json`
-            )
-          }
-        } else if (file.slice(-4) === 'html') {
-          // move html report to html reports folder and rename
-          fs.renameSync(
-            `${__dirname}\\results\\${file}`,
-            `${__dirname}\\HtmlReports\\${govTests[i].testName}.html`
-          )
-        } else if (file.slice(-3) === 'csv') {
-          // move full csv report to csv reports folder and rename
-          fs.renameSync(
-            `${__dirname}\\results\\${file}`,
-            `${__dirname}\\FullCsvReports\\${govTests[i].testName}.csv`
-          )
-        }
-      })
+      analyzeResults(files, govTests[i].testName)
     } catch (e) {
       console.log(e)
     }

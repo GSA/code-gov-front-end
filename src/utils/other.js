@@ -9,23 +9,26 @@ export function isFalse(input) {
   return falses.includes(input)
 }
 
-
 export function adjustAssetPath(thing) {
   const pattern = /.?\/?assets\//
-  const newAssetPath = PUBLIC_PATH + 'assets/'
-  if (startsWith(thing, './assets') || startsWith(thing, '/assets/') || startsWith(thing, 'assets/')) {
+  const newAssetPath = `${PUBLIC_PATH}assets/`
+  if (
+    startsWith(thing, './assets') ||
+    startsWith(thing, '/assets/') ||
+    startsWith(thing, 'assets/')
+  ) {
     return thing.replace(pattern, newAssetPath)
-  } else if (typeof value === 'object') {
-    for (let key in thing) {
+  }
+  if (typeof value === 'object') {
+    for (const key in thing) {
       const subvalue = thing[key]
       if (typeof subvalue === 'string') {
         thing[key] = adjustAssetPath(subvalue)
       }
     }
     return thing
-  } else {
-    return thing
   }
+  return thing
 }
 
 export function getConfigValue(path) {
@@ -40,15 +43,15 @@ export function getConfigValue(path) {
     } else if (Array.isArray(value)) {
       value = value.map(item => {
         if (typeof item === 'object') {
-          for (let subkey in item) {
-            let subvalue = item[subkey]
+          for (const subkey in item) {
+            const subvalue = item[subkey]
             if (typeof subvalue === 'string') {
               item[subkey] = adjustAssetPath(subvalue)
             }
           }
         }
         return item
-      });
+      })
     }
     if (!value) {
       console.warn(`We weren't able to find the value for ${path} in your code-gov-config.json file.
@@ -57,9 +60,8 @@ export function getConfigValue(path) {
     }
     return value
   }
-  else {
-    return null
-  }
+
+  return null
 }
 
 export function normalize(input) {
@@ -84,12 +86,11 @@ export function refreshView() {
   }
 }
 
-
 export function scrollToTopOfResults() {
-  console.log("starting scrollToTopOfResults")
-  const headerHeight = document.querySelector("header.main").clientHeight
-  const bannerHeight = document.querySelector(".banner").clientHeight
-  const navHeight = document.querySelector("header.main nav").clientHeight
+  console.log('starting scrollToTopOfResults')
+  const headerHeight = document.querySelector('header.main').clientHeight
+  const bannerHeight = document.querySelector('.banner').clientHeight
+  const navHeight = document.querySelector('header.main nav').clientHeight
   const scrollDepth = headerHeight + bannerHeight - navHeight
   const scrollOptionsSupported = document.documentElement.style.scrollBehavior !== undefined
   if (scrollOptionsSupported) {
@@ -117,10 +118,8 @@ export function getSet(items, path) {
               results.add(subitem)
             }
           })
-        } else {
-          if (isFalse(value) === false) {
-            results.add(value)
-          }
+        } else if (isFalse(value) === false) {
+          results.add(value)
         }
       }
     })
@@ -140,10 +139,8 @@ export function getLowerSet(items, path) {
               results.add(subitem.toLowerCase())
             }
           })
-        } else {
-          if(isFalse(value) === false) {
-            results.add(value.toLowerCase())
-          }
+        } else if (isFalse(value) === false) {
+          results.add(value.toLowerCase())
         }
       }
     })
@@ -154,14 +151,18 @@ export function getLowerSet(items, path) {
 export function getFilterData(key, path, currentSearchResults, filters) {
   if (currentSearchResults && filters && filters[key]) {
     const names = getLowerSet(currentSearchResults.repos, path)
-    return filters[key].filter(({ name, value }) => {
-      return names.has(normalize(name)) || names.has(normalize(value))
-    })
+    return filters[key].filter(
+      ({ name, value }) => names.has(normalize(name)) || names.has(normalize(value))
+    )
   }
 }
 
 export function hasLicense(repo) {
-  return repo.permissions && Array.isArray(repo.permissions.licenses) && repo.permissions.licenses.length > 0
+  return (
+    repo.permissions &&
+    Array.isArray(repo.permissions.licenses) &&
+    repo.permissions.licenses.length > 0
+  )
 }
 
 export function now() {
@@ -172,14 +173,17 @@ export function getFilterValuesFromParamsByCategory(params, category) {
   return params.filters
     .filter(entry => entry.category === category)
     .map(entry => entry.value)
-    .map(value => typeof value === 'string' ? value.toLowerCase().trim() : value)
+    .map(value => (typeof value === 'string' ? value.toLowerCase().trim() : value))
 }
 
 export function getFilterTags(params, filters) {
   return params.filters
-    .map(({ category, modified, value}) => {
+    .map(({ category, modified, value }) => {
       const normalizedValue = value.toLowerCase()
-      const found = find(get(filters, category), item => item.value.toLowerCase() === normalizedValue)
+      const found = find(
+        get(filters, category),
+        item => item.value.toLowerCase() === normalizedValue
+      )
       let title = 'loading'
       if (found) {
         if (found.name) title = found.name
@@ -191,13 +195,13 @@ export function getFilterTags(params, filters) {
 }
 
 export function loadScript(src) {
-  console.log("starting loadScript with", src)
+  console.log('starting loadScript with', src)
   return new Promise((resolve, reject) => {
     const script = document.createElement('script')
     script.src = src
     script.onload = resolve
     document.body.appendChild(script)
-    console.log("appended:", script, "to body")
+    console.log('appended:', script, 'to body')
   })
 }
 
@@ -207,7 +211,7 @@ export function fillFilters(keys, params, result) {
       params[key].forEach(value => {
         result.filters.push({
           category: key,
-          value: value,
+          value,
           modified: now()
         })
       })
@@ -222,15 +226,15 @@ export function onHomePage() {
 /* I'd prefer to use fetch but IE polyfilling is complicated */
 export function getText(url) {
   return new Promise(resolve => {
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
-        resolve(xhr.response);
+        resolve(xhr.response)
       }
     }
-    xhr.open('GET', url, true);
-    xhr.send('');
-  });
+    xhr.open('GET', url, true)
+    xhr.send('')
+  })
 }
 
 export function getJSON(url) {

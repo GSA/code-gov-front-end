@@ -1,2 +1,3 @@
-import RoadmapContainer from './roadmap.container';
-export default RoadmapContainer;
+import RoadmapContainer from './roadmap.container'
+
+export default RoadmapContainer

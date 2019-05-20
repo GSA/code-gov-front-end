@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 export default class CustomLinkComponent extends Component {
-
   onClick(event) {
     if (this.props.onClick) {
       this.props.onClick(event)
@@ -13,9 +12,12 @@ export default class CustomLinkComponent extends Component {
   render() {
     const { children, className, title, to } = this.props
     if (children) {
-      return <Link className={className} title={title} to={to} onClick={::this.onClick}>{children}</Link>
-    } else {
-      return <Link className={className} title={title} to={to} onClick={::this.onClick} />
+      return (
+        <Link className={className} title={title} to={to} onClick={::this.onClick}>
+          {children}
+        </Link>
+      )
     }
+    return <Link className={className} title={title} to={to} onClick={::this.onClick} />
   }
 }

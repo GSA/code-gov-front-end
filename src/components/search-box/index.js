@@ -1,2 +1,3 @@
-import SearchBoxComponent from './search-box.component';
-export default SearchBoxComponent;
+import SearchBoxComponent from './search-box.component'
+
+export default SearchBoxComponent

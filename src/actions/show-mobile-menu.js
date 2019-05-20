@@ -1,5 +1,5 @@
-import { SHOW_MOBILE_MENU } from 'constants/actions';
+import { SHOW_MOBILE_MENU } from 'constants/actions'
 
-export default function () {
-  return { type: SHOW_MOBILE_MENU };
+export default function() {
+  return { type: SHOW_MOBILE_MENU }
 }

@@ -11,7 +11,7 @@ const props = {
   searchDescriptionText: 'test-text',
   searchDescriptionTextMobile: 'test-mobile-text',
   placeholder: 'test-placeholder',
-  query: 'test-query',
+  query: 'test-query'
 }
 
 let wrapper
@@ -66,7 +66,7 @@ describe('components - HomeBannerSearchBox', () => {
   describe('handleChange', () => {
     beforeEach(() => {
       client.suggest.mockResolvedValue(suggestions)
-    });
+    })
 
     it('should update the `suggestions` and display the auto complete based off the api`s response', async () => {
       await instance.handleChange('test-value')

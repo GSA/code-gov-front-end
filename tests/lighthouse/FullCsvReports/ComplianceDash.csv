@@ -4,7 +4,7 @@ category,name,title,type,score
 "Performance","speed-index","Speed Index","numeric","1"
 "Performance","interactive","Time to Interactive","numeric","0.99"
 "Performance","first-cpu-idle","First CPU Idle","numeric","0.99"
-"Performance","max-potential-fid","Max Potential First Input Delay","numeric","0.29"
+"Performance","max-potential-fid","Max Potential First Input Delay","numeric","0.18"
 "Performance","estimated-input-latency","Estimated Input Latency","numeric","1"
 "Performance","render-blocking-resources","Eliminate render-blocking resources","error","-1"
 "Performance","uses-responsive-images","Properly size images","error","-1"

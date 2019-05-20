@@ -1,2 +1,3 @@
-import HomePressContainer from './home-press.container';
-export default HomePressContainer;
+import HomePressContainer from './home-press.container'
+
+export default HomePressContainer

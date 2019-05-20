@@ -94,4 +94,4 @@ exports[`components - App render should render correctly 1`] = `
     <Connect(Footer) />
   </div>
 </Connect(ConnectedRouter)>
-`;
+`

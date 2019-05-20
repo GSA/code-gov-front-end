@@ -22,11 +22,11 @@ export function getLicenseName(repo) {
 
 export function getLaborHours(repo) {
   try {
-    const laborHours =  Number(get(repo, 'contact.laborHours'))
+    const laborHours = Number(get(repo, 'contact.laborHours'))
     if (laborHours > 0) {
       return laborHours
     }
-  } catch (error){
+  } catch (error) {
     console.warn(error)
   }
 }
@@ -41,7 +41,7 @@ export function parseLanguages(repo) {
 
 export function parseEmail(repo) {
   const email = get(repo, 'contact.email')
-  if (Boolean(email)) {
+  if (email) {
     return email
   }
 }
@@ -53,10 +53,9 @@ export function parseRepositoryURL(repo) {
   }
 
   if (url.startsWith('git://github.com/')) {
-    url =  url.replace('git://github.com/', 'https://github.com/')
+    url = url.replace('git://github.com/', 'https://github.com/')
   } else if (url.startsWith('git@github.com:')) {
-    url = url.replace('git@github.com:', 'https://github.com/')
-      .replace('.git', '')
+    url = url.replace('git@github.com:', 'https://github.com/').replace('.git', '')
   } else if (url.startsWith('https://github.com') && url.endsWith('.git')) {
     url = url.replace('.git', '')
   }
