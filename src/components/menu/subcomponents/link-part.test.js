@@ -10,13 +10,12 @@ const defaultProps = {
   onClick: jest.fn()
 }
 
-let wrapper
-
 function setup(props={}) {
   const setupProps = {...defaultProps, ...props}
   return shallow(<LinkPart {...setupProps} />)
 }
 
+let wrapper
 describe.only('components - Menu - LinkPart Component', () => {
   beforeEach(() => {
     wrapper = setup()
