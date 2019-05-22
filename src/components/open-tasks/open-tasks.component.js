@@ -10,38 +10,33 @@ import { scrollToTopOfResults } from 'utils/other'
 import { isChecked } from 'utils/filtering'
 
 export default class OpenTasks extends React.Component {
-
-  shouldComponentUpdate(nextProps) {
-    return JSON.stringify(nextProps) !== JSON.stringify(this.props)
-  }
-
   componentDidMount() {
     const boxes = this.props.boxes || {}
     if (Object.keys(boxes).length === 0) this.props.saveFilterData()
   }
 
-  get counter() {
-    const { total } = this.props
-    let textContent
-    if (total) {
-      if (total === 0) {
-        textContent = 'There are currently no open tasks'
-      } else if (total === 1) {
-        textContent = 'There is currently 1 open task'
-      } else if (total >= 2) {
-        textContent = `There are ${total} open tasks`
-      } else {
-        textContent = 'Loading Tasks'
-      }
-    } else {
-      textContent = 'Loading Tasks'
-    }
-    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
+  shouldComponentUpdate(nextProps) {
+    return JSON.stringify(nextProps) !== JSON.stringify(this.props)
   }
 
   onFilterBoxChange(category, values) {
     scrollToTopOfResults()
     this.props.onFilterBoxChange(category, values)
+  }
+
+  get counter() {
+    const { total } = this.props
+    let textContent
+    if (total === 0) {
+      textContent = 'There are currently no open tasks'
+    } else if (total === 1) {
+      textContent = 'There is currently 1 open task'
+    } else if (total >= 2) {
+      textContent = `There are ${total} open tasks`
+    } else {
+      textContent = 'Loading Tasks'
+    }
+    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }
 
   updatePage(newPage) {
@@ -60,8 +55,7 @@ export default class OpenTasks extends React.Component {
           { text: 'Open Tasks' }
         ]}/>
         <div className="search-results-header">
-          <div className="width-quarter">
-          </div>
+          <div className="width-quarter" />
           {this.counter}
         </div>
         <div className="indented">
@@ -71,7 +65,7 @@ export default class OpenTasks extends React.Component {
             <FilterBoxes
               boxes={this.props.boxes}
               config={[
-                //['Language', 'languages'],
+                // ['Language', 'languages'],
                 ['Federal Agency', 'agencies'],
                 ['Skill Level', 'skillLevels'],
                 ['Time Required', 'timeRequired'],
