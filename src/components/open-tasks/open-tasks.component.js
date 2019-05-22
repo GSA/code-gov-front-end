@@ -1,13 +1,12 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Breadcrumbs from 'components/breadcrumbs'
-import { map, some } from '@code.gov/cautious'
+import { map } from '@code.gov/cautious'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
 import { scrollToTopOfResults } from 'utils/other'
-import { isChecked } from 'utils/filtering'
 
 export default class OpenTasks extends React.Component {
   componentDidMount() {
@@ -45,7 +44,6 @@ export default class OpenTasks extends React.Component {
   }
 
   render() {
-    const total = this.props.total || 0
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
@@ -85,9 +83,7 @@ export default class OpenTasks extends React.Component {
             <div className="card-list">
               <div className="card-container">
                 <ul className="card-ul">
-                  {map(this.props.tasks, task => {
-                    return <TaskCard key={task.id} task={task} />
-                  })}
+                  {map(this.props.tasks, task => <TaskCard key={task.id} task={task} />)}
                 </ul>
               </div>
               {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
