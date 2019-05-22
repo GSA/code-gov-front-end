@@ -23,6 +23,7 @@ Here’s how you can help contribute to code.gov:
 * Code.gov
     * To provide feedback on code-gov-front-end, please checkout our [Contributing Guildelines](CONTRIBUTING.md).
     * To contribute to the Code.gov style guide, head over to the [code-gov-style](https://github.com/GSA/code-gov-style) repo.
+    * To contribute to the Code.gov data, go to the [code-gov-data] repo at (https://github.com/GSA/code-gov-data)
     * Checkout [code-gov](https://github.com/GSA/code-gov) for a list of additional project repositories. If you aren't sure where your question or idea fits, this is a good place to share it.
 
 ## Getting Started
@@ -77,6 +78,8 @@ Use `npm run test-watch` to run unit tests continuously, re-running each time a 
 
 Note: console.log/warn/error are mocked in unit tests and will not print anything to avoid cluttering the command line. Use a different logging, such as console.info for debugging while running tests
 
+Note: site should be running locally before executing npm run test or you might get false errors due to the component plugins being used
+
 ## Deployment
 Read about how to publish to Github pages, Federalist and elsewhere [here](DEPLOYMENT.md)
 
@@ -96,7 +99,13 @@ For documentation on how to configure code-gov-front-end, go [here](CONFIGURATIO
 
 ## Questions?
 
-If you have questions, please feel free to [send us an email](mailto:code@gsa.gov).
+If you have questions, please feel free to contact us via: 
+[Twitter](@CodeDotGov) 
+[send us an email](mailto:code@gsa.gov) 
+[LinkedIn](code-gov)  
+
+Or join our #opensource-public Slack channel:  
+[Slack](https://chat.18f.gov/)
 
 ## License
 
