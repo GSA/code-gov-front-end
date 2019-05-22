@@ -9,23 +9,14 @@ export function isFalse(input) {
   return falses.includes(input)
 }
 
-
 export function adjustAssetPath(thing) {
   const pattern = /.?\/?assets\//
-  const newAssetPath = PUBLIC_PATH + 'assets/'
+  const newAssetPath = `${PUBLIC_PATH}assets/`
   if (startsWith(thing, './assets') || startsWith(thing, '/assets/') || startsWith(thing, 'assets/')) {
     return thing.replace(pattern, newAssetPath)
-  } else if (typeof value === 'object') {
-    for (let key in thing) {
-      const subvalue = thing[key]
-      if (typeof subvalue === 'string') {
-        thing[key] = adjustAssetPath(subvalue)
-      }
-    }
-    return thing
-  } else {
-    return thing
   }
+
+  return thing
 }
 
 export function getConfigValue(path) {
