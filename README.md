@@ -80,6 +80,17 @@ Note: console.log/warn/error are mocked in unit tests and will not print anythin
 
 Note: site should be running locally before executing npm run test or you might get false errors due to the component plugins being used
 
+
+To run web accessibility testing do the following:
+    a. Make sure [ruby](https://www.ruby-lang.org/en/documentation/installation/) and the [bundler gem](https://bundler.io/) are installed on your computer.
+    b. Start a server by running `npm run start`.
+    c. Use the `npm run test-pa11y` command to run the accessibility tests.
+
+Pa11y-ci uses URLs in the sitemap file to run tests against. It currently excludes anything in /projects. Since this is over 6000 items, it would take a long time to finish and just report the same issues over and over.
+The `--sitemap-find` and `--sitemap-replace` commands allow us to scan the named pages in the sitemap, but test them locally against the server you are running on your machine.
+Additional accessibility testing configuration is located in the .pa11yci file. A select few projects are listed here as URL's to test. These are testing in addition to the sitemap.xml.
+We follow the WCAG2AA standard. For more info on the rules being tested checkout the [pa11y wiki](https://github.com/pa11y/pa11y/wiki/HTML-CodeSniffer-Rules)
+
 ## Deployment
 Read about how to publish to Github pages, Federalist and elsewhere [here](DEPLOYMENT.md)
 
