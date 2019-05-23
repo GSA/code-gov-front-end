@@ -19,6 +19,3 @@ export default function LinkPart({name, onClick, url}) {
 
   return <CustomLink to={url} onClick={onClick}>{name}</CustomLink>
 }
-
-
-
