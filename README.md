@@ -87,8 +87,9 @@ To run web accessibility testing do the following:
     c. Use the `npm run test-pa11y` command to run the accessibility tests.
 
 Pa11y-ci uses URLs in the sitemap file to run tests against. It currently excludes anything in /projects. Since this is over 6000 items, it would take a long time to finish and just report the same issues over and over.
+Additional accessibility testing configuration is located in the .pa11yci file. A select few projects are listed here as URL's to test. These are tested in addition to the sitemap.xml.
 The `--sitemap-find` and `--sitemap-replace` commands allow us to scan the named pages in the sitemap, but test them locally against the server you are running on your machine.
-Additional accessibility testing configuration is located in the .pa11yci file. A select few projects are listed here as URL's to test. These are testing in addition to the sitemap.xml.
+
 We follow the WCAG2AA standard. For more info on the rules being tested checkout the [pa11y wiki](https://github.com/pa11y/pa11y/wiki/HTML-CodeSniffer-Rules)
 
 ## Deployment
