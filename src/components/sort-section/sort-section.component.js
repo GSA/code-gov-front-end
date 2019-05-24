@@ -20,7 +20,7 @@ export default class SortSection extends Component {
       <div className="sort-section">
         <h2>
           <span>Sort by</span>
-          <select onChange={::this.onSortChange} value={selection}>
+          <select aria-label="sort" onChange={::this.onSortChange} value={selection}>
           {map(this.props.options, option => {
             return <option key={option.value} value={option.value}>{option.label}</option>
           })}

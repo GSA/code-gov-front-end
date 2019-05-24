@@ -101,15 +101,11 @@ exports[`components - Menu render should render correctly 1`] = `
       className="right show-w-gt-800"
     >
       <li>
-        <a
-          className="no-underline"
+        <i
+          aria-label="search"
+          className="icon icon-search"
           onClick={[MockFunction]}
-        >
-          <i
-            aria-label="search"
-            className="icon icon-search"
-          />
-        </a>
+        />
       </li>
     </ul>
   </nav>

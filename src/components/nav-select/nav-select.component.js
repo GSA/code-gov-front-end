@@ -20,7 +20,7 @@ export default class NavSelect extends Component {
     console.log("pages:", pages)
     let current = get(find(pages, ({route}) => pathname.includes(route)), 'route')
     return (
-      <select onChange={::this.handleChange} value={current}>
+      <select aria-label="menu" onChange={::this.handleChange} value={current}>
       {map(pages, ({display, route}) => {
         return <option key={route} value={route}>{display}</option>
       })}
