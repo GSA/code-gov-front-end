@@ -63,8 +63,6 @@ export default class Pagination extends Component {
       .map(n => n + 1) // convert from starting at 0 to 1
 
     const pageCount = pageIndexes.length
-    console.log('pageCount', pageCount)
-
     let displayPages = []
 
     try {
