@@ -63,6 +63,7 @@ export default class Pagination extends Component {
       .map(n => n + 1) // convert from starting at 0 to 1
 
     const pageCount = pageIndexes.length
+    let displayPages = []
 
     try {
       const ultimate = last(pageIndexes)
@@ -70,22 +71,15 @@ export default class Pagination extends Component {
       const right = page + 1
 
       if (pageCount <= 7) {
-        return pageIndexes
+        displayPages = pageIndexes
+      } else if (page >= 1 && page <= 4) {
+        displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
+      } else if (page > 4 && right < ultimate - 2) {
+        displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
+      } else if (page >= ultimate - 3) {
+        displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
       }
-
-      if (page >= 1 && page <= 4) {
-        return [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
-      }
-
-      if (page > 4 && right < ultimate - 2) {
-        return [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
-      }
-
-      if (page >= ultimate - 3) {
-        return [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
-      }
-
-      return []
+      return displayPages
 
     } catch (error) {
       console.warn(error)
