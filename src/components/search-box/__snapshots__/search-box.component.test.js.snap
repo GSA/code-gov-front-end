@@ -12,6 +12,7 @@ exports[`components - SearchBox render should render correctly 1`] = `
       className="search-input-and-button-wrapper"
     >
       <input
+        aria-label="search"
         onChange={[Function]}
         placeholder="test-placholder"
         type="input"
@@ -25,4 +26,4 @@ exports[`components - SearchBox render should render correctly 1`] = `
     </div>
   </div>
 </form>
-`
+`;
