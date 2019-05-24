@@ -7,7 +7,7 @@ import client from 'api-client'
 export default class Menu extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showAutocomplete: false
     }
@@ -38,12 +38,10 @@ export default class Menu extends Component {
 
   handleChange(value) {
     client.suggest(value, 5).then(terms => {
-      const suggestions = map(terms, term => {
-        return {
+      const suggestions = map(terms, term => ({
           text: term,
           to: `/search?page=1&query=${term}&size=10&sort=best_match`
-        }
-      })
+        }))
       this.setStateIfMounted({
         showAutocomplete: true,
         suggestions
@@ -62,12 +60,11 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <div className={'search-box show-w-gt-800' + (this.props.searchDropdown ? ' active' : '')}>
+      <div className={`search-box show-w-gt-800${  this.props.searchDropdown ? ' active' : ''}`}>
         <div style={{marginLeft: 'auto', position: 'relative', width: 'calc(36rem + 42px)'}}>
-          <a className="close-search-box-button" onClick={::this.hideSearchDropdown}>
-            <i className="icon icon-cancel"></i>
-          </a>
+            <i aria-label="cancel" className="icon icon-cancel close-search-box-button" onClick={::this.hideSearchDropdown}/>
           <SearchBox
+            aria-label="search"
             inputType='text'
             onBlur={::this.handleBlur}
             onChange={::this.handleChange}

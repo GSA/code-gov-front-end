@@ -14,6 +14,7 @@ exports[`components - Menu - SearchBoxDropdown render should render correctly 1`
     }
   >
     <a
+      aria-label="close search"
       className="close-search-box-button"
       onClick={[Function]}
     >
@@ -22,6 +23,7 @@ exports[`components - Menu - SearchBoxDropdown render should render correctly 1`
       />
     </a>
     <SearchBox
+      aria-label="search projects"
       inputType="text"
       onBlur={[Function]}
       onChange={[Function]}
@@ -31,4 +33,4 @@ exports[`components - Menu - SearchBoxDropdown render should render correctly 1`
     />
   </div>
 </div>
-`
+`;

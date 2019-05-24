@@ -106,6 +106,7 @@ exports[`components - Menu render should render correctly 1`] = `
           onClick={[MockFunction]}
         >
           <i
+            aria-label="search"
             className="icon icon-search"
           />
         </a>
@@ -114,4 +115,4 @@ exports[`components - Menu render should render correctly 1`] = `
   </nav>
   <Connect(Menu) />
 </header>
-`
+`;
