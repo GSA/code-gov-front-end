@@ -45,6 +45,7 @@ exports[`components - Pagination render should render correctly 1`] = `
     >
       <a
         aria-label="Go to page 1"
+        data-testid="component-pagination-page-link-1"
         onClick={[Function]}
         tabIndex={1}
       >
@@ -69,6 +70,7 @@ exports[`components - Pagination render should render correctly 1`] = `
     >
       <a
         aria-label="Go to page 3"
+        data-testid="component-pagination-page-link-3"
         onClick={[Function]}
         tabIndex={3}
       >
@@ -90,4 +92,4 @@ exports[`components - Pagination render should render correctly 1`] = `
     </li>
   </ul>
 </nav>
-`
+`;
