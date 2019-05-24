@@ -19,7 +19,10 @@ export const mapDispatchToProps = dispatch => {
   return {
     onSubmit: (query) => {
       console.log("home-banner-search-box.container starting onSubmit with query:", query)
-      if (getSection === 'search') {
+      // BUG: the first condition here is never true when this action creator
+      // is called. The browser is still on the homepage, so getSection returns
+      // undefined
+      if (getSection() === 'search') {
         dispatch(updateSearchParams({ page: 1, query, size: 10 }))
       } else {
         dispatch(updateSearchParams({ page: 1, query, size: 10, sort: 'best_match' }))

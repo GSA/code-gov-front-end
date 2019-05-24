@@ -75,9 +75,7 @@ describe('components - Menu - SearchBoxDropdown', () => {
     })
   })
 
-  xdescribe('handleSubmit', () => {
-    // BUG: event is not defined.
-    // SearchBox defines own `handleSubmit` and does not use this...
+  describe('handleSubmit', () => {
     it('should call the `onSubmit` passed with values submitted', () => {
       instance.handleSubmit('test-value')
       expect(props.onSubmit).toBeCalledWith('test-value')

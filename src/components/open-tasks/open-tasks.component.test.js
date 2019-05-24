@@ -51,8 +51,7 @@ describe('components - OpenTasks', () => {
     })
   })
 
-  xdescribe('counter', () => {
-    // BUG: never gets to total === 0, as evaluates as false (see browse-projects.repoCounter for how should be)
+  describe('counter', () => {
     it.each`
       total         | match
       ${0}          | ${/no/i}

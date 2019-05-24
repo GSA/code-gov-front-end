@@ -1,26 +1,23 @@
-import React, { Component, Fragment } from 'react'
-import CustomLink from 'components/custom-link'
-import { some, startsWith } from '@code.gov/cautious'
+import React, { Fragment } from 'react'
+import { some } from '@code.gov/cautious'
 
-function LinkPart({name, onClick, url}) {
-  if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
-    return <a href={url} onClick={onClick} target='_blank'>{name}</a>
-  } else {
-    return <CustomLink to={url} onClick={onClick}>{name}</CustomLink>
-  }
-}
+import LinkPart from './link-part'
 
 export default function SecondaryDropdown({ menuOption, onClick }) {
   if (some(menuOption.links)) {
     return (
       <ul role="menu">
-        {menuOption.links.map(link =>{
+        {menuOption.links.map(link => {
           const { name, url } = link
-          return <li key={url}><LinkPart name={name} onClick={onClick} url={url} /></li>
+          return (
+            <li key={url}>
+              <LinkPart name={name} onClick={onClick} url={url} />
+            </li>
+          )
         })}
       </ul>
     )
-  } else {
-    return <Fragment></Fragment>
   }
+
+  return <Fragment />
 }

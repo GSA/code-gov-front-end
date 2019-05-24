@@ -53,7 +53,6 @@ export default class Menu extends Component {
 
   handleSubmit(value) {
     this.props.onSubmit(value)
-    event.preventDefault()
   }
 
   hideSearchDropdown() {

@@ -18,12 +18,10 @@ export default class NavSelect extends Component {
 
     const { pathname, pages } = this.props
     console.log("pages:", pages)
-    let current = get(find(pages, ({route}) => pathname.includes(route)), 'route')
+    const current = get(find(pages, ({route}) => pathname.includes(route)), 'route')
     return (
       <select onChange={::this.handleChange} value={current}>
-      {map(pages, ({display, route}) => {
-        return <option key={route} value={route}>{display}</option>
-      })}
+        {map(pages, ({display, route}) => <option key={route} value={route}>{display}</option>)}
       </select>
     )
   }

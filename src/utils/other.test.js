@@ -42,11 +42,6 @@ describe('other util', () => {
       expect(adjustAssetPath('assets/test')).toBe(`${PUBLIC_PATH}assets/test`)
     })
 
-    // BUG: `value` is not defined in object checking, should be `typeof thing === 'object'`
-    xit('should prefix paths in objects starting with `assets` with the `PUBLIC_PATH`', () => {
-      expect(adjustAssetPath({ path: './assets/test' })).toEqual({ path: `${PUBLIC_PATH}assets/test` })
-    })
-
     it('should return paths not starting with `assets` unaltered', () => {
       expect(adjustAssetPath('./other-path/test')).toBe('./other-path/test')
     })
