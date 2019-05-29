@@ -10,5 +10,5 @@ function download(url, path) {
 }
 
 download('https://raw.githubusercontent.com/GSA/code-gov-data/master/schemas/schema-2.0.0.json', './assets/data/schema.json');
-download('https://github.com/GSA/code-gov-data/raw/master/filters/repos/all.json', './assets/data/filters/repos.json')
-download('https://github.com/GSA/code-gov-data/raw/master/filters/tasks/all.json', './assets/data/filters/tasks.json')
+download('https://raw.githubusercontent.com/smashingboxes/code-gov-data/bug/fix-language-filtering/filters/repos/all.json', './assets/data/filters/repos.json')
+download('https://raw.githubusercontent.com/smashingboxes/code-gov-data/bug/fix-language-filtering/filters/tasks/all.json', './assets/data/filters/tasks.json')
