@@ -3051,6 +3051,9 @@ html {
 html #app {
   background: #F0F3F7;
 }
+html #app .icon {
+  cursor: pointer;
+}
 
 /* styles that apply to stuff around search box on multiple pages */
 #filter-boxes-section {
@@ -3471,6 +3474,10 @@ h3 {
 #issue-banner-subsection-subtitle {
   max-width: 100%;
   width: 100%;
+}
+
+.scroll-indicator {
+  padding-bottom: 8rem;
 }
 
 #about {
