@@ -63,11 +63,13 @@ export default class Pagination extends Component {
     try {
       const { ultimate, left, right } = getPaginationNavInfo({ page, pageIndexes })
 
+      const rightUltBool = right < ultimate - 2
+
       if (pageCount <= 7) {
         displayPages = pageIndexes
       } else if ([1, 2, 3, 4].includes(page)) {
         displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
-      } else if (page > 4 && right < ultimate - 2) {
+      } else if (page > 4 && rightUltBool) {
         displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
       } else if (page >= ultimate - 3) {
         displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
