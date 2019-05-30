@@ -62,7 +62,6 @@ export default class Pagination extends Component {
 
     try {
       const { ultimate, left, right } = getPaginationNavInfo({ page, pageIndexes })
-
       const rightUltBool = right < ultimate - 2
 
       if (pageCount <= 7) {
