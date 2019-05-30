@@ -65,7 +65,7 @@ export default class Pagination extends Component {
 
       if (pageCount <= 7) {
         displayPages = pageIndexes
-      } else if (page >= 1 && page <= 4) {
+      } else if ([1, 2, 3, 4].includes(page)) {
         displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
       } else if (page > 4 && right < ultimate - 2) {
         displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
