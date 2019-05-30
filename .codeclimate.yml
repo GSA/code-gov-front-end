@@ -4,8 +4,5 @@ checks:
     enabled: false
   identical-code:
     enabled: false
-  method-complexity:
-    config:
-      threshold: 7
 exclude_patterns:
   - "src/**/*.test.js"
