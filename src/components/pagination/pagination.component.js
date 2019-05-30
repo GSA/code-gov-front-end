@@ -1,8 +1,6 @@
 // https://reactjs.org/docs/forms.html
 import React, { Component, Fragment } from 'react'
-import { endsWith, equal, last } from '@code.gov/cautious'
-
-import { getPageInfo, getPaginationNavInfo } from '../../utils/pagination'
+import { endsWith, equal, last, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
 
@@ -57,19 +55,23 @@ export default class Pagination extends Component {
   getDisplayPages() {
     const { count, pagesize } = this.props
     const page = parseInt(this.props.page, 10)
-    const { pageCount, pageIndexes } = getPageInfo({ count, pagesize })
+    const pagecount = Math.ceil(count / pagesize)
+    const pageIndexes = range(pagecount)
+      .map(n => n + 1) // convert from starting at 0 to 1
+    const pageCount = pageIndexes.length
+
     let displayPages = []
 
     try {
-      const { ultimate, left, right } = getPaginationNavInfo({ page, pageIndexes })
-      const rightUltBool = right < ultimate - 2
-      const pageGtBool = page > 4
+      const ultimate = last(pageIndexes)
+      const left = page - 1
+      const right = page + 1
 
       if (pageCount <= 7) {
         displayPages = pageIndexes
       } else if ([1, 2, 3, 4].includes(page)) {
         displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
-      } else if (pageGtBool && rightUltBool) {
+      } else if (page > 4 && right < ultimate - 2) {
         displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
       } else if (page >= ultimate - 3) {
         displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
