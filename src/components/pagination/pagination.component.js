@@ -1,7 +1,5 @@
 // https://reactjs.org/docs/forms.html
-
 import React, { Component, Fragment } from 'react'
-
 import { endsWith, equal, last, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
@@ -54,6 +52,37 @@ export default class Pagination extends Component {
     }
   }
 
+  getDisplayPages() {
+    const { count, pagesize } = this.props
+    const page = parseInt(this.props.page, 10)
+    const pagecount = Math.ceil(count / pagesize)
+    const pageIndexes = range(pagecount)
+      .map(n => n + 1) // convert from starting at 0 to 1
+    const pageCount = pageIndexes.length
+
+    let displayPages = []
+
+    try {
+      const ultimate = last(pageIndexes)
+      const left = page - 1
+      const right = page + 1
+
+      if (pageCount <= 7) {
+        displayPages = pageIndexes
+      } else if ([1, 2, 3, 4].includes(page)) {
+        displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
+      } else if (page > 4 && right < ultimate - 2) {
+        displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
+      } else if (page >= ultimate - 3) {
+        displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
+      }
+      return displayPages
+
+    } catch (error) {
+      console.warn(error)
+    }
+  }
+
   render() {
 
     const { count, pagesize } = this.props
@@ -71,35 +100,8 @@ export default class Pagination extends Component {
     */
     const maxItemIndex = minItemIndex + (pagesize - 1) > count - 1 ? count : minItemIndex + (pagesize - 1)
 
-    const pagecount = Math.ceil(count / pagesize)
-
     const summary = this.getSummary({ count, minItemIndex, maxItemIndex })
-
-    const pageIndexes = range(pagecount)
-      .map(n => n + 1) // convert from starting at 0 to 1
-
-    const pageCount = pageIndexes.length
-
-    let displayPages = []
-    try {
-
-      const ultimate = last(pageIndexes)
-      const left = page - 1
-      const right = page + 1
-
-      if (pageCount <= 7) {
-        displayPages = pageIndexes
-      } else if (1 <= page && page <= 4) {
-        displayPages = [1, 2, 3, 4, 5, 'right-ellipsis', ultimate]
-      } else if (4 < page && right < ultimate - 2) {
-        displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
-      } else if (page >= ultimate - 3) {
-        displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
-      }
-
-    } catch (error) {
-      console.warn(error);
-    }
+    const displayPages = this.getDisplayPages()
 
     return (
       <nav role="navigation" aria-label="Pagination Navigation" tabIndex="0">
@@ -117,11 +119,13 @@ export default class Pagination extends Component {
             const tabIndex = index + 1
             if (i === 1) className += ' first'
             if (current) className += ' current'
+            if (!ellipsis && !current) {
+            }
             return (
               <li className={className} key={i}>
                 {ellipsis && <span tabIndex={tabIndex}>...</span> }
                 {current && <span tabIndex={tabIndex} aria-label={`Current Page ${i}`} aria-current="true">{i}</span> }
-                {!ellipsis && !current && <a tabIndex={tabIndex} aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
+                {!ellipsis && !current && <a data-testid={`component-pagination-page-link-${i}`} tabIndex={tabIndex} aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
               </li>
             )
           })}
