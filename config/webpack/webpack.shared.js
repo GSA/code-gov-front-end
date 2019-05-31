@@ -114,7 +114,7 @@ const patterns = [
   }
 ]
 
-if (process.env.CODE_GOV_BRANCH === 'federalist-prod') {
+if (process.env.OUTPUT_RELATIVE_PATH && process.env.OUTPUT_RELATIVE_PATH.includes('federalist-prod')) {
   // only include sitemap if building for production on code.gov
   patterns.push({
     from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
