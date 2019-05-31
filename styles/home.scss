@@ -336,8 +336,9 @@
 
 .scroll-indicator {
   padding-bottom: 4rem;
+  margin: 0;
 
   @media screen and (min-width: $medium-screen) {
-    padding-bottom: 8rem;
+    padding-bottom: 9rem;
   }
 }
