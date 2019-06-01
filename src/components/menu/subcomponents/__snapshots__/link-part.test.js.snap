@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - Menu - LinkPart Component should render correctly 1`] = `
+<a
+  data-testid="link-part-anchor"
+  href="http://link-2-url"
+  onClick={[MockFunction]}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  option-name
+</a>
+`;

@@ -9,15 +9,15 @@ jest.mock('utils/other')
 
 const props = {
   total: 2,
-  tasks: [ { id: 'task-1' }, { id: 'task-2' } ],
-  boxes: [ 'box-1' , 'box-2' ],
-  filterTags: [ 'filter-1', 'filter-2' ],
+  tasks: [{ id: 'task-1' }, { id: 'task-2' }],
+  boxes: ['box-1', 'box-2'],
+  filterTags: ['filter-1', 'filter-2'],
   onFilterTagClick: jest.fn(),
   selectedPage: 1,
   selectedPageSize: 2,
   saveFilterData: jest.fn(),
   onFilterBoxChange: jest.fn(),
-  updatePage: jest.fn(),
+  updatePage: jest.fn()
 }
 
 let wrapper
@@ -51,21 +51,17 @@ describe('components - OpenTasks', () => {
     })
   })
 
-  xdescribe('counter', () => {
-    // BUG: never gets to total === 0, as evaluates as false (see browse-projects.repoCounter for how should be)
+  describe('counter', () => {
     it.each`
-      total         | match
-      ${0}          | ${/no/i}
-      ${1}          | ${/1/}
-      ${9}          | ${/9/}
-      ${undefined}  | ${/loading/i}
-    `(
-      'should render text that matches $match when the total is $total',
-      ({ total, match }) => {
-        wrapper.setProps({ total })
-        testRenderText(instance.counter, match)
-      }
-    )
+      total        | match
+      ${0}         | ${/no/i}
+      ${1}         | ${/1/}
+      ${9}         | ${/9/}
+      ${undefined} | ${/loading/i}
+    `('should render text that matches $match when the total is $total', ({ total, match }) => {
+      wrapper.setProps({ total })
+      testRenderText(instance.counter, match)
+    })
   })
 
   describe('onFilterBoxChange', () => {

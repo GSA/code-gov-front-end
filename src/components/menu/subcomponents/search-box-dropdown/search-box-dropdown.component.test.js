@@ -8,7 +8,7 @@ import SearchBoxDropdown from 'components/menu/subcomponents/search-box-dropdown
 const props = {
   onSubmit: jest.fn(),
   hideSearchDropdown: jest.fn(),
-  searchDropdown: jest.fn(),
+  searchDropdown: jest.fn()
 }
 
 let wrapper
@@ -68,16 +68,14 @@ describe('components - Menu - SearchBoxDropdown', () => {
         showAutocomplete: true,
         suggestions: [
           expect.objectContaining({ text: 'term-1' }),
-          expect.objectContaining({ text: 'term-2' }),
-        ],
+          expect.objectContaining({ text: 'term-2' })
+        ]
       }
       expect(instance.setStateIfMounted).toBeCalledWith(expected)
     })
   })
 
-  xdescribe('handleSubmit', () => {
-    // BUG: event is not defined.
-    // SearchBox defines own `handleSubmit` and does not use this...
+  describe('handleSubmit', () => {
     it('should call the `onSubmit` passed with values submitted', () => {
       instance.handleSubmit('test-value')
       expect(props.onSubmit).toBeCalledWith('test-value')
