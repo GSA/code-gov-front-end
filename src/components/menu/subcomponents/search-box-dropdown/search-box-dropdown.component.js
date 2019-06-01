@@ -5,9 +5,8 @@ import SearchBox from 'components/search-box'
 import client from 'api-client'
 
 export default class Menu extends Component {
-
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showAutocomplete: false
     }
@@ -62,19 +61,24 @@ export default class Menu extends Component {
   render() {
     return (
       <div className={'search-box show-w-gt-800' + (this.props.searchDropdown ? ' active' : '')}>
-        <div style={{marginLeft: 'auto', position: 'relative', width: 'calc(36rem + 42px)'}}>
-          <a className="close-search-box-button" onClick={::this.hideSearchDropdown}>
-            <i className="icon icon-cancel"></i>
-          </a>
+        <div style={{ marginLeft: 'auto', position: 'relative', width: 'calc(36rem + 42px)' }}>
+          <i
+            aria-label="cancel"
+            className="icon icon-cancel close-search-box-button"
+            onClick={::this.hideSearchDropdown}
+          />
           <SearchBox
-            inputType='text'
+            aria-label="search"
+            inputType="text"
             onBlur={::this.handleBlur}
             onChange={::this.handleChange}
             onFocus={::this.handleFocus}
             onSubmit={::this.handleSubmit}
             placeholder="Search Projects..."
           />
-          {this.state.showAutocomplete && some(this.state.suggestions) && <Autocomplete options={this.state.suggestions} onClick={::this.handleSubmit}/>}
+          {this.state.showAutocomplete && some(this.state.suggestions) && (
+            <Autocomplete options={this.state.suggestions} onClick={::this.handleSubmit} />
+          )}
         </div>
       </div>
     )

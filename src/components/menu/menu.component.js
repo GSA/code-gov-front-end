@@ -28,7 +28,8 @@ export default class Menu extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', () => {
-      const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      const scrollTop =
+        (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
       this.setState({ notAtTop: scrollTop !== 0 })
     })
 
@@ -49,7 +50,7 @@ export default class Menu extends Component {
       return menuOption
     })
 
-    selected.expanded = !selected.expanded;
+    selected.expanded = !selected.expanded
 
     const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
 
@@ -64,16 +65,16 @@ export default class Menu extends Component {
   get menus() {
     return this.props.menu.map(menuOption => (
       <Fragment key={menuOption.name}>
-        <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption}/>
+        <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption} />
         <SecondaryMenuOption menuOption={menuOption} />
       </Fragment>
-    ));
+    ))
   }
 
   collapse() {
     const menu = this.state.menu.map(menuOption => {
-        menuOption.expanded = false
-        return menuOption
+      menuOption.expanded = false
+      return menuOption
     })
 
     this.setState({
@@ -84,7 +85,6 @@ export default class Menu extends Component {
   }
 
   render() {
-
     const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
 
     let headerClassName = `main ${color}`
@@ -94,38 +94,48 @@ export default class Menu extends Component {
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 
-    let navStyle = { 'height': this.state.height }
+    let navStyle = { height: this.state.height }
 
     return (
       <header className={headerClassName} ref={this.header}>
         <nav className={navClassName} style={navStyle} aria-label="primary">
-
           <MobileMenuControl />
 
           <CustomLink to="/" className="svg-container" title={siteTitle + ' Home'}>
-            <img src={color === 'white' ? this.props.logoDark : this.props.logoLight} alt="code.gov"/>
+            <img
+              src={color === 'white' ? this.props.logoDark : this.props.logoLight}
+              alt="code.gov"
+            />
           </CustomLink>
 
           <ul role="menubar" aria-label="primary">
             {map(this.props.menu, menuOption => {
               return (
-                <li className={(menuOption.expanded ? 'expanded' : '')} key={menuOption.name} role="none">
-                  <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption}/>
-                  <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse}/>
+                <li
+                  className={menuOption.expanded ? 'expanded' : ''}
+                  key={menuOption.name}
+                  role="none"
+                >
+                  <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
+                  <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
                 </li>
               )
             })}
           </ul>
-          {onHomePage === false && <ul className="right show-w-gt-800">
-            <li>
-              <a className="no-underline" onClick={toggleSearchDropdown}>
-                <i className="icon icon-search"></i>
-              </a>
-            </li>
-          </ul> }
+          {onHomePage === false && (
+            <ul className="right show-w-gt-800">
+              <li>
+                <i
+                  aria-label="search"
+                  className="icon icon-search"
+                  onClick={toggleSearchDropdown}
+                />
+              </li>
+            </ul>
+          )}
         </nav>
-        {onHomePage === false && <SearchBoxDropDown /> }
+        {onHomePage === false && <SearchBoxDropDown />}
       </header>
-    );
+    )
   }
-};
+}

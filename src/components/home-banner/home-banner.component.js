@@ -35,7 +35,7 @@ export default class HomeBanner extends React.Component {
     return (
       <div className="browse">
         <span>or </span>
-        <select onChange={this.props.onBrowseByEntityChange}>
+        <select aria-label="menu" onChange={this.props.onBrowseByEntityChange}>
           <option>{this.props.browseByText}</option>
           <option value="All">All</option>
           {this.agencyOptions}
@@ -86,7 +86,7 @@ export default class HomeBanner extends React.Component {
           <div className="banner-subsection">
             <div className="banner-subsection-subtitle" id="issue-banner-subsection-subtitle">
             <h2 className="banner-subsection-title">Connect with Us</h2>
-              <img className="chat" src={PUBLIC_PATH + 'assets/img/icons/chat_bubble.png'}/>
+              <img alt="" className="chat" src={PUBLIC_PATH + 'assets/img/icons/chat_bubble.png'}/>
               <span>Have questions or feedback? Open an issue on our <a className="home-link link" href={this.props.issueUrl} target="_blank">open source repository</a>.</span>
               <div>Want to receive our monthly newsletter? <a className="home-link link" href={this.props.newsletterUrl} target="_blank">Sign up here</a>.</div>
             </div>
@@ -130,15 +130,7 @@ export default class HomeBanner extends React.Component {
           </div>
           {this.issueSection}
         </div>
-
-        <a
-          className="scroll-indicator"
-          title="Scroll Down"
-          onClick={this.scrollToAbout}
-        >
-          <i className="icon icon-angle-down"></i>
-        </a>
-
+          <i className="icon icon-angle-down scroll-indicator" onClick={this.scrollToAbout}></i>
       </section>
     )
   }

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
 export default class SearchBox extends Component {
-
   constructor(props) {
     super(props)
     this.state = { value: props.value || '' }
@@ -32,7 +31,7 @@ export default class SearchBox extends Component {
 
   handleChange(event) {
     const value = event.target.value
-    this.setState({value});
+    this.setState({ value })
     if (this.props.onChange) {
       this.props.onChange(value)
     }
@@ -49,6 +48,7 @@ export default class SearchBox extends Component {
         <div className="search-input-wrapper">
           <div className="search-input-and-button-wrapper">
             <input
+              aria-label="search"
               onChange={::this.handleChange}
               placeholder={this.props.placeholder || 'Search Projects...'}
               ref={this.textInput}
@@ -61,5 +61,4 @@ export default class SearchBox extends Component {
       </form>
     )
   }
-
 }

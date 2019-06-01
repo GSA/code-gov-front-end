@@ -9,7 +9,7 @@ export default function Autocomplete({ onClick, options }) {
       return (
         <li key={to}>
           <CustomLink onClick={() => onClick & onClick(option)} to={to}>
-            <i className="icon icon-search"/>
+            <i aria-label="search" className="icon icon-search"/>
             <span>{text}</span>
           </CustomLink>
         </li>

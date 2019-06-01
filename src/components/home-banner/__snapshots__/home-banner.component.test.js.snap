@@ -48,6 +48,7 @@ exports[`components - HomeBanner render should render correctly 1`] = `
                 or 
               </span>
               <select
+                aria-label="menu"
                 onChange={[MockFunction]}
               >
                 <option>
@@ -131,6 +132,7 @@ exports[`components - HomeBanner render should render correctly 1`] = `
             Connect with Us
           </h2>
           <img
+            alt=""
             className="chat"
             src="/assets/img/icons/chat_bubble.png"
           />
@@ -160,14 +162,9 @@ exports[`components - HomeBanner render should render correctly 1`] = `
       </div>
     </div>
   </div>
-  <a
-    className="scroll-indicator"
+  <i
+    className="icon icon-angle-down scroll-indicator"
     onClick={[Function]}
-    title="Scroll Down"
-  >
-    <i
-      className="icon icon-angle-down"
-    />
-  </a>
+  />
 </section>
 `;

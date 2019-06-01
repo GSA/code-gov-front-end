@@ -6,6 +6,7 @@ exports[`components - MobileMenuSearchBox render should render correctly 1`] = `
   onSubmit={[Function]}
 >
   <input
+    aria-label="search"
     onChange={[Function]}
     placeholder="Search Projects..."
     type="search"
@@ -17,4 +18,4 @@ exports[`components - MobileMenuSearchBox render should render correctly 1`] = `
     Go
   </button>
 </form>
-`
+`;
