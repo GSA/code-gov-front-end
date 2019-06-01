@@ -23,7 +23,7 @@
     "snyk": "snyk test",
     "test": "jest --coverage",
     "test:ci": "jest --coverage --ci",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci --config .pa11yci --sitemap https://raw.githubusercontent.com/GSA/code-gov-site-map-generator/master/sitemap.xml --sitemap-find https://code.gov --sitemap-replace http://localhost:8080 --sitemap-exclude /projects",
+    "test-pa11y": "./node_modules/.bin/pa11y-ci --config .pa11yci",
     "test-watch": "jest --watch"
   },
   "husky": {
