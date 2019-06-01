@@ -3477,7 +3477,13 @@ h3 {
 }
 
 .scroll-indicator {
-  padding-bottom: 8rem;
+  padding-bottom: 4rem;
+  margin: 0;
+}
+@media screen and (min-width: 600px) {
+  .scroll-indicator {
+    padding-bottom: 9rem;
+  }
 }
 
 #about {
