@@ -21,7 +21,7 @@
     "update-data": "node update-data.js",
     "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
     "snyk": "snyk test",
-    "test": "jest --coverage && npm run test-pa11y",
+    "test": "npm run test-pa11y && jest --coverage",
     "test:ci": "jest --coverage --ci",
     "test-pa11y": "./node_modules/.bin/pa11y-ci --config .pa11yci",
     "test-watch": "jest --watch"
