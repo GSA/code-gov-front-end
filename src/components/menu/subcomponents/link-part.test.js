@@ -10,8 +10,8 @@ const defaultProps = {
   onClick: jest.fn()
 }
 
-function setup(props={}) {
-  const setupProps = {...defaultProps, ...props}
+function setup(props = {}) {
+  const setupProps = { ...defaultProps, ...props }
   return shallow(<LinkPart {...setupProps} />)
 }
 

@@ -47,11 +47,8 @@ export default class OpenTasks extends React.Component {
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
-        <SiteBanner title='Open Tasks' />
-        <Breadcrumbs crumbs={[
-          { text: 'Home', to: '/' },
-          { text: 'Open Tasks' }
-        ]}/>
+        <SiteBanner title="Open Tasks" />
+        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Open Tasks' }]} />
         <div className="search-results-header">
           <div className="width-quarter" />
           {this.counter}
@@ -68,10 +65,9 @@ export default class OpenTasks extends React.Component {
                 ['Skill Level', 'skillLevels'],
                 ['Time Required', 'timeRequired'],
                 ['Type', 'categories']
-                ]}
+              ]}
               onFilterBoxChange={::this.onFilterBoxChange}
             />
-
           </div>
           <div id="filter-results-section">
             <div className="sort-section">
@@ -83,10 +79,19 @@ export default class OpenTasks extends React.Component {
             <div className="card-list">
               <div className="card-container">
                 <ul className="card-ul">
-                  {map(this.props.tasks, task => <TaskCard key={task.id} task={task} />)}
+                  {map(this.props.tasks, task => (
+                    <TaskCard key={task.id} task={task} />
+                  ))}
                 </ul>
               </div>
-              {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
+              {numPages > 0 && (
+                <Pagination
+                  count={this.props.total}
+                  pagesize={this.props.selectedPageSize}
+                  page={this.props.selectedPage}
+                  updatePage={::this.updatePage}
+                />
+              )}
             </div>
           </div>
         </div>

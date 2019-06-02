@@ -40,6 +40,21 @@ describe('components - Pagination', () => {
     })
   })
 
+  describe('getDisplayPages', () => {
+    it('should return the correct displayPages array for the current props', () => {
+      expect(instance.getDisplayPages()).toEqual([1, 2, 3])
+
+      wrapper.setProps({ count: 80 })
+      expect(instance.getDisplayPages()).toEqual([1, 2, 3, 4, 5, 'right-ellipsis', 8])
+
+      wrapper.setProps({ page: 5 })
+      expect(instance.getDisplayPages()).toEqual([1, 'left-ellipsis', 4, 5, 6, 7, 8])
+
+      wrapper.setProps({ count: 100 })
+      expect(instance.getDisplayPages()).toEqual([1, 'left-ellipsis', 4, 5, 6, 'right-ellipsis', 10])
+    })
+  })
+
   describe('handlePrevious', () => {
     it('should call `handleChangePage` with the previous page number', () => {
       jest.spyOn(instance, 'handleChangePage')
@@ -106,6 +121,14 @@ describe('components - Pagination', () => {
   describe('render', () => {
     it('should render correctly', () => {
       expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should call handleChangePage when someone clicks on a results link that is a number', () => {
+      const link = wrapper.find('[data-testid="component-pagination-page-link-3"]')
+      jest.spyOn(instance, 'handleChangePage')
+      link.simulate('click')
+      expect(instance.handleChangePage).toBeCalledTimes(1)
+      expect(instance.handleChangePage).toBeCalledWith(3)
     })
   })
 })

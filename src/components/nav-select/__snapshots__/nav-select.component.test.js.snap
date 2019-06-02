@@ -2,6 +2,7 @@
 
 exports[`components - NavSelect render should render correctly 1`] = `
 <select
+  aria-label="menu"
   onChange={[Function]}
   value="/page-2"
 >
@@ -18,4 +19,4 @@ exports[`components - NavSelect render should render correctly 1`] = `
     page 2
   </option>
 </select>
-`
+`;

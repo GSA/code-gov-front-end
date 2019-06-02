@@ -13,15 +13,13 @@ exports[`components - Menu - SearchBoxDropdown render should render correctly 1`
       }
     }
   >
-    <a
-      className="close-search-box-button"
+    <i
+      aria-label="cancel"
+      className="icon icon-cancel close-search-box-button"
       onClick={[Function]}
-    >
-      <i
-        className="icon icon-cancel"
-      />
-    </a>
+    />
     <SearchBox
+      aria-label="search"
       inputType="text"
       onBlur={[Function]}
       onChange={[Function]}
@@ -31,4 +29,4 @@ exports[`components - Menu - SearchBoxDropdown render should render correctly 1`
     />
   </div>
 </div>
-`
+`;

@@ -333,3 +333,12 @@
   max-width: 100%;
   width: 100%;
 }
+
+.scroll-indicator {
+  padding-bottom: 4rem;
+  margin: 0;
+
+  @media screen and (min-width: $medium-screen) {
+    padding-bottom: 9rem;
+  }
+}

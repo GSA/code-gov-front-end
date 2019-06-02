@@ -1,4 +1,4 @@
-import  {
+import {
   falses,
   isFalse,
   adjustAssetPath,
@@ -13,7 +13,7 @@ import  {
   getFilterValuesFromParamsByCategory,
   getFilterTags,
   fillFilters,
-  onHomePage,
+  onHomePage
 } from 'utils/other'
 
 const restore = { ...global }
@@ -49,7 +49,8 @@ describe('other util', () => {
 
   describe('getConfigValue', () => {
     it('should return the adjusted path of the config value', () => {
-      const adjustedValue = PUBLIC_PATH + SITE_CONFIG.images.background.replace(/.?\/?assets\//, 'assets/')
+      const adjustedValue =
+        PUBLIC_PATH + SITE_CONFIG.images.background.replace(/.?\/?assets\//, 'assets/')
       expect(getConfigValue('images.background')).toBe(adjustedValue)
     })
 
@@ -61,7 +62,7 @@ describe('other util', () => {
       const { logos } = SITE_CONFIG.content.footer
       const adjustedValues = logos.map(logo => ({
         ...logo,
-        image: PUBLIC_PATH + logo.image.replace(/.?\/?assets\//, 'assets/'),
+        image: PUBLIC_PATH + logo.image.replace(/.?\/?assets\//, 'assets/')
       }))
       expect(getConfigValue('content.footer.logos')).toEqual(adjustedValues)
     })
@@ -130,21 +131,13 @@ describe('other util', () => {
 
   describe('getSet', () => {
     it('should create a set of truthy items based off the path provided', () => {
-      const items = [
-        { a: { b: '' } },
-        { a: { b: 'aBc' } },
-        { a: { b: 'true' } },
-      ]
+      const items = [{ a: { b: '' } }, { a: { b: 'aBc' } }, { a: { b: 'true' } }]
       const results = new Set(['aBc', 'true'])
       expect(getSet(items, 'a.b')).toEqual(new Set(results))
     })
 
     it('should map out truthy array values', () => {
-      const items = [
-        { a: { b: [] } },
-        { a: { b: ['123', 'Test'] } },
-        { a: { b: ['false', ''] } },
-      ]
+      const items = [{ a: { b: [] } }, { a: { b: ['123', 'Test'] } }, { a: { b: ['false', ''] } }]
       const results = new Set(['123', 'Test'])
       expect(getSet(items, 'a.b')).toEqual(new Set(results))
     })
@@ -161,21 +154,13 @@ describe('other util', () => {
 
   describe('getLowerSet', () => {
     it('should create a lowercase set of truthy items based off the path provided', () => {
-      const items = [
-        { a: { b: '' } },
-        { a: { b: 'aBc' } },
-        { a: { b: 'true' } },
-      ]
+      const items = [{ a: { b: '' } }, { a: { b: 'aBc' } }, { a: { b: 'true' } }]
       const results = new Set(['abc', 'true'])
       expect(getLowerSet(items, 'a.b')).toEqual(new Set(results))
     })
 
     it('should map out truthy array values lowercased', () => {
-      const items = [
-        { a: { b: [] } },
-        { a: { b: ['123', 'Test'] } },
-        { a: { b: ['false', ''] } },
-      ]
+      const items = [{ a: { b: [] } }, { a: { b: ['123', 'Test'] } }, { a: { b: ['false', ''] } }]
       const results = new Set(['123', 'test'])
       expect(getLowerSet(items, 'a.b')).toEqual(new Set(results))
     })
@@ -218,18 +203,15 @@ describe('other util', () => {
         filters: [
           { category: 'a', value: 'v1' },
           { category: 'b', value: 'v2' },
-          { category: 'a', value: 'v3' },
-        ],
+          { category: 'a', value: 'v3' }
+        ]
       }
       expect(getFilterValuesFromParamsByCategory(params, 'a')).toEqual(['v1', 'v3'])
     })
 
     it('should trim and lowercase values', () => {
       const params = {
-        filters: [
-          { category: 'a', value: '  V1  ' },
-          { category: 'a', value: true },
-        ],
+        filters: [{ category: 'a', value: '  V1  ' }, { category: 'a', value: true }]
       }
       expect(getFilterValuesFromParamsByCategory(params, 'a')).toEqual(['v1', true])
     })
@@ -242,18 +224,18 @@ describe('other util', () => {
           { category: 'a', modified: 111, value: 'V1' },
           { category: 'b', modified: 444, value: 'v2' },
           { category: 'a', modified: 333, value: 'v3' },
-          { category: 'c', modified: 222, value: 'v4' },
-        ],
+          { category: 'c', modified: 222, value: 'v4' }
+        ]
       }
       const filters = {
         a: [{ name: 'a1', value: 'v1' }, { name: 'a2', value: 'v3' }],
-        b: [{ name: 'b1', value: 'v2' }],
+        b: [{ name: 'b1', value: 'v2' }]
       }
       const result = [
         { category: 'a', modified: 111, value: 'v1', title: 'a1' },
         { category: 'c', modified: 222, value: 'v4', title: 'loading' },
         { category: 'a', modified: 333, value: 'v3', title: 'a2' },
-        { category: 'b', modified: 444, value: 'v2', title: 'b1' },
+        { category: 'b', modified: 444, value: 'v2', title: 'b1' }
       ]
       expect(getFilterTags(params, filters)).toEqual(result)
     })
@@ -265,12 +247,10 @@ describe('other util', () => {
       const params = {
         a: [1, 2, 3],
         b: [],
-        c: 'not array',
+        c: 'not array'
       }
       const result = {
-        filters: [
-          { category: 'a', modified: 111, value: 'V1' },
-        ],
+        filters: [{ category: 'a', modified: 111, value: 'V1' }]
       }
 
       fillFilters(keys, params, result)

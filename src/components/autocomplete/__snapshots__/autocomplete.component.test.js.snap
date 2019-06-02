@@ -12,6 +12,7 @@ exports[`components - Autocomplete should render correctly 1`] = `
       to="/to-1"
     >
       <i
+        aria-label="search"
         className="icon icon-search"
       />
       <span>
@@ -27,6 +28,7 @@ exports[`components - Autocomplete should render correctly 1`] = `
       to="/to-2"
     >
       <i
+        aria-label="search"
         className="icon icon-search"
       />
       <span>

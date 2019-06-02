@@ -21,6 +21,7 @@ export default class MobileMenuSearchBoxComponent extends React.Component {
     return (
       <form className="search-form" onSubmit={::this.handleSubmit}>
         <input
+          aria-label="search"
           onChange={::this.handleChange}
           placeholder='Search Projects...'
           type='search'

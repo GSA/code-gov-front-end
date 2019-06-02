@@ -5,20 +5,21 @@ import HomeBannerSearchBoxComponent from './home-banner-search-box.component'
 import { getConfigValue } from 'utils/other'
 import { getSection } from 'utils/url-parsing'
 
-
 export const mapStateToProps = ({ query }) => {
   return {
     placeholder: getConfigValue('content.home.banner.search_placeholder_text'),
     searchDescriptionText: getConfigValue('content.home.banner.search_description_text'),
-    searchDescriptionTextMobile: getConfigValue('content.home.banner.search_description_text_mobile'),
+    searchDescriptionTextMobile: getConfigValue(
+      'content.home.banner.search_description_text_mobile'
+    ),
     query
   }
 }
 
 export const mapDispatchToProps = dispatch => {
   return {
-    onSubmit: (query) => {
-      console.log("home-banner-search-box.container starting onSubmit with query:", query)
+    onSubmit: query => {
+      console.log('home-banner-search-box.container starting onSubmit with query:', query)
       // BUG: the first condition here is never true when this action creator
       // is called. The browser is still on the homepage, so getSection returns
       // undefined
@@ -32,4 +33,7 @@ export const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeBannerSearchBoxComponent)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeBannerSearchBoxComponent)
