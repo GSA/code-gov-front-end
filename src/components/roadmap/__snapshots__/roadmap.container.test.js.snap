@@ -5,19 +5,15 @@ Object {
   "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov, the General Services Agency, the Office of Management and Budget, and the United States Federal Government.",
   "long": Array [
     Object {
-      "name": "Phase 2 SEO improvements",
+      "name": "Usability research to study project experience",
       "status": null,
     },
     Object {
-      "name": "User profiles",
+      "name": "Redesign Project and Open Tasks pages",
       "status": null,
     },
     Object {
-      "name": "Gamification/badges",
-      "status": null,
-    },
-    Object {
-      "name": "Chatbot",
+      "name": "Integrate dynamic data content into the platform",
       "status": null,
     },
     Object {
@@ -25,52 +21,72 @@ Object {
       "status": null,
     },
     Object {
-      "name": "Search scoring phase 2",
+      "name": "Automate sitemap generation",
       "status": null,
     },
   ],
   "mid": Array [
     Object {
-      "name": "Update open tasks phase 1",
-      "status": "Released",
+      "name": "Usability research to study community experience (site navigation, ease of use, content inventory)",
+      "status": "null",
     },
     Object {
-      "name": "Update UI for search results",
-      "status": "Released",
+      "name": "Prototype style guide web components based on USWDS 2.x",
+      "status": "In Progress",
     },
     Object {
-      "name": "Usability sessions, round 2",
-      "status": "Released",
+      "name": "Create community metrics tool to surface open source repo data",
+      "status": "null",
+    },
+    Object {
+      "name": "Launch Open Source Playbook/Toolkit",
+      "status": "In Progress",
+    },
+    Object {
+      "name": "Move blog from Medium to Code.gov platform",
+      "status": "null",
+    },
+    Object {
+      "name": "Add GitHub data to Projects and Open Tasks (stars, forks, etc)",
+      "status": "In Progress",
+    },
+    Object {
+      "name": "Update Swagger documentation for API",
+      "status": "null",
+    },
+    Object {
+      "name": "Search website content in addition to projects",
+      "status": "null",
     },
   ],
   "near": Array [
     Object {
-      "name": "Code.gov configurability with Angular",
+      "name": "Usability research to study contributor experience",
       "status": "Released",
     },
     Object {
-      "name": "Update Navigation and Homepage content",
+      "name": "Add documentation to increase usability of platform",
       "status": "Released",
     },
     Object {
-      "name": "Usability sessions, round 1",
+      "name": "Add tests so that the platform is less brittle",
       "status": "Released",
     },
     Object {
-      "name": "Phase 1 SEO improvements",
-      "status": "Released",
-    },
-    Object {
-      "name": "Licenses documentation",
+      "name": "Home page redesign",
       "status": "In Progress",
+    },
+    Object {
+      "name": "Data quality scoring update",
+      "status": "Released",
     },
     Object {
       "name": "Search scoring phase 1",
       "status": "Released",
     },
     Object {
-      "name": "Update search filters",
-      "status": "Released",
+      "name": "Add 'Official gov website' banner",
+      "status": "In Progress",
     },
   ],
   "overview": Array [
@@ -78,4 +94,4 @@ Object {
     "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap. If you want to join the Code.gov user testing group, please email us at <a href='mailto:code@gsa.gov'>Code@gsa.gov</a>.",
   ],
 }
-`
+`;
