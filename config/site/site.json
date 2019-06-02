@@ -257,7 +257,6 @@
         { "name": "Add tests so that the platform is less brittle", "status": "Released" },
         { "name": "Home page redesign", "status": "In Progress" },
         { "name": "Data quality scoring update", "status": "Released" },
-        { "name": "Search scoring phase 1", "status": "Released" },
         { "name": "Add 'Official gov website' banner", "status": "In Progress" }
       ],
       "mid": [
