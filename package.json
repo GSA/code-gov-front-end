@@ -51,7 +51,6 @@
     "url": "https://github.com/GSA/code-gov-front-end/issues"
   },
   "homepage": "https://github.com/GSA/code-gov-front-end#readme",
-  "private": "false",
   "dependencies": {
     "@code.gov/about-page": "0.1.12",
     "@code.gov/api-client": "^0.3.4",
