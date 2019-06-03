@@ -1,5 +1,5 @@
 {
-  "name": "code-gov-front-end",
+  "name": "@code.gov/code-gov-front-end",
   "version": "0.0.8",
   "description": "Code.gov — America’s Home for Open Source Projects from the Federal Governmen",
   "main": "index.js",
@@ -51,7 +51,6 @@
     "url": "https://github.com/GSA/code-gov-front-end/issues"
   },
   "homepage": "https://github.com/GSA/code-gov-front-end#readme",
-  "private": "false",
   "dependencies": {
     "@code.gov/about-page": "0.1.13",
     "@code.gov/api-client": "^0.3.4",
