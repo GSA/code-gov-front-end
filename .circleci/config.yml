@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
+      - run: npm run start
       - run: npm run test:ci
   deploy-bundle-analysis:
     docker:
