@@ -69,8 +69,8 @@ Object {
       "status": "Released",
     },
     Object {
-      "name": "Add tests so that the platform is less brittle",
-      "status": "Released",
+      "name": "Add tests to ensure code quality throughout the development process",
+      "status": "In Progress",
     },
     Object {
       "name": "Home page redesign",

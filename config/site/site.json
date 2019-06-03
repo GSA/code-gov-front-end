@@ -254,7 +254,7 @@
       "near": [
         { "name": "Usability research to study contributor experience", "status": "Released" },
         { "name": "Add documentation to increase usability of platform", "status": "Released" },
-        { "name": "Add tests so that the platform is less brittle", "status": "Released" },
+        { "name": "Add tests to ensure code quality throughout the development process", "status": "In Progress" },
         { "name": "Home page redesign", "status": "In Progress" },
         { "name": "Data quality scoring update", "status": "Released" },
         { "name": "Add 'Official gov website' banner", "status": "In Progress" }
