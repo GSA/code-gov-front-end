@@ -1,5 +1,5 @@
 # code.gov plugins
-/src/components/plugins
+src/components/plugins
 
 # Ignore dist and docs files
 dist/*

@@ -252,26 +252,29 @@
         "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap. If you want to join the Code.gov user testing group, please email us at <a href='mailto:code@gsa.gov'>Code@gsa.gov</a>."
       ],
       "near": [
-        { "name": "Code.gov configurability with Angular", "status": "Released" },
-        { "name": "Update Navigation and Homepage content", "status": "Released" },
-        { "name": "Usability sessions, round 1", "status": "Released" },
-        { "name": "Phase 1 SEO improvements", "status": "Released" },
-        { "name": "Licenses documentation", "status": "In Progress" },
-        { "name": "Search scoring phase 1", "status": "Released" },
-        { "name": "Update search filters", "status": "Released" }
+        { "name": "Usability research to study contributor experience", "status": "Released" },
+        { "name": "Add documentation to increase usability of platform", "status": "Released" },
+        { "name": "Add tests to ensure code quality throughout the development process", "status": "In Progress" },
+        { "name": "Home page redesign", "status": "In Progress" },
+        { "name": "Data quality scoring update", "status": "Released" },
+        { "name": "Add 'Official gov website' banner", "status": "In Progress" }
       ],
       "mid": [
-        { "name": "Update open tasks phase 1", "status": "Released" },
-        { "name": "Update UI for search results", "status": "Released" },
-        { "name": "Usability sessions, round 2", "status": "Released" }
+        { "name": "Usability research to study community experience (site navigation, ease of use, content inventory)", "status": "null" },
+        { "name": "Prototype style guide web components based on USWDS 2.x", "status": "In Progress" },
+        { "name": "Create community metrics tool to surface open source repo data", "status": "null" },
+        { "name": "Launch Open Source Playbook/Toolkit", "status": "In Progress" },
+        { "name": "Move blog from Medium to Code.gov platform", "status": "null" },
+        { "name": "Add GitHub data to Projects and Open Tasks (stars, forks, etc)", "status": "In Progress" },
+        { "name": "Update Swagger documentation for API", "status": "null" },
+        { "name": "Search website content in addition to projects", "status": "null" }
       ],
       "long": [
-        { "name": "Phase 2 SEO improvements", "status": null },
-        { "name": "User profiles", "status": null },
-        { "name": "Gamification/badges", "status": null },
-        { "name": "Chatbot", "status": null },
+        { "name": "Usability research to study project experience", "status": null },
+        { "name": "Redesign Project and Open Tasks pages", "status": null },
+        { "name": "Integrate dynamic data content into the platform", "status": null },
         { "name": "Code.json creator tool", "status": null },
-        { "name": "Search scoring phase 2", "status": null }
+        { "name": "Automate sitemap generation", "status": null }
       ],
       "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov, the General Services Agency, the Office of Management and Budget, and the United States Federal Government."
     }
