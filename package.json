@@ -1,6 +1,6 @@
 {
   "name": "@code.gov/code-gov-front-end",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Code.gov — America’s Home for Open Source Projects from the Federal Governmen",
   "main": "index.js",
   "scripts": {
@@ -58,7 +58,7 @@
     "@code.gov/code-gov-font": "^0.7.1",
     "@code.gov/code-gov-style": "^1.15.0",
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
-    "@code.gov/fscp-react-component": "0.3.4",
+    "@code.gov/fscp-react-component": "0.3.5",
     "@code.gov/json-schema-validator-web-component": "^0.2.0",
     "@code.gov/json-schema-web-component": "0.4.0",
     "@code.gov/site-map-generator": "^1.0.3",
