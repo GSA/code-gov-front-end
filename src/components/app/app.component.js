@@ -32,6 +32,7 @@ export default class AppComponent extends Component {
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
+          <gov-banner />
           <Menu />
           <Switch location={location}>
             <Route exact path='/' component={Home}/>

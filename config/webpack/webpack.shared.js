@@ -135,7 +135,8 @@ module.exports = {
     extensions: ['.js', '.json', '.md']
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(ttf|eot|woff|woff2|svg)$/,
         use: [{
           loader: 'file-loader',
@@ -144,6 +145,13 @@ module.exports = {
             outputPath: 'fonts/'
           }
         }]
+      },
+      {
+        test: /\.(png)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+        },
       },
       {
         test: /\.scss$/,
