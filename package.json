@@ -4,27 +4,29 @@
   "description": "Code.gov — America’s Home for Open Source Projects from the Federal Governmen",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint 'src/**/*' --ext .js,.jsx --fix",
-    "prettier": "pretty-quick --staged",
     "analyze": "webpack --config ./config/webpack/webpack.analyze.js",
     "build": "webpack --config ./config/webpack/webpack.prod.js",
     "deploy": "node deploy.js",
     "deploy-to-gh-pages": "PUBLIC_PATH='/code-gov-front-end/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' npm run build && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run deploy",
-    "deploy-to-staging": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' npm run deploy",
     "deploy-to-production": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-prod' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-prod' CODE_GOV_BRANCH='federalist-prod' npm run deploy",
+    "deploy-to-staging": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' npm run deploy",
     "install-about-plugin": "cp -fr ./node_modules/@code.gov/about-page/pages/html/* ./assets/plugins/about-page/.",
     "install-fscp-plugin": "cp ./node_modules/@code.gov/fscp-react-component/pages/html/* ./assets/plugins/fscp-react-component/.",
     "licenses": "license-checker --json --relativeLicensePath --out dependency_licenses.json",
+    "lint": "eslint 'src/**/*' --ext .js,.jsx --fix",
+    "prepare": "npm run snyk-protect",
+    "prettier": "pretty-quick --staged",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --disableHostCheck=true",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
-    "webpack": "node ./node_modules/webpack/bin/webpack.js",
-    "update-data": "node update-data.js",
-    "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
     "snyk": "snyk test",
+    "snyk-protect": "snyk protect",
     "test": "npm run test-pa11y && jest --coverage",
     "test:ci": "jest --coverage --ci",
     "test-pa11y": "./node_modules/.bin/pa11y-ci --config .pa11yci",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "update-data": "node update-data.js",
+    "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
+    "webpack": "node ./node_modules/webpack/bin/webpack.js"
   },
   "husky": {
     "hooks": {
@@ -93,7 +95,8 @@
     "webpack-create-file-plugin": "^1.0.0",
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "snyk": "^1.171.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -144,7 +147,6 @@
     "pretty-quick": "^1.8.0",
     "sass": "^1.20.1",
     "sass-loader": "^7.1.0",
-    "snyk": "^1.161.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0"
   },
@@ -175,5 +177,6 @@
     },
     "resetMocks": true,
     "testURL": "http://test.com/"
-  }
+  },
+  "snyk": true
 }
