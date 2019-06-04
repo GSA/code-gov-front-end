@@ -4,7 +4,7 @@
   "description": "Code.gov — America’s Home for Open Source Projects from the Federal Governmen",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/**/* --ext .js,.jsx --fix",
+    "lint": "eslint 'src/**/*' --ext .js,.jsx --fix",
     "prettier": "pretty-quick --staged",
     "analyze": "webpack --config ./config/webpack/webpack.analyze.js",
     "build": "webpack --config ./config/webpack/webpack.prod.js",
@@ -34,7 +34,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "pretty-quick --staged",
-      "eslint src/**/* --ext .js,.jsx --fix",
+      "eslint 'src/**/*' --ext .js,.jsx --fix",
       "git add"
     ]
   },
