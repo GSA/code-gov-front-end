@@ -162,9 +162,5 @@ exports[`components - HomeBanner render should render correctly 1`] = `
       </div>
     </div>
   </div>
-  <i
-    className="icon icon-angle-down scroll-indicator"
-    onClick={[Function]}
-  />
 </section>
 `;

@@ -1,13 +1,10 @@
 section#banner-home {
 
   /* this get the banner image to lay under the menu on the home page */
-  margin-top: -50px;
+  margin-top: 50px;
 
   .banner-content {
-
-    padding-top: 100px;
-    position: absolute;
-    top: 50%;
+    background: $brand-blue;
 
     /* adds some additional spacing between sections */
     .indented {
@@ -22,10 +19,21 @@ section#banner-home {
       }
     }
 
+    .banner-title {
+      padding-top: 1rem;
+      text-transform: none;
+    }
+
     .banner-subtitle {
+      font-family: "TT Lakes", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      padding-bottom: 2rem;
       @media screen and (max-width: 1200px) {
         display: none;
       }
+    }
+
+    .banner-search {
+      background: $brand-blue-light;
     }
 
     .banner-subsection {
@@ -80,7 +88,9 @@ section#banner-home {
 
 
   .search-description-wrapper {
+    color: $brand-gray;
     margin: 0 auto;
+    padding-bottom: 1rem;
     text-align: left;
     width: 100%;
 
