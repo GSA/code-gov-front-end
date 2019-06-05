@@ -10,7 +10,7 @@ import toggleSearchDropdown from 'actions/toggle-search-dropdown'
 export const mapStateToProps = ({ router, searchDropdown }) => {
   const onHomePage = router.location.pathname === PUBLIC_PATH
   return {
-    color: onHomePage ? 'dark' : 'white',
+    color: 'white',
     logoDark: getConfigValue('content.header.logos.dark'),
     logoLight: getConfigValue('content.header.logos.light'),
     menu: getConfigValue('content.header.menu'),
