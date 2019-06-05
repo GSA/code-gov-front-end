@@ -16,6 +16,11 @@ import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView } from 'utils/other'
 
+
+function GovernmentBanner() {
+  return <gov-banner />
+}
+
 export default class AppComponent extends Component {
 
   componentDidMount() {
@@ -32,7 +37,7 @@ export default class AppComponent extends Component {
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
-          <gov-banner />
+          <GovernmentBanner />
           <Menu />
           <Switch location={location}>
             <Route exact path='/' component={Home}/>
