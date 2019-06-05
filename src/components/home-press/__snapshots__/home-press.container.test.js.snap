@@ -4,7 +4,7 @@ exports[`containers - HomePress mapStateToProps should return the correct proper
 Object {
   "attributionImage": "/assets/img/logos/press/wired.svg",
   "attributionUrl": "https://www.wired.com/2016/08/open-source-won-now/",
-  "backgroundImage": "/assets/img/american_flag_1920x1280_gradient.jpg",
+  "backgroundImage": undefined,
   "links": Array [
     Object {
       "alt": "techcrunch",
@@ -24,4 +24,4 @@ Object {
   ],
   "quote": "It’s the latest in a long line of high-profile victories for the open source movement.",
 }
-`
+`;

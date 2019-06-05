@@ -2,6 +2,6 @@
 
 exports[`containers - MobileMenuOption mapStateToProps should return the correct properties 1`] = `
 Object {
-  "backgroundImage": "/assets/img/american_flag_1920x1280_gradient.jpg",
+  "backgroundImage": undefined,
 }
-`
+`;

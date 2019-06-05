@@ -27,7 +27,8 @@
         "dark": "./assets/img/logos/code-gov-dark.svg",
         "light": "./assets/img/logos/code-gov-light.svg"
       },
-      "menu": [{
+      "menu": [
+        {
           "name": "ABOUT",
           "links": [
             { "name": "OVERVIEW", "url": "/about/overview/introduction" },
@@ -53,7 +54,10 @@
           "links": [
             { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
             { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
-            { "name": "Notebooks", "url": "https://beta.observablehq.com/search?query=%22code.gov%22" },
+            {
+              "name": "Notebooks",
+              "url": "https://beta.observablehq.com/search?query=%22code.gov%22"
+            },
             { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
           ]
         },
@@ -68,7 +72,8 @@
           ]
         }
       ],
-      "mobile_menu": [{
+      "mobile_menu": [
+        {
           "name": "About",
           "links": [
             { "name": "Overview", "url": "/about/overview/introduction" },
@@ -94,7 +99,10 @@
           "links": [
             { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
             { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
-            { "name": "Notebooks", "url": "https://beta.observablehq.com/search?query=%22code.gov%22" },
+            {
+              "name": "Notebooks",
+              "url": "https://beta.observablehq.com/search?query=%22code.gov%22"
+            },
             { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
           ]
         },
@@ -127,7 +135,8 @@
         "newsletter_url": "https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?topic_id=USGSATTS_5"
       },
       "mission": "Code.gov leverages the power of code sharing and collaboration to help the US Government cut down on duplicative software development and save millions of taxpayer dollars for the American people.",
-      "about": [{
+      "about": [
+        {
           "title": "About Us",
           "description": "Code.gov is on track to become the nation’s primary platform for sharing America’s code.  Find out how we’ll get there.",
           "link": "/about/overview/introduction",
@@ -146,7 +155,8 @@
           "image": "/assets/img/icons/check_bl.png"
         }
       ],
-      "featured": [{
+      "featured": [
+        {
           "short_name": "WNTR",
           "verbose_name": "Water Network Tool for Resilience",
           "author": "Environmental Protection Agency",
@@ -154,7 +164,10 @@
           "image": "/assets/img/featured-projects/pipes4.png",
           "alt": "A network of pipes with a red, yellow and green valve and a meter gauge",
           "links": [
-            { "name": "View Project", "url": "/projects/doe_sandia_national_laboratories_snl_water_network_tool_for_resilience_v_1_0" },
+            {
+              "name": "View Project",
+              "url": "/projects/doe_sandia_national_laboratories_snl_water_network_tool_for_resilience_v_1_0"
+            },
             { "name": "Go to Repo", "url": "https://github.com/usepa/wntr" }
           ]
         },
@@ -166,7 +179,10 @@
           "image": "/assets/img/featured-projects/smartcity4.png",
           "alt": "Cartoon truck navigating windy road with caution sign and wireless towers",
           "links": [
-            { "name": "View Project", "url": "/projects/dot_fhwa_intelligent_transportation_systems_operational_data_environment_its_ode_" },
+            {
+              "name": "View Project",
+              "url": "/projects/dot_fhwa_intelligent_transportation_systems_operational_data_environment_its_ode_"
+            },
             { "name": "Go to Repo", "url": "https://github.com/usdot-jpo-ode/jpo-ode" }
           ]
         },
@@ -190,7 +206,8 @@
           "alt": "wired magazine",
           "url": "https://www.wired.com/2016/08/open-source-won-now/"
         },
-        "links": [{
+        "links": [
+          {
             "image": "assets/img/logos/press/techcrunch.jpg",
             "alt": "techcrunch",
             "url": "https://techcrunch.com/2016/08/08/the-white-house-just-released-the-federal-source-code-policy-to-help-government-agencies-go-open-source/"
@@ -209,7 +226,8 @@
       }
     },
     "footer": {
-      "links": [{
+      "links": [
+        {
           "name": "Privacy Policy",
           "url": "/privacy-policy"
         },
@@ -222,7 +240,8 @@
           "url": "https://github.com/GSA/code-gov"
         }
       ],
-      "logos": [{
+      "logos": [
+        {
           "image": "/assets/img/logos/whitehouse.png",
           "name": "The White House",
           "url": "https://whitehouse.gov/"
@@ -254,18 +273,33 @@
       "near": [
         { "name": "Usability research to study contributor experience", "status": "Released" },
         { "name": "Add documentation to increase usability of platform", "status": "Released" },
-        { "name": "Add tests to ensure code quality throughout the development process", "status": "In Progress" },
+        {
+          "name": "Add tests to ensure code quality throughout the development process",
+          "status": "In Progress"
+        },
         { "name": "Home page redesign", "status": "In Progress" },
         { "name": "Data quality scoring update", "status": "Released" },
         { "name": "Add 'Official gov website' banner", "status": "In Progress" }
       ],
       "mid": [
-        { "name": "Usability research to study community experience (site navigation, ease of use, content inventory)", "status": "null" },
-        { "name": "Prototype style guide web components based on USWDS 2.x", "status": "In Progress" },
-        { "name": "Create community metrics tool to surface open source repo data", "status": "null" },
+        {
+          "name": "Usability research to study community experience (site navigation, ease of use, content inventory)",
+          "status": "null"
+        },
+        {
+          "name": "Prototype style guide web components based on USWDS 2.x",
+          "status": "In Progress"
+        },
+        {
+          "name": "Create community metrics tool to surface open source repo data",
+          "status": "null"
+        },
         { "name": "Launch Open Source Playbook/Toolkit", "status": "In Progress" },
         { "name": "Move blog from Medium to Code.gov platform", "status": "null" },
-        { "name": "Add GitHub data to Projects and Open Tasks (stars, forks, etc)", "status": "In Progress" },
+        {
+          "name": "Add GitHub data to Projects and Open Tasks (stars, forks, etc)",
+          "status": "In Progress"
+        },
         { "name": "Update Swagger documentation for API", "status": "null" },
         { "name": "Search website content in addition to projects", "status": "null" }
       ],
@@ -278,8 +312,5 @@
       ],
       "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov, the General Services Agency, the Office of Management and Budget, and the United States Federal Government."
     }
-  },
-  "images": {
-    "background": "./assets/img/american_flag_1920x1280_gradient.jpg"
   }
 }

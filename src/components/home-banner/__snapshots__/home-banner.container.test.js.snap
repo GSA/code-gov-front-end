@@ -12,7 +12,7 @@ Object {
       "name": "agency-2",
     },
   ],
-  "backgroundImage": "/assets/img/american_flag_1920x1280_gradient.jpg",
+  "backgroundImage": undefined,
   "browseByText": "Browse by Agency",
   "helpWantedButton": "Explore Open Tasks",
   "helpWantedDescription": "Whether you are a beginner or an experienced coder, join the open source community. Help improve America's Code.",
