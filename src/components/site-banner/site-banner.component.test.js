@@ -4,7 +4,6 @@ import { shallow } from 'enzyme'
 import SiteBanner from 'components/site-banner/site-banner.component'
 
 const props = {
-  backgroundImage: 'test-bg-img',
   title: 'test-title',
 }
 

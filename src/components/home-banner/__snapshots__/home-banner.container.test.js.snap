@@ -2,24 +2,7 @@
 
 exports[`containers - HomeBanner mapStateToProps should return the correct properties 1`] = `
 Object {
-  "agencies": Array [
-    Object {
-      "acronym": "a1",
-      "name": "agency-1",
-    },
-    Object {
-      "acronym": "a2",
-      "name": "agency-2",
-    },
-  ],
-  "backgroundImage": undefined,
-  "browseByText": "Browse by Agency",
-  "helpWantedButton": "Explore Open Tasks",
-  "helpWantedDescription": "Whether you are a beginner or an experienced coder, join the open source community. Help improve America's Code.",
-  "helpWantedTitle": "Ready. Set. Code!",
-  "issueUrl": "https://github.com/GSA/code-gov-front-end/issues",
   "motto": "Sharing America's Code",
-  "newsletterUrl": "https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?topic_id=USGSATTS_5",
   "subtitle": "Unlock the tremendous potential of the Federal Government’s software.",
 }
 `;

@@ -2,7 +2,6 @@
 
 exports[`components - SiteBanner should render correctly 1`] = `
 <simple-banner
-  image="test-bg-img"
   title="test-title"
 />
-`
+`;
