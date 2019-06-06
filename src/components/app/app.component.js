@@ -12,14 +12,10 @@ import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
+import OfficialBanner from 'components/official-banner'
 import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView } from 'utils/other'
-
-
-function GovernmentBanner() {
-  return <gov-banner />
-}
 
 export default class AppComponent extends Component {
 
@@ -33,11 +29,15 @@ export default class AppComponent extends Component {
   render() {
 
     const location = window.location
+    const isHomepage = location.pathname === '/'
 
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
-          <GovernmentBanner />
+          {isHomepage ?
+            <OfficialBanner className="gov-banner" isDark /> :
+            <OfficialBanner className="gov-banner" />
+          }
           <Menu />
           <Switch location={location}>
             <Route exact path='/' component={Home}/>
