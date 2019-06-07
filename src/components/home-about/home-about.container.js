@@ -4,8 +4,9 @@ import HomeAboutComponent from './home-about.component'
 
 export const mapStateToProps = () => {
   return {
+    aboutus: getConfigValue('content.home.aboutus'),
     mission: getConfigValue('content.home.mission'),
-    aboutItems: getConfigValue('content.home.about')
+    vision: getConfigValue('content.home.vision')
   }
 }
 
