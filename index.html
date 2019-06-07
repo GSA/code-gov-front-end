@@ -113,16 +113,22 @@
         loadScript('<%= PUBLIC_PATH %>polyfills/custom-event.js');
       }
 
-      function injectScript(innerHTML) {
+      function injectScript(innerHTML, type, src, id) {
         var script = document.createElement('script');
         script.innerHTML = innerHTML;
+        script.type = type;
+        script.src = src;
+        script.id = id;
         document.head.appendChild(script);
       }
 
       <% if (ENABLE_GOOGLE_ANALYTICS === true) { %>
       setTimeout(function() {
-        //Google Tag Manager
-        injectScript("(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5CKH6WC');");
+        // We use Google Tag Manager to track events on code.gov
+        injectScript("(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5CKH6WC');", "", "", "");
+        
+        // We participate in the US government's analytics program (DAP). You can see the data for code.gov and other federal websites at analytics.usa.gov.
+        injectScript("", "text/javascript", "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA", "_fed_an_ua_tag");
       }, 3000);
       <% } %>
     </script>
