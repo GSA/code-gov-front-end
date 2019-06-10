@@ -20,6 +20,12 @@
   .usa-banner__icon {
     width: 4.5rem;
   }
+
+  .usa-banner__button:focus,
+  .usa-banner__button:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
 }
 
 .gov-banner__dark {
