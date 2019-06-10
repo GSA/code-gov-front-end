@@ -16,6 +16,8 @@ const nodeModulesDir = join(rootDir, 'node_modules')
 
 console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
 console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
+console.log('process.env.CODE_GOV_BRANCH:', process.env.CODE_GOV_BRANCH)
+console.log('process.env.CODE_GOV_RELATIVE_DIR:', process.env.CODE_GOV_RELATIVE_DIR)
 
 // https://webpack.js.org/guides/public-path/
 const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
@@ -203,7 +205,7 @@ module.exports = {
       }
     }),
     new DefinePlugin({
-      'ENABLE_GOOGLE_ANALYTICS': JSON.stringify(process.env.CODE_GOV_BRANCH === 'federalist-prod'),
+      'ENABLE_GOOGLE_ANALYTICS': process.env.CODE_GOV_BRANCH === 'federalist-prod',
       'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
       'SITE_CONFIG': JSON.stringify(SITE_CONFIG)
     }),
