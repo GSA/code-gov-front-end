@@ -35,8 +35,8 @@ export default class AppComponent extends Component {
       <ConnectedRouter history={history}>
         <div className='App'>
           {isHomepage ?
-            <OfficialBanner className="gov-banner" isDark /> :
-            <OfficialBanner className="gov-banner" />
+            <OfficialBanner isDark /> :
+            <OfficialBanner />
           }
           <Menu />
           <Switch location={location}>
