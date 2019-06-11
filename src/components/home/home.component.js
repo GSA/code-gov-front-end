@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import HomeExplore from 'components/home-explore'
 import HomeAbout from 'components/home-about'
 import HomeBanner from 'components/home-banner'
 import HomeFeaturedProjects from 'components/home-featured-projects'
@@ -20,6 +21,7 @@ export default class HomeComponent extends React.Component {
     return (
       <Fragment>
         <HomeBanner/>
+        <HomeExplore/>
         <HomeAbout/>
         <HomeFeaturedProjects/>
         <HomePress/>
