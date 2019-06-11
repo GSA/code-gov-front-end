@@ -39,7 +39,15 @@ header.main {
     }
 
     .mobile-menu {
-      top: calc(#{$header-height} + 40px);
+      top: calc(#{$header-height} + #{$mobile-menu-offset});
+
+      @media screen and (max-width: $mobile-menu-offset-switch-high) {
+        top: calc(#{$header-height} + #{$mobile-menu-offset-small});
+      }
+
+      @media screen and (max-width: $mobile-menu-offset-switch-low) {
+        top: calc(#{$header-height} + #{$mobile-menu-offset});
+      }
     }
 
     ul {
