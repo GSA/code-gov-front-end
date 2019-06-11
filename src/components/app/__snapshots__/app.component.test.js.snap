@@ -26,6 +26,9 @@ exports[`components - App render should render correctly 1`] = `
   <div
     className="App"
   >
+    <OfficialBanner
+      isDark={true}
+    />
     <withRouter(Connect(Menu)) />
     <Switch
       location={
