@@ -134,7 +134,9 @@
         "issue_url": "https://github.com/GSA/code-gov-front-end/issues",
         "newsletter_url": "https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?topic_id=USGSATTS_5"
       },
-      "mission": "Code.gov leverages the power of code sharing and collaboration to help the US Government cut down on duplicative software development and save millions of taxpayer dollars for the American people.",
+      "aboutus": "Code.gov is the federal government's platform for sharing America's open source software",
+      "mission": "Our mission is to help agency partners and developers save money and increase quality by promoting code reuse and educating and connecting the open source community",
+      "vision": "Serve as the community leader in driving code reuse and open source development to decrease code spend while increasing code quality",
       "explore": [
         {
           "title": "Developers",
