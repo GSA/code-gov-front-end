@@ -63,6 +63,7 @@ export const mapStateToProps = ({ filters, searchParams, searchResults, selected
     let filteredResults
     if (searchResults) {
       filteredResults = searchResults.repos
+        /* eslint-disable array-callback-return */
         .sort((a, b) => {
           if (selectedSorting === 'best_match') {
             return sortByBestMatch(a, b)

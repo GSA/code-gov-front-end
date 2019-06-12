@@ -9,15 +9,6 @@ export default class HomeBanner extends React.Component {
     if (!this.props.agencies) this.props.saveAgencies()
   }
 
-  scrollToAbout() {
-    const top = document.getElementById('banner-home').clientHeight
-    const offset = document.querySelector('header nav.main').clientHeight
-    window.scrollTo({
-      top: top - offset,
-      behavior: 'smooth'
-    })
-  }
-
   get agencyOptions() {
     if (this.props.agencies) {
       return this.props.agencies.map(agency => (
@@ -89,14 +80,24 @@ export default class HomeBanner extends React.Component {
               <img alt="" className="chat" src={`${PUBLIC_PATH}assets/img/icons/chat_bubble.png`} />
               <span>
                 Have questions or feedback? Open an issue on our{' '}
-                <a className="home-link link" href={this.props.issueUrl} target="_blank">
+                <a
+                  className="home-link link"
+                  href={this.props.issueUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   open source repository
                 </a>
                 .
               </span>
               <div>
                 Want to receive our monthly newsletter?{' '}
-                <a className="home-link link" href={this.props.newsletterUrl} target="_blank">
+                <a
+                  className="home-link link"
+                  href={this.props.newsletterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Sign up here
                 </a>
                 .
@@ -107,6 +108,15 @@ export default class HomeBanner extends React.Component {
       )
     }
     return null
+  }
+
+  scrollToAbout() {
+    const top = document.getElementById('banner-home').clientHeight
+    const offset = document.querySelector('header nav.main').clientHeight
+    window.scrollTo({
+      top: top - offset,
+      behavior: 'smooth'
+    })
   }
 
   render() {

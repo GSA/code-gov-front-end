@@ -17,6 +17,7 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
       <a
         href="http://link-1-url"
         onClick={[MockFunction]}
+        rel="noopener noreferrer"
         target="_blank"
       >
         link-1
@@ -28,6 +29,7 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
       <a
         href="mailto:link-2-url"
         onClick={[MockFunction]}
+        rel="noopener noreferrer"
         target="_blank"
       >
         link-2
@@ -46,4 +48,4 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
     </li>
   </ul>
 </li>
-`
+`;

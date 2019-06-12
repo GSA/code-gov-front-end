@@ -147,7 +147,7 @@ export default class ProjectPage extends Component {
     const url = parseRepositoryURL(this.props.repo)
     if (url) {
       return (
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <button className="button">Visit Repo</button>
         </a>
       )
@@ -178,7 +178,7 @@ export default class ProjectPage extends Component {
 
                   {isURL(value) && (
                     <div className="metadata-value">
-                      <a href={value} target="_blank">
+                      <a href={value} target="_blank" rel="noopener noreferrer">
                         <div>{value}</div>
                       </a>
                     </div>

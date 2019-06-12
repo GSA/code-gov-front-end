@@ -7,24 +7,6 @@ export default class Pagination extends Component {
     super(props)
   }
 
-  handleChangePage(newPage) {
-    if (this.props.updatePage) {
-      this.props.updatePage(newPage)
-    } else {
-      console.warn(
-        'You did not assign an updatePage function to the instance of the pagination component.'
-      )
-    }
-  }
-
-  handleNext() {
-    this.handleChangePage(Number(this.props.page) + 1)
-  }
-
-  handlePrevious() {
-    this.handleChangePage(Number(this.props.page) - 1)
-  }
-
   get isLastPage() {
     return equal(this.props.page, Math.ceil(this.props.count / this.props.pagesize))
   }
@@ -109,6 +91,24 @@ export default class Pagination extends Component {
     }
   }
 
+  handleChangePage(newPage) {
+    if (this.props.updatePage) {
+      this.props.updatePage(newPage)
+    } else {
+      console.warn(
+        'You did not assign an updatePage function to the instance of the pagination component.'
+      )
+    }
+  }
+
+  handleNext() {
+    this.handleChangePage(Number(this.props.page) + 1)
+  }
+
+  handlePrevious() {
+    this.handleChangePage(Number(this.props.page) - 1)
+  }
+
   render() {
     const { count, pagesize } = this.props
     const page = Number(this.props.page)
@@ -145,8 +145,6 @@ export default class Pagination extends Component {
             const tabIndex = index + 1
             if (i === 1) className += ' first'
             if (current) className += ' current'
-            if (!ellipsis && !current) {
-            }
             return (
               <li className={className} key={i}>
                 {ellipsis && <span tabIndex={tabIndex}>...</span>}

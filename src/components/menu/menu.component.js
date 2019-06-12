@@ -44,7 +44,7 @@ export default class Menu extends Component {
 
   onClickMenuOption(selected, event) {
     const menu = this.state.menu.map(menuOption => {
-      if (menuOption.name == selected.name) {
+      if (menuOption.name === selected.name) {
         menuOption.expanded = true
       }
       return menuOption
@@ -66,7 +66,7 @@ export default class Menu extends Component {
     return this.props.menu.map(menuOption => (
       <Fragment key={menuOption.name}>
         <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption} />
-        <SecondaryMenuOption menuOption={menuOption} />
+        <SecondaryDropdown menuOption={menuOption} />
       </Fragment>
     ))
   }

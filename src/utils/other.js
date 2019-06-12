@@ -177,8 +177,10 @@ export function getFilterTags(params, filters) {
       )
       let title = 'loading'
       if (found) {
+        /* eslint-disable */
         if (found.name) title = found.name
         if (found.value) value = found.value
+        /* eslint-enable */
       }
       return { category, modified, value, title }
     })

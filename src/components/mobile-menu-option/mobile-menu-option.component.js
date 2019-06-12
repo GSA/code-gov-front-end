@@ -14,7 +14,12 @@ export default class MobileMenuOption extends Component {
             if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
               return (
                 <li key={url}>
-                  <a href={url} onClick={this.props.hideMobileMenu} target="_blank">
+                  <a
+                    href={url}
+                    onClick={this.props.hideMobileMenu}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {name}
                   </a>
                 </li>
@@ -38,21 +43,6 @@ export default class MobileMenuOption extends Component {
     return null
   }
 
-  isTopOptionActive() {
-    const { name, links, url } = this.props.menuOption
-    if (url) {
-      return this.isLinkActive({ name, url })
-    }
-    if (links) {
-      return links.some(this.isLinkActive)
-    }
-    return false
-  }
-
-  isLinkActive({ name, url }) {
-    return window.location.href.includes(url)
-  }
-
   get topoption() {
     const { links, name, url } = this.props.menuOption
     const hasChildren = Array.isArray(links)
@@ -67,7 +57,7 @@ export default class MobileMenuOption extends Component {
     }
     if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
       return (
-        <a href={url} onClick={this.props.hideMobileMenu} target="_blank">
+        <a href={url} onClick={this.props.hideMobileMenu} target="_blank" rel="noopener noreferrer">
           {name}
         </a>
       )
@@ -78,6 +68,21 @@ export default class MobileMenuOption extends Component {
         {name}
       </CustomLink>
     )
+  }
+
+  isTopOptionActive() {
+    const { name, links, url } = this.props.menuOption
+    if (url) {
+      return this.isLinkActive({ name, url })
+    }
+    if (links) {
+      return links.some(this.isLinkActive)
+    }
+    return false
+  }
+
+  isLinkActive({ name, url }) {
+    return window.location.href.includes(url)
   }
 
   render() {

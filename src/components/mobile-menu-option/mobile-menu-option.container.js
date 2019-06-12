@@ -10,8 +10,10 @@ export const mapStateToProps = ({ expandedMobileMenuOptions }) => ({
 
 export const mapDispatchToProps = dispatch => ({
   hideMobileMenu: () => {
+    /* eslint-disable */
     dispatch(collapseAllMobileMenuOptions()), dispatch(hideMobileMenu())
   },
+  /* eslint-enable */
   toggleMobileMenuOption: name => dispatch(toggleMobileMenuOption(name))
 })
 

@@ -18,10 +18,6 @@ export default class QuickSearchBoxComponent extends React.Component {
     this.mounted = true
   }
 
-  componentWillUnmount() {
-    this.mounted = false
-  }
-
   // need to update value when props value changes
   componentDidUpdate(prevProps) {
     const { value } = this.props
@@ -30,6 +26,10 @@ export default class QuickSearchBoxComponent extends React.Component {
         this.setState({ value })
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
   }
 
   handleBlur() {

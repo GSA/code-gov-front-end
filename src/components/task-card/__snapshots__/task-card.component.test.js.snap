@@ -9,6 +9,7 @@ exports[`components - TaskCard render should render correctly 1`] = `
   >
     <a
       href="/task-issue-url"
+      rel="noopener noreferrer"
       target="_blank"
     >
       task-title
@@ -51,4 +52,4 @@ exports[`components - TaskCard render should render correctly 1`] = `
     />
   </dl>
 </div>
-`
+`;

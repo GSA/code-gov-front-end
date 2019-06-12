@@ -12,7 +12,7 @@ const values = {
   page: 123,
   query: 'test-query',
   size: 456,
-  sort: 'test-sort',
+  sort: 'test-sort'
 }
 
 const filters = {
@@ -21,7 +21,7 @@ const filters = {
   skillLevels: [],
   timeRequired: ['time-1', 'time-2', 'time-3'],
   licenses: ['lic-1', 'lic-2'],
-  usageTypes: ['usage-1'],
+  usageTypes: ['usage-1']
 }
 
 // setup mocking getting the section and url params
@@ -31,14 +31,13 @@ const setup = (section, params) => {
 }
 
 // get mapped out expected filters
-const getMappedFilters = (params) => (
+/* eslint-disable */
+const getMappedFilters = params =>
   Object.keys(params).reduce((filters, category) => {
-    filters.push(
-      ...params[category].map(value => ({ category, value, modified: now() }))
-    )
+    filters.push(...params[category].map(value => ({ category, value, modified: now() })))
     return filters
+    /* eslint-enable */
   }, [])
-)
 
 describe('hydrator', () => {
   describe('hydrate', () => {

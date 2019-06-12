@@ -14,7 +14,13 @@ export default class Footer extends Component {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
                   return (
                     <li key={link.name}>
-                      <a className="link" href={link.url} target="_blank" key={link.name}>
+                      <a
+                        className="link"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={link.name}
+                      >
                         <span>{link.name}</span>
                       </a>
                     </li>
@@ -34,7 +40,7 @@ export default class Footer extends Component {
             <ul>
               {map(this.props.logos, logo => (
                 <li key={logo.name}>
-                  <a href={logo.url} target="_blank" rel="noopener">
+                  <a href={logo.url} target="_blank" rel="noopener noreferrer">
                     <img src={logo.image} alt={logo.name} />
                     <span>{logo.name}</span>
                   </a>

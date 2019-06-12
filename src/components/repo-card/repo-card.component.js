@@ -15,7 +15,7 @@ export default class RepoCardComponent extends Component {
     if (typeof url === 'string' && url.includes('github.com')) {
       return (
         <div className="repo-button width-quarter">
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noopener noreferrer">
             <button>Go to Repo</button>
           </a>
         </div>

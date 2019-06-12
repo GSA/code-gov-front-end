@@ -1,5 +1,7 @@
 export function getURLSearchParamsAsSimpleObj(search) {
+  /* eslint-disable */
   search = search || window.location.search
+  /* eslint-enable */
   if (search && typeof search === 'string') {
     return search
       .substring(1)
