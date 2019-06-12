@@ -33,10 +33,7 @@ export default class AppComponent extends Component {
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
-          {isHomepage ?
-            <OfficialBanner isDark /> :
-            <OfficialBanner />
-          }
+          {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
           <Menu />
           <Switch location={location}>
             <Route exact path='/' component={Home}/>
