@@ -48,4 +48,4 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
     </li>
   </ul>
 </li>
-`;
+`

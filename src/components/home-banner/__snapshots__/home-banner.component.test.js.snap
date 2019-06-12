@@ -171,4 +171,4 @@ exports[`components - HomeBanner render should render correctly 1`] = `
     onClick={[Function]}
   />
 </section>
-`;
+`
