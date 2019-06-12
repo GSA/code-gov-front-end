@@ -22,6 +22,7 @@
     "test-watch": "jest --watch",
     "update-data": "node update-data.js",
     "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
+    "update-uswds": "cp -r ./node_modules/uswds/dist/* ./styles/uswds/.",
     "webpack": "node ./node_modules/webpack/bin/webpack.js"
   },
   "husky": {
