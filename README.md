@@ -3,7 +3,7 @@
 
 [![Build Status](https://circleci.com/gh/GSA/code-gov-front-end.svg?style=svg)](https://circleci.com/gh/GSA/code-gov-front-end)
 [![Code Climate](https://api.codeclimate.com/v1/badges/4675ef3ed03728b81e66/maintainability)](https://codeclimate.com/github/GSA/code-gov-front-end/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4675ef3ed03728b81e66/test_coverage)](https://codeclimate.com/github/GSA/code-gov-front-end/test_coverage)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 ## Introduction
 
