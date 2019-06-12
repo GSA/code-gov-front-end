@@ -169,6 +169,32 @@
           ]
         }
       ],
+      "news": [
+        {
+          "title": "This is a blog post",
+          "description": "This is a short description of the item...",
+          "url": "http://#",
+          "date": "1/1/2020",
+          "image": "/assets/img/news/will-porada-1612554-unsplash.jpg",
+          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge"
+        },
+        {
+          "title": "This is another blog post",
+          "description": "This is a short description of the item...",
+          "url": "http://#",
+          "date": "1/1/2020",
+          "image": "/assets/img/news/will-porada-1612554-unsplash.jpg",
+          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge"
+        },
+        {
+          "title": "This the last post",
+          "description": "This is a short description of the item...",
+          "url": "http://#",
+          "date": "1/1/2020",
+          "image": "/assets/img/news/will-porada-1612554-unsplash.jpg",
+          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge"
+        }
+      ],
       "about": [
         {
           "title": "About Us",
