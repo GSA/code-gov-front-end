@@ -3,7 +3,10 @@ import { getDate } from './repo-parsing'
 
 export function clean(string) {
   try {
-    return string.toLowerCase().replace(/-/g,' ').trim()
+    return string
+      .toLowerCase()
+      .replace(/-/g, ' ')
+      .trim()
   } catch (error) {
     return string
   }
@@ -13,9 +16,8 @@ export function getTime(date) {
   try {
     if (date) {
       return new Date(date).getTime()
-    } else {
-      return -10e10
     }
+    return -10e10
   } catch (error) {
     return -10e10
   }

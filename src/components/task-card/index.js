@@ -1,2 +1,3 @@
-import TaskCardComponent from './task-card.component';
-export default TaskCardComponent;
+import TaskCardComponent from './task-card.component'
+
+export default TaskCardComponent

@@ -3,15 +3,15 @@
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import PropTypes from 'prop-types'
-import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
+import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 
 export default class Menu extends Component {
   /*
   static propTypes = {
     menu: PropTypes.array.isRequired
-  }*/
+  } */
 
   constructor(props) {
     super(props)
@@ -94,14 +94,14 @@ export default class Menu extends Component {
     if (this.state.expanded) navClassName += ' expanded'
     if (this.state.notAtTop) navClassName += ' not-at-top'
 
-    let navStyle = { height: this.state.height }
+    const navStyle = { height: this.state.height }
 
     return (
       <header className={headerClassName} ref={this.header}>
         <nav className={navClassName} style={navStyle} aria-label="primary">
           <MobileMenuControl />
 
-          <CustomLink to="/" className="svg-container" title={siteTitle + ' Home'}>
+          <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
             <img
               src={color === 'white' ? this.props.logoDark : this.props.logoLight}
               alt="code.gov"
@@ -109,18 +109,16 @@ export default class Menu extends Component {
           </CustomLink>
 
           <ul role="menubar" aria-label="primary">
-            {map(this.props.menu, menuOption => {
-              return (
-                <li
-                  className={menuOption.expanded ? 'expanded' : ''}
-                  key={menuOption.name}
-                  role="none"
-                >
-                  <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
-                  <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
-                </li>
-              )
-            })}
+            {map(this.props.menu, menuOption => (
+              <li
+                className={menuOption.expanded ? 'expanded' : ''}
+                key={menuOption.name}
+                role="none"
+              >
+                <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
+                <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
+              </li>
+            ))}
           </ul>
           {onHomePage === false && (
             <ul className="right show-w-gt-800">

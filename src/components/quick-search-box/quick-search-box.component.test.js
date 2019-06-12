@@ -9,7 +9,7 @@ const suggestions = ['term-1', 'term-2']
 const props = {
   value: 'test-value',
   placeholder: 'test-placeholder',
-  onSubmit: jest.fn(),
+  onSubmit: jest.fn()
 }
 
 let wrapper
@@ -87,7 +87,7 @@ describe('components - QuickSearchBox', () => {
   describe('handleChange', () => {
     beforeEach(() => {
       client.suggest.mockResolvedValue(suggestions)
-    });
+    })
 
     it('should update the `suggestions` and display the auto complete based off the api`s response', async () => {
       await instance.handleChange(['term-1', 'term-2'])
@@ -95,8 +95,8 @@ describe('components - QuickSearchBox', () => {
         showAutocomplete: true,
         suggestions: [
           expect.objectContaining({ text: 'term-1' }),
-          expect.objectContaining({ text: 'term-2' }),
-        ],
+          expect.objectContaining({ text: 'term-2' })
+        ]
       }
       expect(wrapper.state('showAutocomplete')).toEqual(expected.showAutocomplete)
       expect(wrapper.state('suggestions')).toEqual(expected.suggestions)
@@ -113,7 +113,11 @@ describe('components - QuickSearchBox', () => {
     it('should set the value and clear suggestions', () => {
       wrapper.setState({ showAutocomplete: true, suggestions: ['sug-1', 'sug-2'] })
       instance.handleSelection({ text: 'new-value' })
-      const expected = expect.objectContaining({ showAutocomplete: false, suggestions: [], value: 'new-value' })
+      const expected = expect.objectContaining({
+        showAutocomplete: false,
+        suggestions: [],
+        value: 'new-value'
+      })
       expect(wrapper.state()).toEqual(expected)
     })
 

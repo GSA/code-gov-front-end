@@ -7,24 +7,12 @@ import Roadmap, { Row, Column } from 'components/roadmap/roadmap.component'
 
 jest.spyOn(utilOther, 'refreshView')
 
-let props = {
+const props = {
   disclaimer: 'test-disclaimer',
-  long: [
-    { name: 'long-1', status: null },
-    { name: 'long-1', status: 'In Progress' },
-  ],
-  mid: [
-    { name: 'mid-1', status: 'Released' },
-    { name: 'mid-1', status: 'Released' },
-  ],
-  near: [
-    { name: 'near-1', status: 'In Progress' },
-    { name: 'near-1', status: 'Released' },
-  ],
-  overview: [
-    'overview-1',
-    'overview-2',
-  ],
+  long: [{ name: 'long-1', status: null }, { name: 'long-1', status: 'In Progress' }],
+  mid: [{ name: 'mid-1', status: 'Released' }, { name: 'mid-1', status: 'Released' }],
+  near: [{ name: 'near-1', status: 'In Progress' }, { name: 'near-1', status: 'Released' }],
+  overview: ['overview-1', 'overview-2']
 }
 
 let wrapper
@@ -55,7 +43,7 @@ describe('components - Roadmap', () => {
 })
 
 const rowProps = {
-  todo: { name: 'todo-name', status: 'Released' },
+  todo: { name: 'todo-name', status: 'Released' }
 }
 
 describe('components - Roadmap - Row', () => {
@@ -80,10 +68,7 @@ describe('components - Roadmap - Row', () => {
 
 const columnProps = {
   phase: 'test-phase',
-  todos: [
-    { name: 'todo-1', status: 'In Progress' },
-    { name: 'todo-2', status: 'Released' },
-  ],
+  todos: [{ name: 'todo-1', status: 'In Progress' }, { name: 'todo-2', status: 'Released' }]
 }
 
 describe('components - Roadmap - Column', () => {

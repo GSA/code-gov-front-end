@@ -4,50 +4,49 @@ import CustomLink from 'components/custom-link'
 import { map, startsWith } from '@code.gov/cautious'
 
 export default class MobileMenuOption extends Component {
-
   get dropdown() {
     const { menuOption } = this.props
     if (Array.isArray(menuOption.links)) {
       return (
         <ul>
-        {map(menuOption.links, link => {
-          const {name, url} = link
-          if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
-            return (
-              <li key={url}>
-                <a href={url} onClick={this.props.hideMobileMenu} target="_blank">
-                  {name}
-                </a>
-              </li>
-            )
-          } else {
+          {map(menuOption.links, link => {
+            const { name, url } = link
+            if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
+              return (
+                <li key={url}>
+                  <a href={url} onClick={this.props.hideMobileMenu} target="_blank">
+                    {name}
+                  </a>
+                </li>
+              )
+            }
             return (
               <li key={url}>
                 <CustomLink
-                  className={this.isLinkActive({name, url}) ? 'active' : ''}
+                  className={this.isLinkActive({ name, url }) ? 'active' : ''}
                   onClick={this.props.hideMobileMenu}
                   to={url}
-                >{name}</CustomLink>
+                >
+                  {name}
+                </CustomLink>
               </li>
             )
-          }
-        })}
+          })}
         </ul>
       )
-    } else {
-      return null
     }
+    return null
   }
 
   isTopOptionActive() {
     const { name, links, url } = this.props.menuOption
     if (url) {
       return this.isLinkActive({ name, url })
-    } else if (links) {
-      return links.some(this.isLinkActive)
-    } else {
-      return false
     }
+    if (links) {
+      return links.some(this.isLinkActive)
+    }
+    return false
   }
 
   isLinkActive({ name, url }) {
@@ -59,14 +58,26 @@ export default class MobileMenuOption extends Component {
     const hasChildren = Array.isArray(links)
     const active = this.isTopOptionActive()
     if (hasChildren) {
-      const className = 'dropdown' + (active ? ' active' : '')
-      return <a className={className} onClick={() => this.props.toggleMobileMenuOption(name)}>{name}</a>
-    } else if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
-      return <a href={url} onClick={this.props.hideMobileMenu} target="_blank">{name}</a>
-    } else {
-      const className = active ? ' active' : ''
-      return <CustomLink className={className} to={url} onClick={this.props.hideMobileMenu}>{name}</CustomLink>
+      const className = `dropdown${active ? ' active' : ''}`
+      return (
+        <a className={className} onClick={() => this.props.toggleMobileMenuOption(name)}>
+          {name}
+        </a>
+      )
     }
+    if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
+      return (
+        <a href={url} onClick={this.props.hideMobileMenu} target="_blank">
+          {name}
+        </a>
+      )
+    }
+    const className = active ? ' active' : ''
+    return (
+      <CustomLink className={className} to={url} onClick={this.props.hideMobileMenu}>
+        {name}
+      </CustomLink>
+    )
   }
 
   render() {

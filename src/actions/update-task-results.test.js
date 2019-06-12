@@ -10,14 +10,11 @@ const options = {
   filters: [
     { category: 'agencies', value: 'ag-1' },
     { category: 'agencies', value: 'ag-2' },
-    { category: 'languages', value: 'la-1' },
-  ],
-};
+    { category: 'languages', value: 'la-1' }
+  ]
+}
 const results = {
-  tasks: [
-    { taskID: 'task-1' },
-    { taskID: 'task-2' }
-  ],
+  tasks: [{ taskID: 'task-1' }, { taskID: 'task-2' }]
 }
 const dispatch = jest.fn()
 
@@ -47,7 +44,7 @@ describe('actions - update-task-results', () => {
       categories: [],
       languages: ['la-1'],
       skillLevels: [],
-      timeRequired: [],
+      timeRequired: []
     }
 
     await updateTaskResults(options)(dispatch)

@@ -5,9 +5,8 @@ import MobileMenuOption from 'components/mobile-menu-option'
 import MobileMenuSearchBox from 'components/mobile-menu-search-box'
 
 export default class Menu extends Component {
-
   get underlay() {
-    return <div className={`mobile-menu-underlay ${this.props.open ? 'active': ''}`}></div>
+    return <div className={`mobile-menu-underlay ${this.props.open ? 'active' : ''}`} />
   }
 
   render() {
@@ -19,15 +18,13 @@ export default class Menu extends Component {
             <li className="search">
               <MobileMenuSearchBox />
             </li>
-            {map(menu, menuOption => {
-              return (
-                <MobileMenuOption
-                  key={menuOption.name}
-                  menuOption={menuOption}
-                  onSelect={this.props.onSelect}
-                />
-              )
-            })}
+            {map(menu, menuOption => (
+              <MobileMenuOption
+                key={menuOption.name}
+                menuOption={menuOption}
+                onSelect={this.props.onSelect}
+              />
+            ))}
           </ul>
         </div>
         {this.underlay}

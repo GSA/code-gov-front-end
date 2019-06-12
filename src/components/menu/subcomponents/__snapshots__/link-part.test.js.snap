@@ -10,4 +10,4 @@ exports[`components - Menu - LinkPart Component should render correctly 1`] = `
 >
   option-name
 </a>
-`;
+`

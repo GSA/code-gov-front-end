@@ -1,2 +1,3 @@
-import CardPartComponent from './card-part.component';
-export default CardPartComponent;
+import CardPartComponent from './card-part.component'
+
+export default CardPartComponent

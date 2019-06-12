@@ -1,2 +1,3 @@
-import FooterContainer from './footer.container';
-export default FooterContainer;
+import FooterContainer from './footer.container'
+
+export default FooterContainer

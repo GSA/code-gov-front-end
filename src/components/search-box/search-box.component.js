@@ -13,10 +13,8 @@ export default class SearchBox extends Component {
         if (this.props.onFocus) {
           this.props.onFocus()
         }
-      } else {
-        if (this.props.onBlur) {
-          this.props.onBlur()
-        }
+      } else if (this.props.onBlur) {
+        this.props.onBlur()
       }
     })
   }
