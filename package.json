@@ -72,7 +72,7 @@
     "devicons": "^1.8.0",
     "dotenv": "^6.2.0",
     "history": "^4.9.0",
-    "jsoneditor": "^5.32.5",
+    "jsoneditor": "^6.0.0",
     "lodash.assign": "^4.2.0",
     "lodash.get": "^4.4.2",
     "lodash.intersection": "^4.4.0",
