@@ -1,5 +1,4 @@
 section#banner-home {
-
   /* this get the banner image to lay under the menu on the home page */
   margin-top: 50px;
 
@@ -25,7 +24,7 @@ section#banner-home {
     }
 
     .banner-subtitle {
-      font-family: "TT Lakes", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      font-family: 'TT Lakes', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
       padding-bottom: 2rem;
       @media screen and (max-width: 1200px) {
         display: none;
@@ -59,7 +58,6 @@ section#banner-home {
         }
       }
 
-
       @media screen and (min-width: 1200px) {
         &:first-child {
           .banner-subsection-content-padder {
@@ -86,20 +84,22 @@ section#banner-home {
       }
     }
 
-
-  .search-description-wrapper {
-    color: $brand-gray;
-    margin: 0 auto;
-    padding-bottom: 1rem;
-    text-align: left;
-    width: 100%;
-
-    > div {
+    .search-description-wrapper {
+      color: $brand-gray;
+      margin: 0 auto;
+      padding-bottom: 1rem;
       text-align: left;
+      width: 100%;
+
+      .search-description-heading {
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      > div {
+        text-align: center;
+      }
     }
-  }
-
-
   }
   img.chat {
     height: 30px;

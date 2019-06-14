@@ -6,7 +6,6 @@ import HomeNews from 'components/home-news'
 import { refreshView } from 'utils/other'
 
 export default class HomeComponent extends React.Component {
-
   componentDidMount() {
     refreshView()
     window.addEventListener('popstate', event => {
@@ -19,14 +18,15 @@ export default class HomeComponent extends React.Component {
   render() {
     return (
       <Fragment>
-        <HomeBanner/>
-        <HomeExplore/>
-        <div>
-        <HomeAbout/>
-        <HomeNews/>
+        <HomeBanner />
+        <div className="home-container">
+          <HomeExplore />
+          <div className="grid-half">
+            <HomeAbout />
+            <HomeNews />
+          </div>
         </div>
       </Fragment>
     )
   }
-
 }

@@ -5,7 +5,6 @@ import SearchBox from 'components/search-box'
 import client from 'api-client'
 
 export default class HomeBannerSearchBoxComponent extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -51,18 +50,28 @@ export default class HomeBannerSearchBoxComponent extends Component {
     })
   }
 
-  handleClick({text, to}) {
+  handleClick({ text, to }) {
     this.props.onSubmit(text)
   }
 
   render() {
-    const {searchDescriptionText, searchDescriptionTextMobile, onSubmit, placeholder, query} = this.props
+    const {
+      searchDescriptionHeading,
+      searchDescriptionText,
+      searchDescriptionTextMobile,
+      onSubmit,
+      placeholder,
+      query
+    } = this.props
     return (
       <div className="search-input-container">
         <div className="search-input-wrapper">
           <div className="search-description-wrapper">
+            <div className="search-description-heading">{searchDescriptionHeading}</div>
             {searchDescriptionText && <div className="show-w-gt-800">{searchDescriptionText}</div>}
-            {searchDescriptionTextMobile && <div className="show-w-lte-800">{searchDescriptionTextMobile}</div>}
+            {searchDescriptionTextMobile && (
+              <div className="show-w-lte-800">{searchDescriptionTextMobile}</div>
+            )}
           </div>
           <div className="search-input-and-button-wrapper">
             <SearchBox
@@ -73,7 +82,9 @@ export default class HomeBannerSearchBoxComponent extends Component {
               onSubmit={onSubmit}
               query={query}
             />
-            {this.state.showAutocomplete && some(this.state.suggestions) && <Autocomplete options={this.state.suggestions} onClick={::this.handleClick}/>}
+            {this.state.showAutocomplete && some(this.state.suggestions) && (
+              <Autocomplete options={this.state.suggestions} onClick={::this.handleClick} />
+            )}
           </div>
         </div>
       </div>

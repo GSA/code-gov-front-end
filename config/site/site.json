@@ -127,7 +127,8 @@
           "description": "Whether you are a beginner or an experienced coder, join the open source community. Help improve America's Code.",
           "button": "Explore Open Tasks"
         },
-        "search_description_text": "Search thousands of Federal Government projects",
+        "search_description_heading": "Find Code",
+        "search_description_text": "Search for federal open source software projects and usable code",
         "search_description_text_mobile": "Search projects",
         "search_placeholder_text": "e.g. JavaScript, NASA, web standards",
         "browse_by_text": "Browse by Agency",
@@ -171,28 +172,28 @@
       ],
       "news": [
         {
-          "title": "This is a blog post",
-          "description": "This is a short description of the item...",
-          "url": "http://#",
-          "date": "1/1/2020",
-          "image": "/assets/img/news/will-porada-1612554-unsplash.jpg",
-          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge"
+          "title": "OSS SPOTLIGHT: The U.S. Web Design System 2.0 from GSA",
+          "description": "USWDS 2.0, a new approach to design that saves time in upgrading websites or building them from the ground up...",
+          "url": "https://medium.com/codedotgov/success-story-the-u-s-web-design-system-2-0-from-gsa-be66295b6e5f",
+          "date": "6/5/2019",
+          "image": "/assets/img/news/uswds.jpeg",
+          "alt": "A collection of wireframes"
         },
         {
-          "title": "This is another blog post",
-          "description": "This is a short description of the item...",
-          "url": "http://#",
-          "date": "1/1/2020",
-          "image": "/assets/img/news/will-porada-1612554-unsplash.jpg",
-          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge"
+          "title": "Developer’s Notes",
+          "description": "Here’s our most recent updates and changes on the Code.gov front end (v0.0.9)...",
+          "url": "https://medium.com/codedotgov/developers-notes-3-june-2019-ccfd12344621",
+          "date": "6/4/2019",
+          "image": "/assets/img/news/keyboard.jpeg",
+          "alt": "A keyboard on a desk"
         },
         {
-          "title": "This the last post",
-          "description": "This is a short description of the item...",
-          "url": "http://#",
-          "date": "1/1/2020",
-          "image": "/assets/img/news/will-porada-1612554-unsplash.jpg",
-          "alt": "A network of pipes with a red, yellow and green valve and a meter gauge"
+          "title": "GSA Customer Experience Hackathon",
+          "description": "A day focused on designing a better customer experience with and within government...",
+          "url": "https://www.challenge.gov/challenge/gsa-hackathon-2019/",
+          "date": "6/19/2019",
+          "image": "/assets/img/news/GSA-Hackathon-logo.png",
+          "alt": "GSA Hackathon 2019"
         }
       ],
       "about": [

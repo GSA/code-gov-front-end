@@ -10,7 +10,6 @@ $header-height: 50px;
 
 @import './overrides.scss';
 
-
 html {
   background: $color-white;
 
@@ -23,7 +22,6 @@ html {
   }
 }
 
-
 /* styles that apply to stuff around search box on multiple pages */
 
 @import './base-filter-page.scss';
@@ -31,9 +29,9 @@ html {
 @import './home.scss';
 @import './home-about.scss';
 @import './home-banner.scss';
+@import './home-explore.scss';
 @import './home-press.scss';
 @import './home-news.scss';
-
 
 @import './menu.scss';
 
@@ -48,7 +46,6 @@ html {
 
 @import './roadmap.scss';
 
-
 // overwrites and fixes
 // weird fix for https://github.com/GSA/caribou/issues/76
 ul.breadcrumbs {
@@ -58,7 +55,7 @@ ul.breadcrumbs {
 }
 
 // pads footnotes
-[id*=fn] {
+[id*='fn'] {
   @media screen and (max-width: $header-switch) {
     margin-top: -60px;
     padding-top: 60px;
