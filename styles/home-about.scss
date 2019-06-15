@@ -9,6 +9,7 @@
   h2,
   h3 {
     color: $brand-blue-dark;
+    margin-bottom: 0;
   }
 
   h3 {
@@ -16,6 +17,33 @@
   }
 
   li {
-    margin: 5rem 0;
+    margin: 3rem 0;
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    h3 {
+      margin-left: 66px; //icon size + grid gap
+    }
+  }
+}
+
+.about-icon {
+  img {
+    display: none;
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 60px 3fr;
+
+    & :first-child {
+      order: 10;
+    }
+
+    img {
+      display: block;
+      margin-top: 1.5em;
+    }
   }
 }

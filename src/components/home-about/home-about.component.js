@@ -9,16 +9,20 @@ export default class HomeAbout extends React.Component {
           <h2>About Code.gov</h2>
           <p>{this.props.aboutus}</p>
         </header>
-        <ul className="indented about-actions">
+        <ul className="about-actions">
           <li>
             <h3>Vision</h3>
-            <p>{this.props.vision}</p>
-            <i />
+            <span className="about-icon">
+              <p>{this.props.vision}</p>
+              <img alt="" className="" src={PUBLIC_PATH + 'assets/img/icons/vision_icon_sm.png'} />
+            </span>
           </li>
           <li>
             <h3>Mission</h3>
-            <p>{this.props.mission}</p>
-            <i />
+            <span className="about-icon">
+              <p>{this.props.mission}</p>
+              <img alt="" className="" src={PUBLIC_PATH + 'assets/img/icons/mission_icon_sm.png'} />
+            </span>
           </li>
         </ul>
       </section>
