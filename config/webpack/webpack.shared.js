@@ -216,7 +216,12 @@ module.exports = {
     ]),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
-    new FaviconsWebpackPlugin('./assets/img/favicon.png'),
+    new FaviconsWebpackPlugin({
+      logo: './assets/img/favicon.png',
+      icons: {
+        appleStartup: false
+      }
+    }),
     new HtmlWebpackPlugin({
       hash: true,
       template: 'index.html',
@@ -224,6 +229,9 @@ module.exports = {
         PUBLIC_PATH
       },
       title: 'code.gov',
+      minify: {
+        removeScriptTypeAttributes: true
+      }
     })
   ],
   watchOptions: {
