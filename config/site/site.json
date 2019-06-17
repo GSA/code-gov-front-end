@@ -289,29 +289,20 @@
     "footer": {
       "links": [
         {
-          "name": "Privacy Policy",
+          "name": "Web Policies",
           "url": "/privacy-policy"
-        },
-        {
-          "name": "Roadmap",
-          "url": "/roadmap"
         },
         {
           "name": "Visit Project Page",
           "url": "https://github.com/GSA/code-gov"
+        },
+        {
+          "name": "Roadmap",
+          "url": "/roadmap"
         }
+
       ],
       "logos": [
-        {
-          "image": "/assets/img/logos/whitehouse.png",
-          "name": "The White House",
-          "url": "https://whitehouse.gov/"
-        },
-        {
-          "image": "/assets/img/logos/PIF.png",
-          "name": "Presidential Innovation Fellows",
-          "url": "https://presidentialinnovationfellows.gov/"
-        },
         {
           "image": "/assets/img/logos/GSA.png",
           "name": "U.S. General Services Administration",
