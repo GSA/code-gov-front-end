@@ -1,11 +1,9 @@
-import { connect } from 'react-redux';
-import HomeNews from './home-news.component'
+import { connect } from 'react-redux'
 import { getConfigValue } from 'utils/other'
+import HomeNews from './home-news.component'
 
-export const mapStateToProps = () => {
-  return {
-    news: getConfigValue('content.home.news')
-  }
-}
+export const mapStateToProps = () => ({
+  news: getConfigValue('content.home.news')
+})
 
 export default connect(mapStateToProps)(HomeNews)

@@ -5,6 +5,7 @@ import App from 'components/app'
 import buildStore from 'build-store'
 import history from 'browser-history'
 import { Provider } from 'react-redux'
+import 'uswds/dist/scss/uswds.scss'
 import '../styles/_main.scss'
 import syncers from 'syncers'
 import syncStore from 'sync-store'
@@ -12,7 +13,6 @@ import syncStore from 'sync-store'
 const store = buildStore()
 
 syncStore(store, syncers)
-
 
 ReactDOM.render(
   <Provider store={store}>

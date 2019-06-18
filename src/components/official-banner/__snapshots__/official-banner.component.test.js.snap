@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - OfficialBanner should render correctly 1`] = `
+<div
+  className="gov-banner"
+  data-testid="component-gov-banner"
+>
+  <gov-banner />
+</div>
+`

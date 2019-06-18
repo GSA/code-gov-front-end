@@ -4,4 +4,4 @@ exports[`components - SiteBanner should render correctly 1`] = `
 <simple-banner
   title="test-title"
 />
-`;
+`
