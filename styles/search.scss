@@ -103,12 +103,12 @@
             }
 
             button.go {
-                background-color: $color-blue !important;
+                background-color: $brand-primary !important;
                 border: none;
 
                 &:focus, &:hover {
-                    background-color: $brand-teal !important;
-                    border-color: $color-gray-light !important;
+                    background-color: $brand-blue-dark !important;
+                    border-color: $brand-blue-dark !important;
                 }
             }
         }
