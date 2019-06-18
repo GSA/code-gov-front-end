@@ -10,13 +10,12 @@ import {
 import CardPart from 'components/card-part'
 
 export default class RepoCardComponent extends Component {
-
   get goToButton() {
     const url = get(this.props.repo, 'repositoryURL')
     if (typeof url === 'string' && url.includes('github.com')) {
       return (
         <div className="repo-button width-quarter">
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noopener noreferrer">
             <button>Go to Repo</button>
           </a>
         </div>
@@ -27,7 +26,7 @@ export default class RepoCardComponent extends Component {
   get repoDescription() {
     const description = get(this.props.repo, 'description')
     if (description) {
-      return <p className="card-description">{description.substring(0,400)}</p>
+      return <p className="card-description">{description.substring(0, 400)}</p>
     }
   }
 
@@ -35,13 +34,19 @@ export default class RepoCardComponent extends Component {
     const repo = this.props.repo
     if (some(repo.languages)) {
       const languages = repo.languages
-      return <CardPart title='Languages' text={languages.map(language => <span key={language} className="language">{language}</span>)} />
-    } else {
-      return <CardPart title='Languages' text='Not Available' />
+      return (
+        <CardPart
+          title="Languages"
+          text={languages.map(language => (
+            <span key={language} className="language">
+              {language}
+            </span>
+          ))}
+        />
+      )
     }
+    return <CardPart title="Languages" text="Not Available" />
   }
-
-
 
   render() {
     const repo = this.props.repo
@@ -54,8 +59,7 @@ export default class RepoCardComponent extends Component {
 
     return (
       <div className="card-list-item card focusable">
-
-        <quality-tag score={score}></quality-tag>
+        <quality-tag score={score} />
 
         <h3 className="card-title">
           <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
@@ -65,20 +69,19 @@ export default class RepoCardComponent extends Component {
 
         <dl className="inline-after-600px">
           <dt>Agency:</dt>
-          <dd><CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink></dd>
-          <CardPart title='Last Updated' text={dateLastModified} />
-
+          <dd>
+            <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink>
+          </dd>
+          <CardPart title="Last Updated" text={dateLastModified} />
         </dl>
 
-        <hr className="show-w-gt-600"/>
+        <hr className="show-w-gt-600" />
 
         <div>
           <dl className="width-three-quarters">
-
-            <CardPart title='Usage Type' text={usageType} />
+            <CardPart title="Usage Type" text={usageType} />
             {this.repoLanguages}
-            <CardPart title='License' text={license} />
-
+            <CardPart title="License" text={license} />
           </dl>
           {this.goToButton}
         </div>

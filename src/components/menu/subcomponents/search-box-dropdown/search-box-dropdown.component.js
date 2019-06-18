@@ -37,12 +37,10 @@ export default class Menu extends Component {
 
   handleChange(value) {
     client.suggest(value, 5).then(terms => {
-      const suggestions = map(terms, term => {
-        return {
-          text: term,
-          to: `/search?page=1&query=${term}&size=10&sort=best_match`
-        }
-      })
+      const suggestions = map(terms, term => ({
+        text: term,
+        to: `/search?page=1&query=${term}&size=10&sort=best_match`
+      }))
       this.setStateIfMounted({
         showAutocomplete: true,
         suggestions
@@ -60,7 +58,7 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <div className={'search-box show-w-gt-800' + (this.props.searchDropdown ? ' active' : '')}>
+      <div className={`search-box show-w-gt-800${this.props.searchDropdown ? ' active' : ''}`}>
         <div style={{ marginLeft: 'auto', position: 'relative', width: 'calc(36rem + 42px)' }}>
           <i
             aria-label="cancel"

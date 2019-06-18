@@ -10,4 +10,4 @@ exports[`components - Menu - PrimaryMenuOption should render correctly 1`] = `
 >
   option-name
 </a>
-`;
+`

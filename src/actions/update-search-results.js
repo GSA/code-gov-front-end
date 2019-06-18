@@ -1,7 +1,7 @@
-import { CLEAR_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS } from 'constants/actions';
+import { CLEAR_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS } from 'constants/actions'
 import client from 'api-client'
 
-export default function (filters) {
+export default function(filters) {
   return async dispatch => {
     const query = filters.query
     if (query) {

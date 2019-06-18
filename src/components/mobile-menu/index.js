@@ -1,2 +1,3 @@
-import MobileMenuContainer from './mobile-menu.container';
-export default MobileMenuContainer;
+import MobileMenuContainer from './mobile-menu.container'
+
+export default MobileMenuContainer

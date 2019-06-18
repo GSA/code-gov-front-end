@@ -42,4 +42,4 @@ exports[`components - HomeBanner render should render correctly 1`] = `
     </div>
   </div>
 </section>
-`;
+`

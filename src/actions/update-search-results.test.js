@@ -1,15 +1,12 @@
 import client from 'api-client'
-import { CLEAR_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS } from 'constants/actions';
+import { CLEAR_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS } from 'constants/actions'
 import updateSearchResults from 'actions/update-search-results'
 
 const filters = {
   query: 'test-query'
 }
 const results = {
-  repos: [
-    { repoID: 'repo-1' },
-    { repoID: 'repo-2' }
-  ],
+  repos: [{ repoID: 'repo-1' }, { repoID: 'repo-2' }]
 }
 const dispatch = jest.fn()
 

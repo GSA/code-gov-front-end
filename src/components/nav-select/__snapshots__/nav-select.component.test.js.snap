@@ -19,4 +19,4 @@ exports[`components - NavSelect render should render correctly 1`] = `
     page 2
   </option>
 </select>
-`;
+`

@@ -16,15 +16,14 @@ import {
 import { filter, isURL, map, some } from '@code.gov/cautious'
 
 export default class ProjectPage extends Component {
-
   constructor(props) {
     super(props)
-    console.log("starting project page consturctor with props", props)
+    console.log('starting project page consturctor with props', props)
     const { repo } = props
     const { repoID } = props.match.params
-    console.log("repoID is:", repoID)
+    console.log('repoID is:', repoID)
     if (repoID !== get(repo, 'repoID')) {
-      console.log("repoID doesm;t match", get(repo, 'repoID'))
+      console.log('repoID doesm;t match', get(repo, 'repoID'))
       this.props.updateProject(repoID)
     }
   }
@@ -44,15 +43,13 @@ export default class ProjectPage extends Component {
     const tags = parseTags(this.props.repo)
     return (
       <Fragment>
-      {map(tags, tag => {
-        return (
+        {map(tags, tag => (
           <CustomLink key={tag} to={`/search?query=${tag}`}>
             <span>
               <button className="tag">{tag}</button>
             </span>
           </CustomLink>
-        )
-      })}
+        ))}
       </Fragment>
     )
   }
@@ -60,9 +57,24 @@ export default class ProjectPage extends Component {
   get usageType() {
     const text = getDisplayTextForUsageType(this.props.repo)
     if (text === 'Open Source') {
-      return <li><span><i className="icon icon-ok-circled2"></i>Open Source</span></li>
-    } else if (text === 'Gov-wide Reuse') {
-      return <li><span><i className="icon icon-arrows-cw"></i>Government-Wide Reuse</span></li>
+      return (
+        <li>
+          <span>
+            <i className="icon icon-ok-circled2" />
+            Open Source
+          </span>
+        </li>
+      )
+    }
+    if (text === 'Gov-wide Reuse') {
+      return (
+        <li>
+          <span>
+            <i className="icon icon-arrows-cw" />
+            Government-Wide Reuse
+          </span>
+        </li>
+      )
     }
   }
 
@@ -72,7 +84,7 @@ export default class ProjectPage extends Component {
       return (
         <span>
           <li>
-            <i className="icon icon-certificate"></i>
+            <i className="icon icon-certificate" />
             <span>{text}</span>
           </li>
         </span>
@@ -86,7 +98,7 @@ export default class ProjectPage extends Component {
       return (
         <span>
           <li>
-            <i className="icon icon-hourglass-end"></i>
+            <i className="icon icon-hourglass-end" />
             {`${laborHours} hours`}
           </li>
         </span>
@@ -102,14 +114,13 @@ export default class ProjectPage extends Component {
       return (
         <span>
           <li>
-            <i className="icon icon-code"></i>
-            {map(langs, (lang, i) => {
-              return (
-                <span className={'language' + (i === lastIndex && ' last')} key={lang}>
-                  {lang}<span className="comma">, </span>
-                </span>
-              )
-            })}
+            <i className="icon icon-code" />
+            {map(langs, (lang, i) => (
+              <span className={`language${i === lastIndex && ' last'}`} key={lang}>
+                {lang}
+                <span className="comma">, </span>
+              </span>
+            ))}
           </li>
         </span>
       )
@@ -122,7 +133,7 @@ export default class ProjectPage extends Component {
       return (
         <span>
           <li>
-            <i className="icon icon-mail"></i>
+            <i className="icon icon-mail" />
             <a href={`mailto:${email}?Subject=Contribution%20Inquiry`} target="_top">
               {email}
             </a>
@@ -134,8 +145,12 @@ export default class ProjectPage extends Component {
 
   get repositoryURL() {
     const url = parseRepositoryURL(this.props.repo)
-    if (Boolean(url)) {
-      return <a href={url} target="_blank"><button className="button">Visit Repo</button></a>
+    if (url) {
+      return (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          <button className="button">Visit Repo</button>
+        </a>
+      )
     }
   }
 
@@ -146,7 +161,7 @@ export default class ProjectPage extends Component {
       if (some(keys)) {
         return (
           <div>
-            <br/>
+            <br />
             {map(keys, key => {
               const value = data[key]
               return (
@@ -155,20 +170,24 @@ export default class ProjectPage extends Component {
 
                   {Array.isArray(value) && (
                     <div className="metadata-value">
-                      {map(value, subvalue => <div key={key + '-' + subvalue}>{subvalue}</div>)}
+                      {map(value, subvalue => (
+                        <div key={`${key}-${subvalue}`}>{subvalue}</div>
+                      ))}
                     </div>
                   )}
 
                   {isURL(value) && (
                     <div className="metadata-value">
-                      <a href={value} target="_blank">
+                      <a href={value} target="_blank" rel="noopener noreferrer">
                         <div>{value}</div>
                       </a>
                     </div>
                   )}
 
                   {!Array.isArray(value) && !isURL(value) && (
-                    <div className="metadata-value"><div>{value}</div></div>
+                    <div className="metadata-value">
+                      <div>{value}</div>
+                    </div>
                   )}
                 </div>
               )
@@ -177,7 +196,6 @@ export default class ProjectPage extends Component {
         )
       }
     }
-
   }
 
   render() {
@@ -187,16 +205,18 @@ export default class ProjectPage extends Component {
       const repoName = repo.name
       return (
         <div className="repo-general">
-          <SiteBanner title='Browse Projects' />
-          <Breadcrumbs crumbs={[
-            { text: 'Home', to: '/' },
-            { text: agencyAcronym, to: `/browse-projects?agencies=${agencyAcronym}` },
-            { text: repoName }
-          ]}/>
+          <SiteBanner title="Browse Projects" />
+          <Breadcrumbs
+            crumbs={[
+              { text: 'Home', to: '/' },
+              { text: agencyAcronym, to: `/browse-projects?agencies=${agencyAcronym}` },
+              { text: repoName }
+            ]}
+          />
           <section className="repo-container indented">
             <header>
               <div className="repo-header-container">
-                <h2>{ repoName }</h2>
+                <h2>{repoName}</h2>
                 {this.lastModifiedDateHTML}
                 {this.repoTags}
                 <ul className="repo-features">
@@ -208,16 +228,14 @@ export default class ProjectPage extends Component {
                 </ul>
                 <p>{repo.description}</p>
                 {this.additionalData}
-                <br/>
+                <br />
                 {this.repositoryURL}
               </div>
             </header>
-
           </section>
         </div>
       )
-    } else {
-      return <div>Loading Project</div>
     }
+    return <div>Loading Project</div>
   }
 }

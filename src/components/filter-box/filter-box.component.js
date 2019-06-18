@@ -1,16 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 
 export default class FilterBox extends React.Component {
-
-  componentDidMount () {
+  componentDidMount() {
     // react doesn't bubble up custom events, so we have to do this
-    this.refs.filterBox.addEventListener("change", event => {
+    this.refs.filterBox.addEventListener('change', event => {
       if (event.target.tagName.toLowerCase() === 'input') {
         const target = event.target
         const type = target.checked ? 'checked' : 'unchecked'
         const value = target.value
-        this.props.onChange( { type, value })
+        this.props.onChange({ type, value })
       }
     })
   }
@@ -25,7 +24,7 @@ export default class FilterBox extends React.Component {
         title={this.props.title}
         options={JSON.stringify(this.props.options)}
         ref="filterBox"
-      ></filter-box>
+      />
     )
   }
 }

@@ -35,12 +35,10 @@ export default class HomeBannerSearchBoxComponent extends Component {
 
   handleChange(value) {
     client.suggest(value, 5).then(terms => {
-      const suggestions = map(terms, term => {
-        return {
-          text: term,
-          to: `/search?query=${term}&page=1&size=10`
-        }
-      })
+      const suggestions = map(terms, term => ({
+        text: term,
+        to: `/search?query=${term}&page=1&size=10`
+      }))
       if (this.mounted) {
         this.setState({
           showAutocomplete: true,

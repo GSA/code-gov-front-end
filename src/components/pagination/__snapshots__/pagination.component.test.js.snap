@@ -92,4 +92,4 @@ exports[`components - Pagination render should render correctly 1`] = `
     </li>
   </ul>
 </nav>
-`;
+`

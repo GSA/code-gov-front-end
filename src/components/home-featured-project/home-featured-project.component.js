@@ -2,17 +2,19 @@ import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 
 export default class HomeFeaturedProject extends Component {
-
   render() {
-    const { image, alt, short_name, verbose_name, author, description, links } = this.props.project;
+    const { image, alt, short_name, verbose_name, author, description, links } = this.props.project
 
     const place = this.props.index % 2 === 0 ? 'even' : 'odd'
 
     return (
       <div className="block featured-project">
         <div className="indented">
-
-          {place === 'even' && (<div className="width-half"><img src={image} alt={alt}/></div>)}
+          {place === 'even' && (
+            <div className="width-half">
+              <img src={image} alt={alt} />
+            </div>
+          )}
 
           <div className="width-half">
             <div className="featured-project-info">
@@ -30,22 +32,24 @@ export default class HomeFeaturedProject extends Component {
                         </a>
                       </span>
                     )
-                  } else {
-                    return (
-                      <span key={link.url}>
-                        <CustomLink to={link.url}>
-                          <button className="alt">{link.name}</button>
-                        </CustomLink>
-                      </span>
-                    )
                   }
+                  return (
+                    <span key={link.url}>
+                      <CustomLink to={link.url}>
+                        <button className="alt">{link.name}</button>
+                      </CustomLink>
+                    </span>
+                  )
                 })}
               </div>
             </div>
           </div>
 
-          {place === 'odd' && (<div className="width-half"><img src={image} alt={alt}/></div>)}
-
+          {place === 'odd' && (
+            <div className="width-half">
+              <img src={image} alt={alt} />
+            </div>
+          )}
         </div>
       </div>
     )

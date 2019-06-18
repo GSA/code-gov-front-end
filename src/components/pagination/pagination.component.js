@@ -3,61 +3,62 @@ import React, { Component, Fragment } from 'react'
 import { endsWith, equal, last, range } from '@code.gov/cautious'
 
 export default class Pagination extends Component {
-
   constructor(props) {
-    super(props);
-  }
-
-  handleChangePage(newPage) {
-    if (this.props.updatePage) {
-      this.props.updatePage(newPage)
-    } else {
-      console.warn("You did not assign an updatePage function to the instance of the pagination component.")
-    }
-  }
-
-  handleNext() {
-    this.handleChangePage(Number(this.props.page) + 1)
-  }
-
-  handlePrevious() {
-    this.handleChangePage(Number(this.props.page) - 1)
+    super(props)
   }
 
   get isLastPage() {
-    return equal(this.props.page,  Math.ceil(this.props.count / this.props.pagesize))
+    return equal(this.props.page, Math.ceil(this.props.count / this.props.pagesize))
   }
 
   get leftIcon() {
     if (equal(this.props.page, 1)) {
-      return <span aria-label="Previous"><i className="icon icon-angle-circled-left"></i> Prev</span>
-    } else if (Number(this.props.page) > 1) {
-      return <a onClick={::this.handlePrevious}><i className="icon icon-angle-circled-left"></i> Prev</a>
+      return (
+        <span aria-label="Previous">
+          <i className="icon icon-angle-circled-left" /> Prev
+        </span>
+      )
+    }
+    if (Number(this.props.page) > 1) {
+      return (
+        <a onClick={::this.handlePrevious}>
+          <i className="icon icon-angle-circled-left" /> Prev
+        </a>
+      )
     }
   }
 
   get rightIcon() {
     if (this.isLastPage) {
-      return <span>Next <i className="icon icon-angle-circled-right"></i></span>
-    } else {
-      return <a onClick={::this.handleNext}>Next <i className="icon icon-angle-circled-right"></i></a>
+      return (
+        <span>
+          Next <i className="icon icon-angle-circled-right" />
+        </span>
+      )
     }
+    return (
+      <a onClick={::this.handleNext}>
+        Next <i className="icon icon-angle-circled-right" />
+      </a>
+    )
   }
 
-  getSummary({ count, minItemIndex, maxItemIndex}) {
+  getSummary({ count, minItemIndex, maxItemIndex }) {
     if (count > 0) {
-      return <Fragment>Results <strong>{minItemIndex + '-' + maxItemIndex}</strong> of <strong>{count}</strong></Fragment>
-    } else {
-      return <Fragment>No results found.</Fragment>
+      return (
+        <Fragment>
+          Results <strong>{`${minItemIndex}-${maxItemIndex}`}</strong> of <strong>{count}</strong>
+        </Fragment>
+      )
     }
+    return <Fragment>No results found.</Fragment>
   }
 
   getDisplayPages() {
     const { count, pagesize } = this.props
     const page = parseInt(this.props.page, 10)
     const pagecount = Math.ceil(count / pagesize)
-    const pageIndexes = range(pagecount)
-      .map(n => n + 1) // convert from starting at 0 to 1
+    const pageIndexes = range(pagecount).map(n => n + 1) // convert from starting at 0 to 1
     const pageCount = pageIndexes.length
 
     let displayPages = []
@@ -74,17 +75,41 @@ export default class Pagination extends Component {
       } else if (page > 4 && right < ultimate - 2) {
         displayPages = [1, 'left-ellipsis', left, page, right, 'right-ellipsis', ultimate]
       } else if (page >= ultimate - 3) {
-        displayPages = [1, 'left-ellipsis', ultimate-4, ultimate-3, ultimate-2, ultimate-1, ultimate]
+        displayPages = [
+          1,
+          'left-ellipsis',
+          ultimate - 4,
+          ultimate - 3,
+          ultimate - 2,
+          ultimate - 1,
+          ultimate
+        ]
       }
       return displayPages
-
     } catch (error) {
       console.warn(error)
     }
   }
 
-  render() {
+  handleChangePage(newPage) {
+    if (this.props.updatePage) {
+      this.props.updatePage(newPage)
+    } else {
+      console.warn(
+        'You did not assign an updatePage function to the instance of the pagination component.'
+      )
+    }
+  }
 
+  handleNext() {
+    this.handleChangePage(Number(this.props.page) + 1)
+  }
+
+  handlePrevious() {
+    this.handleChangePage(Number(this.props.page) - 1)
+  }
+
+  render() {
     const { count, pagesize } = this.props
     const page = Number(this.props.page)
 
@@ -93,12 +118,13 @@ export default class Pagination extends Component {
       minItemIndex is 11 because (2-1) * 10 + 1
       This is displayed as 11 however because it's the 11th item in the array
     */
-    const minItemIndex = ( (page - 1) * pagesize ) + 1
+    const minItemIndex = (page - 1) * pagesize + 1
     /*
       ex: if on second page when 10 items per page
       maxItemIndex is 20, which is 11 + 9
     */
-    const maxItemIndex = minItemIndex + (pagesize - 1) > count - 1 ? count : minItemIndex + (pagesize - 1)
+    const maxItemIndex =
+      minItemIndex + (pagesize - 1) > count - 1 ? count : minItemIndex + (pagesize - 1)
 
     const summary = this.getSummary({ count, minItemIndex, maxItemIndex })
     const displayPages = this.getDisplayPages()
@@ -109,32 +135,42 @@ export default class Pagination extends Component {
           <div className="repo-list-summary-wrapper" tabIndex="0">
             <p className="repo-list-summary">{summary}</p>
           </div>
-          <li className={'pagination-previous' + (page === 1 ? ' disabled' : '')} tabIndex="0">
+          <li className={`pagination-previous${page === 1 ? ' disabled' : ''}`} tabIndex="0">
             {this.leftIcon}
           </li>
           {displayPages.map((i, index) => {
             const ellipsis = endsWith(i, 'ellipsis')
-            let current = equal(i, page)
+            const current = equal(i, page)
             let className = 'page'
             const tabIndex = index + 1
             if (i === 1) className += ' first'
             if (current) className += ' current'
-            if (!ellipsis && !current) {
-            }
             return (
               <li className={className} key={i}>
-                {ellipsis && <span tabIndex={tabIndex}>...</span> }
-                {current && <span tabIndex={tabIndex} aria-label={`Current Page ${i}`} aria-current="true">{i}</span> }
-                {!ellipsis && !current && <a data-testid={`component-pagination-page-link-${i}`} tabIndex={tabIndex} aria-label={`Go to page ${i}`} onClick={() => this.handleChangePage(i)}>{i}</a> }
+                {ellipsis && <span tabIndex={tabIndex}>...</span>}
+                {current && (
+                  <span tabIndex={tabIndex} aria-label={`Current Page ${i}`} aria-current="true">
+                    {i}
+                  </span>
+                )}
+                {!ellipsis && !current && (
+                  <a
+                    data-testid={`component-pagination-page-link-${i}`}
+                    tabIndex={tabIndex}
+                    aria-label={`Go to page ${i}`}
+                    onClick={() => this.handleChangePage(i)}
+                  >
+                    {i}
+                  </a>
+                )}
               </li>
             )
           })}
-          <li className={'pagination-next' + (this.isLastPage ? ' disabled' : '')} tabIndex="8">
+          <li className={`pagination-next${this.isLastPage ? ' disabled' : ''}`} tabIndex="8">
             {this.rightIcon}
           </li>
         </ul>
       </nav>
     )
   }
-
 }

@@ -24,24 +24,24 @@
 */
 
 function observeStore(store, select, onChange) {
-  let currentState;
+  let currentState
 
   function handleChange() {
-    let storeState = store.getState()
-    let nextState = JSON.stringify(select(storeState));
+    const storeState = store.getState()
+    const nextState = JSON.stringify(select(storeState))
     if (nextState !== currentState) {
-      currentState = nextState;
-      onChange(storeState, store.dispatch);
+      currentState = nextState
+      onChange(storeState, store.dispatch)
     }
   }
 
-  let unsubscribe = store.subscribe(handleChange);
-  handleChange();
-  return unsubscribe;
+  const unsubscribe = store.subscribe(handleChange)
+  handleChange()
+  return unsubscribe
 }
 
 export default function syncStore(store, syncers) {
-  console.log("starting syncStore with", store, syncers)
+  console.log('starting syncStore with', store, syncers)
   syncers.forEach(({ select, sync }) => {
     observeStore(store, select, sync)
   })

@@ -10,6 +10,7 @@ jobs:
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - run: npm run test:ci
+      - run: npm run lint
   deploy-bundle-analysis:
     docker:
       - image: ubuntu

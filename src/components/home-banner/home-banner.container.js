@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { getConfigValue, normalize, now } from 'utils/other'
 import HomeBannerComponent from './home-banner.component'

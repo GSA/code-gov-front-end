@@ -2,7 +2,7 @@ import client from 'api-client'
 import { LOAD_PROJECT } from 'constants/actions'
 import loadProject from 'actions/load-project'
 
-const repo = { repoID: '123' };
+const repo = { repoID: '123' }
 const dispatch = jest.fn()
 
 describe('actions - load-project', () => {

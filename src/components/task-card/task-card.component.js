@@ -6,15 +6,15 @@ import { getLastModifiedDateString } from 'utils/repo-parsing'
 import CardPart from 'components/card-part'
 
 export default class TaskCardComponent extends Component {
-
-
   get cardTitle() {
     const issueURL = get(this.props.task, 'issueURL')
     const title = get(this.props.task, 'title')
     if (issueURL && title) {
       return (
         <h3 className="card-title">
-          <a href={issueURL} target="_blank">{title}</a>
+          <a href={issueURL} target="_blank" rel="noopener noreferrer">
+            {title}
+          </a>
         </h3>
       )
     }
@@ -34,11 +34,13 @@ export default class TaskCardComponent extends Component {
       return (
         <Fragment>
           <dt>Agency:</dt>
-          <dd><CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink></dd>
+          <dd>
+            <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink>
+          </dd>
         </Fragment>
       )
     }
- }
+  }
 
   render() {
     const task = this.props.task
@@ -46,24 +48,21 @@ export default class TaskCardComponent extends Component {
 
     return (
       <div className="card-list-item card focusable">
-
         {this.cardTitle}
 
         {this.cardDescription}
 
         <dl className="inline-after-600px show-w-gt-900">
-
           {this.agencyLink}
 
-          <CardPart title='Last Updated' text={lastModifiedString} />
+          <CardPart title="Last Updated" text={lastModifiedString} />
 
           <hr />
 
-          <CardPart title='Languages' text={join(get(task, 'languages'), ',')} />
-          <CardPart title='Type' text={capitalize(get(task, 'type'))} />
-          <CardPart title='Skill Level' text={capitalize(get(task, 'skill'))} />
-          <CardPart title='Effort' text={capitalize(get(task, 'effort'))} />
-
+          <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
+          <CardPart title="Type" text={capitalize(get(task, 'type'))} />
+          <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
+          <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
         </dl>
       </div>
     )

@@ -26,4 +26,4 @@ exports[`components - SearchBox render should render correctly 1`] = `
     </div>
   </div>
 </form>
-`;
+`

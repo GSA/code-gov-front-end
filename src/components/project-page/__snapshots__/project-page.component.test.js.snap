@@ -165,6 +165,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
             >
               <a
                 href="http://www.repo-meta-url.com"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 <div>
@@ -193,6 +194,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
         <br />
         <a
           href="https://github.com/repo-url"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <button
@@ -205,4 +207,4 @@ exports[`components - ProjectPage render should render correctly 1`] = `
     </header>
   </section>
 </div>
-`;
+`

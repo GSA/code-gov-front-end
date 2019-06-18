@@ -1,2 +1,3 @@
-import AutoCompleteComponent from './autocomplete.component';
-export default AutoCompleteComponent;
+import AutoCompleteComponent from './autocomplete.component'
+
+export default AutoCompleteComponent

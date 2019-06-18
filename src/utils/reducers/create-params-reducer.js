@@ -2,8 +2,8 @@ import assign from 'lodash.assign'
 import { now } from 'utils/other'
 
 export default function(PAGE) {
-  return function (state = null, action) {
-    switch(action.type) {
+  return function(state = null, action) {
+    switch (action.type) {
       case `UPDATE_${PAGE}_FILTERS`:
         const { category, value, intent } = action
 
@@ -12,12 +12,13 @@ export default function(PAGE) {
         const valueInLowerCase = value.toLowerCase()
 
         if (intent === 'remove') {
-          state.filters = state.filters.filter(item => {
-            return !(
-              item.category.toLowerCase() === categoryInLowerCase
-              && item.value.toLowerCase() === valueInLowerCase
-            )
-          })
+          state.filters = state.filters.filter(
+            item =>
+              !(
+                item.category.toLowerCase() === categoryInLowerCase &&
+                item.value.toLowerCase() === valueInLowerCase
+              )
+          )
         } else if (intent === 'add') {
           state.filters.push({ category, value, modified: now() })
         }
@@ -29,7 +30,7 @@ export default function(PAGE) {
       case `UPDATE_${PAGE}_PARAMS`:
         return assign(state || {}, action.data)
       default:
-        return state;
+        return state
     }
   }
 }

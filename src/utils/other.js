@@ -35,8 +35,8 @@ export function getConfigValue(path) {
     } else if (Array.isArray(value)) {
       value = value.map(item => {
         if (typeof item === 'object') {
-          for (let subkey in item) {
-            let subvalue = item[subkey]
+          for (const subkey in item) {
+            const subvalue = item[subkey]
             if (typeof subvalue === 'string') {
               item[subkey] = adjustAssetPath(subvalue)
             }
@@ -51,9 +51,8 @@ export function getConfigValue(path) {
       or consult our developer documentation here: https://developers.code.gov/configure.html`)
     }
     return value
-  } else {
-    return null
   }
+  return null
 }
 
 export function normalize(input) {
@@ -110,10 +109,8 @@ export function getSet(items, path) {
               results.add(subitem)
             }
           })
-        } else {
-          if (isFalse(value) === false) {
-            results.add(value)
-          }
+        } else if (isFalse(value) === false) {
+          results.add(value)
         }
       }
     })
@@ -133,10 +130,8 @@ export function getLowerSet(items, path) {
               results.add(subitem.toLowerCase())
             }
           })
-        } else {
-          if (isFalse(value) === false) {
-            results.add(value.toLowerCase())
-          }
+        } else if (isFalse(value) === false) {
+          results.add(value.toLowerCase())
         }
       }
     })
@@ -147,9 +142,9 @@ export function getLowerSet(items, path) {
 export function getFilterData(key, path, currentSearchResults, filters) {
   if (currentSearchResults && filters && filters[key]) {
     const names = getLowerSet(currentSearchResults.repos, path)
-    return filters[key].filter(({ name, value }) => {
-      return names.has(normalize(name)) || names.has(normalize(value))
-    })
+    return filters[key].filter(
+      ({ name, value }) => names.has(normalize(name)) || names.has(normalize(value))
+    )
   }
 }
 
@@ -182,8 +177,10 @@ export function getFilterTags(params, filters) {
       )
       let title = 'loading'
       if (found) {
+        /* eslint-disable */
         if (found.name) title = found.name
         if (found.value) value = found.value
+        /* eslint-enable */
       }
       return { category, modified, value, title }
     })
@@ -207,7 +204,7 @@ export function fillFilters(keys, params, result) {
       params[key].forEach(value => {
         result.filters.push({
           category: key,
-          value: value,
+          value,
           modified: now()
         })
       })
@@ -222,7 +219,7 @@ export function onHomePage() {
 /* I'd prefer to use fetch but IE polyfilling is complicated */
 export function getText(url) {
   return new Promise(resolve => {
-    var xhr = new XMLHttpRequest()
+    const xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
         resolve(xhr.response)
