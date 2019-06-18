@@ -57,7 +57,7 @@
     "@code.gov/about-page": "0.1.13",
     "@code.gov/api-client": "^0.3.4",
     "@code.gov/cautious": "0.3.0",
-    "@code.gov/code-gov-font": "^0.7.1",
+    "@code.gov/code-gov-font": "^0.8.0",
     "@code.gov/code-gov-style": "^1.16.0",
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
     "@code.gov/fscp-react-component": "0.3.5",
