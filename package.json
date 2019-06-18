@@ -91,6 +91,7 @@
     "redux-thunk": "^2.3.0",
     "snyk": "^1.174.2",
     "url-search-params-polyfill": "^5.1.0",
+    "uswds": "^2.0.2",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-create-file-plugin": "^1.0.0",
