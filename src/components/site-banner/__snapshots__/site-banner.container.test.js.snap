@@ -4,4 +4,4 @@ exports[`containers - MobileMenuOption mapStateToProps should return the correct
 Object {
   "backgroundImage": undefined,
 }
-`;
+`

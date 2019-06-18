@@ -14,14 +14,14 @@ export default class HomeAbout extends React.Component {
             <h3>Vision</h3>
             <span className="about-icon">
               <p>{this.props.vision}</p>
-              <img alt="" className="" src={PUBLIC_PATH + 'assets/img/icons/vision_icon_sm.png'} />
+              <img alt="" className="" src={`${PUBLIC_PATH}assets/img/icons/vision_icon_sm.png`} />
             </span>
           </li>
           <li>
             <h3>Mission</h3>
             <span className="about-icon">
               <p>{this.props.mission}</p>
-              <img alt="" className="" src={PUBLIC_PATH + 'assets/img/icons/mission_icon_sm.png'} />
+              <img alt="" className="" src={`${PUBLIC_PATH}assets/img/icons/mission_icon_sm.png`} />
             </span>
           </li>
         </ul>

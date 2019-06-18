@@ -7,6 +7,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin')
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
 const EventHooksPlugin = require('event-hooks-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const sass = require('sass')
 const get = require('lodash.get')
 const { map } = require('@code.gov/cautious')
 const { copyOverPluginIfNecessary } = require('./webpack.utils')
@@ -44,9 +45,10 @@ const entry = {
 const siteConfigPath = process.env.CODE_GOV_CONFIG_JSON || join(rootDir, '/config/site/site.json')
 console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSON)
 
+/* eslint-disable import/no-dynamic-require */
 const SITE_CONFIG = require(siteConfigPath)
 
-let { plugins } = SITE_CONFIG
+const { plugins } = SITE_CONFIG
 console.log('plugins:', plugins)
 const pluginsDir = join(rootDir, '/src/components/plugins')
 
@@ -155,6 +157,13 @@ module.exports = {
         ]
       },
       {
+        test: /\.(png)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images'
+        }
+      },
+      {
         test: /\.scss$/,
         use: [
           'style-loader', // creates style nodes from JS strings
@@ -162,7 +171,7 @@ module.exports = {
           {
             loader: 'sass-loader', // compiles Sass to CSS
             options: {
-              implementation: require('sass')
+              implementation: sass
             }
           }
         ]
