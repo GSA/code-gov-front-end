@@ -308,6 +308,23 @@
           "name": "U.S. General Services Administration",
           "url": "https://www.gsa.gov/"
         }
+      ],
+      "socials": [
+        {
+          "name": "Code.gov on Twitter",
+          "icon": "icon icon-twitter",
+          "url": "https://www.twitter.com/codedotcove"
+        },
+        {
+          "name": "Code.gov on Medium",
+          "icon": "icon icon-medium",
+          "url": "https://medium.com/codedotgov"
+        },
+        {
+          "name": "Code.gov on LinkedIn",
+          "icon": "icon icon-linkedin-squared",
+          "url": "https://www.linkedin.com/company/code-gov/"
+        }
       ]
     },
     "browse_projects": {
