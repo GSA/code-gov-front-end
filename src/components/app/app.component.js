@@ -12,6 +12,7 @@ import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
+import OfficialBanner from 'components/official-banner'
 import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView } from 'utils/other'
@@ -26,12 +27,13 @@ export default class AppComponent extends Component {
   }
 
   render() {
-
     const location = window.location
+    const isHomepage = location.pathname === '/'
 
     return (
       <ConnectedRouter history={history}>
         <div className='App'>
+          {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
           <Menu />
           <Switch location={location}>
             <Route exact path='/' component={Home}/>
@@ -42,10 +44,8 @@ export default class AppComponent extends Component {
             <Route path='/privacy-policy' component={PrivacyPolicy}/>
             <Route path='/projects/:repoID' component={ProjectPage}/>
             <Route path='/roadmap' component={Roadmap}/>
-
             <Route path='/policy-guide' component={PolicyGuide}/>
             <Route path='/about' component={AboutPage}/>
-
             <Redirect to='/' />
           </Switch>
           <Footer />
