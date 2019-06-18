@@ -28,7 +28,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'code-gov';
-    src: url('../font/code-gov.svg?23948069#code-gov') format('svg');
+    src: url('../font/code-gov.svg?26134518#code-gov') format('svg');
   }
 }
 */
@@ -210,11 +210,21 @@
 }
 
 /* '' */
+.icon-medium:before {
+  content: "\F23A";
+}
+
+/* '' */
 .icon-hourglass-3:before {
   content: "\F253";
 }
 
 /* '' */
+.icon-linkedin-squared:before {
+  content: "\F30C";
+}
+
+/* '' */
 /*@import '~devicons/css/devicons.scss';*/
 @media screen and (min-width: 600px) {
   .width-sixth {
@@ -1330,6 +1340,16 @@ code {
 }
 
 /* '' */
+.icon-linkedin-squared::before {
+  content: "\F30C";
+}
+
+/* '' */
+.icon-medium::before {
+  content: "\F23A";
+}
+
+/* '' */
 .icon {
   color: #0071bc;
   font-style: normal;
@@ -1470,7 +1490,7 @@ blockquote p:last-child {
   color: #43ddd7;
   content: "\201C";
   font-size: 1.75em;
-  left: -2.5rem;
+  left: -4.5rem;
   padding-right: 0.5rem;
   position: absolute;
   top: -1.5rem;
@@ -1486,7 +1506,7 @@ blockquote p:last-child {
   content: "\201D";
   font-size: 1.75em;
   line-height: 0.6;
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
   position: absolute;
   vertical-align: text-top;
 }
@@ -1672,9 +1692,19 @@ mobile-menu-button.dark .icon {
   position: fixed;
   right: 0;
   top: 0;
-  top: calc(50px + 10px);
+  top: calc(50px + 40px);
   transition: 0.5s opacity;
   z-index: -1;
+}
+@media screen and (max-width: 799px) {
+  .mobile-menu-underlay {
+    top: calc(50px + 21px);
+  }
+}
+@media screen and (max-width: 639px) {
+  .mobile-menu-underlay {
+    top: calc(50px + 40px);
+  }
 }
 .mobile-menu-underlay.active {
   background-color: #323a45;
@@ -2052,11 +2082,16 @@ header.main nav.main {
   box-shadow: none;
   padding-left: 0.5rem;
   position: fixed;
-  top: 0;
+  top: 19px;
   transition: 0.5s box-shadow, 0.5s background-color;
   width: 100%;
   z-index: 3;
   /* first level ul */
+}
+@media screen and (max-width: 639px) {
+  header.main nav.main {
+    top: 40px;
+  }
 }
 header.main nav.main.not-at-top, header.main nav.main.expanded {
   box-shadow: 0 0 10px 0 #000;
