@@ -1,5 +1,5 @@
-import { HIDE_SEARCH_DROPDOWN } from 'constants/actions';
+import { HIDE_SEARCH_DROPDOWN } from 'constants/actions'
 
-export default function () {
-  return { type: HIDE_SEARCH_DROPDOWN };
+export default function() {
+  return { type: HIDE_SEARCH_DROPDOWN }
 }

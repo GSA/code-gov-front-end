@@ -1,20 +1,24 @@
 export function getURLSearchParamsAsSimpleObj(search) {
+  /* eslint-disable */
   search = search || window.location.search
+  /* eslint-enable */
   if (search && typeof search === 'string') {
-    return search.substring(1).split('&').reduce((result, part) => {
-      try {
-        if (part && part.includes('=')) {
-          const [ key, value] = part.split('=');
-          result[key] = decodeURIComponent(value);
+    return search
+      .substring(1)
+      .split('&')
+      .reduce((result, part) => {
+        try {
+          if (part && part.includes('=')) {
+            const [key, value] = part.split('=')
+            result[key] = decodeURIComponent(value)
+          }
+        } catch (error) {
+          console.error(error)
         }
-      } catch (error) {
-        console.error(error);
-      }
-      return result
-    }, {});
-  } else {
-    return {}
+        return result
+      }, {})
   }
+  return {}
 }
 
 export function convertObjToSortedSearchString(obj) {
@@ -22,25 +26,24 @@ export function convertObjToSortedSearchString(obj) {
     .sort() // sort keys alphabetically
     .map(key => [key, obj[key]])
     .map(([key, value]) => {
-      console.warn("sorting value:", [key, value])
+      console.warn('sorting value:', [key, value])
       if (Array.isArray(value)) {
         return [key, value.sort()]
-      } else {
-        return [key, value]
       }
+      return [key, value]
     })
-    .reduce((result, [key, value]) => {
-      return result + '&' + key + "=" + encodeURIComponent(Array.isArray(value) ? value.join(',') : value)
-    }, '')
+    .reduce(
+      (result, [key, value]) =>
+        `${result}&${key}=${encodeURIComponent(Array.isArray(value) ? value.join(',') : value)}`,
+      ''
+    )
 }
 
 convertObjToSortedSearchString(getURLSearchParamsAsSimpleObj(window.location.search))
 
 export function getParamAsArray(params, key) {
   if (params[key]) {
-    return params[key]
-      .split(',')
-      .map(item => item.trim())
+    return params[key].split(',').map(item => item.trim())
   }
 }
 
@@ -82,11 +85,14 @@ export function getSection() {
   const pathname = window.location.pathname
   if (pathname.includes('/browse-projects')) {
     return 'browse'
-  } else if (pathname.includes('/search')) {
+  }
+  if (pathname.includes('/search')) {
     return 'search'
-  } else if (pathname.includes('/open-tasks')) {
+  }
+  if (pathname.includes('/open-tasks')) {
     return 'tasks'
-  } else if (pathname.includes('/projects/')) {
+  }
+  if (pathname.includes('/projects/')) {
     return 'project'
   }
 }

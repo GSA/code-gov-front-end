@@ -1,2 +1,3 @@
-import OpenTasksContainer from './open-tasks.container';
-export default OpenTasksContainer;
+import OpenTasksContainer from './open-tasks.container'
+
+export default OpenTasksContainer

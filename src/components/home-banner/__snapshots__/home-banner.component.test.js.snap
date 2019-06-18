@@ -137,10 +137,12 @@ exports[`components - HomeBanner render should render correctly 1`] = `
             src="/assets/img/icons/chat_bubble.png"
           />
           <span>
-            Have questions or feedback? Open an issue on our 
+            Have questions or feedback? Open an issue on our
+             
             <a
               className="home-link link"
               href="/test-issue-url"
+              rel="noopener noreferrer"
               target="_blank"
             >
               open source repository
@@ -148,10 +150,12 @@ exports[`components - HomeBanner render should render correctly 1`] = `
             .
           </span>
           <div>
-            Want to receive our monthly newsletter? 
+            Want to receive our monthly newsletter?
+             
             <a
               className="home-link link"
               href="/news-letter-url"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Sign up here
@@ -167,4 +171,4 @@ exports[`components - HomeBanner render should render correctly 1`] = `
     onClick={[Function]}
   />
 </section>
-`;
+`

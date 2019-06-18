@@ -5,7 +5,6 @@ import Autocomplete from 'components/autocomplete'
 import SearchBox from 'components/search-box'
 
 export default class QuickSearchBoxComponent extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -19,10 +18,6 @@ export default class QuickSearchBoxComponent extends React.Component {
     this.mounted = true
   }
 
-  componentWillUnmount() {
-    this.mounted = false
-  }
-
   // need to update value when props value changes
   componentDidUpdate(prevProps) {
     const { value } = this.props
@@ -31,6 +26,10 @@ export default class QuickSearchBoxComponent extends React.Component {
         this.setState({ value })
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
   }
 
   handleBlur() {
@@ -47,12 +46,10 @@ export default class QuickSearchBoxComponent extends React.Component {
 
   handleChange(value) {
     client.suggest(value, 5).then(terms => {
-      const suggestions = map(terms, term => {
-        return {
-          text: term,
-          to: `/search?query=${term}&page=1&size=10`
-        }
-      })
+      const suggestions = map(terms, term => ({
+        text: term,
+        to: `/search?query=${term}&page=1&size=10`
+      }))
       if (this.mounted) {
         this.setState({
           showAutocomplete: true,
@@ -83,7 +80,9 @@ export default class QuickSearchBoxComponent extends React.Component {
           onSubmit={this.props.onSubmit}
           value={this.state.value}
         />
-        {this.state.showAutocomplete && some(this.state.suggestions) && <Autocomplete onClick={::this.handleSelection} options={this.state.suggestions}/>}
+        {this.state.showAutocomplete && some(this.state.suggestions) && (
+          <Autocomplete onClick={::this.handleSelection} options={this.state.suggestions} />
+        )}
       </Fragment>
     )
   }

@@ -14,35 +14,38 @@ export default class Footer extends Component {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
                   return (
                     <li key={link.name}>
-                      <a className="link" href={link.url} target="_blank" key={link.name}>
+                      <a
+                        className="link"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={link.name}
+                      >
                         <span>{link.name}</span>
                       </a>
                     </li>
                   )
-                } else {
-                  return (
-                    <li key={link.name}>
-                      <CustomLink to={link.url} className="link">
-                        <span>{link.name}</span>
-                      </CustomLink>
-                    </li>
-                  )
                 }
+                return (
+                  <li key={link.name}>
+                    <CustomLink to={link.url} className="link">
+                      <span>{link.name}</span>
+                    </CustomLink>
+                  </li>
+                )
               })}
             </ul>
           </div>
           <div className="footer-part logos" data-test="logos">
             <ul>
-              {map(this.props.logos, logo => {
-                return (
-                  <li key={logo.name}>
-                    <a href={logo.url} target="_blank" rel="noopener">
-                      <img src={logo.image} alt={logo.name}/>
-                      <span>{logo.name}</span>
-                    </a>
-                  </li>
-                )
-              })}
+              {map(this.props.logos, logo => (
+                <li key={logo.name}>
+                  <a href={logo.url} target="_blank" rel="noopener noreferrer">
+                    <img src={logo.image} alt={logo.name} />
+                    <span>{logo.name}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

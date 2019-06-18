@@ -18,22 +18,20 @@ export default class HomePressComponent extends Component {
                   <blockquote>{this.props.quote}</blockquote>
                   <div className="attribution">
                     <a href={this.props.attributionUrl}>
-                      <img className="press-logo" src={this.props.attributionImage} alt="Wired"/>
+                      <img className="press-logo" src={this.props.attributionImage} alt="Wired" />
                     </a>
                   </div>
                 </div>
                 <div>
                   <hr />
                   <ul className="press-links">
-                    {map(this.props.links, ({image, url, alt}) => {
-                      return (
-                        <li key={alt}>
-                          <a href={url}>
-                            <img className="press-logo" src={image} alt={alt}/>
-                          </a>
-                        </li>
-                        )
-                    })}
+                    {map(this.props.links, ({ image, url, alt }) => (
+                      <li key={alt}>
+                        <a href={url}>
+                          <img className="press-logo" src={image} alt={alt} />
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

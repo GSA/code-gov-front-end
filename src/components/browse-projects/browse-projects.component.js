@@ -13,12 +13,15 @@ import { refreshView, scrollToTopOfResults } from 'utils/other'
 import { parseLocation } from 'utils/url-parsing'
 import { length, some } from '@code.gov/cautious'
 
-
 export default class BrowseProjects extends React.Component {
-
-  componentDidMount () {
+  componentDidMount() {
     refreshView()
     if (!this.props.filterData) this.props.saveFilterData()
+  }
+
+  onFilterBoxChange(category, values) {
+    scrollToTopOfResults()
+    this.props.onFilterBoxChange(category, values)
   }
 
   get repoCounter() {
@@ -43,20 +46,17 @@ export default class BrowseProjects extends React.Component {
           <div className="card-container">
             <QualityPopover />
             <ul className="card-ul">
-              {this.props.repos.map(repo => <RepoCard key={repo.repoID} repo={repo}/>)}
+              {this.props.repos.map(repo => (
+                <RepoCard key={repo.repoID} repo={repo} />
+              ))}
             </ul>
           </div>
         )
       } catch (error) {
-        console.error("reposContainer error with this.props.repos", this.props.repos)
+        console.error('reposContainer error with this.props.repos', this.props.repos)
         throw error
       }
     }
-  }
-
-  onFilterBoxChange(category, values) {
-    scrollToTopOfResults()
-    this.props.onFilterBoxChange(category, values)
   }
 
   updatePage(newPage) {
@@ -68,19 +68,16 @@ export default class BrowseProjects extends React.Component {
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
-        <SiteBanner title='Browse Projects' />
-        <Breadcrumbs crumbs={[
-          { text: 'Home', to: '/' },
-          { text: 'Browse Projects' }
-        ]}/>
+        <SiteBanner title="Browse Projects" />
+        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Browse Projects' }]} />
         <div className="search-results-header">
-            <div className="indented">
-              <div className="width-quarter">
-                <QuickSearchBox />
-              </div>
-              {this.repoCounter}
+          <div className="indented">
+            <div className="width-quarter">
+              <QuickSearchBox />
             </div>
+            {this.repoCounter}
           </div>
+        </div>
         <div className="indented">
           <div id="filter-boxes-section">
             <h2>Filter</h2>
@@ -92,20 +89,23 @@ export default class BrowseProjects extends React.Component {
                 ['Federal Agency', 'agencies'],
                 ['Licenses', 'licenses'],
                 ['Usage Types', 'usageTypes']
-                ]}
+              ]}
               onFilterBoxChange={::this.onFilterBoxChange}
             />
-
           </div>
           <div id="filter-results-section">
-            <SortSection
-              options={this.props.sortOptions}
-              onSortChange={this.props.onSortChange}
-            />
+            <SortSection options={this.props.sortOptions} onSortChange={this.props.onSortChange} />
             <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
             <div className="card-list">
               {this.reposContainer}
-              {numPages > 0 && <Pagination count={this.props.total} pagesize={this.props.selectedPageSize} page={this.props.selectedPage} updatePage={::this.updatePage} />}
+              {numPages > 0 && (
+                <Pagination
+                  count={this.props.total}
+                  pagesize={this.props.selectedPageSize}
+                  page={this.props.selectedPage}
+                  updatePage={::this.updatePage}
+                />
+              )}
             </div>
           </div>
         </div>

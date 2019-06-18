@@ -6,7 +6,6 @@ import HomePress from 'components/home-press'
 import { refreshView } from 'utils/other'
 
 export default class HomeComponent extends React.Component {
-
   componentDidMount() {
     refreshView()
     window.addEventListener('popstate', event => {
@@ -16,15 +15,15 @@ export default class HomeComponent extends React.Component {
       }
     })
   }
+
   render() {
     return (
       <Fragment>
-        <HomeBanner/>
-        <HomeAbout/>
-        <HomeFeaturedProjects/>
-        <HomePress/>
+        <HomeBanner />
+        <HomeAbout />
+        <HomeFeaturedProjects />
+        <HomePress />
       </Fragment>
     )
   }
-
 }

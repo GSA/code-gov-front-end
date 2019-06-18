@@ -2,13 +2,13 @@ import client from 'api-client'
 import { SAVE_AGENCIES } from 'constants/actions'
 import saveAgencies from 'actions/save-agencies'
 
-const agencies = ['ag-1', 'ag-2'];
+const agencies = ['ag-1', 'ag-2']
 const dispatch = jest.fn()
 
 describe('actions - save-agencies', () => {
   beforeEach(() => {
-    client.getAgencies.mockResolvedValue(agencies);
-  });
+    client.getAgencies.mockResolvedValue(agencies)
+  })
 
   it('should return a function (thunk)', () => {
     expect(typeof saveAgencies()).toBe('function')

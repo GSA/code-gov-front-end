@@ -1,2 +1,3 @@
-import FilterBoxesComponent from './filter-boxes.component';
-export default FilterBoxesComponent;
+import FilterBoxesComponent from './filter-boxes.component'
+
+export default FilterBoxesComponent

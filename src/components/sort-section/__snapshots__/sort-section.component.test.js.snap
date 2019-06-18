@@ -28,4 +28,4 @@ exports[`components - SortSection render should render correctly 1`] = `
     </select>
   </h2>
 </div>
-`;
+`
