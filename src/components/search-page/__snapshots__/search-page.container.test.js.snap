@@ -94,24 +94,6 @@ Object {
     "repos": Array [
       Object {
         "agency": Object {
-          "acronym": "ag-1-value",
-        },
-        "languages": Array [
-          "la-1-value",
-          "la-1-value",
-        ],
-        "permissions": Object {
-          "licenses": Array [
-            Object {
-              "name": "li-1-value",
-            },
-          ],
-          "usageType": "us-1-value",
-        },
-        "repoId": "repo-1",
-      },
-      Object {
-        "agency": Object {
           "acronym": "ag-2-value",
         },
         "languages": Array [
@@ -127,6 +109,24 @@ Object {
           "usageType": "us-2-value",
         },
         "repoId": "repo-2",
+      },
+      Object {
+        "agency": Object {
+          "acronym": "ag-1-value",
+        },
+        "languages": Array [
+          "la-1-value",
+          "la-1-value",
+        ],
+        "permissions": Object {
+          "licenses": Array [
+            Object {
+              "name": "li-1-value",
+            },
+          ],
+          "usageType": "us-1-value",
+        },
+        "repoId": "repo-1",
       },
     ],
     "total": 2,
