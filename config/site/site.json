@@ -151,7 +151,7 @@
         },
         {
           "title": "Connect with Us",
-          "description": "Have questions or feedback? <a href='https://github.com/GSA/code-gov-front-end/issues/new/choose' target='_blank' rel='noopener noreferrer'>Open an issue</a> on our open source repository. Want to receive our monthly newsletter?",
+          "description": "Have questions or feedback? <a href='https://github.com/GSA/code-gov-front-end/issues/new/choose' target='_blank' rel='noopener noreferrer'>Open an issue</a> on our open source repository.<br><br>Want to receive our monthly newsletter?",
           "links": [
             {
               "name": "Sign Up Here",
