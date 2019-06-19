@@ -113,6 +113,12 @@ exports[`components - Footer should render correctly 1`] = `
         </li>
       </ul>
     </div>
+    <div
+      className="footer-part socials"
+      data-test="socials"
+    >
+      <ul />
+    </div>
   </div>
 </footer>
-`
+`;

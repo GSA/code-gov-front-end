@@ -5,34 +5,41 @@ Object {
   "color": "white",
   "links": Array [
     Object {
-      "name": "Privacy Policy",
+      "name": "Web Policies",
       "url": "/privacy-policy",
-    },
-    Object {
-      "name": "Roadmap",
-      "url": "/roadmap",
     },
     Object {
       "name": "Visit Project Page",
       "url": "https://github.com/GSA/code-gov",
     },
+    Object {
+      "name": "Roadmap",
+      "url": "/roadmap",
+    },
   ],
   "logos": Array [
-    Object {
-      "image": "/assets/img/logos/whitehouse.png",
-      "name": "The White House",
-      "url": "https://whitehouse.gov/",
-    },
-    Object {
-      "image": "/assets/img/logos/PIF.png",
-      "name": "Presidential Innovation Fellows",
-      "url": "https://presidentialinnovationfellows.gov/",
-    },
     Object {
       "image": "/assets/img/logos/GSA.png",
       "name": "U.S. General Services Administration",
       "url": "https://www.gsa.gov/",
     },
   ],
+  "socials": Array [
+    Object {
+      "icon": "icon icon-twitter",
+      "name": "Code.gov on Twitter",
+      "url": "https://www.twitter.com/codedotgov",
+    },
+    Object {
+      "icon": "icon icon-medium",
+      "name": "Code.gov on Medium",
+      "url": "https://medium.com/codedotgov",
+    },
+    Object {
+      "icon": "icon icon-linkedin-squared",
+      "name": "Code.gov on LinkedIn",
+      "url": "https://www.linkedin.com/company/code-gov/",
+    },
+  ],
 }
-`
+`;
