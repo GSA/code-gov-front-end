@@ -141,7 +141,7 @@
       "explore": [
         {
           "title": "Developers",
-          "description": "The Code.gov website is developed publicly on GitHub. Learn how to contribute here. Help improve America's Code by exploring Open Tasks.",
+          "description": "The Code.gov website is developed publicly on GitHub. Learn how to <a href='https://github.com/GSA/code-gov/blob/master/README.md' target='_blank' rel='noopener noreferrer'>contribute here</a>. Help improve America's Code by exploring Open Tasks.",
           "links": [
             {
               "name": "Explore Open Tasks",
@@ -151,7 +151,7 @@
         },
         {
           "title": "Connect with Us",
-          "description": "Have questions or feedback? Open an issue on our open source repository. Want to receive our monthly newsletter?",
+          "description": "Have questions or feedback? <a href='https://github.com/GSA/code-gov-front-end/issues/new/choose' target='_blank' rel='noopener noreferrer'>Open an issue</a> on our open source repository. Want to receive our monthly newsletter?",
           "links": [
             {
               "name": "Sign Up Here",
