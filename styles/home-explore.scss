@@ -53,6 +53,9 @@
     }
 
     .explore-action {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       text-align: center;
 
       @media screen and (min-width: $medium-screen) {
