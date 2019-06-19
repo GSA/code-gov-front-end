@@ -10,7 +10,7 @@ export default class HomeExplore extends React.Component {
             this.props.explore.map(item => (
               <li className="explore-action" key={item.title}>
                 <h2>{item.title}</h2>
-                <p>{item.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: item.description }} />
                 <div className="buttons">
                   {item.links.map(link => (
                     <span key={link.name}>
