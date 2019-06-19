@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import HomeFeaturedProject from '../home-featured-project'
 
 export default class HomeFeaturedProjects extends Component {
-  static propTypes = {
-    /*    onChange: PropTypes.func.isRequired,
+  /* static propTypes = {
+        onChange: PropTypes.func.isRequired,
         onSubmit: PropTypes.func.isRequired,
         placeholder: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired */
-  }
+        value: PropTypes.string.isRequired
+  } */
 
   render() {
     return (

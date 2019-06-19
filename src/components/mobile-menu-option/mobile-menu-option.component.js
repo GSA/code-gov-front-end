@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react'
 import CustomLink from 'components/custom-link'
 import { map, startsWith } from '@code.gov/cautious'
 
@@ -28,7 +27,7 @@ export default class MobileMenuOption extends Component {
             return (
               <li key={url}>
                 <CustomLink
-                  className={this.isLinkActive({ name, url }) ? 'active' : ''}
+                  className={this.isLinkActive({ url }) ? 'active' : ''}
                   onClick={this.props.hideMobileMenu}
                   to={url}
                 >
@@ -71,9 +70,9 @@ export default class MobileMenuOption extends Component {
   }
 
   isTopOptionActive() {
-    const { name, links, url } = this.props.menuOption
+    const { links, url } = this.props.menuOption
     if (url) {
-      return this.isLinkActive({ name, url })
+      return this.isLinkActive({ url })
     }
     if (links) {
       return links.some(this.isLinkActive)
@@ -81,7 +80,7 @@ export default class MobileMenuOption extends Component {
     return false
   }
 
-  isLinkActive({ name, url }) {
+  isLinkActive({ url }) {
     return window.location.href.includes(url)
   }
 

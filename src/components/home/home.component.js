@@ -8,7 +8,7 @@ import { refreshView } from 'utils/other'
 export default class HomeComponent extends React.Component {
   componentDidMount() {
     refreshView()
-    window.addEventListener('popstate', event => {
+    window.addEventListener('popstate', _event => {
       console.log('pop start in home cpoment:', PUBLIC_PATH)
       if (window.location.pathname === PUBLIC_PATH) {
         refreshView()

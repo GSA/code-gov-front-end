@@ -19,14 +19,14 @@ const searchParams = {
   page: 'test-page',
   sort: 'test-sort',
   size: 'test-size',
-  query: 'test-query',
+  query: 'test-query'
 }
 
 // filters that get mapped out from `searchParams`
-const filters =  [
+const filters = [
   { category: 'agencies', value: 'a1', modified: now() },
   { category: 'agencies', value: 'a2', modified: now() },
-  { category: 'languages', value: 'l1', modified: now() },
+  { category: 'languages', value: 'l1', modified: now() }
 ]
 
 const dispatch = jest.fn()
@@ -55,40 +55,46 @@ describe('containers - App', () => {
       describe('section is `browse`', () => {
         it('should dispatch the `updateBrowseParams` action with the correct params', () => {
           const expected = { ...pick(searchParams, ['page', 'sort', 'size']), filters }
-          testBySection({ section: 'browse',  action: updateBrowseParams, expected })
+          testBySection({ section: 'browse', action: updateBrowseParams, expected })
         })
 
         it('should dispatch the `updateBrowseParams` action with the default browse params if none provided', () => {
           const expected = pick(defaultState.browseParams, ['page', 'sort', 'size', 'filters'])
           getNormalizedURLSearchParams.mockImplementation(() => ({}))
-          testBySection({ section: 'browse',  action: updateBrowseParams, expected })
+          testBySection({ section: 'browse', action: updateBrowseParams, expected })
         })
       })
     })
 
     describe('section is `search`', () => {
-      it('should dispatch the `updateSearchParams` action with the correct params', () => {
+      it('should dispatch the `updateTaskParams` action with the correct params', () => {
         const expected = { ...pick(searchParams, ['page', 'query', 'sort', 'size']), filters }
-        testBySection({ section: 'search',  action: updateSearchParams, expected })
+        testBySection({ section: 'search', action: updateTaskParams, expected })
       })
 
-      it('should dispatch the `updateSearchParams` action with the default search params if none provided', () => {
-        const expected = pick(defaultState.searchParams, ['page', 'query', 'sort', 'size', 'filters'])
+      it('should dispatch the `updateTaskParams` action with the default search params if none provided', () => {
+        const expected = pick(defaultState.searchParams, [
+          'page',
+          'query',
+          'sort',
+          'size',
+          'filters'
+        ])
         getNormalizedURLSearchParams.mockImplementation(() => ({}))
-        testBySection({ section: 'search',  action: updateSearchParams, expected })
+        testBySection({ section: 'search', action: updateTaskParams, expected })
       })
     })
 
     describe('section is `tasks`', () => {
       it('should dispatch the `updateTaskParams` action with the correct params if the section is `tasks`', () => {
         const expected = { ...pick(searchParams, ['page', 'size']), filters }
-        testBySection({ section: 'tasks',  action: updateTaskParams, expected })
+        testBySection({ section: 'tasks', action: updateTaskParams, expected })
       })
 
       it('should dispatch the `updateTaskParams` action with the default task params if none provided', () => {
         const expected = pick(defaultState.taskParams, ['page', 'query', 'sort', 'size', 'filters'])
         getNormalizedURLSearchParams.mockImplementation(() => ({}))
-        testBySection({ section: 'tasks',  action: updateTaskParams, expected })
+        testBySection({ section: 'tasks', action: updateTaskParams, expected })
       })
     })
 

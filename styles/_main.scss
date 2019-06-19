@@ -10,19 +10,17 @@ $header-height: 50px;
 
 @import './overrides.scss';
 
-
 html {
-  background: $color-white;
+  background-color: $color-white;
 
   #app {
-    background: #F0F3F7;
+    background: #f0f3f7;
 
     .icon {
       cursor: pointer;
     }
   }
 }
-
 
 /* styles that apply to stuff around search box on multiple pages */
 
@@ -56,7 +54,7 @@ ul.breadcrumbs {
 }
 
 // pads footnotes
-[id*=fn] {
+[id*='fn'] {
   @media screen and (max-width: $header-switch) {
     margin-top: -60px;
     padding-top: 60px;

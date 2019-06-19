@@ -1,10 +1,10 @@
 import { forEach } from '@code.gov/cautious'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import updateBrowseParams from 'actions/update-browse-params'
 import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
 import defaultState from 'constants/default-redux-store-state'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { getConfigValue, now } from 'utils/other'
 import { getNormalizedURLSearchParams, getSection } from 'utils/url-parsing'
 import AppComponent from './app.component'
@@ -41,7 +41,7 @@ export const mapDispatchToProps = dispatch => ({
           forEach(['page', 'query', 'sort', 'size'], key => {
             params[key] = parsed[key] || defaultState.searchParams[key]
           })
-          dispatch(updateSearchParams(params))
+          dispatch(updateTaskParams(params))
         }
       } else if (section === 'tasks') {
         const filters = []

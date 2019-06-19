@@ -64,7 +64,6 @@
   button {
     max-width: 170px;
     width: 44%;
-
   }
 }
 
@@ -81,7 +80,7 @@
     max-height: 4%;
   }
   a {
-    color: #23C0BA;
+    color: $brand-teal-medium;
     text-decoration: underline;
 
     &:hover {
@@ -101,7 +100,7 @@
   p {
     margin: 4rem 2.5rem -1.5rem;
     max-width: 75rem;
-    font-size: .9em;
+    font-size: 0.9em;
     text-align: left;
   }
   img {
@@ -112,7 +111,7 @@
     margin: 1.25rem -0.5rem 8.5rem 4.5rem;
   }
   a {
-    color: #23C0BA;
+    color: $brand-teal-medium;
     text-decoration: underline;
 
     &:hover {
@@ -129,7 +128,7 @@
     transform: scale(1.5);
   }
   100% {
-    transform: scale(1.0);
+    transform: scale(1);
   }
 }
 
@@ -137,7 +136,7 @@
   text-align: center;
 
   #featured-projects-title {
-    background: white;
+    background-color: $color-white;
     color: $featured-dark;
 
     h2 {
@@ -191,7 +190,6 @@
         display: block;
       }
     }
-
 
     .featured-project-info {
       left: 0;
@@ -258,11 +256,10 @@
         }
       }
     }
-
   }
 
   &:nth-of-type(odd) {
-    background: $featured-dark;
+    background-color: $featured-dark;
     color: $color-white;
 
     button,
@@ -272,31 +269,30 @@
       color: $color-white;
     }
 
-    >div {
+    > div {
       text-align: left;
 
-      >div {
+      > div {
         text-align: left;
       }
     }
   }
 
   &:nth-of-type(even) {
-    background: $featured-light;
+    background-color: $featured-light;
     color: $color-white;
 
-    >div {
-
+    > div {
       background-position: 0% 50%;
       background-repeat: no-repeat;
       background-size: 50%;
       text-align: right;
-      >div {
+      > div {
         text-align: left;
 
         .featured-project-info {
           .fp-short-name {
-            color: $color-gray-dark
+            color: $color-gray-dark;
           }
           .fp-verbose-name {
             color: $color-gray-dark;

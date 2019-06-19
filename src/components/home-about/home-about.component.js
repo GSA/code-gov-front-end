@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CustomLink from 'components/custom-link'
 
 export default class HomeAbout extends React.Component {

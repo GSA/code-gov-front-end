@@ -19,7 +19,15 @@ export function adjustAssetPath(thing) {
   ) {
     return thing.replace(pattern, newAssetPath)
   }
-
+  if (typeof value === 'object') {
+    for (const key in thing) {
+      const subvalue = thing[key]
+      if (typeof subvalue === 'string') {
+        thing[key] = adjustAssetPath(subvalue)
+      }
+    }
+    return thing
+  }
   return thing
 }
 
@@ -189,7 +197,7 @@ export function getFilterTags(params, filters) {
 
 export function loadScript(src) {
   console.log('starting loadScript with', src)
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const script = document.createElement('script')
     script.src = src
     script.onload = resolve
