@@ -254,10 +254,10 @@
       "near": [
         { "name": "Usability research to study contributor experience", "status": "Released" },
         { "name": "Add documentation to increase usability of platform", "status": "Released" },
-        { "name": "Add tests to ensure code quality throughout the development process", "status": "In Progress" },
-        { "name": "Home page redesign", "status": "In Progress" },
+        { "name": "Add tests to ensure code quality throughout the development process", "status": "Released" },
+        { "name": "Home page redesign", "status": "Released" },
         { "name": "Data quality scoring update", "status": "Released" },
-        { "name": "Add 'Official gov website' banner", "status": "In Progress" }
+        { "name": "Add 'Official gov website' banner", "status": "Released" }
       ],
       "mid": [
         { "name": "Usability research to study community experience (site navigation, ease of use, content inventory)", "status": "null" },
