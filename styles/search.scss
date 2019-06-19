@@ -30,7 +30,9 @@
     width: 100%;
 
     input {
+      font-style: italic;
       height: 40px;
+      text-align: center;
       /* 100% minus width of the button */
       width: calc(100% - 40px);
     }
