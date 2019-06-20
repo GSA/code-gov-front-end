@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
+import clearSearchResults from 'actions/clear-search-results'
 import updateSearchParams from 'actions/update-search-params'
 import { getConfigValue } from 'utils/other'
 import { getSection } from 'utils/url-parsing'
@@ -22,7 +23,7 @@ export const mapDispatchToProps = dispatch => ({
     if (getSection() === 'search') {
       dispatch(updateSearchParams({ page: 1, query, size: 10 }))
     } else {
-      dispatch(updateSearchParams({ page: 1, query, size: 10, sort: 'best_match' }))
+      dispatch(updateSearchParams({ page: 1, query, size: 10, sort: 'best_match', filters: [] }))
       dispatch(push(`/search?page=1&query=${query}&size=10&sort=best_match`))
     }
   }

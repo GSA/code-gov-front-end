@@ -20,7 +20,7 @@ describe('containers - MobileMenuSearchBox', () => {
       it('should dispatch the correct actions', () => {
         mapDispatchToProps(dispatch).onSubmit('test-query')
         expect(dispatch).toBeCalledTimes(4)
-        expect(updateSearchParams).toBeCalledWith({ page: 1, size: 10, query: 'test-query' })
+        expect(updateSearchParams).toBeCalledWith({ page: 1, size: 10, query: 'test-query', filters: [] })
         expect(push).toBeCalledWith(`/search?page=1&query=test-query&size=10&sort=best_match`)
         expect(collapseAllMobileMenuOptions).toBeCalled()
         expect(hideMobileMenu).toBeCalled()
