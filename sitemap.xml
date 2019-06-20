@@ -7276,12 +7276,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://code.gov/projects/dhs_department_homelsecurity_1_ansible_role_guacamole</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://code.gov/projects/dhs_department_homelsecurity_1_ansible_role_htop</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://code.gov/projects/gsa_u_s_general_services_administration_1_ansible_role_jenkins</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://code.gov/projects/dhs_department_homelsecurity_1_ansible_role_kali</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -10967,6 +10977,11 @@
   </url>
   <url>
     <loc>https://code.gov/projects/doe_sandia_national_laboratories_snl_1_ex1ex2v2_version_2_10</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://code.gov/projects/epa_ord_1_examining_utility_in_vitro_bioactivity</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -15176,6 +15191,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://code.gov/projects/epa_ord_1_ordatwork</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://code.gov/projects/doe_office_scientific_technical_information_osti_1_orio</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -15897,6 +15917,11 @@
   </url>
   <url>
     <loc>https://code.gov/projects/doe_sandia_national_laboratories_snl_1_power_api_prototype</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://code.gov/projects/epa_ord_1_power_profiler</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18281,6 +18306,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://code.gov/projects/epa_ord_1_teva_spot_toolkit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://code.gov/projects/usda_ars_argil_1_tfbsconssites</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -19222,6 +19252,11 @@
   </url>
   <url>
     <loc>https://code.gov/projects/epa_ord_1_water_quality_data_analysis_tool</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://code.gov/projects/epa_ord_1_water_security_toolkit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
