@@ -6,6 +6,6 @@ Object {
   "query": "test-query",
   "searchDescriptionHeading": "Find Code",
   "searchDescriptionText": "Search for federal open source software projects and usable code",
-  "searchDescriptionTextMobile": "Search projects",
+  "searchDescriptionTextMobile": "Find Code",
 }
 `
