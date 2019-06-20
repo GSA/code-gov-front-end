@@ -29051,6 +29051,7 @@ header.main nav mobile-menu-button .mobile-menu-button {
   transform: translateY(-50%);
 }
 header.main nav mobile-menu-button .mobile-menu-button .icon {
+  color: #07648d !important;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -29380,7 +29381,8 @@ header.main nav ul li a svg {
 .search-results-content .search-input-container {
   width: 100% !important;
 }
-.search-results-content .browse, .search-results-content .search-description-wrapper {
+.search-results-content .browse,
+.search-results-content .search-description-wrapper {
   display: none;
   visibility: hidden;
 }
