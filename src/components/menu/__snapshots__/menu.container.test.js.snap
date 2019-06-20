@@ -9,19 +9,19 @@ Object {
     Object {
       "links": Array [
         Object {
-          "name": "OVERVIEW",
+          "name": "Overview",
           "url": "/about/overview/introduction",
         },
         Object {
-          "name": "COMPLIANCE",
+          "name": "Compliance",
           "url": "/about/compliance/dashboard",
         },
         Object {
-          "name": "OPEN SOURCE PILOT",
+          "name": "Open Source Pilot",
           "url": "/about/open-source/introduction",
         },
         Object {
-          "name": "SOURCE CODE POLICY",
+          "name": "Source Code Policy",
           "url": "/policy-guide/introduction",
         },
       ],
