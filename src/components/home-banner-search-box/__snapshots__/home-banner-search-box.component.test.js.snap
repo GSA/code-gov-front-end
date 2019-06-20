@@ -14,7 +14,7 @@ exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
         className="search-description-heading show-w-gt-800"
       />
       <div
-        className="show-w-gt-800"
+        className="search-description-text show-w-gt-800"
       >
         test-text
       </div>
