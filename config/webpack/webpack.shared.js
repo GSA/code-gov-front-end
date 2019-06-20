@@ -1,15 +1,16 @@
-const { copyFileSync, readFileSync } = require('fs');
-const { dirname, join } = require('path');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin');
-const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { copyFileSync, readFileSync } = require('fs')
+const { dirname, join } = require('path')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const DefinePlugin = require('webpack/lib/DefinePlugin')
+const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
+const EventHooksPlugin = require('event-hooks-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const sass = require('sass')
 const get = require('lodash.get')
 const { map } = require('@code.gov/cautious')
-const { copyOverPluginIfNecessary } = require('./webpack.utils');
+const { copyOverPluginIfNecessary } = require('./webpack.utils')
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
@@ -20,10 +21,10 @@ console.log('process.env.CODE_GOV_BRANCH:', process.env.CODE_GOV_BRANCH)
 console.log('process.env.CODE_GOV_RELATIVE_DIR:', process.env.CODE_GOV_RELATIVE_DIR)
 
 // https://webpack.js.org/guides/public-path/
-const PUBLIC_PATH = process.env.PUBLIC_PATH || '/';
+const PUBLIC_PATH = process.env.PUBLIC_PATH || '/'
 console.log('process.env.PUBLIC_PATH:', process.env.PUBLIC_PATH)
 
-let OUTPUT_PATH;
+let OUTPUT_PATH
 if (process.env.OUTPUT_PATH) {
   OUTPUT_PATH = process.env.OUTPUT_PATH
 } else if (process.env.OUTPUT_RELATIVE_PATH) {
@@ -38,25 +39,25 @@ if (!OUTPUT_PATH) {
 }
 
 const entry = {
-  index: ['@babel/polyfill', './src/index.js'],
+  index: ['@babel/polyfill', './src/index.js']
 }
-
 
 const siteConfigPath = process.env.CODE_GOV_CONFIG_JSON || join(rootDir, '/config/site/site.json')
 console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSON)
 
-const SITE_CONFIG = require(siteConfigPath);
+/* eslint-disable import/no-dynamic-require */
+const SITE_CONFIG = require(siteConfigPath)
 
-let { plugins } = SITE_CONFIG;
-console.log('plugins:', plugins);
-const pluginsDir = join(rootDir, '/src/components/plugins');
+const { plugins } = SITE_CONFIG
+console.log('plugins:', plugins)
+const pluginsDir = join(rootDir, '/src/components/plugins')
 
 const loadPlugins = () => {
   if (Array.isArray(plugins)) {
-    plugins.map(plugin => copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir));
+    plugins.map(plugin => copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir))
   }
 }
-loadPlugins();
+loadPlugins()
 const patterns = [
   {
     from: './assets/data',
@@ -99,11 +100,13 @@ const patterns = [
     to: 'webcomponents/json-schema.js'
   },
   {
-    from: 'node_modules/@code.gov/compliance-dashboard-web-component/dist/compliance-dashboard.min.js',
+    from:
+      'node_modules/@code.gov/compliance-dashboard-web-component/dist/compliance-dashboard.min.js',
     to: 'webcomponents/compliance-dashboard.js'
   },
   {
-    from: 'node_modules/@code.gov/json-schema-validator-web-component/dist/json-schema-validator.js',
+    from:
+      'node_modules/@code.gov/json-schema-validator-web-component/dist/json-schema-validator.js',
     to: 'webcomponents/json-schema-validator.js'
   },
   {
@@ -116,7 +119,10 @@ const patterns = [
   }
 ]
 
-if (process.env.OUTPUT_RELATIVE_PATH && process.env.OUTPUT_RELATIVE_PATH.includes('federalist-prod')) {
+if (
+  process.env.OUTPUT_RELATIVE_PATH &&
+  process.env.OUTPUT_RELATIVE_PATH.includes('federalist-prod')
+) {
   // only include sitemap if building for production on code.gov
   patterns.push({
     from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
@@ -140,20 +146,22 @@ module.exports = {
     rules: [
       {
         test: /\.(ttf|eot|woff|woff2|svg)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.(png)$/,
         loader: 'file-loader',
         options: {
-          outputPath: 'images',
-        },
+          outputPath: 'images'
+        }
       },
       {
         test: /\.scss$/,
@@ -163,7 +171,7 @@ module.exports = {
           {
             loader: 'sass-loader', // compiles Sass to CSS
             options: {
-              implementation: require('sass')
+              implementation: sass
             }
           }
         ]
@@ -183,45 +191,38 @@ module.exports = {
               'babel-plugin-transform-function-bind',
               '@babel/plugin-transform-regenerator'
             ],
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react'
-            ]
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       },
       {
         test: /\.md$/,
         use: [
-            {
-                loader: 'html-loader'
-            },
-            {
-                loader: 'markdown-loader',
-                options: {
-                    /* your options here */
-                }
+          {
+            loader: 'html-loader'
+          },
+          {
+            loader: 'markdown-loader',
+            options: {
+              /* your options here */
             }
+          }
         ]
       }
     ]
   },
   plugins: [
     new EventHooksPlugin({
-      'beforeCompile': () => {
-        loadPlugins();
+      beforeCompile: () => {
+        loadPlugins()
       }
     }),
     new DefinePlugin({
-      'ENABLE_GOOGLE_ANALYTICS': process.env.CODE_GOV_BRANCH === 'federalist-prod',
-      'PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
-      'SITE_CONFIG': JSON.stringify(SITE_CONFIG)
+      ENABLE_GOOGLE_ANALYTICS: process.env.CODE_GOV_BRANCH === 'federalist-prod',
+      PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
+      SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
-    new EnvironmentPlugin([
-      'CODE_GOV_API_BASE',
-      'CODE_GOV_API_KEY',
-      'CODE_GOV_TASKS_URL'
-    ]),
+    new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
     new FaviconsWebpackPlugin({

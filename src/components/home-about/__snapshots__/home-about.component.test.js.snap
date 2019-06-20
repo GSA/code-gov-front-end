@@ -7,56 +7,46 @@ exports[`components - HomeAbout should render correctly 1`] = `
 >
   <header>
     <h2>
-      Our Mission
+      About Code.gov
     </h2>
-    <p
-      className="indented"
-    >
-      test-mission
-    </p>
+    <p />
   </header>
-  <br />
-  <hr />
   <ul
-    className="indented about-actions"
+    className="about-actions"
   >
-    <li
-      className="about-action width-third"
-      key="t1"
-    >
-      <Connect(CustomLinkComponent)
-        to="l1"
+    <li>
+      <h3>
+        Vision
+      </h3>
+      <span
+        className="about-icon"
       >
-        <img
-          alt="About Icon"
-          src="i1"
-        />
-        <h3>
-          t1
-        </h3>
         <p>
-          d1
+          test-vision
         </p>
-      </Connect(CustomLinkComponent)>
+        <img
+          alt=""
+          className=""
+          src="/assets/img/icons/vision_icon_sm.png"
+        />
+      </span>
     </li>
-    <li
-      className="about-action width-third"
-      key="t2"
-    >
-      <Connect(CustomLinkComponent)
-        to="l2"
+    <li>
+      <h3>
+        Mission
+      </h3>
+      <span
+        className="about-icon"
       >
-        <img
-          alt="About Icon"
-          src="i2"
-        />
-        <h3>
-          t2
-        </h3>
         <p>
-          d2
+          test-mission
         </p>
-      </Connect(CustomLinkComponent)>
+        <img
+          alt=""
+          className=""
+          src="/assets/img/icons/mission_icon_sm.png"
+        />
+      </span>
     </li>
   </ul>
 </section>
