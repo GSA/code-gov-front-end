@@ -15,4 +15,4 @@ exports[`components - Home render should render correctly 1`] = `
     </div>
   </div>
 </Fragment>
-`;
+`
