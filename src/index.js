@@ -14,7 +14,6 @@ const store = buildStore()
 
 syncStore(store, syncers)
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>

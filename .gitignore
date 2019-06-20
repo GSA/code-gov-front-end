@@ -72,3 +72,6 @@ typings/
 
 # code.gov plugins
 /src/components/plugins
+
+# .DS_Store
+.DS_Store

@@ -48,12 +48,6 @@ describe('other util', () => {
   })
 
   describe('getConfigValue', () => {
-    it('should return the adjusted path of the config value', () => {
-      const adjustedValue =
-        PUBLIC_PATH + SITE_CONFIG.images.background.replace(/.?\/?assets\//, 'assets/')
-      expect(getConfigValue('images.background')).toBe(adjustedValue)
-    })
-
     it('should catch errors while adjusting the asset path', () => {
       // is the try / catch even needed?
     })

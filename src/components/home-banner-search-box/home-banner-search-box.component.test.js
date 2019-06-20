@@ -95,7 +95,7 @@ describe('components - HomeBannerSearchBox', () => {
 
     it('should not render `searchDescriptionText` if not provided', () => {
       wrapper.setProps({ searchDescriptionText: undefined })
-      expect(wrapper.find('.show-w-gt-800').length).toBe(0) // TODO: make data-test attributes...
+      expect(wrapper.find('.search-description-text').length).toBe(0) // TODO: make data-test attributes...
     })
 
     it('should not render `searchDescriptionTextMobile` if not provided', () => {

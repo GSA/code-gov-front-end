@@ -1,6 +1,7 @@
 /* overwrite code-gov-style */
 
 .banner {
+  background: $brand-primary;
   background-image: none;
 }
 
@@ -9,20 +10,20 @@
   .card {
     .corner-tag {
       &.high {
-        background: url("/assets/img/corner-tags/high.svg");
+        background: url('/assets/img/corner-tags/high.svg');
       }
       &.medium {
-        background: url("/assets/img/corner-tags/medium.svg");
+        background: url('/assets/img/corner-tags/medium.svg');
       }
       &.low {
-        background: url("/assets/img/corner-tags/low.svg");
+        background: url('/assets/img/corner-tags/low.svg');
       }
     }
   }
 }
 
 // overriding the default uswds search box behavior
-[type=search] {
+[type='search'] {
   border-bottom-right-radius: unset;
   border-right: unset;
   border-top-right-radius: unset;

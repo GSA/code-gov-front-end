@@ -6,9 +6,10 @@ import Footer from './footer.component'
 export const mapStateToProps = ({ router }) => {
   const onHomePage = router.location.pathname === PUBLIC_PATH
   return {
-    color: onHomePage ? 'dark' : 'white',
+    color: 'white',
     links: getConfigValue('content.footer.links'),
-    logos: getConfigValue('content.footer.logos')
+    logos: getConfigValue('content.footer.logos'),
+    socials: getConfigValue('content.footer.socials')
   }
 }
 

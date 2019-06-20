@@ -3,8 +3,9 @@ import { getConfigValue } from 'utils/other'
 import HomeAboutComponent from './home-about.component'
 
 export const mapStateToProps = () => ({
+  aboutus: getConfigValue('content.home.aboutus'),
   mission: getConfigValue('content.home.mission'),
-  aboutItems: getConfigValue('content.home.about')
+  vision: getConfigValue('content.home.vision')
 })
 
 export default connect(mapStateToProps)(HomeAboutComponent)

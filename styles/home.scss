@@ -1,70 +1,6 @@
-//Help Wanted styles between Banner and Our Mission (About) sections on homepage
-.help-wanted {
-  h2 {
-    margin-top: -1rem;
-    margin-bottom: -2rem;
-  }
-  p {
-    font-size: 1.2em;
-    line-height: 1em;
-    max-width: 75rem;
-    margin: 2rem 2rem 3.5rem 3rem;
-  }
-  .buttons {
-    margin-top: -3rem;
-  } //start here
-  //set to 599px
-  @media screen and (max-width: $medium-screen) {
-    display: none;
-  } //save for changing mobile
-  @media screen and (min-width: $small-screen) {
-    h2 {
-      margin-top: -1rem;
-      margin-bottom: -2rem;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1em;
-      max-width: 75rem;
-      margin: 2rem 2rem 3.5rem 3rem;
-    }
-  }
-
-  button {
-    margin-top: 2em;
-  }
-}
-
-.help-wanted-mobile {
-  @media screen and (min-width: $medium-screen) {
-    display: none;
-  }
-  h2 {
-    font-size: 1.5em;
-    margin-top: 2em;
-    margin-bottom: -0.5em;
-  }
-  p {
-    font-size: 1em;
-    line-height: 1.5em;
-    max-width: 75rem;
-    margin: 2rem 2rem 0.5rem 3rem;
-  }
-  .buttons {
-    //set to 600px
-    @media screen and (min-width: $medium-screen) {
-      display: none;
-    } //set to 480px
-    //@media screen and (max-width: $small-screen) {
-    //margin-top: 5.5rem;
-    //margin-bottom: 5.5rem;
-    //}
-  }
-
-  button {
-    max-width: 170px;
-    width: 44%;
-  }
+.home-container {
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
 //Questions section
@@ -80,7 +16,7 @@
     max-height: 4%;
   }
   a {
-    color: $brand-teal-medium;
+    color: #23c0ba;
     text-decoration: underline;
 
     &:hover {
@@ -111,7 +47,7 @@
     margin: 1.25rem -0.5rem 8.5rem 4.5rem;
   }
   a {
-    color: $brand-teal-medium;
+    color: #23c0ba;
     text-decoration: underline;
 
     &:hover {
@@ -132,199 +68,6 @@
   }
 }
 
-.featured-projects {
-  text-align: center;
-
-  #featured-projects-title {
-    background-color: $color-white;
-    color: $featured-dark;
-
-    h2 {
-      color: $featured-dark;
-      margin-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  h2 {
-    color: $color-white;
-    font-size: 1.75em;
-    margin-bottom: 2rem;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-    text-align: center;
-    text-transform: uppercase;
-
-    @media screen and (min-width: $small-screen) {
-      font-size: 2em;
-    }
-
-    @media screen and (min-width: $medium-screen) {
-      font-size: 3em;
-    }
-  }
-}
-
-.featured-project {
-  text-align: left;
-  position: relative;
-
-  .indented {
-    height: 45rem;
-    overflow: hidden;
-    position: relative;
-
-    @media screen and (max-width: 400.5px) {
-      height: 52rem;
-    }
-
-    img {
-      display: none;
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-
-      @media screen and (min-width: $small-screen) {
-        display: block;
-      }
-    }
-
-    .featured-project-info {
-      left: 0;
-      padding: 3rem 5rem;
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      width: 100%;
-
-      @media screen and (min-width: $small-screen) {
-        left: auto;
-        padding: 3rem 4rem;
-        width: 50%;
-      }
-
-      .fp-short-name {
-        font-size: 3rem;
-        font-weight: bold;
-      }
-
-      .fp-verbose-name {
-        font-size: 2rem;
-        font-weight: bold;
-      }
-
-      .fp-developed-by {
-        color: lightgray;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      .buttons {
-        text-align: center;
-
-        @media screen and (min-width: $small-screen) {
-          text-align: left;
-        }
-
-        span {
-          a {
-            text-decoration: none;
-          }
-        }
-      }
-
-      button {
-        font-size: 0.8em;
-        margin-bottom: 0;
-        margin-left: 1rem;
-        margin-right: 0;
-        margin-top: 0;
-        max-width: 170px;
-        width: 44%;
-
-        &:first-child {
-          margin-left: 0;
-          margin-right: 0.5rem;
-        }
-
-        @media screen and (min-width: $large-screen) {
-          font-size: 1em;
-        }
-      }
-    }
-  }
-
-  &:nth-of-type(odd) {
-    background-color: $featured-dark;
-    color: $color-white;
-
-    button,
-    h3,
-    h4,
-    p {
-      color: $color-white;
-    }
-
-    > div {
-      text-align: left;
-
-      > div {
-        text-align: left;
-      }
-    }
-  }
-
-  &:nth-of-type(even) {
-    background-color: $featured-light;
-    color: $color-white;
-
-    > div {
-      background-position: 0% 50%;
-      background-repeat: no-repeat;
-      background-size: 50%;
-      text-align: right;
-      > div {
-        text-align: left;
-
-        .featured-project-info {
-          .fp-short-name {
-            color: $color-gray-dark;
-          }
-          .fp-verbose-name {
-            color: $color-gray-dark;
-          }
-          .fp-developed-by {
-            color: darkgray;
-          }
-        }
-      }
-    }
-  }
-
-  h3 {
-    font-size: 1.2em;
-  }
-
-  h4 {
-    font-size: 1.8em;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-  }
-
-  p {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-  }
-
-  button {
-    margin-left: 10px;
-  }
-}
-
 #issue-banner-subsection-subtitle {
   max-width: 100%;
   width: 100%;
@@ -336,5 +79,14 @@
 
   @media screen and (min-width: $medium-screen) {
     padding-bottom: 9rem;
+  }
+}
+
+.grid-half {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 20px;
+  @media screen and (min-width: $medium-screen) {
+    grid-template-columns: 1fr 1fr;
   }
 }

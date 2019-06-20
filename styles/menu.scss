@@ -1,9 +1,7 @@
 header.main {
   height: $header-height;
 
-
   nav {
-
     @media screen and (max-width: $header-switch) {
       height: 100%;
       min-height: $header-height;
@@ -31,6 +29,7 @@ header.main {
         top: 50%;
         transform: translateY(-50%);
         .icon {
+          color: $brand-blue !important;
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
@@ -105,13 +104,13 @@ header.main {
     &:hover {
       transform: scale(1.5);
 
-      >i {
+      > i {
         color: $color-white;
         transform: translateX(-50%) translateY(-50%);
       }
     }
 
-    >i {
+    > i {
       color: $color-white;
       position: absolute;
       top: 50%;
@@ -127,7 +126,7 @@ header.main {
       display: block;
     }
 
-    input[type=search] {
+    input[type='search'] {
       width: 90%;
     }
     @media screen and (min-width: $medium-screen) {

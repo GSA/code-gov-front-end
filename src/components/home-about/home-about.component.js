@@ -6,22 +6,24 @@ export default class HomeAbout extends React.Component {
     return (
       <section id="about" className="about">
         <header>
-          <h2>Our Mission</h2>
-          <p className="indented">{this.props.mission}</p>
+          <h2>About Code.gov</h2>
+          <p>{this.props.aboutus}</p>
         </header>
-        <br />
-        <hr />
-        <ul className="indented about-actions">
-          {this.props.aboutItems &&
-            this.props.aboutItems.map(item => (
-              <li className="about-action width-third" key={item.title}>
-                <CustomLink to={item.link}>
-                  <img alt="About Icon" src={item.image} />
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </CustomLink>
-              </li>
-            ))}
+        <ul className="about-actions">
+          <li>
+            <h3>Vision</h3>
+            <span className="about-icon">
+              <p>{this.props.vision}</p>
+              <img alt="" className="" src={`${PUBLIC_PATH}assets/img/icons/vision_icon_sm.png`} />
+            </span>
+          </li>
+          <li>
+            <h3>Mission</h3>
+            <span className="about-icon">
+              <p>{this.props.mission}</p>
+              <img alt="" className="" src={`${PUBLIC_PATH}assets/img/icons/mission_icon_sm.png`} />
+            </span>
+          </li>
         </ul>
       </section>
     )

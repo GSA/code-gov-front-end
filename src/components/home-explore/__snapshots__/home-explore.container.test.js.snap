@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - HomeExplore mapStateToProps should return the correct properties 1`] = `
+Object {
+  "exploreItems": Array [
+    Object {
+      "description": "The Code.gov website is developed publicly on GitHub. Learn how to <a href='https://github.com/GSA/code-gov/blob/master/README.md' target='_blank' rel='noopener noreferrer'>contribute here</a>. Help improve America's Code by exploring Open Tasks.",
+      "links": Array [
+        Object {
+          "name": "Explore Open Tasks",
+          "url": "/open-tasks",
+        },
+      ],
+      "title": "Developers",
+    },
+    Object {
+      "description": "Have questions or feedback? <a href='https://github.com/GSA/code-gov-front-end/issues/new/choose' target='_blank' rel='noopener noreferrer'>Open an issue</a> on our open source repository.<br><br>Want to receive our monthly newsletter?",
+      "links": Array [
+        Object {
+          "name": "Sign Up Here",
+          "url": "https://public.govdelivery.com/accounts/USGSATTS/subscriber/new?topic_id=USGSATTS_5",
+        },
+      ],
+      "title": "Connect with Us",
+    },
+    Object {
+      "description": "Federal agency partners use Code.gov to share usable open source code, promote open source projects, and track compliance with federal open source policy.",
+      "links": Array [
+        Object {
+          "name": "Compliance Dashboard",
+          "url": "/about/compliance/dashboard",
+        },
+      ],
+      "title": "Agency Partners",
+    },
+  ],
+}
+`

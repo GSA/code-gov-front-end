@@ -7,6 +7,7 @@ import HomeBannerSearchBoxComponent from './home-banner-search-box.component'
 
 export const mapStateToProps = ({ query }) => ({
   placeholder: getConfigValue('content.home.banner.search_placeholder_text'),
+  searchDescriptionHeading: getConfigValue('content.home.banner.search_description_heading'),
   searchDescriptionText: getConfigValue('content.home.banner.search_description_text'),
   searchDescriptionTextMobile: getConfigValue('content.home.banner.search_description_text_mobile'),
   query

@@ -70,11 +70,11 @@ Object {
     },
     Object {
       "name": "Add tests to ensure code quality throughout the development process",
-      "status": "In Progress",
+      "status": "Released",
     },
     Object {
       "name": "Home page redesign",
-      "status": "In Progress",
+      "status": "Released",
     },
     Object {
       "name": "Data quality scoring update",
@@ -82,7 +82,7 @@ Object {
     },
     Object {
       "name": "Add 'Official gov website' banner",
-      "status": "In Progress",
+      "status": "Released",
     },
   ],
   "overview": Array [
