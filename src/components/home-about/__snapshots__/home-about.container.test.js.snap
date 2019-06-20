@@ -2,26 +2,8 @@
 
 exports[`containers - HomeAbout mapStateToProps should return the correct properties 1`] = `
 Object {
-  "aboutItems": Array [
-    Object {
-      "description": "Code.gov is on track to become the nation’s primary platform for sharing America’s code.  Find out how we’ll get there.",
-      "image": "/assets/img/icons/info_bl.png",
-      "link": "/about/overview/introduction",
-      "title": "About Us",
-    },
-    Object {
-      "description": "The Federal Source Code Policy helps government agencies reduce duplicative software development and save taxpayer dollars.",
-      "image": "/assets/img/icons/policy_bl.png",
-      "link": "/policy-guide/introduction",
-      "title": "Policy Info",
-    },
-    Object {
-      "description": "Government agencies are working hard to unlock the potential of code sharing and collaboration. Here’s a quick snapshot of their progress.",
-      "image": "/assets/img/icons/check_bl.png",
-      "link": "/about/compliance/dashboard",
-      "title": "Progress Report",
-    },
-  ],
-  "mission": "Code.gov leverages the power of code sharing and collaboration to help the US Government cut down on duplicative software development and save millions of taxpayer dollars for the American people.",
+  "aboutus": "Code.gov is the federal government's platform for sharing America's open source software",
+  "mission": "Our mission is to help agency partners and developers save money and increase quality by promoting code reuse and educating and connecting the open source community",
+  "vision": "Serve as the community leader in driving code reuse and open source development to decrease code spend while increasing code quality",
 }
 `

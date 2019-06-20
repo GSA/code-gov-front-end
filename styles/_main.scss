@@ -10,19 +10,17 @@ $header-height: 50px;
 
 @import './overrides.scss';
 
-
 html {
   background: $color-white;
 
   #app {
-    background: #F0F3F7;
+    background: $color-white;
 
     .icon {
       cursor: pointer;
     }
   }
 }
-
 
 /* styles that apply to stuff around search box on multiple pages */
 
@@ -31,7 +29,9 @@ html {
 @import './home.scss';
 @import './home-about.scss';
 @import './home-banner.scss';
+@import './home-explore.scss';
 @import './home-press.scss';
+@import './home-news.scss';
 
 @import './menu.scss';
 
@@ -56,7 +56,7 @@ ul.breadcrumbs {
 }
 
 // pads footnotes
-[id*=fn] {
+[id*='fn'] {
   @media screen and (max-width: $header-switch) {
     margin-top: -60px;
     padding-top: 60px;

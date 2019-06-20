@@ -1,11 +1,26 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.13.3
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-MOBIUS1SELECTR-173698:
     - jsoneditor > mobius1-selectr:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
+      '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: no patch
+        expires: '2019-07-20T11:24:15.026Z'
+  SNYK-JS-LODASH-73638:
+    - favicons-webpack-plugin > favicons > cheerio > lodash:
+        reason: no patch
+        expires: '2019-07-20T11:24:15.026Z'
+  SNYK-JS-LODASH-73639:
+    - favicons-webpack-plugin > favicons > cheerio > lodash:
+        reason: no patch
+        expires: '2019-07-20T11:24:15.026Z'
+  'npm:mem:20180117':
+    - '@code.gov/about-page > showdown > yargs > os-locale > mem':
+        reason: None given
+        expires: '2019-07-20T11:24:15.026Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
@@ -13,3 +28,12 @@ patch:
         patched: '2019-06-03T11:02:30.659Z'
     - '@code.gov/site-map-generator > @code.gov/api-client > axios':
         patched: '2019-06-03T11:02:30.659Z'
+  'npm:debug:20170905':
+    - favicons-webpack-plugin > favicons > node-rest-client > debug:
+        patched: '2019-06-20T11:20:31.746Z'
+  'npm:lodash:20180130':
+    - favicons-webpack-plugin > favicons > cheerio > lodash:
+        patched: '2019-06-20T11:20:31.746Z'
+  'npm:ms:20170412':
+    - favicons-webpack-plugin > favicons > node-rest-client > debug > ms:
+        patched: '2019-06-20T11:20:31.746Z'

@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomeNews should render correctly 1`] = `
+<section
+  className="news"
+>
+  <h2>
+    Open Source News & Events
+  </h2>
+  <ul>
+    <li
+      className="news-item"
+      key="t1"
+    >
+      <div
+        className="news-content"
+      >
+        <h1>
+          <a
+            href="u1"
+          >
+            t1
+          </a>
+        </h1>
+        <p>
+          d1
+        </p>
+        <time>
+          dt1
+        </time>
+      </div>
+      <div>
+        <picture
+          className="news-image"
+        >
+          <source
+            media="min-width: 800px"
+            srcSet="i1"
+          />
+          <img
+            alt="alt1"
+            className="news-image"
+            src="i1"
+          />
+        </picture>
+      </div>
+    </li>
+    <li
+      className="news-item"
+      key="t2"
+    >
+      <div
+        className="news-content"
+      >
+        <h1>
+          <a
+            href="u2"
+          >
+            t2
+          </a>
+        </h1>
+        <p>
+          d2
+        </p>
+        <time>
+          dt2
+        </time>
+      </div>
+      <div>
+        <picture
+          className="news-image"
+        >
+          <source
+            media="min-width: 800px"
+            srcSet="i2"
+          />
+          <img
+            alt="alt2"
+            className="news-image"
+            src="i2"
+          />
+        </picture>
+      </div>
+    </li>
+    <li
+      className="news-item"
+      key="t3"
+    >
+      <div
+        className="news-content"
+      >
+        <h1>
+          <a
+            href="u3"
+          >
+            t3
+          </a>
+        </h1>
+        <p>
+          d3
+        </p>
+        <time>
+          dt3
+        </time>
+      </div>
+      <div>
+        <picture
+          className="news-image"
+        >
+          <source
+            media="min-width: 800px"
+            srcSet="i3"
+          />
+          <img
+            alt="alt3"
+            className="news-image"
+            src="i3"
+          />
+        </picture>
+      </div>
+    </li>
+  </ul>
+</section>
+`

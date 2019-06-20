@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers - HomeNews mapStateToProps should return the correct properties 1`] = `
+Object {
+  "newsItems": Array [
+    Object {
+      "alt": "A collection of wireframes",
+      "date": "6/5/2019",
+      "description": "USWDS 2.0, a new approach to design that saves time in upgrading websites or...",
+      "image": "/assets/img/news/uswds.jpeg",
+      "title": "OSS SPOTLIGHT: The U.S. Web Design System 2.0 from GSA",
+      "url": "https://medium.com/codedotgov/success-story-the-u-s-web-design-system-2-0-from-gsa-be66295b6e5f",
+    },
+    Object {
+      "alt": "A keyboard on a desk",
+      "date": "6/4/2019",
+      "description": "Here’s our most recent updates and changes on the Code.gov front end (v0.0.9)...",
+      "image": "/assets/img/news/keyboard.jpeg",
+      "title": "Developer’s Notes",
+      "url": "https://medium.com/codedotgov/developers-notes-3-june-2019-ccfd12344621",
+    },
+    Object {
+      "alt": "GSA Hackathon 2019",
+      "date": "6/19/2019",
+      "description": "A day focused on designing a better customer experience with and within government...",
+      "image": "/assets/img/news/GSA-Hackathon-logo.png",
+      "title": "GSA Customer Experience Hackathon",
+      "url": "https://www.challenge.gov/challenge/gsa-hackathon-2019/",
+    },
+  ],
+}
+`
