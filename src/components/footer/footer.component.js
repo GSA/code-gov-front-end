@@ -52,7 +52,12 @@ export default class Footer extends Component {
             <ul>
               {map(this.props.socials, social => (
                 <li key={social.name}>
-                  <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                  >
                     <div className={social.icon} />
                   </a>
                 </li>

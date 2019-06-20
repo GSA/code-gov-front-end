@@ -300,7 +300,6 @@
           "name": "Roadmap",
           "url": "/roadmap"
         }
-
       ],
       "logos": [
         {
@@ -344,11 +343,11 @@
         { "name": "Add documentation to increase usability of platform", "status": "Released" },
         {
           "name": "Add tests to ensure code quality throughout the development process",
-          "status": "In Progress"
+          "status": "Released"
         },
-        { "name": "Home page redesign", "status": "In Progress" },
+        { "name": "Home page redesign", "status": "Released" },
         { "name": "Data quality scoring update", "status": "Released" },
-        { "name": "Add 'Official gov website' banner", "status": "In Progress" }
+        { "name": "Add 'Official gov website' banner", "status": "Released" }
       ],
       "mid": [
         {

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import SiteBanner from 'components/site-banner/site-banner.component'
 
 const props = {
-  title: 'test-title',
+  title: 'test-title'
 }
 
 let wrapper

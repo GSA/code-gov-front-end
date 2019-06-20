@@ -6,10 +6,10 @@ jest.mock('actions/toggle-search-dropdown')
 const props = {
   router: {
     location: {
-      pathname: '/test-path',
-    },
+      pathname: '/test-path'
+    }
   },
-  searchDropdown: 'test-search-dropdown',
+  searchDropdown: 'test-search-dropdown'
 }
 
 const dispatch = jest.fn()
