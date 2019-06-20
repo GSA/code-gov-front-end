@@ -11,7 +11,7 @@ exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
       className="search-description-wrapper"
     >
       <div
-        className="search-description-heading"
+        className="search-description-heading show-w-gt-800"
       />
       <div
         className="show-w-gt-800"
@@ -38,4 +38,4 @@ exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
+`;
