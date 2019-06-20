@@ -28747,6 +28747,9 @@ section#banner-home .home-link:hover {
   justify-content: space-between;
   text-align: center;
 }
+#explore .explore-actions .explore-action .alt {
+  width: 90%;
+}
 @media screen and (min-width: 600px) {
   #explore .explore-actions .explore-action {
     border-right: 2px solid #71839d;
