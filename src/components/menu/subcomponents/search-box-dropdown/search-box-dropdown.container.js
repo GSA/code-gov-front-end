@@ -12,15 +12,17 @@ export const mapStateToProps = ({ searchDropdown }) => ({
 export const mapDispatchToProps = dispatch => ({
   hideSearchDropdown: () => dispatch(hideSearchDropdown()),
   onSubmit: query => {
+    const filters = []
     if (getSection() === 'search') {
-      dispatch(updateSearchParams({ page: 1, query }))
+      dispatch(updateSearchParams({ page: 1, query, filters }))
     } else {
       dispatch(
         updateSearchParams({
           page: 1,
           query,
           size: 10,
-          sort: 'best_match'
+          sort: 'best_match',
+          filters
         })
       )
       dispatch(push(`/search?page=1&query=${query}&size=10&sort=best_match`))
