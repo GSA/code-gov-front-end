@@ -31,7 +31,7 @@ describe('containers - HomeBannerSearchBox', () => {
         it('should dispatch the `updateSearchParams` action with the correct params', () => {
           mapDispatchToProps(dispatch).onSubmit(props.query)
           expect(dispatch).toBeCalled()
-          expect(updateSearchParams).toBeCalledWith({ page: 1, query: props.query, size: 10, sort: 'best_match' })
+          expect(updateSearchParams).toBeCalledWith({ page: 1, query: props.query, size: 10, sort: 'best_match', filters: [] })
         })
 
         it('should dispatch the `push` action with the correct params', () => {
