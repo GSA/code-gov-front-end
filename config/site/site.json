@@ -31,10 +31,10 @@
         {
           "name": "ABOUT",
           "links": [
-            { "name": "OVERVIEW", "url": "/about/overview/introduction" },
-            { "name": "COMPLIANCE", "url": "/about/compliance/dashboard" },
-            { "name": "OPEN SOURCE PILOT", "url": "/about/open-source/introduction" },
-            { "name": "SOURCE CODE POLICY", "url": "/policy-guide/introduction" }
+            { "name": "Overview", "url": "/about/overview/introduction" },
+            { "name": "Compliance", "url": "/about/compliance/dashboard" },
+            { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
+            { "name": "Source Code Policy", "url": "/policy-guide/introduction" }
           ]
         },
         {
