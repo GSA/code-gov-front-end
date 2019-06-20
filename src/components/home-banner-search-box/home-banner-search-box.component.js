@@ -65,7 +65,9 @@ export default class HomeBannerSearchBoxComponent extends Component {
       <div className="search-input-container">
         <div className="search-input-wrapper">
           <div className="search-description-wrapper">
-            <div className="search-description-heading">{searchDescriptionHeading}</div>
+            <div className="search-description-heading show-w-gt-800">
+              {searchDescriptionHeading}
+            </div>
             {searchDescriptionText && <div className="show-w-gt-800">{searchDescriptionText}</div>}
             {searchDescriptionTextMobile && (
               <div className="show-w-lte-800">{searchDescriptionTextMobile}</div>
