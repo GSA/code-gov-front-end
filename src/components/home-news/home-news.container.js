@@ -3,7 +3,7 @@ import { getConfigValue } from 'utils/other'
 import HomeNews from './home-news.component'
 
 export const mapStateToProps = () => ({
-  news: getConfigValue('content.home.news')
+  newsItems: getConfigValue('content.home.news')
 })
 
 export default connect(mapStateToProps)(HomeNews)

@@ -6,8 +6,8 @@ export default class HomeExplore extends React.Component {
     return (
       <section id="explore" className="explore">
         <ul className="explore-actions">
-          {this.props.explore &&
-            this.props.explore.map(item => (
+          {this.props.exploreItems &&
+            this.props.exploreItems.map(item => (
               <li className="explore-action" key={item.title}>
                 <div>
                   <h2>{item.title}</h2>

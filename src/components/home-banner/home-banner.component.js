@@ -7,15 +7,6 @@ import HomeBannerSearchBox from '../home-banner-search-box'
 export default class HomeBanner extends React.Component {
   componentDidMount() {}
 
-  scrollToAbout() {
-    const top = document.getElementById('banner-home').clientHeight
-    const offset = document.querySelector('header nav.main').clientHeight
-    window.scrollTo({
-      top: top - offset,
-      behavior: 'smooth'
-    })
-  }
-
   render() {
     return (
       <section id="banner-home" className="banner">

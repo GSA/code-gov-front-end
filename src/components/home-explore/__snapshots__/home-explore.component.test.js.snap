@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - HomeExplore should render correctly 1`] = `
+<section
+  className="explore"
+  id="explore"
+>
+  <ul
+    className="explore-actions"
+  >
+    <li
+      className="explore-action"
+      key="t1"
+    >
+      <div>
+        <h2>
+          t1
+        </h2>
+        <p
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "d1",
+            }
+          }
+        />
+      </div>
+      <div
+        className="buttons"
+      >
+        <span
+          key="n1"
+        >
+          <a
+            href="u1"
+          >
+            <button
+              className="alt"
+            >
+              n1
+            </button>
+          </a>
+        </span>
+      </div>
+    </li>
+    <li
+      className="explore-action"
+      key="t2"
+    >
+      <div>
+        <h2>
+          t2
+        </h2>
+        <p
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "d2",
+            }
+          }
+        />
+      </div>
+      <div
+        className="buttons"
+      >
+        <span
+          key="n2"
+        >
+          <a
+            href="u2"
+          >
+            <button
+              className="alt"
+            >
+              n2
+            </button>
+          </a>
+        </span>
+      </div>
+    </li>
+    <li
+      className="explore-action"
+      key="t3"
+    >
+      <div>
+        <h2>
+          t3
+        </h2>
+        <p
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "d3",
+            }
+          }
+        />
+      </div>
+      <div
+        className="buttons"
+      >
+        <span
+          key="n3"
+        >
+          <a
+            href="u3"
+          >
+            <button
+              className="alt"
+            >
+              n3
+            </button>
+          </a>
+        </span>
+      </div>
+    </li>
+  </ul>
+</section>
+`;

@@ -117,7 +117,50 @@ exports[`components - Footer should render correctly 1`] = `
       className="footer-part socials"
       data-test="socials"
     >
-      <ul />
+      <ul>
+        <li
+          key="social-1"
+        >
+          <a
+            aria-label="social-1"
+            href="u1"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              className="i1"
+            />
+          </a>
+        </li>
+        <li
+          key="social-2"
+        >
+          <a
+            aria-label="social-2"
+            href="u2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              className="i2"
+            />
+          </a>
+        </li>
+        <li
+          key="social-3"
+        >
+          <a
+            aria-label="social-3"
+            href="u3"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              className="i3"
+            />
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </footer>

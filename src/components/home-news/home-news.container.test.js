@@ -1,6 +1,6 @@
-import { mapStateToProps, mapDispatchToProps } from 'components/home-banner/home-banner.container'
+import { mapStateToProps } from 'components/home-news/home-news.container'
 
-describe('containers - HomeBanner', () => {
+describe('containers - HomeNews', () => {
   describe('mapStateToProps', () => {
     it('should return the correct properties', () => {
       expect(mapStateToProps()).toMatchSnapshot()

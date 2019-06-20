@@ -6,9 +6,9 @@ export default class HomeNews extends Component {
       <section className="news">
         <h2>Open Source News & Events</h2>
         <ul>
-          {this.props.news &&
-            this.props.news.map(news => (
-              <li key={news.title} className="news-item">
+          {this.props.newsItems &&
+            this.props.newsItems.map(news => (
+              <li className="news-item" key={news.title}>
                 <div className="news-content">
                   <h1>
                     <a href={news.url}>{news.title}</a>

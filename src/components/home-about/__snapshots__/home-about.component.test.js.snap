@@ -21,7 +21,9 @@ exports[`components - HomeAbout should render correctly 1`] = `
       <span
         className="about-icon"
       >
-        <p />
+        <p>
+          test-vision
+        </p>
         <img
           alt=""
           className=""
