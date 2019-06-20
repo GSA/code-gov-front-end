@@ -58,6 +58,10 @@
       justify-content: space-between;
       text-align: center;
 
+      .alt {
+        width: 90%;
+      }
+
       @media screen and (min-width: $medium-screen) {
         border-right: 2px solid $brand-blue-gray-light;
         &:last-child {
