@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
 /* global SITE_CONFIG */
-import get from 'lodash.get'
 import { find, lower, startsWith, trim } from '@code.gov/cautious'
+import get from 'lodash.get'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -10,13 +10,13 @@ export function isFalse(input) {
 }
 
 export function adjustAssetPath(thing) {
-  const pattern = /.?\/?assets\//
-  const newAssetPath = `${PUBLIC_PATH}assets/`
   if (
     startsWith(thing, './assets') ||
     startsWith(thing, '/assets/') ||
     startsWith(thing, 'assets/')
   ) {
+    const pattern = /.?\/?assets\//
+    const newAssetPath = `${PUBLIC_PATH}assets/`
     return thing.replace(pattern, newAssetPath)
   }
   if (typeof value === 'object') {
@@ -26,7 +26,6 @@ export function adjustAssetPath(thing) {
         thing[key] = adjustAssetPath(subvalue)
       }
     }
-    return thing
   }
   return thing
 }
