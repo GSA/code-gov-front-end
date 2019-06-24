@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
-import React, { Component } from 'react'
-import CustomLink from 'components/custom-link'
 import { map, startsWith } from '@code.gov/cautious'
+import CustomLink from 'components/custom-link'
+import React, { Component } from 'react'
 
 export default class Footer extends Component {
   render() {
@@ -9,7 +9,7 @@ export default class Footer extends Component {
       <footer className={this.props.color} role="contentinfo">
         <div className="footer-content">
           <div className="footer-part links" data-test="links">
-            <ul>
+            <ul className="left">
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
                   return (
@@ -36,33 +36,35 @@ export default class Footer extends Component {
               })}
             </ul>
           </div>
-          <div className="footer-part logos" data-test="logos">
-            <ul>
-              {map(this.props.logos, logo => (
-                <li key={logo.name}>
-                  <a href={logo.url} target="_blank" rel="noopener noreferrer">
-                    <img src={logo.image} alt={logo.name} />
-                    <span>{logo.name}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="footer-part socials" data-test="socials">
-            <ul>
-              {map(this.props.socials, social => (
-                <li key={social.name}>
-                  <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.name}
-                  >
-                    <div className={social.icon} />
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="footer-part is-flex">
+            <div className="footer-part is-inline logos" data-test="logos">
+              <ul>
+                {map(this.props.logos, logo => (
+                  <li key={logo.name}>
+                    <a href={logo.url} target="_blank" rel="noopener noreferrer">
+                      <img src={logo.image} alt={logo.name} />
+                      <span>{logo.name}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="footer-part is-inline socials" data-test="socials">
+              <ul>
+                {map(this.props.socials, social => (
+                  <li key={social.name}>
+                    <a
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                    >
+                      <div className={social.icon} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </footer>

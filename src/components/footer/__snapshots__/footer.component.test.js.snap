@@ -12,7 +12,9 @@ exports[`components - Footer should render correctly 1`] = `
       className="footer-part links"
       data-test="links"
     >
-      <ul>
+      <ul
+        className="left"
+      >
         <li
           key="http-1"
         >
@@ -73,95 +75,99 @@ exports[`components - Footer should render correctly 1`] = `
       </ul>
     </div>
     <div
-      className="footer-part logos"
-      data-test="logos"
+      className="footer-part is-flex"
     >
-      <ul>
-        <li
-          key="logo-1"
-        >
-          <a
-            href="/logo-1.png"
-            rel="noopener noreferrer"
-            target="_blank"
+      <div
+        className="footer-part is-inline logos"
+        data-test="logos"
+      >
+        <ul>
+          <li
+            key="logo-1"
           >
-            <img
-              alt="logo-1"
-              src="logo-src-1"
-            />
-            <span>
-              logo-1
-            </span>
-          </a>
-        </li>
-        <li
-          key="logo-2"
-        >
-          <a
-            href="/logo-2.png"
-            rel="noopener noreferrer"
-            target="_blank"
+            <a
+              href="/logo-1.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="logo-1"
+                src="logo-src-1"
+              />
+              <span>
+                logo-1
+              </span>
+            </a>
+          </li>
+          <li
+            key="logo-2"
           >
-            <img
-              alt="logo-2"
-              src="logo-src-2"
-            />
-            <span>
-              logo-2
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
-      className="footer-part socials"
-      data-test="socials"
-    >
-      <ul>
-        <li
-          key="social-1"
-        >
-          <a
-            aria-label="social-1"
-            href="u1"
-            rel="noopener noreferrer"
-            target="_blank"
+            <a
+              href="/logo-2.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="logo-2"
+                src="logo-src-2"
+              />
+              <span>
+                logo-2
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="footer-part is-inline socials"
+        data-test="socials"
+      >
+        <ul>
+          <li
+            key="social-1"
           >
-            <div
-              className="i1"
-            />
-          </a>
-        </li>
-        <li
-          key="social-2"
-        >
-          <a
-            aria-label="social-2"
-            href="u2"
-            rel="noopener noreferrer"
-            target="_blank"
+            <a
+              aria-label="social-1"
+              href="u1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                className="i1"
+              />
+            </a>
+          </li>
+          <li
+            key="social-2"
           >
-            <div
-              className="i2"
-            />
-          </a>
-        </li>
-        <li
-          key="social-3"
-        >
-          <a
-            aria-label="social-3"
-            href="u3"
-            rel="noopener noreferrer"
-            target="_blank"
+            <a
+              aria-label="social-2"
+              href="u2"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                className="i2"
+              />
+            </a>
+          </li>
+          <li
+            key="social-3"
           >
-            <div
-              className="i3"
-            />
-          </a>
-        </li>
-      </ul>
+            <a
+              aria-label="social-3"
+              href="u3"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div
+                className="i3"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
-`
+`;
