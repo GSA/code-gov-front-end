@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
 /* global SITE_CONFIG */
-import get from 'lodash.get'
 import { find, lower, startsWith, trim } from '@code.gov/cautious'
+import get from 'lodash.get'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -10,16 +10,23 @@ export function isFalse(input) {
 }
 
 export function adjustAssetPath(thing) {
-  const pattern = /.?\/?assets\//
-  const newAssetPath = `${PUBLIC_PATH}assets/`
   if (
     startsWith(thing, './assets') ||
     startsWith(thing, '/assets/') ||
     startsWith(thing, 'assets/')
   ) {
+    const pattern = /.?\/?assets\//
+    const newAssetPath = `${PUBLIC_PATH}assets/`
     return thing.replace(pattern, newAssetPath)
   }
-
+  if (typeof value === 'object') {
+    for (const key in thing) {
+      const subvalue = thing[key]
+      if (typeof subvalue === 'string') {
+        thing[key] = adjustAssetPath(subvalue)
+      }
+    }
+  }
   return thing
 }
 
@@ -189,7 +196,7 @@ export function getFilterTags(params, filters) {
 
 export function loadScript(src) {
   console.log('starting loadScript with', src)
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const script = document.createElement('script')
     script.src = src
     script.onload = resolve
