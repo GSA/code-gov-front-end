@@ -1,4 +1,4 @@
-# Privacy Policy
+# Web Policies
 ## PROTECTING PRIVACY AND SECURITY
 
 
@@ -57,5 +57,22 @@ The terms of service applicable to Federal users of [GitHub](https://help.github
 
 We encourage you to visit [GitHub](https://help.github.com/articles/github-terms-of-service/) if you have additional questions about the service.
 
-### Questions about the Privacy Policy
+
+### Linking Policy
+The pages on code.gov may include hypertext links or pointers to information created and maintained by other public and private organizations. GSA provides these links and pointers solely for our visitors' information and convenience. When visitors select a link to an outside website, they are leaving the code.gov site and are subject to the privacy and security policies of the owners/sponsors of the outside website.
+
+The inclusion of links and pointers to websites is not intended to assign importance to those sites or to the information contained on those sites. It is also not intended to endorse or recommend any views expressed or products or services offered on these sites.
+
+GSA does not control or guarantee the accuracy, relevance, timeliness or completeness of information contained on a linked website.
+
+GSA does not endorse the organizations sponsoring linked websites, and does not endorse the views they express or the products/services they offer.
+
+GSA cannot authorize the use of copyrighted materials contained in linked websites. Visitors must request such authorization from the sponsor of the linked website.
+
+GSA is not responsible for transmissions visitors receive from linked websites.
+
+GSA does not guarantee that outside websites comply with Section 508 (Accessibility Requirements) of the Rehabilitation Act.
+
+
+### Questions about these policies
 Write to the Code.gov team at: [code@gsa.gov](mailto:code@gsa.gov)
