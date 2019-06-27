@@ -9,11 +9,13 @@ export function isFalse(input) {
   return falses.includes(input)
 }
 
+export function pathMatch(url, match) {
+  return startsWith(url, `./${match}`) || startsWith(url, `/${match}/`) || startsWith(url, `${match}/`)
+}
+
 export function adjustAssetPath(thing) {
   if (
-    startsWith(thing, './assets') ||
-    startsWith(thing, '/assets/') ||
-    startsWith(thing, 'assets/')
+    pathMatch(thing, 'assets')
   ) {
     const pattern = /.?\/?assets\//
     const newAssetPath = `${PUBLIC_PATH}assets/`
