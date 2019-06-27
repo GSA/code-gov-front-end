@@ -29308,12 +29308,20 @@ header.main nav ul li a svg {
   text-align: center;
   /* 100% minus width of the button */
   width: calc(100% - 40px);
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 .search-input-wrapper .search-input-and-button-wrapper button.go {
-  border: 0px;
+  border: 0;
   height: 40px;
-  margin-right: 0;
-  position: absolute;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.2rem;
 }
 .search-input-wrapper .search-input-and-button-wrapper .autocomplete {
   width: calc(100% - 10px);
@@ -29322,11 +29330,29 @@ header.main nav ul li a svg {
   color: #000;
 }
 
-.mobile-menu .search-input-and-button-wrapper {
+.mobile-menu .search-input-and-button-wrapper,
+.mobile-menu .search-form {
   text-align: center;
 }
-.mobile-menu .search-input-and-button-wrapper button.go {
-  position: static;
+.mobile-menu .search-input-and-button-wrapper input,
+.mobile-menu .search-form input {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.mobile-menu .search-input-and-button-wrapper button.go,
+.mobile-menu .search-form button.go {
+  height: 40px;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  font-size: 1.2rem;
 }
 
 .browse {
