@@ -11,41 +11,48 @@ jobs:
 
       - restore_cache:
           keys: 
-            - test1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test1-code-gov-front-end-dependencies-
+            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+            - test-code-gov-front-end-dependencies-
 
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - save_cache:
           paths:
-          key: test1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+            - ./node_modules
+          key: test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
   run-lint:
     docker:
       - image: circleci/node:8.12
     steps:
       - restore_cache:
+          paths:
+            - ./node_modules
           keys: 
-            - test1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test1-code-gov-front-end-dependencies-
+            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+            - test-code-gov-front-end-dependencies-
       - run: npm run lint
   run-jest:
     docker:
       - image: ubuntu
     steps:
       - restore_cache:
+          paths:
+            - ./node_modules
           keys: 
-            - test1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test1-code-gov-front-end-dependencies-
-      - run: npm run test1:ci
+            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+            - test-code-gov-front-end-dependencies-
+      - run: npm run test:ci
   run-pa11y:
     docker:
       - image: circleci/ruby:2.5.5-node-browsers
     steps:
       - restore_cache:
+          paths:
+            - ./node_modules
           keys: 
-            - test1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test1-code-gov-front-end-dependencies-
-      - run: npm run serve & sleep 5; npm run test1-pa11y # run server in background, then run accessibility test1ing
+            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+            - test-code-gov-front-end-dependencies-
+      - run: npm run serve & sleep 5; npm run test-pa11y # run server in background, then run accessibility testing
 
   deploy-bundle-analysis:
     docker:
@@ -61,7 +68,7 @@ jobs:
       - run: CODE_GOV_RELATIVE_DIR='/dist/report' CODE_GOV_BRANCH='federalist-bundle-analysis' npm run deploy
 workflows:
   version: 2
-  build-test1-deploy:
+  build-test-deploy:
     jobs:
       - build
       - run-lint:
