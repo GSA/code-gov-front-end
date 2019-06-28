@@ -20,7 +20,7 @@ jobs:
     working_directory: ~/circleci-code-gov-workflows
     steps:
       - restore_cache:
-        key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run lint
   run-jest:
     docker:
@@ -28,7 +28,7 @@ jobs:
     working_directory: ~/circleci-code-gov-workflows
     steps:
       - restore_cache:
-        key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run test:ci
   run-pa11y:
     docker:
@@ -36,7 +36,7 @@ jobs:
     working_directory: ~/circleci-code-gov-workflows
     steps:
       - restore_cache:
-        key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run serve & sleep 5; npm run test-pa11y # run server in background, then run accessibility testing
 
   deploy-bundle-analysis:
