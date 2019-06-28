@@ -17,7 +17,6 @@ jobs:
   run-lint:
     docker:
       - image: circleci/node:8.12
-    working_directory: ~/circleci-code-gov-workflows
     steps:
       - restore_cache:
           key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
@@ -25,7 +24,6 @@ jobs:
   run-jest:
     docker:
       - image: ubuntu
-    working_directory: ~/circleci-code-gov-workflows
     steps:
       - restore_cache:
           key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
@@ -33,7 +31,6 @@ jobs:
   run-pa11y:
     docker:
       - image: circleci/ruby:2.5.5-node-browsers
-    working_directory: ~/circleci-code-gov-workflows
     steps:
       - restore_cache:
           key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
