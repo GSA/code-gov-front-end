@@ -7,8 +7,6 @@ jobs:
           CHROME_PATH: /usr/bin/google-chrome
 
     steps:
-      - run: apt-get update
-      - run: apt-get install -y build-essential npm nodejs
       - checkout
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
