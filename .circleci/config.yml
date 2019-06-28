@@ -2,7 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu
+      - image: circleci/node:10.15.1-browsers
+        environment:
+          CHROME_PATH: /usr/bin/google-chrome
+
     steps:
       - run: apt-get update
       - run: apt-get install -y build-essential npm nodejs
