@@ -1,57 +1,62 @@
 version: 2
 
+references:
+  container: &container
+    docker:
+      - image: circleci/node:10.15.1-browsers
+        environment:
+          CHROME_PATH: /usr/bin/google-chrome
+
+  restore_deps: &restore_deps
+    restore_cache:
+      keys:
+        - test-codegov-dependencies-{{ checksum "package-lock.json" }}
+
 jobs:
   build:
-    docker:
-      - image: ubuntu
+    <<: *container
     steps:
-      - run: apt-get update
-      - run: apt-get install -y build-essential npm nodejs
       - checkout
-
       - restore_cache:
           keys: 
-            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test-code-gov-front-end-dependencies-
+            - test-codegov-dependencies-{{ checksum "package-lock.json" }}
+            - test-codegov-dependencies-
 
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - save_cache:
           paths:
-            - ./node_modules
-          key: test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+            - node_modules
+          key: test-codegov-dependencies-{{ checksum "package-lock.json" }}
   run-lint:
-    docker:
-      - image: circleci/node:8.12
+    <<: *container
     steps:
+      - checkout
       - restore_cache:
-          paths:
-            - ./node_modules
           keys: 
-            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test-code-gov-front-end-dependencies-
+            - test-codegov-dependencies-{{ checksum "package-lock.json" }}
+            - test-codegov-dependencies-
+      - run: npm install
       - run: npm run lint
   run-jest:
-    docker:
-      - image: ubuntu
+    <<: *container
     steps:
+      - checkout
       - restore_cache:
-          paths:
-            - ./node_modules
           keys: 
-            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test-code-gov-front-end-dependencies-
+            - test-codegov-dependencies-{{ checksum "package-lock.json" }}
+            - test-codegov-dependencies-
+      - run: npm install
       - run: npm run test:ci
   run-pa11y:
-    docker:
-      - image: circleci/ruby:2.5.5-node-browsers
+    <<: *container
     steps:
+      - checkout
       - restore_cache:
-          paths:
-            - ./node_modules
           keys: 
-            - test-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-            - test-code-gov-front-end-dependencies-
+            - test-codegov-dependencies-{{ checksum "package-lock.json" }}
+            - test-codegov-dependencies-
+      - run: npm install
       - run: npm run serve & sleep 5; npm run test-pa11y # run server in background, then run accessibility testing
 
   deploy-bundle-analysis:
