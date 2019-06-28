@@ -10,26 +10,32 @@ export function isFalse(input) {
 }
 
 export function pathMatch(url, match) {
-  return startsWith(url, `./${match}`) || startsWith(url, `/${match}/`) || startsWith(url, `${match}/`)
+  return (
+    startsWith(url, `./${match}`) || startsWith(url, `/${match}/`) || startsWith(url, `${match}/`)
+  )
 }
 
-export function adjustAssetPath(thing) {
-  if (
-    pathMatch(thing, 'assets')
-  ) {
-    const pattern = /.?\/?assets\//
-    const newAssetPath = `${PUBLIC_PATH}assets/`
-    return thing.replace(pattern, newAssetPath)
-  }
-  if (typeof value === 'object') {
+export function updatedRecursivePath(thing) {
+  if (typeof thing === 'object') {
     for (const key in thing) {
       const subvalue = thing[key]
       if (typeof subvalue === 'string') {
+        // eslint-disable-next-line no-use-before-define
         thing[key] = adjustAssetPath(subvalue)
       }
     }
   }
   return thing
+}
+
+export function adjustAssetPath(thing) {
+  if (pathMatch(thing, 'assets')) {
+    const pattern = /.?\/?assets\//
+    const newAssetPath = `${PUBLIC_PATH}assets/`
+    return thing.replace(pattern, newAssetPath)
+  }
+
+  return updatedRecursivePath(thing)
 }
 
 export function getConfigValue(path) {
