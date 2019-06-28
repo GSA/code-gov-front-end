@@ -9,10 +9,24 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
-      - run: npm run start & sleep 5
-      - run: npm run test-pa11y
-      - run: npm run test:ci
+  run-lint:
+    docker:
+      - image: circleci/node:8.12
+    steps:
       - run: npm run lint
+  run-jest:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: npm run test:ci
+  run-pa11y:
+    docker:
+      - image: circleci/ruby:2.5.5-node-browsers
+    steps:
+      - run: gem install bundler # install bundler
+      - run: bundle install # install needed ruby gems
+      - run: npm run serve & sleep 5; npm run test-pa11y # run server in background, then run accessibility testing
+
   deploy-bundle-analysis:
     docker:
       - image: ubuntu
@@ -30,6 +44,15 @@ workflows:
   build-test-deploy:
     jobs:
       - build
+      - run-lint:
+          requires:
+            - build
+      - run-jest:
+          requires:
+            - build
+      - run-pa11y:
+          requires: 
+            - build
       - deploy-bundle-analysis:
           filters:
             branches:
