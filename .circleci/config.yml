@@ -11,9 +11,9 @@ jobs:
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - save_cache:
-        key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
-        paths:
-          - ~/circleci-code-gov-workflows
+          key: v1-code-gov-front-end-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/circleci-code-gov-workflows
   run-lint:
     docker:
       - image: circleci/node:8.12
