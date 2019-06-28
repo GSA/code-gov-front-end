@@ -26,7 +26,7 @@ jobs:
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - save_cache:
           paths:
-            - node_modules
+            - ./node_modules
           key: test-codegov-dependencies-{{ checksum "package-lock.json" }}
   run-lint:
     <<: *container
