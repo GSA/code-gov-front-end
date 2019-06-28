@@ -3,9 +3,7 @@ version: 2
 references:
   container: &container
     docker:
-      - image: circleci/node:10.15.1-browsers
-        environment:
-          CHROME_PATH: /usr/bin/google-chrome
+      - image: ubuntu
 
   restore_deps: &restore_deps
     restore_cache:
@@ -16,6 +14,8 @@ jobs:
   build:
     <<: *container
     steps:
+      - run: apt-get update
+      - run: apt-get install -y build-essential npm nodejs
       - checkout
       - restore_cache:
           keys: 
