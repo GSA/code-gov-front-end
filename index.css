@@ -29164,10 +29164,7 @@ header.main nav ul li a svg {
   color: #1dc2ae;
 }
 .repo-general button {
-  margin-top: 1.5rem;
-  margin-right: 5px;
-  margin-bottom: 0px;
-  margin-left: 0px;
+  margin: 1.5rem 5px 0 0;
 }
 .repo-general .repo-container code {
   background-color: #485568;
@@ -29194,19 +29191,18 @@ header.main nav ul li a svg {
   display: inline-block;
 }
 .repo-general .repo-features {
-  margin-top: 1.5rem;
-  margin-right: 0px;
-  margin-bottom: 2rem;
-  margin-left: 0px;
+  margin: 1.5rem 0 2rem 0;
   width: 100%;
   border-bottom: 1px lightgray solid;
 }
-.repo-general .repo-features li, .repo-general .repo-features span.li {
+.repo-general .repo-features li,
+.repo-general .repo-features span.li {
   display: inline;
   color: #074b69;
   margin-right: 2em;
 }
-.repo-general .repo-features li i, .repo-general .repo-features span.li i {
+.repo-general .repo-features li i,
+.repo-general .repo-features span.li i {
   margin-right: 0.2em;
 }
 .repo-general .repo-header-container h1 {
@@ -29231,10 +29227,7 @@ header.main nav ul li a svg {
 }
 .repo-general .icon {
   color: #07648d;
-  margin-top: 0pxm;
-  margin-right: 0px;
-  margin-bottom: 0.7rem;
-  margin-left: 0px;
+  margin: 0 0 0.7rem 0;
   padding: 0;
   padding-right: 1.1em;
   padding-bottom: 1.1em;
