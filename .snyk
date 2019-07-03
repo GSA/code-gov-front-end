@@ -7,20 +7,171 @@ ignore:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
       '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-07-20T11:24:15.026Z'
+    - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: None given
+        expires: '2019-07-29T13:28:02.754Z'
   SNYK-JS-LODASH-73638:
     - favicons-webpack-plugin > favicons > cheerio > lodash:
-        reason: no patch
-        expires: '2019-07-20T11:24:15.026Z'
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
   SNYK-JS-LODASH-73639:
     - favicons-webpack-plugin > favicons > cheerio > lodash:
-        reason: no patch
-        expires: '2019-07-20T11:24:15.026Z'
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
   'npm:mem:20180117':
     - '@code.gov/about-page > showdown > yargs > os-locale > mem':
         reason: None given
-        expires: '2019-07-20T11:24:15.026Z'
+        expires: '2019-07-31T13:47:46.480Z'
+  SNYK-JS-SETVALUE-450213:
+    - webpack > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > http-proxy-middleware > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-cli > findup-sync > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - sass > chokidar > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > chokidar > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > http-proxy-middleware > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack > watchpack > chokidar > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > http-proxy-middleware > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > chokidar > anymatch > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - sass > chokidar > anymatch > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > chokidar > readdirp > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-cli > findup-sync > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-cli > findup-sync > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-cli > findup-sync > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > http-proxy-middleware > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - sass > chokidar > readdirp > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > http-proxy-middleware > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - sass > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
+    - webpack-dev-server > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-dev-server > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-dev-server > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-dev-server > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - sass > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - sass > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - sass > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-cli > findup-sync > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-dev-server > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - sass > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-dev-server > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - sass > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack-dev-server > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > nanomatch > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.479Z'
+    - sass > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.480Z'
+    - webpack-dev-server > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.480Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > braces > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.480Z'
+    - sass > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.480Z'
+    - webpack > watchpack > chokidar > anymatch > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.480Z'
+    - webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
+        reason: None given
+        expires: '2019-07-31T13:47:46.480Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
@@ -30,10 +181,10 @@ patch:
         patched: '2019-06-03T11:02:30.659Z'
   'npm:debug:20170905':
     - favicons-webpack-plugin > favicons > node-rest-client > debug:
-        patched: '2019-06-20T11:20:31.746Z'
+        patched: '2019-07-01T13:44:53.211Z'
   'npm:lodash:20180130':
     - favicons-webpack-plugin > favicons > cheerio > lodash:
-        patched: '2019-06-20T11:20:31.746Z'
+        patched: '2019-07-01T13:44:53.211Z'
   'npm:ms:20170412':
     - favicons-webpack-plugin > favicons > node-rest-client > debug > ms:
-        patched: '2019-06-20T11:20:31.746Z'
+        patched: '2019-07-01T13:44:53.211Z'
