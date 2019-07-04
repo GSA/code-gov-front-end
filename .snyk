@@ -1,12 +1,12 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-MOBIUS1SELECTR-173698:
     - jsoneditor > mobius1-selectr:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
-      '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+    - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-07-20T11:24:15.026Z'
   SNYK-JS-LODASH-73638:
@@ -37,3 +37,36 @@ patch:
   'npm:ms:20170412':
     - favicons-webpack-plugin > favicons > node-rest-client > debug > ms:
         patched: '2019-06-20T11:20:31.746Z'
+  SNYK-JS-LODASH-450202:
+    - webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - favicons-webpack-plugin > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - webpack-bundle-analyzer > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - html-webpack-plugin > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - webpack-merge > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-php-plugin > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-04T06:02:34.654Z'
