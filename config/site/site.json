@@ -34,7 +34,7 @@
             { "name": "Overview", "url": "/about/overview/introduction" },
             { "name": "Compliance", "url": "/about/compliance/dashboard" },
             { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "/policy-guide/introduction" }
+            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
           ]
         },
         {
