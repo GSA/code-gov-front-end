@@ -28,8 +28,6 @@
     "http://localhost:8080/about/open-source/introduction",
     "http://localhost:8080/about/open-source/resources",
     "http://localhost:8080/about/open-source/measuring-code",
-    "http://localhost:8080/about/open-source/licensing",
-    "http://localhost:8080/policy-guide/introduction",
-    "http://localhost:8080/policy-guide/objectives"
+    "http://localhost:8080/about/open-source/licensing"
     ]
 }
