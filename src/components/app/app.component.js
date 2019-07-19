@@ -13,7 +13,6 @@ import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
 import OfficialBanner from 'components/official-banner'
-import PolicyGuide from 'components/plugins/policy-guide'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView } from 'utils/other'
 
