@@ -13,6 +13,9 @@ import ComplianceDashboard from './compliance-dashboard.component'
 import InventoryCode from './inventory-code.component'
 import JSONValidator from './json-validator.component'
 import OverviewIntroduction from './overview-introduction.component'
+import OverviewTrackingProgress from './overview-tracking-progress.component'
+import Procurement from './procurement.component.js'
+import OpenSourceIntroduction from './open-source-introduction.component'
 
 const abouturl = PUBLIC_PATH + 'about'
 
@@ -68,11 +71,6 @@ const pagesForSelect = [
 ]
 .map(({display, route}) => ({display, route: abouturl + route}))
 
-const OverviewTrackingProgress = () => <LazyHTML url={`${dataurl}overview/tracking-progress.html`}/>
-
-const Procurement = () => <LazyHTML url={`${dataurl}compliance/how-to-procure.html`}/>
-
-const OpenSourceIntroduction = () => <LazyHTML url={`${dataurl}open-source-pilot/introduction.html`}/>
 const Resources = () => <LazyHTML url={`${dataurl}open-source-pilot/tools-and-resources.html`}/>
 const MeasuringCode = () => <LazyHTML url={`${dataurl}open-source-pilot/how-to-measure-code.html`}/>
 const Licensing = () => <LazyHTML url={`${dataurl}open-source-pilot/licensing.html`}/>
@@ -144,10 +142,7 @@ class AboutPage extends Component {
 
 export default AboutPage
 export {
-  OverviewTrackingProgress,
-  OpenSourceIntroduction,
   Resources,
   MeasuringCode,
   Licensing,
-  Procurement
 }
