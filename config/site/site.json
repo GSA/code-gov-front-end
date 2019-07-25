@@ -8,19 +8,6 @@
   "twitter": {
     "handle": "codedotgov"
   },
-  "plugins": [
-    {
-<<<<<<< HEAD
-      "route": "/about",
-      "component": "@code.gov/about-page",
-      "filename": "about-page.js"
-=======
-      "route": "/policy-guide",
-      "component": "@code.gov/fscp-react-component",
-      "filename": "policy-guide.js"
->>>>>>> cb_remove-about-component
-    }
-  ],
   "content": {
     "header": {
       "fork_me_url": "https://github.com/GSA/code-gov-front-end",
