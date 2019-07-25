@@ -3,7 +3,7 @@
 exports[`components - AboutPage - ComplianceDashboard render should render correctly 1`] = `
 <Fragment>
   <LazyHTML
-    url="/assets/plugins/about-page/compliance/agency-compliance.html"
+    url="/assets/html/about-page/compliance/agency-compliance.html"
   />
   <compliance-dashboard
     config="{\\"scores\\":{\\"compliant\\":[1,null],\\"partial\\":[0.25,0.9999999],\\"noncompliant\\":[null,0.244444444]},\\"text\\":[{\\"req\\":\\"agencyWidePolicy\\",\\"variants\\":{\\"compliant\\":\\"Agency policy is consistent with the Federal Source Code Policy.\\",\\"noncompliant\\":\\"Agency policy has not been reviewed for consistency with the Federal Source Code Policy.\\",\\"partial\\":\\"Agency policy is being updated for consistency with the Federal Source Code Policy.\\"}},{\\"req\\":\\"openSourceRequirement\\",\\"variants\\":{\\"compliant\\":\\"Agency has open sourced greater than 20% of their custom developed code.\\",\\"noncompliant\\":\\"Agency has open sourced less than 10% of their custom developed code.\\",\\"partial\\":\\"Agency has open sourced greater than 10% of their custom developed code.\\"}},{\\"req\\":\\"inventoryRequirement\\",\\"variants\\":{\\"compliant\\":\\"Agency has inventoried 100% of new custom code.\\",\\"noncompliant\\":\\"Agency has inventoried less than 50% of new custom code.\\",\\"partial\\":\\"Agency has inventoried more than 50% of new custom code.\\"}}]}"
@@ -16,13 +16,13 @@ exports[`components - AboutPage - ComplianceDashboard render should render corre
 exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
 <Fragment>
   <LazyHTML
-    url="/assets/plugins/about-page/compliance/how-to-inventory-a.html"
+    url="/assets/html/about-page/compliance/how-to-inventory-a.html"
   />
   <json-schema
     url="/assets/data/schema.json"
   />
   <LazyHTML
-    url="/assets/plugins/about-page/compliance/how-to-inventory-b.html"
+    url="/assets/html/about-page/compliance/how-to-inventory-b.html"
   />
 </Fragment>
 `;

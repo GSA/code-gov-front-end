@@ -6,7 +6,7 @@ import AboutPage, {
   ComplianceDashboard,
   InventoryCode,
   JSONValidator,
-} from 'components/plugins/about-page'
+} from 'components/about-page'
 import { eventMap, push } from '../../../mocks/window'
 import { refreshView, scrollToTopOfResults, loadScript } from '../../../../src/utils/other'
 
