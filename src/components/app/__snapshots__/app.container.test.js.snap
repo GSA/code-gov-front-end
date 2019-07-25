@@ -8,11 +8,6 @@ Object {
       "filename": "policy-guide.js",
       "route": "/policy-guide",
     },
-    Object {
-      "component": "@code.gov/about-page",
-      "filename": "about-page.js",
-      "route": "/about",
-    },
   ],
 }
 `
