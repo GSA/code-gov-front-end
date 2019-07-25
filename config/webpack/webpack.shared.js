@@ -10,7 +10,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sass = require('sass')
 const get = require('lodash.get')
 const { map } = require('@code.gov/cautious')
-const { copyOverPluginIfNecessary } = require('./webpack.utils')
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
@@ -56,6 +55,10 @@ const patterns = [
   {
     from: './assets/img',
     to: join(OUTPUT_PATH, '/assets/img')
+  },
+  {
+    from: './src/components/about-page/html',
+    to: join(OUTPUT_PATH, '/src/components/about-page/html')
   },
   {
     from: './404.html',
@@ -198,11 +201,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new EventHooksPlugin({
-      beforeCompile: () => {
-        loadPlugins()
-      }
-    }),
     new DefinePlugin({
       ENABLE_GOOGLE_ANALYTICS: process.env.CODE_GOV_BRANCH === 'federalist-prod',
       PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
