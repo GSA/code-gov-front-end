@@ -16,6 +16,9 @@ import OverviewIntroduction from './overview-introduction.component'
 import OverviewTrackingProgress from './overview-tracking-progress.component'
 import Procurement from './procurement.component.js'
 import OpenSourceIntroduction from './open-source-introduction.component'
+import Resources from './resources.component'
+import MeasuringCode from './measuring-code.component'
+import Licensing from './licensing.component'
 
 const abouturl = PUBLIC_PATH + 'about'
 
@@ -70,10 +73,6 @@ const pagesForSelect = [
   { display: 'Open Source Pilot - Licensing', route: '/open-source/licensing' }
 ]
 .map(({display, route}) => ({display, route: abouturl + route}))
-
-const Resources = () => <LazyHTML url={`${dataurl}open-source-pilot/tools-and-resources.html`}/>
-const MeasuringCode = () => <LazyHTML url={`${dataurl}open-source-pilot/how-to-measure-code.html`}/>
-const Licensing = () => <LazyHTML url={`${dataurl}open-source-pilot/licensing.html`}/>
 
 class AboutPage extends Component {
 
@@ -141,8 +140,3 @@ class AboutPage extends Component {
 }
 
 export default AboutPage
-export {
-  Resources,
-  MeasuringCode,
-  Licensing,
-}
