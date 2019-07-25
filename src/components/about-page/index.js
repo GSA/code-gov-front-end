@@ -11,6 +11,7 @@ import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
 import { refreshView,scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.component'
+import InventoryCode from './inventory-code.component'
 
 const abouturl = PUBLIC_PATH + 'about'
 
@@ -70,35 +71,6 @@ const OverviewIntroduction = () => <LazyHTML url={`${dataurl}overview/introducti
 const OverviewTrackingProgress = () => <LazyHTML url={`${dataurl}overview/tracking-progress.html`}/>
 
 const Procurement = () => <LazyHTML url={`${dataurl}compliance/how-to-procure.html`}/>
-
-class InventoryCode extends Component {
-
-  constructor(props) {
-    super(props)
-    this.loading = false
-    this.state = {}
-  }
-
-  componentDidMount() {
-    if (!this.loading) {
-      this.loading = true
-      const webcomponent = customElements.get('json-schema')
-      if (!webcomponent) {
-        loadScript(PUBLIC_PATH + 'webcomponents/json-schema.js', true)
-      }
-    }
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <LazyHTML url={`${dataurl}compliance/how-to-inventory-a.html`}/>
-        <json-schema url={PUBLIC_PATH + 'assets/data/schema.json'} />
-        <LazyHTML url={`${dataurl}compliance/how-to-inventory-b.html`}/>
-      </Fragment>
-    )
-  }
-}
 
 class JSONValidator extends React.Component {
 
@@ -206,7 +178,6 @@ class AboutPage extends Component {
 
 export default AboutPage
 export {
-  InventoryCode,
   JSONValidator,
   OverviewIntroduction,
   OverviewTrackingProgress,
