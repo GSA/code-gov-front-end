@@ -2,11 +2,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import client from 'api-client'
-import AboutPage, {
-  ComplianceDashboard,
-  InventoryCode,
-  JSONValidator,
-} from 'components/about-page'
+import AboutPage from 'components/about-page'
+import ComplianceDashboard from 'components/about-page/compliance-dashboard.component'
+import InventoryCode from 'components/about-page/inventory-code.component'
+import JSONValidator from 'components/about-page/json-validator.component'
 import { eventMap, push } from '../../../tests/mocks/window'
 import { refreshView, scrollToTopOfResults, loadScript } from '../../utils/other'
 
