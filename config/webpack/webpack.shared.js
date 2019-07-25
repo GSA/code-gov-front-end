@@ -68,8 +68,8 @@ const patterns = [
     to: join(OUTPUT_PATH, '/assets/img')
   },
   {
-    from: './assets/plugins',
-    to: join(OUTPUT_PATH, '/assets/plugins')
+    from: './assets/html',
+    to: join(OUTPUT_PATH, '/assets/html')
   },
   {
     from: './404.html',
