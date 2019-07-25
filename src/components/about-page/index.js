@@ -12,6 +12,7 @@ import { refreshView,scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.component'
 import InventoryCode from './inventory-code.component'
 import JSONValidator from './json-validator.component'
+import OverviewIntroduction from './overview-introduction.component'
 
 const abouturl = PUBLIC_PATH + 'about'
 
@@ -67,7 +68,6 @@ const pagesForSelect = [
 ]
 .map(({display, route}) => ({display, route: abouturl + route}))
 
-const OverviewIntroduction = () => <LazyHTML url={`${dataurl}overview/introduction.html`}/>
 const OverviewTrackingProgress = () => <LazyHTML url={`${dataurl}overview/tracking-progress.html`}/>
 
 const Procurement = () => <LazyHTML url={`${dataurl}compliance/how-to-procure.html`}/>
@@ -144,7 +144,6 @@ class AboutPage extends Component {
 
 export default AboutPage
 export {
-  OverviewIntroduction,
   OverviewTrackingProgress,
   OpenSourceIntroduction,
   Resources,
