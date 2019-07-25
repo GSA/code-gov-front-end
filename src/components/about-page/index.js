@@ -1,9 +1,8 @@
 /* global PUBLIC_PATH */
 /* global customElements */
 /* global fetch */
-import React, { Component, Fragment } from 'react'
-import { Link, NavLink, Redirect, Route, Switch } from 'react-router-dom'
-import { loadScript } from 'utils/other'
+import React, { Component } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import Breadcrumbs from 'components/breadcrumbs'
 import LazyHTML from 'components/lazy-html'
 import NavSelect from 'components/nav-select'
@@ -12,6 +11,7 @@ import SideNav from 'components/side-nav'
 import { refreshView,scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.component'
 import InventoryCode from './inventory-code.component'
+import JSONValidator from './json-validator.component'
 
 const abouturl = PUBLIC_PATH + 'about'
 
@@ -71,40 +71,6 @@ const OverviewIntroduction = () => <LazyHTML url={`${dataurl}overview/introducti
 const OverviewTrackingProgress = () => <LazyHTML url={`${dataurl}overview/tracking-progress.html`}/>
 
 const Procurement = () => <LazyHTML url={`${dataurl}compliance/how-to-procure.html`}/>
-
-class JSONValidator extends React.Component {
-
-  constructor(props) {
-    super(props)
-    this.loading = false
-    this.state = {}
-  }
-
-  componentDidMount() {
-    if (!this.loading) {
-      this.loading = true
-      const webcomponent = customElements.get('json-schema-validator')
-      if (!webcomponent) {
-        loadScript(PUBLIC_PATH + 'webcomponents/json-schema-validator.js', true)
-      }
-    }
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <h1>Code.json Validator</h1>
-        <p>Please enter your code.json file below in order to validate it correctly meets the specification.</p>
-        <json-schema-validator
-          ajv={PUBLIC_PATH + 'external/ajv.min.js'}
-          jsoneditor={PUBLIC_PATH + 'external/jsoneditor'}
-          metaschema={PUBLIC_PATH + 'assets/data/json-schema-draft-04.json'}
-          schema={PUBLIC_PATH + 'assets/data/schema.json'}
-        />
-      </Fragment>
-    )
-  }
-}
 
 const OpenSourceIntroduction = () => <LazyHTML url={`${dataurl}open-source-pilot/introduction.html`}/>
 const Resources = () => <LazyHTML url={`${dataurl}open-source-pilot/tools-and-resources.html`}/>
@@ -178,7 +144,6 @@ class AboutPage extends Component {
 
 export default AboutPage
 export {
-  JSONValidator,
   OverviewIntroduction,
   OverviewTrackingProgress,
   OpenSourceIntroduction,
