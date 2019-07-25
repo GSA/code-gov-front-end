@@ -10,9 +10,15 @@
   },
   "plugins": [
     {
+<<<<<<< HEAD
       "route": "/about",
       "component": "@code.gov/about-page",
       "filename": "about-page.js"
+=======
+      "route": "/policy-guide",
+      "component": "@code.gov/fscp-react-component",
+      "filename": "policy-guide.js"
+>>>>>>> cb_remove-about-component
     }
   ],
   "content": {
