@@ -4,7 +4,6 @@
 import React, { Component } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import Breadcrumbs from 'components/breadcrumbs'
-import LazyHTML from 'components/lazy-html'
 import NavSelect from 'components/nav-select'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
@@ -21,8 +20,6 @@ import MeasuringCode from './measuring-code.component'
 import Licensing from './licensing.component'
 
 const abouturl = PUBLIC_PATH + 'about'
-
-const dataurl = PUBLIC_PATH + 'src/components/about-page/html/'
 
 const links = [
   {
