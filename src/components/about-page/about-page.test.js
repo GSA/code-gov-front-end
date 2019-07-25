@@ -7,8 +7,8 @@ import AboutPage, {
   InventoryCode,
   JSONValidator,
 } from 'components/about-page'
-import { eventMap, push } from '../../../mocks/window'
-import { refreshView, scrollToTopOfResults, loadScript } from '../../../../src/utils/other'
+import { eventMap, push } from '../../../tests/mocks/window'
+import { refreshView, scrollToTopOfResults, loadScript } from '../../utils/other'
 
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
