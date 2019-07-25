@@ -48,16 +48,6 @@ console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSO
 /* eslint-disable import/no-dynamic-require */
 const SITE_CONFIG = require(siteConfigPath)
 
-const { plugins } = SITE_CONFIG
-console.log('plugins:', plugins)
-const pluginsDir = join(rootDir, '/src/components/plugins')
-
-const loadPlugins = () => {
-  if (Array.isArray(plugins)) {
-    plugins.map(plugin => copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir))
-  }
-}
-loadPlugins()
 const patterns = [
   {
     from: './assets/data',
@@ -66,10 +56,6 @@ const patterns = [
   {
     from: './assets/img',
     to: join(OUTPUT_PATH, '/assets/img')
-  },
-  {
-    from: './assets/html',
-    to: join(OUTPUT_PATH, '/assets/html')
   },
   {
     from: './404.html',
