@@ -5,7 +5,7 @@ import client from 'api-client'
 
 const onDashboard = ['DHS', 'DOC', 'DOD', 'DOE', 'DOI', 'DOJ', 'DOL', 'DOS', 'DOT', 'ED', 'EPA', 'GSA', 'HHS', 'HUD', 'NASA', 'NRC', 'NSF', 'OPM', 'SBA', 'SSA', 'TREASURY', 'USAID', 'USDA', 'VA']
 
-const dataurl = PUBLIC_PATH + 'src/components/about-page/html/'
+const dataurl = `${PUBLIC_PATH  }src/components/about-page/html/`
 
 const configJSON = {
   scores: {
@@ -39,7 +39,7 @@ const configJSON = {
       }
     }
   ]
-};
+}
 
 class ComplianceDashboard extends Component {
 
@@ -53,12 +53,12 @@ class ComplianceDashboard extends Component {
     if (!this.loading) {
       const webcomponent = customElements.get('compliance-dashboard')
       if (!webcomponent) {
-        loadScript(PUBLIC_PATH + 'webcomponents/compliance-dashboard.js', true)
+        loadScript(`${PUBLIC_PATH  }webcomponents/compliance-dashboard.js`, true)
       }
       client.getCompliance().then(compliance => {
         compliance = compliance.filter(agency => onDashboard.includes(agency.acronym))
         compliance.forEach(agency => {
-          agency.img = PUBLIC_PATH + `assets/img/logos/agencies/${agency.acronym}-50x50.png`
+          agency.img = `${PUBLIC_PATH  }assets/img/logos/agencies/${agency.acronym}-50x50.png`
         })
         this.setState( { compliance })
       })

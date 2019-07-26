@@ -11,7 +11,7 @@
     "deploy-to-production": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-prod' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-prod' CODE_GOV_BRANCH='federalist-prod' npm run deploy",
     "deploy-to-staging": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' npm run deploy",
     "licenses": "license-checker --json --relativeLicensePath --out dependency_licenses.json",
-    "lint": "eslint 'src/**/*' --ext .js,.jsx --fix",
+    "lint": "eslint 'src/**/*' --ext .js,.jsx --fix  --ignore-pattern '*.html'",
     "prettier": "pretty-quick --staged",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --disableHostCheck=true",
     "start-on-server": "node --require dotenv/config ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./config/webpack/webpack.dev.js --host 0.0.0.0 --port 80",
@@ -32,7 +32,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "pretty-quick --staged",
-      "eslint 'src/**/*' --ext .js,.jsx --fix",
+      "eslint 'src/**/*' --ext .js,.jsx --fix --ignore-pattern '*.html'",
       "git add"
     ]
   },
