@@ -9,10 +9,6 @@ import { getConfigValue, now } from 'utils/other'
 import { getNormalizedURLSearchParams, getSection } from 'utils/url-parsing'
 import AppComponent from './app.component'
 
-export const mapStateToProps = () => ({
-  plugins: getConfigValue('plugins')
-})
-
 export const mapDispatchToProps = dispatch => ({
   rehydrate: () => {
     const section = getSection()
@@ -64,7 +60,6 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 const AppContainer = connect(
-  mapStateToProps,
   mapDispatchToProps
 )(AppComponent)
 

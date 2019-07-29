@@ -10,7 +10,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sass = require('sass')
 const get = require('lodash.get')
 const { map } = require('@code.gov/cautious')
-const { copyOverPluginIfNecessary } = require('./webpack.utils')
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
@@ -48,16 +47,6 @@ console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSO
 /* eslint-disable import/no-dynamic-require */
 const SITE_CONFIG = require(siteConfigPath)
 
-const { plugins } = SITE_CONFIG
-console.log('plugins:', plugins)
-const pluginsDir = join(rootDir, '/src/components/plugins')
-
-const loadPlugins = () => {
-  if (Array.isArray(plugins)) {
-    plugins.map(plugin => copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir))
-  }
-}
-loadPlugins()
 const patterns = [
   {
     from: './assets/data',
@@ -68,8 +57,8 @@ const patterns = [
     to: join(OUTPUT_PATH, '/assets/img')
   },
   {
-    from: './assets/plugins',
-    to: join(OUTPUT_PATH, '/assets/plugins')
+    from: './src/components/about-page/html',
+    to: join(OUTPUT_PATH, '/src/components/about-page/html')
   },
   {
     from: './404.html',
@@ -212,11 +201,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new EventHooksPlugin({
-      beforeCompile: () => {
-        loadPlugins()
-      }
-    }),
     new DefinePlugin({
       ENABLE_GOOGLE_ANALYTICS: process.env.CODE_GOV_BRANCH === 'federalist-prod',
       PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),

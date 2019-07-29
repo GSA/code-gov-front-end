@@ -8,18 +8,6 @@
   "twitter": {
     "handle": "codedotgov"
   },
-  "plugins": [
-    {
-      "route": "/policy-guide",
-      "component": "@code.gov/fscp-react-component",
-      "filename": "policy-guide.js"
-    },
-    {
-      "route": "/about",
-      "component": "@code.gov/about-page",
-      "filename": "about-page.js"
-    }
-  ],
   "content": {
     "header": {
       "fork_me_url": "https://github.com/GSA/code-gov-front-end",
@@ -34,7 +22,7 @@
             { "name": "Overview", "url": "/about/overview/introduction" },
             { "name": "Compliance", "url": "/about/compliance/dashboard" },
             { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "/policy-guide/introduction" }
+            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
           ]
         },
         {
@@ -79,7 +67,7 @@
             { "name": "Overview", "url": "/about/overview/introduction" },
             { "name": "Compliance", "url": "/about/compliance/dashboard" },
             { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "/policy-guide/introduction" }
+            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
           ]
         },
         {

@@ -6,7 +6,7 @@ import updateTaskParams from 'actions/update-task-params'
 import { getNormalizedURLSearchParams, getSection } from 'utils/url-parsing'
 import { now } from 'utils/other'
 import defaultState from 'constants/default-redux-store-state'
-import { mapStateToProps, mapDispatchToProps } from 'components/app/app.container'
+import { mapDispatchToProps } from 'components/app/app.container'
 
 jest.mock('actions/update-browse-params')
 jest.mock('actions/update-search-params')
@@ -42,12 +42,6 @@ const testBySection = ({ section, action, expected }) => {
 describe('containers - App', () => {
   beforeEach(() => {
     getNormalizedURLSearchParams.mockImplementation(() => searchParams)
-  })
-
-  describe('mapStateToProps', () => {
-    it('should return the correct properties', () => {
-      expect(mapStateToProps()).toMatchSnapshot()
-    })
   })
 
   describe('mapDispatchToProps', () => {
