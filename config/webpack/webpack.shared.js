@@ -61,6 +61,10 @@ const patterns = [
     to: join(OUTPUT_PATH, '/src/components/about-page/html')
   },
   {
+    from: './src/components/featured-projects/html',
+    to: join(OUTPUT_PATH, '/src/components/featured-projects/html')
+  },
+  {
     from: './404.html',
     to: join(OUTPUT_PATH, '404.html')
   },
