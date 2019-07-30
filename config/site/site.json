@@ -29,7 +29,7 @@
           "name": "BROWSE PROJECTS",
           "links": [
             { "name": "All Projects", "url": "/browse-projects?page=1&size=10&sort=data_quality" },
-            { "name": "Featured Projects", "url": "/featured-projects" }
+            { "name": "Featured Projects", "url": "/featured-projects/overview/introduction" }
           ]
         },
         {
