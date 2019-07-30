@@ -74,7 +74,7 @@
           ]
         },
         {
-          "name": "BROWSE PROJECTS",
+          "name": "Browse Projects",
           "links": [
             { "name": "All Projects", "url": "/browse-projects?page=1&size=10&sort=data_quality" },
             { "name": "Featured Projects", "url": "/featured-projects/overview/introduction" }
