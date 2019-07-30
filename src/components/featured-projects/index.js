@@ -8,16 +8,8 @@ import NavSelect from 'components/nav-select'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
 import { refreshView,scrollToTopOfResults } from 'utils/other'
-import ComplianceDashboard from './compliance-dashboard.component'
-import InventoryCode from './inventory-code.component'
-import JSONValidator from './json-validator.component'
 import OverviewIntroduction from './overview-introduction.component'
 import OverviewTrackingProgress from './overview-tracking-progress.component'
-import Procurement from './procurement.component.js'
-import OpenSourceIntroduction from './open-source-introduction.component'
-import Resources from './resources.component'
-import MeasuringCode from './measuring-code.component'
-import Licensing from './licensing.component'
 
 const featuredprojectsurl = `${PUBLIC_PATH  }featured-projects`
 
@@ -28,31 +20,6 @@ const links = [
     children: [
       { text: 'Introduction', route: '/overview/introduction' },
       { text: 'Tracking Progress', route: '/overview/tracking-progress' }
-    ]
-  },
-  {
-    text: 'Compliance',
-    route: '/compliance/dashboard',
-    children: [
-      { text: 'Agency Compliance', route: '/compliance/dashboard' },
-      { text: 'How to Procure Software', route: '/compliance/procurement' },
-      {
-        text: 'How to Inventory',
-        route: '/compliance/inventory-code',
-        children: [
-          { text: 'Validate Schema', route: '/compliance/inventory-code/validate-schema' }
-        ]
-      },
-    ]
-  },
-  {
-    text: 'Open Source Pilot',
-    route: '/open-source/introduction',
-    children: [
-      { text: 'Introduction', route: '/open-source/introduction' },
-      { text: 'Tools and Resources', route: '/open-source/resources' },
-      { text: 'How to Measure', route: '/open-source/measuring-code' },
-      { text: 'Licensing', route: '/open-source/licensing' }
     ]
   }
 ]
@@ -113,18 +80,6 @@ class FeaturedProjects extends Component {
               <Route path={`${featuredprojectsurl}/overview/introduction`} component={OverviewIntroduction}/>
               <Route path={`${featuredprojectsurl}/overview/tracking-progress`} component={OverviewTrackingProgress}/>
               <Redirect from={`${featuredprojectsurl}/overview`} to={`${featuredprojectsurl}/overview/introduction`}/>
-
-              <Route path={`${featuredprojectsurl}/compliance/dashboard`} component={ComplianceDashboard}/>
-              <Route path={`${featuredprojectsurl}/compliance/procurement`} component={Procurement}/>
-              <Route path={`${featuredprojectsurl}/compliance/inventory-code/validate-schema`} component={JSONValidator}/>
-              <Route path={`${featuredprojectsurl}/compliance/inventory-code`} component={InventoryCode}/>
-              <Redirect from={`${featuredprojectsurl}/compliance`} to={`${featuredprojectsurl}/compliance/dashboard`}/>
-
-              <Route path={`${featuredprojectsurl}/open-source/introduction`} component={OpenSourceIntroduction}/>
-              <Route path={`${featuredprojectsurl}/open-source/resources`} component={Resources}/>
-              <Route path={`${featuredprojectsurl}/open-source/measuring-code`} component={MeasuringCode}/>
-              <Route path={`${featuredprojectsurl}/open-source/licensing`} component={Licensing}/>
-              <Redirect from={`${featuredprojectsurl}/open-source`} to={`${featuredprojectsurl}/open-source/introduction`}/>
 
             </Switch>
           </div>
