@@ -89,10 +89,10 @@ class FeaturedProjects extends Component {
   render() {
     return (
       <div>
-        <SiteBanner title='ABOUT' />
+        <SiteBanner title='FEATURED PROJECTS' />
         <Breadcrumbs crumbs={[
           { text: 'Home', to: '/' },
-          { text: 'About' }
+          { text: 'Featured Projects' }
         ]}/>
         <br/>
         <div className='indented'>
