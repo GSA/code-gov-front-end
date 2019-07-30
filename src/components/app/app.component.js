@@ -15,6 +15,7 @@ import Footer from 'components/footer'
 import OfficialBanner from 'components/official-banner'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView } from 'utils/other'
+import FeaturedProjects from '../featured-projects';
 
 export default class AppComponent extends Component {
   componentDidMount() {
@@ -38,6 +39,7 @@ export default class AppComponent extends Component {
             <Route path="/search" component={SearchPage} />
             <Route path="/about" component={AboutPage} />
             <Route path="/browse-projects" component={BrowseProjects} />
+            <Route path="/featured-projects" component={FeaturedProjects} />
             <Route path="/open-tasks" component={OpenTasks} />
             <Route path="/privacy-policy" component={PrivacyPolicy} />
             <Route path="/projects/:repoID" component={ProjectPage} />
