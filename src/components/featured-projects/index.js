@@ -9,7 +9,7 @@ import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
 import { refreshView,scrollToTopOfResults } from 'utils/other'
 import OverviewIntroduction from './overview-introduction.component'
-import OverviewTrackingProgress from './overview-tracking-progress.component'
+import OverviewWebsites from './overview-websites.component'
 
 const featuredprojectsurl = `${PUBLIC_PATH  }featured-projects`
 
@@ -19,22 +19,14 @@ const links = [
     route: '/overview/introduction',
     children: [
       { text: 'Introduction', route: '/overview/introduction' },
-      { text: 'Tracking Progress', route: '/overview/tracking-progress' }
+      { text: 'Websites', route: '/overview/websites' }
     ]
   }
 ]
 
 const pagesForSelect = [
   { display: 'Overview - Introduction', route: '/overview/introduction' },
-  { display: 'Overview - Tracking Progress', route: '/overview/tracking-progress' },
-  { display: 'Compliance - Agency Compliance', route: '/compliance/dashboard' },
-  { display: 'Compliance - How to Procure Software', route: '/compliance/procurement' },
-  { display: 'Compliance - How to Inventory', route: '/compliance/inventory-code' },
-  { display: 'Compliance - Validate Schema', route: '/compliance/inventory-code/validate-schema' },
-  { display: 'Open Source Pilot - Introduction', route: '/open-source/introduction' },
-  { display: 'Open Source Pilot - Tools and Resources', route: '/open-source/resources' },
-  { display: 'Open Source Pilot - How to Measure', route: '/open-source/measuring-code' },
-  { display: 'Open Source Pilot - Licensing', route: '/open-source/licensing' }
+  { display: 'Overview - Websites', route: '/overview/websites' }
 ]
 .map(({display, route}) => ({display, route: featuredprojectsurl + route}))
 
@@ -78,7 +70,7 @@ class FeaturedProjects extends Component {
             <Switch>
 
               <Route path={`${featuredprojectsurl}/overview/introduction`} component={OverviewIntroduction}/>
-              <Route path={`${featuredprojectsurl}/overview/tracking-progress`} component={OverviewTrackingProgress}/>
+              <Route path={`${featuredprojectsurl}/overview/websites`} component={OverviewWebsites}/>
               <Redirect from={`${featuredprojectsurl}/overview`} to={`${featuredprojectsurl}/overview/introduction`}/>
 
             </Switch>
