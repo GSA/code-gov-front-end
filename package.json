@@ -93,7 +93,7 @@
     "sass": "^1.20.1",
     "snyk": "^1.185.5",
     "url-search-params-polyfill": "^5.1.0",
-    "uswds": "^2.0.2",
+    "uswds": "^2.0.3",
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
