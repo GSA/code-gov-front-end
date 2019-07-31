@@ -10,6 +10,8 @@ import SideNav from 'components/side-nav'
 import { refreshView,scrollToTopOfResults } from 'utils/other'
 import OverviewIntroduction from './overview-introduction.component'
 import OverviewWebsites from './overview-websites.component'
+import OverviewAPIs from './overview-apis.component'
+import OverviewNoticeAndComment from './overview-notice-and-comment.component'
 
 const featuredprojectsurl = `${PUBLIC_PATH  }featured-projects`
 
@@ -19,14 +21,18 @@ const links = [
     route: '/overview/introduction',
     children: [
       { text: 'Introduction', route: '/overview/introduction' },
-      { text: 'Websites', route: '/overview/websites' }
+      { text: 'Websites', route: '/overview/websites' },
+      { text: 'APIs', route: '/overview/apis' },
+      { text: 'Notice and Comment', route: '/overview/notice-and-comment' }
     ]
   }
 ]
 
 const pagesForSelect = [
   { display: 'Overview - Introduction', route: '/overview/introduction' },
-  { display: 'Overview - Websites', route: '/overview/websites' }
+  { display: 'Overview - Websites', route: '/overview/websites' },
+  { display: 'Overview - APIs', route: '/overview/apis' },
+  { display: 'Overview - Notice and Comment', route: '/overview/notice-and-comment' }
 ]
 .map(({display, route}) => ({display, route: featuredprojectsurl + route}))
 
@@ -71,6 +77,8 @@ class FeaturedProjects extends Component {
 
               <Route path={`${featuredprojectsurl}/overview/introduction`} component={OverviewIntroduction}/>
               <Route path={`${featuredprojectsurl}/overview/websites`} component={OverviewWebsites}/>
+              <Route path={`${featuredprojectsurl}/overview/apis`} component={OverviewAPIs}/>
+              <Route path={`${featuredprojectsurl}/overview/notice-and-comment`} component={OverviewNoticeAndComment}/>
               <Redirect from={`${featuredprojectsurl}/overview`} to={`${featuredprojectsurl}/overview/introduction`}/>
 
             </Switch>
