@@ -57,6 +57,18 @@ const patterns = [
     to: join(OUTPUT_PATH, '/assets/img')
   },
   {
+    from: './styles/uswds/img',
+    to: join(OUTPUT_PATH, '/uswds/img')
+  },
+  {
+    from: './styles/uswds/js',
+    to: join(OUTPUT_PATH, '/uswds/js')
+  },
+  {
+    from: './styles/uswds/fonts',
+    to: join(OUTPUT_PATH, '/uswds/fonts')
+  },
+  {
     from: './src/components/about-page/html',
     to: join(OUTPUT_PATH, '/src/components/about-page/html')
   },
