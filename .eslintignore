@@ -5,3 +5,4 @@ src/components/plugins
 dist/*
 docs/*
 src/**/**/*.json
+styles/uswds/*
