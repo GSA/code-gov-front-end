@@ -2049,7 +2049,7 @@ dfn {
 }
 
 .usa-banner__header-action::after {
-  background-image: url('../img/angle-arrow-down-primary.svg'),
+  background-image: url('$theme-image-path/angle-arrow-down-primary.svg'),
     -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
   background-image: url('../img/angle-arrow-down-primary.svg'),
     linear-gradient(transparent, transparent);
@@ -2065,9 +2065,9 @@ dfn {
 }
 
 .usa-banner__header-action:hover::after {
-  background-image: url('../img/angle-arrow-down-primary-hover.svg'),
+  background-image: url('/uswds/img/angle-arrow-down-primary-hover.svg'),
     -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
-  background-image: url('../img/angle-arrow-down-primary-hover.svg'),
+  background-image: url('/uswds/img/angle-arrow-down-primary-hover.svg'),
     linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
 }
