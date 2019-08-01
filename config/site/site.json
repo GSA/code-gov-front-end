@@ -160,6 +160,14 @@
       ],
       "news": [
         {
+          "title": "Join the CIO.gov DEV/OPS Challenge!",
+          "description": "The federal government is looking for top IT talent to help modernize federal IT systems and you could be just the person we need...",
+          "url": "https://www.cio.gov/codechallenge/",
+          "date": "8/5/2019",
+          "image": "/assets/img/news/keyboard_user.jpg",
+          "alt": "Person sitting at computer"
+        },
+        {
           "title": "Building Off Feedback: A Re-Design of Code.gov",
           "description": "We put our creative heads together for the next edition of Code.gov....",
           "url": "https://medium.com/@CodeDotGov/building-off-feedback-a-re-design-of-code-gov-63a7859d79d5",
@@ -174,14 +182,6 @@
           "date": "6/5/2019",
           "image": "/assets/img/news/uswds.jpeg",
           "alt": "A collection of wireframes"
-        },
-        {
-          "title": "Developer’s Notes",
-          "description": "Here’s our most recent updates and changes on the Code.gov front end (v0.0.9)...",
-          "url": "https://medium.com/codedotgov/developers-notes-3-june-2019-ccfd12344621",
-          "date": "6/4/2019",
-          "image": "/assets/img/news/keyboard.jpeg",
-          "alt": "A keyboard on a desk"
         }
       ],
       "about": [
