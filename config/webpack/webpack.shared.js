@@ -154,7 +154,7 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(s*)css$/,
         use: [
           {
             loader: 'style-loader', // creates style nodes from JS strings
@@ -162,10 +162,14 @@ module.exports = {
               sourceMap: true
             }
           },
+          'css-loader', // translates CSS into CommonJS
           {
-            loader: 'css-loader', // translates CSS into CommonJS
+            loader: 'postcss-loader', // adds vendor prefixing
             options: {
-              sourceMap: true
+              indent: 'postcss',
+              parser: 'postcss-scss',
+              sourceMap: true,
+              plugins: [autoprefixer({ grid: true })]
             }
           },
           {
@@ -173,14 +177,6 @@ module.exports = {
             options: {
               implementation: sass,
               sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader', // adds vendor prefixing
-            options: {
-              parser: 'postcss-scss',
-              sourceMap: true,
-              plugins: [autoprefixer]
             }
           }
         ]

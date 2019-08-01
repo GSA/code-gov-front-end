@@ -150,6 +150,11 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 2%",
+    "IE >= 11"
+  ],
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
