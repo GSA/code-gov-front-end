@@ -4,6 +4,14 @@ exports[`containers - HomeNews mapStateToProps should return the correct propert
 Object {
   "newsItems": Array [
     Object {
+      "alt": "Person sitting at computer",
+      "date": "8/5/2019",
+      "description": "The federal government is looking for top IT talent to help modernize federal IT systems and you could be just the person we need...",
+      "image": "/assets/img/news/keyboard_user.jpg",
+      "title": "Join the CIO.gov DEV/OPS Challenge!",
+      "url": "https://www.cio.gov/codechallenge/",
+    },
+    Object {
       "alt": "Website planning. Web designer working on website sitemap",
       "date": "7/2/2019",
       "description": "We put our creative heads together for the next edition of Code.gov....",
@@ -19,14 +27,6 @@ Object {
       "title": "OSS SPOTLIGHT: The U.S. Web Design System 2.0 from GSA",
       "url": "https://medium.com/codedotgov/success-story-the-u-s-web-design-system-2-0-from-gsa-be66295b6e5f",
     },
-    Object {
-      "alt": "A keyboard on a desk",
-      "date": "6/4/2019",
-      "description": "Here’s our most recent updates and changes on the Code.gov front end (v0.0.9)...",
-      "image": "/assets/img/news/keyboard.jpeg",
-      "title": "Developer’s Notes",
-      "url": "https://medium.com/codedotgov/developers-notes-3-june-2019-ccfd12344621",
-    },
   ],
 }
-`
+`;
