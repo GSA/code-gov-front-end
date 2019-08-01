@@ -9,6 +9,7 @@ const EventHooksPlugin = require('event-hooks-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sass = require('sass')
 const autoprefixer = require('autoprefixer')
+const mqpacker = require('css-mqpacker')
 const get = require('lodash.get')
 const { map } = require('@code.gov/cautious')
 
@@ -169,7 +170,8 @@ module.exports = {
               indent: 'postcss',
               parser: 'postcss-scss',
               sourceMap: true,
-              plugins: [autoprefixer({ grid: true })]
+              plugins: [autoprefixer({ grid: true })],
+              mqpacker
             }
           },
           {
