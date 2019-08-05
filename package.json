@@ -62,9 +62,11 @@
     "@webcomponents/custom-elements": "^1.2.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "ajv": "^6.10.0",
+    "autoprefixer": "^9.6.1",
     "clean-webpack-plugin": "^0.1.19",
     "connected-react-router": "^4.5.0",
     "copy-webpack-plugin": "^4.5.4",
+    "css-mqpacker": "^7.0.0",
     "custom-event-polyfill": "^1.0.7",
     "devicons": "^1.8.0",
     "dotenv": "^6.2.0",
@@ -141,11 +143,19 @@
     "markdown-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.4.4",
     "pa11y-ci": "^2.3.0",
+    "postcss": "^7.0.17",
+    "postcss-loader": "^3.0.0",
+    "postcss-scss": "^2.0.0",
     "prettier": "^1.15.3",
     "pretty-quick": "^1.8.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 2%",
+    "IE >= 11"
+  ],
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
