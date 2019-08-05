@@ -160,6 +160,14 @@
       ],
       "news": [
         {
+          "title": "New Guidance for Enterprise Data and Source Code Inventories (.pdf)",
+          "description": "OMB releases new guidance for tagging Artificial Intelligence (AI) digital assets…",
+          "url": "/assets/data/ai_inventory-guidance.pdf",
+          "date": "8/5/2019",
+          "image": "/assets/img/news/ai.jpg",
+          "alt": "Brain outlined in half circuits"
+        },
+        {
           "title": "Join the CIO.gov DEV/OPS Challenge!",
           "description": "The federal government is looking for top IT talent to help modernize federal IT systems and you could be just the person we need...",
           "url": "https://www.cio.gov/codechallenge/",
@@ -174,14 +182,6 @@
           "date": "7/2/2019",
           "image": "/assets/img/news/redesign.jpeg",
           "alt": "Website planning. Web designer working on website sitemap"
-        },
-        {
-          "title": "OSS SPOTLIGHT: The U.S. Web Design System 2.0 from GSA",
-          "description": "USWDS 2.0, a new approach to design that saves time in upgrading websites or...",
-          "url": "https://medium.com/codedotgov/success-story-the-u-s-web-design-system-2-0-from-gsa-be66295b6e5f",
-          "date": "6/5/2019",
-          "image": "/assets/img/news/uswds.jpeg",
-          "alt": "A collection of wireframes"
         }
       ],
       "about": [
