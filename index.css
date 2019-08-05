@@ -28738,6 +28738,9 @@ section#banner-home .home-link:hover {
     font-size: 1.1em;
   }
 }
+#explore .explore-actions button {
+  text-transform: uppercase;
+}
 #explore .explore-actions a {
   text-decoration: none;
 }
