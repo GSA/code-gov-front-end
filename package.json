@@ -54,7 +54,7 @@
     "@code.gov/api-client": "^0.3.4",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.9.0",
-    "@code.gov/code-gov-style": "^2.0.0",
+    "@code.gov/code-gov-style": "^2.0.1",
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
     "@code.gov/json-schema-validator-web-component": "^0.2.0",
     "@code.gov/json-schema-web-component": "0.4.0",
