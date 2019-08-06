@@ -25581,14 +25581,14 @@ example:
 /* at what pixels should switch from mobile to desktop menu */
 html {
   box-sizing: border-box;
-  font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 10px;
   line-height: 1.15;
 }
 html body {
   background-color: #fff;
   box-sizing: border-box;
-  font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 14px;
   line-height: 1.42857143;
@@ -27053,7 +27053,7 @@ mobile-menu-button.dark .icon {
   border: none;
   color: #212121;
   display: block;
-  font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 0.95em;
   line-height: 1.3;
   padding: 0.85rem 1rem 0.85rem 1.5rem;
@@ -28072,7 +28072,7 @@ button {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1.7rem;
   font-weight: normal;
   line-height: 1;
