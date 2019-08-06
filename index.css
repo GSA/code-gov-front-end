@@ -28695,9 +28695,7 @@ section#banner-home .home-link:hover {
   margin-top: 6rem;
 }
 #explore .explore-actions {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr;
   grid-template-rows: 1fr;
   margin-top: 2em;
   padding: 2rem 0 0;
@@ -28712,7 +28710,6 @@ section#banner-home .home-link:hover {
   #explore .explore-actions {
     border-bottom: 2px solid #71839d;
     border-top: 2px solid #71839d;
-    -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 3em;
     margin-top: 100px;
@@ -28740,9 +28737,6 @@ section#banner-home .home-link:hover {
   #explore .explore-actions p {
     font-size: 1.1em;
   }
-}
-#explore .explore-actions button {
-  text-transform: uppercase;
 }
 #explore .explore-actions a {
   text-decoration: none;
