@@ -8,13 +8,16 @@ ignore:
         expires: '2019-03-30T16:06:33.368Z'
       '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: None given
-        expires: '2019-07-31T13:47:46.478Z'
+        expires: '2019-09-08T15:19:36.817Z'
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-07-20T11:24:15.026Z'
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: None given
         expires: '2019-07-29T13:28:02.754Z'
+    - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: None given
+        expires: '2019-07-31T13:47:46.478Z'
   SNYK-JS-LODASH-73638:
     - favicons-webpack-plugin > favicons > cheerio > lodash:
         reason: None given
