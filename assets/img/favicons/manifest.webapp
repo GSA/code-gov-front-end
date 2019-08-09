@@ -3,9 +3,9 @@
   "name": "@code.gov/code-gov-front-end",
   "description": null,
   "icons": {
-    "60": "/assets/img/icons/firefox_app_60x60.png",
-    "128": "/assets/img/icons/firefox_app_128x128.png",
-    "512": "/assets/img/icons/firefox_app_512x512.png"
+    "60": "/assets/img/favicons/firefox_app_60x60.png",
+    "128": "/assets/img/favicons/firefox_app_128x128.png",
+    "512": "/assets/img/favicons/firefox_app_512x512.png"
   },
   "developer": {
     "name": null,
