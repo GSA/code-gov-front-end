@@ -1,6 +1,6 @@
 const { copyFileSync, readFileSync } = require('fs')
 const { dirname, join } = require('path')
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
@@ -227,12 +227,6 @@ module.exports = {
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
-    // new FaviconsWebpackPlugin({
-    //   logo: './assets/img/favicon.png',
-    //   icons: {
-    //     appleStartup: false
-    //   }
-    // }),
     new HtmlWebpackPlugin({
       hash: true,
       template: 'index.html',
@@ -242,6 +236,22 @@ module.exports = {
       title: 'code.gov',
       minify: {
         removeScriptTypeAttributes: true
+      }
+    }),
+    new AppManifestWebpackPlugin({
+      emitStats: true,
+      logo: './assets/img/favicon.png',
+      icons: {
+        appleStartup: false
+      },
+      inject: true,
+      prefix: '/assets/img/favicons',
+      output: './assets/img/favicons/',
+      config: {
+        favicons: true,
+        firefox: true,
+        windows: true,
+        yandex: false
       }
     })
   ],
