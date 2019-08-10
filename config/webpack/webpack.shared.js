@@ -1,17 +1,14 @@
-const { copyFileSync, readFileSync } = require('fs')
 const { dirname, join } = require('path')
 const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
-const EventHooksPlugin = require('event-hooks-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sass = require('sass')
 const autoprefixer = require('autoprefixer')
 const mqpacker = require('css-mqpacker')
-const get = require('lodash.get')
-const { map } = require('@code.gov/cautious')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
@@ -227,6 +224,7 @@ module.exports = {
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       hash: true,
       template: 'index.html',
