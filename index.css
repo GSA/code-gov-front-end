@@ -28321,7 +28321,7 @@ footer.dark .footer-content div.links ul li a:visited {
 }
 
 html {
-  background: #fff;
+  background-color: #fff;
 }
 html #app {
   background: #fff;
@@ -28335,7 +28335,7 @@ html #app .icon {
   padding-top: 5px;
 }
 #filter-boxes-section .filter-box {
-  background: #fff;
+  background-color: #fff;
   margin: 2rem auto;
 }
 @media screen and (max-width: 750px) {
@@ -28403,7 +28403,7 @@ h3 {
 }
 
 .search-results-header {
-  background: #fff;
+  background-color: #fff;
   border-bottom: 1px solid #aeb0b5;
   border-top: 1px solid #aeb0b5;
   margin-bottom: 2rem;
@@ -28660,7 +28660,7 @@ section#banner-home .banner-content .banner-subsection .banner-subsection-conten
     display: inline-block;
     height: 17rem;
     width: 3px;
-    background: white;
+    background-color: #fff;
     position: relative;
   }
 }
