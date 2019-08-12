@@ -13,7 +13,7 @@ jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
 
 // helper for testing the component does not make changes if it is `loading`
-const testLoading = (component) => {
+const testLoading = component => {
   jest.spyOn(component, 'setState')
   component.loading = true
   component.componentDidMount()
@@ -21,7 +21,7 @@ const testLoading = (component) => {
 }
 
 // helper for testing the webcomponent loads if it does not exist
-const testWebcomponentLoads = (component) => {
+const testWebcomponentLoads = component => {
   window.customElements.get.mockImplementation(() => undefined)
   loadScript.mockReset()
   component.loading = false
@@ -30,7 +30,7 @@ const testWebcomponentLoads = (component) => {
 }
 
 // helper for testing the webcomponent does not load if it already exists
-const testWebcomponentExists = (component) => {
+const testWebcomponentExists = component => {
   window.customElements.get.mockImplementation(() => 'component-exists')
   loadScript.mockReset()
   component.loading = false
@@ -41,7 +41,7 @@ const testWebcomponentExists = (component) => {
 const compliances = [
   { name: 'agency-1-name', acronym: 'DOD', img: 'agency-1-img' },
   { name: 'agency-2-name', acronym: 'DOE', img: 'agency-2-img' },
-  { name: 'agency-3-name', acronym: 'agency-3-acronym', img: 'agency-3-img' }, // not on dashboard list
+  { name: 'agency-3-name', acronym: 'agency-3-acronym', img: 'agency-3-img' } // not on dashboard list
 ]
 
 const props = {}
@@ -107,7 +107,7 @@ describe('components - AboutPage - ComplianceDashboard', () => {
     it('should load the compliances into local state', () => {
       const expected = [
         expect.objectContaining({ acronym: 'DOD' }),
-        expect.objectContaining({ acronym: 'DOE' }),
+        expect.objectContaining({ acronym: 'DOE' })
       ]
       expect(wrapper.state('compliance')).toEqual(expected)
     })

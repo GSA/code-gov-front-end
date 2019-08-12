@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 export default class SearchBox extends Component {
   constructor(props) {

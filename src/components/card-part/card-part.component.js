@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 
-export default function CardPart({ title, text }) {
+export default function CardPart({ title, text = 'Not Available' }) {
   return (
     <Fragment>
       <dt>{`${title}:`}</dt>

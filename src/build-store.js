@@ -2,8 +2,6 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import history from 'browser-history'
 import thunk from 'redux-thunk'
-import { getCurrentTime } from 'utils/other'
-import { clone, forEach, last, map, some, trimUndefined } from '@code.gov/cautious'
 import rootReducer from './reducers/root'
 import { hydrate } from './hydrator'
 

@@ -11,10 +11,13 @@ export default class CustomLinkComponent extends Component {
 
   render() {
     const { children, className, title, to } = this.props
-    return (
-      <Link className={className} title={title} to={to} onClick={::this.onClick}>
-        {children || null}
-      </Link>
-    )
+    if (children) {
+      return (
+        <Link className={className} title={title} to={to} onClick={::this.onClick}>
+          {children}
+        </Link>
+      )
+    }
+    return <Link className={className} title={title} to={to} onClick={::this.onClick} />
   }
 }

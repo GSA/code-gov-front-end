@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import ReactHtmlParser from 'react-html-parser'
 import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
@@ -8,10 +9,9 @@ import QuickSearchBox from 'components/quick-search-box'
 import SiteBanner from 'components/site-banner'
 import SortSection from 'components/sort-section'
 import RepoCard from 'components/repo-card'
-import { isChecked } from 'utils/filtering'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
-import { parseLocation } from 'utils/url-parsing'
-import { length, some } from '@code.gov/cautious'
+import { some } from '@code.gov/cautious'
+import { getReposCount } from '../../utils/repos-count'
 
 export default class BrowseProjects extends React.Component {
   componentDidMount() {
@@ -26,17 +26,15 @@ export default class BrowseProjects extends React.Component {
 
   get repoCounter() {
     const { total } = this.props
-    let textContent
-    if (total === 0) {
-      textContent = 'No Repositories'
-    } else if (total === 1) {
-      textContent = '1 Repository'
-    } else if (total >= 2) {
-      textContent = `${total} Repositories`
-    } else {
-      textContent = 'Loading Repositories'
+
+    const messages = {
+      default: 'Loading Repositories',
+      '0': 'No Repositories',
+      '1': '1 Repository',
+      '2': `[VALUE] Repositories`
     }
-    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
+
+    return getReposCount(total, messages, 'repos-count width-three-quarters')
   }
 
   get reposContainer() {
@@ -75,7 +73,7 @@ export default class BrowseProjects extends React.Component {
             <div className="width-quarter">
               <QuickSearchBox />
             </div>
-            {this.repoCounter}
+            {ReactHtmlParser(this.repoCounter)}
           </div>
         </div>
         <div className="indented">

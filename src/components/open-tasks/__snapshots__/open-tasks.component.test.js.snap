@@ -27,7 +27,8 @@ exports[`components - OpenTasks render should render correctly 1`] = `
       className="width-quarter"
     />
     <h3
-      className="repos-count width-three-quarters"
+      classname="repos-count width-three-quarters"
+      key="0"
     >
       There are 2 open tasks
     </h3>

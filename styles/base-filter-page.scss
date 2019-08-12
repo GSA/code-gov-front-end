@@ -1,9 +1,8 @@
 #filter-boxes-section {
-
   padding-top: 5px;
 
   .filter-box {
-    background: $color-white;
+    background-color: $color-white;
     margin: 2rem auto;
   }
 
@@ -11,7 +10,7 @@
     width: 100%;
 
     .filter-box {
-      width:100%;
+      width: 100%;
     }
   }
 
@@ -25,7 +24,6 @@
 }
 
 #filter-results-section {
-
   padding-top: 5px;
 
   width: 100%;
@@ -34,7 +32,6 @@
   }
 
   .filter-tags {
-
     .filter-tag {
       &:first-child {
         margin-left: 0;
@@ -55,23 +52,19 @@
   }
 }
 
-
-
-
 h3 {
   font-size: $lead-font-size;
 }
 
 .search-results-header {
-  background: $color-white;
+  background-color: $color-white;
   border-bottom: 1px solid $color-gray-light;
   border-top: 1px solid $color-gray-light;
   margin-bottom: 2rem;
-  
+
   @media screen and (max-width: 600px) {
     text-align: center;
   }
-
 
   .width-quarter {
     // done to make autocomplete fit
@@ -90,7 +83,6 @@ h3 {
   h3 {
     display: inline-block;
   }
-  
 }
 
 .search-filter-section {

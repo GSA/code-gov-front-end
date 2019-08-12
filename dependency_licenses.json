@@ -6296,10 +6296,7 @@
     "licenseFile": "/Users/courtneyrbrousseau/Desktop/code-gov-front-end/node_modules/json-schema-traverse/LICENSE"
   },
   "json-schema@0.2.3": {
-    "licenses": [
-      "AFLv2.1",
-      "BSD"
-    ],
+    "licenses": ["AFLv2.1", "BSD"],
     "repository": "https://github.com/kriszyp/json-schema",
     "publisher": "Kris Zyp",
     "path": "/Users/courtneyrbrousseau/Desktop/code-gov-front-end/node_modules/json-schema",
@@ -12041,4 +12038,3 @@
     "licenseFile": "/Users/courtneyrbrousseau/Desktop/code-gov-front-end/node_modules/yup/LICENSE.md"
   }
 }
-

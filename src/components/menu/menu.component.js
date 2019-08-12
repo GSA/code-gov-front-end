@@ -2,7 +2,6 @@
 
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
-import PropTypes from 'prop-types'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
 import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'

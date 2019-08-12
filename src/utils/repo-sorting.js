@@ -1,4 +1,3 @@
-import get from 'lodash.get'
 import { getDate } from './repo-parsing'
 
 export function clean(string) {

@@ -1,7 +1,7 @@
 /* global PUBLIC_PATH */
 /* global SITE_CONFIG */
-import get from 'lodash.get'
 import { find, lower, startsWith, trim } from '@code.gov/cautious'
+import get from 'lodash.get'
 
 export const falses = [undefined, null, 'null', 'None', 'Null', 'NULL', '', 'False', 'false']
 
@@ -9,18 +9,33 @@ export function isFalse(input) {
   return falses.includes(input)
 }
 
+export function pathMatch(url, match) {
+  return (
+    startsWith(url, `./${match}`) || startsWith(url, `/${match}/`) || startsWith(url, `${match}/`)
+  )
+}
+
+export function updatedRecursivePath(thing) {
+  if (typeof thing === 'object') {
+    for (const key in thing) {
+      const subvalue = thing[key]
+      if (typeof subvalue === 'string') {
+        // eslint-disable-next-line no-use-before-define
+        thing[key] = adjustAssetPath(subvalue)
+      }
+    }
+  }
+  return thing
+}
+
 export function adjustAssetPath(thing) {
-  const pattern = /.?\/?assets\//
-  const newAssetPath = `${PUBLIC_PATH}assets/`
-  if (
-    startsWith(thing, './assets') ||
-    startsWith(thing, '/assets/') ||
-    startsWith(thing, 'assets/')
-  ) {
+  if (pathMatch(thing, 'assets')) {
+    const pattern = /.?\/?assets\//
+    const newAssetPath = `${PUBLIC_PATH}assets/`
     return thing.replace(pattern, newAssetPath)
   }
 
-  return thing
+  return updatedRecursivePath(thing)
 }
 
 export function getConfigValue(path) {
@@ -189,7 +204,7 @@ export function getFilterTags(params, filters) {
 
 export function loadScript(src) {
   console.log('starting loadScript with', src)
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const script = document.createElement('script')
     script.src = src
     script.onload = resolve

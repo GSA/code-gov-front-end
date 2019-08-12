@@ -7,7 +7,7 @@ import Breadcrumbs from 'components/breadcrumbs'
 import NavSelect from 'components/nav-select'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
-import { refreshView,scrollToTopOfResults } from 'utils/other'
+import { refreshView, scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.component'
 import InventoryCode from './inventory-code.component'
 import JSONValidator from './json-validator.component'
@@ -19,7 +19,7 @@ import Resources from './resources.component'
 import MeasuringCode from './measuring-code.component'
 import Licensing from './licensing.component'
 
-const abouturl = `${PUBLIC_PATH  }about`
+const abouturl = `${PUBLIC_PATH}about`
 
 const links = [
   {
@@ -39,10 +39,8 @@ const links = [
       {
         text: 'How to Inventory',
         route: '/compliance/inventory-code',
-        children: [
-          { text: 'Validate Schema', route: '/compliance/inventory-code/validate-schema' }
-        ]
-      },
+        children: [{ text: 'Validate Schema', route: '/compliance/inventory-code/validate-schema' }]
+      }
     ]
   },
   {
@@ -68,11 +66,9 @@ const pagesForSelect = [
   { display: 'Open Source Pilot - Tools and Resources', route: '/open-source/resources' },
   { display: 'Open Source Pilot - How to Measure', route: '/open-source/measuring-code' },
   { display: 'Open Source Pilot - Licensing', route: '/open-source/licensing' }
-]
-.map(({display, route}) => ({display, route: abouturl + route}))
+].map(({ display, route }) => ({ display, route: abouturl + route }))
 
 class AboutPage extends Component {
-
   componentDidMount() {
     refreshView()
     window.addEventListener('popstate', event => {
@@ -89,48 +85,55 @@ class AboutPage extends Component {
   render() {
     return (
       <div>
-        <SiteBanner title='ABOUT' />
-        <Breadcrumbs crumbs={[
-          { text: 'Home', to: '/' },
-          { text: 'About' }
-        ]}/>
-        <br/>
-        <div className='indented'>
-          <div className='show-w-lte-600' style={{padding: '30px', textAlign: 'center'}}>
+        <SiteBanner title="ABOUT" />
+        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'About' }]} />
+        <br />
+        <div className="indented">
+          <div className="show-w-lte-600" style={{ padding: '30px', textAlign: 'center' }}>
             <NavSelect pages={pagesForSelect} />
           </div>
-          <div className='width-quarter show-w-gt-600 sticky' >
+          <div className="width-quarter show-w-gt-600 sticky">
             <SideNav
-              alignment='left'
+              alignment="left"
               baseurl={abouturl}
               links={links}
               onLinkClick={::this.onNavChange}
             />
           </div>
-          <div className='docs-content'>
+          <div className="docs-content">
             <Switch>
+              <Route path={`${abouturl}/overview/introduction`} component={OverviewIntroduction} />
+              <Route
+                path={`${abouturl}/overview/tracking-progress`}
+                component={OverviewTrackingProgress}
+              />
+              <Redirect from={`${abouturl}/overview`} to={`${abouturl}/overview/introduction`} />
 
-              <Route path={`${abouturl}/overview/introduction`} component={OverviewIntroduction}/>
-              <Route path={`${abouturl}/overview/tracking-progress`} component={OverviewTrackingProgress}/>
-              <Redirect from={`${abouturl}/overview`} to={`${abouturl}/overview/introduction`}/>
+              <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
+              <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />
+              <Route
+                path={`${abouturl}/compliance/inventory-code/validate-schema`}
+                component={JSONValidator}
+              />
+              <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode} />
+              <Redirect from={`${abouturl}/compliance`} to={`${abouturl}/compliance/dashboard`} />
 
-              <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard}/>
-              <Route path={`${abouturl}/compliance/procurement`} component={Procurement}/>
-              <Route path={`${abouturl}/compliance/inventory-code/validate-schema`} component={JSONValidator}/>
-              <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode}/>
-              <Redirect from={`${abouturl}/compliance`} to={`${abouturl}/compliance/dashboard`}/>
-
-              <Route path={`${abouturl}/open-source/introduction`} component={OpenSourceIntroduction}/>
-              <Route path={`${abouturl}/open-source/resources`} component={Resources}/>
-              <Route path={`${abouturl}/open-source/measuring-code`} component={MeasuringCode}/>
-              <Route path={`${abouturl}/open-source/licensing`} component={Licensing}/>
-              <Redirect from={`${abouturl}/open-source`} to={`${abouturl}/open-source/introduction`}/>
-
+              <Route
+                path={`${abouturl}/open-source/introduction`}
+                component={OpenSourceIntroduction}
+              />
+              <Route path={`${abouturl}/open-source/resources`} component={Resources} />
+              <Route path={`${abouturl}/open-source/measuring-code`} component={MeasuringCode} />
+              <Route path={`${abouturl}/open-source/licensing`} component={Licensing} />
+              <Redirect
+                from={`${abouturl}/open-source`}
+                to={`${abouturl}/open-source/introduction`}
+              />
             </Switch>
           </div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
       </div>
     )
   }

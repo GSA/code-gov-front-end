@@ -1,7 +1,21 @@
 import React, { Fragment } from 'react'
-import { some } from '@code.gov/cautious'
+import CustomLink from 'components/custom-link'
+import { some, startsWith } from '@code.gov/cautious'
 
-import LinkPart from './link-part'
+function LinkPart({ name, onClick, url }) {
+  if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
+    return (
+      <a href={url} onClick={onClick} target="_blank" rel="noopener noreferrer">
+        {name}
+      </a>
+    )
+  }
+  return (
+    <CustomLink to={url} onClick={onClick}>
+      {name}
+    </CustomLink>
+  )
+}
 
 export default function SecondaryDropdown({ menuOption, onClick }) {
   if (some(menuOption.links)) {
@@ -18,6 +32,5 @@ export default function SecondaryDropdown({ menuOption, onClick }) {
       </ul>
     )
   }
-
   return <Fragment />
 }
