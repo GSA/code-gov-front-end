@@ -8,18 +8,6 @@
   "twitter": {
     "handle": "codedotgov"
   },
-  "plugins": [
-    {
-      "route": "/policy-guide",
-      "component": "@code.gov/fscp-react-component",
-      "filename": "policy-guide.js"
-    },
-    {
-      "route": "/about",
-      "component": "@code.gov/about-page",
-      "filename": "about-page.js"
-    }
-  ],
   "content": {
     "header": {
       "fork_me_url": "https://github.com/GSA/code-gov-front-end",
@@ -34,7 +22,7 @@
             { "name": "Overview", "url": "/about/overview/introduction" },
             { "name": "Compliance", "url": "/about/compliance/dashboard" },
             { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "/policy-guide/introduction" }
+            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
           ]
         },
         {
@@ -79,7 +67,7 @@
             { "name": "Overview", "url": "/about/overview/introduction" },
             { "name": "Compliance", "url": "/about/compliance/dashboard" },
             { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "/policy-guide/introduction" }
+            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
           ]
         },
         {
@@ -172,28 +160,28 @@
       ],
       "news": [
         {
-          "title": "OSS SPOTLIGHT: The U.S. Web Design System 2.0 from GSA",
-          "description": "USWDS 2.0, a new approach to design that saves time in upgrading websites or...",
-          "url": "https://medium.com/codedotgov/success-story-the-u-s-web-design-system-2-0-from-gsa-be66295b6e5f",
-          "date": "6/5/2019",
-          "image": "/assets/img/news/uswds.jpeg",
-          "alt": "A collection of wireframes"
+          "title": "New Guidance for Enterprise Data and Source Code Inventories (.pdf)",
+          "description": "OMB releases new guidance for tagging Artificial Intelligence (AI) digital assets…",
+          "url": "/assets/data/ai_inventory-guidance.pdf",
+          "date": "8/5/2019",
+          "image": "/assets/img/news/ai.jpg",
+          "alt": "Brain outlined in half circuits"
         },
         {
-          "title": "Developer’s Notes",
-          "description": "Here’s our most recent updates and changes on the Code.gov front end (v0.0.9)...",
-          "url": "https://medium.com/codedotgov/developers-notes-3-june-2019-ccfd12344621",
-          "date": "6/4/2019",
-          "image": "/assets/img/news/keyboard.jpeg",
-          "alt": "A keyboard on a desk"
+          "title": "Join the CIO.gov DEV/OPS Challenge!",
+          "description": "The federal government is looking for top IT talent to help modernize federal IT systems and you could be just the person we need...",
+          "url": "https://www.cio.gov/codechallenge/",
+          "date": "8/5/2019",
+          "image": "/assets/img/news/keyboard_user.jpg",
+          "alt": "Person sitting at computer"
         },
         {
-          "title": "GSA Customer Experience Hackathon",
-          "description": "A day focused on designing a better customer experience with and within government...",
-          "url": "https://www.challenge.gov/challenge/gsa-hackathon-2019/",
-          "date": "6/19/2019",
-          "image": "/assets/img/news/GSA-Hackathon-logo.png",
-          "alt": "GSA Hackathon 2019"
+          "title": "Building Off Feedback: A Re-Design of Code.gov",
+          "description": "We put our creative heads together for the next edition of Code.gov....",
+          "url": "https://medium.com/@CodeDotGov/building-off-feedback-a-re-design-of-code-gov-63a7859d79d5",
+          "date": "7/2/2019",
+          "image": "/assets/img/news/redesign.jpeg",
+          "alt": "Website planning. Web designer working on website sitemap"
         }
       ],
       "about": [
@@ -360,7 +348,7 @@
         },
         {
           "name": "Create community metrics tool to surface open source repo data",
-          "status": "null"
+          "status": "Released"
         },
         { "name": "Launch Open Source Playbook/Toolkit", "status": "In Progress" },
         { "name": "Move blog from Medium to Code.gov platform", "status": "null" },

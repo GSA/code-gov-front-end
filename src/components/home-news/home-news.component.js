@@ -11,7 +11,9 @@ export default class HomeNews extends Component {
               <li className="news-item" key={news.title}>
                 <div className="news-content">
                   <h1>
-                    <a href={news.url}>{news.title}</a>
+                    <a href={news.url} target="_blank" rel="noopener noreferrer">
+                      {news.title}
+                    </a>
                   </h1>
                   <p>{news.description}</p>
                   <time>{news.date}</time>

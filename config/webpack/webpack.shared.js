@@ -1,16 +1,14 @@
-const { copyFileSync, readFileSync } = require('fs')
 const { dirname, join } = require('path')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
-const EventHooksPlugin = require('event-hooks-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sass = require('sass')
-const get = require('lodash.get')
-const { map } = require('@code.gov/cautious')
-const { copyOverPluginIfNecessary } = require('./webpack.utils')
+const autoprefixer = require('autoprefixer')
+const mqpacker = require('css-mqpacker')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
@@ -48,16 +46,6 @@ console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSO
 /* eslint-disable import/no-dynamic-require */
 const SITE_CONFIG = require(siteConfigPath)
 
-const { plugins } = SITE_CONFIG
-console.log('plugins:', plugins)
-const pluginsDir = join(rootDir, '/src/components/plugins')
-
-const loadPlugins = () => {
-  if (Array.isArray(plugins)) {
-    plugins.map(plugin => copyOverPluginIfNecessary(plugin, nodeModulesDir, pluginsDir))
-  }
-}
-loadPlugins()
 const patterns = [
   {
     from: './assets/data',
@@ -68,8 +56,8 @@ const patterns = [
     to: join(OUTPUT_PATH, '/assets/img')
   },
   {
-    from: './assets/plugins',
-    to: join(OUTPUT_PATH, '/assets/plugins')
+    from: './src/components/about-page/html',
+    to: join(OUTPUT_PATH, '/src/components/about-page/html')
   },
   {
     from: './404.html',
@@ -164,14 +152,30 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(s*)css$/,
         use: [
-          'style-loader', // creates style nodes from JS strings
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+            options: {
+              sourceMap: true
+            }
+          },
           'css-loader', // translates CSS into CommonJS
+          {
+            loader: 'postcss-loader', // adds vendor prefixing
+            options: {
+              indent: 'postcss',
+              parser: 'postcss-scss',
+              sourceMap: true,
+              plugins: [autoprefixer({ grid: true })],
+              mqpacker
+            }
+          },
           {
             loader: 'sass-loader', // compiles Sass to CSS
             options: {
-              implementation: sass
+              implementation: sass,
+              sourceMap: true
             }
           }
         ]
@@ -212,11 +216,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new EventHooksPlugin({
-      beforeCompile: () => {
-        loadPlugins()
-      }
-    }),
     new DefinePlugin({
       ENABLE_GOOGLE_ANALYTICS: process.env.CODE_GOV_BRANCH === 'federalist-prod',
       PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
@@ -225,12 +224,7 @@ module.exports = {
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
-    new FaviconsWebpackPlugin({
-      logo: './assets/img/favicon.png',
-      icons: {
-        appleStartup: false
-      }
-    }),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       hash: true,
       template: 'index.html',
@@ -240,6 +234,22 @@ module.exports = {
       title: 'code.gov',
       minify: {
         removeScriptTypeAttributes: true
+      }
+    }),
+    new AppManifestWebpackPlugin({
+      emitStats: true,
+      logo: './assets/img/favicon.png',
+      icons: {
+        appleStartup: false
+      },
+      inject: true,
+      prefix: '/assets/img/favicons',
+      output: './assets/img/favicons/',
+      config: {
+        favicons: true,
+        firefox: true,
+        windows: true,
+        yandex: false
       }
     })
   ],

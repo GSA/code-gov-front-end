@@ -1,0 +1,85 @@
+<h2 id="examplecodejsonfile">Example code.json file</h2>
+<p>
+  We've created some
+  <a href="https://github.com/GSA/code-gov/blob/master/METADATA_EXAMPLES.md"
+    >good metadata examples</a
+  >
+</p>
+<h2 id="tools">Tools</h2>
+<ul>
+  <li>
+    <p>
+      <a
+        class="default-link"
+        href="https://code.gov/about/compliance/inventory-code/validate-schema"
+        >Schema Validator</a
+      >
+    </p>
+    <p>
+      A tool for validating your code.json against v2.0.0 schemas. After entering in your code.json,
+      it will list and highlight issues and provide a JSON editor for making changes to the file.
+    </p>
+  </li>
+</ul>
+<h2 id="changeloghttpsgithubcomgsacodegovdatablobmasterchangelogmd">
+  <a href="https://github.com/GSA/code-gov-data/blob/master/CHANGELOG.md">Changelog</a>
+</h2>
+<h3 id="august2017version200">August 2017 - Version 2.0.0</h3>
+<p>
+  This revision includes revisions to incorporate the open source measurement requirement,
+  improvements and clarifications on previous versions of schema content.
+</p>
+<h4 id="added">Added</h4>
+<ul>
+  <li>
+    'openSourceMeasureType' - The source code policy requires that 20% of an agency's code inventory
+    must be made available as open-source. In order to do so, agencies must (1) identify a method
+    for measuring the 20% metric and (2) apply the measurement method to the total enterprise code
+    inventory to establish a baseline.
+  </li>
+  <li>Start using "changelog.md" to track changes to the official schema file.</li>
+  <li>
+    'permissions' - includes details about usage/licensing, replaces the
+    openSourceProject/governmentWideReuseProject.
+  </li>
+  <li>
+    'measurementType' - agencies can choose from a list of enumerated descriptions of how they
+    measure the 20% requirement.
+  </li>
+  <li>'disclaimerText' - includes short, paragraph-long disclaimer language.</li>
+  <li>'disclaimerURL' - link to disclaimer language.</li>
+  <li>'laborHours' - number of hours involved in building the release.</li>
+  <li>'relatedCode' - array of related source code repositories.</li>
+  <li>'reusedCode' - array of government software used in the release.</li>
+  <li>'version' - added versioning to releases</li>
+</ul>
+<h4 id="changed">Changed</h4>
+<ul>
+  <li>
+    'releases' - changed from 'projects' to reflect types of repositories that should be listed.
+  </li>
+  <li>
+    'licenses' - changed license from a URL string to an object which includes a URL and a name.
+    <ul>
+      <li>'repositoryURL' - changed from 'repository' for consistency.</li>
+      <li>'homepageURL' - changed from 'homepage' for consistency.</li>
+      <li>'exemptionText' - now included within the 'permissions' object.</li>
+      <li>
+        'date' - changed from 'updated' object; removed metadataLastUpdated, lastCommit, and
+        sourceCodeLastModified and replaced with created, lastModified, and metadataLastUpdated
+      </li>
+    </ul>
+  </li>
+</ul>
+<h4 id="removed">Removed</h4>
+<ul>
+  <li>'openSourceProject'</li>
+  <li>'governmentWideReuseProject'</li>
+  <li>
+    'exemption' - now included within the enumerated usageType options in the 'permissions' object.
+  </li>
+</ul>
+<p>
+  Previous schema revisions found in
+  <a href="https://github.com/GSA/code-gov-data/blob/master/schemas/CHANGELOG.md">Changelog</a>
+</p>

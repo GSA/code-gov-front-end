@@ -13,15 +13,10 @@
     }
   }
   button {
-    margin-top: 1.5rem;
-    margin-right: 5px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin: 1.5rem 5px 0 0;
   }
 
-
   .repo-container {
-
     code {
       background-color: $brand-blue-gray;
       border-radius: 3px;
@@ -43,21 +38,18 @@
   }
 
   .repo-actions {
-
     li {
       display: inline-block;
     }
   }
 
   .repo-features {
-    margin-top: 1.5rem;
-    margin-right: 0px;
-    margin-bottom: 2rem;
-    margin-left: 0px;
+    margin: 1.5rem 0 2rem 0;
     width: 100%;
     border-bottom: 1px lightgray solid;
 
-    li,span.li {
+    li,
+    span.li {
       display: inline;
       color: $brand-blue-dark;
       margin-right: 2em;
@@ -68,7 +60,6 @@
   }
 
   .repo-header-container {
-
     h1 {
       margin: 0 0 0.25em;
     }
@@ -97,15 +88,11 @@
 
   .icon {
     color: $brand-blue;
-    margin-top: 0pxm;
-    margin-right: 0px;
-    margin-bottom: .7rem;
-    margin-left: 0px;
+    margin: 0 0 0.7rem 0;
     padding: 0;
     padding-right: 1.1em;
     padding-bottom: 1.1em;
   }
-
 
   .language.last {
     .comma {

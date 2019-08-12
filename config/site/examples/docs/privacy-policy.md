@@ -1,10 +1,11 @@
-# Privacy Policy
-## PROTECTING PRIVACY AND SECURITY
+# Web Policies
 
+## PROTECTING PRIVACY AND SECURITY
 
 Protecting the privacy and security of individuals’ personal information is very important to us. We do not collect any information that directly identifies you when you visit Code.gov unless you choose to provide that information by contacting us. However, the website may collect a limited amount of information about your visit for the purposes of website analytics and customization. Please read this notice to understand what we do with the limited amount of information about your visit that we may collect.
 
 ### Information Collected and Stored Automatically
+
 We collect limited information about visits to Code.gov. This information is used to measure the number of visitors to the various sections of our website and to identify performance or problem areas. We also use this information to help us develop the site, analyze patterns of usage, and to make the site more useful. We do not share or sell visitor data for the purposes of advertising, marketing, or any other commercial purpose. This information is not used for associating search terms or patterns of site navigation with individual users. The information that is automatically collected and stored concerning your visit includes:
 
 - The domain from which you access the Internet (i.e., HHS.gov if you are connecting from a HHS account, or GMU.edu if you are connecting from George Mason University’s domain);
@@ -17,15 +18,18 @@ We collect limited information about visits to Code.gov. This information is use
 - Any search terms that you may enter when searching Code.gov.
 
 ### How Code.gov uses Cookies
+
 When you visit a website, its server may generate a piece of text known as a “cookie” to place on your device. The cookie, which is unique to your browser, allows the server to “remember” specific information about your visit while you are connected.
 
 There are two types of cookies – single session (temporary) and multi-session (persistent). Single session cookies last only as long as your Web browser is open. Once you close your browser, the session cookie disappears. Persistent cookies are stored on your device for longer periods. Both types of cookies create an identifier that is unique to your device. The Office of Management and Budget Memorandum M-10-22, Guidance for Online Use of Web Measurement and Customization Technologies, allows Federal entities to use both session and persistent cookies to improve the delivery of services.
+
 - Session Cookies: We may use session cookies for technical purposes, such as to allow better navigation through our site. These cookies let our server know that you are continuing a visit to our site. Our use of session cookies qualifies as “Usage Tier 1–Single Session,” as defined in the OMB M-10-22 guidance.
 - Persistent Cookies: We may use persistent cookies to understand the differences between new and returning visitors to Code.gov. Persistent cookies remain on your device between visits to our site until they expire or are removed by the user. Our use of persistent cookies qualifies as “Usage Tier 2–Multi-session without personally identifiable information,” as defined in the OMB M-10-22 guidance. The policy states, “This tier encompasses any use of multi-session Web measurement and customization technologies when no [personally identifiable information] is collected.” We do not use persistent cookies to collect personally identifiable information.
 
 If you do not want to accept cookies, you can edit your browser’s options to stop accepting persistent cookies or to prompt you before accepting a cookie from the websites you visit. Here are instructions for how you can disable cookies and/or Google Demographic and Interests reports.
 
 ### Google Analytics
+
 Code.gov participates in the U.S. Digital Analytics Program, (DAP) which utilizes a unified Google Analytics account for Federal agencies. This program helps Federal agencies understand how people find, access, and use government services online.
 
 The DAP is a hosted shared service provided by the General Services Administration’s (GSA’s) Office of Citizen Services and Innovative Technologies, and the protocol and information collected are the same for all websites participating in the DAP. As a participant in GSA’s DAP program, this website’s Google Analytics traffic data is automatically reported to GSA.
@@ -42,20 +46,38 @@ Visitors who choose to disable this web measurement tool will still have full ac
 
 You can view web metrics information at [https://analytics.usa.gov](https://analytics.usa.gov/).
 
-
 ### Contacting the Office of the Federal Chief Information Officer about Code.gov
+
 Users of this website may send the Office of the Federal Chief Information Officer feedback or report an issue by sending an email to code@gsa.gov. If you choose to send us your personally identifiable information, we will only use that information to respond to your message. We only share the information you give us with another government agency if your question relates to that agency, or as otherwise required by law. Code.gov never collects information or creates individual profiles for the purposes of advertising, marketing, or any other commercial purpose. When you contact us, any personally identifiable information you provide is voluntary. Please do not include sensitive personally identifiable information or other sensitive information in the content of your email.
 
-
 ### Children and Privacy on Code.gov
+
 We believe in the importance of protecting the privacy of children online. The Children’s Online Privacy Protection Act (COPPA) governs information gathered online from or about children under the age of 13. This site is not intended to solicit or collection information of any kind from children under age 13. If you believe that we have received information from a child under age 13, please contact us at code@gsa.gov.
 
 ### Security
+
 This website was built using GitHub Pages, a service provided by GitHub, Inc. [GitHub](https://help.github.com/articles/github-terms-of-service/) designed to enable the rapid deployment of government websites in a secure and readily accessible environment.
 
-The terms of service applicable to Federal users of [GitHub](https://help.github.com/articles/github-terms-of-service/) states that it “will, in good faith, exercise due diligence using generally accepted commercial business practices for IT security, to ensure that systems are operated and maintained in a secure manner, and that management, operational and technical controls will be employed to ensure security of systems and data. Recognizing the changing nature of the Web, [GitHub](https://help.github.com/articles/github-terms-of-service/)  will continuously work with users to ensure that its products and services are operated and maintained in a secure manner. [GitHub](https://help.github.com/articles/github-terms-of-service/) agrees to discuss implementing additional security controls as deemed necessary by the Agency to conform to the Federal Information Security Management Act (FISMA), 44 U.S.C. 3541 et seq.”
+The terms of service applicable to Federal users of [GitHub](https://help.github.com/articles/github-terms-of-service/) states that it “will, in good faith, exercise due diligence using generally accepted commercial business practices for IT security, to ensure that systems are operated and maintained in a secure manner, and that management, operational and technical controls will be employed to ensure security of systems and data. Recognizing the changing nature of the Web, [GitHub](https://help.github.com/articles/github-terms-of-service/) will continuously work with users to ensure that its products and services are operated and maintained in a secure manner. [GitHub](https://help.github.com/articles/github-terms-of-service/) agrees to discuss implementing additional security controls as deemed necessary by the Agency to conform to the Federal Information Security Management Act (FISMA), 44 U.S.C. 3541 et seq.”
 
 We encourage you to visit [GitHub](https://help.github.com/articles/github-terms-of-service/) if you have additional questions about the service.
 
-### Questions about the Privacy Policy
+### Linking Policy
+
+The pages on code.gov may include hypertext links or pointers to information created and maintained by other public and private organizations. GSA provides these links and pointers solely for our visitors' information and convenience. When visitors select a link to an outside website, they are leaving the code.gov site and are subject to the privacy and security policies of the owners/sponsors of the outside website.
+
+The inclusion of links and pointers to websites is not intended to assign importance to those sites or to the information contained on those sites. It is also not intended to endorse or recommend any views expressed or products or services offered on these sites.
+
+GSA does not control or guarantee the accuracy, relevance, timeliness or completeness of information contained on a linked website.
+
+GSA does not endorse the organizations sponsoring linked websites, and does not endorse the views they express or the products/services they offer.
+
+GSA cannot authorize the use of copyrighted materials contained in linked websites. Visitors must request such authorization from the sponsor of the linked website.
+
+GSA is not responsible for transmissions visitors receive from linked websites.
+
+GSA does not guarantee that outside websites comply with Section 508 (Accessibility Requirements) of the Rehabilitation Act.
+
+### Questions about these policies
+
 Write to the Code.gov team at: [code@gsa.gov](mailto:code@gsa.gov)

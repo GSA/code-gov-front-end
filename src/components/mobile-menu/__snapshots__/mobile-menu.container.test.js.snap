@@ -19,7 +19,7 @@ Object {
         },
         Object {
           "name": "Source Code Policy",
-          "url": "/policy-guide/introduction",
+          "url": "https://sourcecode.cio.gov/",
         },
       ],
       "name": "About",
