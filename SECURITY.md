@@ -20,7 +20,7 @@ We require that you:
 
 This policy applies to the following systems:
 
-* [`code.gov`](https://code.gov)
+* [`code.gov`](https://code.gov) and the following subdomains: `developers.code.gov`, `api.code.gov`
 * Non-public data on public third-party services - TTS utilizes a number of third-party services to support its in-public work model.  While non-public data published publically on those services is in scope, testing those services is **not** in scope.
 
 **Any services not expressly listed above, such as any connected services, are excluded from scope** and are not authorized for testing. Additionally, vulnerabilities found in non-federal systems from our vendors fall outside of this policy's scope and should be reported directly to the vendor according to their disclosure policy (if any). If you aren't sure whether a system or endpoint is in scope or not, contact us at [`tts-vulnerability-reports@gsa.gov`](mailto:tts-vulnerability-reports@gsa.gov) before starting your research.
