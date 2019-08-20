@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const sass = require('sass')
 const autoprefixer = require('autoprefixer')
 const mqpacker = require('css-mqpacker')
@@ -54,6 +55,18 @@ const patterns = [
   {
     from: './assets/img',
     to: join(OUTPUT_PATH, '/assets/img')
+  },
+  {
+    from: './styles/uswds/img',
+    to: join(OUTPUT_PATH, '/uswds/img')
+  },
+  {
+    from: './styles/uswds/js',
+    to: join(OUTPUT_PATH, '/uswds/js')
+  },
+  {
+    from: './styles/uswds/fonts',
+    to: join(OUTPUT_PATH, '/uswds/fonts')
   },
   {
     from: './src/components/about-page/html',
@@ -235,6 +248,13 @@ module.exports = {
       minify: {
         removeScriptTypeAttributes: true
       }
+    }),
+    new OptimizeCSSAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }]
+      },
+      canPrint: true
     }),
     new AppManifestWebpackPlugin({
       emitStats: true,
