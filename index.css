@@ -29606,6 +29606,9 @@ header.main nav .mobile-menu {
     top: calc(50px + 40px);
   }
 }
+header.main nav ul {
+  margin-left: 4rem;
+}
 header.main nav ul li a svg {
   float: left;
 }
