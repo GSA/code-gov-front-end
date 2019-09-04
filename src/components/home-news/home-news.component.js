@@ -18,12 +18,10 @@ export default class HomeNews extends Component {
                   <p>{news.description}</p>
                   <time>{news.date}</time>
                 </div>
-                <div>
                   <picture className="news-image">
                     <source srcSet={news.image} media="min-width: 800px" />
                     <img src={news.image} alt={news.alt} className="news-image" />
                   </picture>
-                </div>
               </li>
             ))}
         </ul>

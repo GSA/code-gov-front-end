@@ -7,7 +7,7 @@
       padding: 0 3rem;
     }  
   }
-  
+
   h2 {
     padding-top: 3rem;
     text-align: center;
@@ -44,9 +44,7 @@
   }
 
   @media screen and (min-width: $medium-screen) {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 60px 3fr;
+    display: flex;
 
     & :first-child {
       order: 10;
@@ -54,7 +52,12 @@
 
     img {
       display: block;
-      margin-top: 1.5em;
+      margin: 1.5em 1em 0 0;
+      height: 56px;
+    }
+
+    p {
+      flex-grow: 3;
     }
   }
 }
