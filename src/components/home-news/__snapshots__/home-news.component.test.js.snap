@@ -2,7 +2,7 @@
 
 exports[`components - HomeNews should render correctly 1`] = `
 <section
-  className="news"
+  className="news tablet:grid-col-6"
 >
   <h2>
     Open Source News & Events
@@ -31,21 +31,19 @@ exports[`components - HomeNews should render correctly 1`] = `
           dt1
         </time>
       </div>
-      <div>
-        <picture
+      <picture
+        className="news-image"
+      >
+        <source
+          media="min-width: 800px"
+          srcSet="i1"
+        />
+        <img
+          alt="alt1"
           className="news-image"
-        >
-          <source
-            media="min-width: 800px"
-            srcSet="i1"
-          />
-          <img
-            alt="alt1"
-            className="news-image"
-            src="i1"
-          />
-        </picture>
-      </div>
+          src="i1"
+        />
+      </picture>
     </li>
     <li
       className="news-item"
@@ -70,21 +68,19 @@ exports[`components - HomeNews should render correctly 1`] = `
           dt2
         </time>
       </div>
-      <div>
-        <picture
+      <picture
+        className="news-image"
+      >
+        <source
+          media="min-width: 800px"
+          srcSet="i2"
+        />
+        <img
+          alt="alt2"
           className="news-image"
-        >
-          <source
-            media="min-width: 800px"
-            srcSet="i2"
-          />
-          <img
-            alt="alt2"
-            className="news-image"
-            src="i2"
-          />
-        </picture>
-      </div>
+          src="i2"
+        />
+      </picture>
     </li>
     <li
       className="news-item"
@@ -109,22 +105,20 @@ exports[`components - HomeNews should render correctly 1`] = `
           dt3
         </time>
       </div>
-      <div>
-        <picture
+      <picture
+        className="news-image"
+      >
+        <source
+          media="min-width: 800px"
+          srcSet="i3"
+        />
+        <img
+          alt="alt3"
           className="news-image"
-        >
-          <source
-            media="min-width: 800px"
-            srcSet="i3"
-          />
-          <img
-            alt="alt3"
-            className="news-image"
-            src="i3"
-          />
-        </picture>
-      </div>
+          src="i3"
+        />
+      </picture>
     </li>
   </ul>
 </section>
-`
+`;

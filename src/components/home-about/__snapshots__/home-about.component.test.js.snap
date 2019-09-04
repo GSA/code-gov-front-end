@@ -2,7 +2,7 @@
 
 exports[`components - HomeAbout should render correctly 1`] = `
 <section
-  className="about"
+  className="about tablet:grid-col-6"
   id="about"
 >
   <header>
@@ -50,4 +50,4 @@ exports[`components - HomeAbout should render correctly 1`] = `
     </li>
   </ul>
 </section>
-`
+`;

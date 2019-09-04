@@ -6,10 +6,10 @@ exports[`components - HomeExplore should render correctly 1`] = `
   id="explore"
 >
   <ul
-    className="explore-actions"
+    className="explore-actions grid-row"
   >
     <li
-      className="explore-action"
+      className="explore-action tablet:grid-col-4"
       key="t1"
     >
       <div>
@@ -43,7 +43,7 @@ exports[`components - HomeExplore should render correctly 1`] = `
       </div>
     </li>
     <li
-      className="explore-action"
+      className="explore-action tablet:grid-col-4"
       key="t2"
     >
       <div>
@@ -77,7 +77,7 @@ exports[`components - HomeExplore should render correctly 1`] = `
       </div>
     </li>
     <li
-      className="explore-action"
+      className="explore-action tablet:grid-col-4"
       key="t3"
     >
       <div>
@@ -112,4 +112,4 @@ exports[`components - HomeExplore should render correctly 1`] = `
     </li>
   </ul>
 </section>
-`
+`;
