@@ -20,9 +20,9 @@ export default class HomeComponent extends React.Component {
     return (
       <Fragment>
         <HomeBanner />
-        <div className="home-container">
+        <div className="home-container grid-container">
           <HomeExplore />
-          <div className="grid-half">
+          <div className="grid-row grid-gap">
             <HomeAbout />
             <HomeNews />
           </div>

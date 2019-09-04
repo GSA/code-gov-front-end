@@ -1,8 +1,15 @@
 .about {
   background-color: $brand-blue-light;
-  padding: 3rem;
+  background-clip: content-box;
 
+  header {
+    p {
+      padding: 0 3rem;
+    }  
+  }
+  
   h2 {
+    padding-top: 3rem;
     text-align: center;
   }
 
@@ -14,6 +21,10 @@
 
   h3 {
     text-transform: uppercase;
+  }
+
+  ul {
+    padding: 0 3rem;
   }
 
   li {

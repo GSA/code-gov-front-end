@@ -5,10 +5,10 @@ export default class HomeExplore extends React.Component {
   render() {
     return (
       <section id="explore" className="explore">
-        <ul className="explore-actions">
+        <ul className="explore-actions grid-row">
           {this.props.exploreItems &&
             this.props.exploreItems.map(item => (
-              <li className="explore-action" key={item.title}>
+              <li className="explore-action .tablet:grid-col-4" key={item.title}>
                 <div>
                   <h2>{item.title}</h2>
                   <p dangerouslySetInnerHTML={{ __html: item.description }} />
