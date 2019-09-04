@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class HomeNews extends Component {
   render() {
     return (
-      <section className="news .tablet:grid-col-6">
+      <section className="news tablet:grid-col-6">
         <h2>Open Source News & Events</h2>
         <ul>
           {this.props.newsItems &&

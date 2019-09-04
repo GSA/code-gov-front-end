@@ -8,7 +8,7 @@ export default class HomeExplore extends React.Component {
         <ul className="explore-actions grid-row">
           {this.props.exploreItems &&
             this.props.exploreItems.map(item => (
-              <li className="explore-action .tablet:grid-col-4" key={item.title}>
+              <li className="explore-action tablet:grid-col-4" key={item.title}>
                 <div>
                   <h2>{item.title}</h2>
                   <p dangerouslySetInnerHTML={{ __html: item.description }} />
