@@ -1,10 +1,41 @@
-@mixin add-bar($weight: 1, $color: 'ink', $side: 'left', $radius: 0, $offset-x: 0, $offset-y: 0) {
-  $weight: if($weight == null, 1, $weight);
-  $color: if($color == null, 'ink', $color);
-  $side: if($side == null, 'left', $side);
-  $radius: if($radius == null, 0, $radius);
-  $offset-x: if($offset-x == null, 0, $offset-x);
-  $offset-y: if($offset-y == null, 0, $offset-y);
+@mixin add-bar(
+  $weight: 1,
+  $color: 'ink',
+  $side: 'left',
+  $radius: 0,
+  $offset-x: 0,
+  $offset-y: 0
+) {
+  $weight: if(
+    $weight == null,
+    1,
+    $weight
+  );
+  $color: if(
+    $color == null,
+    'ink',
+    $color
+  );
+  $side: if(
+    $side == null,
+    'left',
+    $side
+  );
+  $radius: if(
+    $radius == null,
+    0,
+    $radius
+  );
+  $offset-x: if(
+    $offset-x == null,
+    0,
+    $offset-x
+  );
+  $offset-y: if(
+    $offset-y == null,
+    0,
+    $offset-y
+  );
 
   position: relative;
 
@@ -20,7 +51,9 @@
       top: units($offset-y);
       width: units($weight);
       #{unquote($side)}: units($offset-x);
-    } @else {
+    }
+
+    @else {
       height: units($weight);
       left: units($offset-x);
       right: units($offset-x);

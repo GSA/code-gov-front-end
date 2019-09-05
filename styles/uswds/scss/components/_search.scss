@@ -11,11 +11,11 @@
   @include typeset($theme-search-font-family);
   position: relative;
 
-  [role='search'] {
+  [role=search] {
     display: flex;
   }
 
-  [type='submit'] {
+  [type=submit] {
     @include search-icon;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -35,7 +35,7 @@
 .usa-search--big {
   $height: units(6);
 
-  [type='search'],
+  [type=search],
   .usa-search__input {
     @include at-media('mobile-lg') {
       font-size: font-size($theme-search-font-family, 'sm');
@@ -43,7 +43,7 @@
     }
   }
 
-  [type='submit'],
+  [type=submit],
   .usa-search__submit {
     @include at-media('mobile-lg') {
       @include u-padding-x(4);
@@ -55,7 +55,7 @@
 }
 
 .usa-search--small {
-  [type='submit'],
+  [type=submit],
   .usa-search__submit {
     @include at-media('mobile-lg') {
       @include search-icon;
@@ -65,13 +65,12 @@
 }
 
 // Extra specificity to override rules set in normalize.css.
-input[type='search'] {
-  /* stylelint-disable-line selector-no-qualifying-type */
+input[type=search] { /* stylelint-disable-line selector-no-qualifying-type */
   box-sizing: border-box;
   appearance: none;
 }
 
-[type='search'],
+[type=search],
 .usa-search__input {
   @include u-padding-y(0);
   border-bottom-right-radius: 0;

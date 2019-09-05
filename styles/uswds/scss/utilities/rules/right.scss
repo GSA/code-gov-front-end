@@ -20,9 +20,12 @@ $u-right: (
   right: (
     base: 'right',
     modifiers: null,
-    values: map-collect(get-palettes($right-palettes), $right-manual-values),
+    values: map-collect(
+      get-palettes($right-palettes),
+      $right-manual-values
+    ),
     settings: $right-settings,
     property: 'right',
-    type: 'utility'
+    type: 'utility',
   )
 );

@@ -19,22 +19,19 @@ $u-border-width: (
     base: 'border',
     modifiers: (
       'width': '-width',
-      'y-width': (
-        '-top-width',
-        '-bottom-width'
-      ),
-      'x-width': (
-        '-left-width',
-        '-right-width'
-      ),
+      'y-width': ('-top-width', '-bottom-width'),
+      'x-width': ('-left-width', '-right-width'),
       'top-width': '-top-width',
       'right-width': '-right-width',
       'bottom-width': '-bottom-width',
-      'left-width': '-left-width'
+      'left-width': '-left-width',
     ),
-    values: map-collect(get-palettes($border-width-palettes), $border-width-manual-values),
+    values: map-collect(
+      get-palettes($border-width-palettes),
+      $border-width-manual-values
+    ),
     settings: $border-width-settings,
     property: 'border',
-    type: 'utility'
+    type: 'utility',
   )
 );

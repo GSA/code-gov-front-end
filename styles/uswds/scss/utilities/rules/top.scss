@@ -20,9 +20,12 @@ $u-top: (
   top: (
     base: 'top',
     modifiers: null,
-    values: map-collect(get-palettes($top-palettes), $top-manual-values),
+    values: map-collect(
+      get-palettes($top-palettes),
+      $top-manual-values
+    ),
     settings: $top-settings,
     property: 'top',
-    type: 'utility'
+    type: 'utility',
   )
 );

@@ -18,9 +18,12 @@ $u-cursor: (
   cursor: (
     base: 'cursor',
     modifiers: null,
-    values: map-collect(get-palettes($cursor-palettes), $cursor-manual-values),
+    values: map-collect(
+      get-palettes($cursor-palettes),
+      $cursor-manual-values
+    ),
     settings: $cursor-settings,
     property: 'cursor',
-    type: 'utility'
+    type: 'utility',
   )
 );

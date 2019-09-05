@@ -20,9 +20,12 @@ $u-justify-content: (
   justify-content: (
     base: 'flex',
     modifiers: null,
-    values: map-collect(get-palettes($justify-content-palettes), $justify-content-manual-values),
+    values: map-collect(
+      get-palettes($justify-content-palettes),
+      $justify-content-manual-values
+    ),
     settings: $justify-content-settings,
     property: 'justify-content',
-    type: 'utility'
+    type: 'utility',
   )
 );

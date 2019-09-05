@@ -112,6 +112,6 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
   @include accordion-button-styles;
 }
 
-.usa-accordion__button[aria-expanded='false'] {
+.usa-accordion__button[aria-expanded=false] {
   @include accordion-button-unopened-styles;
 }

@@ -18,9 +18,12 @@ $u-align-items: (
   align-items: (
     base: 'flex',
     modifiers: null,
-    values: map-collect(get-palettes($align-items-palettes), $align-items-manual-values),
+    values: map-collect(
+      get-palettes($align-items-palettes),
+      $align-items-manual-values
+    ),
     settings: $align-items-settings,
     property: 'align-items',
-    type: 'utility'
+    type: 'utility',
   )
 );
