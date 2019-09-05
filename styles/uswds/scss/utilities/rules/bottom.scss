@@ -20,9 +20,12 @@ $u-bottom: (
   bottom: (
     base: 'bottom',
     modifiers: null,
-    values: map-collect(get-palettes($bottom-palettes), $bottom-manual-values),
+    values: map-collect(
+      get-palettes($bottom-palettes),
+      $bottom-manual-values
+    ),
     settings: $bottom-settings,
     property: 'bottom',
-    type: 'utility'
+    type: 'utility',
   )
 );

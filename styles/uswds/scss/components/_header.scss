@@ -2,14 +2,27 @@
 // ---------------------------------
 
 @mixin nav-border-extended {
-  @include add-bar(0.5, 'primary', 'bottom', 0, 2);
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2
+  );
 }
 
 @mixin nav-border-basic {
-  @include add-bar(0.5, 'primary', 'bottom', 0, 2, -0.5);
+  @include add-bar(
+    0.5,
+    'primary',
+    'bottom',
+    0,
+    2,
+    -0.5
+  );
 }
 
-$z-index-header: 300;
+$z-index-header:  300;
 $z-index-overlay: 400;
 
 // Header
@@ -33,7 +46,7 @@ $z-index-overlay: 400;
   }
 
   // Accessibility: The <div> with search role
-  [role='search'] {
+  [role=search] {
     @include at-media($theme-navigation-width) {
       float: right;
       max-width: calc(#{$theme-search-min-width} + #{units($theme-button-small-width)});
@@ -42,7 +55,7 @@ $z-index-overlay: 400;
   }
 
   // The search <input>
-  [type='search'] {
+  [type=search] {
     min-width: 0; // Fix a Firefox display quirk
   }
 
@@ -157,7 +170,7 @@ $z-index-overlay: 400;
     }
 
     .usa-current,
-    [aria-expanded='true'],
+    [aria-expanded=true],
     .usa-nav__link:hover {
       @include nav-border-basic;
     }
@@ -192,7 +205,7 @@ $z-index-overlay: 400;
     padding-top: 0;
 
     .usa-current,
-    [aria-expanded='true'],
+    [aria-expanded=true],
     .usa-nav__link:hover {
       @include nav-border-extended;
     }

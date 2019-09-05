@@ -1,5 +1,9 @@
 .usa-form {
-  @include typeset($theme-form-font-family, $theme-body-font-size, $theme-input-line-height);
+  @include typeset(
+    $theme-form-font-family,
+    $theme-body-font-size,
+    $theme-input-line-height
+  );
   @include border-box-sizing;
 }
 

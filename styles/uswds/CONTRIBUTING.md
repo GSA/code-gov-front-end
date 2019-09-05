@@ -6,7 +6,7 @@ TTS is committed to building a safe, welcoming, harassment-free culture for ever
 
 We encourage you to read this project’s CONTRIBUTING policy (you are here), its [LICENSE](LICENSE.md), [README](README.md) and its [Workflow](https://github.com/uswds/uswds/wiki/Workflow) process.
 
-If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy), or [send us an email](mailto:18f@gsa.gov).
+If you have any questions or want to read more, check out the [18F Open Source Policy GitHub repository]( https://github.com/18f/open-source-policy), or [send us an email](mailto:18f@gsa.gov).
 
 ## Guidelines
 
@@ -24,7 +24,7 @@ Here are a few guidelines to follow when submitting a pull request:
 
 1. Create a GitHub account or sign in to your existing account.
 1. Fork this repo into your GitHub account (or just clone it if you’re an 18F team member). Read more about forking a repo here on GitHub:
-   [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
+[https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/)
 1. Create a branch from `develop` that lightly defines what you’re working on (for example, add-styles).
 1. Ensure that your contribution works via `npm`, if applicable.
 1. Once you’re ready to submit a pull request, fill out the PULL REQUEST template provided.
@@ -74,14 +74,16 @@ npm test
 
 This will also run [eslint] and [stylelint] to ensure that the JavaScript
 and SCSS source files meet our coding standards along with [snyk test] to check for package dependency vulnerabilities. To lint without the unit
-tests, you'll need [Gulp][]. Install it globally (`npm install -g gulp-cli`), then run:
+tests, you'll need [Gulp][]. Install it globally (`npm install -g
+gulp-cli`), then run:
 
 ```sh
 gulp eslint
 gulp stylelint
 ```
 
-(Or, if you don't want to install Gulp globally, you can run `$(npm bin)/gulp` instead of `gulp`.)
+(Or, if you don't want to install Gulp globally, you can run `$(npm
+bin)/gulp` instead of `gulp`.)
 
 Note that running the tests also requires an installation of
 Chrome v59 or higher (v60 if you're on Windows).
@@ -110,7 +112,7 @@ These tests work by comparing current screenshots of the Design System's Fractal
 components to "golden" screenshots that represent what the components are
 supposed to look like.
 
-Golden screenshots are stored on your local development system _only_;
+Golden screenshots are stored on your local development system *only*;
 they're not version controlled. This means that after making changes to a branch,
 you can switch to the branch you'd like to compare it to (e.g. the `develop`
 branch) to generate your golden screenshots.
@@ -159,7 +161,6 @@ For JavaScript contributions, we will review the code coverage percentage and ch
 High code coverage numbers are generally good, and we would prefer that our coverage increases over time. We will not categorically reject contributions that reduce code coverage, but we may ask contributors to refactor their code, add new unit tests, or modify existing tests to avoid significant reductions in coverage.
 
 ## Browser support
-
 See [browser support](https://designsystem.digital.gov/getting-started/developers/#browser-support) in the “Getting started: Developers” guidelines.
 
 ## Our use of branches
@@ -186,9 +187,9 @@ All contributions to this project will be released under the CC0
 dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
 
-[node.js]: https://nodejs.org
-[fractal]: http://fractal.build
-[gulp]: http://gulpjs.com/
-[yarn]: https://yarnpkg.com/
+[Node.js]: https://nodejs.org
+[Fractal]: http://fractal.build
+[Gulp]: http://gulpjs.com/
+[Yarn]: https://yarnpkg.com/
 [eslint]: http://eslint.org/
 [stylelint]: https://stylelint.io/

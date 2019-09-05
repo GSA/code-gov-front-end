@@ -22,28 +22,36 @@ $utility-pin-options: 'all', 'x', 'y', 'top', 'bottom', 'left', 'right', 'none';
       left: 0#{$important};
       right: 0#{$important};
       top: 0#{$important};
-    } @else if $option == 'x' {
+    }
+    @else if $option == 'x' {
       left: 0#{$important};
       right: 0#{$important};
-    } @else if $option == 'y' {
+    }
+    @else if $option == 'y' {
       bottom: 0#{$important};
       top: 0#{$important};
-    } @else if $option == 'top' {
+    }
+    @else if $option == 'top' {
       top: 0#{$important};
-    } @else if $option == 'bottom' {
+    }
+    @else if $option == 'bottom' {
       bottom: 0#{$important};
-    } @else if $option == 'left' {
+    }
+    @else if $option == 'left' {
       left: 0#{$important};
-    } @else if $option == 'right' {
+    }
+    @else if $option == 'right' {
       right: 0#{$important};
-    } @else if $option == 'none' {
+    }
+    @else if $option == 'none' {
       $has-position: false;
       @include u-position($position-static);
       bottom: auto#{$important};
       left: auto#{$important};
       right: auto#{$important};
       top: auto#{$important};
-    } @else {
+    }
+    @else {
       @error '`#{$option}` is not a valid `pin` value. Valid pin values include #{$utility-pin-options}';
     }
   }

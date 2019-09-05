@@ -10,7 +10,8 @@
     /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
     @if $direction == 'after' {
       margin-left: $margin;
-    } @else {
+    }
+    @else {
       margin-right: $margin;
     }
     /* stylelint-enable */
@@ -29,7 +30,14 @@
   }
 }
 
-@mixin add-icon($icon-name, $direction, $image-size, $container-size, $margin, $hover) {
+@mixin add-icon(
+  $icon-name,
+  $direction,
+  $image-size,
+  $container-size,
+  $margin,
+  $hover
+) {
   &::#{$direction} {
     @include add-background-svg('#{$icon-name}');
     background-position: center center;
@@ -43,7 +51,8 @@
     /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
     @if $direction == 'after' {
       margin-left: units($margin);
-    } @else {
+    }
+    @else {
       margin-right: units($margin);
     }
     /* stylelint-enable */

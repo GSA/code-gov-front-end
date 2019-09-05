@@ -18,9 +18,12 @@ $u-flex-wrap: (
   flex-wrap: (
     base: 'flex',
     modifiers: null,
-    values: map-collect(get-palettes($flex-wrap-palettes), $flex-wrap-manual-values),
+    values: map-collect(
+      get-palettes($flex-wrap-palettes),
+      $flex-wrap-manual-values
+    ),
     settings: $flex-wrap-settings,
     property: 'flex-wrap',
-    type: 'utility'
+    type: 'utility',
   )
 );

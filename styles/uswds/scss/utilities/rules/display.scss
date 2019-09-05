@@ -18,9 +18,12 @@ $u-display: (
   display: (
     base: 'display',
     modifiers: null,
-    values: map-collect(get-palettes($display-palettes), $display-manual-values),
+    values: map-collect(
+      get-palettes($display-palettes),
+      $display-manual-values
+    ),
     settings: $display-settings,
     property: 'display',
-    type: 'utility'
+    type: 'utility',
   )
 );

@@ -1,15 +1,6 @@
 // Navigation helpers
 // ---------------------------------
 
-@mixin outer-megamenu {
-  @include u-pin('y');
-  background-color: color('primary-darker');
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-}
-
 @mixin primary-nav-link {
   line-height: line-height($theme-navigation-font-family, 1);
   padding: units(2);
@@ -33,32 +24,6 @@ $nav-link-arrow-icon-size: 1;
 
 // Header navigation
 // ---------------------------------
-
-.usa-navbar {
-  @include border-box-sizing;
-  height: units($size-touch-target);
-
-  @include at-media-max($theme-navigation-width) {
-    @include u-flex('align-center');
-    border-bottom: units(1px) solid color('base-lighter');
-    display: flex;
-  }
-
-  @include at-media($theme-navigation-width) {
-    border-bottom: none;
-    display: inline-block;
-    height: auto;
-  }
-}
-
-.usa-nav-container {
-  @include at-media($theme-navigation-width) {
-    @include clearfix;
-    @include grid-container;
-    @include u-padding-x($theme-site-margins-width);
-  }
-}
-
 .usa-nav {
   @include typeset($theme-navigation-font-family, null, 1);
   @include at-media-max($theme-navigation-width) {
@@ -96,6 +61,7 @@ $nav-link-arrow-icon-size: 1;
 // ---------------------------------
 
 .usa-nav__primary {
+
   // Until the $theme-navigation-width,
   // use the usa-nav-list styles for the slide-in nav
   @include at-media-max($theme-navigation-width) {
@@ -175,8 +141,7 @@ $nav-link-arrow-icon-size: 1;
       }
     }
 
-    &[aria-expanded='false'] {
-      /* stylelint-disable-line selector-no-qualifying-type */
+    &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
       @include add-background-svg('plus-alt');
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
@@ -194,8 +159,7 @@ $nav-link-arrow-icon-size: 1;
       }
     }
 
-    &[aria-expanded='true'] {
-      /* stylelint-disable-line selector-no-qualifying-type */
+    &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
       @include add-background-svg('minus-alt');
       background-position: right 0 center;
       background-size: units($nav-link-accordion-icon-size);
@@ -303,7 +267,7 @@ $nav-link-arrow-icon-size: 1;
     z-index: z-index(400);
   }
 
-  &[aria-hidden='true'] {
+  &[aria-hidden=true] {
     display: none;
   }
 
@@ -374,31 +338,4 @@ $nav-link-arrow-icon-size: 1;
 
 .usa-js-mobile-nav--active {
   overflow: hidden;
-}
-
-// Navigation megamenu
-// ---------------------------------
-
-.usa-megamenu {
-  @include at-media($theme-navigation-width) {
-    @include u-padding-x(0);
-    @include u-padding-y(4);
-    left: -$theme-megamenu-logo-text-width;
-    right: 0;
-    width: auto;
-  }
-
-  &::before {
-    @include at-media($theme-navigation-width) {
-      @include outer-megamenu;
-      right: 100%;
-    }
-  }
-
-  &::after {
-    @include at-media($theme-navigation-width) {
-      @include outer-megamenu;
-      left: 100%;
-    }
-  }
 }
