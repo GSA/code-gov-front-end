@@ -1,6 +1,10 @@
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const shared = require('./webpack.shared')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const sass = require('sass')
+const autoprefixer = require('autoprefixer')
+const mqpacker = require('css-mqpacker')
 
 const plugins = [
   new MiniCssExtractPlugin({
@@ -8,7 +12,14 @@ const plugins = [
     // both options are optional
     filename: '[name].css',
     chunkFilename: '[id].css'
-  })
+  }),
+  new OptimizeCSSAssetsPlugin({
+    assetNameRegExp: /\.css$/g,
+    cssProcessorPluginOptions: {
+      preset: ['default', { discardComments: { removeAll: true } }]
+    },
+    canPrint: true
+  }),
 ]
 
 const prod = {
@@ -16,19 +27,48 @@ const prod = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(s*)css$/,
         use: [
-          // fallback to style-loader in development
-          MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: MiniCssExtractPlugin.loader, // creates style nodes from JS strings
+            options: {
+              sourceMap: true
+            }
+          },
+          'css-loader', // translates CSS into CommonJS
+          {
+            loader: 'postcss-loader', // adds vendor prefixing
+            options: {
+              indent: 'postcss',
+              parser: 'postcss-scss',
+              sourceMap: true,
+              plugins: [autoprefixer({ grid: true })],
+              mqpacker
+            }
+          },
           {
             loader: 'sass-loader', // compiles Sass to CSS
             options: {
-              implementation: require('sass')
+              implementation: sass,
+              sourceMap: true
             }
           }
         ]
       }
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     // fallback to style-loader in development
+      //     MiniCssExtractPlugin.loader,
+      //     'css-loader',
+      //     {
+      //       loader: 'sass-loader', // compiles Sass to CSS
+      //       options: {
+      //         implementation: require('sass')
+      //       }
+      //     }
+      //   ]
+      // }
     ]
   },
   plugins
