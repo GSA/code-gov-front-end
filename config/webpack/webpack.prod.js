@@ -55,20 +55,6 @@ const prod = {
           }
         ]
       }
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     // fallback to style-loader in development
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     {
-      //       loader: 'sass-loader', // compiles Sass to CSS
-      //       options: {
-      //         implementation: require('sass')
-      //       }
-      //     }
-      //   ]
-      // }
     ]
   },
   plugins
