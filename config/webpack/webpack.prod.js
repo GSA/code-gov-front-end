@@ -42,8 +42,10 @@ const prod = {
               indent: 'postcss',
               parser: 'postcss-scss',
               sourceMap: true,
-              plugins: [autoprefixer({ grid: true })],
-              mqpacker
+              plugins: [
+                autoprefixer({ grid: true }),
+                mqpacker({ sort: true })
+              ]
             }
           },
           {
