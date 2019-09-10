@@ -12,8 +12,8 @@
     }
 
     @media screen and (min-width: $medium-screen) {
-      border-bottom: 2px solid $brand-blue-gray-light;
-      border-top: 2px solid $brand-blue-gray-light;
+      border-bottom: 2px solid $brand-primary;
+      border-top: 2px solid $brand-primary;
       margin-bottom: 3em;
       margin-top: 100px;
     }
@@ -59,7 +59,7 @@
       }
 
       @media screen and (min-width: $medium-screen) {
-        border-right: 2px solid $brand-blue-gray-light;
+        border-right: 2px solid $brand-primary;
         &:last-child {
           border-right: none;
         }
