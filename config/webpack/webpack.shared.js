@@ -5,10 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const sass = require('sass')
-const autoprefixer = require('autoprefixer')
-const mqpacker = require('css-mqpacker')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = dirname(dirname(__dirname))
@@ -173,15 +170,10 @@ module.exports = {
               sourceMap: true
             }
           },
-          'css-loader', // translates CSS into CommonJS
           {
-            loader: 'postcss-loader', // adds vendor prefixing
+            loader: 'css-loader',  // translates CSS into CommonJS
             options: {
-              indent: 'postcss',
-              parser: 'postcss-scss',
-              sourceMap: true,
-              plugins: [autoprefixer({ grid: true })],
-              mqpacker
+              sourceMap: true
             }
           },
           {
@@ -248,13 +240,6 @@ module.exports = {
       minify: {
         removeScriptTypeAttributes: true
       }
-    }),
-    new OptimizeCSSAssetsPlugin({
-      assetNameRegExp: /\.optimize\.css$/g,
-      cssProcessorPluginOptions: {
-        preset: ['default', { discardComments: { removeAll: true } }]
-      },
-      canPrint: true
     }),
     new AppManifestWebpackPlugin({
       emitStats: true,
