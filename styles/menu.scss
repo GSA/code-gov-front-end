@@ -47,14 +47,14 @@ header.main {
       @media screen and (max-width: $mobile-menu-offset-switch-low) {
         top: calc(#{$header-height} + #{$mobile-menu-offset});
       }
-    }
 
-    ul {
-      margin-left: 4rem;
-      li {
-        a {
-          svg {
-            float: left;
+      ul {
+        margin-left: 0;
+        li {
+          a {
+            svg {
+              float: left;
+            }
           }
         }
       }
