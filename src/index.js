@@ -6,7 +6,7 @@ import buildStore from 'build-store'
 import history from 'browser-history'
 import { Provider } from 'react-redux'
 import '../styles/uswds/scss/theme/styles.scss'
-// import '../styles/_main.scss'
+import '../styles/_main.scss'
 import syncers from 'syncers'
 import syncStore from 'sync-store'
 
