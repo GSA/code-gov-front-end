@@ -12,6 +12,7 @@
 // Import individual theme settings
 
 @import 'uswds-theme-general';
+@import 'uswds-theme-components';
 @import 'uswds-theme-typography';
 @import 'uswds-theme-spacing';
 @import 'uswds-theme-color';
@@ -58,7 +59,7 @@
 // -------------------------------------
 // ...or import the complete USWDS kit
 
-@import './styles/uswds/scss/uswds.scss';
+@import '../uswds.scss';
 
 // -------------------------------------
 // Import theme custom styles
