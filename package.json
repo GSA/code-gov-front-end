@@ -22,7 +22,7 @@
     "test-watch": "jest --watch",
     "update-data": "node update-data.js",
     "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
-    "update-uswds": "cp -r ./node_modules/uswds/dist/* ./styles/uswds/.",
+    "update-uswds": "rm -r ./styles/uswds/* && cp -r ./node_modules/uswds/dist/* ./styles/uswds/.",
     "webpack": "node ./node_modules/webpack/bin/webpack.js"
   },
   "husky": {
@@ -98,7 +98,7 @@
     "sass": "^1.20.1",
     "snyk": "^1.210.0",
     "url-search-params-polyfill": "^5.1.0",
-    "uswds": "^2.1.0",
+    "uswds": "^2.2.1",
     "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",

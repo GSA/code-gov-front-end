@@ -4,10 +4,8 @@
 @import '~@code.gov/code-gov-font/css/code-gov';
 /*@import '~devicons/css/devicons.scss';*/
 
-@import './styles/theme/styles.scss';
-
 $header-height: 50px;
-
+@import './styles/uswds/scss/theme/styles.scss';
 @import '~@code.gov/code-gov-style/_sass/_all.scss';
 
 @import './overrides.scss';
