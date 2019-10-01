@@ -36,7 +36,7 @@ exports[`components - SearchPage render should render correctly 1`] = `
       <h3
         className="repos-count width-three-quarters"
       >
-        We found 2 Repositories for "test-query"
+        Top 2 repositories for "test-query"
       </h3>
     </div>
   </div>
@@ -136,4 +136,4 @@ exports[`components - SearchPage render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
+`;
