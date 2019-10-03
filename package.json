@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/GSA/code-gov-front-end#readme",
   "dependencies": {
-    "@code.gov/api-client": "^0.3.4",
+    "@code.gov/api-client": "^0.3.5",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.9.0",
     "@code.gov/code-gov-style": "^2.0.1",
