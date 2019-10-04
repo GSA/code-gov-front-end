@@ -6,9 +6,6 @@ ignore:
     - jsoneditor > mobius1-selectr:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
-      '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
-        reason: no patch
-        expires: '2019-11-01T02:24:26.057Z'
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-07-20T11:24:15.026Z'
@@ -21,6 +18,9 @@ ignore:
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: None given
         expires: '2019-09-08T15:19:36.817Z'
+    - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: no patch
+        expires: '2019-11-01T02:24:26.057Z'
   SNYK-JS-LODASH-73638:
     - favicons-webpack-plugin > favicons > cheerio > lodash:
         reason: None given
@@ -194,3 +194,8 @@ patch:
   'npm:ms:20170412':
     - favicons-webpack-plugin > favicons > node-rest-client > debug > ms:
         patched: '2019-07-01T13:44:53.211Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T15:36:52.142Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T15:36:52.142Z'

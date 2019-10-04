@@ -23,7 +23,9 @@
     "update-data": "node update-data.js",
     "update-fonts": "cp -r ./node_modules/@code.gov/code-gov-style/assets/font/* ./assets/fonts/.",
     "update-uswds": "rm -r ./styles/uswds/* && cp -r ./node_modules/uswds/dist/* ./styles/uswds/.",
-    "webpack": "node ./node_modules/webpack/bin/webpack.js"
+    "webpack": "node ./node_modules/webpack/bin/webpack.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -96,7 +98,7 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "sass": "^1.20.1",
-    "snyk": "^1.210.0",
+    "snyk": "^1.230.7",
     "url-search-params-polyfill": "^5.1.0",
     "uswds": "^2.2.1",
     "webpack": "^4.39.3",
