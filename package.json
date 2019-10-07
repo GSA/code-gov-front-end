@@ -60,7 +60,7 @@
     "@code.gov/code-gov-style": "^2.0.2",
     "@code.gov/compliance-dashboard-web-component": "^0.2.0",
     "@code.gov/json-schema-validator-web-component": "^0.2.2",
-    "@code.gov/json-schema-web-component": "0.4.0",
+    "@code.gov/json-schema-web-component": "0.4.1",
     "@code.gov/site-map-generator": "^1.0.8",
     "@webcomponents/custom-elements": "^1.2.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",
