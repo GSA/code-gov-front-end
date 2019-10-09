@@ -63,7 +63,7 @@ export function getConfigValue(path) {
     if (!value) {
       console.warn(`We weren't able to find the value for ${path} in your code-gov-config.json file.
       You can consult examples under the folder found at config/site/examples
-      or consult our developer documentation here: https://developers.code.gov/configure.html`)
+      or consult our developer documentation here: https://open.gsa.gov/api/codedotgov/`)
     }
     return value
   }
