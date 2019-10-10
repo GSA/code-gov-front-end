@@ -40,7 +40,7 @@
         {
           "name": "DEVELOPERS",
           "links": [
-            { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
+            { "name": "code.gov API", "url": "https://open.gsa.gov/api/codedotgov/" },
             { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
             {
               "name": "Notebooks",
@@ -85,7 +85,7 @@
         {
           "name": "Developers",
           "links": [
-            { "name": "code.gov API", "url": "https://developers.code.gov/basics.html" },
+            { "name": "code.gov API", "url": "https://open.gsa.gov/api/codedotgov/" },
             { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
             {
               "name": "Notebooks",

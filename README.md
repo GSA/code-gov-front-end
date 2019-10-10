@@ -44,7 +44,7 @@ If you want to override that, specify an `CODE_GOV_API_KEY` environmental variab
 CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
 ```
 
-You can sign up for an API key at [developers.code.gov](https://developers.code.gov/key.html).
+You can sign up for an [API key](https://open.gsa.gov/api/codedotgov/).
 
 ### File Structure
 

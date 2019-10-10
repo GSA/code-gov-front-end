@@ -49,7 +49,7 @@ Object {
       "links": Array [
         Object {
           "name": "code.gov API",
-          "url": "https://developers.code.gov/basics.html",
+          "url": "https://open.gsa.gov/api/codedotgov/",
         },
         Object {
           "name": "Open Tasks",

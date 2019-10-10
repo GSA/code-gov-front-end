@@ -178,6 +178,13 @@ ignore:
     - webpack > watchpack > chokidar > readdirp > micromatch > extglob > expand-brackets > snapdragon > base > cache-base > union-value > set-value:
         reason: None given
         expires: '2019-07-31T13:47:46.480Z'
+  SNYK-JS-AXIOS-472067:
+    - '@code.gov/api-client > axios':
+        reason: no patch available
+        expires: '2019-11-08T17:56:49.923Z'
+    - '@code.gov/site-map-generator > @code.gov/api-client > axios':
+        reason: no patch available
+        expires: '2019-11-08T17:56:49.923Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
