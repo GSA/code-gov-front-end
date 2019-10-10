@@ -1,6 +1,6 @@
 {
   "name": "@code.gov/code-gov-front-end",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Code.gov — America’s Home for Open Source Projects from the Federal Governmen",
   "main": "index.js",
   "scripts": {
