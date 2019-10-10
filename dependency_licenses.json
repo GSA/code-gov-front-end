@@ -608,7 +608,7 @@
     "path": "/home/sean/Projects/code.gov/code-gov-front-end/node_modules/@code.gov/code-gov-font",
     "licenseFile": "node_modules/@code.gov/code-gov-font/LICENSE.md"
   },
-  "@code.gov/code-gov-front-end@1.0.5": {
+  "@code.gov/code-gov-front-end@1.0.6": {
     "licenses": "CC0-1.0",
     "repository": "https://github.com/GSA/code-gov-front-end",
     "publisher": "Daniel J. Dufour",
