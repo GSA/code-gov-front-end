@@ -84,10 +84,6 @@ exports[`components - App render should render correctly 1`] = `
       />
       <Route
         component={[Function]}
-        path="/policy-guide"
-      />
-      <Route
-        component={[Function]}
         path="/about"
       />
       <Redirect

@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactHtmlParser from 'react-html-parser'
 import Breadcrumbs from 'components/breadcrumbs'
 import { map } from '@code.gov/cautious'
 import FilterBoxes from 'components/filter-boxes'
@@ -7,6 +8,7 @@ import Pagination from 'components/pagination'
 import SiteBanner from 'components/site-banner'
 import TaskCard from 'components/task-card'
 import { scrollToTopOfResults } from 'utils/other'
+import { getReposCount } from '../../utils/repos-count'
 
 export default class OpenTasks extends React.Component {
   componentDidMount() {
@@ -25,17 +27,17 @@ export default class OpenTasks extends React.Component {
 
   get counter() {
     const { total } = this.props
-    let textContent
-    if (total === 0) {
-      textContent = 'There are currently no open tasks'
-    } else if (total === 1) {
-      textContent = 'There is currently 1 open task'
-    } else if (total >= 2) {
-      textContent = `There are ${total} open tasks`
-    } else {
-      textContent = 'Loading Tasks'
-    }
-    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
+
+    return getReposCount(
+      total,
+      {
+        default: 'Loading Tasks',
+        '0': 'There are currently no open tasks',
+        '1': 'There is currently 1 open task',
+        '2': `There are [VALUE] open tasks`
+      },
+      'repos-count width-three-quarters'
+    )
   }
 
   updatePage(newPage) {
@@ -51,7 +53,7 @@ export default class OpenTasks extends React.Component {
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Open Tasks' }]} />
         <div className="search-results-header">
           <div className="width-quarter" />
-          {this.counter}
+          {ReactHtmlParser(this.counter)}
         </div>
         <div className="indented">
           <div id="filter-boxes-section">

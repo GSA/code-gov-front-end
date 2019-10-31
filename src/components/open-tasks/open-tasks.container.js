@@ -52,7 +52,7 @@ export const mapStateToProps = ({ taskFilterOptions, taskParams, taskResults }) 
   }
 }
 
-export const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, _ownProps) => ({
   onFilterBoxChange: (category, change) => {
     dispatch(updateTaskFilters(category, change.value, change.type))
   },

@@ -1,9 +1,10 @@
 /* global PUBLIC_PATH */
 import { map, startsWith } from '@code.gov/cautious'
 import CustomLink from 'components/custom-link'
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-export default class Footer extends Component {
+
+export default class Footer extends PureComponent {
   render() {
     return (
       <footer className={this.props.color} role="contentinfo">

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CustomLink from 'components/custom-link'
 
 export default class HomeAbout extends React.Component {
   render() {
     return (
-      <section id="about" className="about">
+      <section id="about" className="about tablet:grid-col-6">
         <header>
           <h2>About Code.gov</h2>
           <p>{this.props.aboutus}</p>

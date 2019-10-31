@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react'
-import { refreshView, scrollToTopOfResults } from 'utils/other'
 import Breadcrumbs from 'components/breadcrumbs'
 import FilterBoxes from 'components/filter-boxes'
 import FilterTags from 'components/filter-tags'
 import Pagination from 'components/pagination'
 import QualityPopover from 'components/quality-popover'
-import RepoCard from 'components/repo-card'
 import QuickSearchBox from 'components/quick-search-box'
-import SortSection from 'components/sort-section'
+import RepoCard from 'components/repo-card'
 import SiteBanner from 'components/site-banner'
-import { length, some } from '@code.gov/cautious'
+import SortSection from 'components/sort-section'
+import React from 'react'
+import { refreshView, scrollToTopOfResults } from 'utils/other'
 
 export default class SearchPage extends React.Component {
   componentDidMount() {
@@ -27,21 +26,17 @@ export default class SearchPage extends React.Component {
   }
 
   get repoCounter() {
-    let textContent
+    let textContent = 'Loading Repositories'
     if (this.props.filteredResults) {
       const total = this.props.total
       const query = this.props.query
       if (total === 0) {
-        textContent = `We found no Repositories for "${query}"`
+        textContent = `We found no repositories for "${query}"`
       } else if (total === 1) {
-        textContent = `We found 1 Repository for "${query}"`
+        textContent = `We found 1 repository for "${query}"`
       } else if (total >= 2) {
-        textContent = `We found ${total} Repositories for "${query}"`
-      } else {
-        textContent = 'Loading Repositories'
+        textContent = `Top ${total} repositories for "${query}"`
       }
-    } else {
-      textContent = 'Loading Repositories'
     }
     return <h3 className="repos-count width-three-quarters">{textContent}</h3>
   }

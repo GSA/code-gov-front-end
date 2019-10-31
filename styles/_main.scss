@@ -5,13 +5,13 @@
 /*@import '~devicons/css/devicons.scss';*/
 
 $header-height: 50px;
-
+@import './styles/uswds/scss/theme/styles.scss';
 @import '~@code.gov/code-gov-style/_sass/_all.scss';
 
 @import './overrides.scss';
 
 html {
-  background: $color-white;
+  background-color: $color-white;
 
   #app {
     background: $color-white;

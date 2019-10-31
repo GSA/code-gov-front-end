@@ -1,15 +1,13 @@
 import { connect } from 'react-redux'
-import { onLocationChanged } from 'connected-react-router/lib/actions'
 import { getNormalizedURLSearchParams, getSearchFromUrl } from 'utils/url-parsing'
 import { fillFilters } from 'utils/other'
 import defaultState from 'constants/default-redux-store-state'
 import updateBrowseParams from 'actions/update-browse-params'
 import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
-import history from 'browser-history'
 import CustomLinkComponent from './custom-link.component'
 
-export const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, _ownProps) => ({
   updateStore: to => {
     console.log('starting updateStore with to', to)
     // this basically intercepts user clicks on links
@@ -18,6 +16,7 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
     console.log('search:', search)
     const params = getNormalizedURLSearchParams(search)
     console.log('params:', params)
+    let categories = ['agencies', 'languages', 'licenses', 'usageType']
     if (to.startsWith('/browse')) {
       const result = {
         page: params.page || defaultState.browseParams.page,
@@ -25,7 +24,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
         sort: params.sort || defaultState.browseParams.sort,
         filters: []
       }
-      const categories = ['agencies', 'languages', 'licenses', 'usageType']
       fillFilters(categories, params, result)
       dispatch(updateBrowseParams(result))
     } else if (to.startsWith('/search')) {
@@ -36,7 +34,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
         sort: params.sort || defaultState.searchParams.sort,
         filters: []
       }
-      const categories = ['agencies', 'languages', 'licenses', 'usageType']
       fillFilters(categories, params, result)
       dispatch(updateSearchParams(result))
     } else if (to.startsWith('/open-tasks')) {
@@ -45,7 +42,8 @@ export const mapDispatchToProps = (dispatch, ownProps) => ({
         size: params.size || defaultState.browseParams.size,
         filters: []
       }
-      const categories = ['agencies', 'categories', 'languages', 'skillLevels', 'timeRequired']
+
+      categories = ['agencies', 'categories', 'languages', 'skillLevels', 'timeRequired']
       fillFilters(categories, params, result)
       dispatch(updateTaskParams(result))
     }

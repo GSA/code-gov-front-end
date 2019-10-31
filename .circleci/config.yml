@@ -2,15 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu
+      - image: circleci/node:10.15.1-browsers
+        environment:
+          CHROME_PATH: /usr/bin/google-chrome
+
     steps:
-      - run: apt-get update
-      - run: apt-get install -y build-essential npm nodejs
       - checkout
       - run: npm install
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - run: npm run test:ci
       - run: npm run lint
+      - run: npm run start & sleep 5; npm run test-pa11y
   deploy-bundle-analysis:
     docker:
       - image: ubuntu

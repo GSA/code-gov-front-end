@@ -32,7 +32,8 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
         <Connect(QuickSearchBoxComponent) />
       </div>
       <h3
-        className="repos-count width-three-quarters"
+        classname="repos-count width-three-quarters"
+        key="0"
       >
         2 Repositories
       </h3>

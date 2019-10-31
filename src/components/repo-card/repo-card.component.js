@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import get from 'lodash.get'
-import { round, some } from '@code.gov/cautious'
+import { some } from '@code.gov/cautious'
 import {
   getLastModifiedDateString,
   getDisplayTextForUsageType,

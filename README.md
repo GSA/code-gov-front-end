@@ -44,7 +44,7 @@ If you want to override that, specify an `CODE_GOV_API_KEY` environmental variab
 CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
 ```
 
-You can sign up for an API key at [developers.code.gov](https://developers.code.gov/key.html).
+You can sign up for an [API key](https://open.gsa.gov/api/codedotgov/).
 
 ### File Structure
 
@@ -62,14 +62,6 @@ You'll need to clone/download the [Style Guide repository](https://github.com/GS
 If you need to make CSS changes, make them within this directory and commit them to that repository.
 
 For more instructions on how to make changes, view the readme inside of the [Style Guide repository](https://github.com/GSA/code-gov-style).
-
-### Changes to the Policy Guide
-
-The code for the [Policy Guide](https://code.gov/policy-guide/) section of the site is located in the [code-gov-fscp-react-component](https://github.com/GSA/code-gov-fscp-react-component) repo. Any changes or issues related to the Policy Guide should be made in that repository.
-
-### Changes to the About Page
-
-The code for the [About](https://code.gov/about/overview/introduction) section of the site is located in the [code-gov-about-page](https://github.com/GSA/code-gov-about-page) repo. Any changes or issues related to the About section should be made in that repository.
 
 ### Testing
 
@@ -112,17 +104,17 @@ To update the `dependency_licenses.json` file, run `npm run licenses`.
 
 ## Configuration
 
-For documentation on how to configure code-gov-front-end, go [here](CONFIGURATION.md).
+For documentation on how to configure code-gov-front-end, read [here](CONFIGURATION.md).
 
 ## Questions?
 
 If you have questions, please feel free to contact us:  
-[Open an Issue](https://github.com/GSA/code-gov-front-end/issues)  
-[@CodeDotGov on Twitter](@CodeDotGov)  
-[Send us an email to code at gsa.gov](mailto:code@gsa.gov)  
-[LinkedIn](code-gov)
+[Open an issue](https://github.com/GSA/code-gov-front-end/issues)  
+[LinkedIn](https://www.linkedin.com/company/code-gov/)  
+[Twitter](https://twitter.com/@CodeDotGov)  
+[Email](mailto:code@gsa.gov)
 
-Or join our #opensource-public channel on Slack: https://chat.18f.gov/
+Or join our `#opensource-public` channel on Slack: https://chat.18f.gov/
 
 ## License
 

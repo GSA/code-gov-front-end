@@ -26,6 +26,7 @@
       }
     ],
     "getter-return": 0,
+    "global-require": "warn",
     "guard-for-in": "warn",
     "import/extensions": "ignorePackages",
     "import/imports-first": [
@@ -33,6 +34,7 @@
       "error"
     ],
     "import/newline-after-import": "error",
+    "import/no-dynamic-require": "warn",
     "import/no-unresolved": 0,
     "import/prefer-default-export": false,
     "jsx-a11y/anchor-is-valid": "warn",
