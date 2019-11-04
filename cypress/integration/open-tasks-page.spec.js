@@ -6,13 +6,13 @@ describe('open task page tests', () => {
       .click()
       .get('ul[role="menu"] > li > a')
       .contains(/open tasks/i)
-      .click()
+      .click({force: true})
   })
 
   it('filters by federal agency', () => {
-    const agency = 'DOD'
+    const agency = 'GSA'
     cy.get(`input[value="${agency}"]`)
-      .check()
+      .check({force: true})
       .location('search').should('include', agency)
   })
 })

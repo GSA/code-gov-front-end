@@ -10,21 +10,21 @@ describe('open task page tests (direct navigation to)', () => {
   })
 
   it('adds a query to the url when a filter is applied', () => {
-    const agency = 'DOD'
+    const agency = 'GSA'
     cy.get(`input[value="${agency}"]`)
       .check({ force: true })
       .location('search').should('include', agency)
   })
 
   it('correctly filters results by agency', () => {
-    const agency = 'DOD'
+    const agency = 'GSA'
     cy.get(`input[value="${agency}"]`)
       .check({ force: true })
       .get('.card-list-item')
       .each((item) => {
         cy.wrap(item)
           .within(() => {
-            cy.contains('dd > a', /^department of defense/i)
+            cy.contains('dd > a', /^general services administration/i)
             .should('exist')
           })
       })
