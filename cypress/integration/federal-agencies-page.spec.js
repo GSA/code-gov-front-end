@@ -9,7 +9,7 @@ describe('federal agencies page tests', () => {
   it('visits the compliance dashboard page', () => {
     cy.get('ul[role="menu"] > li > a')
       .contains(/compliance dashboard/i)
-      .click()
+      .click({force: true})
       .get('#agencycompliance')
       .should('exist')
   })
