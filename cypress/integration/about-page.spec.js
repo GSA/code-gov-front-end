@@ -14,12 +14,4 @@ describe('about page tests', () => {
       .should('exist')
   })
 
-  it('visits the federal source code policy page', () => {
-    cy.get('ul[role="menu"] > li > a')
-      .contains(/source code policy/i)
-      .click()
-      .get('#m1621')
-      .contains(/m-16-21/i)
-      .should('exist')
-  })
 })
