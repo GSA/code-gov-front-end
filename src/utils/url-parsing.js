@@ -13,7 +13,9 @@ export function getURLSearchParamsAsSimpleObj(search) {
             result[key] = decodeURIComponent(value)
           }
         } catch (error) {
-          console.error(error)
+          console.error(error);
+          reject(error);
+          break
         }
         return result
       }, {})
