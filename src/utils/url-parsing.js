@@ -1,3 +1,11 @@
+/*
+This function safely decodes the search part of a URL.
+Example: '?page=1&query=space&size=10&sort=best_match'
+
+It catches errors and logs them instead of throwing them
+because we don't want a page to fail to load just because
+there might be one part of a URL that is causing issues.
+*/
 export function getURLSearchParamsAsSimpleObj(search) {
   /* eslint-disable */
   search = search || window.location.search
