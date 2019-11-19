@@ -30,9 +30,17 @@ export default class TaskCardComponent extends Component {
   get agencyLink() {
     const agencyAcronym = get(this.props, 'task.agency.acronym')
     const agencyName = get(this.props, 'task.agency.name')
+    const repository = get(this.props, 'task.repository')
+    const projectURL = get(this.props, 'task.projectURL')
     if (agencyAcronym && agencyName) {
       return (
         <Fragment>
+        <dt>Project:</dt>
+        <dd>
+        <a href={projectURL} target="_blank" rel="noopener noreferrer">
+            {repository}
+          </a>
+        </dd>
           <dt>Agency:</dt>
           <dd>
             <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink>
