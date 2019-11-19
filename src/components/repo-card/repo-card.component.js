@@ -30,6 +30,20 @@ export default class RepoCardComponent extends Component {
     }
   }
 
+  get repoOrg() {
+    const agencyOrg = get(this.props.repo, 'organization')
+    if (agencyOrg) {
+      return (
+        <Fragment>
+          <dt>Organization:</dt>
+          <dd>
+            {agencyOrg}
+          </dd>
+        </Fragment>
+      )
+    }
+  }
+
   get repoLanguages() {
     const repo = this.props.repo
     if (some(repo.languages)) {
@@ -72,6 +86,7 @@ export default class RepoCardComponent extends Component {
           <dd>
             <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink>
           </dd>
+          {this.repoOrg}
           <CardPart title="Last Updated" text={dateLastModified} />
         </dl>
 
