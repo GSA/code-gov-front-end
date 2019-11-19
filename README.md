@@ -86,6 +86,23 @@ The `--sitemap-find` and `--sitemap-replace` commands allow us to scan the named
 
 We follow the WCAG2AA standard. For more info on the rules being tested checkout the [pa11y wiki](https://github.com/pa11y/pa11y/wiki/HTML-CodeSniffer-Rules)
 
+End-to-end tests:  
+We use Cypress to run end-to-end tests.  
+To run Cypress testing do the following:  
+a. Make sure you run `npm install` to install all of the
+project’s dependencies.  
+b. Start a server by running `npm run start`.  
+c. Use the `npm run test:cypress` command to run the Cypress tests.  
+
+Once these steps are completed, you should see the list of spec files.  
+
+![Cypress startup](assets/img/cypress-running.png)  
+
+Click the `run all specs` button (in the upper right) to run the tests.   
+ 
+![Cypress tests](assets/img/cypress-tests.png)
+
+
 ## Deployment
 
 Read about how to publish to Github pages, Federalist and elsewhere [here](DEPLOYMENT.md)
