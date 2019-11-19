@@ -13,7 +13,6 @@ jobs:
       - run: npm run test:ci
       - run: npm run lint
       - run: npm run start & sleep 5; npm run test-pa11y
-      - run: $(npm bin)/cypress run --config video=false
   deploy-bundle-analysis:
     docker:
       - image: ubuntu
