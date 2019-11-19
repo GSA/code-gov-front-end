@@ -52,8 +52,9 @@ export default class SearchBox extends Component {
               ref={this.textInput}
               type={this.props.inputType || 'search'}
               value={this.state.value}
+              data-testid="input-search-box"
             />
-            <button className="go">Go</button>
+            <button className="go" data-testid="button-search-box">Go</button>
           </div>
         </div>
       </form>

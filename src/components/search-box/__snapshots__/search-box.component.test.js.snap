@@ -13,6 +13,7 @@ exports[`components - SearchBox render should render correctly 1`] = `
     >
       <input
         aria-label="search"
+        data-testid="input-search-box"
         onChange={[Function]}
         placeholder="test-placholder"
         type="input"
@@ -20,6 +21,7 @@ exports[`components - SearchBox render should render correctly 1`] = `
       />
       <button
         className="go"
+        data-testid="button-search-box"
       >
         Go
       </button>
