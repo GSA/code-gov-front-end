@@ -24,6 +24,15 @@ exports[`components - TaskCard render should render correctly 1`] = `
     className="inline-after-600px show-w-gt-900"
   >
     <dt>
+      Project:
+    </dt>
+    <dd>
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+      />
+    </dd>
+    <dt>
       Agency:
     </dt>
     <dd>
@@ -52,4 +61,4 @@ exports[`components - TaskCard render should render correctly 1`] = `
     />
   </dl>
 </div>
-`
+`;
