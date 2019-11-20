@@ -168,20 +168,20 @@
           "alt": "Happy Birthday"
         },
         {
+          "title": "The SBA and Open Source: A Perfect Fit for Small Business",
+          "description": "For small businesses, open source software provides unlimited access to fully functioning software that can help grow and automate…",
+          "url": "https://medium.com/codedotgov/the-sba-and-open-source-a-perfect-fit-for-small-business-69727971d71a",
+          "date": "11/4/2019",
+          "image": "/assets/img/news/open-sign.jpeg",
+          "alt": "Open Sign in Coffee Shop (Credit: TK1993 iStock/Getty Images Plus)"
+        },
+        {
           "title": "Developing with a Security Mindset",
           "description": "As a developer consuming open source dependencies, you must keep it secure. It is imperative that you set up the tools and processes that will help you stay safe, and help raise awareness of secure development practices throughout your organization...",
           "url": "https://medium.com/codedotgov/watching-your-back-end-and-your-front-end-developing-with-a-security-mindset-ed5d73615688",
           "date": "9/30/2019",
           "image": "/assets/img/news/security.jpeg",
           "alt": "An open padlock"
-        },
-        {
-          "title": "New Guidance for Enterprise Data and Source Code Inventories (.pdf)",
-          "description": "OMB releases new guidance for tagging Artificial Intelligence (AI) digital assets…",
-          "url": "/assets/data/ai_inventory-guidance.pdf",
-          "date": "8/5/2019",
-          "image": "/assets/img/news/ai.jpg",
-          "alt": "Brain outlined in half circuits"
         }
       ],
       "about": [
