@@ -12,20 +12,20 @@ Object {
       "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
     },
     Object {
+      "alt": "Open Sign in Coffee Shop (Credit: TK1993 iStock/Getty Images Plus)",
+      "date": "11/4/2019",
+      "description": "For small businesses, open source software provides unlimited access to fully functioning software that can help grow and automate…",
+      "image": "/assets/img/news/open-sign.jpeg",
+      "title": "The SBA and Open Source: A Perfect Fit for Small Business",
+      "url": "https://medium.com/codedotgov/the-sba-and-open-source-a-perfect-fit-for-small-business-69727971d71a",
+    },
+    Object {
       "alt": "An open padlock",
       "date": "9/30/2019",
       "description": "As a developer consuming open source dependencies, you must keep it secure. It is imperative that you set up the tools and processes that will help you stay safe, and help raise awareness of secure development practices throughout your organization...",
       "image": "/assets/img/news/security.jpeg",
       "title": "Developing with a Security Mindset",
       "url": "https://medium.com/codedotgov/watching-your-back-end-and-your-front-end-developing-with-a-security-mindset-ed5d73615688",
-    },
-    Object {
-      "alt": "Brain outlined in half circuits",
-      "date": "8/5/2019",
-      "description": "OMB releases new guidance for tagging Artificial Intelligence (AI) digital assets…",
-      "image": "/assets/img/news/ai.jpg",
-      "title": "New Guidance for Enterprise Data and Source Code Inventories (.pdf)",
-      "url": "/assets/data/ai_inventory-guidance.pdf",
     },
   ],
 }
