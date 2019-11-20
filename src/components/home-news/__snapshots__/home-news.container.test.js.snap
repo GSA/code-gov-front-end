@@ -4,6 +4,14 @@ exports[`containers - HomeNews mapStateToProps should return the correct propert
 Object {
   "newsItems": Array [
     Object {
+      "alt": "Happy Birthday",
+      "date": "11/20/2019",
+      "description": "For our 3rd trip around the sun, we wanted to share where we’ve been, where we are going, and the implementation of the federal source code policy...",
+      "image": "/assets/img/news/bday.jpeg",
+      "title": "Happy 3rd Birthday Code.gov!",
+      "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
+    },
+    Object {
       "alt": "An open padlock",
       "date": "9/30/2019",
       "description": "As a developer consuming open source dependencies, you must keep it secure. It is imperative that you set up the tools and processes that will help you stay safe, and help raise awareness of secure development practices throughout your organization...",
@@ -19,14 +27,6 @@ Object {
       "title": "New Guidance for Enterprise Data and Source Code Inventories (.pdf)",
       "url": "/assets/data/ai_inventory-guidance.pdf",
     },
-    Object {
-      "alt": "Person sitting at computer",
-      "date": "8/5/2019",
-      "description": "The federal government is looking for top IT talent to help modernize federal IT systems and you could be just the person we need...",
-      "image": "/assets/img/news/keyboard_user.jpg",
-      "title": "Join the CIO.gov DEV/OPS Challenge!",
-      "url": "https://www.cio.gov/codechallenge/",
-    },
   ],
 }
-`
+`;
