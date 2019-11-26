@@ -1,0 +1,11 @@
+hr {
+  border-bottom: 0;
+  border-top: 5px solid $hr-color;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  max-width: 30rem;
+
+  @media screen and (min-width: $small-screen) {
+    margin-top: 3rem;
+  }
+}

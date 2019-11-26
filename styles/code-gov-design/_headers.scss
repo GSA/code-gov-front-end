@@ -1,0 +1,302 @@
+@import "variables";
+
+header.main {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &.white {
+    background-color: $color-white;
+
+    nav.main {
+      background-color: $color-white;
+    }
+  }
+
+  &.dark {
+    background-color: #323a45;
+
+    nav.main {
+      background-color: black;
+
+      .hamburger-inner {
+        background-color: $color-white;
+
+        &::before,
+        &::after {
+          background-color: $color-white;
+        }
+      }
+
+      svg {
+        .cls-1 {
+          fill: $color-white;
+        }
+      }
+
+      > ul {
+        > li {
+          > div,
+          > a {
+            color: $color-gray-lighter;
+
+            &:hover {
+              color: white;
+            }
+          }
+
+          ul {
+            li {
+              a {
+                color: $color-gray-lighter;
+
+                i {
+                  color: $color-gray-lighter;
+                }
+
+                &:hover {
+                  color: white;
+                }
+              }
+            }
+          }
+
+          &.expanded {
+            > div {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+
+    nav.main:not(.not-at-top):not(.expanded) {
+      background-color: transparent;
+    }
+  }
+
+  nav.main {
+    box-shadow: none;
+    padding-left: 0.5rem;
+    position: fixed;
+    top: 19px;
+    transition: 0.5s box-shadow, 0.5s background-color;
+    width: 100%;
+    z-index: 3;
+
+    @media screen and (max-width: $mobile-menu-offset-switch-low) {
+      top: $mobile-menu-offset;
+    }
+
+    &.not-at-top,
+    &.expanded {
+      box-shadow: 0 0 10px 0 $color-black;
+    }
+
+    @media screen and (min-width: $header-switch) {
+      font-size: 1em;
+      padding: 1.5rem 2rem;
+      text-align: left;
+    }
+
+    .svg-container {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      position: absolute;
+
+      @media screen and (min-width: $header-switch) {
+        float: left;
+        left: 0;
+        position: relative;
+        top: 0;
+        transform: none;
+      }
+
+      svg {
+        height: 20px;
+        left: 0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        top: 0;
+        width: 83px;
+
+        @media screen and (min-width: $header-switch) {
+          height: 25px;
+          margin-bottom: 7.5px;
+          margin-top: 7.5px;
+          width: 103px;
+        }
+
+        @media screen and (min-width: $large-screen) {
+          height: 30px;
+          margin-bottom: 5px;
+          margin-top: 5px;
+          width: 124px;
+        }
+      }
+    }
+
+    i {
+      color: #5b616b;
+      font-size: 1.5em;
+      line-height: 40px;
+
+      &:hover {
+        color: $brand-blue-dark;
+      }
+    }
+
+    /* first level ul */
+    > ul {
+      display: none;
+      margin-bottom: 0;
+      margin-top: 0;
+
+      @media screen and (min-width: $header-switch) {
+        display: inline-block;
+      }
+
+      &.right {
+        position: absolute;
+        right: 2rem;
+        top: 1.5rem;
+
+        /* first-level li */
+        > li {
+          margin-left: 0;
+          margin-right: 0;
+          padding-left: 1rem;
+          padding-right: 1rem;
+
+          &:not(:first-child) {
+            border-left: 2px solid $color-gray;
+          }
+
+          .follow-us {
+            font-size: 0.75em;
+            text-decoration: none;
+            vertical-align: top;
+
+            @media screen and (min-width: $header-switch) {
+              .follow-us {
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+
+      /* first-level li */
+      > li {
+        display: inline-block;
+        font-weight: bold;
+        text-transform: initial;
+        vertical-align: top;
+
+        @media screen and (min-width: $header-switch) {
+          margin-left: 2rem;
+        }
+
+        @media screen and (min-width: $large-screen) {
+          margin-left: 4rem;
+        }
+
+        /* title of first level option */
+        > div,
+        > a {
+          border-bottom: 4px solid transparent;
+          color: $color-gray;
+          cursor: pointer;
+          display: block;
+          font-weight: bold;
+          line-height: 40px;
+          text-decoration: none;
+          text-transform: uppercase;
+          vertical-align: top;
+
+          @media screen and (min-width: $header-switch) {
+            font-size: 0.8em;
+          }
+
+          @media screen and (min-width: $large-screen) {
+            font-size: 1em;
+          }
+
+          &:hover {
+            border-color: $brand-primary;
+            color: $brand-blue-dark;
+          }
+        }
+
+        /* sub options */
+        > ul {
+          display: none;
+          position: absolute;
+
+          a {
+            color: $color-gray;
+            display: block;
+            line-height: 40px;
+            text-decoration: none;
+
+            @media screen and (min-width: $header-switch) {
+              font-size: 0.7em;
+            }
+
+            @media screen and (min-width: $large-screen) {
+              font-size: 0.9em;
+            }
+
+            &:hover {
+              color: $brand-blue-dark;
+            }
+
+            &.active {
+              color: $brand-blue-dark;
+            }
+          }
+        }
+
+        &.expanded {
+          > div {
+            border-color: $brand-teal-medium;
+            color: $brand-blue-dark;
+          }
+
+          > ul {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .fork_me {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    display: none;
+
+    @media screen and (min-width: 1200px) {
+      display: block;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        rect {
+          fill: $brand-blue-dark !important;
+        }
+      }
+    }
+  }
+}

@@ -6,8 +6,9 @@
 
 $header-height: 50px;
 @import './styles/theme/styles.scss';
-@import '~@code.gov/code-gov-style/_sass/_all.scss';
+// @import '~@code.gov/code-gov-style/_sass/_all.scss';
 
+@import './styles/code-gov-design/all';
 @import './overrides.scss';
 
 html {
