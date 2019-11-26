@@ -15,7 +15,7 @@ button {
   cursor: pointer;
   display: inline-block;
   font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  font-size: 1.7rem;
+  font-size: 1rem;
   font-weight: normal;
   line-height: 1;
   padding: 1rem 2rem;
@@ -32,7 +32,7 @@ button {
 
   &.tag {
     border-radius: 3px;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: normal;
     padding: 0.5rem 1.25rem;
   }
