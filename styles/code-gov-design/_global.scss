@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 10px;
+  line-height: 1.15;
+
+  body {
+    background-color: $color-white;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+    font-feature-settings: "kern", "liga", "pnum";
+    font-size: 14px;
+    line-height: 1.42857143;
+    margin: 0;
+    overflow-x: hidden;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    *:focus {
+      outline: none;
+    }
+
+    a:focus {
+      box-shadow: none;
+      outline: 2px dotted $color-gray-light;
+      outline-offset: 3px;
+    }
+
+    h2 {
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: "TT Lakes", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3em;
+    }
+
+    p {
+      line-height: 1.5;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    section {
+      position: relative;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+}

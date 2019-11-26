@@ -1,0 +1,188 @@
+$breakpoint: 937.5px;
+
+footer {
+  background-color: $brand-blue-light;
+  clear: both;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  position: relative;
+
+  @media screen and (min-width: $medium-screen) {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+
+  // center if on small mobile device
+  @media screen and (max-width: $breakpoint) {
+    height: auto;
+
+    // don't show images on mobile
+    img {
+      display: none;
+    }
+  }
+
+  .footer-content {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 2rem;
+    position: relative;
+
+    @media screen and (min-width: $breakpoint) {
+      padding: 0;
+    }
+  }
+
+  .footer-part {
+    ul {
+      li {
+        @media screen and (min-width: $breakpoint) {
+          display: inline-block;
+          margin: 2rem;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    &.links {
+      overflow: hidden;
+      vertical-align: top;
+      text-align: left;
+
+      @media screen and (min-width: $breakpoint) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      ul {
+        text-align: left;
+
+        @media screen and (min-width: $breakpoint) {
+          text-align: center;
+        }
+
+        li {
+          a {
+            border-bottom: 3px solid transparent;
+            color: $color-gray;
+            text-decoration: none;
+
+            &:hover {
+              border-color: $brand-blue-dark;
+              color: $brand-blue-dark;
+            }
+
+            &:visited {
+              color: $color-gray;
+            }
+          }
+        }
+      }
+    }
+
+    &.logos {
+      @media screen and (min-width: $breakpoint) {
+        position: absolute;
+        text-align: left;
+        top: 25px;
+      }
+
+      ul {
+        li {
+          a {
+            text-decoration: none;
+
+            img {
+              @media screen and (min-width: $breakpoint) {
+                height: 7rem;
+
+                + span {
+                  padding-left: 1.5rem;
+                }
+              }
+
+              @media screen and (min-width: 1000px) {
+                height: 10rem;
+              }
+            }
+
+            @media screen and (max-width: $breakpoint) {
+              border-bottom: 3px solid transparent;
+              color: $color-gray;
+              text-decoration: none;
+
+              &:hover {
+                border-color: $brand-teal-medium;
+                color: $brand-blue-dark;
+              }
+
+              &:visited {
+                color: $color-gray;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.socials {
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        margin-top: 3rem;
+        margin-right: 0;
+        margin-bottom: 2rem;
+        margin-left: 0;
+      }
+
+      @media screen and (min-width: $breakpoint) {
+        left: 85%;
+        position: absolute;
+        top: 80px;
+      }
+
+      .icon {
+        color: $brand-gray;
+        font-size: 30px;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: $color-gray-dark;
+    color: $color-gray-lighter;
+
+    .footer-content {
+      div.links {
+        ul {
+          li {
+            a {
+              color: $color-gray-lighter;
+
+              &:hover {
+                color: $color-gray-lighter;
+              }
+
+              &:visited {
+                color: $color-gray-lighter;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

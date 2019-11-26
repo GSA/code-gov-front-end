@@ -1,0 +1,30 @@
+ul.breadcrumbs {
+  font-size: 1em;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+
+  li {
+    display: inline-block;
+    font-weight: normal;
+
+    &::before {
+      content: '> ';
+      font-weight: normal;
+    }
+
+    &:first-of-type {
+      &::before {
+        content: '';
+      }
+    }
+
+    a {
+      font-weight: normal;
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      font-weight: $font-bold;
+    }
+  }
+}
