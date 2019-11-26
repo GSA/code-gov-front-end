@@ -391,6 +391,11 @@
         }
       ],
       "socials": [
+                {
+          "name": "Code.gov on GitHub",
+          "icon": "icon icon-github-circled",
+          "url": "https://github.com/GSA/code-gov"
+        },
         {
           "name": "Code.gov on Twitter",
           "icon": "icon icon-twitter",
