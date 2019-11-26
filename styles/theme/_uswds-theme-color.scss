@@ -22,7 +22,33 @@ https://v2.designsystem.digital.gov/style-tokens/color
 Theme palette colors
 ----------------------------------------
 */
+// Code.gov settings
+.bg-primary-lighter {
+  background-color: #e1f3f8 !important;
+}
 
+
+$color-white: #fff;
+
+$brand-primary: #07648d; //blue-cool-60v
+
+$brand-blue: #07648d; //remove
+$brand-blue-dark: #074b69; //blue-cool-70v
+$brand-blue-light: #e1f3f8; //blue-cool-5v
+
+$brand-blue-gray-light: #71839d;  //remove
+$brand-blue-gray: #485568; //remove
+
+$brand-gray: #3d4551;   //gray-cool-70
+
+$brand-teal: #1dc2ae; //mint-cool-30v
+$brand-teal-medium: #00a398; //mint-cool-40v
+$brand-teal-dark: #21827f; //mint-cool-50
+
+$brand-purple: #3f57a6; //indigo-cool-60
+$brand-purple-dark: #374274; //indigo-cool-70
+
+//USWDS
 // Base colors
 $theme-color-base-family: "gray-cool";
 $theme-color-base-lightest: "gray-5";
