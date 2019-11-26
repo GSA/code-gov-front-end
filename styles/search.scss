@@ -12,7 +12,6 @@
   }
 
   .search-description-wrapper {
-    font-size: 1.6rem;
     font-weight: bold;
     margin: 0 auto;
     text-align: left;
@@ -31,7 +30,6 @@
 
     input {
       font-style: italic;
-      height: 40px;
       text-align: center;
       /* 100% minus width of the button */
       width: calc(100% - 40px);

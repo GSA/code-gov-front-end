@@ -42,9 +42,9 @@ export default class SearchBox extends Component {
 
   render() {
     return (
-      <form className="search-form" onSubmit={::this.handleSubmit}>
-        <div className="search-input-wrapper">
-          <div className="search-input-and-button-wrapper">
+      <form className="usa-search usa-search--big" onSubmit={::this.handleSubmit}>
+        <div role="search">
+        <label class="usa-sr-only" for="search-field-big">Search</label>
             <input
               aria-label="search"
               onChange={::this.handleChange}
@@ -53,11 +53,14 @@ export default class SearchBox extends Component {
               type={this.props.inputType || 'search'}
               value={this.state.value}
               data-testid="input-search-box"
+              class="usa-input"
+              id="search-field-big"
+              name="search"
             />
-            <button className="go" data-testid="button-search-box">Go</button>
+            <button className="usa-button" type="submit" data-testid="button-search-box"><span class="usa-search__submit-text">Go</span></button>
           </div>
-        </div>
       </form>
+      
     )
   }
 }
