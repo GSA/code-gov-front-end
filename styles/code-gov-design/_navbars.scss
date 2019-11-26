@@ -1,0 +1,30 @@
+.subnav {
+  background-color: $color-subnav-background;
+
+  ul {
+    margin: 0;
+
+    li {
+      display: inline-block;
+      line-height: 1.5;
+      margin-bottom: 0;
+      margin-right: 1.5em;
+
+      a {
+        color: $color-gray;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 0.95em;
+        font-weight: bold;
+        padding: 0.75em 1.25em;
+        text-decoration: none;
+
+        &.active,
+        &:hover {
+          background-color: $color-subnav-selection;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

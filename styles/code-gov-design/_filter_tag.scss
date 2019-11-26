@@ -1,0 +1,36 @@
+.filter-tag {
+  background-color: $color-blue;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  margin: 3px 10px;
+  max-width: 250px;
+  padding-bottom: 0.25em;
+  padding-left: 3em;
+  padding-top: 0.25em;
+  padding-right: 1em;
+  vertical-align: top;
+
+  &:hover {
+    background-color: $brand-teal-medium;
+  }
+
+  .filter-tag-title {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::before {
+      content: '\e80d';
+      font-family: 'code-gov'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+      font-size: 1.3em;
+      margin-left: -30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      vertical-align: middle;
+    }
+  }
+}
