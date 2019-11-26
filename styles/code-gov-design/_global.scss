@@ -1,16 +1,12 @@
 html {
   box-sizing: border-box;
   font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  font-size: 10px;
-  line-height: 1.15;
 
   body {
     background-color: $color-white;
     box-sizing: border-box;
     font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
     font-feature-settings: "kern", "liga", "pnum";
-    font-size: 14px;
-    line-height: 1.42857143;
     margin: 0;
     overflow-x: hidden;
     -moz-text-size-adjust: 100%;
