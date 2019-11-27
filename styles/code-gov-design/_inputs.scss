@@ -14,9 +14,6 @@ input {
   margin: 0 auto;
   padding: 1rem 0.7em;
 
-  @media screen and (min-width: $small-screen) {
-    font-size: 1.4rem;
-  }
 
   /* we're adding a border so it aligns with the input */
   + button.go {
