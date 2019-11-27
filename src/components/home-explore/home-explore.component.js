@@ -4,11 +4,11 @@ import CustomLink from 'components/custom-link'
 export default class HomeExplore extends React.Component {
   render() {
     return (
-      <section id="explore" className="explore">
-        <ul className="explore-actions grid-row">
+      <section id="explore" className="explore usa-section">
+        <div className="explore-actions grid-row text-center tablet:border-bottom-2px tablet:border-top-2px margin-top-2 padding-top-205 padding-bottom-205 margin-top-9">
           {this.props.exploreItems &&
             this.props.exploreItems.map(item => (
-              <li className="explore-action tablet:grid-col-4" key={item.title}>
+              <div className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px" key={item.title}>
                 <div>
                   <h2>{item.title}</h2>
                   <p dangerouslySetInnerHTML={{ __html: item.description }} />
@@ -22,9 +22,9 @@ export default class HomeExplore extends React.Component {
                     </span>
                   ))}
                 </div>
-              </li>
+              </div>
             ))}
-        </ul>
+        </div>
       </section>
     )
   }
