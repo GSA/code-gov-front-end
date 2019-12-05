@@ -23,3 +23,12 @@ i.e.
 .news {
   background-clip: content-box;
 }
+
+.explore-action {
+  @media screen and (min-width: tablet) {
+    border-right: 2px solid;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
