@@ -11,45 +11,40 @@
     }
   }
 
-  .search-description-wrapper {
-    font-weight: bold;
-    margin: 0 auto;
-    text-align: left;
-    width: 100%;
+  // .search-description-wrapper {
+  //   font-weight: bold;
+  //   margin: 0 auto;
+  //   width: 100%;
+  // }
 
-    > div {
-      text-align: left;
-    }
-  }
+  // .search-input-and-button-wrapper {
+  //   margin: 0 auto;
+  //   position: relative;
+  //   text-align: left;
+  //   width: 100%;
 
-  .search-input-and-button-wrapper {
-    margin: 0 auto;
-    position: relative;
-    text-align: left;
-    width: 100%;
+  //   input {
+  //     font-style: italic;
+  //     text-align: center;
+  //     /* 100% minus width of the button */
+  //     width: calc(100% - 40px);
+  //   }
 
-    input {
-      font-style: italic;
-      text-align: center;
-      /* 100% minus width of the button */
-      width: calc(100% - 40px);
-    }
+  //   button.go {
+  //     border: 0px;
+  //     height: 40px;
+  //     margin-right: 0;
+  //     position: absolute;
+  //   }
 
-    button.go {
-      border: 0px;
-      height: 40px;
-      margin-right: 0;
-      position: absolute;
-    }
+  //   .autocomplete {
+  //     width: calc(100% - 10px);
+  //   }
+  // }
 
-    .autocomplete {
-      width: calc(100% - 10px);
-    }
-  }
-
-  .icon-search {
-    color: $color-black;
-  }
+  // .icon-search {
+  //   color: $color-black;
+  // }
 }
 
 .mobile-menu {
