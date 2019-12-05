@@ -24,11 +24,13 @@ i.e.
   background-clip: content-box;
 }
 
-.explore-action {
-  @media screen and (min-width: tablet) {
-    border-right: 2px solid;
-    &:last-child {
-      border-right: none;
+.explore-actions {
+  .explore-action {
+    @include at-media(tablet) {
+      border-right: 2px solid;
+      &:last-child {
+        border-right: none;
+      }
     }
   }
 }
