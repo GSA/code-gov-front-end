@@ -9,19 +9,17 @@ export default class HomeBanner extends React.Component {
 
   render() {
     return (
-      <section id="banner-home" className="banner margin-top-header margin-bottom-5">
-        <div className="banner-content">
-          <div className="banner-title">{this.props.motto}</div>
-          <div className="banner-subtitle show-w-gt-1200">{this.props.subtitle}</div>
-          <div className="banner-search">
-            <div className="banner-subsection width-half" style={{ zIndex: 30 }}>
-              <div className="banner-subsection-content">
-                <div className="banner-subsection-content-padder">
-                  <HomeBannerSearchBox />
-                </div>
-              </div>
-            </div>
+      <section id="banner-home" className="margin-top-8">
+        <div className="bg-primary text-center">
+        <div className="padding-y-2">
+          <div className="font-heading-3xl text-white">{this.props.motto}</div>
+          <div className="font-heading-lg text-white">{this.props.subtitle}</div>
+        </div>
+        <div className="bg-primary-lighter padding-y-2">
+          <div>
+          <HomeBannerSearchBox />
           </div>
+        </div>
         </div>
       </section>
     )
