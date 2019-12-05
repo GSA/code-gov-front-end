@@ -62,20 +62,20 @@ export default class HomeBannerSearchBoxComponent extends Component {
       query
     } = this.props
     return (
-      <div className="search-input-container">
-        <div className="search-input-wrapper">
-          <div className="search-description-wrapper">
-            <div className="search-description-heading show-w-gt-800">
+      <div>
+        <div>
+          <div>
+            <div className="text-uppercase text-bold">
               {searchDescriptionHeading}
             </div>
             {searchDescriptionText && (
-              <div className="search-description-text show-w-gt-800">{searchDescriptionText}</div>
+              <div className="margin-bottom-1 text-bold">{searchDescriptionText}</div>
             )}
             {searchDescriptionTextMobile && (
               <div className="show-w-lte-800">{searchDescriptionTextMobile}</div>
             )}
           </div>
-          <div className="search-input-and-button-wrapper">
+          <div className="width-mobile-lg margin-x-auto">
             <SearchBox
               placeholder={placeholder}
               onBlur={::this.handleBlur}
