@@ -70,7 +70,7 @@
     "autoprefixer": "^9.6.1",
     "clean-webpack-plugin": "^0.1.19",
     "connected-react-router": "^4.5.0",
-    "copy-webpack-plugin": "^4.5.4",
+    "copy-webpack-plugin": "^5.0.5",
     "css-mqpacker": "^7.0.0",
     "custom-event-polyfill": "^1.0.7",
     "devicons": "^1.8.0",
