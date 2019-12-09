@@ -99,7 +99,7 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "sass": "^1.20.1",
-    "snyk": "^1.251.1",
+    "snyk": "^1.258.1",
     "url-search-params-polyfill": "^5.1.0",
     "uswds": "^2.3.1",
     "webpack": "^4.39.3",

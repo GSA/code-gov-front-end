@@ -6,6 +6,9 @@ ignore:
     - jsoneditor > mobius1-selectr:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
+      '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: no patch
+        expires: '2020-01-08T17:37:42.754Z'
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-07-20T11:24:15.026Z'
