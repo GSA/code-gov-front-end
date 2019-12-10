@@ -8,29 +8,29 @@ export const Row = ({ todo }) => {
   let iconClass = 'icon'
   const status = normalize(todo.status)
   if (status === 'released') {
-    iconClass += ' icon-ok'
+    iconClass += ' icon-ok text-green'
   } else if (status === 'in progress') {
-    iconClass += ' icon-circle'
+    iconClass += ' icon-circle text-accent-warm-light'
   }
   return (
     <tr>
-      <td className="graphic-cell">
+      <td className="padding-y-1 padding-x-1">
         <i className={iconClass} aria-hidden="true" />
       </td>
-      <td className="widerow text-cell">{todo.name}</td>
+      <td className="padding-y-1 padding-x-1">{todo.name}</td>
     </tr>
   )
 }
 
 export const Column = ({ phase, todos }) => (
-  <div className="width-third">
-    <table>
-      <thead>
+  <div className="tablet:grid-col">
+    <table className="roadmap border-solid border-width-1px border-base-lighter radius-lg">
+      <thead className="bg-secondary-light border-solid border-width-1px border-secondary-light text-white">
         <tr>
-          <th colSpan="2">{phase}</th>
+          <th colSpan="2" className="padding-y-2 border-solid border-width-1px border-secondary-light radius-top-lg">{phase}</th>
         </tr>
       </thead>
-      <tbody style={{ background: 'white' }}>
+      <tbody>
         {map(todos, todo => (
           <Row key={todo.name} todo={todo} />
         ))}
@@ -46,8 +46,8 @@ export default class Roadmap extends React.Component {
 
   get overview() {
     return (
-      <div className="indented roadmap-overview">
-        <h3>Overview</h3>
+      <div>
+        <h3 className="font-heading-lg text-bold">Overview</h3>
         {map(this.props.overview, paragraph => (
           <p key={paragraph} dangerouslySetInnerHTML={{ __html: paragraph }} />
         ))}
@@ -57,47 +57,49 @@ export default class Roadmap extends React.Component {
 
   render() {
     return (
-      <div className="roadmap-general">
+      <div>
         <SiteBanner title="Roadmap" />
-        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Roadmap' }]} />
+        <div className="grid-container">
+          <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Roadmap' }]} />
 
-        {this.overview}
+          {this.overview}
 
-        <div className="indented roadmap-table-title">
-          <h3>Roadmap</h3>
-        </div>
-
-        <div className="indented roadmap-table">
-          <Column phase="Near-term" todos={this.props.near} />
-          <Column phase="Mid-term" todos={this.props.mid} />
-          <Column phase="Long-term" todos={this.props.long} />
-        </div>
-
-        <div className="indented roadmap-legend">
-          <div className="width-third">
-            <table>
-              <thead />
-              <tbody>
-                <tr>
-                  <td className="pull-down">
-                    <i className="icon icon-ok" aria-hidden="true" />
-                  </td>
-                  <td className="widerow pull-down">Released</td>
-                </tr>
-                <tr>
-                  <td className="push-up">
-                    <i className="icon icon-circle" aria-hidden="true" />
-                  </td>
-                  <td className="widerow push-up">In Progress</td>
-                </tr>
-              </tbody>
-            </table>
+          <div>
+            <h3 className="margin-top-4 font-heading-lg text-bold">Roadmap</h3>
           </div>
-        </div>
 
-        <div className="indented roadmap-disclaimer">
-          <h3>Disclaimer</h3>
-          <p>{this.props.disclaimer}</p>
+          <div className="grid-row grid-gap">
+            <Column phase="Near-term" todos={this.props.near} />
+            <Column phase="Mid-term" todos={this.props.mid} />
+            <Column phase="Long-term" todos={this.props.long} />
+          </div>
+
+          <div className="">
+            <div className="">
+              <table className="grid-row">
+                <thead />
+                <tbody>
+                  <tr>
+                    <td className="">
+                      <i className="icon icon-ok text-green" aria-hidden="true" />
+                    </td>
+                    <td className="">Released</td>
+                  </tr>
+                  <tr>
+                    <td className="">
+                      <i className="icon icon-circle text-accent-warm-light" aria-hidden="true" />
+                    </td>
+                    <td className="">In Progress</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="margin-y-3">
+            <h3 className="font-heading-lg text-bold">Disclaimer</h3>
+            <p>{this.props.disclaimer}</p>
+          </div>
         </div>
       </div>
     )
