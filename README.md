@@ -28,6 +28,8 @@ Here’s how you can help contribute to code.gov:
 
 ## Getting Started
 
+You will need node to run this website. It's built against v10.15.1. The best way to get node is to install it via `nvm`. See the [nvm installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) to set it up on your system.
+
 After you have cloned this repo, you can use `npm install` to install all of the
 project’s dependencies.
 
