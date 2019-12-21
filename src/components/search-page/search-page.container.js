@@ -9,7 +9,6 @@ import {
 import saveFilterOptions from 'actions/save-filter-options'
 import updateSearchFilters from 'actions/update-search-filters'
 import updateSearchParams from 'actions/update-search-params'
-import get from 'lodash.get'
 import { includes, len, overlaps, some } from '@code.gov/cautious'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 import SearchPageComponent from './search-page.component'

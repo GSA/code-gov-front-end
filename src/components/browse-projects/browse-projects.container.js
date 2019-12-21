@@ -1,13 +1,14 @@
 import { connect } from 'react-redux'
-import { includes } from '@code.gov/cautious'
-import get from 'lodash.get'
 import { getFilterTags, getFilterValuesFromParamsByCategory, normalize } from 'utils/other'
 import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
+import { includes, overlaps, some } from '@code.gov/cautious'
+import get from 'lodash.get'
+import { sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 import BrowseProjectsComponent from './browse-projects.component'
 
-export const mapStateToProps = ({ browseParams, browseResults, filters }) => {
+export const mapStateToProps = ({ filters, browseParams, browseResults }) => {
   const categories = ['agencies', 'languages', 'licenses', 'usageTypes']
 
   const selections = categories.reduce((accumulator, key) => {
@@ -34,6 +35,66 @@ export const mapStateToProps = ({ browseParams, browseResults, filters }) => {
 
   const total = get(browseResults, 'total') || 0
   const repos = get(browseResults, 'repos')
+
+  /* eslint-disable array-callback-return */
+  repos
+    .sort((a, b) => {
+      if (selectedSorting === 'data_quality') {
+        return sortByDataQuality(a, b)
+      }
+      if (selectedSorting === 'a-z') {
+        return sortByName(a, b)
+      }
+      if (selectedSorting === 'last_updated') {
+        return sortByDate(a, b)
+      }
+    })
+    .filter(repo => {
+      if (filters) {
+        if (
+          some(selections.agencies) &&
+          !selections.agencies.includes(normalize(repo.agency.acronym))
+        ) {
+          return false
+        }
+
+        if (
+          some(selections.languages) &&
+          !overlaps(normalize(repo.languages), selections.languages)
+        ) {
+          return false
+        }
+
+        if (some(selections.licenses)) {
+          // no licenses assigned on the repo
+          if (hasLicense(repo) === false) {
+            return false
+          }
+
+          const repoLicenses = repo.permissions.licenses.map(license => normalize(license.name))
+          if (!overlaps(repoLicenses, selections.licenses)) {
+            return false
+          }
+        }
+
+        const normalizedRepoUsageType = normalize(repo.permissions.usageType)
+        if (
+          some(selections.usageTypes) &&
+          !selections.usageTypes.includes(normalizedRepoUsageType)
+        ) {
+          return false
+        }
+
+        // don't want to visualize exempt repos
+        if (normalizedRepoUsageType.includes('exempt')) {
+          return false
+        }
+
+        return true
+      }
+
+      return false
+    })
 
   const sortOptions = [
     {
