@@ -3,6 +3,11 @@
 .banner {
   background: $brand-primary;
   background-image: none;
+  color: #fff;
+
+  @media screen and (min-width: 600px) {
+    height: 225px;
+  }
 }
 
 /* for internet explorer */
