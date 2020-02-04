@@ -39,9 +39,7 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
       </h3>
     </div>
   </div>
-  <div
-    className="indented"
-  >
+  <div>
     <div
       id="filter-boxes-section"
     >
@@ -102,9 +100,7 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
       <div
         className="card-list"
       >
-        <div
-          className="card-container"
-        >
+        <div>
           <QualityPopover />
           <ul
             className="card-ul"
@@ -135,4 +131,3 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
