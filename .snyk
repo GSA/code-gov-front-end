@@ -6,9 +6,6 @@ ignore:
     - jsoneditor > mobius1-selectr:
         reason: No fix
         expires: '2019-03-30T16:06:33.368Z'
-      '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
-        reason: no patch
-        expires: '2020-01-08T17:37:42.754Z'
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-07-20T11:24:15.026Z'
@@ -27,6 +24,9 @@ ignore:
     - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
         reason: no patch
         expires: '2019-12-04T17:21:53.470Z'
+    - '@code.gov/json-schema-validator-web-component > jsoneditor > mobius1-selectr':
+        reason: no patch
+        expires: '2020-01-08T17:37:42.754Z'
   SNYK-JS-LODASH-73638:
     - favicons-webpack-plugin > favicons > cheerio > lodash:
         reason: None given
@@ -191,6 +191,16 @@ ignore:
     - '@code.gov/site-map-generator > @code.gov/api-client > axios':
         reason: no patch available
         expires: '2019-11-08T17:56:49.923Z'
+  SNYK-JS-DOTPROP-543489:
+    - optimize-css-assets-webpack-plugin > cssnano > cssnano-preset-default > postcss-merge-rules > postcss-selector-parser > dot-prop:
+        reason: No sufficient remediation.
+        expires: '2020-03-06T12:53:00.365Z'
+    - optimize-css-assets-webpack-plugin > cssnano > cssnano-preset-default > postcss-minify-selectors > postcss-selector-parser > dot-prop:
+        reason: No sufficient remediation.
+        expires: '2020-03-06T12:53:00.365Z'
+    - optimize-css-assets-webpack-plugin > cssnano > cssnano-preset-default > postcss-merge-longhand > stylehacks > postcss-selector-parser > dot-prop:
+        reason: No sufficient remediation.
+        expires: '2020-03-06T12:53:00.365Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
