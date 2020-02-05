@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - SortSection render should render correctly 1`] = `
-<div
-  className="sort-section"
->
+<div>
   <h2>
     <span>
       Sort by
