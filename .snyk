@@ -201,6 +201,152 @@ ignore:
     - optimize-css-assets-webpack-plugin > cssnano > cssnano-preset-default > postcss-merge-longhand > stylehacks > postcss-selector-parser > dot-prop:
         reason: No sufficient remediation.
         expires: '2020-03-06T12:53:00.365Z'
+  SNYK-JS-DECOMPRESS-557358:
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress:
+        reason: No vulnerability fix to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+  SNYK-JS-DECOMPRESSTAR-559095:
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.360Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.361Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.362Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.363Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.363Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.363Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.363Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.363Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No fix offered to date.
+        expires: '2020-04-05T20:02:04.363Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
