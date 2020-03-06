@@ -6,7 +6,6 @@ import SiteBanner from 'components/site-banner'
 import {
   getLastModifiedDateString,
   getDisplayTextForUsageType,
-  getLaborHours,
   getLicenseName,
   parseEmail,
   parseLanguages,
@@ -86,20 +85,6 @@ export default class ProjectPage extends Component {
           <li>
             <i className="icon icon-certificate" />
             <span>{text}</span>
-          </li>
-        </span>
-      )
-    }
-  }
-
-  get displayLaborHours() {
-    const laborHours = getLaborHours(this.props.repo)
-    if (laborHours) {
-      return (
-        <span>
-          <li>
-            <i className="icon icon-hourglass-end" />
-            {`${laborHours} hours`}
           </li>
         </span>
       )
@@ -222,7 +207,6 @@ export default class ProjectPage extends Component {
                 <ul className="repo-features">
                   {this.usageType}
                   {this.license}
-                  {this.displayLaborHours}
                   {this.languages}
                   {this.contact}
                 </ul>

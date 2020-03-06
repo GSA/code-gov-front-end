@@ -20,17 +20,6 @@ export function getLicenseName(repo) {
   return get(repo, 'permissions.licenses[0].name')
 }
 
-export function getLaborHours(repo) {
-  try {
-    const laborHours = Number(get(repo, 'contact.laborHours'))
-    if (laborHours > 0) {
-      return laborHours
-    }
-  } catch (error) {
-    console.warn(error)
-  }
-}
-
 export function parseLanguages(repo) {
   const languages = get(repo, 'languages')
   if (Array.isArray(languages)) {

@@ -74,17 +74,6 @@ describe('components - ProjectPage', () => {
     })
   })
 
-  describe('displayLaborHours', () => {
-    it('should render the labor hours', () => {
-      testRenderText(instance.displayLaborHours, repo.contact.laborHours)
-    })
-
-    it('should render nothing if labor hours is not provided', () => {
-      wrapper.setProps({ repo: { ...repo, contact: undefined } })
-      testRenderEmpty(instance.displayLaborHours)
-    })
-  })
-
   describe('languages', () => {
     it('should render the `languages`', () => {
       const expected = repo.languages.join(', ')

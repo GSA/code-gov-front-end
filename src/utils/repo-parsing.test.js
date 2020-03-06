@@ -1,12 +1,11 @@
 import {
   getDisplayTextForUsageType,
   getLicenseName,
-  getLaborHours,
   parseLanguages,
   parseEmail,
   parseRepositoryURL,
   parseTags,
-  getLastModifiedDateString,
+  getLastModifiedDateString
 } from 'utils/repo-parsing'
 
 describe('utils - repo-parsing', () => {
@@ -32,25 +31,13 @@ describe('utils - repo-parsing', () => {
   })
 
   describe('getLicenseName', () => {
-    it('should get the `name` of the first licsence', () => {
+    it('should get the `name` of the first license', () => {
       const repo = { permissions: { licenses: [{ name: 'name-1' }, { name: 'name-2' }] } }
       expect(getLicenseName(repo)).toBe('name-1')
     })
 
     it('should return falsy if it cannot get a license name', () => {
       expect(getLicenseName({})).toBeFalsy()
-    })
-  })
-
-  describe('getLaborHours', () => {
-    it('should return the labor hours as a number', () => {
-      const repo = { contact: { laborHours: '123' } }
-      expect(getLaborHours(repo)).toBe(123)
-    })
-
-    it('should return falsy if it cannot get valid labor hours', () => {
-      expect(getLaborHours({})).toBeFalsy()
-      expect(getLaborHours({ contact: { laborHours: -100 } })).toBeFalsy()
     })
   })
 
@@ -83,9 +70,15 @@ describe('utils - repo-parsing', () => {
     })
 
     it('should normalize `git` urls', () => {
-      expect(parseRepositoryURL({ repositoryURL: 'git://github.com/test-url' })).toEqual('https://github.com/test-url')
-      expect(parseRepositoryURL({ repositoryURL: 'git@github.com:test-url.git' })).toEqual('https://github.com/test-url')
-      expect(parseRepositoryURL({ repositoryURL: 'https://github.com/test-url.git' })).toEqual('https://github.com/test-url')
+      expect(parseRepositoryURL({ repositoryURL: 'git://github.com/test-url' })).toEqual(
+        'https://github.com/test-url'
+      )
+      expect(parseRepositoryURL({ repositoryURL: 'git@github.com:test-url.git' })).toEqual(
+        'https://github.com/test-url'
+      )
+      expect(parseRepositoryURL({ repositoryURL: 'https://github.com/test-url.git' })).toEqual(
+        'https://github.com/test-url'
+      )
     })
 
     it('should return falsy if no valid url found', () => {
@@ -107,7 +100,9 @@ describe('utils - repo-parsing', () => {
   describe('getLastModifiedDateString', () => {
     it('should get the date last modified as a local string', () => {
       const repo = { date: { lastModified: '2011/01/02' } }
-      expect(getLastModifiedDateString(repo)).toEqual(new Date('2011/01/02').toLocaleDateString('en-US'))
+      expect(getLastModifiedDateString(repo)).toEqual(
+        new Date('2011/01/02').toLocaleDateString('en-US')
+      )
     })
 
     it('should return falsy if no date found', () => {

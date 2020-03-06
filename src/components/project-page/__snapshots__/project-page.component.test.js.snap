@@ -81,14 +81,6 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           <span>
             <li>
               <i
-                className="icon icon-hourglass-end"
-              />
-              123 hours
-            </li>
-          </span>
-          <span>
-            <li>
-              <i
                 className="icon icon-code"
               />
               <span
@@ -207,4 +199,4 @@ exports[`components - ProjectPage render should render correctly 1`] = `
     </header>
   </section>
 </div>
-`
+`;

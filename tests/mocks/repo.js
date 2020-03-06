@@ -6,31 +6,30 @@ const repo = {
   score: 'repo-score',
   agency: {
     name: 'repo-agency-name',
-    acronym: 'repo-agency-acronym',
+    acronym: 'repo-agency-acronym'
   },
   date: {
-    lastModified: '2020/12/10',
+    lastModified: '2020/12/10'
   },
   permissions: {
     usageType: 'repo-usage',
-    licenses: [{ name: 'repo-license' }],
+    licenses: [{ name: 'repo-license' }]
   },
   contact: {
-    laborHours: '123',
-    email: 'repo-email',
+    email: 'repo-email'
   },
   tags: ['repo-tag-1', 'repo-tag-2'],
   languages: ['repo-lang-1', 'repo-lang-2'],
   additional_data: {
     array: ['repo-meta-arr-1'],
     url: 'http://www.repo-meta-url.com',
-    string: 'repo-meta-string',
-  },
+    string: 'repo-meta-string'
+  }
 }
 
-export const getRepo = (overrides) => ({
+export const getRepo = overrides => ({
   ...repo,
-  ...overrides,
+  ...overrides
 })
 
 export default repo
