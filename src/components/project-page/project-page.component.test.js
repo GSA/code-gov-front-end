@@ -10,10 +10,10 @@ const props = {
   repo,
   match: {
     params: {
-      repoID: 'repo-id',
-    },
+      repoID: 'repo-id'
+    }
   },
-  updateProject: jest.fn(),
+  updateProject: jest.fn()
 }
 
 let wrapper
@@ -115,6 +115,11 @@ describe('components - ProjectPage', () => {
 
     it('should render nothing if `email` is not provided', () => {
       wrapper.setProps({ repo: { ...repo, repositoryURL: undefined } })
+      testRenderEmpty(instance.repositoryURL)
+    })
+
+    it('should render nothing if `repositoryURL` is a null string', () => {
+      wrapper.setProps({ repo: { ...repo, repositoryURL: 'null' } })
       testRenderEmpty(instance.repositoryURL)
     })
   })
