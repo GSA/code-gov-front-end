@@ -230,7 +230,7 @@ module.exports = {
       SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
-    new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
+    //new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
