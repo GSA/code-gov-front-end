@@ -18,9 +18,10 @@ console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
 console.log('process.env.CODE_GOV_BRANCH:', process.env.CODE_GOV_BRANCH)
 console.log('process.env.CODE_GOV_RELATIVE_DIR:', process.env.CODE_GOV_RELATIVE_DIR)
 console.log('process.env.PUBLIC_PATH', process.env.PUBLIC_PATH)
+console.log('process.env.BASEURL:', process.env.BASEURL)
 
 // https://webpack.js.org/guides/public-path/
-const PUBLIC_PATH = process.env.PUBLIC_PATH || '/'
+const PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
 
 let OUTPUT_PATH
 if (process.env.OUTPUT_PATH) {
