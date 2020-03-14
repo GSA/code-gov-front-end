@@ -7,6 +7,7 @@ console.log("starting publish.js");
 
 const DIR = process.env.CODE_GOV_DIR || path.join(__dirname, process.env.CODE_GOV_RELATIVE_DIR)
 
+
 const env_vars = {
   'owner': process.env.OWNER,
   'repository': process.env.REPOSITORY,
@@ -36,13 +37,13 @@ if (process.env.CODE_GOV_BRANCH) {
   throw new Error("no branch specified")
 }
 
-if (!process.env.CODE_GOV_REPO) {
-  throw new Error("no repo specified")
-}
-
-if (!process.env.CODE_GOV_API_KEY) {
-  throw new Error("no api specified")
-}
+//if (!process.env.CODE_GOV_REPO) {
+//  throw new Error("no repo specified")
+//}
+//
+//if (!process.env.CODE_GOV_API_KEY) {
+//  throw new Error("no api specified")
+//}
 
 //ghpages.clean()
 //
