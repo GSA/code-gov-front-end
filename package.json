@@ -10,6 +10,8 @@
     "deploy-to-gh-pages": "PUBLIC_PATH='/code-gov-front-end/' OUTPUT_RELATIVE_PATH='/dist/gh-pages' npm run build && CODE_GOV_RELATIVE_DIR='/dist/gh-pages' CODE_GOV_BRANCH='gh-pages' npm run deploy",
     "deploy-to-production": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-prod' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-prod' CODE_GOV_BRANCH='federalist-prod' npm run deploy",
     "deploy-to-staging": "PUBLIC_PATH='/' OUTPUT_RELATIVE_PATH='/dist/federalist-stag' npm run build && CODE_GOV_RELATIVE_DIR='/dist/federalist-stag' CODE_GOV_BRANCH='federalist-stag' npm run deploy",
+    "deploy-to-federalist": "npm run build && npm run deploy",
+    "federalist": "npm run deploy-to-federalist",
     "licenses": "license-checker --json --relativeLicensePath --out dependency_licenses.json",
     "lint": "eslint 'src/**/*' --ext .js,.jsx --fix  --ignore-pattern '*.html'",
     "prettier": "pretty-quick --staged",

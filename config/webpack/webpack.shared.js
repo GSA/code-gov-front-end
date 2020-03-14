@@ -11,14 +11,16 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
 
+require('dotenv').config()
+
 console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
 console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
 console.log('process.env.CODE_GOV_BRANCH:', process.env.CODE_GOV_BRANCH)
 console.log('process.env.CODE_GOV_RELATIVE_DIR:', process.env.CODE_GOV_RELATIVE_DIR)
+console.log('process.env.PUBLIC_PATH', process.env.PUBLIC_PATH)
 
 // https://webpack.js.org/guides/public-path/
 const PUBLIC_PATH = process.env.PUBLIC_PATH || '/'
-console.log('process.env.PUBLIC_PATH:', process.env.PUBLIC_PATH)
 
 let OUTPUT_PATH
 if (process.env.OUTPUT_PATH) {
