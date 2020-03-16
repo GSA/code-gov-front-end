@@ -58,7 +58,6 @@ typings/
 .next
 
 # builds
-/dist
 /docs
 
 # swap files
