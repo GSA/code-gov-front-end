@@ -11,14 +11,18 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
 
+require('dotenv').config()
+
+// https://webpack.js.org/guides/public-path/
+const PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
+
 console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
 console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
 console.log('process.env.CODE_GOV_BRANCH:', process.env.CODE_GOV_BRANCH)
 console.log('process.env.CODE_GOV_RELATIVE_DIR:', process.env.CODE_GOV_RELATIVE_DIR)
-
-// https://webpack.js.org/guides/public-path/
-const PUBLIC_PATH = process.env.PUBLIC_PATH || '/'
-console.log('process.env.PUBLIC_PATH:', process.env.PUBLIC_PATH)
+console.log('process.env.PUBLIC_PATH', process.env.PUBLIC_PATH)
+console.log('PUBLIC_PATH', PUBLIC_PATH)
+console.log('process.env.BASEURL:', process.env.BASEURL)
 
 let OUTPUT_PATH
 if (process.env.OUTPUT_PATH) {
@@ -171,7 +175,7 @@ module.exports = {
             }
           },
           {
-            loader: 'css-loader',  // translates CSS into CommonJS
+            loader: 'css-loader', // translates CSS into CommonJS
             options: {
               sourceMap: true
             }
@@ -227,7 +231,7 @@ module.exports = {
       SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
-    new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
+    //new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
