@@ -121,10 +121,7 @@ const patterns = [
   }
 ]
 
-if (
-  process.env.OUTPUT_RELATIVE_PATH &&
-  process.env.OUTPUT_RELATIVE_PATH.includes('federalist-prod')
-) {
+if (process.env.BRANCH && process.env.BRANCH.includes('production')) {
   // only include sitemap if building for production on code.gov
   patterns.push({
     from: 'node_modules/@code.gov/site-map-generator/sitemap.xml',
@@ -226,12 +223,12 @@ module.exports = {
   },
   plugins: [
     new DefinePlugin({
-      ENABLE_GOOGLE_ANALYTICS: process.env.CODE_GOV_BRANCH === 'federalist-prod',
+      ENABLE_GOOGLE_ANALYTICS: process.env.CODE_GOV_BRANCH === 'production',
       PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
       SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
-    //new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
+    // new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
     new CopyWebpackPlugin(patterns),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
