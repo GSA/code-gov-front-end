@@ -128,7 +128,7 @@
     "webpack-merge": "^4.2.1",
     "whatwg-fetch": "^3.0.0",
     "css-loader": "^1.0.1",
-    "favicons": "^5.4.1",
+    "favicons": "^5.5.0",
     "file-loader": "^2.0.0",
     "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
