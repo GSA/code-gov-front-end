@@ -1,7 +1,7 @@
 const ghpages = require('gh-pages');
 const path = require('path');
-
-require('dotenv').config()
+const fs = require(‘fs‘);
+require('dotenv').config();
 
 console.log("starting publish.js");
 
@@ -19,6 +19,8 @@ const env_vars = {
 }
 
 console.log("env_vars", env_vars);
+console.log("unlinking ./dist/.gitignore");
+fs.unlinkSync("./dist/.gitignore");
 
 if (!DIR) {
   throw new Error("please specify CODE_GOV_DIR as an env variable")
