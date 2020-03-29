@@ -98,7 +98,7 @@ c. Use the `npm run test:cypress` command to run the Cypress tests.
 
 Once these steps are completed, you should see the list of spec files.  
 
-![Cypress startup](assets/img/cypress-running.png)  
+![Cypress startup](assets/img/cypress-running.webp)  
 
 Click the `run all specs` button (in the upper right) to run the tests.   
  
