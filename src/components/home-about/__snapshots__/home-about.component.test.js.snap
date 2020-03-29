@@ -27,7 +27,7 @@ exports[`components - HomeAbout should render correctly 1`] = `
         <img
           alt=""
           className=""
-          src="/assets/img/icons/vision_icon_sm.png"
+          src="/assets/img/icons/vision_icon_sm.webp"
         />
       </span>
     </li>
@@ -44,10 +44,10 @@ exports[`components - HomeAbout should render correctly 1`] = `
         <img
           alt=""
           className=""
-          src="/assets/img/icons/mission_icon_sm.png"
+          src="/assets/img/icons/mission_icon_sm.webp"
         />
       </span>
     </li>
   </ul>
 </section>
-`
+`;

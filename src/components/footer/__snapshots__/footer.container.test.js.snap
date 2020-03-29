@@ -19,7 +19,7 @@ Object {
   ],
   "logos": Array [
     Object {
-      "image": "/assets/img/logos/GSA.png",
+      "image": "/assets/img/logos/GSA.webp",
       "name": "U.S. General Services Administration",
       "url": "https://www.gsa.gov/",
     },
@@ -42,4 +42,4 @@ Object {
     },
   ],
 }
-`
+`;
