@@ -164,7 +164,7 @@
           "description": "For our 3rd trip around the sun, we wanted to share where we’ve been, where we are going, and the implementation of the federal source code policy...",
           "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
           "date": "11/20/2019",
-          "image": "/assets/img/news/bday.jpeg",
+          "image": "/assets/img/news/bday.webp",
           "alt": "Happy Birthday"
         },
         {
@@ -172,7 +172,7 @@
           "description": "For small businesses, open source software provides unlimited access to fully functioning software that can help grow and automate…",
           "url": "https://medium.com/codedotgov/the-sba-and-open-source-a-perfect-fit-for-small-business-69727971d71a",
           "date": "11/4/2019",
-          "image": "/assets/img/news/open-sign.jpeg",
+          "image": "/assets/img/news/open-sign.webp",
           "alt": "Open Sign in Coffee Shop (Credit: TK1993 iStock/Getty Images Plus)"
         },
         {
@@ -180,7 +180,7 @@
           "description": "As a developer consuming open source dependencies, you must keep it secure. It is imperative that you set up the tools and processes that will help you stay safe, and help raise awareness of secure development practices throughout your organization...",
           "url": "https://medium.com/codedotgov/watching-your-back-end-and-your-front-end-developing-with-a-security-mindset-ed5d73615688",
           "date": "9/30/2019",
-          "image": "/assets/img/news/security.jpeg",
+          "image": "/assets/img/news/security.webp",
           "alt": "An open padlock"
         }
       ],
@@ -189,19 +189,19 @@
           "title": "About Us",
           "description": "Code.gov is on track to become the nation’s primary platform for sharing America’s code.  Find out how we’ll get there.",
           "link": "/about/overview/introduction",
-          "image": "/assets/img/icons/info_bl.png"
+          "image": "/assets/img/icons/info_bl.webp"
         },
         {
           "title": "Policy Info",
           "description": "The Federal Source Code Policy helps government agencies reduce duplicative software development and save taxpayer dollars.",
           "link": "/policy-guide/introduction",
-          "image": "/assets/img/icons/policy_bl.png"
+          "image": "/assets/img/icons/policy_bl.webp"
         },
         {
           "title": "Progress Report",
           "description": "Government agencies are working hard to unlock the potential of code sharing and collaboration. Here’s a quick snapshot of their progress.",
           "link": "/about/compliance/dashboard",
-          "image": "/assets/img/icons/check_bl.png"
+          "image": "/assets/img/icons/check_bl.webp"
         }
       ],
       "featured": [
@@ -291,7 +291,7 @@
       ],
       "logos": [
         {
-          "image": "/assets/img/logos/GSA.png",
+          "image": "/assets/img/logos/GSA.webp",
           "name": "U.S. General Services Administration",
           "url": "https://www.gsa.gov/"
         }

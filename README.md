@@ -94,16 +94,15 @@ To run Cypress testing do the following:
 a. Make sure you run `npm install` to install all of the
 project’s dependencies.  
 b. Start a server by running `npm run start`.  
-c. Use the `npm run test:cypress` command to run the Cypress tests.  
+c. Use the `npm run test:cypress` command to run the Cypress tests.
 
-Once these steps are completed, you should see the list of spec files.  
+Once these steps are completed, you should see the list of spec files.
 
-![Cypress startup](assets/img/cypress-running.webp)  
+![Cypress startup](assets/img/cypress-running.webp)
 
-Click the `run all specs` button (in the upper right) to run the tests.   
- 
-![Cypress tests](assets/img/cypress-tests.png)
+Click the `run all specs` button (in the upper right) to run the tests.
 
+![Cypress tests](assets/img/cypress-tests.webp)
 
 ## Deployment
 
