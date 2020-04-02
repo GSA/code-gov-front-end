@@ -4,7 +4,7 @@ const shared = require('./webpack.shared')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const sass = require('sass')
 const autoprefixer = require('autoprefixer')
-const mqpacker = require('css-mqpacker')
+const postSortMediaQueries = require('postcss-sort-media-queries')
 
 const plugins = [
   new MiniCssExtractPlugin({
@@ -44,7 +44,7 @@ const prod = {
               sourceMap: true,
               plugins: [
                 autoprefixer({ grid: true }),
-                mqpacker({ sort: true })
+                postSortMediaQueries({ sort: 'mobile-first' }),
               ]
             }
           },
