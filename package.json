@@ -117,6 +117,7 @@
     "postcss": "^7.0.27",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
+    "postcss-sort-media-queries": "^1.4.23",
     "prettier": "^1.15.3",
     "pretty-quick": "^1.8.0",
     "prop-types": "^15.7.2",
@@ -160,8 +161,7 @@
     "jest": "^24.8.0",
     "license-checker": "^24.1.0",
     "lint-staged": "^9.2.5",
-    "pa11y-ci": "^2.3.0",
-    "postcss-sort-media-queries": "^1.4.23"
+    "pa11y-ci": "^2.3.0"
   },
   "browserslist": [
     "last 2 versions",
