@@ -18,7 +18,7 @@ let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
 let OUTPUT_PATH
 
 // add slash to end of path for federalist branch builds
-if (PUBLIC_PATH.slice(-1) !== '/') PUBLIC_PATH += '/'
+if (PUBLIC_PATH.slice(-1) !== '/') PUBLIC_PATH = `${PUBLIC_PATH}/`
 
 console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
 console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
