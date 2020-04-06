@@ -14,7 +14,11 @@ const nodeModulesDir = join(rootDir, 'node_modules')
 require('dotenv').config()
 
 // https://webpack.js.org/guides/public-path/
-const PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
+let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
+let OUTPUT_PATH
+
+// add slash to end of path for federalist branch builds
+if (PUBLIC_PATH.slice(-1) !== '/') PUBLIC_PATH = `${PUBLIC_PATH}/`
 
 console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
 console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
@@ -24,7 +28,6 @@ console.log('process.env.PUBLIC_PATH', process.env.PUBLIC_PATH)
 console.log('PUBLIC_PATH', PUBLIC_PATH)
 console.log('process.env.BASEURL:', process.env.BASEURL)
 
-let OUTPUT_PATH
 if (process.env.OUTPUT_PATH) {
   OUTPUT_PATH = process.env.OUTPUT_PATH
 } else if (process.env.OUTPUT_RELATIVE_PATH) {
@@ -32,6 +35,7 @@ if (process.env.OUTPUT_PATH) {
 } else {
   OUTPUT_PATH = join(rootDir, '/dist')
 }
+
 console.log('OUTPUT_PATH:', OUTPUT_PATH)
 
 if (!OUTPUT_PATH) {
