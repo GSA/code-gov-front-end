@@ -19,10 +19,22 @@
         {
           "name": "ABOUT",
           "links": [
-            { "name": "Overview", "url": "/about/overview/introduction" },
-            { "name": "Compliance", "url": "/about/compliance/dashboard" },
-            { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
+            {
+              "name": "Overview",
+              "url": "/about/overview/introduction"
+            },
+            {
+              "name": "Compliance",
+              "url": "/about/compliance/dashboard"
+            },
+            {
+              "name": "Open Source Pilot",
+              "url": "/about/open-source/introduction"
+            },
+            {
+              "name": "Source Code Policy",
+              "url": "https://sourcecode.cio.gov/"
+            }
           ]
         },
         {
@@ -32,31 +44,64 @@
         {
           "name": "FEDERAL AGENCIES",
           "links": [
-            { "name": "How to Inventory Code", "url": "/about/compliance/inventory-code" },
-            { "name": "Tools", "url": "/about/compliance/inventory-code/validate-schema" },
-            { "name": "Compliance Dashboard", "url": "/about/compliance/dashboard" }
+            {
+              "name": "How to Inventory Code",
+              "url": "/about/compliance/inventory-code"
+            },
+            {
+              "name": "Tools",
+              "url": "/about/compliance/inventory-code/validate-schema"
+            },
+            {
+              "name": "Compliance Dashboard",
+              "url": "/about/compliance/dashboard"
+            }
           ]
         },
         {
           "name": "DEVELOPERS",
           "links": [
-            { "name": "code.gov API", "url": "https://open.gsa.gov/api/codedotgov/" },
-            { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
+            {
+              "name": "code.gov API",
+              "url": "https://open.gsa.gov/api/codedotgov/"
+            },
+            {
+              "name": "Open Tasks",
+              "url": "/open-tasks?page=1&size=10"
+            },
             {
               "name": "Notebooks",
               "url": "https://beta.observablehq.com/search?query=%22code.gov%22"
             },
-            { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
+            {
+              "name": "Resources",
+              "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources"
+            }
           ]
         },
         {
           "name": "SOCIAL",
           "links": [
-            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov" },
-            { "name": "Blog", "url": "https://medium.com/codedotgov" },
-            { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
-            { "name": "Twitter", "url": "https://twitter.com/codedotgov" },
-            { "name": "Contact Us", "url": "mailto:code@gsa.gov" }
+            {
+              "name": "code.gov Repo",
+              "url": "http://github.com/GSA/code-gov"
+            },
+            {
+              "name": "Blog",
+              "url": "https://medium.com/codedotgov"
+            },
+            {
+              "name": "LinkedIn",
+              "url": "https://www.linkedin.com/company/code-gov"
+            },
+            {
+              "name": "Twitter",
+              "url": "https://twitter.com/codedotgov"
+            },
+            {
+              "name": "Contact Us",
+              "url": "mailto:code@gsa.gov"
+            }
           ]
         }
       ],
@@ -64,10 +109,22 @@
         {
           "name": "About",
           "links": [
-            { "name": "Overview", "url": "/about/overview/introduction" },
-            { "name": "Compliance", "url": "/about/compliance/dashboard" },
-            { "name": "Open Source Pilot", "url": "/about/open-source/introduction" },
-            { "name": "Source Code Policy", "url": "https://sourcecode.cio.gov/" }
+            {
+              "name": "Overview",
+              "url": "/about/overview/introduction"
+            },
+            {
+              "name": "Compliance",
+              "url": "/about/compliance/dashboard"
+            },
+            {
+              "name": "Open Source Pilot",
+              "url": "/about/open-source/introduction"
+            },
+            {
+              "name": "Source Code Policy",
+              "url": "https://sourcecode.cio.gov/"
+            }
           ]
         },
         {
@@ -77,31 +134,64 @@
         {
           "name": "Federal Agencies",
           "links": [
-            { "name": "How to Inventory Code", "url": "/about/compliance/inventory-code" },
-            { "name": "Tools", "url": "/about/compliance/inventory-code/validate-schema" },
-            { "name": "Compliance Dashboard", "url": "/about/compliance/dashboard" }
+            {
+              "name": "How to Inventory Code",
+              "url": "/about/compliance/inventory-code"
+            },
+            {
+              "name": "Tools",
+              "url": "/about/compliance/inventory-code/validate-schema"
+            },
+            {
+              "name": "Compliance Dashboard",
+              "url": "/about/compliance/dashboard"
+            }
           ]
         },
         {
           "name": "Developers",
           "links": [
-            { "name": "code.gov API", "url": "https://open.gsa.gov/api/codedotgov/" },
-            { "name": "Open Tasks", "url": "/open-tasks?page=1&size=10" },
+            {
+              "name": "code.gov API",
+              "url": "https://open.gsa.gov/api/codedotgov/"
+            },
+            {
+              "name": "Open Tasks",
+              "url": "/open-tasks?page=1&size=10"
+            },
             {
               "name": "Notebooks",
               "url": "https://beta.observablehq.com/search?query=%22code.gov%22"
             },
-            { "name": "Resources", "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources" }
+            {
+              "name": "Resources",
+              "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources"
+            }
           ]
         },
         {
           "name": "Social",
           "links": [
-            { "name": "code.gov Repo", "url": "http://github.com/GSA/code-gov" },
-            { "name": "Blog", "url": "https://medium.com/codedotgov" },
-            { "name": "LinkedIn", "url": "https://www.linkedin.com/company/code-gov" },
-            { "name": "Twitter", "url": "https://twitter.com/codedotgov" },
-            { "name": "Contact Us", "url": "mailto:code@gsa.gov" }
+            {
+              "name": "code.gov Repo",
+              "url": "http://github.com/GSA/code-gov"
+            },
+            {
+              "name": "Blog",
+              "url": "https://medium.com/codedotgov"
+            },
+            {
+              "name": "LinkedIn",
+              "url": "https://www.linkedin.com/company/code-gov"
+            },
+            {
+              "name": "Twitter",
+              "url": "https://twitter.com/codedotgov"
+            },
+            {
+              "name": "Contact Us",
+              "url": "mailto:code@gsa.gov"
+            }
           ]
         }
       ]
@@ -217,7 +307,10 @@
               "name": "View Project",
               "url": "/projects/doe_sandia_national_laboratories_snl_water_network_tool_for_resilience_v_1_0"
             },
-            { "name": "Go to Repo", "url": "https://github.com/usepa/wntr" }
+            {
+              "name": "Go to Repo",
+              "url": "https://github.com/usepa/wntr"
+            }
           ]
         },
         {
@@ -232,7 +325,10 @@
               "name": "View Project",
               "url": "/projects/dot_fhwa_intelligent_transportation_systems_operational_data_environment_its_ode_"
             },
-            { "name": "Go to Repo", "url": "https://github.com/usdot-jpo-ode/jpo-ode" }
+            {
+              "name": "Go to Repo",
+              "url": "https://github.com/usdot-jpo-ode/jpo-ode"
+            }
           ]
         },
         {
@@ -243,8 +339,14 @@
           "image": "/assets/img/featured-projects/WALKOFF.png",
           "alt": "Cartoon hand pressing buttons connected to phone and laptop",
           "links": [
-            { "name": "View Project", "url": "/projects/nsa_walkoff" },
-            { "name": "Go to Repo", "url": "https://github.com/iadgov/WALKOFF" }
+            {
+              "name": "View Project",
+              "url": "/projects/nsa_walkoff"
+            },
+            {
+              "name": "Go to Repo",
+              "url": "https://github.com/iadgov/WALKOFF"
+            }
           ]
         }
       ],
@@ -323,50 +425,72 @@
     },
     "roadmap": {
       "overview": [
-        "At Code.gov, we know it’s important to keep an open dialogue with our users. That’s why we’re sharing our plans for the future through this Development Roadmap. Hopefully, it will help you better understand our priorities for the platform.",
-        "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap. If you want to join the Code.gov user testing group, please email us at <a href='mailto:code@gsa.gov'>Code@gsa.gov</a>."
+        "At Code.gov, we know it’s important to keep on open dialogue with our users. That’s why we’re sharing our plans for the future through this Development Roadmap. Hopefully, it provides a better understanding our our priorities for the platform.",
+        "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap. If you want to join a Code.gov user testing group, please email us at <a href='mailto:code@gsa.gov'>Code@gsa.gov</a>."
       ],
       "near": [
-        { "name": "Usability research to study contributor experience", "status": "Released" },
-        { "name": "Add documentation to increase usability of platform", "status": "Released" },
         {
-          "name": "Add tests to ensure code quality throughout the development process",
+          "name": "Add documentation to increase usability of platform",
           "status": "Released"
         },
-        { "name": "Home page redesign", "status": "Released" },
-        { "name": "Data quality scoring update", "status": "Released" },
-        { "name": "Add 'Official gov website' banner", "status": "Released" }
+        {
+          "name": "Toolkit documentation",
+          "status": "In Progress"
+        },
+        {
+          "name": "Migration of web components to React components",
+          "status": "In Progress"
+        },
+        {
+          "name": "Continue enhancing automated testing across site",
+          "status": "In Progress"
+        },
+        {
+          "name": "SSP annual review and update (for API ATO)",
+          "status": "null"
+        }
       ],
       "mid": [
         {
-          "name": "Usability research to study community experience (site navigation, ease of use, content inventory)",
+          "name": "Complete USWDS 2.0 migration (80% complete)",
+          "status": "In Progress"
+        },
+        {
+          "name": "Public engagement metrics (Phase 1: Pre-site deployment)",
+          "status": "In Progress"
+        },
+        {
+          "name": "Explore new site design ideas",
           "status": "null"
         },
         {
-          "name": "Prototype style guide web components based on USWDS 2.x",
-          "status": "In Progress"
-        },
-        {
-          "name": "Create community metrics tool to surface open source repo data",
-          "status": "Released"
-        },
-        { "name": "Launch Open Source Playbook/Toolkit", "status": "In Progress" },
-        { "name": "Move blog from Medium to Code.gov platform", "status": "null" },
-        {
-          "name": "Add GitHub data to Projects and Open Tasks (stars, forks, etc)",
-          "status": "In Progress"
-        },
-        { "name": "Update Swagger documentation for API", "status": "null" },
-        { "name": "Search website content in addition to projects", "status": "null" }
+          "name": "Find new solution for code quality reviews",
+          "status": "null"
+        }
       ],
       "long": [
-        { "name": "Usability research to study project experience", "status": null },
-        { "name": "Redesign Project and Open Tasks pages", "status": null },
-        { "name": "Integrate dynamic data content into the platform", "status": null },
-        { "name": "Code.json creator tool", "status": null },
-        { "name": "Automate sitemap generation", "status": null }
+        {
+          "name": "Metadata schema update and post to website",
+          "status": "null"
+        },
+        {
+          "name": "New validator tool w/ new schema and host on website",
+          "status": "null"
+        },
+        {
+          "name": "Agency data collection and compliance update (replaces IDC metrics)",
+          "status": "null"
+        },
+        {
+          "name": "Website search capabilities, possible integration w/ Search.gov",
+          "status": "null"
+        },
+        {
+          "name": "Automate sitemap generation",
+          "status": "null"
+        }
       ],
-      "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov, the General Services Agency, the Office of Management and Budget, and the United States Federal Government."
+      "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but it is subject to change at any time. The information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov and the U.S. General Services Administration."
     }
   }
 }
