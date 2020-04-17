@@ -73,3 +73,9 @@ typings/
 .DS_Store
 # Cypress files
 cypress.env.json
+
+# env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
