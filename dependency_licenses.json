@@ -622,13 +622,6 @@
     "path": "/Users/josephcastle/Desktop/Development/DevCode/code-gov-front-end/node_modules/@code.gov/code-gov-style",
     "licenseFile": "node_modules/@code.gov/code-gov-style/LICENSE.md"
   },
-  "@code.gov/compliance-dashboard-web-component@0.2.1": {
-    "licenses": "CC0-1.0",
-    "repository": "https://github.com/GSA/compliance-dashboard-web-component",
-    "publisher": "Daniel J. Dufour",
-    "path": "/Users/josephcastle/Desktop/Development/DevCode/code-gov-front-end/node_modules/@code.gov/compliance-dashboard-web-component",
-    "licenseFile": "node_modules/@code.gov/compliance-dashboard-web-component/README.md"
-  },
   "@code.gov/json-schema-validator-web-component@0.2.3": {
     "licenses": "CC0-1.0",
     "repository": "https://github.com/GSA/json-schema-validator-web-component",
@@ -7848,10 +7841,7 @@
     "licenseFile": "node_modules/json-schema-traverse/LICENSE"
   },
   "json-schema@0.2.3": {
-    "licenses": [
-      "AFLv2.1",
-      "BSD"
-    ],
+    "licenses": ["AFLv2.1", "BSD"],
     "repository": "https://github.com/kriszyp/json-schema",
     "publisher": "Kris Zyp",
     "path": "/Users/josephcastle/Desktop/Development/DevCode/code-gov-front-end/node_modules/json-schema",
