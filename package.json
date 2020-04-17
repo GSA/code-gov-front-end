@@ -92,6 +92,7 @@
     "custom-event-polyfill": "^1.0.7",
     "devicons": "^1.8.0",
     "dotenv": "^6.2.0",
+    "dotenv-flow": "^3.1.0",
     "event-hooks-webpack-plugin": "^2.1.1",
     "favicons": "^5.4.1",
     "file-loader": "^2.0.0",
