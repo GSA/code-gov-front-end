@@ -33,7 +33,7 @@ const onDashboard = [
 
 const dataurl = `${PUBLIC_PATH}src/components/about-page/html/`
 
-const config = {
+export const config = {
   scores: {
     compliant: [1, null],
     partial: [0.25, 0.9999999],
