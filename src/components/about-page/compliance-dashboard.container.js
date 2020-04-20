@@ -72,19 +72,22 @@ const config = {
 class ComplianceDashboardContainer extends Component {
   constructor(props) {
     super(props)
+    this.loading = false
     this.state = {
       compliance: []
     }
   }
 
   componentDidMount() {
-    client.getCompliance().then(compliance => {
-      compliance = compliance.filter(agency => onDashboard.includes(agency.acronym))
-      compliance.forEach(agency => {
-        agency.img = `${PUBLIC_PATH}assets/img/logos/agencies/${agency.acronym}-50x50.png`
+    if (!this.loading) {
+      client.getCompliance().then(compliance => {
+        compliance = compliance.filter(agency => onDashboard.includes(agency.acronym))
+        compliance.forEach(agency => {
+          agency.img = `${PUBLIC_PATH}assets/img/logos/agencies/${agency.acronym}-50x50.png`
+        })
+        this.setState({ compliance })
       })
-      this.setState({ compliance })
-    })
+    }
   }
 
   render() {

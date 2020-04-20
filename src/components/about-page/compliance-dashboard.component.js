@@ -7,23 +7,23 @@ const displayStatus = {
   partial: 'Partially compliant'
 }
 
-const getStatusAsText = (config, score) => {
-  const scores = config.scores
+const isCompliant = (min, max, score) =>
+  typeof min === 'number' && typeof max === 'number' && min <= score && score <= max
+const isPartial = (min, max, score) =>
+  typeof min === 'number' && typeof max !== 'number' && min <= score
+const isNoncompliant = (min, max, score) =>
+  typeof min !== 'number' && typeof max === 'number' && score <= max
 
+const getStatusAsText = ({ scores }, score) => {
   for (const status in scores) {
     const [min, max] = scores[status]
-    if (typeof min === 'number' && typeof max === 'number') {
-      if (min <= score && score <= max) {
-        return status
-      }
-    } else if (typeof min === 'number' && typeof max !== 'number') {
-      if (min <= score) {
-        return status
-      }
-    } else if (typeof min !== 'number' && typeof max === 'number') {
-      if (score <= max) {
-        return status
-      }
+
+    if (
+      isCompliant(min, max, score) ||
+      isPartial(min, max, score) ||
+      isNoncompliant(min, max, score)
+    ) {
+      return status
     }
   }
   return ''
@@ -69,8 +69,26 @@ const ComplianceDashboardComponent = props => (
 )
 
 ComplianceDashboardComponent.propTypes = {
-  config: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired
+  config: PropTypes.PropTypes.shape({
+    scores: PropTypes.object.isRequired,
+    text: PropTypes.array.isRequired
+  }).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      acronym: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      requirements: PropTypes.shape({
+        overall: PropTypes.number.isRequired,
+        sub: PropTypes.shape({
+          agencyWidePolicy: PropTypes.number.isRequired,
+          inventoryRequirement: PropTypes.number.isRequired,
+          openSourceRequirement: PropTypes.number.isRequired,
+          schemaFormat: PropTypes.number.isRequired
+        }).isRequired
+      }).isRequired
+    })
+  ).isRequired
 }
 
 export default ComplianceDashboardComponent
