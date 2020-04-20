@@ -3,6 +3,7 @@
 [![Build Status](https://circleci.com/gh/GSA/code-gov-front-end.svg?style=svg)](https://circleci.com/gh/GSA/code-gov-front-end)
 [![Code Climate](https://api.codeclimate.com/v1/badges/4675ef3ed03728b81e66/maintainability)](https://codeclimate.com/github/GSA/code-gov-front-end/maintainability)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+![Snyk vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/code-gov-front-end)
 
 ## Introduction
 
@@ -45,6 +46,7 @@ If you want to override that, specify an `CODE_GOV_API_KEY` environmental variab
 ```
 CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
 ```
+An alternate approach to using your API key every time you use ```npm run start``` is to create a ```.env.local``` file and store your API key. (Remember to use ```CODE_GOV_API_KEY=...```) In accordance with [dotenv-flow](https://www.npmjs.com/package/dotenv-flow), your personal key will be ignored when committing updates to GH.
 
 You can sign up for an [API key](https://open.gsa.gov/api/codedotgov/).
 
