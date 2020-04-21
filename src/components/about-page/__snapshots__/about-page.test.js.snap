@@ -5,13 +5,68 @@ exports[`components - AboutPage - ComplianceDashboard render should render corre
   <LazyHTML
     url="/src/components/about-page/html/compliance/agency-compliance.html"
   />
-  <compliance-dashboard
-    config="{\\"scores\\":{\\"compliant\\":[1,null],\\"partial\\":[0.25,0.9999999],\\"noncompliant\\":[null,0.244444444]},\\"text\\":[{\\"req\\":\\"agencyWidePolicy\\",\\"variants\\":{\\"compliant\\":\\"Agency policy is consistent with the Federal Source Code Policy.\\",\\"noncompliant\\":\\"Agency policy has not been reviewed for consistency with the Federal Source Code Policy.\\",\\"partial\\":\\"Agency policy is being updated for consistency with the Federal Source Code Policy.\\"}},{\\"req\\":\\"openSourceRequirement\\",\\"variants\\":{\\"compliant\\":\\"Agency has open sourced greater than 20% of their custom developed code.\\",\\"noncompliant\\":\\"Agency has open sourced less than 10% of their custom developed code.\\",\\"partial\\":\\"Agency has open sourced greater than 10% of their custom developed code.\\"}},{\\"req\\":\\"inventoryRequirement\\",\\"variants\\":{\\"compliant\\":\\"Agency has inventoried 100% of new custom code.\\",\\"noncompliant\\":\\"Agency has inventoried less than 50% of new custom code.\\",\\"partial\\":\\"Agency has inventoried more than 50% of new custom code.\\"}}]}"
-    data="[{\\"name\\":\\"agency-1-name\\",\\"acronym\\":\\"DOD\\",\\"img\\":\\"/assets/img/logos/agencies/DOD-50x50.png\\"},{\\"name\\":\\"agency-2-name\\",\\"acronym\\":\\"DOE\\",\\"img\\":\\"/assets/img/logos/agencies/DOE-50x50.png\\"}]"
-    id="compliance-dashboard"
+  <ComplianceDashboardComponent
+    config={
+      Object {
+        "scores": Object {
+          "compliant": Array [
+            1,
+            null,
+          ],
+          "noncompliant": Array [
+            null,
+            0.244444444,
+          ],
+          "partial": Array [
+            0.25,
+            0.9999999,
+          ],
+        },
+        "text": Array [
+          Object {
+            "req": "agencyWidePolicy",
+            "variants": Object {
+              "compliant": "Agency policy is consistent with the Federal Source Code Policy.",
+              "noncompliant": "Agency policy has not been reviewed for consistency with the Federal Source Code Policy.",
+              "partial": "Agency policy is being updated for consistency with the Federal Source Code Policy.",
+            },
+          },
+          Object {
+            "req": "openSourceRequirement",
+            "variants": Object {
+              "compliant": "Agency has open sourced greater than 20% of their custom developed code.",
+              "noncompliant": "Agency has open sourced less than 10% of their custom developed code.",
+              "partial": "Agency has open sourced greater than 10% of their custom developed code.",
+            },
+          },
+          Object {
+            "req": "inventoryRequirement",
+            "variants": Object {
+              "compliant": "Agency has inventoried 100% of new custom code.",
+              "noncompliant": "Agency has inventoried less than 50% of new custom code.",
+              "partial": "Agency has inventoried more than 50% of new custom code.",
+            },
+          },
+        ],
+      }
+    }
+    data={
+      Array [
+        Object {
+          "acronym": "DOD",
+          "img": "/assets/img/logos/agencies/DOD-50x50.png",
+          "name": "agency-1-name",
+        },
+        Object {
+          "acronym": "DOE",
+          "img": "/assets/img/logos/agencies/DOE-50x50.png",
+          "name": "agency-2-name",
+        },
+      ]
+    }
   />
 </Fragment>
-`
+`;
 
 exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
 <Fragment>
@@ -25,7 +80,7 @@ exports[`components - AboutPage - InventoryCode render should render correctly 1
     url="/src/components/about-page/html/compliance/how-to-inventory-b.html"
   />
 </Fragment>
-`
+`;
 
 exports[`components - AboutPage - JSONValidator render should render correctly 1`] = `
 <Fragment>
@@ -42,7 +97,7 @@ exports[`components - AboutPage - JSONValidator render should render correctly 1
     schema="/assets/data/schema.json"
   />
 </Fragment>
-`
+`;
 
 exports[`components - AboutPage render should render correctly 1`] = `
 <div>
@@ -260,4 +315,4 @@ exports[`components - AboutPage render should render correctly 1`] = `
   <br />
   <br />
 </div>
-`
+`;

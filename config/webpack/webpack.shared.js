@@ -106,11 +106,6 @@ const patterns = [
   },
   {
     from:
-      'node_modules/@code.gov/compliance-dashboard-web-component/dist/compliance-dashboard.min.js',
-    to: 'webcomponents/compliance-dashboard.js'
-  },
-  {
-    from:
       'node_modules/@code.gov/json-schema-validator-web-component/dist/json-schema-validator.js',
     to: 'webcomponents/json-schema-validator.js'
   },
