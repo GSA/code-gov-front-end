@@ -11,7 +11,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
 
-require('dotenv').config()
+require('dotenv-flow').config()
 
 // https://webpack.js.org/guides/public-path/
 let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
@@ -47,7 +47,6 @@ const entry = {
 }
 
 const siteConfigPath = process.env.CODE_GOV_CONFIG_JSON || join(rootDir, '/config/site/site.json')
-console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSON)
 
 /* eslint-disable import/no-dynamic-require */
 const SITE_CONFIG = require(siteConfigPath)
@@ -104,11 +103,6 @@ const patterns = [
   {
     from: 'node_modules/@code.gov/json-schema-web-component/dist/json-schema.js',
     to: 'webcomponents/json-schema.js'
-  },
-  {
-    from:
-      'node_modules/@code.gov/compliance-dashboard-web-component/dist/compliance-dashboard.min.js',
-    to: 'webcomponents/compliance-dashboard.js'
   },
   {
     from:

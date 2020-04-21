@@ -201,6 +201,126 @@ ignore:
     - optimize-css-assets-webpack-plugin > cssnano > cssnano-preset-default > postcss-merge-longhand > stylehacks > postcss-selector-parser > dot-prop:
         reason: No sufficient remediation.
         expires: '2020-03-06T12:53:00.365Z'
+  SNYK-JS-DECOMPRESSTAR-559095:
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.601Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.601Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.601Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.601Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.602Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.602Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.603Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.603Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.603Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.603Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.603Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.604Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.604Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.604Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.604Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.605Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.605Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.605Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.605Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.607Z'
+    - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.608Z'
+  SNYK-JS-MINIMIST-559764:
+    - favicons > to-ico > resize-img > jimp > mkdirp > minimist:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.608Z'
+    - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > mkdirp > minimist:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.608Z'
+  SNYK-JS-YARGSPARSER-560381:
+    - webpack-dev-server > yargs > yargs-parser:
+        reason: No remediation available.
+        expires: '2020-05-20T19:44:43.608Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
