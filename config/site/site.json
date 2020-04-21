@@ -250,6 +250,14 @@
       ],
       "news": [
         {
+          "title": "A Hacking Good Time with the Social Security Administration",
+          "description": "What happens when the Social Security Administration (SSA) and the Code.gov team get together...",
+          "url": "https://medium.com/codedotgov/a-hacking-good-time-with-the-social-security-administration-and-code-gov-78a323f3f117",
+          "date": "03/19/2020",
+          "image": "/assets/img/news/ssa_hackathon.jpeg",
+          "alt": "hackathon"
+        },
+        {
           "title": "Happy 3rd Birthday Code.gov!",
           "description": "For our 3rd trip around the sun, we wanted to share where we’ve been, where we are going, and the implementation of the federal source code policy...",
           "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
@@ -264,14 +272,6 @@
           "date": "11/4/2019",
           "image": "/assets/img/news/open-sign.jpeg",
           "alt": "Open Sign in Coffee Shop (Credit: TK1993 iStock/Getty Images Plus)"
-        },
-        {
-          "title": "Developing with a Security Mindset",
-          "description": "As a developer consuming open source dependencies, you must keep it secure. It is imperative that you set up the tools and processes that will help you stay safe, and help raise awareness of secure development practices throughout your organization...",
-          "url": "https://medium.com/codedotgov/watching-your-back-end-and-your-front-end-developing-with-a-security-mindset-ed5d73615688",
-          "date": "9/30/2019",
-          "image": "/assets/img/news/security.jpeg",
-          "alt": "An open padlock"
         }
       ],
       "about": [
