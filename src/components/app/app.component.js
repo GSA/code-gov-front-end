@@ -14,7 +14,7 @@ import Menu from 'components/menu'
 import Footer from 'components/footer'
 import OfficialBanner from 'components/official-banner'
 import PrivacyPolicy from 'components/privacy-policy'
-import { refreshView } from 'utils/other'
+import { refreshView, isHomepage } from 'utils/other'
 
 export default class AppComponent extends Component {
   componentDidMount() {
@@ -25,15 +25,12 @@ export default class AppComponent extends Component {
   }
 
   render() {
-    const location = window.location
-    const isHomepage = location.pathname === '/'
-
     return (
       <ConnectedRouter history={history}>
         <div className="App">
           {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
           <Menu />
-          <Switch location={location}>
+          <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/search" component={SearchPage} />
             <Route path="/about" component={AboutPage} />
