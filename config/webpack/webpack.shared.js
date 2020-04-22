@@ -101,10 +101,6 @@ const patterns = [
     to: 'polyfills/url-search-params.js'
   },
   {
-    from: 'node_modules/@code.gov/json-schema-web-component/dist/json-schema.js',
-    to: 'webcomponents/json-schema.js'
-  },
-  {
     from:
       'node_modules/@code.gov/json-schema-validator-web-component/dist/json-schema-validator.js',
     to: 'webcomponents/json-schema-validator.js'

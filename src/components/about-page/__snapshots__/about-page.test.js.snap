@@ -68,20 +68,6 @@ exports[`components - AboutPage - ComplianceDashboard render should render corre
 </Fragment>
 `;
 
-exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
-<Fragment>
-  <LazyHTML
-    url="/src/components/about-page/html/compliance/how-to-inventory-a.html"
-  />
-  <json-schema
-    url="/assets/data/schema.json"
-  />
-  <LazyHTML
-    url="/src/components/about-page/html/compliance/how-to-inventory-b.html"
-  />
-</Fragment>
-`;
-
 exports[`components - AboutPage - JSONValidator render should render correctly 1`] = `
 <Fragment>
   <h1>

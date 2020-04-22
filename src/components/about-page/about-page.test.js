@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import client from 'api-client'
 import AboutPage from 'components/about-page'
 import ComplianceDashboard from 'components/about-page/compliance-dashboard.container'
-import InventoryCode from 'components/about-page/inventory-code.component'
+import InventoryCode from 'components/about-page/inventory-code'
 import JSONValidator from 'components/about-page/json-validator.component'
 import { eventMap, push } from '../../../tests/mocks/window'
 import { refreshView, scrollToTopOfResults, loadScript } from '../../utils/other'
@@ -102,34 +102,6 @@ describe('components - AboutPage - ComplianceDashboard', () => {
         expect.objectContaining({ acronym: 'DOE' })
       ]
       expect(wrapper.state('compliance')).toEqual(expected)
-    })
-  })
-
-  describe('render', () => {
-    it('should render correctly', () => {
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-})
-
-describe('components - AboutPage - InventoryCode', () => {
-  beforeEach(() => {
-    wrapper = shallow(<InventoryCode />)
-    instance = wrapper.instance()
-    jest.spyOn(instance, 'setState')
-  })
-
-  describe('componentDidMount', () => {
-    it('should do nothing if it is `loading`', () => {
-      testLoading(instance)
-    })
-
-    it('should load the webcomponent if it does not exist', () => {
-      testWebcomponentLoads(instance)
-    })
-
-    it('should not try to load the webcomponent if exists', () => {
-      testWebcomponentExists(instance)
     })
   })
 
