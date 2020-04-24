@@ -4,10 +4,10 @@ import { shallow } from 'enzyme'
 import client from 'api-client'
 import AboutPage from 'components/about-page'
 import ComplianceDashboard from 'components/about-page/compliance-dashboard.container'
-import InventoryCode from 'components/about-page/inventory-code'
+import InventoryCode from 'components/about-page/inventory-code/inventory-code.container'
 import JSONValidator from 'components/about-page/json-validator.component'
 import { eventMap, push } from '../../../tests/mocks/window'
-import { refreshView, scrollToTopOfResults, loadScript } from '../../utils/other'
+import { refreshView, scrollToTopOfResults, loadScript, getJSON } from '../../utils/other'
 
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
@@ -102,6 +102,26 @@ describe('components - AboutPage - ComplianceDashboard', () => {
         expect.objectContaining({ acronym: 'DOE' })
       ]
       expect(wrapper.state('compliance')).toEqual(expected)
+    })
+  })
+
+  describe('render', () => {
+    it('should render correctly', () => {
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+})
+
+describe('components - AboutPage - InventoryCode', () => {
+  beforeEach(() => {
+    getJSON.mockResolvedValue({})
+    wrapper = shallow(<InventoryCode />)
+    instance = wrapper.instance()
+  })
+
+  describe('componentDidMount', () => {
+    it('should do nothing if it is `loading`', () => {
+      testLoading(instance)
     })
   })
 

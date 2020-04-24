@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import InventoryCodeSectionComponent from './inventory-code-section.component'
 import InventoryCodeDetailsComponent from './inventory-code-details.component'
@@ -89,5 +90,22 @@ const InventoryCodeTableComponent = ({ children }) => (
     <tbody>{children}</tbody>
   </table>
 )
+
+InventoryCodeComponent.propTypes = {
+  schema: PropTypes.PropTypes.shape({
+    $schema: PropTypes.string,
+    additionalProperties: PropTypes.bool,
+    description: PropTypes.string,
+    properties: PropTypes.shape({
+      version: PropTypes.object,
+      measurementType: PropTypes.object,
+      agency: PropTypes.object,
+      releases: PropTypes.object}),
+    required: PropTypes.arrayOf(PropTypes.string),
+    title: PropTypes.string,
+    type: PropTypes.string,
+  }).isRequired,
+  url:PropTypes.string.isRequired
+}
 
 export default InventoryCodeComponent
