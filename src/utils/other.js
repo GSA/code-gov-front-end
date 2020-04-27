@@ -248,3 +248,18 @@ export function getText(url) {
 export function getJSON(url) {
   return getText(url).then(JSON.parse)
 }
+
+// https://stackoverflow.com/questions/1500260/detect-urls-in-text-with-javascript
+export function urlify(text) {
+  const urlRegex = /(https?:\/\/[^\s']+)/g
+  return text.replace(urlRegex, url => `<a href="${url}" target="_blank">${url}</a>`)
+}
+
+export function prettify(text) {
+  // convert (1) cost: to \n\t(1) <b>cost</b>:
+  const bulletRegex = /\(\d{1,2}\) [A-Za-z]{1,25}:/g
+  return urlify(text).replace(
+    bulletRegex,
+    match => `<br/>${match.replace(/[A-Za-z]{1,25}/, name => `<b>${name}</b>`)}`
+  )
+}
