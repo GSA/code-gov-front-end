@@ -8,8 +8,8 @@ describe('federal agencies page tests (direct nav)', () => {
       .should('exist')
   })
 
-  it('contains the compliance dashboard web component', () => {
-    cy.get('compliance-dashboard')
+  it('contains the compliance dashboard component', () => {
+    cy.get('.dashboard-container')
       .should('exist')
   })
 })
