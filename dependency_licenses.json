@@ -629,13 +629,6 @@
     "path": "/Users/josephcastle/Desktop/Development/DevCode/code-gov-front-end/node_modules/@code.gov/json-schema-validator-web-component",
     "licenseFile": "node_modules/@code.gov/json-schema-validator-web-component/README.md"
   },
-  "@code.gov/json-schema-web-component@0.4.1": {
-    "licenses": "CC0-1.0",
-    "repository": "https://github.com/GSA/json-schema-web-component",
-    "publisher": "Daniel J. Dufour",
-    "path": "/Users/josephcastle/Desktop/Development/DevCode/code-gov-front-end/node_modules/@code.gov/json-schema-web-component",
-    "licenseFile": "node_modules/@code.gov/json-schema-web-component/README.md"
-  },
   "@code.gov/site-map-generator@1.0.11": {
     "licenses": "CC0-1.0",
     "repository": "https://github.com/GSA/code-gov-site-map-generator",

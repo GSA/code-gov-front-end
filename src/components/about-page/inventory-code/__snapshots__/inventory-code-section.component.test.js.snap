@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - InventoryCodeSectionComponent should render correctly 1`] = `
+<Fragment>
+  <tr
+    className="top-level"
+  >
+    <td
+      style={
+        Object {
+          "paddingLeft": "10px",
+        }
+      }
+    >
+      <div
+        className="dropdown"
+      />
+      <div
+        className="field-name-text"
+      >
+        version
+      </div>
+      <button
+        className="details"
+        onClick={[Function]}
+      >
+        <div
+          className="details-text"
+        >
+          details
+        </div>
+        <div
+          className="details-arrow arrow-right"
+        />
+      </button>
+    </td>
+    <td
+      className="data-type"
+    >
+      <div>
+        string
+      </div>
+    </td>
+    <td
+      className="description"
+    >
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "The version of the metadata schema in use.",
+          }
+        }
+      />
+    </td>
+  </tr>
+</Fragment>
+`;
