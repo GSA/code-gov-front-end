@@ -95,8 +95,8 @@ Object {
       "name": "SOCIAL",
     },
   ],
-  "onHomePage": false,
+  "onHomePage": true,
   "searchDropdown": "test-search-dropdown",
   "siteTitle": "code.gov",
 }
-`
+`;
