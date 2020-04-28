@@ -48,7 +48,9 @@ export function parseEmail(repo) {
 
 export function parseRepositoryURL(repo) {
   let url = get(repo, 'repositoryURL')
-  if (!url) {
+
+  // some repos return 'null'
+  if (!url || url === 'null') {
     return ''
   }
 
