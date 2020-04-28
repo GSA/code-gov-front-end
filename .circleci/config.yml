@@ -18,12 +18,15 @@ jobs:
       - image: ubuntu
         environment:
           TZ: "America/New_York"
+          DEBIAN_FRONTEND: "noninteractive"
     environment:
       TZ: "America/New_York"
+      DEBIAN_FRONTEND: "noninteractive"
     steps:
+      - run: apt-get update
+      - run: apt-get install -y tzdata
       - run: ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
       - run: dpkg-reconfigure --frontend noninteractive tzdata
-      - run: apt-get update
       - run: apt-get install -y build-essential git npm nodejs
       - checkout
       - run: npm install
