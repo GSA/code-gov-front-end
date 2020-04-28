@@ -5,6 +5,9 @@ jobs:
       - image: circleci/node:10.15.1-browsers
         environment:
           CHROME_PATH: /usr/bin/google-chrome
+          TZ: "America/New_York"
+    environment:
+      TZ: "America/New_York"
 
     steps:
       - checkout
