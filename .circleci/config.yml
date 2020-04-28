@@ -21,6 +21,8 @@ jobs:
     environment:
       TZ: "America/New_York"
     steps:
+      - run: ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+      - run: dpkg-reconfigure --frontend noninteractive tzdata
       - run: apt-get update
       - run: apt-get install -y build-essential git npm nodejs
       - checkout
