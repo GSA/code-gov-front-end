@@ -36,11 +36,7 @@ const links = [
     children: [
       { text: 'Agency Compliance', route: '/compliance/dashboard' },
       { text: 'How to Procure Software', route: '/compliance/procurement' },
-      {
-        text: 'How to Inventory',
-        route: '/compliance/inventory-code',
-        children: [{ text: 'Validate Schema', route: '/compliance/inventory-code/validate-schema' }]
-      }
+      { text: 'How to Inventory', route: '/compliance/inventory-code' }
     ]
   },
   {
