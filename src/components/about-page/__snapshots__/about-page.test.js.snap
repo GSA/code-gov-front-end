@@ -290,18 +290,3 @@ exports[`components - AboutPage render should render correctly 1`] = `
   <br />
 </div>
 `;
-
-exports[`render should render correctly 1`] = `
-<Fragment>
-  <LazyHTML
-    url="/src/components/about-page/html/compliance/how-to-inventory-a.html"
-  />
-  <InventoryCodeComponent
-    schema={Object {}}
-    url="/assets/data/schema.json"
-  />
-  <LazyHTML
-    url="/src/components/about-page/html/compliance/how-to-inventory-b.html"
-  />
-</Fragment>
-`;
