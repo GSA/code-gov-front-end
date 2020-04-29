@@ -130,22 +130,3 @@ describe('components - AboutPage - InventoryCode', () => {
     })
   })
 })
-  describe('componentDidMount', () => {
-    it('should do nothing if it is `loading`', () => {
-      testLoading(instance)
-    })
-
-    it('should load the webcomponent if it does not exist', () => {
-      testWebcomponentLoads(instance)
-    })
-
-    it('should not try to load the webcomponent if exists', () => {
-      testWebcomponentExists(instance)
-    })
-  })
-
-  describe('render', () => {
-    it('should render correctly', () => {
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
