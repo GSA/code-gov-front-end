@@ -10,7 +10,6 @@ import SideNav from 'components/side-nav'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.container'
 import InventoryCode from './inventory-code'
-import JSONValidator from './json-validator.component'
 import OverviewIntroduction from './overview-introduction.component'
 import OverviewTrackingProgress from './overview-tracking-progress.component'
 import Procurement from './procurement.component.js'
@@ -107,10 +106,6 @@ class AboutPage extends Component {
 
               <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
               <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />
-              <Route
-                path={`${abouturl}/compliance/inventory-code/validate-schema`}
-                component={JSONValidator}
-              />
               <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode} />
               <Redirect from={`${abouturl}/compliance`} to={`${abouturl}/compliance/dashboard`} />
 
