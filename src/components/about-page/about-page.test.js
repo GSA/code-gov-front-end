@@ -149,4 +149,3 @@ describe('components - AboutPage - InventoryCode', () => {
       expect(wrapper).toMatchSnapshot()
     })
   })
-})
