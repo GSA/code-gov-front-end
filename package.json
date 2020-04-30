@@ -72,7 +72,6 @@
     "@code.gov/cautious": "0.3.0",
     "@code.gov/code-gov-font": "^0.10.1",
     "@code.gov/code-gov-style": "^2.0.4",
-    "@code.gov/json-schema-validator-web-component": "^0.2.3",
     "@code.gov/site-map-generator": "^1.0.11",
     "@webcomponents/custom-elements": "^1.2.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",

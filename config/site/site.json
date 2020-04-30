@@ -49,10 +49,6 @@
               "url": "/about/compliance/inventory-code"
             },
             {
-              "name": "Tools",
-              "url": "/about/compliance/inventory-code/validate-schema"
-            },
-            {
               "name": "Compliance Dashboard",
               "url": "/about/compliance/dashboard"
             }
@@ -137,10 +133,6 @@
             {
               "name": "How to Inventory Code",
               "url": "/about/compliance/inventory-code"
-            },
-            {
-              "name": "Tools",
-              "url": "/about/compliance/inventory-code/validate-schema"
             },
             {
               "name": "Compliance Dashboard",
