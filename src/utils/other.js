@@ -263,3 +263,5 @@ export function prettify(text) {
     match => `<br/>${match.replace(/[A-Za-z]{1,25}/, name => `<b>${name}</b>`)}`
   )
 }
+
+export const isHomepage = window.location.pathname === PUBLIC_PATH

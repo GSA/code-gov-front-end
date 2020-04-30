@@ -49,10 +49,6 @@
               "url": "/about/compliance/inventory-code"
             },
             {
-              "name": "Tools",
-              "url": "/about/compliance/inventory-code/validate-schema"
-            },
-            {
               "name": "Compliance Dashboard",
               "url": "/about/compliance/dashboard"
             }
@@ -137,10 +133,6 @@
             {
               "name": "How to Inventory Code",
               "url": "/about/compliance/inventory-code"
-            },
-            {
-              "name": "Tools",
-              "url": "/about/compliance/inventory-code/validate-schema"
             },
             {
               "name": "Compliance Dashboard",
@@ -250,12 +242,20 @@
       ],
       "news": [
         {
+          "title": "Introducing Our Summer Fellow: Anna Zhang",
+          "description": "Every year, as we prepare for summer we look to bring in a fellow...",
+          "url": "https://medium.com/codedotgov/introducing-our-summer-fellow-anna-zhang-455fd792cad8",
+          "date": "04/24/2020",
+          "image": "/assets/img/news/summer_fellow.jpeg",
+          "alt": "Summer Fellow"
+        },
+        {
           "title": "A Hacking Good Time with the Social Security Administration",
           "description": "What happens when the Social Security Administration (SSA) and the Code.gov team get together...",
           "url": "https://medium.com/codedotgov/a-hacking-good-time-with-the-social-security-administration-and-code-gov-78a323f3f117",
           "date": "03/19/2020",
           "image": "/assets/img/news/ssa_hackathon.jpeg",
-          "alt": "hackathon"
+          "alt": "Hackathon"
         },
         {
           "title": "Happy 3rd Birthday Code.gov!",
@@ -264,14 +264,6 @@
           "date": "11/20/2019",
           "image": "/assets/img/news/bday.jpeg",
           "alt": "Happy Birthday"
-        },
-        {
-          "title": "The SBA and Open Source: A Perfect Fit for Small Business",
-          "description": "For small businesses, open source software provides unlimited access to fully functioning software that can help grow and automate…",
-          "url": "https://medium.com/codedotgov/the-sba-and-open-source-a-perfect-fit-for-small-business-69727971d71a",
-          "date": "11/4/2019",
-          "image": "/assets/img/news/open-sign.jpeg",
-          "alt": "Open Sign in Coffee Shop (Credit: TK1993 iStock/Getty Images Plus)"
         }
       ],
       "about": [

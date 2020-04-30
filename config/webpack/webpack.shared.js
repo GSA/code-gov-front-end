@@ -101,11 +101,6 @@ const patterns = [
     to: 'polyfills/url-search-params.js'
   },
   {
-    from:
-      'node_modules/@code.gov/json-schema-validator-web-component/dist/json-schema-validator.js',
-    to: 'webcomponents/json-schema-validator.js'
-  },
-  {
     from: 'node_modules/ajv/dist/ajv.min.js',
     to: 'external/ajv.min.js'
   },
@@ -243,7 +238,7 @@ module.exports = {
         appleStartup: false
       },
       inject: true,
-      prefix: '/assets/img/favicons',
+      prefix: join(PUBLIC_PATH, '/assets/img/favicons'),
       output: './assets/img/favicons/',
       config: {
         favicons: true,
