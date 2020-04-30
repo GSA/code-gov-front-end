@@ -4,7 +4,15 @@ exports[`containers - HomeNews mapStateToProps should return the correct propert
 Object {
   "newsItems": Array [
     Object {
-      "alt": "hackathon",
+      "alt": "Summer Fellow",
+      "date": "04/24/2020",
+      "description": "Every year, as we prepare for summer we look to bring in a fellow...",
+      "image": "/assets/img/news/summer_fellow.jpeg",
+      "title": "Introducing Our Summer Fellow: Anna Zhang",
+      "url": "https://medium.com/codedotgov/introducing-our-summer-fellow-anna-zhang-455fd792cad8",
+    },
+    Object {
+      "alt": "Hackathon",
       "date": "03/19/2020",
       "description": "What happens when the Social Security Administration (SSA) and the Code.gov team get together...",
       "image": "/assets/img/news/ssa_hackathon.jpeg",
@@ -18,14 +26,6 @@ Object {
       "image": "/assets/img/news/bday.jpeg",
       "title": "Happy 3rd Birthday Code.gov!",
       "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
-    },
-    Object {
-      "alt": "Open Sign in Coffee Shop (Credit: TK1993 iStock/Getty Images Plus)",
-      "date": "11/4/2019",
-      "description": "For small businesses, open source software provides unlimited access to fully functioning software that can help grow and automate…",
-      "image": "/assets/img/news/open-sign.jpeg",
-      "title": "The SBA and Open Source: A Perfect Fit for Small Business",
-      "url": "https://medium.com/codedotgov/the-sba-and-open-source-a-perfect-fit-for-small-business-69727971d71a",
     },
   ],
 }
