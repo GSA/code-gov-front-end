@@ -19,7 +19,7 @@ import Resources from './resources.component'
 import MeasuringCode from './measuring-code.component'
 import Licensing from './licensing.component'
 
-const abouturl = `${PUBLIC_PATH}about`
+const abouturl = `/about`
 
 const links = [
   {

@@ -243,7 +243,7 @@ module.exports = {
         appleStartup: false
       },
       inject: true,
-      prefix: '/assets/img/favicons',
+      prefix: join(PUBLIC_PATH, '/assets/img/favicons'),
       output: './assets/img/favicons/',
       config: {
         favicons: true,
