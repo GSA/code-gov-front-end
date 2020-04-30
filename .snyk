@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-MOBIUS1SELECTR-173698:
@@ -342,3 +342,76 @@ patch:
         patched: '2019-10-04T15:36:52.142Z'
     - snyk > proxy-agent > https-proxy-agent:
         patched: '2019-10-04T15:36:52.142Z'
+  SNYK-JS-LODASH-567746:
+    - '@babel/core > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - css-loader > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - html-webpack-plugin > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - webpack-bundle-analyzer > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - webpack-merge > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - babel-eslint > @babel/traverse > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - gh-pages > async > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-config > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - babel-eslint > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - webpack-dev-server > portfinder > async > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - babel-eslint > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/preset-modules > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-04-30T15:08:23.618Z'
