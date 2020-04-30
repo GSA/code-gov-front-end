@@ -132,7 +132,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.20.1",
     "sass-loader": "^7.1.0",
-    "snyk": "^1.315.1",
+    "snyk": "^1.316.1",
     "style-loader": "^0.23.1",
     "url-search-params-polyfill": "^5.1.0",
     "uswds": "^2.3.1",
