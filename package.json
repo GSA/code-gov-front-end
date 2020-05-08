@@ -92,7 +92,7 @@
     "dotenv": "^6.2.0",
     "dotenv-flow": "^3.1.0",
     "event-hooks-webpack-plugin": "^2.1.1",
-    "favicons": "^5.4.1",
+    "favicons": "^6.0.0",
     "file-loader": "^2.0.0",
     "fs": "0.0.1-security",
     "gh-pages": "^2.0.1",
@@ -140,7 +140,7 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-create-file-plugin": "^1.0.0",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.1",
     "whatwg-fetch": "^3.0.0"
   },
