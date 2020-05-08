@@ -69,6 +69,7 @@ exports[`components - App render should render correctly 1`] = `
         path="/about"
       />
       <Redirect
+        push={false}
         to="/"
       />
     </Switch>
