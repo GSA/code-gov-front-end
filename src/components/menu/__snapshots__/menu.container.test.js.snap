@@ -38,10 +38,6 @@ Object {
           "url": "/about/compliance/inventory-code",
         },
         Object {
-          "name": "Tools",
-          "url": "/about/compliance/inventory-code/validate-schema",
-        },
-        Object {
           "name": "Compliance Dashboard",
           "url": "/about/compliance/dashboard",
         },
@@ -95,8 +91,8 @@ Object {
       "name": "SOCIAL",
     },
   ],
-  "onHomePage": false,
+  "onHomePage": true,
   "searchDropdown": "test-search-dropdown",
   "siteTitle": "code.gov",
 }
-`
+`;

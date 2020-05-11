@@ -3,11 +3,10 @@ import { shallow } from 'enzyme'
 
 import client from 'api-client'
 import AboutPage from 'components/about-page'
-import ComplianceDashboard from 'components/about-page/compliance-dashboard.component'
-import InventoryCode from 'components/about-page/inventory-code.component'
-import JSONValidator from 'components/about-page/json-validator.component'
+import ComplianceDashboard from 'components/about-page/compliance-dashboard.container'
+import InventoryCode from 'components/about-page/inventory-code/inventory-code.container'
 import { eventMap, push } from '../../../tests/mocks/window'
-import { refreshView, scrollToTopOfResults, loadScript } from '../../utils/other'
+import { refreshView, scrollToTopOfResults, loadScript, getJSON } from '../../utils/other'
 
 jest.mock('utils/other')
 jest.spyOn(window.customElements, 'get')
@@ -96,14 +95,6 @@ describe('components - AboutPage - ComplianceDashboard', () => {
       testLoading(instance)
     })
 
-    it('should load the webcomponent if it does not exist', () => {
-      testWebcomponentLoads(instance)
-    })
-
-    it('should not try to load the webcomponent if exists', () => {
-      testWebcomponentExists(instance)
-    })
-
     it('should load the compliances into local state', () => {
       const expected = [
         expect.objectContaining({ acronym: 'DOD' }),
@@ -122,50 +113,14 @@ describe('components - AboutPage - ComplianceDashboard', () => {
 
 describe('components - AboutPage - InventoryCode', () => {
   beforeEach(() => {
+    getJSON.mockResolvedValue({})
     wrapper = shallow(<InventoryCode />)
     instance = wrapper.instance()
-    jest.spyOn(instance, 'setState')
   })
 
   describe('componentDidMount', () => {
     it('should do nothing if it is `loading`', () => {
       testLoading(instance)
-    })
-
-    it('should load the webcomponent if it does not exist', () => {
-      testWebcomponentLoads(instance)
-    })
-
-    it('should not try to load the webcomponent if exists', () => {
-      testWebcomponentExists(instance)
-    })
-  })
-
-  describe('render', () => {
-    it('should render correctly', () => {
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-})
-
-describe('components - AboutPage - JSONValidator', () => {
-  beforeEach(() => {
-    wrapper = shallow(<JSONValidator />)
-    instance = wrapper.instance()
-    jest.spyOn(instance, 'setState')
-  })
-
-  describe('componentDidMount', () => {
-    it('should do nothing if it is `loading`', () => {
-      testLoading(instance)
-    })
-
-    it('should load the webcomponent if it does not exist', () => {
-      testWebcomponentLoads(instance)
-    })
-
-    it('should not try to load the webcomponent if exists', () => {
-      testWebcomponentExists(instance)
     })
   })
 

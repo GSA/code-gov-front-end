@@ -28,7 +28,7 @@ Here’s how you can help contribute to code.gov:
 
 ## Getting Started
 
-You will need node to run this website. It's built against v10.15.1. The best way to get node is to install it via `nvm`. See the [nvm installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) to set it up on your system.
+You will need node to run this website. It's built against v10.19.0. The best way to get node is to install it via `nvm`. See the [nvm installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) to set it up on your system.
 
 After you have cloned this repo, you can use `npm install` to install all of the
 project’s dependencies.
@@ -45,6 +45,7 @@ If you want to override that, specify an `CODE_GOV_API_KEY` environmental variab
 ```
 CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
 ```
+An alternate approach to using your API key every time you use ```npm run start``` is to create a ```.env.local``` file and store your API key. (Remember to use ```CODE_GOV_API_KEY=...```) In accordance with [dotenv-flow](https://www.npmjs.com/package/dotenv-flow), your personal key will be ignored when committing updates to GH.
 
 You can sign up for an [API key](https://open.gsa.gov/api/codedotgov/).
 

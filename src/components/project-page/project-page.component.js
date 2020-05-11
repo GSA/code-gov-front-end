@@ -145,6 +145,7 @@ export default class ProjectPage extends Component {
 
   get repositoryURL() {
     const url = parseRepositoryURL(this.props.repo)
+
     if (url) {
       return (
         <a href={url} target="_blank" rel="noopener noreferrer">

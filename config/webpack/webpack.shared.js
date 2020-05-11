@@ -11,10 +11,14 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
 
-require('dotenv').config()
+require('dotenv-flow').config()
 
 // https://webpack.js.org/guides/public-path/
-const PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
+let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
+let OUTPUT_PATH
+
+// add slash to end of path for federalist branch builds
+if (PUBLIC_PATH.slice(-1) !== '/') PUBLIC_PATH = `${PUBLIC_PATH}/`
 
 console.log('process.env.CODE_GOV_API_BASE:', process.env.CODE_GOV_API_BASE)
 console.log('process.env.CODE_GOV_API_KEY:', process.env.CODE_GOV_API_KEY)
@@ -24,7 +28,6 @@ console.log('process.env.PUBLIC_PATH', process.env.PUBLIC_PATH)
 console.log('PUBLIC_PATH', PUBLIC_PATH)
 console.log('process.env.BASEURL:', process.env.BASEURL)
 
-let OUTPUT_PATH
 if (process.env.OUTPUT_PATH) {
   OUTPUT_PATH = process.env.OUTPUT_PATH
 } else if (process.env.OUTPUT_RELATIVE_PATH) {
@@ -32,6 +35,7 @@ if (process.env.OUTPUT_PATH) {
 } else {
   OUTPUT_PATH = join(rootDir, '/dist')
 }
+
 console.log('OUTPUT_PATH:', OUTPUT_PATH)
 
 if (!OUTPUT_PATH) {
@@ -43,7 +47,6 @@ const entry = {
 }
 
 const siteConfigPath = process.env.CODE_GOV_CONFIG_JSON || join(rootDir, '/config/site/site.json')
-console.log('process.env.CODE_GOV_CONFIG_JSON:', process.env.CODE_GOV_CONFIG_JSON)
 
 /* eslint-disable import/no-dynamic-require */
 const SITE_CONFIG = require(siteConfigPath)
@@ -96,20 +99,6 @@ const patterns = [
   {
     from: 'node_modules/url-search-params-polyfill/index.js',
     to: 'polyfills/url-search-params.js'
-  },
-  {
-    from: 'node_modules/@code.gov/json-schema-web-component/dist/json-schema.js',
-    to: 'webcomponents/json-schema.js'
-  },
-  {
-    from:
-      'node_modules/@code.gov/compliance-dashboard-web-component/dist/compliance-dashboard.min.js',
-    to: 'webcomponents/compliance-dashboard.js'
-  },
-  {
-    from:
-      'node_modules/@code.gov/json-schema-validator-web-component/dist/json-schema-validator.js',
-    to: 'webcomponents/json-schema-validator.js'
   },
   {
     from: 'node_modules/ajv/dist/ajv.min.js',
@@ -249,7 +238,7 @@ module.exports = {
         appleStartup: false
       },
       inject: true,
-      prefix: '/assets/img/favicons',
+      prefix: join(PUBLIC_PATH, '/assets/img/favicons'),
       output: './assets/img/favicons/',
       config: {
         favicons: true,

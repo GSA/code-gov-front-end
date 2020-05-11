@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - InventoryCodeComponent should render correctly 1`] = `
+<div
+  className="hide-details"
+  id="schema-viewer"
+>
+  <h2>
+    Field Definitions
+  </h2>
+  <p>
+    The schema fields and definitions are listed below. The optional fields are marked in red but serve to provide additional, helpful information. You can view a sample JSON file
+     
+    <a
+      href="http://test.localdomain/assets/data/schema.json"
+      rel="noreferrer noopener"
+      target="_blank"
+    >
+      here
+    </a>
+    .
+  </p>
+  <div
+    style={
+      Object {
+        "marginBottom": "10px",
+      }
+    }
+  >
+    <input
+      id="json-schema-hide-optional-fields"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "textAlign": "left",
+        }
+      }
+      type="checkbox"
+    />
+    <label
+      htmlFor="json-schema-hide-optional-fields"
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      Hide optional fields
+    </label>
+  </div>
+  <div
+    className="desktop-and-mobile-views"
+  >
+    <InventoryCodeTableComponent />
+  </div>
+</div>
+`;
