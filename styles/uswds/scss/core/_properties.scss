@@ -305,7 +305,7 @@ $system-properties: (
       -3: -0.03em,
       -2: -0.02em,
       -1: -0.01em,
-      1: 0.05em,
+      1: 0.025em,
       2: 0.1em,
       3: 0.15em
     )
@@ -395,6 +395,7 @@ $system-properties: (
         map-get($system-spacing, "smaller-negative"),
         map-get($system-spacing, "small-negative"),
         map-get($system-spacing, "medium"),
+        map-get($system-spacing, "large"),
         map-get($system-spacing-em, "small"),
         map-get($partial-values, "zero-zero"),
         map-get($partial-values, "auto")
@@ -410,7 +411,8 @@ $system-properties: (
         map-get($system-spacing, "small-negative"),
         map-get($system-spacing, "medium"),
         map-get($system-spacing-em, "small"),
-        map-get($partial-values, "zero-zero")
+        map-get($partial-values, "zero-zero"),
+        map-get($partial-values, "auto")
       ),
     extended: ()
   ),
