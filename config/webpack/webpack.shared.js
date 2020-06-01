@@ -69,6 +69,11 @@ const patterns = [
     to: join(OUTPUT_PATH, '/uswds/js')
   },
   {
+    from: './assets/fonts/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    flatten: true
+  },
+  {
     from: './styles/uswds/fonts',
     to: join(OUTPUT_PATH, '/uswds/fonts')
   },
