@@ -77,7 +77,7 @@ Relative font file path
 ----------------------------------------
 */
 
-$theme-font-path: "./uswds/fonts";
+$theme-font-path: "/uswds/fonts";
 
 /*
 ----------------------------------------
@@ -256,7 +256,7 @@ $theme-typeface-tokens: (
     cap-height: 371px,
     stack: ("Helvetica", sans-serif),
     src: (
-      dir: "../",
+      dir: "./font",
       roman: (
         100: false,
         200: false,
