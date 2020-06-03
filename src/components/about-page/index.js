@@ -83,7 +83,7 @@ class AboutPage extends Component {
         <SiteBanner title="ABOUT" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'About' }]} />
         <br />
-        <div className="indented">
+        <div className="grid-container">
           <div className="show-w-lte-600" style={{ padding: '30px', textAlign: 'center' }}>
             <NavSelect pages={pagesForSelect} />
           </div>

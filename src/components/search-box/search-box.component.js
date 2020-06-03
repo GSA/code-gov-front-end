@@ -42,25 +42,25 @@ export default class SearchBox extends Component {
 
   render() {
     return (
-      <form className="usa-search usa-search--big" onSubmit={::this.handleSubmit}>
+      <form className="usa-search margin-top-2" onSubmit={::this.handleSubmit}>
         <div role="search">
-        <label class="usa-sr-only" for="search-field-big">Search</label>
-            <input
-              aria-label="search"
-              onChange={::this.handleChange}
-              placeholder={this.props.placeholder || 'Search Projects...'}
-              ref={this.textInput}
-              type={this.props.inputType || 'search'}
-              value={this.state.value}
-              data-testid="input-search-box"
-              class="usa-input"
-              id="search-field-big"
-              name="search"
-            />
-            <button className="usa-button" type="submit" data-testid="button-search-box"><span class="usa-search__submit-text">Go</span></button>
-          </div>
+          <input
+            aria-label="search"
+            onChange={::this.handleChange}
+            placeholder={this.props.placeholder || 'Search Projects...'}
+            ref={this.textInput}
+            type={this.props.inputType || 'search'}
+            value={this.state.value}
+            data-testid="input-search-box"
+            className="usa-input"
+            id="search-field"
+            name="search"
+          />
+          <button className="usa-button" type="submit" data-testid="button-search-box">
+            <span className="usa-search__submit-text">Go</span>
+          </button>
+        </div>
       </form>
-      
     )
   }
 }

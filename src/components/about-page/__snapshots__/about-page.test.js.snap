@@ -66,7 +66,7 @@ exports[`components - AboutPage - ComplianceDashboard render should render corre
     }
   />
 </Fragment>
-`;
+`
 
 exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
 <Fragment>
@@ -81,7 +81,7 @@ exports[`components - AboutPage - InventoryCode render should render correctly 1
     url="/src/components/about-page/html/compliance/how-to-inventory-b.html"
   />
 </Fragment>
-`;
+`
 
 exports[`components - AboutPage render should render correctly 1`] = `
 <div>
@@ -289,4 +289,4 @@ exports[`components - AboutPage render should render correctly 1`] = `
   <br />
   <br />
 </div>
-`;
+`

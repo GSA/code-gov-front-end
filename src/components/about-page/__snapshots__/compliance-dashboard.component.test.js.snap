@@ -60,4 +60,4 @@ exports[`components - ComplianceDashboard should render correctly 1`] = `
     </ul>
   </div>
 </Fragment>
-`;
+`

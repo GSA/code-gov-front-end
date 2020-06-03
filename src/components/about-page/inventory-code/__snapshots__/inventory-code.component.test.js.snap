@@ -55,4 +55,4 @@ exports[`components - InventoryCodeComponent should render correctly 1`] = `
     <InventoryCodeTableComponent />
   </div>
 </div>
-`;
+`

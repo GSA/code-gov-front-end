@@ -69,10 +69,10 @@ export default class BrowseProjects extends React.Component {
         <SiteBanner title="Browse Projects" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Browse Projects' }]} />
         <div className="grid-container">
-            <div className="grid-row">
-              <QuickSearchBox />
-              {ReactHtmlParser(this.repoCounter)}
-            </div>
+          <div className="grid-row grid-gap">
+            <QuickSearchBox />
+            {ReactHtmlParser(this.repoCounter)}
+          </div>
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
@@ -91,7 +91,10 @@ export default class BrowseProjects extends React.Component {
               />
             </div>
             <div id="filter-results-section" className=" tablet:grid-col-9">
-              <SortSection options={this.props.sortOptions} onSortChange={this.props.onSortChange} />
+              <SortSection
+                options={this.props.sortOptions}
+                onSortChange={this.props.onSortChange}
+              />
               <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
               <div className="card-list">
                 {this.reposContainer}

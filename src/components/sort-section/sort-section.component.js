@@ -18,13 +18,20 @@ export default class SortSection extends Component {
     return (
       <div className="grid-row">
         <h2>Sort by</h2>
-          <select aria-label="sort" onChange={::this.onSortChange} value={selection} className="usa-select margin-top-2 margin-left-1 radius-md">
+        <form className="usa-form">
+          <select
+            aria-label="sort"
+            onChange={::this.onSortChange}
+            value={selection}
+            className="usa-select margin-top-2 margin-left-1 radius-md"
+          >
             {map(this.props.options, option => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
           </select>
+        </form>
       </div>
     )
   }
