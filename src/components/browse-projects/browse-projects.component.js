@@ -70,13 +70,15 @@ export default class BrowseProjects extends React.Component {
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Browse Projects' }]} />
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <QuickSearchBox />
+            <div className="margin-top-2 tablet:grid-col-3">
+              <QuickSearchBox />
+            </div>
             {ReactHtmlParser(this.repoCounter)}
           </div>
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div id="filter-boxes-section" className=" tablet:grid-col-3">
+            <div id="filter-boxes-section" className="tablet:grid-col-3 margin-top-4">
               <h2>Filter</h2>
 
               <FilterBoxes

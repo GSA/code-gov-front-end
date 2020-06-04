@@ -40,13 +40,13 @@ const getCard = (config, entry) => {
   const overallStatus = getStatusAsText(config, requirements.overall)
 
   return (
-    <li className={`card ${overallStatus}`} key={`card-${name}`}>
+    <li className={`card ${overallStatus} maxw-full`} key={`card-${name}`}>
       <div className="dashboard-entity-icon">
         <img src={img} alt={`${name} logo`} />
       </div>
       <div className="dashboard-entity-content">
         <div className="dashboard-entity-heading">
-          <h3 className="h3">{name}</h3>
+          <h3 className="">{name}</h3>
           <h4 className={`h4 ${overallStatus}`}>{displayStatus[overallStatus]}</h4>
           {config.text.map(textPart => {
             const { req, variants } = textPart
