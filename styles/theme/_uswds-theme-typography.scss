@@ -67,7 +67,7 @@ unclassed elements:
 
 $theme-global-paragraph-styles: false;
 $theme-global-link-styles: false;
-$theme-global-content-styles: false;
+$theme-global-content-styles: true;
 
 /*
 ----------------------------------------
@@ -77,7 +77,7 @@ Relative font file path
 ----------------------------------------
 */
 
-$theme-font-path: "/uswds/fonts";
+$theme-font-path: '/uswds/fonts';
 
 /*
 ----------------------------------------
@@ -111,14 +111,13 @@ $theme-font-type-icon: false;
 $theme-font-type-lang: false;
 
 // monospace
-$theme-font-type-mono: "roboto-mono";
+$theme-font-type-mono: 'roboto-mono';
 
 // sans-serif
-$theme-font-type-sans: "ttlakes";
+$theme-font-type-sans: 'ttlakes';
 
 // serif
-$theme-font-type-serif: "source-sans-pro";
-
+$theme-font-type-serif: 'source-sans-pro';
 
 /*
 ----------------------------------------
@@ -207,7 +206,6 @@ $theme-font-serif-custom-src: (
 ----------------------------------------
 */
 
-
 /*
 ----------------------------------------
 Custom typeface tokens
@@ -251,12 +249,15 @@ names to something more descriptive.
 */
 
 $theme-typeface-tokens: (
-  "ttlakes": (
-    display-name: "TT Lakes",
+  'ttlakes': (
+    display-name: 'TT Lakes',
     cap-height: 371px,
-    stack: ("Helvetica", sans-serif),
+    stack: (
+      'Helvetica',
+      sans-serif
+    ),
     src: (
-      dir: "./font",
+      dir: '',
       roman: (
         100: false,
         200: false,
@@ -266,12 +267,11 @@ $theme-typeface-tokens: (
         600: false,
         700: 'tt_lakes_medium-webfont',
         800: false,
-        900: false,
+        900: false
       )
     )
   )
 );
-
 
 $theme-font-cond-custom-src: false;
 $theme-font-icon-custom-src: false;
@@ -297,11 +297,11 @@ tokens.
 ----------------------------------------
 */
 
-$theme-font-role-ui: "sans";
-$theme-font-role-heading: "sans";
-$theme-font-role-body: "serif";
-$theme-font-role-code: "mono";
-$theme-font-role-alt: "serif";
+$theme-font-role-ui: 'sans';
+$theme-font-role-heading: 'sans';
+$theme-font-role-body: 'serif';
+$theme-font-role-code: 'mono';
+$theme-font-role-alt: 'serif';
 
 /*
 ----------------------------------------
@@ -405,32 +405,32 @@ none:    none
 */
 
 // Body settings are the equivalent of setting the <body> element
-$theme-body-font-family: "body";
-$theme-body-font-size: "sm";
+$theme-body-font-family: 'body';
+$theme-body-font-size: 'sm';
 $theme-body-line-height: 5;
 
 // If true, explicitly style the <body> element with the base styles
 $theme-style-body-element: false;
 
 // Headings
-$theme-h1-font-size: "2xl";
-$theme-h2-font-size: "xl";
-$theme-h3-font-size: "lg";
-$theme-h4-font-size: "sm";
-$theme-h5-font-size: "xs";
-$theme-h6-font-size: "3xs";
+$theme-h1-font-size: '2xl';
+$theme-h2-font-size: 'xl';
+$theme-h3-font-size: 'lg';
+$theme-h4-font-size: 'sm';
+$theme-h5-font-size: 'xs';
+$theme-h6-font-size: '3xs';
 $theme-heading-line-height: 2;
-$theme-small-font-size: "2xs";
-$theme-display-font-size: "3xl";
+$theme-small-font-size: '2xs';
+$theme-display-font-size: '3xl';
 
 // Text and prose
 $theme-text-measure-narrow: 1;
 $theme-text-measure: 4;
 $theme-text-measure-wide: 6;
-$theme-prose-font-family: "body";
+$theme-prose-font-family: 'body';
 
 // Lead text
-$theme-lead-font-family: "heading";
-$theme-lead-font-size: "lg";
+$theme-lead-font-family: 'heading';
+$theme-lead-font-size: 'lg';
 $theme-lead-line-height: 6;
 $theme-lead-measure: 6;

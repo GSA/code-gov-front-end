@@ -52,11 +52,15 @@ export default class SearchBox extends Component {
             type={this.props.inputType || 'search'}
             value={this.state.value}
             data-testid="input-search-box"
-            className="usa-input"
+            className="usa-input text-italic text-center font-body-sm"
             id="search-field"
             name="search"
           />
-          <button className="usa-button" type="submit" data-testid="button-search-box">
+          <button
+            className="usa-button text-center font-body-sm"
+            type="submit"
+            data-testid="button-search-box"
+          >
             <span className="usa-search__submit-text">Go</span>
           </button>
         </div>
