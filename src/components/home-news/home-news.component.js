@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 export default class HomeNews extends Component {
   render() {
     return (
-      <section className="bg-primary-lighter news tablet:grid-col-6">
+      <section className="bg-primary-lighter news tablet:grid-col-6 padding-left-2">
         <header className="padding-x-4  padding-top-6">
           <h2 className="font-heading-l text-primary text-center">Open Source News & Events</h2>
         </header>
-        <ul className="padding-x-1">
+        <ul className="padding-x-1 padding-bottom-2">
           {this.props.newsItems &&
             this.props.newsItems.map(news => (
               <li className="bg-white grid-row margin-1 padding-2" key={news.title}>
