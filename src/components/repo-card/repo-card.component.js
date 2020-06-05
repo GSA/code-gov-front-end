@@ -26,7 +26,7 @@ export default class RepoCardComponent extends Component {
   get repoDescription() {
     const description = get(this.props.repo, 'description')
     if (description) {
-      return <p className="card-description">{description.substring(0, 400)}</p>
+      return <p className="card-description maxw-none">{description.substring(0, 400)}</p>
     }
   }
 
@@ -36,9 +36,7 @@ export default class RepoCardComponent extends Component {
       return (
         <Fragment>
           <dt>Organization:</dt>
-          <dd>
-            {agencyOrg}
-          </dd>
+          <dd>{agencyOrg}</dd>
         </Fragment>
       )
     }
@@ -75,7 +73,7 @@ export default class RepoCardComponent extends Component {
       <div className="card-list-item card focusable">
         <quality-tag score={score} />
 
-        <h3 className="card-title">
+        <h3 className="font-heading-lg margin-top-0">
           <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
         </h3>
 

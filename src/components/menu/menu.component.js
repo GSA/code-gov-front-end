@@ -51,7 +51,7 @@ export default class Menu extends Component {
 
     selected.expanded = !selected.expanded
 
-    const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
+    const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
 
     //  @TODO `expanded` just returns `true`; possibly copied over from previous
     //        implementation?

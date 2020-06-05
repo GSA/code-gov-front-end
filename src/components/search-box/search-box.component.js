@@ -42,7 +42,7 @@ export default class SearchBox extends Component {
 
   render() {
     return (
-      <form className="usa-search margin-top-2" onSubmit={::this.handleSubmit}>
+      <form className="usa-search" onSubmit={::this.handleSubmit}>
         <div role="search">
           <input
             aria-label="search"
