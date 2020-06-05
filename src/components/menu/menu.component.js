@@ -51,7 +51,7 @@ export default class Menu extends Component {
 
     selected.expanded = !selected.expanded
 
-    const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
+    const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
 
     const expanded = this.state.menu.some(menuOption => menuOption.expanded)
     this.setState({ expanded, menu, height })
