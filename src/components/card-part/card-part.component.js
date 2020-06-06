@@ -7,6 +7,7 @@ export default function CardPart({ title, text = 'Not Available' }) {
       <dd className="display-inline-block margin-left-1 margin-right-3">
         {text || 'Not Available'}
       </dd>
+      <br />
     </Fragment>
   )
 }
