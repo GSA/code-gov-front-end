@@ -1,109 +1,108 @@
-.card-container {
-  position: relative;
+// .card-container {
+//   position: relative;
 
-  .data-quality-title {
-    @media (max-width: 801px) {
-      font-size: 1rem;
-    }
-  }
-}
+//   .data-quality-title {
+//     @media (max-width: 801px) {
+//       font-size: 1rem;
+//     }
+//   }
+// }
 
-.card-container,
-.no-repos {
-  margin-top: 2rem;
-}
+// .card-container,
+// .no-repos {
+//   margin-top: 2rem;
+// }
 
-.loading-dialog {
-  text-align: center;
+// .loading-dialog {
+//   text-align: center;
 
-  > p {
-    margin-top: 120px;
-  }
+//   > p {
+//     margin-top: 120px;
+//   }
 
-  > img {
-    margin-bottom: 120px;
-  }
-}
+//   > img {
+//     margin-bottom: 120px;
+//   }
+// }
 
-.repo-list-summary {
-  font-size: 1em;
-}
+// .repo-list-summary {
+//   font-size: 1em;
+// }
 
-.repo-list-summary-wrapper,
-.ngx-pagination {
-  display: block;
-  font-size: 1em;
-  text-align: center;
+// .repo-list-summary-wrapper,
+// .ngx-pagination {
+//   display: block;
+//   font-size: 1em;
+//   text-align: center;
 
-  @media screen and (min-width: $large-screen) {
-    display: inline-block;
-  }
-}
+//   @media screen and (min-width: $large-screen) {
+//     display: inline-block;
+//   }
+// }
 
-.card-list .ngx-pagination {
-  font-size: 1em;
-  font-weight: bold;
-  margin: 10px 0;
-  user-select: none;
-  @media screen and (min-width: $large-screen) {
-    float: right;
-  }
+// .card-list .ngx-pagination {
+//   font-size: 1em;
+//   font-weight: bold;
+//   margin: 10px 0;
+//   user-select: none;
+//   @media screen and (min-width: $large-screen) {
+//     float: right;
+//   }
 
-  li {
-    display: inline-block;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
+//   li {
+//     display: inline-block;
+//     padding-left: 0.25rem;
+//     padding-right: 0.25rem;
 
-    @media screen and (min-width: $large-screen) {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
+//     @media screen and (min-width: $large-screen) {
+//       padding-left: 0.5rem;
+//       padding-right: 0.5rem;
+//     }
 
-    &.disabled {
-      span {
-        color: $color-gray-light;
-      }
-    }
+//     &.disabled {
+//       span {
+//         color: $color-gray-light;
+//       }
+//     }
 
-    a,
-    span {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
+//     a,
+//     span {
+//       padding-left: 1rem;
+//       padding-right: 1rem;
+//     }
 
-    a {
-      color: $color-gray-dark;
-      cursor: pointer;
-      text-decoration: none;
-    }
-  }
+//     a {
+//       color: $color-gray-dark;
+//       cursor: pointer;
+//       text-decoration: none;
+//     }
+//   }
 
-  .page {
-    display: none;
-    @media screen and (min-width: $medium-screen) {
-      display: inline;
-      .page:not(.first) {
-        border-left: 2px solid $color-gray;
-      }
-  }
-}
+//   .page {
+//     display: none;
+//     @media screen and (min-width: $medium-screen) {
+//       display: inline;
+//       .page:not(.first) {
+//         border-left: 2px solid $color-gray;
+//       }
+//   }
+// }
 
+//   .current {
+//     background: none;
+//     color: $brand-teal;
+//   }
+// }
 
-  .current {
-    background: none;
-    color: $brand-teal;
-  }
-}
+// .card-ul {
+//   clear: both;
+//   display: block;
+// }
 
-.card-ul {
-  clear: both;
-  display: block;
-}
-
-.repo:last-child {
-  @media screen and (max-width: $small-screen - 1) {
-    .card-list-item {
-      border-bottom: 0;
-    }
-  }
-}
+// .repo:last-child {
+//   @media screen and (max-width: $small-screen - 1) {
+//     .card-list-item {
+//       border-bottom: 0;
+//     }
+//   }
+// }

@@ -14,7 +14,7 @@ export default class RepoCardComponent extends Component {
     const url = get(this.props.repo, 'repositoryURL')
     if (typeof url === 'string' && url.includes('github.com')) {
       return (
-        <div className="width-quarter">
+        <div className="display-inline-block pin-right pin-bottom margin-bottom-2 margin-right-3">
           <a href={url} target="_blank" rel="noopener noreferrer">
             <button className="usa-button">Go to Repo</button>
           </a>
@@ -80,7 +80,7 @@ export default class RepoCardComponent extends Component {
       <li className="usa-card width-full">
         <div className="usa-card__container hover:shadow-2">
           <quality-tag class="display-flex flex-justify-end" score={score} />
-          <header className="usa-card__header padding-top-0">
+          <header className="usa-card__header margin-top-neg-3 padding-top-0">
             <h3 className="usa-card__heading font-heading-lg margin-top-0">
               <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
             </h3>
@@ -102,7 +102,7 @@ export default class RepoCardComponent extends Component {
             <br />
           </dl>
 
-          <div className="usa-card__footer font-body-3xs padding-bottom-2 padding-top-1px">
+          <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px">
             <dl className="display-inline-block grid-col-9">
               <CardPart title="Usage Type" text={usageType} />
               {this.repoLanguages}
