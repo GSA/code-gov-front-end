@@ -214,10 +214,10 @@ export default class ProjectPage extends Component {
               { text: repoName }
             ]}
           />
-          <section className="repo-container indented">
+          <section className="grid-container">
             <header>
               <div className="repo-header-container">
-                <h2>{repoName}</h2>
+                <h2 className="font-heading-xl">{repoName}</h2>
                 {this.lastModifiedDateHTML}
                 {this.repoTags}
                 <ul className="repo-features">
