@@ -7,6 +7,7 @@ export default function SiteBanner({ backgroundImage, title }) {
         <div className="grid-row">
           <div className="tablet:grid-col">
             <h1 className="font-heading-3xl text-white text-center text-uppercase">{title}</h1>
+            <simple-banner hidden title={title} />
           </div>
         </div>
       </div>
