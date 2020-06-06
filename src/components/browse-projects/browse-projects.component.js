@@ -43,7 +43,7 @@ export default class BrowseProjects extends React.Component {
         return (
           <div>
             <QualityPopover />
-            <ul>
+            <ul className="usa-card-group padding-top-2">
               {this.props.repos.map(repo => (
                 <RepoCard key={repo.repoID} repo={repo} />
               ))}
