@@ -51,49 +51,51 @@ export default class OpenTasks extends React.Component {
       <div className="search-results-content">
         <SiteBanner title="Open Tasks" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Open Tasks' }]} />
-        <div className="search-results-header">
-          <div className="width-quarter" />
+        <div className="grid-container">
+          <div className="tablet:grid-col-3" />
           {ReactHtmlParser(this.counter)}
         </div>
-        <div className="indented">
-          <div id="filter-boxes-section">
-            <h2>Filter</h2>
+        <div className="grid-container">
+          <div className="grid-row grid-gap">
+            <div id="filter-boxes-section" className="tablet:grid-col-3 margin-top-4">
+              <h2>Filter</h2>
 
-            <FilterBoxes
-              boxes={this.props.boxes}
-              config={[
-                // ['Language', 'languages'],
-                ['Federal Agency', 'agencies'],
-                ['Skill Level', 'skillLevels'],
-                ['Time Required', 'timeRequired'],
-                ['Type', 'categories']
-              ]}
-              onFilterBoxChange={::this.onFilterBoxChange}
-            />
-          </div>
-          <div id="filter-results-section">
-            <div className="sort-section">
-              <h2>
-                <span>Explore Open Tasks</span>
-              </h2>
+              <FilterBoxes
+                boxes={this.props.boxes}
+                config={[
+                  // ['Language', 'languages'],
+                  ['Federal Agency', 'agencies'],
+                  ['Skill Level', 'skillLevels'],
+                  ['Time Required', 'timeRequired'],
+                  ['Type', 'categories']
+                ]}
+                onFilterBoxChange={::this.onFilterBoxChange}
+              />
             </div>
-            <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
-            <div className="card-list">
-              <div className="card-container">
-                <ul className="card-ul">
-                  {map(this.props.tasks, task => (
-                    <TaskCard key={task.id} task={task} />
-                  ))}
-                </ul>
+            <div id="filter-results-section" className="tablet:grid-col-9">
+              <div className="grid-row margin-top-4">
+                <h2>
+                  <span>Explore Open Tasks</span>
+                </h2>
               </div>
-              {numPages > 0 && (
-                <Pagination
-                  count={this.props.total}
-                  pagesize={this.props.selectedPageSize}
-                  page={this.props.selectedPage}
-                  updatePage={::this.updatePage}
-                />
-              )}
+              <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
+              <div className="card-list">
+                <ul className="usa-card-group padding-top-3">
+                  <li className="usa-card width-full margin-bottom-2">
+                    {map(this.props.tasks, task => (
+                      <TaskCard key={task.id} task={task} />
+                    ))}
+                  </li>
+                </ul>
+                {numPages > 0 && (
+                  <Pagination
+                    count={this.props.total}
+                    pagesize={this.props.selectedPageSize}
+                    page={this.props.selectedPage}
+                    updatePage={::this.updatePage}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>

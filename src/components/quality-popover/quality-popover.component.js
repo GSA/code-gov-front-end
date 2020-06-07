@@ -26,7 +26,7 @@ export default class QualityPopover extends Component {
     let iconClassName = 'icon icon-help-circled popper'
     if (this.state.activated) iconClassName += ' activated'
     return (
-      <div style={{ position: 'absolute', right: '10px', top: '60px' }}>
+      <div className="pin-right padding-right-105">
         <span className="data-quality-title">Data Quality Score</span>
         <div className={iconClassName} onClick={::this.onClick} ref={this.icon}>
           <div className="popover desktop left">
