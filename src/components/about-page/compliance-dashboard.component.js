@@ -56,24 +56,31 @@ const getCard = (config, entry) => {
 
   return (
     <div
-      className={`usa-card__container radius-0 border-base-light border-width-1px height-auto margin-bottom-2
+      className={`radius-0 ${borderColor[overallStatus]} border-left-3 height-auto
+      partial
       ${overallStatus}`}
       key={`card-${name}`}
     >
-      <div className="usa-card__media usa-card__media--inset display-block pin-top pin-left">
-        <img src={img} alt={`${name} logo`} />
-      </div>
-      <div className="usa-card__body display-block margin-left-6 margin-top-105">
-        <header className="usa-card__header">
-          <h3 className="usa-card__heading">{name}</h3>
-          <h4 className={`h4 ${statusColor[overallStatus]}`}>{displayStatus[overallStatus]}</h4>
-          {config.text.map(textPart => {
-            const { req, variants } = textPart
-            const status = getStatusAsText(config, entry.requirements.sub[req])
+      <div
+        className="usa-card__container radius-0 height-auto margin-bottom-2
+        partial border-left-width-0 border-base-light border-width-1px margin-left-0 margin-right-0"
+        key={`card-${name}-2`}
+      >
+        <div className="usa-card__media usa-card__media--inset display-block pin-top pin-left">
+          <img src={img} alt={`${name} logo`} />
+        </div>
+        <div className="usa-card__body display-block margin-left-6 margin-top-105">
+          <header className="usa-card__header">
+            <h3 className="usa-card__heading">{name}</h3>
+            <h4 className={`h4 ${statusColor[overallStatus]}`}>{displayStatus[overallStatus]}</h4>
+            {config.text.map(textPart => {
+              const { req, variants } = textPart
+              const status = getStatusAsText(config, entry.requirements.sub[req])
 
-            return getReqLine(name, req, status, variants[status])
-          })}
-        </header>
+              return getReqLine(name, req, status, variants[status])
+            })}
+          </header>
+        </div>
       </div>
     </div>
   )
