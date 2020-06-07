@@ -77,8 +77,8 @@ export default class RepoCardComponent extends Component {
     const license = getLicenseName(this.props.repo)
 
     return (
-      <li className="usa-card width-full">
-        <div className="usa-card__container hover:shadow-2">
+      <li className="usa-card width-full margin-bottom-2">
+        <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2">
           <quality-tag class="display-flex flex-justify-end" score={score} />
           <header className="usa-card__header margin-top-neg-3 padding-top-0">
             <h3 className="usa-card__heading font-heading-lg margin-top-0">
@@ -88,7 +88,7 @@ export default class RepoCardComponent extends Component {
 
           {this.repoDescription}
 
-          <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-2px border-base-lighter">
+          <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light">
             <dt className="display-inline text-bold">Agency:</dt>
             <dd className="display-inline margin-left-1 margin-right-3">
               <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>
