@@ -7,6 +7,18 @@ const displayStatus = {
   partial: 'Partially compliant'
 }
 
+const statusColor = {
+  compliant: 'text-mint',
+  noncompliant: 'text-red',
+  partial: 'text-gold'
+}
+
+const borderColor = {
+  compliant: 'border-mint',
+  noncompliant: 'border-red',
+  partial: 'border-gold'
+}
+
 const isCompliant = (min, max, score) =>
   typeof min === 'number' && typeof max === 'number' && min <= score && score <= max
 const isPartial = (min, max, score) =>
@@ -30,7 +42,10 @@ const getStatusAsText = ({ scores }, score) => {
 }
 
 const getReqLine = (name, req, status, text) => (
-  <div key={`${name}-${req}`} className={`req ${status}`}>
+  <div
+    key={`${name}-${req}`}
+    className={`req ${borderColor[status]} border-left-1 padding-left-1 margin-bottom-1 font-body-3xs`}
+  >
     {text}
   </div>
 )
@@ -40,31 +55,37 @@ const getCard = (config, entry) => {
   const overallStatus = getStatusAsText(config, requirements.overall)
 
   return (
-    <li className={`card ${overallStatus} maxw-full`} key={`card-${name}`}>
-      <div className="dashboard-entity-icon">
+    <div
+      className={`usa-card__container radius-0 border-base-light border-width-1px height-auto margin-bottom-2
+      ${overallStatus}`}
+      key={`card-${name}`}
+    >
+      <div className="usa-card__media usa-card__media--inset display-block pin-top pin-left">
         <img src={img} alt={`${name} logo`} />
       </div>
-      <div className="dashboard-entity-content">
-        <div className="dashboard-entity-heading">
-          <h3 className="">{name}</h3>
-          <h4 className={`h4 ${overallStatus}`}>{displayStatus[overallStatus]}</h4>
+      <div className="usa-card__body display-block margin-left-6 margin-top-105">
+        <header className="usa-card__header">
+          <h3 className="usa-card__heading">{name}</h3>
+          <h4 className={`h4 ${statusColor[overallStatus]}`}>{displayStatus[overallStatus]}</h4>
           {config.text.map(textPart => {
             const { req, variants } = textPart
             const status = getStatusAsText(config, entry.requirements.sub[req])
 
             return getReqLine(name, req, status, variants[status])
           })}
-        </div>
+        </header>
       </div>
-    </li>
+    </div>
   )
 }
 
 const ComplianceDashboardComponent = props => (
   <>
-    <div className="dashboard-container">
-      <ul className="dashboard-list">{props.data.map(entry => getCard(props.config, entry))}</ul>
-    </div>
+    <ul className="usa-card-group">
+      <li className="usa-card width-full">
+        {props.data.map(entry => getCard(props.config, entry))}
+      </li>
+    </ul>
   </>
 )
 
