@@ -42,11 +42,10 @@ const getStatusAsText = ({ scores }, score) => {
 }
 
 const getReqLine = (name, req, status, text) => (
-  <div
-    key={`${name}-${req}`}
-    className={`req ${borderColor[status]} border-left-1 padding-left-1 margin-bottom-1 font-body-3xs`}
-  >
-    {text}
+  <div key={`${name}-${req}`} className={`${borderColor[status]} border-left-1 margin-bottom-1`}>
+    <div className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px">
+      {text}
+    </div>
   </div>
 )
 
@@ -56,9 +55,7 @@ const getCard = (config, entry) => {
 
   return (
     <div
-      className={`radius-0 ${borderColor[overallStatus]} border-left-3 height-auto
-      partial
-      ${overallStatus}`}
+      className={`radius-0 ${borderColor[overallStatus]} border-left-3 height-auto`}
       key={`card-${name}`}
     >
       <div
@@ -69,7 +66,7 @@ const getCard = (config, entry) => {
         <div className="usa-card__media usa-card__media--inset display-block pin-top pin-left">
           <img src={img} alt={`${name} logo`} />
         </div>
-        <div className="usa-card__body display-block margin-left-6 margin-top-105">
+        <div className="usa-card__body display-block margin-left-6 margin-top-105 margin-bottom-neg-2">
           <header className="usa-card__header">
             <h3 className="usa-card__heading">{name}</h3>
             <h4 className={`h4 ${statusColor[overallStatus]}`}>{displayStatus[overallStatus]}</h4>
