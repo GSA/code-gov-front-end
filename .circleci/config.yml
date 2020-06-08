@@ -12,7 +12,7 @@ jobs:
       - run: npm run build # needed because the policy and about plugin components are added during the build step
       - run: npm run test:ci
       - run: npm run lint
-      - run: npm run start & sleep 5; npm run test-pa11y
+      - run: npm run start-on-server-prod & sleep 5; npm run test-pa11y
   deploy-bundle-analysis:
     docker:
       - image: ubuntu
