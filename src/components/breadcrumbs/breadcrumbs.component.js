@@ -4,7 +4,7 @@ import CustomLink from 'components/custom-link'
 export default function Breadcrumbs({ crumbs }) {
   return (
     <div className="grid-container">
-      <ul className="breadcrumbs grid-row">
+      <ul className="breadcrumbs grid-row margin-top-4">
         {crumbs.map(({ text, to }) => {
           if (to) {
             return (

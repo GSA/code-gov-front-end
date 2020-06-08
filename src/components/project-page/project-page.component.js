@@ -32,8 +32,8 @@ export default class ProjectPage extends Component {
     const lastModifiedDate = getLastModifiedDateString(this.props.repo)
     if (lastModifiedDate) {
       return (
-        <span className="updated">
-          <div>{`Last updated on ${lastModifiedDate}`}</div>
+        <span>
+          <div className="padding-top-1">{`Last updated on ${lastModifiedDate}`}</div>
         </span>
       )
     }
@@ -45,8 +45,10 @@ export default class ProjectPage extends Component {
       <Fragment>
         {map(tags, tag => (
           <CustomLink key={tag} to={`/search?query=${tag}`}>
-            <span>
-              <button className="tag">{tag}</button>
+            <span className="margin-right-1">
+              <button className="usa-tag font-body-xs padding-1 padding-x-205 bg-primary text-lowercase">
+                {tag}
+              </button>
             </span>
           </CustomLink>
         ))}
@@ -149,7 +151,7 @@ export default class ProjectPage extends Component {
     if (url) {
       return (
         <a href={url} target="_blank" rel="noopener noreferrer">
-          <button className="button">Visit Repo</button>
+          <button className="usa-button margin-bottom-6 margin-top-neg-2px">Visit Repo</button>
         </a>
       )
     }
@@ -216,7 +218,7 @@ export default class ProjectPage extends Component {
           />
           <section className="grid-container">
             <header>
-              <div className="repo-header-container">
+              <div className="repo-header-container margin-top-1">
                 <h2 className="font-heading-xl">{repoName}</h2>
                 {this.lastModifiedDateHTML}
                 {this.repoTags}
@@ -227,7 +229,7 @@ export default class ProjectPage extends Component {
                   {this.languages}
                   {this.contact}
                 </ul>
-                <p>{repo.description}</p>
+                <p className="maxw-none">{repo.description}</p>
                 {this.additionalData}
                 <br />
                 {this.repositoryURL}
