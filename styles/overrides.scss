@@ -1,14 +1,14 @@
 /* overwrite code-gov-style */
 
-.banner {
-  background: $brand-primary;
-  background-image: none;
-  color: #fff;
+// .banner {
+//   background: $brand-primary;
+//   background-image: none;
+//   color: #fff;
 
-  @media screen and (min-width: 600px) {
-    height: 225px;
-  }
-}
+//   @media screen and (min-width: 600px) {
+//     height: 225px;
+//   }
+// }
 
 // /* for internet explorer */
 // @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -28,25 +28,25 @@
 // }
 
 // overriding the default uswds search box behavior
-[type='search'] {
-  border-bottom-right-radius: unset;
-  border-right: unset;
-  border-top-right-radius: unset;
-  box-sizing: unset;
-  float: unset;
-  font-size: unset;
-  height: unset;
-  margin: unset;
-  padding-bottom: unset;
-  padding-top: unset;
-}
+// [type='search'] {
+//   border-bottom-right-radius: unset;
+//   border-right: unset;
+//   border-top-right-radius: unset;
+//   box-sizing: unset;
+//   float: unset;
+//   font-size: unset;
+//   height: unset;
+//   margin: unset;
+//   padding-bottom: unset;
+//   padding-top: unset;
+// }
 
 // uswds makes the mobile sidebar search box and button look janky
-.mobile-menu .search-form {
-  display: flex;
-  justify-content: center;
+// .mobile-menu .search-form {
+//   display: flex;
+//   justify-content: center;
 
-  @media screen and (max-width: 480px) {
-    font-size: 1rem;
-  }
-}
+//   @media screen and (max-width: 480px) {
+//     font-size: 1rem;
+//   }
+// }
