@@ -85,7 +85,7 @@ const getCard = (config, entry) => {
 
 const ComplianceDashboardComponent = props => (
   <>
-    <ul className="usa-card-group">
+    <ul className="usa-card-group dashboard-container">
       <li className="usa-card width-full">
         {props.data.map(entry => getCard(props.config, entry))}
       </li>
