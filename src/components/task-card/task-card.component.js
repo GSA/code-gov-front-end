@@ -68,7 +68,7 @@ export default class TaskCardComponent extends Component {
     const lastModifiedString = getLastModifiedDateString(this.props.task) || 'Not Available'
 
     return (
-      <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto margin-bottom-2">
+      <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto margin-bottom-2 card-list-item">
         <header className="usa-card__header">
           <h3 className="usa-card__heading font-heading-lg margin-top-0">{this.cardTitle}</h3>
         </header>
