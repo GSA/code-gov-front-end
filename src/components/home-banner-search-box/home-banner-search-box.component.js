@@ -65,11 +65,13 @@ export default class HomeBannerSearchBoxComponent extends Component {
       <div>
         <div>
           <div>
-            <div className="text-uppercase text-bold">
+            <div className="text-uppercase text-bold text-base-darker">
               {searchDescriptionHeading}
             </div>
             {searchDescriptionText && (
-              <div className="margin-bottom-1 text-bold">{searchDescriptionText}</div>
+              <div className="margin-bottom-1 text-bold text-base-darker">
+                {searchDescriptionText}
+              </div>
             )}
             {searchDescriptionTextMobile && (
               <div className="show-w-lte-800">{searchDescriptionTextMobile}</div>
