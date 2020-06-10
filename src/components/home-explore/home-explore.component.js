@@ -26,6 +26,7 @@ export default class HomeExplore extends React.Component {
                       </span>
                     ))}
                   </div>
+                  <div className="height-6 show-w-lte-600" />
                 </div>
               ))}
           </div>
