@@ -9,7 +9,7 @@ export default function(params) {
     if (params.sort) options.sort = params.sort
     if (params.page) options.page = params.page
     if (params.filters) {
-      ;['agencies', 'languages', 'licenses', 'usageTypes'].forEach(key => {
+      ['agencies', 'languages', 'licenses', 'usageTypes'].forEach(key => {
         options[key] = getFilterValuesFromParamsByCategory(params, key)
       })
     }
