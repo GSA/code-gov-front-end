@@ -47,9 +47,9 @@ export default class SearchPage extends React.Component {
 
     if (filteredResults) {
       return (
-        <div className="card-container">
+        <div>
           <QualityPopover />
-          <ul>
+          <ul className="usa-card-group padding-top-3">
             {filteredResults.map(repo => (
               <RepoCard key={repo.repoID} repo={repo} />
             ))}
@@ -70,42 +70,47 @@ export default class SearchPage extends React.Component {
       <div className="search-results-content">
         <SiteBanner title="Search Results" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Search Results' }]} />
-        <div className="search-results-header">
-          <div className="indented">
-            <div className="width-quarter">
+        <div className="grid-container">
+          <div className="grid-row grid-gap">
+            <div className="margin-top-2 tablet:grid-col-3">
               <QuickSearchBox value={this.props.searchParams.query} />
             </div>
             {this.repoCounter}
           </div>
         </div>
-        <div className="indented">
-          <div id="filter-boxes-section">
-            <h2>Filter</h2>
+        <div className="grid-container">
+          <div className="grid-row grid-gap">
+            <div id="filter-boxes-section" className="tablet:grid-col-3 margin-top-4">
+              <h2>Filter</h2>
 
-            <FilterBoxes
-              boxes={this.props.boxes}
-              config={[
-                ['Language', 'languages'],
-                ['Federal Agency', 'agencies'],
-                ['Licenses', 'licenses'],
-                ['Usage Types', 'usageTypes']
-              ]}
-              onFilterBoxChange={::this.onFilterBoxChange}
-            />
-          </div>
-          <div id="filter-results-section">
-            <SortSection options={this.props.sortOptions} onSortChange={this.props.onSortChange} />
-            <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
-            <div className="card-list">
-              {this.reposContainer}
-              {numPages > 0 && (
-                <Pagination
-                  count={this.props.total}
-                  pagesize={this.props.selectedPageSize}
-                  page={this.props.selectedPage}
-                  updatePage={::this.updatePage}
-                />
-              )}
+              <FilterBoxes
+                boxes={this.props.boxes}
+                config={[
+                  ['Language', 'languages'],
+                  ['Federal Agency', 'agencies'],
+                  ['Licenses', 'licenses'],
+                  ['Usage Types', 'usageTypes']
+                ]}
+                onFilterBoxChange={::this.onFilterBoxChange}
+              />
+            </div>
+            <div id="filter-results-section" className=" tablet:grid-col-9">
+              <SortSection
+                options={this.props.sortOptions}
+                onSortChange={this.props.onSortChange}
+              />
+              <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
+              <div className="card-list">
+                {this.reposContainer}
+                {numPages > 0 && (
+                  <Pagination
+                    count={this.props.total}
+                    pagesize={this.props.selectedPageSize}
+                    page={this.props.selectedPage}
+                    updatePage={::this.updatePage}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
