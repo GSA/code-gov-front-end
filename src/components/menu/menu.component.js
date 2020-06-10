@@ -53,6 +53,8 @@ export default class Menu extends Component {
 
     const height = selected.expanded ? 74 + 40 * selected.links.length : 'auto'
 
+    //  @TODO `expanded` just returns `true`; possibly copied over from previous
+    //        implementation?
     const expanded = this.state.menu.some(menuOption => menuOption.expanded)
     this.setState({ expanded, menu, height })
   }
