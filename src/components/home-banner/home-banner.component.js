@@ -11,9 +11,9 @@ export default class HomeBanner extends React.Component {
     return (
       <section id="banner-home" className="margin-top-8">
         <div className="bg-primary text-center">
-          <div className="padding-y-2">
-            <div className="font-heading-3xl text-white">{this.props.motto}</div>
-            <div className="font-heading-lg text-white">{this.props.subtitle}</div>
+          <div className="padding-y-4">
+            <div className="font-heading-2xl text-white">{this.props.motto}</div>
+            <div className="font-heading-lg text-white show-w-gt-1200">{this.props.subtitle}</div>
           </div>
           <div className="bg-primary-lighter padding-y-3">
             <div>
