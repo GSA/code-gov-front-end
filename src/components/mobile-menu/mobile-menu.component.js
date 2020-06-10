@@ -14,7 +14,7 @@ export default class Menu extends Component {
       <Fragment>
         <div className={`mobile-menu ${open ? 'open' : ''}`}>
           <ul>
-            <li className="search">
+            <li className="search margin-bottom-0">
               <MobileMenuSearchBox />
             </li>
             {map(menu, menuOption => (

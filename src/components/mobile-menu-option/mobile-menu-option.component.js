@@ -7,12 +7,12 @@ export default class MobileMenuOption extends Component {
     const { menuOption } = this.props
     if (Array.isArray(menuOption.links)) {
       return (
-        <ul>
+        <ul className="margin-top-0">
           {map(menuOption.links, link => {
             const { name, url } = link
             if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
               return (
-                <li key={url}>
+                <li className="margin-bottom-0" key={url}>
                   <a
                     href={url}
                     onClick={this.props.hideMobileMenu}
@@ -25,7 +25,7 @@ export default class MobileMenuOption extends Component {
               )
             }
             return (
-              <li key={url}>
+              <li className="margin-bottom-0" key={url}>
                 <CustomLink
                   className={this.isLinkActive({ url }) ? 'active' : ''}
                   onClick={this.props.hideMobileMenu}
@@ -87,7 +87,7 @@ export default class MobileMenuOption extends Component {
   render() {
     const expanded = this.props.expandedMobileMenuOptions.includes(this.props.menuOption.name)
     return (
-      <li className={expanded ? 'expanded' : 'collapsed'}>
+      <li className={expanded ? 'expanded margin-bottom-0' : 'collapsed margin-bottom-0'}>
         {this.topoption}
         {this.dropdown}
       </li>
