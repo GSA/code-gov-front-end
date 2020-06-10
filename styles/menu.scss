@@ -8,16 +8,16 @@ header.main {
       position: relative;
     }
 
-    a {
-      img {
-        height: 33px;
-        max-width: 175px;
+    // a {
+    //   img {
+    //     height: 33px;
+    //     max-width: 175px;
 
-        @media screen and (max-width: $header-switch) {
-          padding: 5px;
-        }
-      }
-    }
+    //     @media screen and (max-width: $header-switch) {
+    //       padding: 5px;
+    //     }
+    //   }
+    // }
 
     mobile-menu-button {
       position: absolute;
