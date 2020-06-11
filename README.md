@@ -47,6 +47,7 @@ If you want to override that, specify an `CODE_GOV_API_KEY` environmental variab
 ```
 CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
 ```
+
 An alternate approach to using your API key every time you use `npm run start` is to create a `.env.local` file and store your API key. (Remember to use `CODE_GOV_API_KEY=...`) In accordance with [dotenv-flow](https://www.npmjs.com/package/dotenv-flow), your personal key will be ignored when committing updates to GH.
 
 You can sign up for an [API key](https://open.gsa.gov/api/codedotgov/).
@@ -97,16 +98,15 @@ To run Cypress testing do the following:
 a. Make sure you run `npm install` to install all of the
 project’s dependencies.  
 b. Start a server by running `npm run start`.  
-c. Use the `npm run test:cypress` command to run the Cypress tests.  
+c. Use the `npm run test:cypress` command to run the Cypress tests.
 
-Once these steps are completed, you should see the list of spec files.  
+Once these steps are completed, you should see the list of spec files.
 
-![Cypress startup](assets/img/cypress-running.png)  
+![Cypress startup](assets/img/cypress-running.png)
 
-Click the `run all specs` button (in the upper right) to run the tests.   
- 
+Click the `run all specs` button (in the upper right) to run the tests.
+
 ![Cypress tests](assets/img/cypress-tests.png)
-
 
 ## Deployment
 
