@@ -8,7 +8,9 @@ export default class Footer extends PureComponent {
     return (
       <footer className="usa-footer" role="contentinfo">
         <div className="grid-container usa-footer__return-to-top">
-          <a href="#">Return to top</a>
+          <a href="#" className="text-bold font-body-2xs">
+            Return to top
+          </a>
         </div>
         <div className="usa-footer__primary-section bg-primary-lighter" data-test="links">
           <nav className="usa-footer__nav">
@@ -18,7 +20,7 @@ export default class Footer extends PureComponent {
                   return (
                     <li
                       key={link.name}
-                      className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content"
+                      className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-2xs margin-bottom-0"
                     >
                       <a
                         className="usa-footer__primary-link text-base-dark"
@@ -35,7 +37,7 @@ export default class Footer extends PureComponent {
                 return (
                   <li
                     key={link.name}
-                    className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content"
+                    className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-2xs margin-bottom-0"
                   >
                     <CustomLink to={link.url} className="usa-footer__primary-link text-base-dark">
                       <span>{link.name}</span>
@@ -62,7 +64,9 @@ export default class Footer extends PureComponent {
                       >
                         <img src={logo.image} alt={logo.name} className="maxh-15" />
                         <div className="mobile-lg:grid-col-auto">
-                          <h3 className="usa-footer__logo-heading">{logo.name}</h3>
+                          <h3 className="usa-footer__logo-heading font-body-3xs text-bold">
+                            {logo.name}
+                          </h3>
                         </div>
                       </a>
                     </div>

@@ -119,19 +119,7 @@ export default class Menu extends Component {
               </li>
             ))}
           </ul>
-          {onHomePage === false && (
-            <ul className="right show-w-gt-800">
-              <li>
-                <i
-                  aria-label="search"
-                  className="icon icon-search"
-                  onClick={toggleSearchDropdown}
-                />
-              </li>
-            </ul>
-          )}
         </nav>
-        {onHomePage === false && <SearchBoxDropDown />}
       </header>
     )
   }
