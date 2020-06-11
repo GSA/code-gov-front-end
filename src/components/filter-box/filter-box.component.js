@@ -22,6 +22,7 @@ export default class FilterBox extends React.Component {
         title={this.props.title}
         options={JSON.stringify(this.props.options)}
         ref="filterBox"
+        class="padding-top-2"
       />
     )
   }

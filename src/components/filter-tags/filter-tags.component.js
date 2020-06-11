@@ -5,7 +5,7 @@ import FilterTag from 'components/filter-tag'
 export default function({ filters, onClick }) {
   console.log('starting filtertags with filters', filters)
   return (
-    <div className="filter-tags padding-top-3">
+    <div className="filter-tags">
       {map(filters, ({ category, title, value }) => {
         console.log('category, title value', [category, title, value])
         const key = `${category}:${value}`
