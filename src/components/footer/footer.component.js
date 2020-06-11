@@ -13,17 +13,17 @@ export default class Footer extends PureComponent {
           </a>
         </div>
         <div className="usa-footer__primary-section bg-primary-lighter" data-test="links">
-          <nav className="usa-footer__nav">
+          <nav className="usa-footer__nav padding-top-3 tablet:padding-top-0">
             <ul className="grid-row grid-gap">
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
                   return (
                     <li
                       key={link.name}
-                      className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
+                      className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
                     >
                       <a
-                        className="usa-footer__primary-link text-base-dark"
+                        className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -37,9 +37,12 @@ export default class Footer extends PureComponent {
                 return (
                   <li
                     key={link.name}
-                    className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
+                    className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
                   >
-                    <CustomLink to={link.url} className="usa-footer__primary-link text-base-dark">
+                    <CustomLink
+                      to={link.url}
+                      className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
+                    >
                       <span>{link.name}</span>
                     </CustomLink>
                   </li>
