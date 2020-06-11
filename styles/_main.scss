@@ -9,7 +9,6 @@ $header-height: 50px;
 // @import '~@code.gov/code-gov-style/_sass/_all.scss';
 
 @import './styles/code-gov-design/all';
-@import './overrides.scss';
 
 html {
   background-color: $color-white;
@@ -24,20 +23,7 @@ html {
 }
 
 /* styles that apply to stuff around search box on multiple pages */
-
-@import './base-filter-page.scss';
-
 @import './menu.scss';
-
-@import './search.scss';
-
-@import './repo-card.scss';
-@import './repo-list.scss';
-
-@import './roadmap.scss';
-@import './gov-banner.scss';
-
-@import './compliance-dashboard.scss';
 @import './json-schema.scss';
 
 // overwrites and fixes
