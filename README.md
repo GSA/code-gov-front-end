@@ -6,8 +6,6 @@
 
 ## Introduction
 
-TEST 2 
-
 [Code.gov](https://code.gov) is a website promoting good practices in code development, collaboration, and reuse across the U.S. Government. Code.gov provides tools and guidance to help agencies implement the [Federal Source Code Policy](https://sourcecode.cio.gov). It also includes an inventory of government custom code to promote reuse between agencies and provides tools to help government and the public collaborate on open source projects.
 
 To learn more about the project, check out this [blog post](https://www.whitehouse.gov/blog/2016/08/08/peoples-code).
