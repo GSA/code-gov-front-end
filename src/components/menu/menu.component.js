@@ -112,7 +112,7 @@ export default class Menu extends Component {
           <ul role="menubar" aria-label="primary">
             {map(this.props.menu, menuOption => (
               <li
-                className={menuOption.expanded ? 'expanded' : ''}
+                className={menuOption.expanded ? 'expanded' : 'margin-bottom-0'}
                 key={menuOption.name}
                 role="none"
               >
