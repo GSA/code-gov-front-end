@@ -103,7 +103,7 @@ export default class Menu extends Component {
             <img
               src={color === 'white' ? this.props.logoDark : this.props.logoLight}
               alt="code.gov"
-              className="height-4 maxw-card padding-y-2px"
+              className="height-4 maxw-card"
             />
           </CustomLink>
 

@@ -21,7 +21,9 @@ export default class HomeExplore extends React.Component {
                     {item.links.map(link => (
                       <span key={link.name}>
                         <a href={link.url}>
-                          <button className="usa-button">{link.name}</button>
+                          <button className="usa-button font-body-sm padding-x-6">
+                            {link.name}
+                          </button>
                         </a>
                       </span>
                     ))}
