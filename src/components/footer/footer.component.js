@@ -8,7 +8,7 @@ export default class Footer extends PureComponent {
     return (
       <footer className="usa-footer" role="contentinfo">
         <div className="grid-container usa-footer__return-to-top">
-          <a href="#" className="text-bold font-body-2xs">
+          <a href="#" className="text-bold font-body-3xs">
             Return to top
           </a>
         </div>
@@ -20,7 +20,7 @@ export default class Footer extends PureComponent {
                   return (
                     <li
                       key={link.name}
-                      className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-2xs margin-bottom-0"
+                      className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
                     >
                       <a
                         className="usa-footer__primary-link text-base-dark"
@@ -37,7 +37,7 @@ export default class Footer extends PureComponent {
                 return (
                   <li
                     key={link.name}
-                    className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-2xs margin-bottom-0"
+                    className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
                   >
                     <CustomLink to={link.url} className="usa-footer__primary-link text-base-dark">
                       <span>{link.name}</span>
@@ -52,7 +52,7 @@ export default class Footer extends PureComponent {
         <div className="usa-footer__secondary-section bg-white" data-test="logos">
           <div className="grid-container">
             <div className="grid-row grid-gap">
-              <div className="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+              <div className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8">
                 <div className="mobile-lg:grid-col-auto">
                   {map(this.props.logos, logo => (
                     <div key={logo.name}>
@@ -62,9 +62,13 @@ export default class Footer extends PureComponent {
                         rel="noopener noreferrer"
                         className="text-no-underline"
                       >
-                        <img src={logo.image} alt={logo.name} className="maxh-15" />
-                        <div className="mobile-lg:grid-col-auto">
-                          <h3 className="usa-footer__logo-heading font-body-3xs text-bold">
+                        <img
+                          src={logo.image}
+                          alt={logo.name}
+                          className="maxw-15 padding-right-2 show-w-gt-1000"
+                        />
+                        <div className="mobile-lg:grid-col-auto desktop:display-inline">
+                          <h3 className="usa-footer__logo-heading font-body-3xs text-bold text-primary desktop:display-inline">
                             {logo.name}
                           </h3>
                         </div>
@@ -73,8 +77,8 @@ export default class Footer extends PureComponent {
                   ))}
                 </div>
               </div>
-              <div className="usa-footer__contact-links mobile-lg:grid-col-6">
-                <ul className="usa-footer__social-links grid-row grid-gap-1" data-test="socials">
+              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7">
+                <ul className="usa-footer__social-links grid-row" data-test="socials">
                   {map(this.props.socials, social => (
                     <li key={social.name} className="grid-col-auto">
                       <a
@@ -82,21 +86,13 @@ export default class Footer extends PureComponent {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.name}
-                        className="font-body-2xl"
+                        className="font-body-xl"
                       >
                         <div className={social.icon} />
                       </a>
                     </li>
                   ))}
                 </ul>
-
-                <address className="usa-footer__address">
-                  <div className="usa-footer__contact-info grid-row grid-gap">
-                    <div className="grid-col-auto">
-                      <a href="mailto:info@agency.gov">code@gsa.gov</a>
-                    </div>
-                  </div>
-                </address>
               </div>
             </div>
           </div>
