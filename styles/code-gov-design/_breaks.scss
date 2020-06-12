@@ -107,3 +107,15 @@
     display: none !important;
   }
 }
+
+.show-w-gt-desktop {
+  @media (max-width: 1023.5px) {
+    display: none !important;
+  }
+}
+
+.show-w-lte-desktop {
+  @media (min-width: 1023.5px) {
+    display: none !important;
+  }
+}

@@ -29,7 +29,7 @@ export default class Footer extends PureComponent {
                         rel="noopener noreferrer"
                         key={link.name}
                       >
-                        <span>{link.name}</span>
+                        <span className="text-base-dark">{link.name}</span>
                       </a>
                     </li>
                   )
@@ -43,7 +43,7 @@ export default class Footer extends PureComponent {
                       to={link.url}
                       className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
                     >
-                      <span>{link.name}</span>
+                      <span className="text-base-dark">{link.name}</span>
                     </CustomLink>
                   </li>
                 )
@@ -52,7 +52,7 @@ export default class Footer extends PureComponent {
           </nav>
         </div>
 
-        <div className="usa-footer__secondary-section bg-white show-w-gt-1000" data-test="logos">
+        <div className="usa-footer__secondary-section bg-white show-w-gt-desktop" data-test="logos">
           <div className="grid-container">
             <div className="grid-row grid-gap">
               <div className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8">
@@ -68,10 +68,10 @@ export default class Footer extends PureComponent {
                         <img
                           src={logo.image}
                           alt={logo.name}
-                          className="maxw-15 padding-right-2 show-w-gt-1000"
+                          className="maxw-15 padding-right-2 show-w-gt-desktop"
                         />
                         <div className="mobile-lg:grid-col-auto desktop:display-inline">
-                          <h3 className="usa-footer__logo-heading font-body-3xs text-bold text-primary desktop:display-inline">
+                          <h3 className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline">
                             {logo.name}
                           </h3>
                         </div>
@@ -94,7 +94,7 @@ export default class Footer extends PureComponent {
                         aria-label={social.name}
                         className="font-body-xl"
                       >
-                        <div className={social.icon} />
+                        <div className={`text-base-darker ${  social.icon}`} />
                       </a>
                     </li>
                   ))}
@@ -104,7 +104,7 @@ export default class Footer extends PureComponent {
           </div>
         </div>
         <div
-          className="usa-footer__secondary-section bg-primary-lighter show-w-lte-1000"
+          className="usa-footer__secondary-section bg-primary-lighter show-w-lte-desktop"
           data-test="logos"
         >
           <div className="grid-container">
@@ -122,10 +122,10 @@ export default class Footer extends PureComponent {
                         <img
                           src={logo.image}
                           alt={logo.name}
-                          className="maxw-15 padding-right-2 show-w-gt-1000"
+                          className="maxw-15 padding-right-2 show-w-gt-desktop"
                         />
                         <div className="mobile-lg:grid-col-auto desktop:display-inline">
-                          <h3 className="usa-footer__logo-heading font-body-3xs text-bold text-primary desktop:display-inline">
+                          <h3 className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline">
                             {logo.name}
                           </h3>
                         </div>
@@ -148,7 +148,7 @@ export default class Footer extends PureComponent {
                         aria-label={social.name}
                         className="font-body-xl"
                       >
-                        <div className={social.icon} />
+                        <div className={`text-base-darker ${  social.icon}`} />
                       </a>
                     </li>
                   ))}
