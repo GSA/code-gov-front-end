@@ -52,7 +52,7 @@ export default class SearchBox extends Component {
             type={this.props.inputType || 'search'}
             value={this.state.value}
             data-testid="input-search-box"
-            className="usa-input text-italic text-center font-body-3xs radius-left-md border-0"
+            className="usa-input text-italic text-center font-body-3xs radius-left-md borderless"
             id="search-field"
             name="search"
           />
