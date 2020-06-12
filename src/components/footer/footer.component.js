@@ -13,14 +13,14 @@ export default class Footer extends PureComponent {
           </a>
         </div>
         <div className="usa-footer__primary-section bg-primary-lighter" data-test="links">
-          <nav className="usa-footer__nav padding-top-4 tablet:padding-top-0">
+          <nav className="usa-footer__nav padding-top-4 tablet:padding-top-0 border-bottom-0">
             <ul className="grid-row grid-gap">
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
                   return (
                     <li
                       key={link.name}
-                      className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
+                      className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0 border-top-0"
                     >
                       <a
                         className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
@@ -37,7 +37,7 @@ export default class Footer extends PureComponent {
                 return (
                   <li
                     key={link.name}
-                    className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0"
+                    className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0 border-top-0"
                   >
                     <CustomLink
                       to={link.url}
@@ -94,7 +94,7 @@ export default class Footer extends PureComponent {
                         aria-label={social.name}
                         className="font-body-xl"
                       >
-                        <div className={`text-base-darker ${  social.icon}`} />
+                        <div className={`text-base-darker ${social.icon}`} />
                       </a>
                     </li>
                   ))}
@@ -125,7 +125,7 @@ export default class Footer extends PureComponent {
                           className="maxw-15 padding-right-2 show-w-gt-desktop"
                         />
                         <div className="mobile-lg:grid-col-auto desktop:display-inline">
-                          <h3 className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline">
+                          <h3 className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline padding-left-0">
                             {logo.name}
                           </h3>
                         </div>
@@ -148,7 +148,7 @@ export default class Footer extends PureComponent {
                         aria-label={social.name}
                         className="font-body-xl"
                       >
-                        <div className={`text-base-darker ${  social.icon}`} />
+                        <div className={`text-base-darker ${social.icon}`} />
                       </a>
                     </li>
                   ))}
