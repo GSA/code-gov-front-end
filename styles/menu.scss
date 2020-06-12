@@ -16,23 +16,23 @@ header.main {
       }
     }
 
-    mobile-menu-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      .mobile-menu-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        .icon {
-          color: $brand-blue !important;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-      }
-    }
+    // mobile-menu-button {
+      // position: absolute;
+      // top: 50%;
+      // transform: translateY(-50%);
+      // z-index: 10;
+      // .mobile-menu-button {
+        // position: absolute;
+        // top: 50%;
+        // transform: translateY(-50%);
+        // .icon {
+        //   color: $brand-blue !important;
+          // position: absolute;
+          // top: 50%;
+          // transform: translateY(-50%);
+    //     }
+    //   }
+    // }
 
     .mobile-menu {
       top: calc(#{$header-height} + #{$mobile-menu-offset});
@@ -59,80 +59,80 @@ header.main {
   }
 }
 
-.search-box {
-  background-color: $color-gray-dark;
-  display: none;
-  padding: 0.5rem 2rem;
-  position: fixed;
-  right: 0;
-  top: 20px;
-  transition: 0.25s linear transform;
-  width: 100%;
-  z-index: 2;
+// .search-box {
+//   background-color: $color-gray-dark;
+//   display: none;
+//   padding: 0.5rem 2rem;
+//   position: fixed;
+//   right: 0;
+//   top: 20px;
+//   transition: 0.25s linear transform;
+//   width: 100%;
+//   z-index: 2;
 
-  @media screen and (min-width: $small-screen) {
-    display: block;
-  }
+//   @media screen and (min-width: $small-screen) {
+//     display: block;
+//   }
 
-  @media screen and (min-width: $medium-screen) {
-    padding-right: 68px;
-  }
+//   @media screen and (min-width: $medium-screen) {
+//     padding-right: 68px;
+//   }
 
-  &.active {
-    transform: translateY(72px);
-  }
+//   &.active {
+//     transform: translateY(72px);
+//   }
 
-  .close-search-box-button {
-    color: $color-white;
-    cursor: pointer;
-    float: right;
-    font-size: 1.4em;
-    height: 42px;
-    line-height: 42px;
-    position: relative;
-    text-decoration: none;
-    transition: 0.25s transform;
-    width: 10%;
+//   .close-search-box-button {
+//     color: $color-white;
+//     cursor: pointer;
+//     float: right;
+//     font-size: 1.4em;
+//     height: 42px;
+//     line-height: 42px;
+//     position: relative;
+//     text-decoration: none;
+//     transition: 0.25s transform;
+//     width: 10%;
 
-    @media screen and (min-width: $medium-screen) {
-      width: 42px;
-    }
+//     @media screen and (min-width: $medium-screen) {
+//       width: 42px;
+//     }
 
-    &:focus,
-    &:hover {
-      transform: scale(1.5);
+//     &:focus,
+//     &:hover {
+//       transform: scale(1.5);
 
-      > i {
-        color: $color-white;
-        transform: translateX(-50%) translateY(-50%);
-      }
-    }
+//       > i {
+//         color: $color-white;
+//         transform: translateX(-50%) translateY(-50%);
+//       }
+//     }
 
-    > i {
-      color: $color-white;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-    }
-  }
+//     > i {
+//       color: $color-white;
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       transform: translateX(-50%) translateY(-50%);
+//     }
+//   }
 
-  .search-form {
-    display: none;
+//   .search-form {
+//     display: none;
 
-    @media screen and (min-width: $small-screen) {
-      display: block;
-    }
+//     @media screen and (min-width: $small-screen) {
+//       display: block;
+//     }
 
-    input[type='search'] {
-      width: 90%;
-    }
-    @media screen and (min-width: $medium-screen) {
-      width: 36rem;
-    }
-  }
+//     input[type='search'] {
+//       width: 90%;
+//     }
+//     @media screen and (min-width: $medium-screen) {
+//       width: 36rem;
+//     }
+//   }
 
-  .autocomplete {
-    width: calc(100% - 42px - 10px);
-  }
-}
+//   .autocomplete {
+//     width: calc(100% - 42px - 10px);
+//   }
+// }
