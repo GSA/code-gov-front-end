@@ -13,7 +13,7 @@ export default class Footer extends PureComponent {
           </a>
         </div>
         <div className="usa-footer__primary-section bg-primary-lighter" data-test="links">
-          <nav className="usa-footer__nav padding-top-3 tablet:padding-top-0">
+          <nav className="usa-footer__nav padding-top-4 tablet:padding-top-0">
             <ul className="grid-row grid-gap">
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
@@ -52,7 +52,7 @@ export default class Footer extends PureComponent {
           </nav>
         </div>
 
-        <div className="usa-footer__secondary-section bg-white" data-test="logos">
+        <div className="usa-footer__secondary-section bg-white show-w-gt-1000" data-test="logos">
           <div className="grid-container">
             <div className="grid-row grid-gap">
               <div className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8">
@@ -80,10 +80,67 @@ export default class Footer extends PureComponent {
                   ))}
                 </div>
               </div>
-              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7">
-                <ul className="usa-footer__social-links grid-row" data-test="socials">
+              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7 text-left">
+                <ul
+                  className="usa-footer__social-links grid-row flex-justify-start"
+                  data-test="socials"
+                >
                   {map(this.props.socials, social => (
-                    <li key={social.name} className="grid-col-auto">
+                    <li key={social.name} className="grid-col-12 tablet:grid-col-3 padding-top-2">
+                      <a
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        className="font-body-xl"
+                      >
+                        <div className={social.icon} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="usa-footer__secondary-section bg-primary-lighter show-w-lte-1000"
+          data-test="logos"
+        >
+          <div className="grid-container">
+            <div className="grid-row grid-gap">
+              <div className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8">
+                <div className="mobile-lg:grid-col-auto">
+                  {map(this.props.logos, logo => (
+                    <div key={logo.name}>
+                      <a
+                        href={logo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-no-underline"
+                      >
+                        <img
+                          src={logo.image}
+                          alt={logo.name}
+                          className="maxw-15 padding-right-2 show-w-gt-1000"
+                        />
+                        <div className="mobile-lg:grid-col-auto desktop:display-inline">
+                          <h3 className="usa-footer__logo-heading font-body-3xs text-bold text-primary desktop:display-inline">
+                            {logo.name}
+                          </h3>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7 text-left">
+                <ul
+                  className="usa-footer__social-links grid-row flex-justify-start"
+                  data-test="socials"
+                >
+                  {map(this.props.socials, social => (
+                    <li key={social.name} className="grid-col-12 tablet:grid-col-3 padding-top-2">
                       <a
                         href={social.url}
                         target="_blank"
