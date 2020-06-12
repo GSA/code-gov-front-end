@@ -15,11 +15,11 @@ export const Row = ({ todo }) => {
   return (
     <section>
       <div className="grid-row">
-        <div className="grid-col-1 margin-x-1 margin-y-auto">
+        <div className="grid-col-1 padding-top-1 tablet:padding-top-2 padding-left-1">
           <i className={iconClass} aria-hidden="true" />
         </div>
-        <div className="grid-col-9 margin-x-1 margin-y-1 font-body-2xs">
-          <p className="margin-x-0 margin-y-0">{todo.name}</p>
+        <div className="grid-col-11 padding-y-1 padding-x-1 font-body-3xs text-base-dark padding-left-3">
+          {todo.name}
         </div>
       </div>
     </section>
@@ -83,17 +83,15 @@ export default class Roadmap extends React.Component {
               <Column phase="Long-term" todos={this.props.long} />
             </div>
           </section>
-          {/*
-TODO Fix mobile - messy between 670 and 639 width.
-*/}
+
           <section
             className="grid-container margin-top-205 margin-bottom-5 padding-0"
             aria-label="legend for roadmap"
           >
             <div className="grid-row border-0 padding-bottom-0" aria-label="green check mark icon">
               <i className="icon icon-ok text-green" aria-hidden="true" />
-              <span className="border-0 font-body-2xs padding-left-1 padding-bottom-0">
-                <p className="margin-x-0 margin-y-0">Released</p>
+              <span className="border-0 font-body-3xs padding-left-1 padding-bottom-0 text-base-dark">
+                Released
               </span>
             </div>
             <div className="grid-row border-0 padding-top-05" aria-label="yellow circle icon">
@@ -101,8 +99,8 @@ TODO Fix mobile - messy between 670 and 639 width.
                 className="icon icon-circle text-accent-warm-light padding-top-05"
                 aria-hidden="true"
               />
-              <span className="border-0 font-body-3xs padding-left-1 padding-top-05">
-                <p className="margin-x-0 margin-y-0">In Progress</p>
+              <span className="border-0 font-body-3xs padding-left-1 padding-top-05 text-base-dark">
+                In Progress
               </span>
             </div>
           </section>
