@@ -137,7 +137,7 @@ export default class Pagination extends Component {
           tabIndex="0"
           className="margin-top-neg-3"
         >
-          <ul className="display-inline-block">
+          <ul className="display-inline-block font-body-3xs text-bold">
             <div className="display-inline-block" tabIndex="0">
               <p className="display-inline-block">{summary}</p>
             </div>
@@ -158,7 +158,7 @@ export default class Pagination extends Component {
               if (current) className += ' current'
               return (
                 <li
-                  className={`display-inline padding-left-1 padding-right-1 ${className}`}
+                  className={`display-none tablet:display-inline padding-left-1 padding-right-1 ${className}`}
                   key={i}
                 >
                   {ellipsis && <span tabIndex={tabIndex}>...</span>}
