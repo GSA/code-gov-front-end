@@ -16,15 +16,26 @@ export default class NavSelect extends Component {
   render() {
     const { pathname, pages } = this.props
     console.log('pages:', pages)
-    const current = get(find(pages, ({ route }) => pathname.includes(route)), 'route')
+    const current = get(
+      find(pages, ({ route }) => pathname.includes(route)),
+      'route'
+    )
     return (
-      <select aria-label="menu" onChange={::this.handleChange} value={current}>
-        {map(pages, ({ display, route }) => (
-          <option key={route} value={route}>
-            {display}
-          </option>
-        ))}
-      </select>
+      <form className="usa-form maxw-none">
+        <select
+          className="usa-select font-body-3xs radius-md"
+          id="options"
+          aria-label="menu"
+          onChange={::this.handleChange}
+          value={current}
+        >
+          {map(pages, ({ display, route }) => (
+            <option key={route} value={route}>
+              {display}
+            </option>
+          ))}
+        </select>
+      </form>
     )
   }
 }
