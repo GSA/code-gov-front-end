@@ -13,27 +13,31 @@ export const Row = ({ todo }) => {
     iconClass += ' icon-circle text-accent-warm-light'
   }
   return (
-    <tr>
-      <td className="padding-y-1 padding-x-1 border-0">
-        <i className={iconClass} aria-hidden="true" />
-      </td>
-      <td className="padding-y-1 padding-x-1 border-0 font-body-3xs">{todo.name}</td>
-    </tr>
+    <section>
+      <div className="grid-row">
+        <div className="grid-col-1 margin-x-1 margin-y-auto">
+          <i className={iconClass} aria-hidden="true" />
+        </div>
+        <div className="grid-col-9 margin-x-1 margin-y-1 font-body-2xs">
+          <p className="margin-x-0 margin-y-0">{todo.name}</p>
+        </div>
+      </div>
+    </section>
   )
 }
 
 export const Column = ({ phase, todos }) => (
   <div className="tablet:grid-col">
     <div>
-      <h3 className="bg-cyan padding-y-2 text-center text-bold text-white border-base-lighter font-body-md radius-top-lg border-1px border-bottom-0">
+      <h3 className="bg-base-lighter padding-y-2 text-center text-bold text-base-darker border-base-lighter font-body-md radius-top-lg border-1px border-bottom-0">
         {phase}
       </h3>
       <div className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter">
-        <tbody>
+        <span>
           {map(todos, todo => (
             <Row key={todo.name} todo={todo} />
           ))}
-        </tbody>
+        </span>
       </div>
     </div>
   </div>
@@ -49,7 +53,11 @@ export default class Roadmap extends React.Component {
       <div className="margin-top-3">
         <h3 className="font-heading-lg text-bold">Overview</h3>
         {map(this.props.overview, paragraph => (
-          <p className="maxw-none" key={paragraph} dangerouslySetInnerHTML={{ __html: paragraph }} />
+          <p
+            className="maxw-none"
+            key={paragraph}
+            dangerouslySetInnerHTML={{ __html: paragraph }}
+          />
         ))}
       </div>
     )
@@ -75,32 +83,29 @@ export default class Roadmap extends React.Component {
               <Column phase="Long-term" todos={this.props.long} />
             </div>
           </section>
-
-          <div className="">
-            <div className="">
-              <table className="grid-row">
-                <thead />
-                <tbody>
-                  <tr>
-                    <td className="border-0 padding-bottom-0">
-                      <i className="icon icon-ok text-green" aria-hidden="true" />
-                    </td>
-                    <td className="border-0 font-body-3xs padding-left-0 padding-bottom-0">
-                      Released
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border-0 padding-top-05">
-                      <i className="icon icon-circle text-accent-warm-light" aria-hidden="true" />
-                    </td>
-                    <td className="border-0 font-body-3xs padding-left-0 padding-top-05">
-                      In Progress
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          {/*
+TODO Fix mobile - messy between 670 and 639 width.
+*/}
+          <section
+            className="grid-container margin-top-205 margin-bottom-5 padding-0"
+            aria-label="legend for roadmap"
+          >
+            <div className="grid-row border-0 padding-bottom-0" aria-label="green check mark icon">
+              <i className="icon icon-ok text-green" aria-hidden="true" />
+              <span className="border-0 font-body-2xs padding-left-1 padding-bottom-0">
+                <p className="margin-x-0 margin-y-0">Released</p>
+              </span>
             </div>
-          </div>
+            <div className="grid-row border-0 padding-top-05" aria-label="yellow circle icon">
+              <i
+                className="icon icon-circle text-accent-warm-light padding-top-05"
+                aria-hidden="true"
+              />
+              <span className="border-0 font-body-3xs padding-left-1 padding-top-05">
+                <p className="margin-x-0 margin-y-0">In Progress</p>
+              </span>
+            </div>
+          </section>
 
           <div className="margin-y-3">
             <h3 className="font-heading-lg text-bold">Disclaimer</h3>
