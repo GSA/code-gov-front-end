@@ -1,29 +1,109 @@
-.show-w-gt-400 { @media (max-width: 400px) { display: none !important; } }
-.show-w-lte-400 { @media (min-width: 400px) { display: none !important; } }
+.show-w-gt-400 {
+  @media (max-width: 400.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-400 {
+  @media (min-width: 400.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-500 { @media (max-width: 500px) { display: none !important; } }
-.show-w-lte-500 { @media (min-width: 500px) { display: none !important; } }
+.show-w-gt-500 {
+  @media (max-width: 500.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-500 {
+  @media (min-width: 500.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-600 { @media (max-width: 600px) { display: none !important; } }
-.show-w-lte-600 { @media (min-width: 600px) { display: none !important; } }
+.show-w-gt-600 {
+  @media (max-width: 600.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-600 {
+  @media (min-width: 600.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-lte-700 { @media (min-width: 700px) { display: none !important; } }
-.show-w-gt-700 { @media (max-width: 700px) { display: none !important; } }
+.show-w-lte-700 {
+  @media (min-width: 700.5px) {
+    display: none !important;
+  }
+}
+.show-w-gt-700 {
+  @media (max-width: 700.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-800 { @media (max-width: 800px) { display: none !important; } }
-.show-w-lte-800 { @media (min-width: 800px) { display: none !important; } }
+.show-w-gt-800 {
+  @media (max-width: 800.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-800 {
+  @media (min-width: 800.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-900 { @media (max-width: 900px) { display: none !important; } }
-.show-w-lte-900 { @media (min-width: 900px) { display: none !important; } }
+.show-w-gt-900 {
+  @media (max-width: 900.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-900 {
+  @media (min-width: 900.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-1000 { @media (max-width: 1000px) { display: none !important; } }
-.show-w-lte-1000 { @media (min-width: 1000px) { display: none !important; } }
+.show-w-gt-1000 {
+  @media (max-width: 1000.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-1000 {
+  @media (min-width: 1000.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-1100 { @media (max-width: 1100px) { display: none !important; } }
-.show-w-lte-1100 { @media (min-width: 1100px) { display: none !important; } }
+.show-w-gt-1100 {
+  @media (max-width: 1100.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-1100 {
+  @media (min-width: 1100.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-1200 { @media (max-width: 1200px) { display: none !important; } }
-.show-w-lte-1200 { @media (min-width: 1200px) { display: none !important; } }
+.show-w-gt-1200 {
+  @media (max-width: 1200.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-1200 {
+  @media (min-width: 1200.5px) {
+    display: none !important;
+  }
+}
 
-.show-w-gt-1300 { @media (max-width: 1300px) { display: none !important; } }
-.show-w-lte-1300 { @media (min-width: 1300px) { display: none !important; } }
+.show-w-gt-1300 {
+  @media (max-width: 1300.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-1300 {
+  @media (min-width: 1300.5px) {
+    display: none !important;
+  }
+}
