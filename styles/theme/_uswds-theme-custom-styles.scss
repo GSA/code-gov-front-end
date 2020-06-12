@@ -33,10 +33,20 @@ i.e.
       }
     }
   }
-  border-top: 2px solid  #07648d;
-  border-bottom: 2px solid  #07648d;
+  border-top: 2px solid #07648d;
+  border-bottom: 2px solid #07648d;
 }
 
 p {
   color: #5b616b;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+.borderless-search {
+  .borderless {
+    border: 0px;
+  }
 }

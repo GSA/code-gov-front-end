@@ -79,7 +79,7 @@ export default class HomeBannerSearchBoxComponent extends Component {
               </div>
             )}
           </div>
-          <div className="width-mobile-lg margin-x-auto">
+          <div className="width-mobile-lg margin-x-auto borderless-search">
             <SearchBox
               placeholder={placeholder}
               onBlur={::this.handleBlur}
