@@ -12,11 +12,12 @@ export const Row = ({ todo }) => {
   } else if (status === 'in progress') {
     iconClass += ' icon-circle text-accent-warm-light'
   }
+
   return (
     <section>
       <div className="grid-row">
         <div className="grid-col-1 padding-top-1 tablet:padding-top-2 padding-left-1">
-          <i className={iconClass} aria-hidden="true" />
+          <i className={iconClass} aria-label={status} />
         </div>
         <div className="grid-col-11 padding-y-1 padding-x-1 font-body-3xs text-base-dark padding-left-3">
           {todo.name}
@@ -86,7 +87,7 @@ export default class Roadmap extends React.Component {
 
           <section
             className="grid-container margin-top-205 margin-bottom-5 padding-0"
-            aria-label="legend for roadmap"
+            aria-hidden="true"
           >
             <div className="grid-row border-0 padding-bottom-0" aria-label="green check mark icon">
               <i className="icon icon-ok text-green" aria-hidden="true" />

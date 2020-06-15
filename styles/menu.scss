@@ -17,19 +17,19 @@ header.main {
     }
 
     // mobile-menu-button {
-      // position: absolute;
-      // top: 50%;
-      // transform: translateY(-50%);
-      // z-index: 10;
-      // .mobile-menu-button {
-        // position: absolute;
-        // top: 50%;
-        // transform: translateY(-50%);
-        // .icon {
-        //   color: $brand-blue !important;
-          // position: absolute;
-          // top: 50%;
-          // transform: translateY(-50%);
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // z-index: 10;
+    // .mobile-menu-button {
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // .icon {
+    //   color: $brand-blue !important;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
     //     }
     //   }
     // }
@@ -45,16 +45,16 @@ header.main {
         top: calc(#{$header-height} + #{$mobile-menu-offset});
       }
 
-      ul {
-        margin-left: 0;
-        li {
-          a {
-            svg {
-              float: left;
-            }
-          }
-        }
-      }
+      // ul {
+      //   margin-left: 0;
+      //   li {
+      //     a {
+      //       svg {
+      //         float: left;
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 }

@@ -103,7 +103,7 @@ export default class RepoCardComponent extends Component {
           </dl>
 
           <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px">
-            <dl className="display-inline-block grid-col-9">
+            <dl className="display-inline-block grid-col-8">
               <CardPart title="Usage Type" text={usageType} />
               {this.repoLanguages}
               <CardPart title="License" text={license} />
