@@ -79,7 +79,20 @@ export default class HomeBannerSearchBoxComponent extends Component {
               </div>
             )}
           </div>
-          <div className="width-mobile-lg margin-x-auto borderless-search">
+          <div className="width-mobile-lg margin-x-auto borderless-search show-w-gt-homesearch">
+            <SearchBox
+              placeholder={placeholder}
+              onBlur={::this.handleBlur}
+              onChange={::this.handleChange}
+              onFocus={::this.handleFocus}
+              onSubmit={onSubmit}
+              query={query}
+            />
+            {this.state.showAutocomplete && some(this.state.suggestions) && (
+              <Autocomplete options={this.state.suggestions} onClick={::this.handleClick} />
+            )}
+          </div>
+          <div className="width-full margin-x-auto borderless-search show-w-lte-homesearch">
             <SearchBox
               placeholder={placeholder}
               onBlur={::this.handleBlur}

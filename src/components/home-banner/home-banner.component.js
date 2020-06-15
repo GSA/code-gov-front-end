@@ -16,8 +16,12 @@ export default class HomeBanner extends React.Component {
             <div className="font-heading-lg text-white show-w-gt-1200">{this.props.subtitle}</div>
           </div>
           <div className="bg-primary-lighter padding-y-3">
-            <div>
-              <HomeBannerSearchBox />
+            <div className="grid-container">
+              <div className="grid-row">
+                <div className="tablet:grid-col">
+                  <HomeBannerSearchBox />
+                </div>
+              </div>
             </div>
           </div>
         </div>

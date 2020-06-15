@@ -119,3 +119,14 @@
     display: none !important;
   }
 }
+
+.show-w-gt-homesearch {
+  @media (max-width: 510.5px) {
+    display: none !important;
+  }
+}
+.show-w-lte-homesearch {
+  @media (min-width: 510.5px) {
+    display: none !important;
+  }
+}
