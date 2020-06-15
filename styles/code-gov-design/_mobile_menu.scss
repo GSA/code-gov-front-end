@@ -29,7 +29,7 @@ $item-height: 5rem;
 
 mobile-menu-button.dark {
   .icon {
-    color: rgb(72, 85, 103);
+    color: #07648d;
   }
 }
 
@@ -93,7 +93,7 @@ mobile-menu-button.dark {
         a.dropdown::after {
           content: '\f107';
           float: right;
-          font-family: "code-gov"; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+          font-family: 'code-gov'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
           font-size: 4rem;
           padding-right: 2rem;
         }
@@ -103,7 +103,7 @@ mobile-menu-button.dark {
         a.dropdown::after {
           content: '\f106';
           float: right;
-          font-family: "code-gov"; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+          font-family: 'code-gov'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
           font-size: 4rem;
           padding-right: 2rem;
         }
