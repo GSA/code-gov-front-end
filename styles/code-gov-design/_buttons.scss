@@ -1,68 +1,68 @@
-/* overrides all buttons */
-button {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  margin-top: 0.5em;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: $brand-primary;
-  border: 0;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Source Sans Pro Web', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1;
-  padding: 1rem 2rem;
-  text-align: center;
-  text-decoration: none;
-  width: auto;
+// /* overrides all buttons */
+// button {
+//   -moz-osx-font-smoothing: grayscale;
+//   -webkit-font-smoothing: antialiased;
+//   margin-top: 0.5em;
+//   margin-right: 0.5em;
+//   margin-bottom: 0.5em;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   background-color: $brand-primary;
+//   border: 0;
+//   border-radius: 5px;
+//   color: #fff;
+//   cursor: pointer;
+//   display: inline-block;
+//   font-family: 'Source Sans Pro Web', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
+//   font-size: 1rem;
+//   font-weight: normal;
+//   line-height: 1;
+//   padding: 1rem 2rem;
+//   text-align: center;
+//   text-decoration: none;
+//   width: auto;
 
-  &:focus,
-  &:hover {
-    background-color: $brand-blue-dark !important;
-    border-color: $brand-blue-dark !important;
-    transition: all 0.2s ease;
-  }
+//   // &:focus,
+//   // &:hover {
+//   //   background-color: $brand-blue-dark !important;
+//   //   border-color: $brand-blue-dark !important;
+//   //   transition: all 0.2s ease;
+//   // }
 
-  &.tag {
-    border-radius: 3px;
-    font-size: 1rem;
-    font-weight: normal;
-    padding: 0.5rem 1.25rem;
-  }
+//   &.tag {
+//     border-radius: 3px;
+//     font-size: 1rem;
+//     font-weight: normal;
+//     padding: 0.5rem 1.25rem;
+//   }
 
-  &.alt {
-    background-color: $brand-primary !important;
-    border: 2px solid $brand-primary;
-    font-weight: bold;
+//   &.alt {
+//     background-color: $brand-primary !important;
+//     border: 2px solid $brand-primary;
+//     font-weight: bold;
 
-    &:hover {
-      background-color: $brand-blue-dark !important;
-      border-color: $brand-blue-dark !important;
-    }
-  }
+//     &:hover {
+//       background-color: $brand-blue-dark !important;
+//       border-color: $brand-blue-dark !important;
+//     }
+//   }
 
-  &.dark {
-    background-color: $color-gray-dark;
-    color: $color-white;
-    font-weight: bold;
-    padding: 0.5rem 1.25rem;
-  }
+//   &.dark {
+//     background-color: $color-gray-dark;
+//     color: $color-white;
+//     font-weight: bold;
+//     padding: 0.5rem 1.25rem;
+//   }
 
-  &.disabled {
-    // making sure it overrides other classes
-    background-color: #5b616b !important;
-    border-color: #5b616b !important;
-  }
+//   &.disabled {
+//     // making sure it overrides other classes
+//     background-color: #5b616b !important;
+//     border-color: #5b616b !important;
+//   }
 
-  &:only-child {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+//   &:only-child {
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
