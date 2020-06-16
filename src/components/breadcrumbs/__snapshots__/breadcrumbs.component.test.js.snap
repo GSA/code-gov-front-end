@@ -2,10 +2,10 @@
 
 exports[`components - Breadcrumbs should render correctly 1`] = `
 <div
-  className="indented"
+  className="grid-container"
 >
   <ul
-    className="breadcrumbs"
+    className="breadcrumbs grid-row margin-top-4"
   >
     <li
       key="text-1"

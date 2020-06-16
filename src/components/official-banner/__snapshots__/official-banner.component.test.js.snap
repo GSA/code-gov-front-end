@@ -2,7 +2,7 @@
 
 exports[`components - OfficialBanner should render correctly 1`] = `
 <div
-  className="gov-banner"
+  className="position-fixed z-500 width-full"
   data-testid="component-gov-banner"
 >
   <gov-banner />

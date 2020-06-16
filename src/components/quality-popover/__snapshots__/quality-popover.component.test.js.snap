@@ -2,13 +2,7 @@
 
 exports[`components - QualityPopover render should render correctly 1`] = `
 <div
-  style={
-    Object {
-      "position": "absolute",
-      "right": "0",
-      "top": "-25px",
-    }
-  }
+  className="pin-right padding-right-105"
 >
   <span
     className="data-quality-title"
@@ -28,7 +22,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
       >
         code.json
       </Connect(CustomLinkComponent)>
-       and by factors such as completeness and adherence to the 
+       and by factors such as completeness and adherence to the
       <Connect(CustomLinkComponent)
         to="/about/compliance/inventory-code"
       >
@@ -50,7 +44,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
       >
         code.json
       </Connect(CustomLinkComponent)>
-       and by factors such as completeness and adherence to the 
+       and by factors such as completeness and adherence to the
       <Connect(CustomLinkComponent)
         to="/about/compliance/inventory-code"
       >

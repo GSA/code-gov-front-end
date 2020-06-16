@@ -2,7 +2,7 @@
 
 exports[`components - FilterTag should render correctly 1`] = `
 <div
-  className="filter-tag"
+  className="filter-tag margin-top-3 margin-right-2"
   onClick={[Function]}
 >
   <div

@@ -2,38 +2,37 @@
 
 exports[`components - HomeBanner should render correctly 1`] = `
 <section
-  className="banner"
+  className="margin-top-4 tablet:margin-top-2 tablet-lg:margin-top-5"
   id="banner-home"
 >
   <div
-    className="banner-content"
+    className="bg-primary text-center padding-top-2"
   >
     <div
-      className="banner-title"
-    >
-      test-motto
-    </div>
-    <div
-      className="banner-subtitle show-w-gt-1200"
-    >
-      test-subtitle
-    </div>
-    <div
-      className="banner-search"
+      className="padding-y-4 tablet:padding-bottom-1 tablet-lg:padding-bottom-4"
     >
       <div
-        className="banner-subsection width-half"
-        style={
-          Object {
-            "zIndex": 30,
-          }
-        }
+        className="font-heading-xl tablet:font-heading-2xl text-white"
+      >
+        test-motto
+      </div>
+      <div
+        className="font-heading-lg text-white show-w-gt-1200"
+      >
+        test-subtitle
+      </div>
+    </div>
+    <div
+      className="bg-primary-lighter padding-y-3"
+    >
+      <div
+        className="grid-container"
       >
         <div
-          className="banner-subsection-content"
+          className="grid-row"
         >
           <div
-            className="banner-subsection-content-padder"
+            className="tablet:grid-col"
           >
             <Connect(HomeBannerSearchBoxComponent) />
           </div>
