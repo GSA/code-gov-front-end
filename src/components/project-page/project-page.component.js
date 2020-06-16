@@ -46,7 +46,7 @@ export default class ProjectPage extends Component {
         {map(tags, tag => (
           <CustomLink key={tag} to={`/search?query=${tag}`}>
             <span className="margin-right-1">
-              <button className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase">
+              <button className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md border-0 margin-top-1">
                 {tag}
               </button>
             </span>

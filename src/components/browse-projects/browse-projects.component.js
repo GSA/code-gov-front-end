@@ -78,7 +78,7 @@ export default class BrowseProjects extends React.Component {
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div id="filter-boxes-section" className="tablet:grid-col-3 margin-top-4">
+            <div id="filter-boxes-section" className="tablet-lg:grid-col-3 margin-top-4">
               <h2>Filter</h2>
 
               <FilterBoxes
@@ -92,7 +92,7 @@ export default class BrowseProjects extends React.Component {
                 onFilterBoxChange={::this.onFilterBoxChange}
               />
             </div>
-            <div id="filter-results-section" className=" tablet:grid-col-9">
+            <div id="filter-results-section" className=" tablet-lg:grid-col-9">
               <SortSection
                 options={this.props.sortOptions}
                 onSortChange={this.props.onSortChange}

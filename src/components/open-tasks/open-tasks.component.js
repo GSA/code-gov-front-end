@@ -57,7 +57,7 @@ export default class OpenTasks extends React.Component {
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div id="filter-boxes-section" className="tablet:grid-col-3 margin-top-4">
+            <div id="filter-boxes-section" className="tablet-lg:grid-col-3 margin-top-4">
               <h2>Filter</h2>
 
               <FilterBoxes
@@ -72,7 +72,7 @@ export default class OpenTasks extends React.Component {
                 onFilterBoxChange={::this.onFilterBoxChange}
               />
             </div>
-            <div id="filter-results-section" className="tablet:grid-col-9">
+            <div id="filter-results-section" className="tablet-lg:grid-col-9">
               <div className="grid-row margin-top-4">
                 <h2>
                   <span>Explore Open Tasks</span>
