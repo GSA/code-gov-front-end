@@ -42,7 +42,10 @@ export default class BrowseProjects extends React.Component {
       try {
         return (
           <div>
-            <QualityPopover />
+            <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
+            <div>
+              <QualityPopover />
+            </div>
             <ul className="usa-card-group padding-top-3">
               {this.props.repos.map(repo => (
                 <RepoCard key={repo.repoID} repo={repo} />
@@ -97,7 +100,6 @@ export default class BrowseProjects extends React.Component {
                 options={this.props.sortOptions}
                 onSortChange={this.props.onSortChange}
               />
-              <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
               <div className="card-list">
                 {this.reposContainer}
                 {numPages > 0 && (
