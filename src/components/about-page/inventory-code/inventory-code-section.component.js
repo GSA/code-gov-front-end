@@ -73,45 +73,65 @@ class InventoryCodeSectionComponent extends Component {
     return (
       <>
         <li
-          className={
-            `grid-col-12 usa-card margin-bottom-2 ${ 
-            classNames({ 'top-level': topLevel, optional: optionalField })}`
-          }
+          className={`grid-col-12 usa-card margin-bottom-2 ${classNames({
+            'top-level': topLevel,
+            optional: optionalField
+          })}`}
         >
-          <div className="usa-card__container">
-            <header className="usa-card__header padding-bottom-0">
+          <div
+            className={`usa-card__container ${classNames({
+              'border-0 margin-x-0': optionalField || !topLevel
+            })}`}
+          >
+            <header
+              className={`usa-card__header padding-bottom-0 ${classNames({
+                'padding-y-0 padding-left-2 padding-right-0': optionalField || !topLevel
+              })}`}
+            >
               <h2
-                className={
-                  `usa-card__heading font-heading-lg ${ 
-                  classNames({ 'text-accent-warm-dark': optionalField })}`
-                }
+                className={`usa-card__heading font-heading-lg ${classNames({
+                  'text-accent-warm-dark': optionalField
+                })}`}
               >
                 {key}
               </h2>
             </header>
-            <div className="usa-card__body">
+            <div
+              className={`usa-card__body ${classNames({
+                'padding-right-0 padding-left-2': optionalField || !topLevel
+              })}`}
+            >
               <p
-                className={
-                  `margin-bottom-0 font-body-2xs ${ 
-                  classNames({ 'text-accent-warm-dark': optionalField })}`
-                }
+                className={`margin-bottom-0 font-body-2xs ${classNames({
+                  'text-accent-warm-dark': optionalField
+                })}`}
               >
                 <strong>Class: </strong>
                 {displayType}
               </p>
               <p
-                className={
-                  `margin-top-0 font-body-2xs ${ 
-                  classNames({ 'text-accent-warm-dark': optionalField })}`
-                }
+                className={`margin-top-0 font-body-2xs ${classNames({
+                  'text-accent-warm-dark': optionalField
+                })}`}
               >
                 <strong>Description: </strong>
                 <div dangerouslySetInnerHTML={{ __html: description }} />
               </p>
+              {dropDown &&
+                subEntries &&
+                subEntries.map((subEntry, index) => (
+                  <InventoryCodeSectionComponent
+                    key={index} // eslint-disable-line react/no-array-index-key
+                    entry={subEntry}
+                    isRequired={Array.isArray(required) && required.includes(subEntry[0])}
+                    indent={indent + 1}
+                    toggleDetails={toggleDetails}
+                  />
+                ))}
             </div>
           </div>
         </li>
-        {dropDown &&
+        {/* {dropDown &&
           subEntries &&
           subEntries.map((subEntry, index) => (
             <InventoryCodeSectionComponent
@@ -121,7 +141,7 @@ class InventoryCodeSectionComponent extends Component {
               indent={indent + 1}
               toggleDetails={toggleDetails}
             />
-          ))}
+          ))} */}
       </>
     )
   }
