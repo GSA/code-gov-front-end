@@ -87,40 +87,45 @@ class AboutPage extends Component {
           <div className="show-w-lte-600" style={{ padding: '30px', textAlign: 'center' }}>
             <NavSelect pages={pagesForSelect} />
           </div>
-          <div className="width-quarter show-w-gt-600 sticky">
-            <SideNav
-              alignment="left"
-              baseurl={abouturl}
-              links={links}
-              onLinkClick={::this.onNavChange}
-            />
-          </div>
-          <div className="docs-content">
-            <Switch>
-              <Route path={`${abouturl}/overview/introduction`} component={OverviewIntroduction} />
-              <Route
-                path={`${abouturl}/overview/tracking-progress`}
-                component={OverviewTrackingProgress}
+          <div className="grid-row grid-gap">
+            <div className="grid-col tablet:grid-col-3 show-w-gt-600 sticky">
+              <SideNav
+                alignment="left"
+                baseurl={abouturl}
+                links={links}
+                onLinkClick={::this.onNavChange}
               />
-              <Redirect from={`${abouturl}/overview`} to={`${abouturl}/overview/introduction`} />
+            </div>
+            <div className="grid-col tablet:grid-col-9">
+              <Switch>
+                <Route
+                  path={`${abouturl}/overview/introduction`}
+                  component={OverviewIntroduction}
+                />
+                <Route
+                  path={`${abouturl}/overview/tracking-progress`}
+                  component={OverviewTrackingProgress}
+                />
+                <Redirect from={`${abouturl}/overview`} to={`${abouturl}/overview/introduction`} />
 
-              <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
-              <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />
-              <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode} />
-              <Redirect from={`${abouturl}/compliance`} to={`${abouturl}/compliance/dashboard`} />
+                <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
+                <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />
+                <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode} />
+                <Redirect from={`${abouturl}/compliance`} to={`${abouturl}/compliance/dashboard`} />
 
-              <Route
-                path={`${abouturl}/open-source/introduction`}
-                component={OpenSourceIntroduction}
-              />
-              <Route path={`${abouturl}/open-source/resources`} component={Resources} />
-              <Route path={`${abouturl}/open-source/measuring-code`} component={MeasuringCode} />
-              <Route path={`${abouturl}/open-source/licensing`} component={Licensing} />
-              <Redirect
-                from={`${abouturl}/open-source`}
-                to={`${abouturl}/open-source/introduction`}
-              />
-            </Switch>
+                <Route
+                  path={`${abouturl}/open-source/introduction`}
+                  component={OpenSourceIntroduction}
+                />
+                <Route path={`${abouturl}/open-source/resources`} component={Resources} />
+                <Route path={`${abouturl}/open-source/measuring-code`} component={MeasuringCode} />
+                <Route path={`${abouturl}/open-source/licensing`} component={Licensing} />
+                <Redirect
+                  from={`${abouturl}/open-source`}
+                  to={`${abouturl}/open-source/introduction`}
+                />
+              </Switch>
+            </div>
           </div>
         </div>
         <br />

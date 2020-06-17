@@ -1,39 +1,39 @@
-@keyframes fadeInUp {
-  from {
-    transform: translateY(0.5em);
-    opacity: 0;
-    visibility: hidden;
-  }
+// @keyframes fadeInUp {
+//   from {
+//     transform: translateY(0.5em);
+//     opacity: 0;
+//     visibility: hidden;
+//   }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
+//   to {
+//     transform: translateY(0);
+//     opacity: 1;
+//     visibility: visible;
+//   }
+// }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//     visibility: hidden;
+//   }
 
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
+//   to {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+// }
 
-@keyframes blink {
-  from {
-    color: transparent;
-  }
+// @keyframes blink {
+//   from {
+//     color: transparent;
+//   }
 
-  to {
-    color: transparent;
-  }
+//   to {
+//     color: transparent;
+//   }
 
-  50% {
-    color: $brand-teal-dark;
-  }
-}
+//   50% {
+//     color: $brand-teal-dark;
+//   }
+// }
