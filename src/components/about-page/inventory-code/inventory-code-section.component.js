@@ -66,25 +66,51 @@ class InventoryCodeSectionComponent extends Component {
     const required = this.getValue(value, 'required')
     const hasDropDown = this.hasDropDown(value)
     const topLevel = indent === 0
+    const optionalField = isRequired === false
     const subEntries = this.getSubSection(type, items, properties)
     const displayType = Array.isArray(type) ? type.join(' or ') : type
 
     return (
       <>
-        <tr className={classNames({ 'top-level': topLevel, optional: isRequired === false })}>
-          <td style={{ paddingLeft: `${10 + 20 * indent}px` }}>
-            {hasDropDown ? this.renderDropDown() : <div className="dropdown" />}
-            <div className="field-name-text">{key}</div>
-            {this.renderDetailsButton({ key, displayType, description, topLevel })}
-          </td>
-          <td className="data-type">
-            <div>{displayType}</div>
-          </td>
-          <td className="description">
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: description }} />
-          </td>
-        </tr>
+        <li
+          className={
+            `grid-col-12 usa-card margin-bottom-2 ${ 
+            classNames({ 'top-level': topLevel, optional: optionalField })}`
+          }
+        >
+          <div className="usa-card__container">
+            <header className="usa-card__header padding-bottom-0">
+              <h2
+                className={
+                  `usa-card__heading font-heading-lg ${ 
+                  classNames({ 'text-accent-warm-dark': optionalField })}`
+                }
+              >
+                {key}
+              </h2>
+            </header>
+            <div className="usa-card__body">
+              <p
+                className={
+                  `margin-bottom-0 font-body-2xs ${ 
+                  classNames({ 'text-accent-warm-dark': optionalField })}`
+                }
+              >
+                <strong>Class: </strong>
+                {displayType}
+              </p>
+              <p
+                className={
+                  `margin-top-0 font-body-2xs ${ 
+                  classNames({ 'text-accent-warm-dark': optionalField })}`
+                }
+              >
+                <strong>Description: </strong>
+                <div dangerouslySetInnerHTML={{ __html: description }} />
+              </p>
+            </div>
+          </div>
+        </li>
         {dropDown &&
           subEntries &&
           subEntries.map((subEntry, index) => (
@@ -107,10 +133,8 @@ InventoryCodeSectionComponent.defaultProps = {
 
 InventoryCodeSectionComponent.propTypes = {
   entry: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string.isRequired,
-      PropTypes.object.isRequired
-  ])).isRequired,
+    PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.object.isRequired])
+  ).isRequired,
   isRequired: PropTypes.bool.isRequired,
   indent: PropTypes.number,
   toggleDetails: PropTypes.func.isRequired

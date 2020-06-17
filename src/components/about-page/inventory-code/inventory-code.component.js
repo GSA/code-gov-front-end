@@ -50,14 +50,16 @@ class InventoryCodeComponent extends Component {
 
     return (
       <div
-        id="schema-viewer"
-        className={classNames({
-          'hide-optional-fields': !optionalFields,
-          'hide-details': !details
-        })}
+        className={
+          `margin-top-4 ${ 
+          classNames({
+            'hide-optional-fields': !optionalFields,
+            'hide-details': !details
+          })}`
+        }
       >
         {this.renderIntro()}
-        <div className="desktop-and-mobile-views">
+        <div>
           {details && (
             <InventoryCodeDetailsComponent toggleDetails={this.toggleDetails} details={details} />
           )}
@@ -79,16 +81,7 @@ class InventoryCodeComponent extends Component {
 }
 
 const InventoryCodeTableComponent = ({ children }) => (
-  <table>
-    <thead>
-      <tr>
-        <th className="field-name-column">Field Name</th>
-        <th className="data-type-column">Data Type</th>
-        <th className="description-column">Description</th>
-      </tr>
-    </thead>
-    <tbody>{children}</tbody>
-  </table>
+  <ul className="usa-card-group margin-top-3">{children}</ul>
 )
 
 InventoryCodeComponent.propTypes = {
@@ -100,12 +93,13 @@ InventoryCodeComponent.propTypes = {
       version: PropTypes.object,
       measurementType: PropTypes.object,
       agency: PropTypes.object,
-      releases: PropTypes.object}),
+      releases: PropTypes.object
+    }),
     required: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.string
   }).isRequired,
-  url:PropTypes.string.isRequired
+  url: PropTypes.string.isRequired
 }
 
 export default InventoryCodeComponent
