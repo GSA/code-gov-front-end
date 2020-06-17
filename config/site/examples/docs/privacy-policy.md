@@ -1,5 +1,3 @@
-# Web Policies
-
 ## PROTECTING PRIVACY AND SECURITY
 
 Protecting the privacy and security of individuals’ personal information is very important to us. We do not collect any information that directly identifies you when you visit Code.gov unless you choose to provide that information by contacting us. However, the website may collect a limited amount of information about your visit for the purposes of website analytics and customization. Please read this notice to understand what we do with the limited amount of information about your visit that we may collect.
@@ -26,7 +24,7 @@ There are two types of cookies – single session (temporary) and multi-session 
 - Session Cookies: We may use session cookies for technical purposes, such as to allow better navigation through our site. These cookies let our server know that you are continuing a visit to our site. Our use of session cookies qualifies as “Usage Tier 1–Single Session,” as defined in the OMB M-10-22 guidance.
 - Persistent Cookies: We may use persistent cookies to understand the differences between new and returning visitors to Code.gov. Persistent cookies remain on your device between visits to our site until they expire or are removed by the user. Our use of persistent cookies qualifies as “Usage Tier 2–Multi-session without personally identifiable information,” as defined in the OMB M-10-22 guidance. The policy states, “This tier encompasses any use of multi-session Web measurement and customization technologies when no [personally identifiable information] is collected.” We do not use persistent cookies to collect personally identifiable information.
 
-If you do not want to accept cookies, you can edit your browser’s options to stop accepting persistent cookies or to prompt you before accepting a cookie from the websites you visit. Here are instructions for how you can disable cookies and/or Google Demographic and Interests reports.
+If you do not want to accept cookies, you can edit your browser’s options to stop accepting persistent cookies or to prompt you before accepting a cookie from the websites you visit.
 
 ### Google Analytics
 
@@ -36,7 +34,7 @@ The DAP is a hosted shared service provided by the General Services Administrati
 
 Google Analytics is a third-party web measurement and customization technology as defined in OMB M-10-22 (PDF).
 
-Here is how it works: Google Analytics sets one or more cookies on your computer so that it can recognize your computer if you visit the Code.gov website in the future. These cookies doe not collect personally identifiable information. This is considered a Tier 2 usage, as defined in the OMB guidance.
+Here is how it works: Google Analytics sets one or more cookies on your computer so that it can recognize your computer if you visit the Code.gov website in the future. These cookies do not collect personally identifiable information. This is considered a Tier 2 usage, as defined in the OMB guidance.
 
 Google Analytics does not collect personally identifiable information through its cookies. The program does not track individuals and anonymizes the IP addresses of visitors. Common Questions about DAP (FAQ) provides more information about how IP addresses are anonymized. According to GSA’s Common Questions About DAP, “none of the federal government data tracked as part of the Data Analytics Program will be shared with or available to Google’s corporate advertising partners.”
 
@@ -46,17 +44,17 @@ Visitors who choose to disable this web measurement tool will still have full ac
 
 You can view web metrics information at [https://analytics.usa.gov](https://analytics.usa.gov/).
 
-### Contacting the Office of the Federal Chief Information Officer about Code.gov
+### Contacting the Code.gov Program Office
 
-Users of this website may send the Office of the Federal Chief Information Officer feedback or report an issue by sending an email to code@gsa.gov. If you choose to send us your personally identifiable information, we will only use that information to respond to your message. We only share the information you give us with another government agency if your question relates to that agency, or as otherwise required by law. Code.gov never collects information or creates individual profiles for the purposes of advertising, marketing, or any other commercial purpose. When you contact us, any personally identifiable information you provide is voluntary. Please do not include sensitive personally identifiable information or other sensitive information in the content of your email.
+Users of this website may send the Code.gov program office feedback or report an issue by sending an email to code@gsa.gov. If you choose to send us your personally identifiable information, we will only use that information to respond to your message. We only share the information you give us with another government agency if your question relates to that agency, or as otherwise required by law. Code.gov never collects information or creates individual profiles for the purposes of advertising, marketing, or any other commercial purpose. When you contact us, any personally identifiable information you provide is voluntary. Please do not include sensitive personally identifiable information or other sensitive information in the content of your email.
 
 ### Children and Privacy on Code.gov
 
-We believe in the importance of protecting the privacy of children online. The Children’s Online Privacy Protection Act (COPPA) governs information gathered online from or about children under the age of 13. This site is not intended to solicit or collection information of any kind from children under age 13. If you believe that we have received information from a child under age 13, please contact us at code@gsa.gov.
+We believe in the importance of protecting the privacy of children online. The Children’s Online Privacy Protection Act (COPPA) governs information gathered online from or about children under the age of 13. This site is not intended to solicit or collect information of any kind from children under age 13. If you believe that we have received information from a child under age 13, please contact us at code@gsa.gov.
 
 ### Security
 
-This website was built using GitHub Pages, a service provided by GitHub, Inc. [GitHub](https://help.github.com/articles/github-terms-of-service/) designed to enable the rapid deployment of government websites in a secure and readily accessible environment.
+This website was built with code hosted on GitHub, Inc. [GitHub](https://help.github.com/articles/github-terms-of-service/) and designed to enable the rapid deployment of government websites in a secure and readily accessible environment.
 
 The terms of service applicable to Federal users of [GitHub](https://help.github.com/articles/github-terms-of-service/) states that it “will, in good faith, exercise due diligence using generally accepted commercial business practices for IT security, to ensure that systems are operated and maintained in a secure manner, and that management, operational and technical controls will be employed to ensure security of systems and data. Recognizing the changing nature of the Web, [GitHub](https://help.github.com/articles/github-terms-of-service/) will continuously work with users to ensure that its products and services are operated and maintained in a secure manner. [GitHub](https://help.github.com/articles/github-terms-of-service/) agrees to discuss implementing additional security controls as deemed necessary by the Agency to conform to the Federal Information Security Management Act (FISMA), 44 U.S.C. 3541 et seq.”
 
@@ -64,7 +62,7 @@ We encourage you to visit [GitHub](https://help.github.com/articles/github-terms
 
 ### Linking Policy
 
-The pages on code.gov may include hypertext links or pointers to information created and maintained by other public and private organizations. GSA provides these links and pointers solely for our visitors' information and convenience. When visitors select a link to an outside website, they are leaving the code.gov site and are subject to the privacy and security policies of the owners/sponsors of the outside website.
+The pages on Code.gov may include hypertext links or pointers to information created and maintained by other public and private organizations. GSA provides these links and pointers solely for our visitors' information and convenience. When visitors select a link to an outside website, they are leaving the Code.gov site and are subject to the privacy and security policies of the owners/sponsors of the outside website.
 
 The inclusion of links and pointers to websites is not intended to assign importance to those sites or to the information contained on those sites. It is also not intended to endorse or recommend any views expressed or products or services offered on these sites.
 
@@ -80,4 +78,4 @@ GSA does not guarantee that outside websites comply with Section 508 (Accessibil
 
 ### Questions about these policies
 
-Write to the Code.gov team at: [code@gsa.gov](mailto:code@gsa.gov)
+Write to the Code.gov program office at: [code@gsa.gov](mailto:code@gsa.gov).
