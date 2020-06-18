@@ -2,20 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import InventoryCodeSectionComponent from './inventory-code-section.component'
-import InventoryCodeDetailsComponent from './inventory-code-details.component'
 
 class InventoryCodeComponent extends Component {
   state = {
-    optionalFields: false,
-    details: false
+    optionalFields: false
   }
 
   toggleOptionalFields = () => {
     this.setState(state => ({ optionalFields: !state.optionalFields }))
-  }
-
-  toggleDetails = value => {
-    this.setState({ details: value ? { ...value } : false })
   }
 
   renderIntro = () => (
@@ -29,37 +23,35 @@ class InventoryCodeComponent extends Component {
         </a>
         .
       </p>
-      <div style={{ marginBottom: '10px' }}>
-        <input
-          id="json-schema-hide-optional-fields"
-          type="checkbox"
-          style={{ cursor: 'pointer', textAlign: 'left' }}
-          onClick={this.toggleOptionalFields}
-        />
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control, jsx-a11y/label-has-for */}
-        <label htmlFor="json-schema-hide-optional-fields" style={{ cursor: 'pointer' }}>
-          Hide optional fields
-        </label>
-      </div>
+      <form className="usa-form">
+        <div className="usa-checkbox">
+          <input
+            className="usa-checkbox__input"
+            id="hide-optional-fields"
+            type="checkbox"
+            value="hide-optional-fields"
+            onClick={this.toggleOptionalFields}
+          />
+          <label className="usa-checkbox__label" for="hide-optional-fields">
+            Hide Optional Fields
+          </label>
+        </div>
+      </form>
     </>
   )
 
   render() {
     const { schema } = this.props
-    const { optionalFields, details } = this.state
+    const { optionalFields } = this.state
 
     return (
       <div
         className={`margin-top-4 ${classNames({
-          'hide-optional-fields': !optionalFields,
-          'hide-details': !details
+          'hide-optional-fields': !optionalFields
         })}`}
       >
         {this.renderIntro()}
         <div>
-          {details && (
-            <InventoryCodeDetailsComponent toggleDetails={this.toggleDetails} details={details} />
-          )}
           <InventoryCodeTableComponent>
             {schema.properties &&
               Object.entries(schema.properties).map((entry, index) => (
@@ -67,7 +59,6 @@ class InventoryCodeComponent extends Component {
                   key={index} // eslint-disable-line react/no-array-index-key
                   entry={entry}
                   isRequired={schema.required.includes(entry[0])}
-                  toggleDetails={this.toggleDetails}
                   optionalToggle={optionalFields}
                 />
               ))}

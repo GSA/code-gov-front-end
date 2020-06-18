@@ -4,20 +4,6 @@ import classNames from 'classnames'
 import { prettify } from 'utils/other'
 
 class InventoryCodeSectionComponent extends Component {
-  state = {
-    dropDown: true
-    // optionalToggle: this.props.optionalToggle
-  }
-
-  toggleDropDown = () => {
-    this.setState(state => ({ dropDown: !state.dropDown }))
-  }
-
-  hasDropDown = item => {
-    const { type } = item
-    return (type.includes('array') && item.items.type !== 'string') || type.includes('object')
-  }
-
   getValue = (obj, key) => {
     if (obj[key]) {
       return obj[key]
@@ -41,31 +27,12 @@ class InventoryCodeSectionComponent extends Component {
     return entries
   }
 
-  renderDropDown = () => (
-    <button
-      className={classNames('dropdown', { 'hide-dropdown': this.state.dropDown })}
-      onClick={this.toggleDropDown}
-      aria-label="toggle dropdown"
-    >
-      <div className="arrow-up-or-down" />
-    </button>
-  )
-
-  renderDetailsButton = value => (
-    <button className="details" onClick={() => this.props.toggleDetails(value)}>
-      <div className="details-text">details</div>
-      <div className="details-arrow arrow-right" />
-    </button>
-  )
-
   render() {
-    const { entry, isRequired, indent, toggleDetails, optionalToggle } = this.props
-    const { dropDown } = this.state
+    const { entry, isRequired, indent, optionalToggle } = this.props
     const [key, value] = entry
     const { items, properties, type } = value
     const description = prettify(this.getValue(value, 'description'))
     const required = this.getValue(value, 'required')
-    const hasDropDown = this.hasDropDown(value)
     const topLevel = indent === 0
     const optionalField = isRequired === false
     const subEntries = this.getSubSection(type, items, properties)
@@ -74,12 +41,10 @@ class InventoryCodeSectionComponent extends Component {
     return (
       <>
         <li
-          className={`grid-col-12 usa-card margin-bottom-2 ${optionalToggle} ${optionalField}  ${classNames(
-            {
-              'top-level': topLevel,
-              'display-none': optionalField && optionalToggle
-            }
-          )}`}
+          className={`grid-col-12 usa-card margin-bottom-2 ${classNames({
+            'top-level': topLevel,
+            'display-none': optionalField && optionalToggle
+          })}`}
         >
           <div className="usa-card__container">
             <header className="usa-card__header padding-bottom-0">
@@ -111,15 +76,13 @@ class InventoryCodeSectionComponent extends Component {
             </div>
           </div>
         </li>
-        {dropDown &&
-          subEntries &&
+        {subEntries &&
           subEntries.map((subEntry, index) => (
             <InventoryCodeSectionComponent
               key={index} // eslint-disable-line react/no-array-index-key
               entry={subEntry}
               isRequired={Array.isArray(required) && required.includes(subEntry[0])}
               indent={indent + 1}
-              toggleDetails={toggleDetails}
               optionalToggle={optionalToggle}
             />
           ))}
@@ -137,8 +100,7 @@ InventoryCodeSectionComponent.propTypes = {
     PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.object.isRequired])
   ).isRequired,
   isRequired: PropTypes.bool.isRequired,
-  indent: PropTypes.number,
-  toggleDetails: PropTypes.func.isRequired
+  indent: PropTypes.number
 }
 
 export default InventoryCodeSectionComponent
