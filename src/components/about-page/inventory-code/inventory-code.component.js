@@ -22,7 +22,7 @@ class InventoryCodeComponent extends Component {
         </a>
         .
       </p>
-      <p class="text-red margin-bottom-3 margin-top-0">
+      <p class="text-red margin-bottom-3 margin-top-0" aria-hidden="true">
         The schema fields marked in red are optional but recommended as they provide additional,
         helpful information.
       </p>

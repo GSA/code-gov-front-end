@@ -65,14 +65,19 @@ class InventoryCodeSectionComponent extends Component {
                 <strong>Class: </strong>
                 {displayType}
               </p>
-              <p
+              {optionalField ? (
+                <p class="usa-sr-only">Optional field</p>
+              ) : (
+                <p class="usa-sr-only">Required field</p>
+              )}
+              <div
                 className={`margin-top-0 font-body-2xs ${classNames({
                   'text-red': optionalField
                 })}`}
               >
                 <strong>Description: </strong>
-                <div dangerouslySetInnerHTML={{ __html: description }} />
-              </p>
+                <div class="display-inline" dangerouslySetInnerHTML={{ __html: description }} />
+              </div>
             </div>
           </div>
         </li>
