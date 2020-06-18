@@ -50,7 +50,7 @@ class InventoryCodeSectionComponent extends Component {
             <header className="usa-card__header padding-bottom-0">
               <h2
                 className={`usa-card__heading font-heading-lg ${classNames({
-                  'text-accent-warm-dark': optionalField
+                  'text-red': optionalField
                 })}`}
               >
                 {key}
@@ -59,7 +59,7 @@ class InventoryCodeSectionComponent extends Component {
             <div className="usa-card__body">
               <p
                 className={`margin-bottom-0 font-body-2xs ${classNames({
-                  'text-accent-warm-dark': optionalField
+                  'text-red': optionalField
                 })}`}
               >
                 <strong>Class: </strong>
@@ -67,7 +67,7 @@ class InventoryCodeSectionComponent extends Component {
               </p>
               <p
                 className={`margin-top-0 font-body-2xs ${classNames({
-                  'text-accent-warm-dark': optionalField
+                  'text-red': optionalField
                 })}`}
               >
                 <strong>Description: </strong>
