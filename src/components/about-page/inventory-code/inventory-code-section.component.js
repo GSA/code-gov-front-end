@@ -6,6 +6,7 @@ import { prettify } from 'utils/other'
 class InventoryCodeSectionComponent extends Component {
   state = {
     dropDown: true
+    // optionalToggle: this.props.optionalToggle
   }
 
   toggleDropDown = () => {
@@ -58,7 +59,7 @@ class InventoryCodeSectionComponent extends Component {
   )
 
   render() {
-    const { entry, isRequired, indent, toggleDetails } = this.props
+    const { entry, isRequired, indent, toggleDetails, optionalToggle } = this.props
     const { dropDown } = this.state
     const [key, value] = entry
     const { items, properties, type } = value
@@ -73,21 +74,15 @@ class InventoryCodeSectionComponent extends Component {
     return (
       <>
         <li
-          className={`grid-col-12 usa-card margin-bottom-2 ${classNames({
-            'top-level': topLevel,
-            optional: optionalField
-          })}`}
+          className={`grid-col-12 usa-card margin-bottom-2 ${optionalToggle} ${optionalField}  ${classNames(
+            {
+              'top-level': topLevel,
+              'display-none': optionalField && optionalToggle
+            }
+          )}`}
         >
-          <div
-            className={`usa-card__container ${classNames({
-              'border-0 margin-x-0': optionalField || !topLevel
-            })}`}
-          >
-            <header
-              className={`usa-card__header padding-bottom-0 ${classNames({
-                'padding-y-0 padding-left-2 padding-right-0': optionalField || !topLevel
-              })}`}
-            >
+          <div className="usa-card__container">
+            <header className="usa-card__header padding-bottom-0">
               <h2
                 className={`usa-card__heading font-heading-lg ${classNames({
                   'text-accent-warm-dark': optionalField
@@ -96,11 +91,7 @@ class InventoryCodeSectionComponent extends Component {
                 {key}
               </h2>
             </header>
-            <div
-              className={`usa-card__body ${classNames({
-                'padding-right-0 padding-left-2': optionalField || !topLevel
-              })}`}
-            >
+            <div className="usa-card__body">
               <p
                 className={`margin-bottom-0 font-body-2xs ${classNames({
                   'text-accent-warm-dark': optionalField
@@ -117,21 +108,10 @@ class InventoryCodeSectionComponent extends Component {
                 <strong>Description: </strong>
                 <div dangerouslySetInnerHTML={{ __html: description }} />
               </p>
-              {dropDown &&
-                subEntries &&
-                subEntries.map((subEntry, index) => (
-                  <InventoryCodeSectionComponent
-                    key={index} // eslint-disable-line react/no-array-index-key
-                    entry={subEntry}
-                    isRequired={Array.isArray(required) && required.includes(subEntry[0])}
-                    indent={indent + 1}
-                    toggleDetails={toggleDetails}
-                  />
-                ))}
             </div>
           </div>
         </li>
-        {/* {dropDown &&
+        {dropDown &&
           subEntries &&
           subEntries.map((subEntry, index) => (
             <InventoryCodeSectionComponent
@@ -140,8 +120,9 @@ class InventoryCodeSectionComponent extends Component {
               isRequired={Array.isArray(required) && required.includes(subEntry[0])}
               indent={indent + 1}
               toggleDetails={toggleDetails}
+              optionalToggle={optionalToggle}
             />
-          ))} */}
+          ))}
       </>
     )
   }

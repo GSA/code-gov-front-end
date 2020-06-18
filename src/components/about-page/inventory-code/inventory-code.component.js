@@ -6,7 +6,7 @@ import InventoryCodeDetailsComponent from './inventory-code-details.component'
 
 class InventoryCodeComponent extends Component {
   state = {
-    optionalFields: true,
+    optionalFields: false,
     details: false
   }
 
@@ -50,13 +50,10 @@ class InventoryCodeComponent extends Component {
 
     return (
       <div
-        className={
-          `margin-top-4 ${ 
-          classNames({
-            'hide-optional-fields': !optionalFields,
-            'hide-details': !details
-          })}`
-        }
+        className={`margin-top-4 ${classNames({
+          'hide-optional-fields': !optionalFields,
+          'hide-details': !details
+        })}`}
       >
         {this.renderIntro()}
         <div>
@@ -71,6 +68,7 @@ class InventoryCodeComponent extends Component {
                   entry={entry}
                   isRequired={schema.required.includes(entry[0])}
                   toggleDetails={this.toggleDetails}
+                  optionalToggle={optionalFields}
                 />
               ))}
           </InventoryCodeTableComponent>
