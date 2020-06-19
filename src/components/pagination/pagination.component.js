@@ -138,7 +138,7 @@ export default class Pagination extends Component {
           className="margin-top-neg-3"
         >
           <ul className="display-inline-block font-body-3xs text-bold">
-            <li className="display-inline-block" tabIndex="0">
+            <li className="display-inline-block">
               <p className="display-inline-block">{summary}</p>
             </li>
             <li
@@ -178,7 +178,13 @@ export default class Pagination extends Component {
                       tabIndex={tabIndex}
                       aria-label={`Go to page ${i}`}
                       className="text-no-underline"
+                      index={i}
                       onClick={() => this.handleChangePage(i)}
+                      onKeyPress={event => {
+                        if (event.which === 13) {
+                          this.handleChangePage(i)
+                        }
+                      }}
                     >
                       {i}
                     </a>
