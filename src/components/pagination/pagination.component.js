@@ -138,12 +138,17 @@ export default class Pagination extends Component {
           className="margin-top-neg-3"
         >
           <ul className="display-inline-block font-body-3xs text-bold">
-            <div className="display-inline-block" tabIndex="0">
+            <li className="display-inline-block" tabIndex="0">
               <p className="display-inline-block">{summary}</p>
-            </div>
+            </li>
             <li
-              className={`display-inline-block padding-left-3 padding-right-1${
+              className={`display-inline-block padding-left-2 padding-right-1${
                 page === 1 ? ' disabled' : ''
+              }`}
+              aria-label={`${
+                page === 1
+                  ? 'You are on the first page. There is no previous page.'
+                  : 'Go to the previous page.'
               }`}
               tabIndex="0"
             >
@@ -153,7 +158,7 @@ export default class Pagination extends Component {
               const ellipsis = endsWith(i, 'ellipsis')
               const current = equal(i, page)
               let className = 'page'
-              const tabIndex = index + 1
+              const tabIndex = 0
               if (i === 1) className += ' first'
               if (current) className += ' current'
               return (
@@ -185,7 +190,12 @@ export default class Pagination extends Component {
               className={`display-inline padding-left-1 padding-right-1${
                 this.isLastPage ? ' disabled' : ''
               }`}
-              tabIndex="8"
+              aria-label={`${
+                this.isLastPage
+                  ? 'You are on the last page. There is no next page.'
+                  : 'Go to the next page.'
+              }`}
+              tabIndex="0"
             >
               {this.rightIcon}
             </li>
