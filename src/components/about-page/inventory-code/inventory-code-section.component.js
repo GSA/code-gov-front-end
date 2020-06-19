@@ -66,9 +66,9 @@ class InventoryCodeSectionComponent extends Component {
                 {displayType}
               </p>
               {optionalField ? (
-                <p class="usa-sr-only">Optional field</p>
+                <p className="usa-sr-only">Optional field</p>
               ) : (
-                <p class="usa-sr-only">Required field</p>
+                <p className="usa-sr-only">Required field</p>
               )}
               <div
                 className={`margin-top-0 font-body-2xs ${classNames({
@@ -76,7 +76,7 @@ class InventoryCodeSectionComponent extends Component {
                 })}`}
               >
                 <strong>Description: </strong>
-                <div class="display-inline" dangerouslySetInnerHTML={{ __html: description }} />
+                <div className="display-inline" dangerouslySetInnerHTML={{ __html: description }} />
               </div>
             </div>
           </div>

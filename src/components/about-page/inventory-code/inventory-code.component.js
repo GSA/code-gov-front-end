@@ -14,18 +14,6 @@ class InventoryCodeComponent extends Component {
 
   renderIntro = () => (
     <>
-      <h2>Field Definitions</h2>
-      <p class="margin-bottom-1">
-        The schema fields and definitions are listed below. You can view a sample JSON file{' '}
-        <a href={this.props.url} target="_blank" rel="noreferrer noopener">
-          here
-        </a>
-        .
-      </p>
-      <p class="text-red margin-bottom-3 margin-top-0" aria-hidden="true">
-        The schema fields marked in red are optional but recommended as they provide additional,
-        helpful information.
-      </p>
       <form className="usa-form">
         <div className="usa-checkbox">
           <input
@@ -35,7 +23,7 @@ class InventoryCodeComponent extends Component {
             value="hide-optional-fields"
             onClick={this.toggleOptionalFields}
           />
-          <label className="usa-checkbox__label" for="hide-optional-fields">
+          <label className="usa-checkbox__label" htmlFor="hide-optional-fields">
             Hide Optional Fields
           </label>
         </div>
@@ -90,8 +78,7 @@ InventoryCodeComponent.propTypes = {
     required: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string,
     type: PropTypes.string
-  }).isRequired,
-  url: PropTypes.string.isRequired
+  }).isRequired
 }
 
 export default InventoryCodeComponent

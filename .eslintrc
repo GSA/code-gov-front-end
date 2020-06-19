@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "globals": {
     "document": true,
     "window": true
@@ -12,9 +8,7 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "camelcase": "warn",
     "class-methods-use-this": "warn",
@@ -29,16 +23,15 @@
     "global-require": "warn",
     "guard-for-in": "warn",
     "import/extensions": "ignorePackages",
-    "import/imports-first": [
-      "absolute-first",
-      "error"
-    ],
+    "import/imports-first": ["absolute-first", "error"],
     "import/newline-after-import": "error",
     "import/no-dynamic-require": "warn",
     "import/no-unresolved": 0,
     "import/prefer-default-export": false,
     "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/label-has-for": "warn",
     "jsx-a11y/no-noninteractive-tabindex": "warn",
     "jsx-a11y/no-static-element-interactions": "warn",
     "jsx-a11y/tabindex-no-positive": "warn",
@@ -57,11 +50,7 @@
         "allowForLoopAfterthoughts": true
       }
     ],
-    "no-restricted-syntax": [
-      "error",
-      "BinaryExpression[operator='in']",
-      "WithStatement"
-    ],
+    "no-restricted-syntax": ["error", "BinaryExpression[operator='in']", "WithStatement"],
     "no-script-url": "warn",
     "no-shadow": "warn",
     "no-template-curly-in-string": "warn",
@@ -75,18 +64,11 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/jsx-no-bind": "never",
-    "react/prefer-stateless-function": [
-      "warn", 
-      { "ignorePureComponents": true 
-        }
-    ],
+    "react/prefer-stateless-function": ["warn", { "ignorePureComponents": true }],
     "react/no-access-state-in-setstate": "warn",
     "react/no-did-update-set-state": "never",
     "react/no-string-refs": "warn",
