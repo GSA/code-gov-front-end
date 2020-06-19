@@ -8,12 +8,23 @@ export default function LinkPart({ name, onClick, url }) {
       <a
         href={url}
         onClick={onClick}
+        class=""
         data-testid="link-part-anchor"
         target="_blank"
         rel="noopener noreferrer"
       >
+        {' '}
         {name}
       </a>
+      // <a
+      //   href={url}
+      //   onClick={onClick}
+      //   data-testid="link-part-anchor"
+      //   target="_blank"
+      //   rel="noopener noreferrer"
+      // >
+      //   {name}
+      // </a>
     )
   }
 

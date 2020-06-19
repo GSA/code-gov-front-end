@@ -5,24 +5,35 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
   const textContent = menuOption.name
   if (menuOption.url) {
     return (
-      <CustomLink
-        to={menuOption.url}
-        role="menuitem"
-        /* onClick={this.closeAllMenus} */
-      >
-        {textContent}
-      </CustomLink>
+      <a class="usa-nav__link" href={menuOption.url}>
+        <span>{textContent}</span>
+      </a>
+      // <CustomLink
+      //   to={menuOption.url}
+      //   role="menuitem"
+      //   /* onClick={this.closeAllMenus} */
+      // >
+      //   {textContent}
+      // </CustomLink>
     )
   }
   return (
-    <a
-      aria-haspopup="true"
-      href="javascript:void(0);"
-      tabIndex="0"
-      role="menuitem"
+    <button
+      class="usa-accordion__button usa-nav__link  usa-current"
+      aria-expanded="false"
+      aria-controls="basic-nav-section-one"
       onClick={event => onClick(menuOption, event)}
     >
-      {textContent}
-    </a>
+      <span>{textContent}</span>
+    </button>
+    // <a
+    //   aria-haspopup="true"
+    //   href="javascript:void(0);"
+    //   tabIndex="0"
+    //   role="menuitem"
+    //   onClick={event => onClick(menuOption, event)}
+    // >
+    //   {textContent}
+    // </a>
   )
 }

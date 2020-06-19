@@ -97,32 +97,66 @@ export default class Menu extends Component {
     const navStyle = { height: this.state.height }
 
     return (
-      <header className={headerClassName} ref={this.header}>
-        <nav className={navClassName} style={navStyle} aria-label="primary">
-          <MobileMenuControl />
+      <>
+        <div class="usa-overlay"></div>
+        <header class="usa-header usa-header--basic">
+          <div class="usa-nav-container">
+            <div class="usa-navbar">
+              <div class="usa-logo" id="basic-logo">
+                <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
+                  <img
+                    src={color === 'white' ? this.props.logoDark : this.props.logoLight}
+                    alt="code.gov"
+                    className="height-4 maxw-card"
+                    aria-label="Home"
+                  />
+                </CustomLink>
+              </div>
+              <button class="usa-menu-btn">Menu</button>
+            </div>
+            <nav aria-label="Primary navigation" class="usa-nav">
+              <button class="usa-nav__close">
+                <img src="../../dist/img/close.svg" role="img" alt="close" />
+              </button>
+              <ul class="usa-nav__primary usa-accordion">
+                {map(this.props.menu, menuOption => (
+                  <li class="usa-nav__primary-item">
+                    <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
+                    <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </>
 
-          <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
-            <img
-              src={color === 'white' ? this.props.logoDark : this.props.logoLight}
-              alt="code.gov"
-              className="height-4 maxw-card"
-            />
-          </CustomLink>
+      // <header className={headerClassName} ref={this.header}>
+      //   <nav className={navClassName} style={navStyle} aria-label="primary">
+      //     <MobileMenuControl />
 
-          <ul role="menubar" aria-label="primary">
-            {map(this.props.menu, menuOption => (
-              <li
-                className={menuOption.expanded ? 'expanded' : 'margin-bottom-0'}
-                key={menuOption.name}
-                role="none"
-              >
-                <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
-                <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      //     <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
+      //       <img
+      //         src={color === 'white' ? this.props.logoDark : this.props.logoLight}
+      //         alt="code.gov"
+      //         className="height-4 maxw-card"
+      //       />
+      //     </CustomLink>
+
+      //     <ul role="menubar" aria-label="primary">
+      //       {map(this.props.menu, menuOption => (
+      //         <li
+      //           className={menuOption.expanded ? 'expanded' : 'margin-bottom-0'}
+      //           key={menuOption.name}
+      //           role="none"
+      //         >
+      //           <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
+      //           <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
+      //         </li>
+      //       ))}
+      //     </ul>
+      //   </nav>
+      // </header>
     )
   }
 }

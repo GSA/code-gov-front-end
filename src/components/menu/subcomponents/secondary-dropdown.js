@@ -20,16 +20,26 @@ function LinkPart({ name, onClick, url }) {
 export default function SecondaryDropdown({ menuOption, onClick }) {
   if (some(menuOption.links)) {
     return (
-      <ul role="menu">
+      <ul id="basic-nav-section-one" class="usa-nav__submenu">
         {menuOption.links.map(link => {
           const { name, url } = link
           return (
-            <li key={url}>
+            <li class="usa-nav__submenu-item" key={url}>
               <LinkPart name={name} onClick={onClick} url={url} />
             </li>
           )
         })}
       </ul>
+      // <ul role="menu">
+      //   {menuOption.links.map(link => {
+      //     const { name, url } = link
+      //     return (
+      //       <li key={url}>
+      //         <LinkPart name={name} onClick={onClick} url={url} />
+      //       </li>
+      //     )
+      //   })}
+      // </ul>
     )
   }
   return <Fragment />
