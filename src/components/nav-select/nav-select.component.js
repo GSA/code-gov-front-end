@@ -22,10 +22,12 @@ export default class NavSelect extends Component {
     )
     return (
       <form className="usa-form maxw-none">
+        <label class="usa-label usa-sr-only" for="options">
+          Sections Menu
+        </label>
         <select
           className="usa-select font-body-3xs radius-md"
           id="options"
-          aria-label="menu"
           onChange={::this.handleChange}
           value={current}
         >

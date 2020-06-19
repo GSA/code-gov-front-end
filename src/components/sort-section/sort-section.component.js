@@ -17,13 +17,18 @@ export default class SortSection extends Component {
     const selection = find(this.props.options, option => option.selected).value
     return (
       <div className="grid-row">
-        <h2 className="margin-top-4">Sort by</h2>
+        <h2 className="margin-top-4" aria-hidden="true">
+          Sort by
+        </h2>
         <form className="usa-form">
+          <label class="usa-label usa-sr-only" for="sort-options">
+            Sort by
+          </label>
           <select
-            aria-label="sort"
             onChange={::this.onSortChange}
             value={selection}
             className="usa-select margin-left-1 radius-md"
+            id="sort-options"
           >
             {map(this.props.options, option => (
               <option key={option.value} value={option.value}>
