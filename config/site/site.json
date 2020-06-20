@@ -38,7 +38,7 @@
           ]
         },
         {
-          "name": "BROWSE PROJECTS",
+          "name": "PROJECTS",
           "url": "/browse-projects?page=1&size=10&sort=data_quality"
         },
         {
@@ -124,7 +124,7 @@
           ]
         },
         {
-          "name": "Browse Projects",
+          "name": "Projects",
           "url": "/browse-projects?page=1&size=10&sort=data_quality"
         },
         {
@@ -391,7 +391,7 @@
         }
       ],
       "socials": [
-                {
+        {
           "name": "Code.gov on GitHub",
           "icon": "icon icon-github-circled",
           "url": "https://github.com/GSA/code-gov"

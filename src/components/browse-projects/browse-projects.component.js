@@ -69,8 +69,8 @@ export default class BrowseProjects extends React.Component {
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
       <div className="search-results-content">
-        <SiteBanner title="Browse Projects" />
-        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Browse Projects' }]} />
+        <SiteBanner title="Projects" />
+        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Projects' }]} />
         <div className="grid-container">
           <div className="grid-row grid-gap">
             <div className="margin-top-2 tablet:grid-col-3">
