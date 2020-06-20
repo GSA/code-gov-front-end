@@ -20,8 +20,8 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
   return (
     <button
       class="usa-accordion__button usa-nav__link  usa-current"
-      aria-expanded="false"
-      aria-controls="basic-nav-section-one"
+      aria-expanded={menuOption.expanded ? 'true' : 'false'}
+      aria-controls={menuOption.name + '-menu'}
       onClick={event => onClick(menuOption, event)}
     >
       <span>{textContent}</span>

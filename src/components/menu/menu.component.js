@@ -21,8 +21,11 @@ export default class Menu extends Component {
       menu: props.menu
     }
 
-    this.onClickMenuOption = this.onClickMenuOption.bind(this)
+    this.onToggleMenuOption = this.onToggleMenuOption.bind(this)
     this.header = React.createRef()
+
+    // this.onClickMenuOption = this.onClickMenuOption.bind(this)
+    // this.header = React.createRef()
   }
 
   componentDidMount() {
@@ -41,7 +44,7 @@ export default class Menu extends Component {
     })
   }
 
-  onClickMenuOption(selected, event) {
+  onToggleMenuOption(selected, event) {
     const menu = this.state.menu.map(menuOption => {
       if (menuOption.name === selected.name) {
         menuOption.expanded = true
@@ -59,6 +62,24 @@ export default class Menu extends Component {
     this.setState({ expanded, menu, height })
   }
 
+  // onClickMenuOption(selected, event) {
+  //   const menu = this.state.menu.map(menuOption => {
+  //     if (menuOption.name === selected.name) {
+  //       menuOption.expanded = true
+  //     }
+  //     return menuOption
+  //   })
+
+  //   selected.expanded = !selected.expanded
+
+  //   const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
+
+  //   //  @TODO `expanded` just returns `true`; possibly copied over from previous
+  //   //        implementation?
+  //   const expanded = this.state.menu.some(menuOption => menuOption.expanded)
+  //   this.setState({ expanded, menu, height })
+  // }
+
   get expanded() {
     return this.state.menu.some(option => option.expanded)
   }
@@ -66,7 +87,7 @@ export default class Menu extends Component {
   get menus() {
     return this.props.menu.map(menuOption => (
       <Fragment key={menuOption.name}>
-        <PrimaryMenuOption menuOption={menuOption} onClick={this.onClickMenuOption} />
+        <PrimaryMenuOption menuOption={menuOption} onClick={this.onToggleMenuOption} />
         <SecondaryDropdown menuOption={menuOption} />
       </Fragment>
     ))
@@ -99,7 +120,7 @@ export default class Menu extends Component {
     return (
       <>
         <div class="usa-overlay"></div>
-        <header class="usa-header usa-header--basic">
+        <header class="usa-header usa-header--basic bg-white">
           <div class="usa-nav-container">
             <div class="usa-navbar">
               <div class="usa-logo" id="basic-logo">
@@ -121,7 +142,10 @@ export default class Menu extends Component {
               <ul class="usa-nav__primary usa-accordion">
                 {map(this.props.menu, menuOption => (
                   <li class="usa-nav__primary-item">
-                    <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
+                    <PrimaryMenuOption
+                      menuOption={menuOption}
+                      onClick={::this.onToggleMenuOption}
+                    />
                     <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
                   </li>
                 ))}

@@ -19,28 +19,43 @@ function LinkPart({ name, onClick, url }) {
 
 export default function SecondaryDropdown({ menuOption, onClick }) {
   if (some(menuOption.links)) {
-    return (
-      <ul id="basic-nav-section-one" class="usa-nav__submenu">
-        {menuOption.links.map(link => {
-          const { name, url } = link
-          return (
-            <li class="usa-nav__submenu-item" key={url}>
-              <LinkPart name={name} onClick={onClick} url={url} />
-            </li>
-          )
-        })}
-      </ul>
-      // <ul role="menu">
-      //   {menuOption.links.map(link => {
-      //     const { name, url } = link
-      //     return (
-      //       <li key={url}>
-      //         <LinkPart name={name} onClick={onClick} url={url} />
-      //       </li>
-      //     )
-      //   })}
-      // </ul>
-    )
+    if (menuOption.expanded) {
+      return (
+        <ul id={menuOption.name + '-menu'} class="usa-nav__submenu">
+          {menuOption.links.map(link => {
+            const { name, url } = link
+            return (
+              <li class="usa-nav__submenu-item" key={url}>
+                <LinkPart name={name} onClick={onClick} url={url} />
+              </li>
+            )
+          })}
+        </ul>
+        // <ul role="menu">
+        //   {menuOption.links.map(link => {
+        //     const { name, url } = link
+        //     return (
+        //       <li key={url}>
+        //         <LinkPart name={name} onClick={onClick} url={url} />
+        //       </li>
+        //     )
+        //   })}
+        // </ul>
+      )
+    } else {
+      return (
+        <ul id={menuOption.name + '-menu'} class="usa-nav__submenu" hidden>
+          {menuOption.links.map(link => {
+            const { name, url } = link
+            return (
+              <li class="usa-nav__submenu-item" key={url}>
+                <LinkPart name={name} onClick={onClick} url={url} />
+              </li>
+            )
+          })}
+        </ul>
+      )
+    }
   }
   return <Fragment />
 }
