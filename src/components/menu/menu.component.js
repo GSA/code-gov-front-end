@@ -18,10 +18,12 @@ export default class Menu extends Component {
       expanded: false,
       // height: 'auto',
       // notAtTop: false,
-      menu: props.menu
+      menu: props.menu,
+      mobileMenu: false
     }
 
     this.onToggleMenuOption = this.onToggleMenuOption.bind(this)
+    this.onToggleMobileMenu = this.onToggleMobileMenu.bind(this)
     this.header = React.createRef()
   }
 
@@ -40,6 +42,13 @@ export default class Menu extends Component {
   //     }
   //   })
   // }
+
+  onToggleMobileMenu(event) {
+    console.log('toggled')
+    const mobileMenu = !this.state.mobileMenu
+    this.setState({ mobileMenu })
+    console.log(this.state.mobileMenu)
+  }
 
   onToggleMenuOption(selected, event) {
     const menu = this.state.menu.map(menuOption => {
@@ -102,6 +111,9 @@ export default class Menu extends Component {
       // height: 'auto',
       menu
     })
+
+    const mobileMenu = false
+    this.setState({ mobileMenu })
   }
 
   render() {
@@ -131,10 +143,15 @@ export default class Menu extends Component {
                   />
                 </CustomLink>
               </div>
-              <button class="usa-menu-btn">Menu</button>
+              <button class="usa-menu-btn" onClick={::this.onToggleMobileMenu}>
+                Menu
+              </button>
             </div>
-            <nav aria-label="Primary navigation" class="usa-nav">
-              <button class="usa-nav__close">
+            <nav
+              aria-label="Primary navigation"
+              class={this.state.mobileMenu ? 'usa-nav is-visible' : 'usa-nav'}
+            >
+              <button class="usa-nav__close" onClick={::this.onToggleMobileMenu}>
                 <img src="../../dist/img/close.svg" role="img" alt="close" />
               </button>
               <ul class="usa-nav__primary usa-accordion">
