@@ -143,8 +143,12 @@ export default class Menu extends Component {
                   />
                 </CustomLink>
               </div>
-              <button class="usa-menu-btn" onClick={::this.onToggleMobileMenu}>
-                Menu
+              <button class="usa-menu-btn bg-white" onClick={::this.onToggleMobileMenu}>
+                <i
+                  class="icon icon-menu text-primary font-body-xl"
+                  role="img"
+                  aria-label="open menu"
+                />
               </button>
             </div>
             <nav
@@ -152,7 +156,11 @@ export default class Menu extends Component {
               class={this.state.mobileMenu ? 'usa-nav is-visible' : 'usa-nav'}
             >
               <button class="usa-nav__close" onClick={::this.onToggleMobileMenu}>
-                <img src="../../dist/img/close.svg" role="img" alt="close" />
+                <i
+                  class="icon icon-close text-primary font-body-lg padding-right-4 padding-top-2"
+                  role="img"
+                  aria-label="close menu"
+                />
               </button>
               <ul class="usa-nav__primary usa-accordion">
                 {map(this.props.menu, menuOption => (
