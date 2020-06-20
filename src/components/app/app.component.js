@@ -28,8 +28,13 @@ export default class AppComponent extends Component {
     return (
       <ConnectedRouter history={history}>
         <div className="App">
-          {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
-          <Menu />
+          <a class="usa-skipnav" href="#banner-home">
+            Skip to main content
+          </a>
+          <div class="position-sticky z-500 top-0 width-full">
+            {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
+            <Menu />
+          </div>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/search" component={SearchPage} />

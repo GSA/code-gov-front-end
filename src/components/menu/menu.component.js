@@ -16,33 +16,30 @@ export default class Menu extends Component {
     super(props)
     this.state = {
       expanded: false,
-      height: 'auto',
-      notAtTop: false,
+      // height: 'auto',
+      // notAtTop: false,
       menu: props.menu
     }
 
     this.onToggleMenuOption = this.onToggleMenuOption.bind(this)
     this.header = React.createRef()
-
-    // this.onClickMenuOption = this.onClickMenuOption.bind(this)
-    // this.header = React.createRef()
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', () => {
-      const scrollTop =
-        (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
-      this.setState({ notAtTop: scrollTop !== 0 })
-    })
+  // componentDidMount() {
+  //   window.addEventListener('scroll', () => {
+  //     const scrollTop =
+  //       (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
+  //     this.setState({ notAtTop: scrollTop !== 0 })
+  //   })
 
-    document.addEventListener('click', event => {
-      const target = event.target
-      const header = this.header.current
-      if (target !== header && !header.contains(target)) {
-        this.collapse()
-      }
-    })
-  }
+  //   document.addEventListener('click', event => {
+  //     const target = event.target
+  //     const header = this.header.current
+  //     if (target !== header && !header.contains(target)) {
+  //       this.collapse()
+  //     }
+  //   })
+  // }
 
   onToggleMenuOption(selected, event) {
     const menu = this.state.menu.map(menuOption => {
@@ -54,12 +51,13 @@ export default class Menu extends Component {
 
     selected.expanded = !selected.expanded
 
-    const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
+    // const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
 
     //  @TODO `expanded` just returns `true`; possibly copied over from previous
     //        implementation?
     const expanded = this.state.menu.some(menuOption => menuOption.expanded)
-    this.setState({ expanded, menu, height })
+    // this.setState({ expanded, menu, height })
+    this.setState({ expanded, menu })
   }
 
   // onClickMenuOption(selected, event) {
@@ -101,7 +99,7 @@ export default class Menu extends Component {
 
     this.setState({
       expanded: false,
-      height: 'auto',
+      // height: 'auto',
       menu
     })
   }
@@ -109,13 +107,13 @@ export default class Menu extends Component {
   render() {
     const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
 
-    const headerClassName = `main ${color}`
+    // const headerClassName = `main ${color}`
 
-    let navClassName = `main ${color}`
-    if (this.state.expanded) navClassName += ' expanded'
-    if (this.state.notAtTop) navClassName += ' not-at-top'
+    // let navClassName = `main ${color}`
+    // if (this.state.expanded) navClassName += ' expanded'
+    // if (this.state.notAtTop) navClassName += ' not-at-top'
 
-    const navStyle = { height: this.state.height }
+    // const navStyle = { height: this.state.height }
 
     return (
       <>
