@@ -3,6 +3,7 @@ import CustomLink from 'components/custom-link'
 
 export default function PrimaryMenuOption({ menuOption, onClick }) {
   const textContent = menuOption.name
+  const idx = menuOption.name + '-menu'
   if (menuOption.url) {
     return (
       <a class="usa-nav__link" href={menuOption.url}>
@@ -19,9 +20,13 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
   }
   return (
     <button
-      class="usa-accordion__button usa-nav__link  usa-current"
+      class={
+        idx === 0
+          ? 'usa-current usa-accordion__button usa-nav__link'
+          : 'usa-accordion__button usa-nav__link'
+      }
       aria-expanded={menuOption.expanded ? 'true' : 'false'}
-      aria-controls={menuOption.name + '-menu'}
+      aria-controls={idx}
       onClick={event => onClick(menuOption, event)}
     >
       <span>{textContent}</span>
