@@ -94,10 +94,9 @@ export function refreshView() {
 
 export function scrollToTopOfResults() {
   console.log('starting scrollToTopOfResults')
-  const headerHeight = document.querySelector('header.main').clientHeight
-  const bannerHeight = document.querySelector('.banner').clientHeight
-  const navHeight = document.querySelector('header.main nav').clientHeight
-  const scrollDepth = headerHeight + bannerHeight - navHeight
+  const headerHeight = document.querySelector('header').clientHeight
+  const bannerHeight = document.querySelector('.usa-section').clientHeight
+  const scrollDepth = headerHeight + bannerHeight
   const scrollOptionsSupported = document.documentElement.style.scrollBehavior !== undefined
   if (scrollOptionsSupported) {
     window.scrollTo({
