@@ -50,3 +50,29 @@ select {
     border: 0px;
   }
 }
+
+// .usa-header {
+//   [role="search"] {
+//   @include at-media($theme-header-min-width) {
+//     float: right;
+//     max-width: calc(
+//       #{$theme-search-min-width} + #{units($theme-button-small-width)}
+//     );
+//     width: 100%;
+//   }
+//   }
+// }
+
+.mobile-search-bar {
+  flex: none;
+  float: right;
+  text-align: center;
+
+  @include at-media($theme-header-min-width) {
+    display: none;
+  }
+
+  + * {
+    clear: both;
+  }
+}

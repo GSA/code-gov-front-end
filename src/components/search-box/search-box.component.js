@@ -43,8 +43,10 @@ export default class SearchBox extends Component {
   render() {
     return (
       <form className="usa-search" onSubmit={::this.handleSubmit} role="search">
+        <label class="usa-sr-only" for="search-field">
+          Search Projects
+        </label>
         <input
-          aria-label="search"
           onChange={::this.handleChange}
           placeholder={this.props.placeholder || 'Search Projects...'}
           ref={this.textInput}

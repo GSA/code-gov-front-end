@@ -5,6 +5,7 @@ import CustomLink from 'components/custom-link'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
 import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
+import MobileMenuSearchBoxComponent from 'components/mobile-menu-search-box'
 
 export default class Menu extends Component {
   /*
@@ -173,6 +174,18 @@ export default class Menu extends Component {
                   </li>
                 ))}
               </ul>
+              <div class="mobile-search-bar">
+                <MobileMenuSearchBoxComponent
+                  mobileMenu={this.state.mobileMenu}
+                  toggleMobileMenu={::this.onToggleMobileMenu}
+                />
+
+                {/* <form class="usa-search usa-search--small" role="search">
+                  <label class="usa-sr-only" for="basic-search-field-small">Search small</label>
+                  <input class="usa-input" id="basic-search-field-small" type="search" name="search"/>
+                  <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+                </form> */}
+              </div>
             </nav>
           </div>
         </header>

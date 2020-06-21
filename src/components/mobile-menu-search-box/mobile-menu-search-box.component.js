@@ -11,18 +11,20 @@ export default class MobileMenuSearchBoxComponent extends React.Component {
   }
 
   handleSubmit(event) {
+    const mobileMenu = this.props.mobileMenu
     this.props.onSubmit(this.state.value)
     event.preventDefault()
     this.setState({ value: '' })
+    this.props.toggleMobileMenu(mobileMenu)
   }
 
   render() {
     return (
-      <div className="margin-x-2">
+      <>
         <form className="usa-search" role="search" onSubmit={::this.handleSubmit}>
           <input
             aria-label="search"
-            className="usa-input radius-left-md border-0 font-body-sm"
+            className="usa-input radius-left-md border-1px border-right-0 border-base-lighter font-body-3xs"
             onChange={::this.handleChange}
             placeholder="Search Projects..."
             type="search"
@@ -32,7 +34,7 @@ export default class MobileMenuSearchBoxComponent extends React.Component {
             <span className="usa-search__submit-text">Go</span>
           </button>
         </form>
-      </div>
+      </>
     )
   }
 }
