@@ -74,7 +74,7 @@ export default class RepoCardComponent extends Component {
     const agencyAcronym = get(repo, 'agency.acronym')
     const agencyName = get(repo, 'agency.name')
     const score = get(repo, 'score')
-    const dateLastModified = getLastModifiedDateString(this.props.repo)
+    const dateLastModified = getLastModifiedDateString(this.props.repo) || 'Not Available'
     const usageType = getDisplayTextForUsageType(this.props.repo)
     const license = getLicenseName(this.props.repo)
 
