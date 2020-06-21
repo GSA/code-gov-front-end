@@ -39,9 +39,11 @@ export default class RepoCardComponent extends Component {
     if (agencyOrg) {
       return (
         <Fragment>
-          <dt className="display-inline text-bold">Organization:</dt>
-          <dd className="display-inline margin-left-1 margin-right-3">{agencyOrg}</dd>
-          <br />
+          <li>
+            {' '}
+            <span className="text-bold">Organization: </span>
+            {agencyOrg}
+          </li>
         </Fragment>
       )
     }
@@ -88,26 +90,27 @@ export default class RepoCardComponent extends Component {
 
           {this.repoDescription}
 
-          <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light">
-            <dt className="display-inline text-bold">Agency:</dt>
-            <dd className="display-inline margin-left-1 margin-right-3">
+          <ul className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light">
+            <li>
+              {' '}
+              <span className="text-bold">Agency: </span>
               <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>
                 {agencyName}
               </CustomLink>
-            </dd>
-            <br />
+            </li>
             {this.repoOrg}
-            <dt className="display-inline text-bold">Last Updated:</dt>
-            <dd className="display-inline margin-left-1">{dateLastModified}</dd>
-            <br />
-          </dl>
+            <li>
+              <span className="text-bold">Last Updated: </span>
+              {dateLastModified}
+            </li>
+          </ul>
 
           <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px">
-            <dl className="display-inline-block grid-col-8">
+            <ul className="display-inline-block grid-col-8">
               <CardPart title="Usage Type" text={usageType} />
               {this.repoLanguages}
               <CardPart title="License" text={license} />
-            </dl>
+            </ul>
             {this.goToButton}
           </div>
         </div>

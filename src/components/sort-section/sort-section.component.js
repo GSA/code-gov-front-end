@@ -21,7 +21,7 @@ export default class SortSection extends Component {
           Sort by
         </h2>
         <form className="usa-form">
-          <label class="usa-label usa-sr-only" for="sort-options">
+          <label className="usa-label usa-sr-only" htmlFor="sort-options">
             Sort by
           </label>
           <select
