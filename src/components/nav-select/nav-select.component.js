@@ -22,7 +22,7 @@ export default class NavSelect extends Component {
     )
     return (
       <form className="usa-form maxw-none">
-        <label class="usa-label usa-sr-only" for="options">
+        <label className="usa-label usa-sr-only" htmlFor="options">
           Sections Menu
         </label>
         <select

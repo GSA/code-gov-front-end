@@ -43,7 +43,7 @@ export default class SearchBox extends Component {
   render() {
     return (
       <form className="usa-search" onSubmit={::this.handleSubmit} role="search">
-        <label class="usa-sr-only" for="search-field">
+        <label className="usa-sr-only" htmlFor="search-field">
           Search Projects
         </label>
         <input

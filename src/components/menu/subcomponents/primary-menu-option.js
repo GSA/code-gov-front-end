@@ -3,10 +3,10 @@ import CustomLink from 'components/custom-link'
 
 export default function PrimaryMenuOption({ menuOption, onClick }) {
   const textContent = menuOption.name
-  const idx = menuOption.name + '-menu'
+  const idx = `${menuOption.name}-menu`
   if (menuOption.url) {
     return (
-      <a class="usa-nav__link" href={menuOption.url}>
+      <a className="usa-nav__link" href={menuOption.url}>
         <span>{textContent}</span>
       </a>
       // <CustomLink
@@ -20,7 +20,7 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
   }
   return (
     <button
-      class={
+      className={
         idx === 0
           ? 'usa-current usa-accordion__button usa-nav__link'
           : 'usa-accordion__button usa-nav__link'

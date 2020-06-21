@@ -8,7 +8,7 @@ export default function LinkPart({ name, onClick, url }) {
       <a
         href={url}
         onClick={onClick}
-        class=""
+        className=""
         data-testid="link-part-anchor"
         target="_blank"
         rel="noopener noreferrer"

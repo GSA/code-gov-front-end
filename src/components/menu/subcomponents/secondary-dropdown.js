@@ -21,11 +21,11 @@ export default function SecondaryDropdown({ menuOption, onClick }) {
   if (some(menuOption.links)) {
     if (menuOption.expanded) {
       return (
-        <ul id={menuOption.name + '-menu'} class="usa-nav__submenu">
+        <ul id={`${menuOption.name}-menu`} className="usa-nav__submenu">
           {menuOption.links.map(link => {
             const { name, url } = link
             return (
-              <li class="usa-nav__submenu-item" key={url}>
+              <li className="usa-nav__submenu-item" key={url}>
                 <LinkPart name={name} onClick={onClick} url={url} />
               </li>
             )
@@ -42,20 +42,19 @@ export default function SecondaryDropdown({ menuOption, onClick }) {
         //   })}
         // </ul>
       )
-    } else {
-      return (
-        <ul id={menuOption.name + '-menu'} class="usa-nav__submenu" hidden>
-          {menuOption.links.map(link => {
-            const { name, url } = link
-            return (
-              <li class="usa-nav__submenu-item" key={url}>
-                <LinkPart name={name} onClick={onClick} url={url} />
-              </li>
-            )
-          })}
-        </ul>
-      )
     }
+    return (
+      <ul id={`${menuOption.name}-menu`} className="usa-nav__submenu" hidden>
+        {menuOption.links.map(link => {
+          const { name, url } = link
+          return (
+            <li className="usa-nav__submenu-item" key={url}>
+              <LinkPart name={name} onClick={onClick} url={url} />
+            </li>
+          )
+        })}
+      </ul>
+    )
   }
   return <Fragment />
 }

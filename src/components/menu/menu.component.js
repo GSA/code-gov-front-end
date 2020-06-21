@@ -4,8 +4,8 @@ import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
-import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 import MobileMenuSearchBoxComponent from 'components/mobile-menu-search-box'
+import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 
 export default class Menu extends Component {
   /*
@@ -16,7 +16,7 @@ export default class Menu extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      expanded: false,
+      // expanded: false,
       // height: 'auto',
       // notAtTop: false,
       menu: props.menu,
@@ -65,9 +65,9 @@ export default class Menu extends Component {
 
     //  @TODO `expanded` just returns `true`; possibly copied over from previous
     //        implementation?
-    const expanded = this.state.menu.some(menuOption => menuOption.expanded)
+    // const expanded = this.state.menu.some(menuOption => menuOption.expanded)
     // this.setState({ expanded, menu, height })
-    this.setState({ expanded, menu })
+    this.setState({ menu })
   }
 
   // onClickMenuOption(selected, event) {
@@ -108,7 +108,7 @@ export default class Menu extends Component {
     })
 
     this.setState({
-      expanded: false,
+      // expanded: false,
       // height: 'auto',
       menu
     })
@@ -130,11 +130,11 @@ export default class Menu extends Component {
 
     return (
       <>
-        <div class="usa-overlay"></div>
-        <header class="usa-header usa-header--basic bg-white">
-          <div class="usa-nav-container">
-            <div class="usa-navbar">
-              <div class="usa-logo" id="basic-logo">
+        <div className="usa-overlay" />
+        <header className="usa-header usa-header--basic bg-white">
+          <div className="usa-nav-container">
+            <div className="usa-navbar">
+              <div className="usa-logo" id="basic-logo">
                 <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
                   <img
                     src={color === 'white' ? this.props.logoDark : this.props.logoLight}
@@ -144,9 +144,9 @@ export default class Menu extends Component {
                   />
                 </CustomLink>
               </div>
-              <button class="usa-menu-btn bg-white" onClick={::this.onToggleMobileMenu}>
+              <button className="usa-menu-btn bg-white" onClick={::this.onToggleMobileMenu}>
                 <i
-                  class="icon icon-menu text-primary font-body-xl"
+                  className="icon icon-menu text-primary font-body-xl"
                   role="img"
                   aria-label="open menu"
                 />
@@ -154,18 +154,18 @@ export default class Menu extends Component {
             </div>
             <nav
               aria-label="Primary navigation"
-              class={this.state.mobileMenu ? 'usa-nav is-visible' : 'usa-nav'}
+              className={this.state.mobileMenu ? 'usa-nav is-visible' : 'usa-nav'}
             >
-              <button class="usa-nav__close" onClick={::this.onToggleMobileMenu}>
+              <button className="usa-nav__close" onClick={::this.onToggleMobileMenu}>
                 <i
-                  class="icon icon-close text-primary font-body-lg padding-right-4 padding-top-2"
+                  className="icon icon-close text-primary font-body-lg padding-right-4 padding-top-2"
                   role="img"
                   aria-label="close menu"
                 />
               </button>
-              <ul class="usa-nav__primary usa-accordion">
+              <ul className="usa-nav__primary usa-accordion">
                 {map(this.props.menu, menuOption => (
-                  <li class="usa-nav__primary-item">
+                  <li className="usa-nav__primary-item" key={menuOption.name}>
                     <PrimaryMenuOption
                       menuOption={menuOption}
                       onClick={::this.onToggleMenuOption}
@@ -174,7 +174,7 @@ export default class Menu extends Component {
                   </li>
                 ))}
               </ul>
-              <div class="mobile-search-bar">
+              <div className="mobile-search-bar">
                 <MobileMenuSearchBoxComponent
                   mobileMenu={this.state.mobileMenu}
                   toggleMobileMenu={::this.onToggleMobileMenu}
