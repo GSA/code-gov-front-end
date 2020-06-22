@@ -22,13 +22,27 @@ export default class QualityPopover extends Component {
     }))
   }
 
+  onKeyPress(event) {
+    if (event.which === 13) {
+      this.setState(state => ({
+        activated: !state.activated
+      }))
+    }
+  }
+
   render() {
     let iconClassName = 'icon icon-help-circled popper'
     if (this.state.activated) iconClassName += ' activated'
     return (
       <div className="pin-right padding-right-105">
         <span className="data-quality-title">Data Quality Score</span>
-        <div className={iconClassName} onClick={::this.onClick} ref={this.icon}>
+        <div
+          className={iconClassName}
+          onClick={::this.onClick}
+          ref={this.icon}
+          onKeyPress={::this.onKeyPress}
+          tabIndex="0"
+        >
           <div className="popover desktop left">
             The Data Quality Score is determined by using the information provided by Agencies in
             their <CustomLink to="/about/compliance/inventory-code">code.json</CustomLink> and by
