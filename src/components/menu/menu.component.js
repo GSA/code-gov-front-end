@@ -27,22 +27,19 @@ export default class Menu extends Component {
 
   onToggleMenuOption(selected, event) {
     const menu = this.state.menu.map(menuOption => {
+      if (menuOption.expanded && menuOption.name !== selected.name) {
+        menuOption.expanded = false
+      }
       if (menuOption.name === selected.name) {
-        menuOption.expanded = true
+        menuOption.expanded = !menuOption.expanded
       }
       return menuOption
     })
-
-    selected.expanded = !selected.expanded
     this.setState({ menu })
   }
 
-  get expanded() {
-    return this.state.menu.some(option => option.expanded)
-  }
-
   get menus() {
-    return this.props.menu.map(menuOption => (
+    return this.state.menu.map(menuOption => (
       <Fragment key={menuOption.name}>
         <PrimaryMenuOption menuOption={menuOption} onClick={this.onToggleMenuOption} />
         <SecondaryDropdown menuOption={menuOption} />
@@ -102,7 +99,7 @@ export default class Menu extends Component {
                 />
               </button>
               <ul className="usa-nav__primary usa-accordion">
-                {map(this.props.menu, menuOption => (
+                {map(this.state.menu, menuOption => (
                   <li className="usa-nav__primary-item" key={menuOption.name}>
                     <PrimaryMenuOption
                       menuOption={menuOption}
