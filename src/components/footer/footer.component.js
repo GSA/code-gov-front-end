@@ -80,13 +80,16 @@ export default class Footer extends PureComponent {
                   ))}
                 </div>
               </div>
-              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7 text-left">
+              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-5 text-left">
+                <p className="text-right padding-right-1 margin-top-0 font-body-3xs">
+                  <a href="mailto:code@gsa.gov">code@gsa.gov</a>
+                </p>
                 <ul
                   className="usa-footer__social-links grid-row flex-justify-start"
                   data-test="socials"
                 >
                   {map(this.props.socials, social => (
-                    <li key={social.name} className="grid-col-12 tablet:grid-col-3 padding-top-2">
+                    <li key={social.name} className="grid-col-12 tablet:grid-col-3">
                       <a
                         href={social.url}
                         target="_blank"
@@ -135,6 +138,9 @@ export default class Footer extends PureComponent {
                 </div>
               </div>
               <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7 text-left">
+                <p className="text-left font-body-3xs margin-top-0">
+                  <a href="mailto:code@gsa.gov">code@gsa.gov</a>
+                </p>
                 <ul
                   className="usa-footer__social-links grid-row flex-justify-start"
                   data-test="socials"
