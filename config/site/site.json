@@ -17,6 +17,10 @@
       },
       "menu": [
         {
+          "name": "PROJECTS",
+          "url": "/browse-projects?page=1&size=10&sort=data_quality"
+        },
+        {
           "name": "FEDERAL AGENCIES",
           "links": [
             {
@@ -45,12 +49,7 @@
               "url": "https://open.gsa.gov/api/codedotgov/"
             }
           ]
-        },
-        {
-          "name": "PROJECTS",
-          "url": "/browse-projects?page=1&size=10&sort=data_quality"
         }
-
       ],
       "mobile_menu": [
         {

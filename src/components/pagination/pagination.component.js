@@ -21,9 +21,12 @@ export default class Pagination extends Component {
     }
     if (Number(this.props.page) > 1) {
       return (
-        <a className="text-no-underline" onClick={::this.handlePrevious}>
+        <button
+          className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"
+          onClick={::this.handlePrevious}
+        >
           <i className="icon icon-angle-circled-left" /> Prev
-        </a>
+        </button>
       )
     }
   }
@@ -37,9 +40,12 @@ export default class Pagination extends Component {
       )
     }
     return (
-      <a className="text-no-underline" onClick={::this.handleNext}>
+      <button
+        className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"
+        onClick={::this.handleNext}
+      >
         Next <i className="icon icon-angle-circled-right" />
-      </a>
+      </button>
     )
   }
 
@@ -150,7 +156,6 @@ export default class Pagination extends Component {
                   ? 'You are on the first page. There is no previous page.'
                   : 'Go to the previous page.'
               }`}
-              tabIndex="0"
             >
               {this.leftIcon}
             </li>
@@ -201,7 +206,6 @@ export default class Pagination extends Component {
                   ? 'You are on the last page. There is no next page.'
                   : 'Go to the next page.'
               }`}
-              tabIndex="0"
             >
               {this.rightIcon}
             </li>
