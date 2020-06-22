@@ -8,17 +8,9 @@ import MobileMenuSearchBoxComponent from 'components/mobile-menu-search-box'
 import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
 
 export default class Menu extends Component {
-  /*
-  static propTypes = {
-    menu: PropTypes.array.isRequired
-  } */
-
   constructor(props) {
     super(props)
     this.state = {
-      // expanded: false,
-      // height: 'auto',
-      // notAtTop: false,
       menu: props.menu,
       mobileMenu: false
     }
@@ -28,27 +20,9 @@ export default class Menu extends Component {
     this.header = React.createRef()
   }
 
-  // componentDidMount() {
-  //   window.addEventListener('scroll', () => {
-  //     const scrollTop =
-  //       (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
-  //     this.setState({ notAtTop: scrollTop !== 0 })
-  //   })
-
-  //   document.addEventListener('click', event => {
-  //     const target = event.target
-  //     const header = this.header.current
-  //     if (target !== header && !header.contains(target)) {
-  //       this.collapse()
-  //     }
-  //   })
-  // }
-
   onToggleMobileMenu(event) {
-    console.log('toggled')
     const mobileMenu = !this.state.mobileMenu
     this.setState({ mobileMenu })
-    console.log(this.state.mobileMenu)
   }
 
   onToggleMenuOption(selected, event) {
@@ -60,33 +34,8 @@ export default class Menu extends Component {
     })
 
     selected.expanded = !selected.expanded
-
-    // const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
-
-    //  @TODO `expanded` just returns `true`; possibly copied over from previous
-    //        implementation?
-    // const expanded = this.state.menu.some(menuOption => menuOption.expanded)
-    // this.setState({ expanded, menu, height })
     this.setState({ menu })
   }
-
-  // onClickMenuOption(selected, event) {
-  //   const menu = this.state.menu.map(menuOption => {
-  //     if (menuOption.name === selected.name) {
-  //       menuOption.expanded = true
-  //     }
-  //     return menuOption
-  //   })
-
-  //   selected.expanded = !selected.expanded
-
-  //   const height = selected.expanded ? 74 + 47 * selected.links.length : 'auto'
-
-  //   //  @TODO `expanded` just returns `true`; possibly copied over from previous
-  //   //        implementation?
-  //   const expanded = this.state.menu.some(menuOption => menuOption.expanded)
-  //   this.setState({ expanded, menu, height })
-  // }
 
   get expanded() {
     return this.state.menu.some(option => option.expanded)
@@ -108,8 +57,6 @@ export default class Menu extends Component {
     })
 
     this.setState({
-      // expanded: false,
-      // height: 'auto',
       menu
     })
 
@@ -119,15 +66,6 @@ export default class Menu extends Component {
 
   render() {
     const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
-
-    // const headerClassName = `main ${color}`
-
-    // let navClassName = `main ${color}`
-    // if (this.state.expanded) navClassName += ' expanded'
-    // if (this.state.notAtTop) navClassName += ' not-at-top'
-
-    // const navStyle = { height: this.state.height }
-
     return (
       <>
         <div className="usa-overlay" />
@@ -179,44 +117,11 @@ export default class Menu extends Component {
                   mobileMenu={this.state.mobileMenu}
                   toggleMobileMenu={::this.onToggleMobileMenu}
                 />
-
-                {/* <form class="usa-search usa-search--small" role="search">
-                  <label class="usa-sr-only" for="basic-search-field-small">Search small</label>
-                  <input class="usa-input" id="basic-search-field-small" type="search" name="search"/>
-                  <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
-                </form> */}
               </div>
             </nav>
           </div>
         </header>
       </>
-
-      // <header className={headerClassName} ref={this.header}>
-      //   <nav className={navClassName} style={navStyle} aria-label="primary">
-      //     <MobileMenuControl />
-
-      //     <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
-      //       <img
-      //         src={color === 'white' ? this.props.logoDark : this.props.logoLight}
-      //         alt="code.gov"
-      //         className="height-4 maxw-card"
-      //       />
-      //     </CustomLink>
-
-      //     <ul role="menubar" aria-label="primary">
-      //       {map(this.props.menu, menuOption => (
-      //         <li
-      //           className={menuOption.expanded ? 'expanded' : 'margin-bottom-0'}
-      //           key={menuOption.name}
-      //           role="none"
-      //         >
-      //           <PrimaryMenuOption menuOption={menuOption} onClick={::this.onClickMenuOption} />
-      //           <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
-      //         </li>
-      //       ))}
-      //     </ul>
-      //   </nav>
-      // </header>
     )
   }
 }

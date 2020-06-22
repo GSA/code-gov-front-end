@@ -6,7 +6,7 @@ filter-box {
       display: none;
     }
 
-    ul.options {
+    fieldset {
       display: none;
     }
   }
@@ -18,18 +18,20 @@ filter-box {
   }
 
   &.showAll {
-    ul {
-      li {
-        &.hideOnCollapsed {
-          display: none;
-        }
+    form {
+      fieldset {
+        div {
+          &.hideOnCollapsed {
+            display: none;
+          }
 
-        .showMore {
-          display: block !important;
-        }
+          .showMore {
+            display: block !important;
+          }
 
-        .showLess {
-          display: none !important;
+          .showLess {
+            display: none !important;
+          }
         }
       }
     }
@@ -62,40 +64,42 @@ filter-box {
       }
     }
 
-    ul.options {
-      border: 1px solid $color-gray-lighter;
-      margin: 0;
-      padding: 5px 15px;
+    form {
+      fieldset {
+        border: 1px solid $color-gray-lighter;
+        margin: 0;
+        padding: 5px 15px;
 
-      li {
-        margin-bottom: 15px;
-        margin-top: 15px;
+        div {
+          margin-bottom: 15px;
+          margin-top: 15px;
 
-        label {
-          display: inline-block;
+          label {
+            // display: inline-block;
 
-          span {
-            padding-right: 1.75rem;
+            span {
+              padding-right: 1.75rem;
+            }
           }
-        }
 
-        &.checked {
-          display: block !important;
-        }
+          &.checked {
+            display: block !important;
+          }
 
-        .showMore,
-        .showLess {
-          color: $color-blue;
-          cursor: pointer;
-          user-select: none;
-        }
+          .showMore,
+          .showLess {
+            color: $color-blue;
+            cursor: pointer;
+            user-select: none;
+          }
 
-        .showMore {
-          display: none;
-        }
+          .showMore {
+            display: none;
+          }
 
-        .showLess {
-          display: block;
+          .showLess {
+            display: block;
+          }
         }
       }
     }

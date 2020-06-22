@@ -74,6 +74,9 @@ typings/
 # Cypress files
 cypress.env.json
 
+# VS Code Development Files
+.vscode/
+
 # env files
 .env.local
 .env.development.local
