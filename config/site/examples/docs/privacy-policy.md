@@ -36,7 +36,7 @@ A limited number of authorized individuals will have user accounts that will all
 
 Visitors who choose to disable this web measurement tool will still have full access to Code.gov. While the details vary from browser to browser, most modern browsers can be set up to accept, reject, or request user intervention when a site asks to set a cookie.
 
-You can view web metrics information at [https://analytics.usa.gov](https://analytics.usa.gov/).
+[View web metrics information](https://analytics.usa.gov/).
 
 ## Contacting the Code.gov Program Office
 
