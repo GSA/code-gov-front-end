@@ -68,7 +68,7 @@ export default class BrowseProjects extends React.Component {
   render() {
     const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     return (
-      <div className="search-results-content">
+      <main className="search-results-content" id="main-content">
         <SiteBanner title="Projects" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Projects' }]} />
         <div className="grid-container">
@@ -114,7 +114,7 @@ export default class BrowseProjects extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }
