@@ -79,7 +79,7 @@ class AboutPage extends Component {
 
   render() {
     return (
-      <div>
+      <div id="main-content">
         <SiteBanner title="ABOUT" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'About' }]} />
         <br />
