@@ -321,16 +321,16 @@
     "footer": {
       "links": [
         {
-          "name": "Web Policies",
-          "url": "/privacy-policy"
-        },
-        {
-          "name": "Visit Project Page",
-          "url": "https://github.com/GSA/code-gov"
+          "name": "About",
+          "url": "/about-page"
         },
         {
           "name": "Roadmap",
           "url": "/roadmap"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
         }
       ],
       "logos": [

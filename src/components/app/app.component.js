@@ -12,6 +12,7 @@ import ProjectPage from 'components/project-page'
 import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
+import AboutCodeDotGov from 'components/about-codedotgov'
 import OfficialBanner from 'components/official-banner'
 import PrivacyPolicy from 'components/privacy-policy'
 import { refreshView, isHomepage } from 'utils/other'
@@ -45,6 +46,7 @@ export default class AppComponent extends Component {
             <Route path="/projects/:repoID" component={ProjectPage} />
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/about" component={AboutPage} />
+            <Route path="/about-page" component={AboutCodeDotGov} />
             <Redirect to="/" />
           </Switch>
           <Footer />
