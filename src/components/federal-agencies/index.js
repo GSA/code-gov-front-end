@@ -15,15 +15,9 @@ import Procurement from './procurement.component.js'
 const abouturl = `/federal-agencies`
 
 const links = [
-  {
-    text: 'Federal Agencies',
-    route: '/compliance/dashboard',
-    children: [
-      { text: 'Agency Compliance', route: '/compliance/dashboard' },
-      { text: 'How to Procure Software', route: '/compliance/procurement' },
-      { text: 'How to Inventory Code', route: '/compliance/inventory-code' }
-    ]
-  }
+  { text: 'Agency Compliance', route: '/compliance/dashboard' },
+  { text: 'How to Procure Software', route: '/compliance/procurement' },
+  { text: 'How to Inventory Code', route: '/compliance/inventory-code' }
 ]
 
 const pagesForSelect = [
