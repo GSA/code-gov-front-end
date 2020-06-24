@@ -1,63 +1,63 @@
 
-@keyframes bounce {
-  0%,
-  6%,
-  15%,
-  20%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
+// @keyframes bounce {
+//   0%,
+//   6%,
+//   15%,
+//   20%,
+//   100% {
+//     transform: translateX(-50%) translateY(0);
+//   }
 
-  12% {
-    transform: translateX(-50%) translateY(-30px);
-  }
+//   12% {
+//     transform: translateX(-50%) translateY(-30px);
+//   }
 
-  18% {
-    transform: translateX(-50%) translateY(-15px);
-  }
-}
+//   18% {
+//     transform: translateX(-50%) translateY(-15px);
+//   }
+// }
 
-.scroll-indicator {
-  animation: 6s linear bounce infinite;
-  bottom: 0;
-  color: $color-white;
-  font-size: 3em;
-  height: 3rem;
-  left: 50%;
-  overflow: hidden;
-  padding-top: 1rem;
-  position: absolute;
-  transform: translateX(-50%);
-  text-decoration: none;
-  width: 100%;
+// .scroll-indicator {
+//   animation: 6s linear bounce infinite;
+//   bottom: 0;
+//   color: $color-white;
+//   font-size: 3em;
+//   height: 3rem;
+//   left: 50%;
+//   overflow: hidden;
+//   padding-top: 1rem;
+//   position: absolute;
+//   transform: translateX(-50%);
+//   text-decoration: none;
+//   width: 100%;
 
-  &:hover {
-    i {
-      color: $brand-teal;
-    }
-  }
+//   &:hover {
+//     i {
+//       color: $brand-teal;
+//     }
+//   }
 
-  @media screen and (min-width: $small-screen) {
-    font-size: 6em;
-    height: 2rem;
-    padding-bottom: 3rem;
-    padding-top: 2rem;
-  }
+//   @media screen and (min-width: $small-screen) {
+//     font-size: 6em;
+//     height: 2rem;
+//     padding-bottom: 3rem;
+//     padding-top: 2rem;
+//   }
 
-  @media screen and (min-width: $medium-screen) {
-    font-size: 8em;
-    height: 3rem;
-    padding-bottom: 4rem;
-    padding-top: 2rem;
-  }
+//   @media screen and (min-width: $medium-screen) {
+//     font-size: 8em;
+//     height: 3rem;
+//     padding-bottom: 4rem;
+//     padding-top: 2rem;
+//   }
 
-  i {
-    color: $color-white;
-    line-height: 1rem;
-    vertical-align: top;
+//   i {
+//     color: $color-white;
+//     line-height: 1rem;
+//     vertical-align: top;
 
-    &::before {
-      line-height: 1rem;
-    }
-  }
-}
+//     &::before {
+//       line-height: 1rem;
+//     }
+//   }
+// }
