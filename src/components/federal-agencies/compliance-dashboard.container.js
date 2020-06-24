@@ -31,7 +31,7 @@ const onDashboard = [
   'VA'
 ]
 
-const dataurl = `${PUBLIC_PATH}src/components/about-page/html/`
+const dataurl = `${PUBLIC_PATH}src/components/federal-agencies/html/`
 
 export const config = {
   scores: {

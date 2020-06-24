@@ -10,25 +10,16 @@ import SideNav from 'components/side-nav'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.container'
 import InventoryCode from './inventory-code'
-import OverviewIntroduction from './overview-introduction.component'
-import OverviewTrackingProgress from './overview-tracking-progress.component'
+// import OverviewTrackingProgress from './overview-tracking-progress.component'
 import Procurement from './procurement.component.js'
 import OpenSourceIntroduction from './open-source-introduction.component'
 import Resources from './resources.component'
 import MeasuringCode from './measuring-code.component'
 import Licensing from './licensing.component'
 
-const abouturl = `/about`
+const abouturl = `/federal-agencies`
 
 const links = [
-  {
-    text: 'Overview',
-    route: '/overview/introduction',
-    children: [
-      { text: 'Introduction', route: '/overview/introduction' },
-      { text: 'Tracking Progress', route: '/overview/tracking-progress' }
-    ]
-  },
   {
     text: 'Compliance',
     route: '/compliance/dashboard',
@@ -51,8 +42,8 @@ const links = [
 ]
 
 const pagesForSelect = [
-  { display: 'Overview - Introduction', route: '/overview/introduction' },
-  { display: 'Overview - Tracking Progress', route: '/overview/tracking-progress' },
+  // { display: 'Overview - Introduction', route: '/overview/introduction' },
+  // { display: 'Overview - Tracking Progress', route: '/overview/tracking-progress' },
   { display: 'Compliance - Agency Compliance', route: '/compliance/dashboard' },
   { display: 'Compliance - How to Procure Software', route: '/compliance/procurement' },
   { display: 'Compliance - How to Inventory', route: '/compliance/inventory-code' },
@@ -63,7 +54,7 @@ const pagesForSelect = [
   { display: 'Open Source Pilot - Licensing', route: '/open-source/licensing' }
 ].map(({ display, route }) => ({ display, route: abouturl + route }))
 
-class AboutPage extends Component {
+class FederalAgencies extends Component {
   componentDidMount() {
     refreshView()
     window.addEventListener('popstate', event => {
@@ -98,16 +89,10 @@ class AboutPage extends Component {
             </div>
             <div className="grid-col tablet:grid-col-9">
               <Switch>
-                <Route
-                  path={`${abouturl}/overview/introduction`}
-                  component={OverviewIntroduction}
-                />
-                <Route
+                {/* <Route
                   path={`${abouturl}/overview/tracking-progress`}
                   component={OverviewTrackingProgress}
-                />
-                <Redirect from={`${abouturl}/overview`} to={`${abouturl}/overview/introduction`} />
-
+                /> */}
                 <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
                 <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />
                 <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode} />
@@ -135,4 +120,4 @@ class AboutPage extends Component {
   }
 }
 
-export default AboutPage
+export default FederalAgencies

@@ -3,7 +3,7 @@ import { getJSON } from 'utils/other'
 import LazyHTML from 'components/lazy-html'
 import InventoryCodeComponent from './inventory-code.component'
 
-const dataurl = `${PUBLIC_PATH}src/components/about-page/html/`
+const dataurl = `${PUBLIC_PATH}src/components/federal-agencies/html/`
 const schemaUrl = `${PUBLIC_PATH}assets/data/schema.json`
 
 class InventoryCodeContainer extends Component {

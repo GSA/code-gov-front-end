@@ -3,10 +3,7 @@ import { shallow } from 'enzyme'
 import InventoryCodeSectionComponent from './inventory-code-section.component'
 
 const props = {
-  entry: [
-    "version",
-    { description: "The version of the metadata schema in use.", type: "string" }
-  ],
+  entry: ['version', { description: 'The version of the metadata schema in use.', type: 'string' }],
   isRequired: true,
   toggleDetails: jest.fn()
 }
@@ -40,14 +37,14 @@ describe('components - InventoryCodeSectionComponent', () => {
 
     wrapper.setProps({
       entry: [
-        "measurementType",
+        'measurementType',
         {
           properties: {
-            ifOther: {type: 'string', dsecription: 'A one- or two- sentence description...'}
+            ifOther: { type: 'string', dsecription: 'A one- or two- sentence description...' }
           },
-          type: "object"
+          type: 'object'
         }
-      ],
+      ]
     })
     expect(wrapper.find('.dropdown > div').prop('className')).toContain('arrow-up-or-down')
   })
@@ -57,14 +54,14 @@ describe('components - InventoryCodeSectionComponent', () => {
 
     wrapper.setProps({
       entry: [
-        "measurementType",
+        'measurementType',
         {
           properties: {
-            ifOther: {type: 'string', dsecription: 'A one- or two- sentence description...'}
+            ifOther: { type: 'string', dsecription: 'A one- or two- sentence description...' }
           },
-          type: "object"
+          type: 'object'
         }
-      ],
+      ]
     })
 
     console.log(wrapper.debug())

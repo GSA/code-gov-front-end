@@ -25,15 +25,15 @@
           "links": [
             {
               "name": "Agency Compliance",
-              "url": "/about/compliance/dashboard"
+              "url": "/federal-agencies/compliance/dashboard"
             },
             {
               "name": "How to Procure Software",
-              "url": "/about/compliance/procurement"
+              "url": "/federal-agencies/compliance/procurement"
             },
             {
               "name": "How to Inventory Code",
-              "url": "/about/compliance/inventory-code"
+              "url": "/federal-agencies/compliance/inventory-code"
             }
           ]
         },
@@ -57,15 +57,15 @@
           "links": [
             {
               "name": "Overview",
-              "url": "/about/overview/introduction"
+              "url": "/federal-agencies/overview/introduction"
             },
             {
               "name": "Compliance",
-              "url": "/about/compliance/dashboard"
+              "url": "/federal-agencies/compliance/dashboard"
             },
             {
               "name": "Open Source Pilot",
-              "url": "/about/open-source/introduction"
+              "url": "/federal-agencies/open-source/introduction"
             },
             {
               "name": "Source Code Policy",
@@ -82,11 +82,11 @@
           "links": [
             {
               "name": "How to Inventory Code",
-              "url": "/about/compliance/inventory-code"
+              "url": "/federal-agencies/compliance/inventory-code"
             },
             {
               "name": "Compliance Dashboard",
-              "url": "/about/compliance/dashboard"
+              "url": "/federal-agencies/compliance/dashboard"
             }
           ]
         },

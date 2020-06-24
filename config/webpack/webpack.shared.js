@@ -78,8 +78,8 @@ const patterns = [
     to: join(OUTPUT_PATH, '/uswds/fonts')
   },
   {
-    from: './src/components/about-page/html',
-    to: join(OUTPUT_PATH, '/src/components/about-page/html')
+    from: './src/components/federal-agencies/html',
+    to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
   },
   {
     from: './404.html',
@@ -92,7 +92,7 @@ const patterns = [
   {
     from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
     to: 'polyfills/custom-elements.js'
-   },
+  },
   {
     from: 'node_modules/custom-event-polyfill/polyfill.js',
     to: 'polyfills/custom-event.js'
@@ -223,7 +223,7 @@ module.exports = {
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     // new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
-    new CopyWebpackPlugin({patterns: patterns}),
+    new CopyWebpackPlugin({ patterns }),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       hash: true,
