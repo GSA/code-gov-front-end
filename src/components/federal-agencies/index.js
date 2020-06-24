@@ -10,48 +10,26 @@ import SideNav from 'components/side-nav'
 import { refreshView, scrollToTopOfResults } from 'utils/other'
 import ComplianceDashboard from './compliance-dashboard.container'
 import InventoryCode from './inventory-code'
-// import OverviewTrackingProgress from './overview-tracking-progress.component'
 import Procurement from './procurement.component.js'
-import OpenSourceIntroduction from './open-source-introduction.component'
-import Resources from './resources.component'
-import MeasuringCode from './measuring-code.component'
-import Licensing from './licensing.component'
 
 const abouturl = `/federal-agencies`
 
 const links = [
   {
-    text: 'Compliance',
+    text: 'Federal Agencies',
     route: '/compliance/dashboard',
     children: [
       { text: 'Agency Compliance', route: '/compliance/dashboard' },
       { text: 'How to Procure Software', route: '/compliance/procurement' },
-      { text: 'How to Inventory', route: '/compliance/inventory-code' }
-    ]
-  },
-  {
-    text: 'Open Source Pilot',
-    route: '/open-source/introduction',
-    children: [
-      { text: 'Introduction', route: '/open-source/introduction' },
-      { text: 'Tools and Resources', route: '/open-source/resources' },
-      { text: 'How to Measure', route: '/open-source/measuring-code' },
-      { text: 'Licensing', route: '/open-source/licensing' }
+      { text: 'How to Inventory Code', route: '/compliance/inventory-code' }
     ]
   }
 ]
 
 const pagesForSelect = [
-  // { display: 'Overview - Introduction', route: '/overview/introduction' },
-  // { display: 'Overview - Tracking Progress', route: '/overview/tracking-progress' },
   { display: 'Compliance - Agency Compliance', route: '/compliance/dashboard' },
   { display: 'Compliance - How to Procure Software', route: '/compliance/procurement' },
-  { display: 'Compliance - How to Inventory', route: '/compliance/inventory-code' },
-  { display: 'Compliance - Validate Schema', route: '/compliance/inventory-code/validate-schema' },
-  { display: 'Open Source Pilot - Introduction', route: '/open-source/introduction' },
-  { display: 'Open Source Pilot - Tools and Resources', route: '/open-source/resources' },
-  { display: 'Open Source Pilot - How to Measure', route: '/open-source/measuring-code' },
-  { display: 'Open Source Pilot - Licensing', route: '/open-source/licensing' }
+  { display: 'Compliance - How to Inventory Code', route: '/compliance/inventory-code' }
 ].map(({ display, route }) => ({ display, route: abouturl + route }))
 
 class FederalAgencies extends Component {
@@ -71,8 +49,8 @@ class FederalAgencies extends Component {
   render() {
     return (
       <div id="main-content">
-        <SiteBanner title="ABOUT" />
-        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'About' }]} />
+        <SiteBanner title="FEDERAL AGENCIES" />
+        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Federal Agencies' }]} />
         <br />
         <div className="grid-container">
           <div className="show-w-lte-600" style={{ padding: '30px', textAlign: 'center' }}>
@@ -89,26 +67,10 @@ class FederalAgencies extends Component {
             </div>
             <div className="grid-col tablet:grid-col-9">
               <Switch>
-                {/* <Route
-                  path={`${abouturl}/overview/tracking-progress`}
-                  component={OverviewTrackingProgress}
-                /> */}
                 <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
                 <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />
                 <Route path={`${abouturl}/compliance/inventory-code`} component={InventoryCode} />
                 <Redirect from={`${abouturl}/compliance`} to={`${abouturl}/compliance/dashboard`} />
-
-                <Route
-                  path={`${abouturl}/open-source/introduction`}
-                  component={OpenSourceIntroduction}
-                />
-                <Route path={`${abouturl}/open-source/resources`} component={Resources} />
-                <Route path={`${abouturl}/open-source/measuring-code`} component={MeasuringCode} />
-                <Route path={`${abouturl}/open-source/licensing`} component={Licensing} />
-                <Redirect
-                  from={`${abouturl}/open-source`}
-                  to={`${abouturl}/open-source/introduction`}
-                />
               </Switch>
             </div>
           </div>
