@@ -82,7 +82,7 @@ export default class BrowseProjects extends React.Component {
         <div className="grid-container">
           <div className="grid-row grid-gap">
             <div id="filter-boxes-section" className="tablet-lg:grid-col-3 margin-top-4">
-              <h2>Filter</h2>
+              <h2 className="margin-bottom-4">Filter</h2>
 
               <FilterBoxes
                 boxes={this.props.boxes}

@@ -1,107 +1,114 @@
-filter-box {
-  display: block;
+// filter-box {
+//   display: block;
 
-  &.collapsed {
-    .icon-angle-up {
-      display: none;
-    }
+//   &.collapsed {
+//     .icon-angle-up {
+//       display: none;
+//     }
 
-    fieldset {
-      display: none;
-    }
-  }
+//     fieldset {
+//       display: none;
+//     }
+//   }
 
-  &:not(.collapsed) {
-    .icon-angle-down {
-      display: none;
-    }
-  }
+//   &:not(.collapsed) {
+//     .icon-angle-down {
+//       display: none;
+//     }
+//   }
 
-  &.showAll {
-    form {
-      fieldset {
-        div {
-          &.hideOnCollapsed {
-            display: none;
-          }
+//   // &.showAll {
+//   //   div {
+//   //     form {
+//   //       fieldset {
+//   //         div {
+//   //           &.hideOnCollapsed {
+//   //             display: none;
+//   //           }
 
-          .showMore {
-            display: block !important;
-          }
+//   //           .showMore {
+//   //             display: block !important;
+//   //           }
 
-          .showLess {
-            display: none !important;
-          }
-        }
-      }
-    }
-  }
+//   //           .showLess {
+//   //             display: none !important;
+//   //           }
+//   //         }
+//   //       }
+//   //     }
+//   //   }
+//   // }
 
-  .filter-box {
-    border: 1px solid $color-gray-light;
-    display: block;
-    margin: 0;
-    max-width: 100%;
-    padding: 0;
-    width: 100%;
+//   .filter-box {
+//     border: 1px solid $color-gray-light;
+//     display: block;
+//     margin: 0;
+//     max-width: 100%;
+//     padding: 0;
+//     width: 100%;
 
-    .title-bar {
-      background-color: $brand-primary;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      position: relative;
+//     .title-bar {
+//       background-color: $brand-primary;
+//       color: white;
+//       font-weight: bold;
+//       padding: 10px;
+//       position: relative;
 
-      i {
-        color: white;
-        cursor: pointer;
-        font-size: 2em;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        user-select: none;
-      }
-    }
+//       i {
+//         color: white;
+//         cursor: pointer;
+//         font-size: 2em;
+//         position: absolute;
+//         right: 0;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         user-select: none;
+//       }
+//     }
+//   }
 
-    form {
-      fieldset {
-        border: 1px solid $color-gray-lighter;
-        margin: 0;
-        padding: 5px 15px;
+//   .usa-accordion {
+//     div {
+//       form {
+//         fieldset {
+//           border: 1px solid $color-gray-lighter;
+//           margin: 0;
+//           padding: 5px 15px;
 
-        div {
-          margin-bottom: 15px;
-          margin-top: 15px;
+//           div {
+//             margin-bottom: 15px;
+//             margin-top: 15px;
 
-          label {
-            // display: inline-block;
+//             label {
+//               // display: inline-block;
 
-            span {
-              padding-right: 1.75rem;
-            }
-          }
+//               span {
+//                 padding-right: 1.75rem;
+//               }
+//             }
 
-          &.checked {
-            display: block !important;
-          }
+//             &.checked {
+//               display: block !important;
+//             }
 
-          .showMore,
-          .showLess {
-            color: $color-blue;
-            cursor: pointer;
-            user-select: none;
-          }
+//             // .showMore,
+//             // .showLess {
+//             //   color: $color-blue;
+//             //   cursor: pointer;
+//             //   user-select: none;
+//             // }
 
-          .showMore {
-            display: none;
-          }
+//             // .showMore {
+//             //   display: none;
+//             // }
 
-          .showLess {
-            display: block;
-          }
-        }
-      }
-    }
-  }
-}
+//             // .showLess {
+//             //   display: block;
+//             // }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+// }

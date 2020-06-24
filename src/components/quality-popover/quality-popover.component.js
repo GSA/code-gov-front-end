@@ -42,6 +42,7 @@ export default class QualityPopover extends Component {
           ref={this.icon}
           onKeyPress={::this.onKeyPress}
           tabIndex="0"
+          alt="Data quality score popover"
         >
           <div className="popover desktop left">
             The Data Quality Score is determined by using the information provided by Agencies in
