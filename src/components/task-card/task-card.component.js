@@ -11,8 +11,8 @@ export default class TaskCardComponent extends Component {
     if (typeof issueGitHubURL === 'string' && issueGitHubURL.includes('github.com')) {
       return (
         <div className="display-inline-block pin-right pin-bottom margin-bottom-2 margin-right-3">
-          <a href={issueGitHubURL} target="_blank" rel="noopener noreferrer">
-            <button className="usa-button">Go to Issue</button>
+          <a href={issueGitHubURL} target="_blank" rel="noopener noreferrer" className="usa-button">
+            Go to Issue
           </a>
         </div>
       )

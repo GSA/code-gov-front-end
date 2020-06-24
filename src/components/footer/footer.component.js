@@ -67,7 +67,7 @@ export default class Footer extends PureComponent {
                       >
                         <img
                           src={logo.image}
-                          alt={logo.name}
+                          alt={`${logo.name  } logo`}
                           className="maxw-15 padding-right-2 show-w-gt-desktop"
                         />
                         <div className="mobile-lg:grid-col-auto desktop:display-inline">
