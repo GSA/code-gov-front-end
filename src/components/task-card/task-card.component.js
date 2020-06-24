@@ -8,11 +8,13 @@ import CardPart from 'components/card-part'
 export default class TaskCardComponent extends Component {
   get goToIssueButton() {
     const issueGitHubURL = get(this.props.task, 'issueURL')
+    const title = get(this.props.task, 'title')
     if (typeof issueGitHubURL === 'string' && issueGitHubURL.includes('github.com')) {
       return (
         <div className="display-inline-block pin-right pin-bottom margin-bottom-2 margin-right-3">
           <a href={issueGitHubURL} target="_blank" rel="noopener noreferrer" className="usa-button">
             Go to Issue
+            <p className="usa-sr-only">{title}</p>
           </a>
         </div>
       )
