@@ -45,7 +45,6 @@ export default class AppComponent extends Component {
             <Route path="/privacy-policy" component={PrivacyPolicy} />
             <Route path="/projects/:repoID" component={ProjectPage} />
             <Route path="/roadmap" component={Roadmap} />
-            {/* <Route path="/federal-agencies" component={AboutPage} /> */}
             <Route path="/about-page" component={AboutCodeDotGov} />
             <Redirect to="/" />
           </Switch>

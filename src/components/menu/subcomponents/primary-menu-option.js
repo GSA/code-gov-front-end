@@ -6,16 +6,11 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
   const idx = `${menuOption.name}-menu`
   if (menuOption.url) {
     return (
-      <a className="usa-nav__link" href={menuOption.url}>
-        <span>{textContent}</span>
-      </a>
-      // <CustomLink
-      //   to={menuOption.url}
-      //   role="menuitem"
-      //   /* onClick={this.closeAllMenus} */
-      // >
-      //   {textContent}
-      // </CustomLink>
+      <button className="usa-nav__link">
+        <CustomLink to={menuOption.url} className="text-base-dark" role="menuitem">
+          {textContent}
+        </CustomLink>
+      </button>
     )
   }
   return (
@@ -31,14 +26,5 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
     >
       <span>{textContent}</span>
     </button>
-    // <a
-    //   aria-haspopup="true"
-    //   href="javascript:void(0);"
-    //   tabIndex="0"
-    //   role="menuitem"
-    //   onClick={event => onClick(menuOption, event)}
-    // >
-    //   {textContent}
-    // </a>
   )
 }

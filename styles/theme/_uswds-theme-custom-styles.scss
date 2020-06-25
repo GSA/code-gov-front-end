@@ -76,3 +76,16 @@ select {
     clear: both;
   }
 }
+
+.usa-nav__primary-item {
+  a {
+    color: #565c65;
+    font-weight: 700;
+  }
+}
+
+.usa-nav__primary-item {
+  a:hover {
+    color: #07648d;
+  }
+}

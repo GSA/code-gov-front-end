@@ -31,16 +31,6 @@ export default function SecondaryDropdown({ menuOption, onClick }) {
             )
           })}
         </ul>
-        // <ul role="menu">
-        //   {menuOption.links.map(link => {
-        //     const { name, url } = link
-        //     return (
-        //       <li key={url}>
-        //         <LinkPart name={name} onClick={onClick} url={url} />
-        //       </li>
-        //     )
-        //   })}
-        // </ul>
       )
     }
     return (
