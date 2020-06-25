@@ -21,9 +21,9 @@ const links = [
 ]
 
 const pagesForSelect = [
-  { display: 'Compliance - Agency Compliance', route: '/compliance/dashboard' },
-  { display: 'Compliance - How to Procure Software', route: '/compliance/procurement' },
-  { display: 'Compliance - How to Inventory Code', route: '/compliance/inventory-code' }
+  { display: 'Agency Compliance', route: '/compliance/dashboard' },
+  { display: 'How to Procure Software', route: '/compliance/procurement' },
+  { display: 'How to Inventory Code', route: '/compliance/inventory-code' }
 ].map(({ display, route }) => ({ display, route: abouturl + route }))
 
 class FederalAgencies extends Component {
