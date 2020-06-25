@@ -32,7 +32,7 @@ export default class AppComponent extends Component {
           <a className="usa-skipnav z-500" href="#main-content">
             Skip to main content
           </a>
-          <div className="width-full">
+          <div className="width-full menu-banner-header">
             {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
             <Menu />
           </div>

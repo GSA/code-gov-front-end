@@ -94,7 +94,7 @@ export function refreshView() {
 
 export function scrollToTopOfResults() {
   console.log('starting scrollToTopOfResults')
-  const headerHeight = document.querySelector('header').clientHeight
+  const headerHeight = document.querySelector('.menu-banner-header').clientHeight
   const bannerHeight = document.querySelector('.usa-section').clientHeight
   const scrollDepth = headerHeight + bannerHeight
   const scrollOptionsSupported = document.documentElement.style.scrollBehavior !== undefined
@@ -102,12 +102,12 @@ export function scrollToTopOfResults() {
     window.scrollTo({
       behavior: 'smooth',
       left: 0,
-      top: 0
+      top: scrollDepth
     })
   } else {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, scrollDepth)
   }
-  setScrollDepth(0)
+  setScrollDepth(scrollDepth)
 }
 
 /* gets a set of values given a path */
