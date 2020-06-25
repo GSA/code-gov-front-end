@@ -102,12 +102,12 @@ export function scrollToTopOfResults() {
     window.scrollTo({
       behavior: 'smooth',
       left: 0,
-      top: scrollDepth
+      top: 0
     })
   } else {
-    window.scrollTo(0, scrollDepth)
+    window.scrollTo(0, 0)
   }
-  setScrollDepth(scrollDepth)
+  setScrollDepth(0)
 }
 
 /* gets a set of values given a path */
