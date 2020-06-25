@@ -1,5 +1,6 @@
 import React from 'react'
 import { len, map } from '@code.gov/cautious'
+import { NavLink } from 'react-router-dom'
 
 export const SideNavPart = ({ baseurl, links, onLinkClick }) => {
   const currentPage = window.location.pathname
@@ -8,13 +9,13 @@ export const SideNavPart = ({ baseurl, links, onLinkClick }) => {
       <ul className="usa-sidenav">
         {map(links, link => (
           <li key={link.text + link.route} className="usa-sidenav__item">
-            <a
-              href={`${baseurl}${link.route}`}
+            <NavLink
+              activeClassName="usa-current"
+              to={`${baseurl}${link.route}`}
               onClick={() => (onLinkClick ? onLinkClick() : null)}
-              className={currentPage === baseurl + link.route ? 'usa-current' : ''}
             >
               {link.text}
-            </a>
+            </NavLink>
             {link.children && (
               <SideNavPart baseurl={baseurl} links={link.children} onLinkClick={onLinkClick} />
             )}
