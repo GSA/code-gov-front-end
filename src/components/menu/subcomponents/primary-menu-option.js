@@ -6,11 +6,9 @@ export default function PrimaryMenuOption({ menuOption, onClick }) {
   const idx = `${menuOption.name}-menu`
   if (menuOption.url) {
     return (
-      <button className="usa-nav__link">
-        <CustomLink to={menuOption.url} className="text-base-dark" role="menuitem">
-          {textContent}
-        </CustomLink>
-      </button>
+      <CustomLink to={menuOption.url} className="text-base-dark usa-nav__link" role="menuitem">
+        {textContent}
+      </CustomLink>
     )
   }
   return (
