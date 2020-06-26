@@ -80,12 +80,14 @@ select {
 .usa-nav__primary-item {
   a {
     color: #565c65;
-    font-weight: 700;
+  }
+
+  &:hover {
+    color: #07648d;
+  }
+
+  button: {
+    font-weight: normal;
   }
 }
 
-.usa-nav__primary-item {
-  a:hover {
-    color: #07648d;
-  }
-}
