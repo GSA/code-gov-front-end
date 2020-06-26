@@ -80,12 +80,25 @@ select {
 .usa-nav__primary-item {
   a {
     color: #565c65;
-    font-weight: 700;
+    font-weight: normal;
+    padding: 0em;
+  }
+  button {
+    font-weight: normal;
   }
 }
 
 .usa-nav__primary-item {
   a:hover {
     color: #07648d;
+  }
+}
+
+.usa-nav__submenu {
+  a {
+    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }

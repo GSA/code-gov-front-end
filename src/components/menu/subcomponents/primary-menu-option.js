@@ -1,14 +1,20 @@
 import React from 'react'
 import CustomLink from 'components/custom-link'
 
-export default function PrimaryMenuOption({ menuOption, onClick }) {
+export default function PrimaryMenuOption({ menuOption, onClick, onSelectLink }) {
   const textContent = menuOption.name
   const idx = `${menuOption.name}-menu`
   if (menuOption.url) {
     return (
-      <CustomLink to={menuOption.url} className="text-base-dark usa-nav__link" role="menuitem">
-        {textContent}
-      </CustomLink>
+      <button
+        tabIndex="-1"
+        className="padding-0 usa-nav__link width-full"
+        onClick={event => onSelectLink(event)}
+      >
+        <CustomLink to={menuOption.url} className="text-base-dark" role="menuitem">
+          {textContent}
+        </CustomLink>
+      </button>
     )
   }
   return (
