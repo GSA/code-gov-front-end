@@ -51,7 +51,7 @@ class FederalAgencies extends Component {
             <NavSelect pages={pagesForSelect} />
           </div>
           <div className="grid-row grid-gap">
-            <div className="grid-col tablet:grid-col-3 show-w-gt-600 sticky">
+            <div className="grid-col tablet:grid-col-3 show-w-gt-600 sticky height-viewport">
               <SideNav
                 alignment="left"
                 baseurl={abouturl}

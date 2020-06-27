@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
 import { getText } from 'utils/other'
+import React, { Component } from 'react'
+import ReactPlaceholder from 'react-placeholder'
+import 'react-placeholder/lib/reactPlaceholder.css'
 
 export default class LazyHTML extends Component {
   constructor(props) {
@@ -11,11 +13,13 @@ export default class LazyHTML extends Component {
 
   componentDidMount() {
     this.mounted = true
+
     if (!this.loading) {
       this.loading = true
+
       getText(this.props.url).then(html => {
         if (this.mounted) {
-          this.setState({ html })
+          this.setState({ html, loaded: true })
         }
       })
     }
@@ -32,6 +36,10 @@ export default class LazyHTML extends Component {
   }
 
   render() {
-    return <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
+    return (
+      <ReactPlaceholder type="text" showLoadingAnimation rows={20} ready={this.state.loaded}>
+        <div dangerouslySetInnerHTML={{ __html: this.state.html }} />
+      </ReactPlaceholder>
+    )
   }
 }
