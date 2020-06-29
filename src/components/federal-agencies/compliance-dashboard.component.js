@@ -8,15 +8,15 @@ const displayStatus = {
 }
 
 const statusColor = {
-  compliant: 'text-mint',
-  noncompliant: 'text-red',
-  partial: 'text-gold'
+  compliant: 'text-success-dark',
+  noncompliant: 'text-error-dark',
+  partial: 'text-warning-darker'
 }
 
 const borderColor = {
-  compliant: 'border-mint',
-  noncompliant: 'border-red',
-  partial: 'border-gold'
+  compliant: 'border-success',
+  noncompliant: 'border-error-dark',
+  partial: 'border-warning'
 }
 
 const isCompliant = (min, max, score) =>
