@@ -11,8 +11,13 @@ export default class TaskCardComponent extends Component {
     const title = get(this.props.task, 'title')
     if (typeof issueGitHubURL === 'string' && issueGitHubURL.includes('github.com')) {
       return (
-        <div className="display-inline-block pin-right pin-bottom margin-bottom-2 margin-right-3">
-          <a href={issueGitHubURL} target="_blank" rel="noopener noreferrer" className="usa-button">
+        <div className="tablet:grid-col-3 margin-bottom-2 grid-col-12 margin-top-5 tablet:margin-top-0">
+          <a
+            href={issueGitHubURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="usa-button font-heading-2xs padding-x-2 pin-bottom pin-right"
+          >
             Go to Issue
             <p className="usa-sr-only">{title}</p>
           </a>
@@ -80,14 +85,16 @@ export default class TaskCardComponent extends Component {
           <dt className="display-inline text-bold margin-right-2px">Last Updated: </dt>
           <dd className="display-inline margin-left-2px margin-right-3">{lastModifiedString}</dd>
         </dl>
-        <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px">
-          <ul className="display-inline-block grid-col-9">
-            <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
-            <CardPart title="Type" text={capitalize(get(task, 'type'))} />
-            <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
-            <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
-          </ul>
-          {this.goToIssueButton}
+        <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
+          <div className="grid-row">
+            <ul className="display-inline-block tablet:grid-col-9 grid-col-12">
+              <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
+              <CardPart title="Type" text={capitalize(get(task, 'type'))} />
+              <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
+              <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
+            </ul>
+            {this.goToIssueButton}
+          </div>
         </div>
       </div>
     )

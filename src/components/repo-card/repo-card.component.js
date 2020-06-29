@@ -14,8 +14,13 @@ export default class RepoCardComponent extends Component {
     const url = get(this.props.repo, 'repositoryURL')
     if (typeof url === 'string' && url.includes('github.com')) {
       return (
-        <div className="display-inline-block pin-right pin-bottom margin-bottom-2 margin-right-3">
-          <a href={url} target="_blank" rel="noopener noreferrer" className="usa-button">
+        <div className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-2 grid-col-12 margin-top-5 tablet:margin-top-0">
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="usa-button font-heading-2xs padding-x-2 pin-bottom pin-right"
+          >
             Go to Repo
             <p className="usa-sr-only">{this.props.repo.name}</p>
           </a>
@@ -106,13 +111,15 @@ export default class RepoCardComponent extends Component {
             </li>
           </ul>
 
-          <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px">
-            <ul className="display-inline-block grid-col-8">
-              <CardPart title="Usage Type" text={usageType} />
-              {this.repoLanguages}
-              <CardPart title="License" text={license} />
-            </ul>
-            {this.goToButton}
+          <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
+            <div className="grid-row">
+              <ul className="display-inline-block tablet:grid-col-9 desktop:grid-col-10 grid-col-12">
+                <CardPart title="Usage Type" text={usageType} />
+                {this.repoLanguages}
+                <CardPart title="License" text={license} />
+              </ul>
+              {this.goToButton}
+            </div>
           </div>
         </div>
       </li>
