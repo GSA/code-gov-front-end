@@ -1,20 +1,20 @@
-ul.breadcrumbs {
- 
-  li {
+// ul.breadcrumbs {
 
-    &::before {
-      content: '> ';
-      font-weight: normal;
-    }
+//   li {
 
-    &:first-of-type {
-      &::before {
-        content: '';
-      }
-    }
+//     &::before {
+//       content: '> ';
+//       font-weight: normal;
+//     }
 
-    &:last-child {
-      font-weight: $font-bold;
-    }
-  }
-}
+//     &:first-of-type {
+//       &::before {
+//         content: '';
+//       }
+//     }
+
+//     &:last-child {
+//       font-weight: $font-bold;
+//     }
+//   }
+// }
