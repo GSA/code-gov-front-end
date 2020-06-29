@@ -90,3 +90,14 @@ select {
     font-weight: normal;
   }
 }
+
+.autocomplete {
+  li {
+    a {
+      span {
+        text-overflow: ellipsis;
+        width: calc(100% - 50px);
+      }
+    }
+  }
+}

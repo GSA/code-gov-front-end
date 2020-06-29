@@ -38,7 +38,7 @@ export default class SearchPage extends React.Component {
         textContent = `Top ${total} repositories for "${query}"`
       }
     }
-    return <h3 className="repos-count width-three-quarters">{textContent}</h3>
+    return <h3 className="grid-col">{textContent}</h3>
   }
 
   get reposContainer() {

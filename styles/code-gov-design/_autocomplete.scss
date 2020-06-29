@@ -1,41 +1,41 @@
-.autocomplete {
-  background-color: #fff;
-  border: 1px solid lighten(#1c4772, 20);
-  display: block;
-  margin-top: 0.25em;
-  position: relative;
-  text-align: left;
-  width: 100%;
-  z-index: 1;
+// .autocomplete {
+//   background-color: #fff;
+//   border: 1px solid lighten(#1c4772, 20);
+//   display: block;
+//   margin-top: 0.25em;
+//   position: relative;
+//   text-align: left;
+//   width: 100%;
+//   z-index: 1;
 
-  li {
-    padding: 0;
+//   li {
+//     padding: 0;
 
-    a {
-      cursor: pointer;
-      display: block;
-      padding: 10px;
-      padding-left: 20px;
-      text-decoration: none;
+//     a {
+//       cursor: pointer;
+//       display: block;
+//       padding: 10px;
+//       padding-left: 20px;
+//       text-decoration: none;
 
-      &:hover {
-        background-color: #7baddf;
-      }
+//       &:hover {
+//         background-color: #7baddf;
+//       }
 
-      .icon {
-        color: $brand-blue;
-        max-width: 50px;
-      }
+//       .icon {
+//         color: $brand-blue;
+//         max-width: 50px;
+//       }
 
-      span {
-        color: black;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: calc(100% - 50px);
-        display: inline-block;
-        overflow: hidden;
-        vertical-align: bottom;
-      }
-    }
-  }
-}
+//       span {
+//         color: black;
+//         white-space: nowrap;
+//         text-overflow: ellipsis;
+//         width: calc(100% - 50px);
+//         display: inline-block;
+//         overflow: hidden;
+//         vertical-align: bottom;
+//       }
+//     }
+//   }
+// }
