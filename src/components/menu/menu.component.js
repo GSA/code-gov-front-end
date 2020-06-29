@@ -104,6 +104,7 @@ export default class Menu extends Component {
                     <PrimaryMenuOption
                       menuOption={menuOption}
                       onClick={::this.onToggleMenuOption}
+                      onSelectLink={::this.onToggleMobileMenu}
                     />
                     <SecondaryDropdown menuOption={menuOption} onClick={::this.collapse} />
                   </li>
