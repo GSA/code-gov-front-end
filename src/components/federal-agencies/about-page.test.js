@@ -2,9 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import client from 'api-client'
-import AboutPage from 'components/about-page'
-import ComplianceDashboard from 'components/about-page/compliance-dashboard.container'
-import InventoryCode from 'components/about-page/inventory-code/inventory-code.container'
+import FederalAgencies from 'components/federal-agencies'
+import ComplianceDashboard from 'components/federal-agencies/compliance-dashboard.container'
+import InventoryCode from 'components/federal-agencies/inventory-code/inventory-code.container'
 import { eventMap, push } from '../../../tests/mocks/window'
 import { refreshView, scrollToTopOfResults, loadScript, getJSON } from '../../utils/other'
 
@@ -49,7 +49,7 @@ let wrapper
 let instance
 describe('components - AboutPage', () => {
   beforeEach(() => {
-    wrapper = shallow(<AboutPage {...props} />)
+    wrapper = shallow(<FederalAgencies {...props} />)
     instance = wrapper.instance()
   })
 
@@ -63,7 +63,7 @@ describe('components - AboutPage', () => {
       eventMap.popstate()
       expect(scrollToTopOfResults).not.toBeCalled()
       // pathname starts with `PUBLIC_PATH + 'about'`, scroll to top
-      push(`${PUBLIC_PATH}about/test-1`)
+      push(`${PUBLIC_PATH}federal-agencies/test-1`)
       eventMap.popstate()
       expect(scrollToTopOfResults).toBeCalled()
     })

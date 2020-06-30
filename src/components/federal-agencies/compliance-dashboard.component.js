@@ -54,13 +54,12 @@ const getCard = (config, entry) => {
   const overallStatus = getStatusAsText(config, requirements.overall)
 
   return (
-    <div
-      className={`radius-0 ${borderColor[overallStatus]} border-left-3 height-auto`}
+    <li
+      className={`usa-card radius-0 ${borderColor[overallStatus]} border-left-3 height-auto width-full`}
       key={`card-${name}`}
     >
       <div
-        className="usa-card__container radius-0 height-auto margin-bottom-2
-        partial border-left-width-0 border-base-light border-width-1px margin-left-0 margin-right-0"
+        className="usa-card__container radius-0 height-auto border-left-width-0 border-base-light border-width-1px margin-left-0 margin-right-0"
         key={`card-${name}-2`}
       >
         <div className="usa-card__media usa-card__media--inset display-block pin-top pin-left">
@@ -79,17 +78,15 @@ const getCard = (config, entry) => {
           </header>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
 
 const ComplianceDashboardComponent = props => (
   <>
     <hr className="border-2px border-primary tablet:margin-x-15 margin-x-2 margin-y-4" />
-    <ul className="usa-card-group">
-      <li className="usa-card padding-x-3">
-        {props.data.map(entry => getCard(props.config, entry))}
-      </li>
+    <ul className="usa-card-group padding-x-3">
+      {props.data.map(entry => getCard(props.config, entry))}
     </ul>
   </>
 )

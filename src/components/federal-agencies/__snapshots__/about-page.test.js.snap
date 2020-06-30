@@ -3,7 +3,7 @@
 exports[`components - AboutPage - ComplianceDashboard render should render correctly 1`] = `
 <Fragment>
   <LazyHTML
-    url="/src/components/about-page/html/compliance/agency-compliance.html"
+    url="/src/components/federal-agencies/html/compliance/agency-compliance.html"
   />
   <ComplianceDashboardComponent
     config={
@@ -66,27 +66,29 @@ exports[`components - AboutPage - ComplianceDashboard render should render corre
     }
   />
 </Fragment>
-`
+`;
 
 exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
 <Fragment>
   <LazyHTML
-    url="/src/components/about-page/html/compliance/how-to-inventory-a.html"
+    url="/src/components/federal-agencies/html/compliance/how-to-inventory-a.html"
   />
   <InventoryCodeComponent
     schema={Object {}}
     url="/assets/data/schema.json"
   />
   <LazyHTML
-    url="/src/components/about-page/html/compliance/how-to-inventory-b.html"
+    url="/src/components/federal-agencies/html/compliance/how-to-inventory-b.html"
   />
 </Fragment>
-`
+`;
 
 exports[`components - AboutPage render should render correctly 1`] = `
-<div>
+<div
+  id="main-content"
+>
   <Connect(SiteBanner)
-    title="ABOUT"
+    title="FEDERAL AGENCIES"
   />
   <Breadcrumbs
     crumbs={
@@ -96,14 +98,14 @@ exports[`components - AboutPage render should render correctly 1`] = `
           "to": "/",
         },
         Object {
-          "text": "About",
+          "text": "Federal Agencies",
         },
       ]
     }
   />
   <br />
   <div
-    className="indented"
+    className="grid-container"
   >
     <div
       className="show-w-lte-600"
@@ -118,175 +120,75 @@ exports[`components - AboutPage render should render correctly 1`] = `
         pages={
           Array [
             Object {
-              "display": "Overview - Introduction",
-              "route": "/about/overview/introduction",
+              "display": "Agency Compliance",
+              "route": "/federal-agencies/compliance/dashboard",
             },
             Object {
-              "display": "Overview - Tracking Progress",
-              "route": "/about/overview/tracking-progress",
+              "display": "How to Procure Software",
+              "route": "/federal-agencies/compliance/procurement",
             },
             Object {
-              "display": "Compliance - Agency Compliance",
-              "route": "/about/compliance/dashboard",
-            },
-            Object {
-              "display": "Compliance - How to Procure Software",
-              "route": "/about/compliance/procurement",
-            },
-            Object {
-              "display": "Compliance - How to Inventory",
-              "route": "/about/compliance/inventory-code",
-            },
-            Object {
-              "display": "Compliance - Validate Schema",
-              "route": "/about/compliance/inventory-code/validate-schema",
-            },
-            Object {
-              "display": "Open Source Pilot - Introduction",
-              "route": "/about/open-source/introduction",
-            },
-            Object {
-              "display": "Open Source Pilot - Tools and Resources",
-              "route": "/about/open-source/resources",
-            },
-            Object {
-              "display": "Open Source Pilot - How to Measure",
-              "route": "/about/open-source/measuring-code",
-            },
-            Object {
-              "display": "Open Source Pilot - Licensing",
-              "route": "/about/open-source/licensing",
+              "display": "How to Inventory Code",
+              "route": "/federal-agencies/compliance/inventory-code",
             },
           ]
         }
       />
     </div>
     <div
-      className="width-quarter show-w-gt-600 sticky"
+      className="grid-row grid-gap"
     >
-      <SideNav
-        alignment="left"
-        baseurl="/about"
-        links={
-          Array [
-            Object {
-              "children": Array [
-                Object {
-                  "route": "/overview/introduction",
-                  "text": "Introduction",
-                },
-                Object {
-                  "route": "/overview/tracking-progress",
-                  "text": "Tracking Progress",
-                },
-              ],
-              "route": "/overview/introduction",
-              "text": "Overview",
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "route": "/compliance/dashboard",
-                  "text": "Agency Compliance",
-                },
-                Object {
-                  "route": "/compliance/procurement",
-                  "text": "How to Procure Software",
-                },
-                Object {
-                  "route": "/compliance/inventory-code",
-                  "text": "How to Inventory",
-                },
-              ],
-              "route": "/compliance/dashboard",
-              "text": "Compliance",
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "route": "/open-source/introduction",
-                  "text": "Introduction",
-                },
-                Object {
-                  "route": "/open-source/resources",
-                  "text": "Tools and Resources",
-                },
-                Object {
-                  "route": "/open-source/measuring-code",
-                  "text": "How to Measure",
-                },
-                Object {
-                  "route": "/open-source/licensing",
-                  "text": "Licensing",
-                },
-              ],
-              "route": "/open-source/introduction",
-              "text": "Open Source Pilot",
-            },
-          ]
-        }
-        onLinkClick={[Function]}
-      />
-    </div>
-    <div
-      className="docs-content"
-    >
-      <Switch>
-        <Route
-          component={[Function]}
-          path="/about/overview/introduction"
+      <div
+        className="grid-col tablet:grid-col-3 show-w-gt-600 sticky height-viewport"
+      >
+        <SideNav
+          alignment="left"
+          baseurl="/federal-agencies"
+          links={
+            Array [
+              Object {
+                "route": "/compliance/dashboard",
+                "text": "Agency Compliance",
+              },
+              Object {
+                "route": "/compliance/procurement",
+                "text": "How to Procure Software",
+              },
+              Object {
+                "route": "/compliance/inventory-code",
+                "text": "How to Inventory Code",
+              },
+            ]
+          }
+          onLinkClick={[Function]}
         />
-        <Route
-          component={[Function]}
-          path="/about/overview/tracking-progress"
-        />
-        <Redirect
-          from="/about/overview"
-          push={false}
-          to="/about/overview/introduction"
-        />
-        <Route
-          component={[Function]}
-          path="/about/compliance/dashboard"
-        />
-        <Route
-          component={[Function]}
-          path="/about/compliance/procurement"
-        />
-        <Route
-          component={[Function]}
-          path="/about/compliance/inventory-code"
-        />
-        <Redirect
-          from="/about/compliance"
-          push={false}
-          to="/about/compliance/dashboard"
-        />
-        <Route
-          component={[Function]}
-          path="/about/open-source/introduction"
-        />
-        <Route
-          component={[Function]}
-          path="/about/open-source/resources"
-        />
-        <Route
-          component={[Function]}
-          path="/about/open-source/measuring-code"
-        />
-        <Route
-          component={[Function]}
-          path="/about/open-source/licensing"
-        />
-        <Redirect
-          from="/about/open-source"
-          push={false}
-          to="/about/open-source/introduction"
-        />
-      </Switch>
+      </div>
+      <div
+        className="grid-col tablet:grid-col-9"
+      >
+        <Switch>
+          <Route
+            component={[Function]}
+            path="/federal-agencies/compliance/dashboard"
+          />
+          <Route
+            component={[Function]}
+            path="/federal-agencies/compliance/procurement"
+          />
+          <Route
+            component={[Function]}
+            path="/federal-agencies/compliance/inventory-code"
+          />
+          <Redirect
+            from="/federal-agencies/compliance"
+            push={false}
+            to="/federal-agencies/compliance/dashboard"
+          />
+        </Switch>
+      </div>
     </div>
   </div>
   <br />
   <br />
 </div>
-`
+`;

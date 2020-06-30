@@ -2,18 +2,22 @@
 
 exports[`components - ComplianceDashboard should render correctly 1`] = `
 <Fragment>
-  <div
-    className="dashboard-container"
+  <hr
+    className="border-2px border-primary tablet:margin-x-15 margin-x-2 margin-y-4"
+  />
+  <ul
+    className="usa-card-group padding-x-3"
   >
-    <ul
-      className="dashboard-list"
+    <li
+      className="usa-card radius-0 border-warning border-left-3 height-auto width-full"
+      key="card-Department of Agriculture"
     >
-      <li
-        className="card partial"
-        key="card-Department of Agriculture"
+      <div
+        className="usa-card__container radius-0 height-auto border-left-width-0 border-base-light border-width-1px margin-left-0 margin-right-0"
+        key="card-Department of Agriculture-2"
       >
         <div
-          className="dashboard-entity-icon"
+          className="usa-card__media usa-card__media--inset display-block pin-top pin-left"
         >
           <img
             alt="Department of Agriculture logo"
@@ -21,43 +25,55 @@ exports[`components - ComplianceDashboard should render correctly 1`] = `
           />
         </div>
         <div
-          className="dashboard-entity-content"
+          className="usa-card__body display-block margin-left-6 margin-top-105 margin-bottom-neg-2"
         >
-          <div
-            className="dashboard-entity-heading"
+          <header
+            className="usa-card__header"
           >
             <h3
-              className="h3"
+              className="usa-card__heading"
             >
               Department of Agriculture
             </h3>
             <h4
-              className="h4 partial"
+              className="h4 text-warning-darker"
             >
               Partially compliant
             </h4>
             <div
-              className="req partial"
+              className="border-warning border-left-1 margin-bottom-1"
               key="Department of Agriculture-agencyWidePolicy"
             >
-              Agency policy is being updated for consistency with the Federal Source Code Policy.
+              <div
+                className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px"
+              >
+                Agency policy is being updated for consistency with the Federal Source Code Policy.
+              </div>
             </div>
             <div
-              className="req noncompliant"
+              className="border-error-dark border-left-1 margin-bottom-1"
               key="Department of Agriculture-openSourceRequirement"
             >
-              Agency has open sourced less than 10% of their custom developed code.
+              <div
+                className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px"
+              >
+                Agency has open sourced less than 10% of their custom developed code.
+              </div>
             </div>
             <div
-              className="req noncompliant"
+              className="border-error-dark border-left-1 margin-bottom-1"
               key="Department of Agriculture-inventoryRequirement"
             >
-              Agency has inventoried less than 50% of new custom code.
+              <div
+                className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px"
+              >
+                Agency has inventoried less than 50% of new custom code.
+              </div>
             </div>
-          </div>
+          </header>
         </div>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </li>
+  </ul>
 </Fragment>
-`
+`;
