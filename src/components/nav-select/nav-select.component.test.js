@@ -8,8 +8,8 @@ const props = {
   pathname: '/page-2',
   pages: [
     { route: '/page-1', display: 'page 1' },
-    { route: '/page-2', display: 'page 2' },
-  ],
+    { route: '/page-2', display: 'page 2' }
+  ]
 }
 
 let wrapper
@@ -38,12 +38,17 @@ describe('components - NavSelect', () => {
     })
 
     it('should get the current page based off the `pathname`', () => {
-      expect(wrapper.prop('value')).toBe('/page-2')
+      expect(wrapper.find('select').prop('value')).toEqual('/page-2')
     })
 
     it('should map the `pages` as options', () => {
       expect(wrapper.find('option').length).toBe(props.pages.length)
-      expect(wrapper.find('option').at(0).text()).toBe(props.pages[0].display)
+      expect(
+        wrapper
+          .find('option')
+          .at(0)
+          .text()
+      ).toBe(props.pages[0].display)
     })
   })
 })
