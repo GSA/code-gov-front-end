@@ -38,7 +38,7 @@ describe('components - NavSelect', () => {
     })
 
     it('should get the current page based off the `pathname`', () => {
-      expect(wrapper.prop('value')).toBe('/page-2')
+      expect(wrapper.find('select').prop('value')).toBe('/page-2')
     })
 
     it('should map the `pages` as options', () => {
