@@ -45,13 +45,15 @@ describe('components - RepoCard', () => {
 
   describe('repoLanguages', () => {
     it('should render the `languages` as the `text` prop', () => {
-      const text = shallow(<div>{instance.repoLanguages}</div>).children().prop('text')
+      const text = instance.repoLanguages.split(', ')
+
       expect(text.length).toBe(props.repo.languages.length)
     })
 
     it('should render `Not Available` as the `text` prop if no languages', () => {
       wrapper.setProps({ repo: { ...props.repo, languages: undefined } })
-      const text = shallow(<div>{instance.repoLanguages}</div>).children().prop('text')
+      const text = wrapper.find("CardPart[title='Languages']").text()
+
       expect(text).toMatch(/Not Available/i)
     })
   })

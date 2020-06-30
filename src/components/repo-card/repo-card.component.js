@@ -57,22 +57,16 @@ export default class RepoCardComponent extends Component {
 
   get repoLanguages() {
     const repo = this.props.repo
+
     if (some(repo.languages)) {
-      const languages = repo.languages
-      return (
-        <CardPart
-          title="Languages"
-          text={languages
-            .map(language => (
-              <span key={language} className="language">
-                {language}
-              </span>
-            ))
-            .reduce((prev, curr) => [prev, ', ', curr])}
-        />
-      )
+      // convert array of languages into string
+      return repo.languages.map(lang => {
+        return lang
+      }).join(', ');
     }
-    return <CardPart title="Languages" text="Not Available" />
+
+    // @TODO: replace with "", and let component fill in `Not Available`
+    return "Not Available"
   }
 
   render() {
@@ -115,7 +109,7 @@ export default class RepoCardComponent extends Component {
             <div className="grid-row">
               <ul className="display-inline-block tablet:grid-col-9 desktop:grid-col-10 grid-col-12">
                 <CardPart title="Usage Type" text={usageType} />
-                {this.repoLanguages}
+                <CardPart title="Languages" text={this.repoLanguages} />
                 <CardPart title="License" text={license} />
               </ul>
               {this.goToButton}

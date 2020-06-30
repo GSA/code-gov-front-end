@@ -5,7 +5,7 @@ export default function CardPart({ title, text = 'Not Available' }) {
     <Fragment>
       <li>
         <span className="text-bold">{title}: </span>
-        {text || 'Not Available'}
+        {text}
       </li>
     </Fragment>
   )
