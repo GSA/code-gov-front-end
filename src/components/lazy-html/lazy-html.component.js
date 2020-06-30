@@ -1,7 +1,6 @@
 import { getText } from 'utils/other'
 import React, { Component } from 'react'
 import ReactPlaceholder from 'react-placeholder'
-import 'react-placeholder/lib/reactPlaceholder.css'
 
 export default class LazyHTML extends Component {
   constructor(props) {

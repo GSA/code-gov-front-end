@@ -10,6 +10,9 @@ $header-height: 50px;
 
 @import './styles/code-gov-design/all';
 
+// for lazy-html component
+@import '~react-placeholder/lib/reactPlaceholder.css';
+
 html {
   background-color: $color-white;
 
