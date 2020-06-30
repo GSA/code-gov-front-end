@@ -2,69 +2,67 @@
 
 exports[`components - Roadmap - Column should render correctly 1`] = `
 <div
-  className="width-third"
+  className="tablet:grid-col"
 >
-  <table>
-    <thead>
-      <tr>
-        <th
-          colSpan="2"
-        >
-          test-phase
-        </th>
-      </tr>
-    </thead>
-    <tbody
-      style={
-        Object {
-          "background": "white",
-        }
-      }
+  <div>
+    <h3
+      className="bg-base-lighter padding-y-2 text-center text-bold text-base-darker border-base-lighter font-body-md radius-top-lg border-1px border-bottom-0"
     >
-      <Row
-        key="todo-1"
-        todo={
-          Object {
-            "name": "todo-1",
-            "status": "In Progress",
+      test-phase
+    </h3>
+    <div
+      className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter"
+    >
+      <span>
+        <Row
+          key="todo-1"
+          todo={
+            Object {
+              "name": "todo-1",
+              "status": "In Progress",
+            }
           }
-        }
-      />
-      <Row
-        key="todo-2"
-        todo={
-          Object {
-            "name": "todo-2",
-            "status": "Released",
+        />
+        <Row
+          key="todo-2"
+          todo={
+            Object {
+              "name": "todo-2",
+              "status": "Released",
+            }
           }
-        }
-      />
-    </tbody>
-  </table>
+        />
+      </span>
+    </div>
+  </div>
 </div>
-`
+`;
 
 exports[`components - Roadmap - Row should render correctly 1`] = `
-<tr>
-  <td
-    className="graphic-cell"
+<section>
+  <div
+    className="grid-row"
   >
-    <i
-      aria-hidden="true"
-      className="icon icon-ok"
-    />
-  </td>
-  <td
-    className="widerow text-cell"
-  >
-    todo-name
-  </td>
-</tr>
-`
+    <div
+      className="grid-col-1 padding-top-1 tablet:padding-top-2 padding-left-1"
+    >
+      <i
+        aria-label="released"
+        className="icon icon-ok text-green"
+      />
+    </div>
+    <div
+      className="grid-col-11 padding-y-1 padding-x-1 font-body-3xs text-base-dark padding-left-3"
+    >
+      todo-name
+    </div>
+  </div>
+</section>
+`;
 
 exports[`components - Roadmap render should render correctly 1`] = `
 <div
-  className="roadmap-general"
+  id="main-content"
 >
   <Connect(SiteBanner)
     title="Roadmap"
@@ -83,136 +81,142 @@ exports[`components - Roadmap render should render correctly 1`] = `
     }
   />
   <div
-    className="indented roadmap-overview"
-  >
-    <h3>
-      Overview
-    </h3>
-    <p
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "overview-1",
-        }
-      }
-      key="overview-1"
-    />
-    <p
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "overview-2",
-        }
-      }
-      key="overview-2"
-    />
-  </div>
-  <div
-    className="indented roadmap-table-title"
-  >
-    <h3>
-      Roadmap
-    </h3>
-  </div>
-  <div
-    className="indented roadmap-table"
-  >
-    <Column
-      phase="Near-term"
-      todos={
-        Array [
-          Object {
-            "name": "near-1",
-            "status": "In Progress",
-          },
-          Object {
-            "name": "near-1",
-            "status": "Released",
-          },
-        ]
-      }
-    />
-    <Column
-      phase="Mid-term"
-      todos={
-        Array [
-          Object {
-            "name": "mid-1",
-            "status": "Released",
-          },
-          Object {
-            "name": "mid-1",
-            "status": "Released",
-          },
-        ]
-      }
-    />
-    <Column
-      phase="Long-term"
-      todos={
-        Array [
-          Object {
-            "name": "long-1",
-            "status": null,
-          },
-          Object {
-            "name": "long-1",
-            "status": "In Progress",
-          },
-        ]
-      }
-    />
-  </div>
-  <div
-    className="indented roadmap-legend"
+    className="grid-container"
   >
     <div
-      className="width-third"
+      className="margin-top-3"
     >
-      <table>
-        <thead />
-        <tbody>
-          <tr>
-            <td
-              className="pull-down"
-            >
-              <i
-                aria-hidden="true"
-                className="icon icon-ok"
-              />
-            </td>
-            <td
-              className="widerow pull-down"
-            >
-              Released
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="push-up"
-            >
-              <i
-                aria-hidden="true"
-                className="icon icon-circle"
-              />
-            </td>
-            <td
-              className="widerow push-up"
-            >
-              In Progress
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h3
+        className="font-heading-lg text-bold"
+      >
+        Overview
+      </h3>
+      <p
+        className="maxw-none"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "overview-1",
+          }
+        }
+        key="overview-1"
+      />
+      <p
+        className="maxw-none"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "overview-2",
+          }
+        }
+        key="overview-2"
+      />
+    </div>
+    <div>
+      <h3
+        className="margin-top-4 font-heading-lg text-bold"
+      >
+        Roadmap
+      </h3>
+    </div>
+    <section
+      className="grid-container padding-0"
+    >
+      <div
+        className="grid-row grid-gap padding-top-3"
+      >
+        <Column
+          phase="Near-term"
+          todos={
+            Array [
+              Object {
+                "name": "near-1",
+                "status": "In Progress",
+              },
+              Object {
+                "name": "near-1",
+                "status": "Released",
+              },
+            ]
+          }
+        />
+        <Column
+          phase="Mid-term"
+          todos={
+            Array [
+              Object {
+                "name": "mid-1",
+                "status": "Released",
+              },
+              Object {
+                "name": "mid-1",
+                "status": "Released",
+              },
+            ]
+          }
+        />
+        <Column
+          phase="Long-term"
+          todos={
+            Array [
+              Object {
+                "name": "long-1",
+                "status": null,
+              },
+              Object {
+                "name": "long-1",
+                "status": "In Progress",
+              },
+            ]
+          }
+        />
+      </div>
+    </section>
+    <section
+      aria-hidden="true"
+      className="grid-container margin-top-205 margin-bottom-5 padding-0"
+    >
+      <div
+        aria-label="green check mark icon"
+        className="grid-row border-0 padding-bottom-0"
+      >
+        <i
+          aria-hidden="true"
+          className="icon icon-ok text-green"
+        />
+        <span
+          className="border-0 font-body-3xs padding-left-1 padding-bottom-0 text-base-dark"
+        >
+          Released
+        </span>
+      </div>
+      <div
+        aria-label="yellow circle icon"
+        className="grid-row border-0 padding-top-05"
+      >
+        <i
+          aria-hidden="true"
+          className="icon icon-circle text-accent-warm-light padding-top-05"
+        />
+        <span
+          className="border-0 font-body-3xs padding-left-1 padding-top-05 text-base-dark"
+        >
+          In Progress
+        </span>
+      </div>
+    </section>
+    <div
+      className="margin-y-3"
+    >
+      <h3
+        className="font-heading-lg text-bold"
+      >
+        Disclaimer
+      </h3>
+      <p
+        className="maxw-none"
+      >
+        test-disclaimer
+      </p>
     </div>
   </div>
-  <div
-    className="indented roadmap-disclaimer"
-  >
-    <h3>
-      Disclaimer
-    </h3>
-    <p>
-      test-disclaimer
-    </p>
-  </div>
 </div>
-`
+`;

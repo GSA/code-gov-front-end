@@ -1,90 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - RepoCard render should render correctly 1`] = `
-<div
-  className="card-list-item card focusable"
+<li
+  className="usa-card width-full margin-bottom-2"
 >
-  <quality-tag
-    score="repo-score"
-  />
-  <h3
-    className="card-title"
+  <div
+    className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 card-list-item"
   >
-    <Connect(CustomLinkComponent)
-      to="/projects/repo-id"
-    >
-      repo-name
-    </Connect(CustomLinkComponent)>
-  </h3>
-  <p
-    className="card-description"
-  >
-    repo-desc
-  </p>
-  <dl
-    className="inline-after-600px"
-  >
-    <dt>
-      Agency:
-    </dt>
-    <dd>
-      <Connect(CustomLinkComponent)
-        to="/browse-projects?agencies=repo-agency-acronym"
-      >
-        repo-agency-name
-      </Connect(CustomLinkComponent)>
-    </dd>
-    <CardPart
-      text="12/10/2020"
-      title="Last Updated"
+    <quality-tag
+      class="display-flex flex-justify-end"
+      score="repo-score"
     />
-  </dl>
-  <hr
-    className="show-w-gt-600"
-  />
-  <div>
-    <dl
-      className="width-three-quarters"
+    <header
+      className="usa-card__header margin-top-neg-3 padding-top-0"
     >
-      <CardPart
-        text="repo-usage"
-        title="Usage Type"
-      />
-      <CardPart
-        text={
-          Array [
-            <span
-              className="language"
-            >
-              repo-lang-1
-            </span>,
-            <span
-              className="language"
-            >
-              repo-lang-2
-            </span>,
-          ]
-        }
-        title="Languages"
-      />
-      <CardPart
-        text="repo-license"
-        title="License"
-      />
-    </dl>
-    <div
-      className="repo-button width-quarter"
-    >
-      <a
-        href="https://github.com/repo-url"
-        rel="noopener noreferrer"
-        target="_blank"
+      <h3
+        className="usa-card__heading font-heading-lg margin-top-0 grid-col-10"
       >
-        <button>
-          Go to Repo
-        </button>
-      </a>
+        <Connect(CustomLinkComponent)
+          to="/projects/repo-id"
+        >
+          repo-name
+        </Connect(CustomLinkComponent)>
+      </h3>
+    </header>
+    <div
+      className="width-full usa-card__body font-body-2xs"
+    >
+      repo-desc
+    </div>
+    <ul
+      className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light"
+    >
+      <li>
+         
+        <span
+          className="text-bold"
+        >
+          Agency: 
+        </span>
+        <Connect(CustomLinkComponent)
+          to="/browse-projects?agencies=repo-agency-acronym"
+        >
+          repo-agency-name
+        </Connect(CustomLinkComponent)>
+      </li>
+      <li>
+        <span
+          className="text-bold"
+        >
+          Last Updated: 
+        </span>
+        12/10/2020
+      </li>
+    </ul>
+    <div
+      className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0"
+    >
+      <div
+        className="grid-row"
+      >
+        <ul
+          className="display-inline-block tablet:grid-col-9 desktop:grid-col-10 grid-col-12"
+        >
+          <CardPart
+            text="repo-usage"
+            title="Usage Type"
+          />
+          <CardPart
+            text={
+              Array [
+                <span
+                  className="language"
+                >
+                  repo-lang-1
+                </span>,
+                ", ",
+                <span
+                  className="language"
+                >
+                  repo-lang-2
+                </span>,
+              ]
+            }
+            title="Languages"
+          />
+          <CardPart
+            text="repo-license"
+            title="License"
+          />
+        </ul>
+        <div
+          className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-2 grid-col-12 margin-top-5 tablet:margin-top-0"
+        >
+          <a
+            className="usa-button font-heading-2xs padding-x-2 pin-bottom pin-right"
+            href="https://github.com/repo-url"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Go to Repo
+            <p
+              className="usa-sr-only"
+            >
+              repo-name
+            </p>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-`
+</li>
+`;

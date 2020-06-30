@@ -2,166 +2,374 @@
 
 exports[`components - Footer should render correctly 1`] = `
 <footer
-  className="black"
+  className="usa-footer"
   role="contentinfo"
 >
   <div
-    className="footer-content"
+    className="grid-container usa-footer__return-to-top"
   >
-    <div
-      className="footer-part links"
-      data-test="links"
+    <a
+      className="text-bold font-body-3xs"
+      href="#"
     >
-      <ul>
+      Return to top
+    </a>
+  </div>
+  <div
+    className="usa-footer__primary-section bg-primary-lighter"
+    data-test="links"
+  >
+    <nav
+      className="usa-footer__nav padding-top-4 tablet:padding-top-0 border-bottom-0"
+    >
+      <ul
+        className="grid-row grid-gap"
+      >
         <li
+          className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0 border-top-0"
           key="http-1"
         >
           <a
-            className="link"
+            className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
             href="http://link-1"
             key="http-1"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span>
+            <span
+              className="text-base-dark"
+            >
               http-1
             </span>
           </a>
         </li>
         <li
+          className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0 border-top-0"
           key="mail-1"
         >
           <a
-            className="link"
+            className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
             href="mailto:email@a.com"
             key="mail-1"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span>
+            <span
+              className="text-base-dark"
+            >
               mail-1
             </span>
           </a>
         </li>
         <li
+          className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0 border-top-0"
           key="custom-1"
         >
           <Connect(CustomLinkComponent)
-            className="link"
+            className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
             to="/custom-link"
           >
-            <span>
+            <span
+              className="text-base-dark"
+            >
               custom-1
             </span>
           </Connect(CustomLinkComponent)>
         </li>
         <li
+          className="grid-col-12 tablet:grid-col-auto usa-footer__primary-content font-body-3xs margin-bottom-0 border-top-0"
           key="http-2"
         >
           <a
-            className="link"
+            className="usa-footer__primary-link padding-bottom-1 padding-top-0 tablet:padding-y-2 text-base-dark"
             href="https://link-1"
             key="http-2"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span>
+            <span
+              className="text-base-dark"
+            >
               http-2
             </span>
           </a>
         </li>
       </ul>
-    </div>
+    </nav>
+  </div>
+  <div
+    className="usa-footer__secondary-section bg-white show-w-gt-desktop"
+    data-test="logos"
+  >
     <div
-      className="footer-part logos"
-      data-test="logos"
+      className="grid-container"
     >
-      <ul>
-        <li
-          key="logo-1"
+      <div
+        className="grid-row grid-gap"
+      >
+        <div
+          className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8"
         >
-          <a
-            href="/logo-1.png"
-            rel="noopener noreferrer"
-            target="_blank"
+          <div
+            className="mobile-lg:grid-col-auto"
           >
-            <img
-              alt="logo-1"
-              src="logo-src-1"
-            />
-            <span>
-              logo-1
-            </span>
-          </a>
-        </li>
-        <li
-          key="logo-2"
+            <div
+              key="logo-1"
+            >
+              <a
+                className="text-no-underline"
+                href="/logo-1.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="logo-1 logo"
+                  className="maxw-15 padding-right-2 show-w-gt-desktop"
+                  src="logo-src-1"
+                />
+                <div
+                  className="mobile-lg:grid-col-auto desktop:display-inline"
+                >
+                  <h3
+                    className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline"
+                  >
+                    logo-1
+                  </h3>
+                </div>
+              </a>
+            </div>
+            <div
+              key="logo-2"
+            >
+              <a
+                className="text-no-underline"
+                href="/logo-2.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="logo-2 logo"
+                  className="maxw-15 padding-right-2 show-w-gt-desktop"
+                  src="logo-src-2"
+                />
+                <div
+                  className="mobile-lg:grid-col-auto desktop:display-inline"
+                >
+                  <h3
+                    className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline"
+                  >
+                    logo-2
+                  </h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-5 text-left"
         >
-          <a
-            href="/logo-2.png"
-            rel="noopener noreferrer"
-            target="_blank"
+          <p
+            className="text-right padding-right-1 margin-top-0 font-body-3xs"
           >
-            <img
-              alt="logo-2"
-              src="logo-src-2"
-            />
-            <span>
-              logo-2
-            </span>
-          </a>
-        </li>
-      </ul>
+            <a
+              href="mailto:code@gsa.gov"
+            >
+              code@gsa.gov
+            </a>
+          </p>
+          <ul
+            className="usa-footer__social-links grid-row flex-justify-start"
+            data-test="socials"
+          >
+            <li
+              className="grid-col-12 tablet:grid-col-3"
+              key="social-1"
+            >
+              <a
+                aria-label="social-1"
+                className="font-body-xl"
+                href="u1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div
+                  className="text-base-darker i1"
+                />
+              </a>
+            </li>
+            <li
+              className="grid-col-12 tablet:grid-col-3"
+              key="social-2"
+            >
+              <a
+                aria-label="social-2"
+                className="font-body-xl"
+                href="u2"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div
+                  className="text-base-darker i2"
+                />
+              </a>
+            </li>
+            <li
+              className="grid-col-12 tablet:grid-col-3"
+              key="social-3"
+            >
+              <a
+                aria-label="social-3"
+                className="font-body-xl"
+                href="u3"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div
+                  className="text-base-darker i3"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+  <div
+    className="usa-footer__secondary-section bg-primary-lighter show-w-lte-desktop"
+    data-test="logos"
+  >
     <div
-      className="footer-part socials"
-      data-test="socials"
+      className="grid-container"
     >
-      <ul>
-        <li
-          key="social-1"
+      <div
+        className="grid-row grid-gap"
+      >
+        <div
+          className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8"
         >
-          <a
-            aria-label="social-1"
-            href="u1"
-            rel="noopener noreferrer"
-            target="_blank"
+          <div
+            className="mobile-lg:grid-col-auto"
           >
             <div
-              className="i1"
-            />
-          </a>
-        </li>
-        <li
-          key="social-2"
-        >
-          <a
-            aria-label="social-2"
-            href="u2"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+              key="logo-1"
+            >
+              <a
+                className="text-no-underline"
+                href="/logo-1.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="logo-1"
+                  className="maxw-15 padding-right-2 show-w-gt-desktop"
+                  src="logo-src-1"
+                />
+                <div
+                  className="mobile-lg:grid-col-auto desktop:display-inline"
+                >
+                  <h3
+                    className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline padding-left-0"
+                  >
+                    logo-1
+                  </h3>
+                </div>
+              </a>
+            </div>
             <div
-              className="i2"
-            />
-          </a>
-        </li>
-        <li
-          key="social-3"
+              key="logo-2"
+            >
+              <a
+                className="text-no-underline"
+                href="/logo-2.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="logo-2"
+                  className="maxw-15 padding-right-2 show-w-gt-desktop"
+                  src="logo-src-2"
+                />
+                <div
+                  className="mobile-lg:grid-col-auto desktop:display-inline"
+                >
+                  <h3
+                    className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline padding-left-0"
+                  >
+                    logo-2
+                  </h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7 text-left"
         >
-          <a
-            aria-label="social-3"
-            href="u3"
-            rel="noopener noreferrer"
-            target="_blank"
+          <p
+            className="text-left font-body-3xs margin-top-0"
           >
-            <div
-              className="i3"
-            />
-          </a>
-        </li>
-      </ul>
+            <a
+              href="mailto:code@gsa.gov"
+            >
+              code@gsa.gov
+            </a>
+          </p>
+          <ul
+            className="usa-footer__social-links grid-row flex-justify-start"
+            data-test="socials"
+          >
+            <li
+              className="grid-col-12 tablet:grid-col-3 padding-top-2"
+              key="social-1"
+            >
+              <a
+                aria-label="social-1"
+                className="font-body-xl"
+                href="u1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div
+                  className="text-base-darker i1"
+                />
+              </a>
+            </li>
+            <li
+              className="grid-col-12 tablet:grid-col-3 padding-top-2"
+              key="social-2"
+            >
+              <a
+                aria-label="social-2"
+                className="font-body-xl"
+                href="u2"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div
+                  className="text-base-darker i2"
+                />
+              </a>
+            </li>
+            <li
+              className="grid-col-12 tablet:grid-col-3 padding-top-2"
+              key="social-3"
+            >
+              <a
+                aria-label="social-3"
+                className="font-body-xl"
+                href="u3"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div
+                  className="text-base-darker i3"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
-`
+`;

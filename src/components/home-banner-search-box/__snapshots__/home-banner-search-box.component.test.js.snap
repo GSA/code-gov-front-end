@@ -2,30 +2,38 @@
 
 exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
 <div
-  className="search-input-container"
+  className="padding-bottom-2px"
 >
-  <div
-    className="search-input-wrapper"
-  >
-    <div
-      className="search-description-wrapper"
-    >
+  <div>
+    <div>
       <div
-        className="search-description-heading show-w-gt-800"
+        className="text-uppercase text-bold text-base-darker show-w-gt-800"
       />
       <div
-        className="search-description-text show-w-gt-800"
+        className="margin-bottom-1 text-bold text-base-darker show-w-gt-800"
       >
         test-text
       </div>
       <div
-        className="show-w-lte-800"
+        className="show-w-lte-800 text-bold text-base-darker padding-bottom-105"
       >
         test-mobile-text
       </div>
     </div>
     <div
-      className="search-input-and-button-wrapper"
+      className="width-mobile-lg margin-x-auto borderless-search show-w-gt-homesearch"
+    >
+      <SearchBox
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onSubmit={[MockFunction]}
+        placeholder="test-placeholder"
+        query="test-query"
+      />
+    </div>
+    <div
+      className="width-full margin-x-auto borderless-search show-w-lte-homesearch"
     >
       <SearchBox
         onBlur={[Function]}
@@ -38,4 +46,4 @@ exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
+`;

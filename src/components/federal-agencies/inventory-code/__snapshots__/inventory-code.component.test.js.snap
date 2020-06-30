@@ -2,57 +2,31 @@
 
 exports[`components - InventoryCodeComponent should render correctly 1`] = `
 <div
-  className="hide-details"
-  id="schema-viewer"
+  className="margin-top-4 hide-optional-fields"
 >
-  <h2>
-    Field Definitions
-  </h2>
-  <p>
-    The schema fields and definitions are listed below. The optional fields are marked in red but serve to provide additional, helpful information. You can view a sample JSON file
-     
-    <a
-      href="http://test.localdomain/assets/data/schema.json"
-      rel="noreferrer noopener"
-      target="_blank"
-    >
-      here
-    </a>
-    .
-  </p>
-  <div
-    style={
-      Object {
-        "marginBottom": "10px",
-      }
-    }
+  <form
+    className="usa-form"
   >
-    <input
-      id="json-schema-hide-optional-fields"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-          "textAlign": "left",
-        }
-      }
-      type="checkbox"
-    />
-    <label
-      htmlFor="json-schema-hide-optional-fields"
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+    <div
+      className="usa-checkbox"
     >
-      Hide optional fields
-    </label>
-  </div>
-  <div
-    className="desktop-and-mobile-views"
-  >
+      <input
+        className="usa-checkbox__input"
+        id="hide-optional-fields"
+        onClick={[Function]}
+        type="checkbox"
+        value="hide-optional-fields"
+      />
+      <label
+        className="usa-checkbox__label"
+        htmlFor="hide-optional-fields"
+      >
+        Hide Optional Fields
+      </label>
+    </div>
+  </form>
+  <div>
     <InventoryCodeTableComponent />
   </div>
 </div>
-`
+`;

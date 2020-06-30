@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - ProjectPage render should render correctly 1`] = `
-<div
-  className="repo-general"
->
+<div>
   <Connect(SiteBanner)
     title="Browse Projects"
   />
@@ -25,19 +23,21 @@ exports[`components - ProjectPage render should render correctly 1`] = `
     }
   />
   <section
-    className="repo-container indented"
+    className="grid-container"
   >
     <header>
       <div
-        className="repo-header-container"
+        className="margin-top-3"
       >
-        <h2>
+        <h2
+          className="font-heading-xl"
+        >
           repo-name
         </h2>
-        <span
-          className="updated"
-        >
-          <div>
+        <span>
+          <div
+            className="padding-top-1 font-body-2xs"
+          >
             Last updated on 12/10/2020
           </div>
         </span>
@@ -45,9 +45,11 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           key="repo-tag-1"
           to="/search?query=repo-tag-1"
         >
-          <span>
+          <span
+            className="margin-right-1"
+          >
             <button
-              className="tag"
+              className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md border-0 margin-top-1"
             >
               repo-tag-1
             </button>
@@ -57,18 +59,20 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           key="repo-tag-2"
           to="/search?query=repo-tag-2"
         >
-          <span>
+          <span
+            className="margin-right-1"
+          >
             <button
-              className="tag"
+              className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md border-0 margin-top-1"
             >
               repo-tag-2
             </button>
           </span>
         </Connect(CustomLinkComponent)>
-        <ul
-          className="repo-features"
-        >
-          <span>
+        <ul>
+          <span
+            className="font-body-3xs"
+          >
             <li>
               <i
                 className="icon icon-certificate"
@@ -78,7 +82,9 @@ exports[`components - ProjectPage render should render correctly 1`] = `
               </span>
             </li>
           </span>
-          <span>
+          <span
+            className="font-body-3xs"
+          >
             <li>
               <i
                 className="icon icon-hourglass-end"
@@ -86,7 +92,9 @@ exports[`components - ProjectPage render should render correctly 1`] = `
               123 hours
             </li>
           </span>
-          <span>
+          <span
+            className="font-body-3xs"
+          >
             <li>
               <i
                 className="icon icon-code"
@@ -115,7 +123,9 @@ exports[`components - ProjectPage render should render correctly 1`] = `
               </span>
             </li>
           </span>
-          <span>
+          <span
+            className="font-body-3xs"
+          >
             <li>
               <i
                 className="icon icon-mail"
@@ -129,7 +139,9 @@ exports[`components - ProjectPage render should render correctly 1`] = `
             </li>
           </span>
         </ul>
-        <p>
+        <p
+          className="maxw-none font-body-2xs"
+        >
           repo-desc
         </p>
         <div>
@@ -198,7 +210,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           target="_blank"
         >
           <button
-            className="button"
+            className="usa-button margin-bottom-6 margin-top-neg-2px"
           >
             Visit Repo
           </button>
@@ -207,4 +219,4 @@ exports[`components - ProjectPage render should render correctly 1`] = `
     </header>
   </section>
 </div>
-`
+`;

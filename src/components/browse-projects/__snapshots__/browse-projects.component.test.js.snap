@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - BrowseProjects render should render correctly 1`] = `
-<div
+<main
   className="search-results-content"
+  id="main-content"
 >
   <Connect(SiteBanner)
-    title="Browse Projects"
+    title="Projects"
   />
   <Breadcrumbs
     crumbs={
@@ -15,7 +16,7 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
           "to": "/",
         },
         Object {
-          "text": "Browse Projects",
+          "text": "Projects",
         },
       ]
     }
@@ -49,7 +50,9 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
         className="tablet-lg:grid-col-3 margin-top-4"
         id="filter-boxes-section"
       >
-        <h2>
+        <h2
+          className="margin-bottom-4"
+        >
           Filter
         </h2>
         <FilterBoxes
@@ -95,20 +98,22 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
             ]
           }
         />
-        <_default
-          filters={
-            Array [
-              "filter-1",
-              "filter-2",
-            ]
-          }
-          onClick={[Function]}
-        />
         <div
           className="card-list"
         >
           <div>
-            <QualityPopover />
+            <_default
+              filters={
+                Array [
+                  "filter-1",
+                  "filter-2",
+                ]
+              }
+              onClick={[Function]}
+            />
+            <div>
+              <QualityPopover />
+            </div>
             <ul
               className="usa-card-group padding-top-3"
             >
@@ -138,5 +143,5 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
+</main>
 `;

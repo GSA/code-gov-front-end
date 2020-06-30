@@ -2,14 +2,13 @@
 
 exports[`components - HomeBanner should render correctly 1`] = `
 <section
-  className="margin-top-4 tablet:margin-top-2 tablet-lg:margin-top-5"
   id="banner-home"
 >
   <div
-    className="bg-primary text-center padding-top-2"
+    className="bg-primary text-center"
   >
     <div
-      className="padding-y-4 tablet:padding-bottom-1 tablet-lg:padding-bottom-4"
+      className="padding-y-4"
     >
       <div
         className="font-heading-xl tablet:font-heading-2xl text-white"
@@ -41,4 +40,4 @@ exports[`components - HomeBanner should render correctly 1`] = `
     </div>
   </div>
 </section>
-`
+`;

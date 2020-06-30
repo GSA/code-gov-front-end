@@ -1,22 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - NavSelect render should render correctly 1`] = `
-<select
-  aria-label="menu"
-  onChange={[Function]}
-  value="/page-2"
+<form
+  className="usa-form maxw-none"
 >
-  <option
-    key="/page-1"
-    value="/page-1"
+  <label
+    className="usa-label usa-sr-only"
+    htmlFor="options"
   >
-    page 1
-  </option>
-  <option
-    key="/page-2"
+    Sections Menu
+  </label>
+  <select
+    className="usa-select font-body-3xs radius-md"
+    id="options"
+    onChange={[Function]}
     value="/page-2"
   >
-    page 2
-  </option>
-</select>
-`
+    <option
+      key="/page-1"
+      value="/page-1"
+    >
+      page 1
+    </option>
+    <option
+      key="/page-2"
+      value="/page-2"
+    >
+      page 2
+    </option>
+  </select>
+</form>
+`;

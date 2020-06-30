@@ -2,7 +2,7 @@
 
 exports[`components - MobileMenuOption render should render correctly 1`] = `
 <li
-  className="expanded"
+  className="expanded margin-bottom-0"
 >
   <a
     className="dropdown"
@@ -10,8 +10,11 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
   >
     opt-1
   </a>
-  <ul>
+  <ul
+    className="margin-top-0"
+  >
     <li
+      className="margin-bottom-0"
       key="http://link-1-url"
     >
       <a
@@ -24,6 +27,7 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
       </a>
     </li>
     <li
+      className="margin-bottom-0"
       key="mailto:link-2-url"
     >
       <a
@@ -36,6 +40,7 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
       </a>
     </li>
     <li
+      className="margin-bottom-0"
       key="/link-3-url"
     >
       <Connect(CustomLinkComponent)
@@ -48,4 +53,4 @@ exports[`components - MobileMenuOption render should render correctly 1`] = `
     </li>
   </ul>
 </li>
-`
+`;

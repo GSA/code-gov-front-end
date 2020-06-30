@@ -1,95 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - Pagination render should render correctly 1`] = `
-<nav
-  aria-label="Pagination Navigation"
-  role="navigation"
-  tabIndex="0"
+<div
+  className="pin-right padding-right-2px margin-top-neg-3 padding-bottom-8 margin-bottom-4"
 >
-  <ul
-    className="ngx-pagination"
+  <nav
+    aria-label="Pagination Navigation"
+    className="margin-top-neg-3"
+    role="navigation"
+    tabIndex="0"
   >
-    <div
-      className="repo-list-summary-wrapper"
-      tabIndex="0"
+    <ul
+      className="display-inline-block font-body-3xs text-bold"
     >
-      <p
-        className="repo-list-summary"
+      <li
+        className="display-inline-block"
       >
-        Results 
-        <strong>
-          11-20
-        </strong>
-         of 
-        <strong>
-          30
-        </strong>
-      </p>
-    </div>
-    <li
-      className="pagination-previous"
-      tabIndex="0"
-    >
-      <a
-        onClick={[Function]}
+        <p
+          className="display-inline-block"
+        >
+          Results 
+          <strong>
+            11-20
+          </strong>
+           of 
+          <strong>
+            30
+          </strong>
+        </p>
+      </li>
+      <li
+        aria-label="Go to the previous page."
+        className="display-inline-block padding-left-2 padding-right-1"
       >
-        <i
-          className="icon icon-angle-circled-left"
-        />
-         Prev
-      </a>
-    </li>
-    <li
-      className="page first"
-      key="1"
-    >
-      <a
-        aria-label="Go to page 1"
-        data-testid="component-pagination-page-link-1"
-        onClick={[Function]}
-        tabIndex={1}
+        <button
+          className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"
+          onClick={[Function]}
+        >
+          <i
+            className="icon icon-angle-circled-left"
+          />
+           Prev
+        </button>
+      </li>
+      <li
+        className="display-none tablet:display-inline padding-left-1 padding-right-1 page first"
+        key="1"
       >
-        1
-      </a>
-    </li>
-    <li
-      className="page current"
-      key="2"
-    >
-      <span
-        aria-current="true"
-        aria-label="Current Page 2"
-        tabIndex={2}
+        <a
+          aria-label="Go to page 1"
+          className="text-no-underline"
+          data-testid="component-pagination-page-link-1"
+          index={1}
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
+        >
+          1
+        </a>
+      </li>
+      <li
+        className="display-none tablet:display-inline padding-left-1 padding-right-1 page current"
+        key="2"
       >
-        2
-      </span>
-    </li>
-    <li
-      className="page"
-      key="3"
-    >
-      <a
-        aria-label="Go to page 3"
-        data-testid="component-pagination-page-link-3"
-        onClick={[Function]}
-        tabIndex={3}
+        <span
+          aria-current="true"
+          aria-label="Current Page 2"
+          tabIndex={0}
+        >
+          2
+        </span>
+      </li>
+      <li
+        className="display-none tablet:display-inline padding-left-1 padding-right-1 page"
+        key="3"
       >
-        3
-      </a>
-    </li>
-    <li
-      className="pagination-next"
-      tabIndex="8"
-    >
-      <a
-        onClick={[Function]}
+        <a
+          aria-label="Go to page 3"
+          className="text-no-underline"
+          data-testid="component-pagination-page-link-3"
+          index={3}
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
+        >
+          3
+        </a>
+      </li>
+      <li
+        aria-label="Go to the next page."
+        className="display-inline padding-left-1 padding-right-1"
       >
-        Next 
-        <i
-          className="icon icon-angle-circled-right"
-        />
-      </a>
-    </li>
-  </ul>
-</nav>
-`
+        <button
+          className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"
+          onClick={[Function]}
+        >
+          Next 
+          <i
+            className="icon icon-angle-circled-right"
+          />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

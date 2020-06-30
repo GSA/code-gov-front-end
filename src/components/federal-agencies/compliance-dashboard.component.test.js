@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { config } from 'components/about-page/compliance-dashboard.container'
-import ComplianceDashboard from 'components/about-page/compliance-dashboard.component'
+import { config } from 'components/federal-agencies/compliance-dashboard.container'
+import ComplianceDashboard from 'components/federal-agencies/compliance-dashboard.component'
 
 const props = {
   config,

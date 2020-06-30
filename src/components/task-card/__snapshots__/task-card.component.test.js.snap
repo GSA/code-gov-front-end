@@ -2,63 +2,92 @@
 
 exports[`components - TaskCard render should render correctly 1`] = `
 <div
-  className="card-list-item card focusable"
+  className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto margin-bottom-2 card-list-item margin-top-1"
 >
-  <h3
-    className="card-title"
+  <header
+    className="usa-card__header"
   >
-    <a
-      href="/task-issue-url"
-      rel="noopener noreferrer"
-      target="_blank"
+    <h3
+      className="usa-card__heading font-heading-lg margin-top-0"
     >
-      task-title
-    </a>
-  </h3>
+      <a
+        href="/task-issue-url"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        task-title
+      </a>
+    </h3>
+  </header>
   <p
-    className="card-description"
+    className="width-full usa-card__body font-body-2xs"
   >
     task-desc
   </p>
   <dl
-    className="inline-after-600px show-w-gt-900"
+    className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light show-w-gt-1000"
   >
-    <dt>
+    <dt
+      className="display-inline text-bold margin-right-2px"
+    >
       Project:
     </dt>
-    <dd>
+    <dd
+      className="display-inline margin-left-2px margin-right-3"
+    >
       <a
         rel="noopener noreferrer"
         target="_blank"
       />
     </dd>
-    <dt>
+    <dt
+      className="display-inline text-bold margin-right-2px"
+    >
       Agency:
     </dt>
-    <dd>
+    <dd
+      className="display-inline margin-left-2px margin-right-3"
+    >
       <Connect(CustomLinkComponent)
         to="/browse-projects?agencies=task-agency-acronym"
       >
         task-agency-name
       </Connect(CustomLinkComponent)>
     </dd>
-    <CardPart
-      text="12/10/2020"
-      title="Last Updated"
-    />
-    <hr />
-    <CardPart
-      title="Languages"
-    />
-    <CardPart
-      title="Type"
-    />
-    <CardPart
-      title="Skill Level"
-    />
-    <CardPart
-      title="Effort"
-    />
+    <dt
+      className="display-inline text-bold margin-right-2px"
+    >
+      Last Updated: 
+    </dt>
+    <dd
+      className="display-inline margin-left-2px margin-right-3"
+    >
+      12/10/2020
+    </dd>
   </dl>
+  <div
+    className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0"
+  >
+    <div
+      className="grid-row"
+    >
+      <ul
+        className="display-inline-block tablet:grid-col-9 grid-col-12"
+      >
+        <CardPart
+          title="Languages"
+        />
+        <CardPart
+          title="Type"
+        />
+        <CardPart
+          title="Skill Level"
+        />
+        <CardPart
+          title="Effort"
+        />
+      </ul>
+    </div>
+  </div>
 </div>
-`
+`;

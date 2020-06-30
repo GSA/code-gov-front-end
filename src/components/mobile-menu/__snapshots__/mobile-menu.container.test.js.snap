@@ -7,15 +7,15 @@ Object {
       "links": Array [
         Object {
           "name": "Overview",
-          "url": "/about/overview/introduction",
+          "url": "/federal-agencies/overview/introduction",
         },
         Object {
           "name": "Compliance",
-          "url": "/about/compliance/dashboard",
+          "url": "/federal-agencies/compliance/dashboard",
         },
         Object {
           "name": "Open Source Pilot",
-          "url": "/about/open-source/introduction",
+          "url": "/federal-agencies/open-source/introduction",
         },
         Object {
           "name": "Source Code Policy",
@@ -25,18 +25,18 @@ Object {
       "name": "About",
     },
     Object {
-      "name": "Browse Projects",
+      "name": "Projects",
       "url": "/browse-projects?page=1&size=10&sort=data_quality",
     },
     Object {
       "links": Array [
         Object {
           "name": "How to Inventory Code",
-          "url": "/about/compliance/inventory-code",
+          "url": "/federal-agencies/compliance/inventory-code",
         },
         Object {
           "name": "Compliance Dashboard",
-          "url": "/about/compliance/dashboard",
+          "url": "/federal-agencies/compliance/dashboard",
         },
       ],
       "name": "Federal Agencies",
@@ -89,4 +89,4 @@ Object {
     },
   ],
 }
-`
+`;

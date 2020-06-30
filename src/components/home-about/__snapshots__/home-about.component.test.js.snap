@@ -2,52 +2,68 @@
 
 exports[`components - HomeAbout should render correctly 1`] = `
 <section
-  className="about tablet:grid-col-6"
+  className="tablet:grid-col-6"
   id="about"
 >
-  <header>
-    <h2>
-      About Code.gov
-    </h2>
-    <p />
-  </header>
-  <ul
-    className="about-actions"
+  <div
+    className="bg-primary-lighter height-full"
   >
-    <li>
-      <h3>
-        Vision
-      </h3>
-      <span
-        className="about-icon"
+    <header
+      className="padding-x-4 padding-top-6"
+    >
+      <h2
+        className="font-heading-lg text-primary-darker text-center"
       >
-        <p>
-          test-vision
-        </p>
-        <img
-          alt=""
-          className=""
-          src="/assets/img/icons/vision_icon_sm.png"
-        />
-      </span>
-    </li>
-    <li>
-      <h3>
-        Mission
-      </h3>
-      <span
-        className="about-icon"
+        About Code.gov
+      </h2>
+      <p />
+    </header>
+    <ul
+      className="padding-x-4"
+    >
+      <li
+        className="padding-y-3"
       >
-        <p>
-          test-mission
-        </p>
-        <img
-          alt=""
-          className=""
-          src="/assets/img/icons/mission_icon_sm.png"
-        />
-      </span>
-    </li>
-  </ul>
+        <h2
+          className="text-primary-darker text-uppercase margin-left-9 margin-bottom-0"
+        >
+          Vision
+        </h2>
+        <span
+          className="display-flex tablet:flex-row margin-0"
+        >
+          <p
+            className=""
+          >
+            test-vision
+          </p>
+          <img
+            alt=""
+            className="order-first height-7 margin-top-3 margin-right-2"
+            src="/assets/img/icons/vision_icon_sm.png"
+          />
+        </span>
+      </li>
+      <li>
+        <h2
+          className="text-primary-darker text-uppercase margin-left-9 margin-bottom-0"
+        >
+          Mission
+        </h2>
+        <span
+          className="display-flex table:flex-row margin-0"
+        >
+          <p>
+            test-mission
+          </p>
+          <img
+            alt=""
+            className="order-first height-7 margin-top-3 margin-right-2"
+            src="/assets/img/icons/mission_icon_sm.png"
+          />
+        </span>
+      </li>
+    </ul>
+  </div>
 </section>
-`
+`;

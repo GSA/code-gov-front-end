@@ -18,8 +18,9 @@ exports[`components - FilterBox render should render correctly 1`] = `
   title="test-title"
 >
   <filter-box
+    class="padding-top-2"
     options="[{\\"id\\":1,\\"value\\":\\"opt-1\\"},{\\"id\\":2,\\"value\\":\\"opt-2\\"}]"
     title="test-title"
   />
 </FilterBox>
-`
+`;

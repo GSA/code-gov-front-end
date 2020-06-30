@@ -2,56 +2,54 @@
 
 exports[`components - InventoryCodeSectionComponent should render correctly 1`] = `
 <Fragment>
-  <tr
-    className="top-level"
+  <li
+    className="grid-col-12 usa-card margin-bottom-2 top-level"
   >
-    <td
-      style={
-        Object {
-          "paddingLeft": "10px",
-        }
-      }
+    <div
+      className="usa-card__container"
     >
-      <div
-        className="dropdown"
-      />
-      <div
-        className="field-name-text"
+      <header
+        className="usa-card__header padding-bottom-0"
       >
-        version
-      </div>
-      <button
-        className="details"
-        onClick={[Function]}
-      >
-        <div
-          className="details-text"
+        <h2
+          className="usa-card__heading font-heading-lg "
         >
-          details
-        </div>
-        <div
-          className="details-arrow arrow-right"
-        />
-      </button>
-    </td>
-    <td
-      className="data-type"
-    >
-      <div>
-        string
-      </div>
-    </td>
-    <td
-      className="description"
-    >
+          version
+        </h2>
+      </header>
       <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "The version of the metadata schema in use.",
-          }
-        }
-      />
-    </td>
-  </tr>
+        className="usa-card__body"
+      >
+        <p
+          className="margin-bottom-0 font-body-2xs "
+        >
+          <strong>
+            Class: 
+          </strong>
+          string
+        </p>
+        <p
+          className="usa-sr-only"
+        >
+          Required field
+        </p>
+        <div
+          className="margin-top-0 font-body-2xs "
+        >
+          <strong>
+            Description: 
+          </strong>
+          <div
+            className="display-inline"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "The version of the metadata schema in use.",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </li>
 </Fragment>
-`
+`;

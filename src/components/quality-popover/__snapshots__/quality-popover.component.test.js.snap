@@ -10,8 +10,11 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     Data Quality Score
   </span>
   <div
+    alt="Data quality score popover"
     className="icon icon-help-circled popper"
     onClick={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="0"
   >
     <div
       className="popover desktop left"
@@ -23,6 +26,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
         code.json
       </Connect(CustomLinkComponent)>
        and by factors such as completeness and adherence to the
+       
       <Connect(CustomLinkComponent)
         to="/about/compliance/inventory-code"
       >
@@ -45,6 +49,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
         code.json
       </Connect(CustomLinkComponent)>
        and by factors such as completeness and adherence to the
+       
       <Connect(CustomLinkComponent)
         to="/about/compliance/inventory-code"
       >
@@ -54,4 +59,4 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
+`;

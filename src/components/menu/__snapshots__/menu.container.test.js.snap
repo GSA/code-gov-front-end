@@ -7,39 +7,22 @@ Object {
   "logoLight": "/assets/img/logos/code-gov-light.svg",
   "menu": Array [
     Object {
-      "links": Array [
-        Object {
-          "name": "Overview",
-          "url": "/about/overview/introduction",
-        },
-        Object {
-          "name": "Compliance",
-          "url": "/about/compliance/dashboard",
-        },
-        Object {
-          "name": "Open Source Pilot",
-          "url": "/about/open-source/introduction",
-        },
-        Object {
-          "name": "Source Code Policy",
-          "url": "https://sourcecode.cio.gov/",
-        },
-      ],
-      "name": "ABOUT",
-    },
-    Object {
-      "name": "BROWSE PROJECTS",
+      "name": "PROJECTS",
       "url": "/browse-projects?page=1&size=10&sort=data_quality",
     },
     Object {
       "links": Array [
         Object {
-          "name": "How to Inventory Code",
-          "url": "/about/compliance/inventory-code",
+          "name": "Agency Compliance",
+          "url": "/federal-agencies/compliance/dashboard",
         },
         Object {
-          "name": "Compliance Dashboard",
-          "url": "/about/compliance/dashboard",
+          "name": "How to Procure Software",
+          "url": "/federal-agencies/compliance/procurement",
+        },
+        Object {
+          "name": "How to Inventory Code",
+          "url": "/federal-agencies/compliance/inventory-code",
         },
       ],
       "name": "FEDERAL AGENCIES",
@@ -47,52 +30,19 @@ Object {
     Object {
       "links": Array [
         Object {
-          "name": "code.gov API",
-          "url": "https://open.gsa.gov/api/codedotgov/",
-        },
-        Object {
           "name": "Open Tasks",
           "url": "/open-tasks?page=1&size=10",
         },
         Object {
-          "name": "Notebooks",
-          "url": "https://beta.observablehq.com/search?query=%22code.gov%22",
-        },
-        Object {
-          "name": "Resources",
-          "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources",
+          "name": "Code.gov API",
+          "url": "https://open.gsa.gov/api/codedotgov/",
         },
       ],
       "name": "DEVELOPERS",
-    },
-    Object {
-      "links": Array [
-        Object {
-          "name": "code.gov Repo",
-          "url": "http://github.com/GSA/code-gov",
-        },
-        Object {
-          "name": "Blog",
-          "url": "https://medium.com/codedotgov",
-        },
-        Object {
-          "name": "LinkedIn",
-          "url": "https://www.linkedin.com/company/code-gov",
-        },
-        Object {
-          "name": "Twitter",
-          "url": "https://twitter.com/codedotgov",
-        },
-        Object {
-          "name": "Contact Us",
-          "url": "mailto:code@gsa.gov",
-        },
-      ],
-      "name": "SOCIAL",
     },
   ],
   "onHomePage": true,
   "searchDropdown": "test-search-dropdown",
   "siteTitle": "code.gov",
 }
-`
+`;

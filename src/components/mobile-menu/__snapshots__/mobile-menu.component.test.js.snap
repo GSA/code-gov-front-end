@@ -7,7 +7,7 @@ exports[`components - MobileMenu render should render correctly 1`] = `
   >
     <ul>
       <li
-        className="search"
+        className="search margin-bottom-0"
       >
         <Connect(MobileMenuSearchBoxComponent) />
       </li>
@@ -47,4 +47,4 @@ exports[`components - MobileMenu render should render correctly 1`] = `
     className="mobile-menu-underlay "
   />
 </Fragment>
-`
+`;

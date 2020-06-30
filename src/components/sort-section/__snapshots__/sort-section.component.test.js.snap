@@ -1,13 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - SortSection render should render correctly 1`] = `
-<div>
-  <h2>
-    <span>
+<div
+  className="grid-row"
+>
+  <h2
+    aria-hidden="true"
+    className="margin-top-4"
+  >
+    Sort by
+  </h2>
+  <form
+    className="usa-form"
+  >
+    <label
+      className="usa-label usa-sr-only"
+      htmlFor="sort-options"
+    >
       Sort by
-    </span>
+    </label>
     <select
-      aria-label="sort"
+      className="usa-select margin-left-1 radius-md"
+      id="sort-options"
       onChange={[Function]}
       value="opt-2"
     >
@@ -24,6 +38,6 @@ exports[`components - SortSection render should render correctly 1`] = `
         label-2
       </option>
     </select>
-  </h2>
+  </form>
 </div>
-`
+`;

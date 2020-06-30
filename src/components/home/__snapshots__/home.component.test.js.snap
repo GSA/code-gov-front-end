@@ -2,17 +2,21 @@
 
 exports[`components - Home render should render correctly 1`] = `
 <Fragment>
-  <Connect(HomeBanner) />
-  <div
-    className="home-container grid-container"
+  <main
+    id="main-content"
   >
-    <Connect(HomeExplore) />
+    <Connect(HomeBanner) />
     <div
-      className="grid-row grid-gap"
+      className="grid-container"
     >
-      <Connect(HomeAbout) />
-      <Connect(HomeNews) />
+      <Connect(HomeExplore) />
+      <div
+        className="grid-row grid-gap"
+      >
+        <Connect(HomeAbout) />
+        <Connect(HomeNews) />
+      </div>
     </div>
-  </div>
+  </main>
 </Fragment>
-`
+`;
