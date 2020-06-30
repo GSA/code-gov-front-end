@@ -54,7 +54,7 @@ describe('components - ComplianceDashboard', () => {
         }
       ]
     })
-    expect(wrapper.find('.card')).toHaveLength(2)
+    expect(wrapper.find('.usa-card__container')).toHaveLength(2)
   })
 
   describe('card', () => {
@@ -68,7 +68,7 @@ describe('components - ComplianceDashboard', () => {
     })
 
     it('should render proper number of requirement lines', () => {
-      expect(wrapper.find('.req')).toHaveLength(config.text.length)
+      expect(wrapper.find('.border-left-1')).toHaveLength(config.text.length)
     })
 
     it('should render properly for compliant status', () => {
@@ -84,8 +84,8 @@ describe('components - ComplianceDashboard', () => {
         ]
       })
       expect(wrapper.find('h4').text()).toEqual('Fully compliant')
-      expect(wrapper.find('h4').prop('className')).toContain('compliant')
-      expect(wrapper.find('.card').prop('className')).toContain('compliant')
+      expect(wrapper.find('h4').prop('className')).toContain('text-success-dark')
+      expect(wrapper.find('.usa-card').prop('className')).toContain('border-success')
     })
 
     it('should render properly for partial status', () => {
@@ -101,8 +101,8 @@ describe('components - ComplianceDashboard', () => {
         ]
       })
       expect(wrapper.find('h4').text()).toEqual('Partially compliant')
-      expect(wrapper.find('h4').prop('className')).toContain('partial')
-      expect(wrapper.find('.card').prop('className')).toContain('partial')
+      expect(wrapper.find('h4').prop('className')).toContain('text-warning-darker')
+      expect(wrapper.find('.usa-card').prop('className')).toContain('border-warning')
     })
 
     it('should render properly for noncompliant status', () => {
@@ -118,8 +118,8 @@ describe('components - ComplianceDashboard', () => {
         ]
       })
       expect(wrapper.find('h4').text()).toEqual('Non-compliant')
-      expect(wrapper.find('h4').prop('className')).toContain('noncompliant')
-      expect(wrapper.find('.card').prop('className')).toContain('noncompliant')
+      expect(wrapper.find('h4').prop('className')).toContain('text-error-dark')
+      expect(wrapper.find('.usa-card').prop('className')).toContain('border-error-dark')
     })
 
     it('should render requirement properly for compliant status', () => {
@@ -138,8 +138,8 @@ describe('components - ComplianceDashboard', () => {
         ]
       })
 
-      const element = wrapper.find('.req').first()
-      expect(element.prop('className')).toContain('compliant')
+      const element = wrapper.find('.border-left-1').first()
+      expect(element.prop('className')).toContain('border-success')
       expect(element.text()).toEqual(config.text[0].variants.compliant)
     })
 
@@ -159,8 +159,8 @@ describe('components - ComplianceDashboard', () => {
         ]
       })
 
-      const element = wrapper.find('.req').first()
-      expect(element.prop('className')).toContain('partial')
+      const element = wrapper.find('.border-left-1').first()
+      expect(element.prop('className')).toContain('border-warning')
       expect(element.text()).toEqual(config.text[0].variants.partial)
     })
 
@@ -180,8 +180,8 @@ describe('components - ComplianceDashboard', () => {
         ]
       })
 
-      const element = wrapper.find('.req').first()
-      expect(element.prop('className')).toContain('noncompliant')
+      const element = wrapper.find('.border-left-1').first()
+      expect(element.prop('className')).toContain('border-error-dark')
       expect(element.text()).toEqual(config.text[0].variants.noncompliant)
     })
   })
