@@ -120,6 +120,18 @@
   }
 }
 
+.show-w-gt-tablet-lg {
+  @media (max-width: 879.5px) {
+    display: none !important;
+  }
+}
+
+.show-w-lte-tabletlg {
+  @media (min-width: 879.5px) {
+    display: none !important;
+  }
+}
+
 .show-w-gt-homesearch {
   @media (max-width: 510.5px) {
     display: none !important;

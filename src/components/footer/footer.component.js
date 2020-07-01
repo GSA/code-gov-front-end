@@ -52,10 +52,10 @@ export default class Footer extends PureComponent {
           </nav>
         </div>
 
-        <div className="usa-footer__secondary-section bg-white show-w-gt-desktop" data-test="logos">
+        <div className="usa-footer__secondary-section bg-white" data-test="logos">
           <div className="grid-container">
             <div className="grid-row grid-gap">
-              <div className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8">
+              <div className="usa-footer__logo grid-row grid-col-12 tablet-lg:grid-col-8">
                 <div className="mobile-lg:grid-col-auto">
                   {map(this.props.logos, logo => (
                     <div key={logo.name}>
@@ -67,65 +67,8 @@ export default class Footer extends PureComponent {
                       >
                         <img
                           src={logo.image}
-                          alt={`${logo.name  } logo`}
-                          className="maxw-15 padding-right-2 show-w-gt-desktop"
-                        />
-                        <div className="mobile-lg:grid-col-auto desktop:display-inline">
-                          <h3 className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline">
-                            {logo.name}
-                          </h3>
-                        </div>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-5 text-left">
-                <p className="text-right padding-right-1 margin-top-0 font-body-3xs">
-                  <a href="mailto:code@gsa.gov">code@gsa.gov</a>
-                </p>
-                <ul
-                  className="usa-footer__social-links grid-row flex-justify-start"
-                  data-test="socials"
-                >
-                  {map(this.props.socials, social => (
-                    <li key={social.name} className="grid-col-12 tablet:grid-col-3">
-                      <a
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.name}
-                        className="font-body-xl"
-                      >
-                        <div className={`text-base-darker ${social.icon}`} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="usa-footer__secondary-section bg-primary-lighter show-w-lte-desktop"
-          data-test="logos"
-        >
-          <div className="grid-container">
-            <div className="grid-row grid-gap">
-              <div className="usa-footer__logo grid-row tablet:grid-col-12 desktop:grid-col-8">
-                <div className="mobile-lg:grid-col-auto">
-                  {map(this.props.logos, logo => (
-                    <div key={logo.name}>
-                      <a
-                        href={logo.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-no-underline"
-                      >
-                        <img
-                          src={logo.image}
-                          alt={logo.name}
-                          className="maxw-15 padding-right-2 show-w-gt-desktop"
+                          alt={`${logo.name} logo`}
+                          className="maxw-15 padding-right-2 show-w-gt-tablet-lg"
                         />
                         <div className="mobile-lg:grid-col-auto desktop:display-inline">
                           <h3 className="usa-footer__logo-heading usa-footer__primary-link font-body-3xs text-primary text-bold desktop:display-inline padding-left-0">
@@ -137,8 +80,8 @@ export default class Footer extends PureComponent {
                   ))}
                 </div>
               </div>
-              <div className="usa-footer__contact-links desktop:grid-offset-1 desktop:padding-top-7 text-left">
-                <p className="text-left font-body-3xs margin-top-0">
+              <div className="usa-footer__contact-links tablet-lg:grid-offset-1 tablet-lg:padding-top-7 text-left tablet-lg:grid-col-3">
+                <p className="padding-right-1 margin-top-0 font-body-3xs tablet-lg:grid-col-6 tablet-lg:grid-offset-6 grid-col-12">
                   <a href="mailto:code@gsa.gov">code@gsa.gov</a>
                 </p>
                 <ul
@@ -146,7 +89,10 @@ export default class Footer extends PureComponent {
                   data-test="socials"
                 >
                   {map(this.props.socials, social => (
-                    <li key={social.name} className="grid-col-12 tablet:grid-col-3 padding-top-2">
+                    <li
+                      key={social.name}
+                      className="grid-col-12 tablet-lg:grid-col-3 desktop:margin-top-neg-1 margin-top-1"
+                    >
                       <a
                         href={social.url}
                         target="_blank"

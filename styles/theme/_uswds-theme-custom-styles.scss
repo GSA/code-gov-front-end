@@ -101,3 +101,9 @@ select {
     }
   }
 }
+
+.usa-footer__secondary-section {
+  @media (max-width: 879.5px) {
+    background-color: #e1f3f8;
+  }
+}
