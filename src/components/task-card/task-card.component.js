@@ -88,7 +88,14 @@ export default class TaskCardComponent extends Component {
         <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
           <div className="grid-row">
             <ul className="display-inline-block tablet:grid-col-9 grid-col-12">
-              <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
+              <CardPart
+                title="Languages"
+                text={
+                  get(task, 'languages').length === 0
+                    ? undefined
+                    : join(get(task, 'languages'), ',')
+                }
+              />
               <CardPart title="Type" text={capitalize(get(task, 'type'))} />
               <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
               <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
