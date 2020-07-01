@@ -13,6 +13,8 @@ $header-height: 50px;
 // for lazy-html component
 @import '~react-placeholder/lib/reactPlaceholder.css';
 
+@import './json-schema.scss';
+
 html {
   background-color: $color-white;
 
