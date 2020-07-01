@@ -60,13 +60,11 @@ export default class RepoCardComponent extends Component {
 
     if (some(repo.languages)) {
       // convert array of languages into string
-      return repo.languages.map(lang => {
-        return lang
-      }).join(', ');
+      return repo.languages.map(lang => lang).join(', ')
     }
 
     // @TODO: replace with "", and let component fill in `Not Available`
-    return "Not Available"
+    return 'Not Available'
   }
 
   render() {

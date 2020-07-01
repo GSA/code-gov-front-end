@@ -68,21 +68,7 @@ exports[`components - RepoCard render should render correctly 1`] = `
             title="Usage Type"
           />
           <CardPart
-            text={
-              Array [
-                <span
-                  className="language"
-                >
-                  repo-lang-1
-                </span>,
-                ", ",
-                <span
-                  className="language"
-                >
-                  repo-lang-2
-                </span>,
-              ]
-            }
+            text="repo-lang-1, repo-lang-2"
             title="Languages"
           />
           <CardPart
