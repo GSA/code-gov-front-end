@@ -1,9 +1,9 @@
 $arrowSize: 8px;
-$borderColor: lightgray;
+// $borderColor: lightgray;
 
 #schema-viewer {
   background: white;
-  padding: 15px;
+  //   padding: 15px;
   position: relative;
 
   &.hide-optional-fields tr.optional {
@@ -50,20 +50,21 @@ $borderColor: lightgray;
     border-left: $arrowSize solid #000;
   }
 
-  th {
-    background: #323a45;
-    border-bottom: 1px solid $borderColor;
-    border-left: 1px solid $borderColor;
-    border-right: 1px solid $borderColor;
-    box-sizing: border-box;
-    color: white;
-    padding: 0.75rem 2rem;
-  }
-
-  @media screen and (max-width: 500px) {
+  thead {
     th {
-      font-size: 1.1em;
-      padding: 0.75rem 0.2rem;
+      background: #323a45;
+      // border-bottom: 1px solid $borderColor;
+      // border-left: 1px solid $borderColor;
+      // border-right: 1px solid $borderColor;
+      box-sizing: border-box;
+      color: white;
+      padding: 0.75rem 2rem;
+    }
+    @media screen and (max-width: 500px) {
+      th {
+        font-size: 1.1em;
+        padding: 0.75rem 0.2rem;
+      }
     }
   }
 
@@ -74,9 +75,9 @@ $borderColor: lightgray;
   }
 
   td {
-    border-bottom: 1px solid $borderColor;
-    border-left: 1px solid $borderColor;
-    border-right: 1px solid $borderColor;
+    // border-bottom: 1px solid $borderColor;
+    // border-left: 1px solid $borderColor;
+    // border-right: 1px solid $borderColor;
     box-sizing: border-box;
     padding: 10px;
   }
@@ -127,10 +128,6 @@ $borderColor: lightgray;
   .data-type,
   .mobile-data-type {
     text-align: center;
-  }
-
-  .field-name-text {
-    display: inline-block;
   }
 
   tr.top-level {

@@ -73,17 +73,17 @@ class InventoryCodeSectionComponent extends Component {
     return (
       <>
         <tr className={classNames({ 'top-level': topLevel, optional: isRequired === false })}>
-          <td style={{ paddingLeft: `${10 + 20 * indent}px` }}>
+          <th
+            style={{ paddingLeft: `${10 + 20 * indent}px` }}
+            className="field-name-text"
+            scope="row"
+          >
             {hasDropDown ? this.renderDropDown() : <div className="dropdown" />}
-            <div className="field-name-text">{key}</div>
+            {key}
             {this.renderDetailsButton({ key, displayType, description, topLevel })}
-          </td>
-          <td className="data-type">
-            <div>{displayType}</div>
-          </td>
-          <td className="description">
-            <div dangerouslySetInnerHTML={{ __html: description }} />
-          </td>
+          </th>
+          <td className="data-type">{displayType}</td>
+          <td className="description" dangerouslySetInnerHTML={{ __html: description }} />
         </tr>
         {dropDown &&
           subEntries &&

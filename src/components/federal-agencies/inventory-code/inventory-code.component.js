@@ -73,17 +73,22 @@ class InventoryCodeComponent extends Component {
 }
 
 const InventoryCodeTableComponent = ({ children }) => (
-  <table>
-    <thead>
+  <table className="usa-table">
+    <thead className="font-body-sm">
       <tr>
-        <th className="field-name-column">Field Name</th>
-        <th className="data-type-column">Data Type</th>
-        <th className="description-column">Description</th>
+        <th className="field-name-column" scope="col">
+          Field Name
+        </th>
+        <th className="data-type-column" scope="col">
+          Data Type
+        </th>
+        <th className="description-column" scope="col">
+          Description
+        </th>
       </tr>
     </thead>
-    <tbody>{children}</tbody>
+    <tbody className="font-body-xs">{children}</tbody>
   </table>
-  // <ul className="usa-card-group margin-top-3">{children}</ul>
 )
 
 InventoryCodeComponent.propTypes = {

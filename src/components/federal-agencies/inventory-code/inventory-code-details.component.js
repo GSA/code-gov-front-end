@@ -9,7 +9,7 @@ const InventoryCodeDetailsComponent = ({
     <div id="mobile-details-overlay" />
     <div id="mobile-details">
       <div id="mobile-details-title">{key}</div>
-      <table>
+      <table className="usa-table font-body-3xs">
         <thead>
           <tr>
             <th id="mobile-data-type-column">Data Type</th>
