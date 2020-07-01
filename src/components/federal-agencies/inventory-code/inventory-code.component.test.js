@@ -26,9 +26,9 @@ describe('components - InventoryCodeComponent', () => {
   })
 
   it('should render toggle optional entries on click', () => {
-    wrapper.find('#json-schema-hide-optional-fields').simulate('click')
+    wrapper.find('#hide-optional-fields').simulate('click')
     expect(wrapper.state('optionalFields')).toBeFalsy()
-    wrapper.find('#json-schema-hide-optional-fields').simulate('click')
+    wrapper.find('#hide-optional-fields').simulate('click')
     expect(wrapper.state('optionalFields')).toBeTruthy()
   })
 })

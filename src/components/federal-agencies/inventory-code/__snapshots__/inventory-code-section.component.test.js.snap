@@ -2,54 +2,49 @@
 
 exports[`components - InventoryCodeSectionComponent should render correctly 1`] = `
 <Fragment>
-  <li
-    className="grid-col-12 usa-card margin-bottom-2 top-level"
+  <tr
+    className="top-level"
   >
-    <div
-      className="usa-card__container"
+    <th
+      className="field-name-text"
+      scope="row"
+      style={
+        Object {
+          "paddingLeft": "10px",
+        }
+      }
     >
-      <header
-        className="usa-card__header padding-bottom-0"
-      >
-        <h2
-          className="usa-card__heading font-heading-lg "
-        >
-          version
-        </h2>
-      </header>
       <div
-        className="usa-card__body"
+        className="dropdown"
+      />
+      version
+      <button
+        className="details"
+        onClick={[Function]}
       >
-        <p
-          className="margin-bottom-0 font-body-2xs "
-        >
-          <strong>
-            Class: 
-          </strong>
-          string
-        </p>
-        <p
-          className="usa-sr-only"
-        >
-          Required field
-        </p>
         <div
-          className="margin-top-0 font-body-2xs "
+          className="details-text"
         >
-          <strong>
-            Description: 
-          </strong>
-          <div
-            className="display-inline"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The version of the metadata schema in use.",
-              }
-            }
-          />
+          details
         </div>
-      </div>
-    </div>
-  </li>
+        <div
+          className="details-arrow arrow-right"
+        />
+      </button>
+    </th>
+    <td
+      className="data-type"
+    >
+      string
+    </td>
+    <td
+      className="description"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "The version of the metadata schema in use.",
+        }
+      }
+    />
+  </tr>
 </Fragment>
 `;

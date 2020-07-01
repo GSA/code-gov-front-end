@@ -2,7 +2,8 @@
 
 exports[`components - InventoryCodeComponent should render correctly 1`] = `
 <div
-  className="margin-top-4 hide-optional-fields"
+  className="margin-top-4 hide-details"
+  id="schema-viewer"
 >
   <form
     className="usa-form"
@@ -25,7 +26,9 @@ exports[`components - InventoryCodeComponent should render correctly 1`] = `
       </label>
     </div>
   </form>
-  <div>
+  <div
+    className="desktop-and-mobile-views"
+  >
     <InventoryCodeTableComponent />
   </div>
 </div>
