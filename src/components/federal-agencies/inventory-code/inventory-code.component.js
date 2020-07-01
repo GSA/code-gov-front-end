@@ -6,7 +6,7 @@ import InventoryCodeDetailsComponent from './inventory-code-details.component'
 
 class InventoryCodeComponent extends Component {
   state = {
-    optionalFields: false,
+    optionalFields: true,
     details: false
   }
 
@@ -20,18 +20,7 @@ class InventoryCodeComponent extends Component {
 
   renderIntro = () => (
     <>
-      <div style={{ marginBottom: '10px' }}>
-        <input
-          id="json-schema-hide-optional-fields"
-          type="checkbox"
-          style={{ cursor: 'pointer', textAlign: 'left' }}
-          onClick={this.toggleOptionalFields}
-        />
-        <label htmlFor="json-schema-hide-optional-fields" style={{ cursor: 'pointer' }}>
-          Hide optional fields
-        </label>
-      </div>
-      {/* <form className="usa-form">
+      <form className="usa-form">
         <div className="usa-checkbox">
           <input
             className="usa-checkbox__input"
@@ -44,7 +33,7 @@ class InventoryCodeComponent extends Component {
             Hide Optional Fields
           </label>
         </div>
-      </form> */}
+      </form>
     </>
   )
 
