@@ -104,7 +104,7 @@ describe('components - HomeBannerSearchBox', () => {
     })
 
     it('should render the auto complete if there are suggestions and should be shown', () => {
-      wrapper.setState({ showAutocomplete: true, suggestions: ['term-1', 'term-2'] })
+      wrapper.setState({ showAutocomplete: true, suggestions: ['term-1', 'term-2', 'term-3'] })
       expect(wrapper.find(Autocomplete).length).toBe(1)
     })
   })
