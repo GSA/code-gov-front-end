@@ -8,7 +8,6 @@ exports[`components - Breadcrumbs should render correctly 1`] = `
     className="grid-row margin-top-4"
   >
     <li
-      className="padding-right-1"
       key="text-1"
     >
       <Connect(CustomLinkComponent)
@@ -16,10 +15,13 @@ exports[`components - Breadcrumbs should render correctly 1`] = `
       >
         text-1
       </Connect(CustomLinkComponent)>
+      <span
+        className="padding-x-2px"
+      >
+         &gt; 
+      </span>
     </li>
-    &gt; 
     <li
-      className="padding-right-1"
       key="text-2"
     >
       <Connect(CustomLinkComponent)
@@ -27,10 +29,14 @@ exports[`components - Breadcrumbs should render correctly 1`] = `
       >
         text-2
       </Connect(CustomLinkComponent)>
+      <span
+        className="padding-x-2px"
+      >
+         &gt; 
+      </span>
     </li>
-    &gt; 
     <li
-      className="padding-left-1 text-bold"
+      className="text-bold"
       key="text-3"
     >
       text-3

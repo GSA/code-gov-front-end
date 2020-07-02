@@ -5,22 +5,21 @@ export default function Breadcrumbs({ crumbs }) {
   return (
     <div className="grid-container">
       <ul className="grid-row margin-top-4">
-        {crumbs
-          .map(({ text, to }) => {
-            if (to) {
-              return (
-                <li key={text} className="padding-right-1">
-                  <CustomLink to={to}>{text}</CustomLink>
-                </li>
-              )
-            }
+        {crumbs.map(({ text, to }) => {
+          if (to) {
             return (
-              <li key={text} className="padding-left-1 text-bold">
-                {text}
+              <li key={text}>
+                <CustomLink to={to}>{text}</CustomLink>
+                <span className="padding-x-2px"> &gt; </span>
               </li>
             )
-          })
-          .reduce((prev, curr) => [prev, '> ', curr])}
+          }
+          return (
+            <li key={text} className="text-bold">
+              {text}
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
