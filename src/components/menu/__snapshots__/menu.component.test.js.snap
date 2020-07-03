@@ -100,7 +100,7 @@ exports[`components - Menu render should render correctly 1`] = `
             <PrimaryMenuOption
               menuOption={
                 Object {
-                  "expanded": true,
+                  "expanded": false,
                   "links": Array [
                     Object {
                       "id": "menu-link-2",
@@ -115,7 +115,7 @@ exports[`components - Menu render should render correctly 1`] = `
             <SecondaryDropdown
               menuOption={
                 Object {
-                  "expanded": true,
+                  "expanded": false,
                   "links": Array [
                     Object {
                       "id": "menu-link-2",

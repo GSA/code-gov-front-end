@@ -31,7 +31,8 @@ export default class Menu extends Component {
         menuOption.expanded = false
       }
       if (menuOption.name === selected.name) {
-        menuOption.expanded = !menuOption.expanded
+        selected.expanded = !selected.expanded
+        return selected
       }
       return menuOption
     })
