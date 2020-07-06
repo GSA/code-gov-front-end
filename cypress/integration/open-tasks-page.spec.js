@@ -1,18 +1,19 @@
 describe('open task page tests', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.get('li a[role="menuitem"]')
+      .get('li button[class="usa-accordion__button usa-nav__link"]')
       .contains(/developers/i)
-      .click()
-      .get('ul[role="menu"] > li > a')
+      .click({ force: true })
+      .get('ul[class="usa-nav__submenu"] > li[class="usa-nav__submenu-item"] > a')
       .contains(/open tasks/i)
-      .click({force: true})
+      .click({ force: true })
   })
 
   it('filters by federal agency', () => {
     const agency = 'GSA'
     cy.get(`input[value="${agency}"]`)
-      .check({force: true})
-      .location('search').should('include', agency)
+      .check({ force: true })
+      .location('search')
+      .should('include', agency)
   })
 })
