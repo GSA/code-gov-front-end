@@ -85,7 +85,7 @@ const getCard = (config, entry) => {
 const ComplianceDashboardComponent = props => (
   <>
     <hr className="border-2px border-primary tablet:margin-x-15 margin-x-2 margin-y-4" />
-    <ul className="usa-card-group padding-x-3">
+    <ul className="usa-card-group padding-x-3 dashboard-container">
       {props.data.map(entry => getCard(props.config, entry))}
     </ul>
   </>
