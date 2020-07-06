@@ -47,6 +47,13 @@ export default class TaskCardComponent extends Component {
     }
   }
 
+  get cardDate() {
+    const date = getLastModifiedDateString(this.props.task)
+    if (date) {
+      return <dd className="display-inline margin-left-2px margin-right-3">{date}</dd>
+    }
+  }
+
   get agencyLink() {
     const agencyAcronym = get(this.props, 'task.agency.acronym')
     const agencyName = get(this.props, 'task.agency.name')
@@ -65,6 +72,8 @@ export default class TaskCardComponent extends Component {
           <dd className="display-inline margin-left-2px margin-right-3">
             <CustomLink to={`/browse-projects?agencies=${agencyAcronym}`}>{agencyName}</CustomLink>
           </dd>
+          <dt className="display-inline text-bold margin-right-2px">Last Updated:</dt>
+          {this.cardDate}
         </Fragment>
       )
     }
@@ -72,7 +81,7 @@ export default class TaskCardComponent extends Component {
 
   render() {
     const task = this.props.task
-    const lastModifiedString = getLastModifiedDateString(this.props.task) || 'Not Available'
+    // const lastModifiedString = getLastModifiedDateString(this.props.task) || 'Not Available'
 
     return (
       <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto margin-bottom-2 card-list-item margin-top-1">
@@ -82,8 +91,6 @@ export default class TaskCardComponent extends Component {
         {this.cardDescription}
         <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light show-w-gt-1000">
           {this.agencyLink}
-          <dt className="display-inline text-bold margin-right-2px">Last Updated: </dt>
-          <dd className="display-inline margin-left-2px margin-right-3">{lastModifiedString}</dd>
         </dl>
         <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
           <div className="grid-row">

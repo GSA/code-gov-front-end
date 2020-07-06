@@ -11,12 +11,12 @@ const props = {
     description: 'task-desc',
     agency: {
       acronym: 'task-agency-acronym',
-      name: 'task-agency-name',
+      name: 'task-agency-name'
     },
     date: {
-      lastModified: '2020/12/10',
-    },
-  },
+      lastModified: '2020/12/10'
+    }
+  }
 }
 
 let wrapper
@@ -33,7 +33,11 @@ describe('components - TaskCard', () => {
     })
 
     it('should render a link to the tasks `issueURL`', () => {
-      expect(shallow(instance.cardTitle).find('a').prop('href')).toBe(props.task.issueURL)
+      expect(
+        shallow(instance.cardTitle)
+          .find('a')
+          .prop('href')
+      ).toBe(props.task.issueURL)
     })
 
     it('should not render if the task has no `issueURL` or `title`', () => {
@@ -64,19 +68,16 @@ describe('components - TaskCard', () => {
       wrapper.setProps({ task: { ...props.task, agency: undefined } })
       testRenderEmpty(instance.agencyLink)
     })
+
+    it('should render `Not Available` if no last modified date found', () => {
+      wrapper.setProps({ task: { ...props.task, date: undefined } })
+      testRenderEmpty(instance.cardDate)
+    })
   })
 
   describe('render', () => {
     it('should render correctly', () => {
       expect(wrapper).toMatchSnapshot()
-    })
-
-    it('should render `Not Available` if no last modified date found', () => {
-      wrapper.setProps({ task: { ...props.task, date: undefined } })
-      expect(wrapper.findWhere(x => (
-        x.prop('text')
-        && x.prop('text').match(/Not Available/i)
-      )).length).toBe(1)
     })
   })
 })

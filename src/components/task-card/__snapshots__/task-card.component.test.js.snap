@@ -57,7 +57,7 @@ exports[`components - TaskCard render should render correctly 1`] = `
     <dt
       className="display-inline text-bold margin-right-2px"
     >
-      Last Updated: 
+      Last Updated:
     </dt>
     <dd
       className="display-inline margin-left-2px margin-right-3"
