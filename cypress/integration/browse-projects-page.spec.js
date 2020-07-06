@@ -1,9 +1,9 @@
 describe('browse projects page tests', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.get('ul[role="menubar"] > li > a')
-      .contains(/browse projects/i)
-      .click()
+      .get('li a[class="text-base-dark usa-nav__link"]')
+      .contains(/projects/i)
+      .click({ force: true })
   })
 
   it('can navigate to browse projects from the homepage', () => {
@@ -25,13 +25,11 @@ describe('browse projects page tests', () => {
       // https://docs.cypress.io/api/commands/wait.html#Alias
       // https://docs.cypress.io/api/commands/route.html#Examples
       .wait(3000)
-      .get('.card-list-item')
-      .each((item) => {
-        cy.wrap(item)
-          .within(() => {
-            cy.contains('dl > dd > span', 'c')
-            .should('exist')
-          })
+      .get('.usa-card')
+      .each(item => {
+        cy.wrap(item).within(() => {
+          cy.contains('div > ul > li', 'c').should('exist')
+        })
       })
   })
 })
