@@ -48,6 +48,20 @@ describe('components - Menu', () => {
     })
   })
 
+  describe('onToggleMobileMenu', () => {
+    it('should inverse the value of the current mobileMenu state', () => {
+      wrapper.setState({ mobileMenu: true })
+
+      // true => false
+      instance.onToggleMobileMenu()
+      expect(wrapper.state('mobileMenu')).toBeFalsy()
+
+      // false => true
+      instance.onToggleMobileMenu()
+      expect(wrapper.state('mobileMenu')).toBeTruthy()
+    })
+  })
+
   xdescribe('expanded', () => {
     // Refactor? - not used anywhere - looks like should be used in onClickMenuOption
   })
@@ -61,6 +75,12 @@ describe('components - Menu', () => {
       wrapper.setState({ menu: [{ expanded: true }, { expanded: true }] })
       instance.collapse()
       expect(wrapper.state('menu').every(x => !x.expanded)).toBeTruthy()
+    })
+
+    it('should set mobileMenu to false', () => {
+      wrapper.setState({ mobileMenu: true })
+      instance.collapse()
+      expect(wrapper.state('mobileMenu')).toBeFalsy()
     })
   })
 
