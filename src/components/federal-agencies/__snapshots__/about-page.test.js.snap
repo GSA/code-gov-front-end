@@ -70,16 +70,24 @@ exports[`components - AboutPage - ComplianceDashboard render should render corre
 
 exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
 <Fragment>
-  <LazyHTML
-    url="/src/components/federal-agencies/html/compliance/how-to-inventory-a.html"
-  />
+  <div
+    id="how-to-inventory-a"
+  >
+    <LazyHTML
+      url="/src/components/federal-agencies/html/compliance/how-to-inventory-a.html"
+    />
+  </div>
   <InventoryCodeComponent
     schema={Object {}}
     url="/assets/data/schema.json"
   />
-  <LazyHTML
-    url="/src/components/federal-agencies/html/compliance/how-to-inventory-b.html"
-  />
+  <div
+    id="how-to-inventory-b"
+  >
+    <LazyHTML
+      url="/src/components/federal-agencies/html/compliance/how-to-inventory-b.html"
+    />
+  </div>
 </Fragment>
 `;
 

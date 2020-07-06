@@ -3,6 +3,7 @@
 exports[`components - Breadcrumbs should render correctly 1`] = `
 <div
   className="grid-container"
+  id="breadcrumbs"
 >
   <ul
     className="grid-row margin-top-4"

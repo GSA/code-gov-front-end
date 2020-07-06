@@ -6,7 +6,7 @@ exports[`components - ComplianceDashboard should render correctly 1`] = `
     className="border-2px border-primary tablet:margin-x-15 margin-x-2 margin-y-4"
   />
   <ul
-    className="usa-card-group padding-x-3"
+    className="usa-card-group padding-x-3 dashboard-container"
   >
     <li
       className="usa-card radius-0 border-warning border-left-3 height-auto width-full"

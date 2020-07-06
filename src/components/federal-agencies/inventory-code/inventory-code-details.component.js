@@ -3,6 +3,7 @@ import classNames from 'classnames'
 
 const InventoryCodeDetailsComponent = ({
   toggleDetails,
+  mobileView,
   details: { key, displayType, description, topLevel }
 }) => (
   <>

@@ -7,7 +7,8 @@ import InventoryCodeDetailsComponent from './inventory-code-details.component'
 class InventoryCodeComponent extends Component {
   state = {
     optionalFields: true,
-    details: false
+    details: false,
+    mobileView: true
   }
 
   toggleOptionalFields = () => {
@@ -16,11 +17,37 @@ class InventoryCodeComponent extends Component {
 
   toggleDetails = value => {
     this.setState({ details: value ? { ...value } : false })
+    console.log('toggle details')
+    const mobileView = !this.state.mobileView
+    this.setState({ mobileView })
+    if (this.state.mobileView) {
+      document.getElementById('code-table').setAttribute('hidden', 'true')
+      document.getElementById('optional-toggle-form').setAttribute('hidden', 'true')
+      document.getElementById('how-to-inventory-a').setAttribute('hidden', 'true')
+      document.getElementById('how-to-inventory-b').setAttribute('hidden', 'true')
+      document.getElementsByClassName('usa-section')[0].setAttribute('hidden', 'true')
+      document.getElementsByClassName('menu-banner-header')[0].setAttribute('hidden', 'true')
+      document.getElementsByClassName('show-w-lte-600')[0].setAttribute('hidden', 'true')
+      document.getElementsByClassName('usa-skipnav')[0].setAttribute('hidden', 'true')
+      document.getElementById('breadcrumbs').setAttribute('hidden', 'true')
+      document.querySelector('footer').setAttribute('hidden', 'true')
+    } else {
+      document.getElementById('code-table').removeAttribute('hidden')
+      document.getElementById('optional-toggle-form').removeAttribute('hidden')
+      document.getElementById('how-to-inventory-a').removeAttribute('hidden')
+      document.getElementById('how-to-inventory-b').removeAttribute('hidden')
+      document.getElementsByClassName('usa-section')[0].removeAttribute('hidden')
+      document.getElementsByClassName('menu-banner-header')[0].removeAttribute('hidden')
+      document.getElementsByClassName('show-w-lte-600')[0].removeAttribute('hidden')
+      document.getElementsByClassName('usa-skipnav')[0].removeAttribute('hidden')
+      document.getElementById('breadcrumbs').removeAttribute('hidden')
+      document.querySelector('footer').removeAttribute('hidden')
+    }
   }
 
   renderIntro = () => (
     <>
-      <form className="usa-form">
+      <form className="usa-form" id="optional-toggle-form">
         <div className="usa-checkbox">
           <input
             className="usa-checkbox__input"
@@ -39,7 +66,7 @@ class InventoryCodeComponent extends Component {
 
   render() {
     const { schema } = this.props
-    const { optionalFields, details } = this.state
+    const { optionalFields, details, mobileView } = this.state
 
     return (
       <div
@@ -52,7 +79,11 @@ class InventoryCodeComponent extends Component {
         {this.renderIntro()}
         <div className="desktop-and-mobile-views">
           {details && (
-            <InventoryCodeDetailsComponent toggleDetails={this.toggleDetails} details={details} />
+            <InventoryCodeDetailsComponent
+              toggleDetails={this.toggleDetails}
+              details={details}
+              mobileView={mobileView}
+            />
           )}
           <InventoryCodeTableComponent>
             {schema.properties &&
@@ -73,7 +104,7 @@ class InventoryCodeComponent extends Component {
 }
 
 const InventoryCodeTableComponent = ({ children }) => (
-  <table className="usa-table">
+  <table className="usa-table" id="code-table">
     <thead className="font-body-sm">
       <tr>
         <th className="field-name-column" scope="col">
