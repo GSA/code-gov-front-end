@@ -41,34 +41,33 @@ exports[`components - ProjectPage render should render correctly 1`] = `
             Last updated on 12/10/2020
           </div>
         </span>
-        <Connect(CustomLinkComponent)
-          key="repo-tag-1"
-          to="/search?query=repo-tag-1"
+        <div
+          className="grid-row margin-top-0"
+          id="repo-tags"
         >
-          <span
-            className="margin-right-1"
+          <Connect(CustomLinkComponent)
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1"
+            key="repo-tag-1"
+            to="/search?query=repo-tag-1"
           >
-            <button
-              className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md border-0 margin-top-1"
+            <span
+              className="text-white text-no-underline text-normal"
             >
               repo-tag-1
-            </button>
-          </span>
-        </Connect(CustomLinkComponent)>
-        <Connect(CustomLinkComponent)
-          key="repo-tag-2"
-          to="/search?query=repo-tag-2"
-        >
-          <span
-            className="margin-right-1"
+            </span>
+          </Connect(CustomLinkComponent)>
+          <Connect(CustomLinkComponent)
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1"
+            key="repo-tag-2"
+            to="/search?query=repo-tag-2"
           >
-            <button
-              className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md border-0 margin-top-1"
+            <span
+              className="text-white text-no-underline text-normal"
             >
               repo-tag-2
-            </button>
-          </span>
-        </Connect(CustomLinkComponent)>
+            </span>
+          </Connect(CustomLinkComponent)>
+        </div>
         <ul>
           <span
             className="font-body-3xs"
@@ -205,15 +204,12 @@ exports[`components - ProjectPage render should render correctly 1`] = `
         </div>
         <br />
         <a
+          className="usa-button margin-bottom-6 margin-top-neg-2px"
           href="https://github.com/repo-url"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <button
-            className="usa-button margin-bottom-6 margin-top-neg-2px"
-          >
-            Visit Repo
-          </button>
+          Visit Repo
         </a>
       </div>
     </header>
