@@ -1,48 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - QualityPopover render should render correctly 1`] = `
-<div
-  className="pin-right padding-right-105"
->
-  <span
-    className="data-quality-title"
-    id="data-quality-title"
-  >
-    Data Quality Score
-  </span>
+<div>
   <div
-    aria-labelledby="data-quality-title"
-    className="icon icon-help-circled popper"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex="0"
+    className="pin-right padding-right-105"
+  >
+    <span
+      className="data-quality-title"
+      id="data-quality-title"
+    >
+      Data Quality Score
+    </span>
+    <div
+      aria-labelledby="data-quality-title"
+      className="icon icon-help-circled popper"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex="0"
+    />
+  </div>
+  <div
+    className="padding-top-3"
+    hidden={true}
+    id="data-quality-popover"
   >
     <div
-      className="popover desktop left"
+      className="z-top bg-base-lighter padding-1 radius-lg margin-bottom-neg-2"
     >
-      The Data Quality Score is determined by using the information provided by Agencies in their 
-      <Connect(CustomLinkComponent)
-        to="/about/compliance/inventory-code"
-      >
-        code.json
-      </Connect(CustomLinkComponent)>
-       and by factors such as completeness and adherence to the
-       
-      <Connect(CustomLinkComponent)
-        to="/about/compliance/inventory-code"
-      >
-        metadata schema
-      </Connect(CustomLinkComponent)>
-      .
-    </div>
-    <div
-      className="popover mobile left"
-    >
-      <div
-        className="popover-title"
-      >
-        Data Quality Score
-      </div>
       The Data Quality Score is determined by using the information provided by Agencies in their 
       <Connect(CustomLinkComponent)
         to="/about/compliance/inventory-code"
