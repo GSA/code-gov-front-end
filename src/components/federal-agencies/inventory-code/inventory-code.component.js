@@ -78,13 +78,6 @@ class InventoryCodeComponent extends Component {
       >
         {this.renderIntro()}
         <div className="desktop-and-mobile-views">
-          {details && (
-            <InventoryCodeDetailsComponent
-              toggleDetails={this.toggleDetails}
-              details={details}
-              mobileView={mobileView}
-            />
-          )}
           <InventoryCodeTableComponent>
             {schema.properties &&
               Object.entries(schema.properties).map((entry, index) => (
@@ -97,6 +90,13 @@ class InventoryCodeComponent extends Component {
                 />
               ))}
           </InventoryCodeTableComponent>
+          {details && (
+            <InventoryCodeDetailsComponent
+              toggleDetails={this.toggleDetails}
+              details={details}
+              mobileView={mobileView}
+            />
+          )}
         </div>
       </div>
     )
