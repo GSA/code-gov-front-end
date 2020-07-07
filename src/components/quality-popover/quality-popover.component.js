@@ -35,14 +35,16 @@ export default class QualityPopover extends Component {
     if (this.state.activated) iconClassName += ' activated'
     return (
       <div className="pin-right padding-right-105">
-        <span className="data-quality-title">Data Quality Score</span>
+        <span className="data-quality-title" id="data-quality-title">
+          Data Quality Score
+        </span>
         <div
           className={iconClassName}
           onClick={::this.onClick}
           ref={this.icon}
           onKeyPress={::this.onKeyPress}
           tabIndex="0"
-          alt="Data quality score popover"
+          aria-labelledby="data-quality-title"
         >
           <div className="popover desktop left">
             The Data Quality Score is determined by using the information provided by Agencies in
