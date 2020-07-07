@@ -44,12 +44,12 @@ export default class ProjectPage extends Component {
     return (
       <Fragment>
         {map(tags, tag => (
-          <CustomLink key={tag} to={`/search?query=${tag}`}>
-            <span className="margin-right-1">
-              <button className="usa-tag font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md border-0 margin-top-1">
-                {tag}
-              </button>
-            </span>
+          <CustomLink
+            key={tag}
+            to={`/search?query=${tag}`}
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1"
+          >
+            <span className="text-white text-no-underline text-normal">{tag}</span>
           </CustomLink>
         ))}
       </Fragment>
@@ -150,8 +150,13 @@ export default class ProjectPage extends Component {
 
     if (url) {
       return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          <button className="usa-button margin-bottom-6 margin-top-neg-2px">Visit Repo</button>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="usa-button margin-bottom-6 margin-top-neg-2px"
+        >
+          Visit Repo
         </a>
       )
     }
@@ -221,7 +226,9 @@ export default class ProjectPage extends Component {
               <div className="margin-top-3">
                 <h2 className="font-heading-xl">{repoName}</h2>
                 {this.lastModifiedDateHTML}
-                {this.repoTags}
+                <div id="repo-tags" className="grid-row margin-top-0">
+                  {this.repoTags}
+                </div>
                 <ul>
                   {this.usageType}
                   {this.license}
