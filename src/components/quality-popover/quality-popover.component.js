@@ -8,18 +8,11 @@ export default class QualityPopover extends Component {
     this.icon = React.createRef()
   }
 
-  componentDidMount() {
-    document.addEventListener('click', event => {
-      if (this.icon.current !== event.target) {
-        this.setState({ activated: false })
-      }
-    })
-  }
-
   onClick() {
     this.setState(state => ({
       activated: !state.activated
     }))
+    this.onPopoverToggle()
   }
 
   onKeyPress(event) {
@@ -27,33 +20,38 @@ export default class QualityPopover extends Component {
       this.setState(state => ({
         activated: !state.activated
       }))
+      this.onPopoverToggle()
+    }
+  }
+
+  onPopoverToggle() {
+    if (!this.state.activated) {
+      document.getElementById('data-quality-popover').removeAttribute('hidden')
+    } else {
+      document.getElementById('data-quality-popover').setAttribute('hidden', 'true')
     }
   }
 
   render() {
-    let iconClassName = 'icon icon-help-circled popper'
-    if (this.state.activated) iconClassName += ' activated'
+    const iconClassName = 'icon icon-help-circled popper'
     return (
-      <div className="pin-right padding-right-105">
-        <span className="data-quality-title" id="data-quality-title">
-          Data Quality Score
-        </span>
-        <div
-          className={iconClassName}
-          onClick={::this.onClick}
-          ref={this.icon}
-          onKeyPress={::this.onKeyPress}
-          tabIndex="0"
-          aria-labelledby="data-quality-title"
-        >
-          <div className="popover desktop left">
-            The Data Quality Score is determined by using the information provided by Agencies in
-            their <CustomLink to="/about/compliance/inventory-code">code.json</CustomLink> and by
-            factors such as completeness and adherence to the{' '}
-            <CustomLink to="/about/compliance/inventory-code">metadata schema</CustomLink>.
-          </div>
-          <div className="popover mobile left">
-            <div className="popover-title">Data Quality Score</div>
+      <div>
+        <div className="pin-right padding-right-105">
+          <span className="data-quality-title" id="data-quality-title">
+            Data Quality Score
+          </span>
+          <div
+            className={iconClassName}
+            onClick={::this.onClick}
+            ref={this.icon}
+            onKeyPress={::this.onKeyPress}
+            tabIndex="0"
+            aria-labelledby="data-quality-title"
+            role="button"
+          />
+        </div>
+        <div id="data-quality-popover" className="padding-top-3" hidden>
+          <div className="z-top bg-base-lighter padding-1 radius-lg margin-bottom-neg-2">
             The Data Quality Score is determined by using the information provided by Agencies in
             their <CustomLink to="/about/compliance/inventory-code">code.json</CustomLink> and by
             factors such as completeness and adherence to the{' '}
