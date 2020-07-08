@@ -5,7 +5,7 @@ import { prettify } from 'utils/other'
 
 class InventoryCodeSectionComponent extends Component {
   state = {
-    dropDown: true
+    dropDown: false
   }
 
   toggleDropDown = () => {
@@ -40,16 +40,6 @@ class InventoryCodeSectionComponent extends Component {
     return entries
   }
 
-  renderDropDown = () => (
-    <button
-      className={classNames('dropdown', { 'hide-dropdown': this.state.dropDown })}
-      onClick={this.toggleDropDown}
-      aria-label="toggle dropdown"
-    >
-      <div className="arrow-up-or-down" />
-    </button>
-  )
-
   renderDetailsButton = value => (
     <button className="details" onClick={() => this.props.toggleDetails(value)}>
       <div className="details-text">details</div>
@@ -72,31 +62,77 @@ class InventoryCodeSectionComponent extends Component {
 
     return (
       <>
-        <tr className={classNames({ 'top-level': topLevel, optional: isRequired === false })}>
-          <th
-            style={{ paddingLeft: `${10 + 20 * indent}px` }}
-            className="field-name-text"
-            scope="row"
-          >
-            {hasDropDown ? this.renderDropDown() : <div className="dropdown" />}
-            {key}
-            {this.renderDetailsButton({ key, displayType, description, topLevel })}
-          </th>
-          <td className="data-type">{displayType}</td>
-          <td className="description" dangerouslySetInnerHTML={{ __html: description }} />
-        </tr>
-        {dropDown &&
-          subEntries &&
-          subEntries.map((subEntry, index) => (
-            <InventoryCodeSectionComponent
-              key={index} // eslint-disable-line react/no-array-index-key
-              entry={subEntry}
-              isRequired={Array.isArray(required) && required.includes(subEntry[0])}
-              indent={indent + 1}
-              toggleDetails={toggleDetails}
-              optionalToggle={optionalToggle}
-            />
-          ))}
+        {hasDropDown ? (
+          <>
+            <button
+              className={
+                `${classNames({
+                  'top-level': topLevel,
+                  'text-red': optionalField,
+                  'display-none': optionalField && optionalToggle
+                }) 
+                } border-black usa-accordion__button border-left-1 font-body-md border-bottom-2px`
+              }
+              aria-expanded={dropDown}
+              aria-controls={`${key  }-section`}
+              onClick={this.toggleDropDown}
+            >
+              {key}
+              <span className="data-type font-body-3xs text-normal margin-left-1">
+                {displayType}
+              </span>
+              <p
+                className={
+                  `${classNames({ 'text-red': optionalField }) 
+                  } description text-normal font-body-3xs`
+                }
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            </button>
+            <div
+              id={`${key  }-section`}
+              className="usa-accordion__content margin-y-0 padding-y-0 padding-left-1 padding-right-0 bg-base-darkest"
+            >
+              {dropDown &&
+                subEntries &&
+                subEntries.map((subEntry, index) => (
+                  <InventoryCodeSectionComponent
+                    key={index} // eslint-disable-line react/no-array-index-key
+                    entry={subEntry}
+                    isRequired={Array.isArray(required) && required.includes(subEntry[0])}
+                    indent={indent + 1}
+                    toggleDetails={toggleDetails}
+                    optionalToggle={optionalToggle}
+                  />
+                ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              className={
+                `${classNames({
+                  'top-level': topLevel,
+                  'text-red': optionalField,
+                  'display-none': optionalField && optionalToggle
+                }) 
+                } border-black border-left-1 font-body-md bg-base-lightest padding-x-3 text-bold padding-y-2 border-bottom-2px`
+              }
+            >
+              {key}
+              <span className="data-type font-body-3xs text-normal margin-left-1">
+                {displayType}
+              </span>
+              <p
+                className={
+                  `${classNames({ 'text-red': optionalField }) 
+                  } description text-normal font-body-3xs margin-bottom-0`
+                }
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            </div>
+          </>
+        )}
       </>
     )
   }

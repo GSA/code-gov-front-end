@@ -6,7 +6,7 @@ import InventoryCodeDetailsComponent from './inventory-code-details.component'
 
 class InventoryCodeComponent extends Component {
   state = {
-    optionalFields: true,
+    optionalFields: false,
     details: false,
     mobileView: true
   }
@@ -104,22 +104,26 @@ class InventoryCodeComponent extends Component {
 }
 
 const InventoryCodeTableComponent = ({ children }) => (
-  <table className="usa-table" id="code-table">
-    <thead className="font-body-sm">
-      <tr>
-        <th className="field-name-column" scope="col">
-          Field Name
-        </th>
-        <th className="data-type-column" scope="col">
-          Data Type
-        </th>
-        <th className="description-column" scope="col">
-          Description
-        </th>
-      </tr>
-    </thead>
-    <tbody className="font-body-xs">{children}</tbody>
-  </table>
+  // <table className="usa-table" id="code-table">
+  //   <thead className="font-body-sm">
+  //     <tr>
+  //       <th className="field-name-column" scope="col">
+  //         Field Name
+  //       </th>
+  //       <th className="data-type-column" scope="col">
+  //         Data Type
+  //       </th>
+  //       <th className="description-column" scope="col">
+  //         Description
+  //       </th>
+  //     </tr>
+  //   </thead>
+  //   <tbody className="font-body-xs">{children}</tbody>
+  // </table>
+
+  <div className="usa-accordion margin-top-2 margin-bottom-4 border-2px" id="code-table">
+    {children}
+  </div>
 )
 
 InventoryCodeComponent.propTypes = {
