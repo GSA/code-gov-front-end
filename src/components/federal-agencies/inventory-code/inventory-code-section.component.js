@@ -40,13 +40,6 @@ class InventoryCodeSectionComponent extends Component {
     return entries
   }
 
-  renderDetailsButton = value => (
-    <button className="details" onClick={() => this.props.toggleDetails(value)}>
-      <div className="details-text">details</div>
-      <div className="details-arrow arrow-right" />
-    </button>
-  )
-
   render() {
     const { entry, isRequired, indent, toggleDetails, optionalToggle } = this.props
     const { dropDown } = this.state
@@ -67,28 +60,38 @@ class InventoryCodeSectionComponent extends Component {
             <button
               className={`${classNames({
                 'top-level': topLevel,
-                'text-red': optionalField,
+                'text-accent-cool-dark': optionalField,
                 'display-none': optionalField && optionalToggle,
-                'border-black': indent === 0,
+                'border-primary-darker': indent === 0,
                 'border-primary-dark': indent === 1,
                 'border-primary': indent === 2,
                 'border-primary-light': indent === 3
-              })} usa-accordion__button border-left-1 font-body-md border-bottom-2px`}
+              })} usa-accordion__button bg-white border-left-2px font-body-md tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
               aria-expanded={dropDown}
               aria-controls={`${key}-section`}
               onClick={this.toggleDropDown}
             >
               <span className="usa-sr-only">Field Name: </span>
-              {key}
+              <span
+                className={classNames({
+                  'text-accent-cool-dark': optionalField
+                })}
+              >
+                {key}
+              </span>
               <span className="usa-sr-only">Data Type: </span>
-              <span className="data-type font-body-3xs text-normal margin-left-1">
+              <span
+                className={`${classNames({
+                  'text-accent-cool-dark': optionalField
+                })} data-type font-body-3xs text-normal margin-left-1`}
+              >
                 {displayType}
               </span>
               <span className="usa-sr-only">Definition: </span>
               <p
                 className={`${classNames({
-                  'text-red': optionalField
-                })} description text-normal font-body-3xs`}
+                  'text-accent-cool-dark': optionalField
+                })} description text-normal font-body-3xs margin-bottom-0 margin-top-2px`}
                 dangerouslySetInnerHTML={{ __html: description }}
               />
               <span className="usa-sr-only">
@@ -96,21 +99,34 @@ class InventoryCodeSectionComponent extends Component {
               </span>
             </button>
             <div
-              id={`${key}-section`}
-              className="usa-accordion__content margin-y-0 padding-y-0 padding-left-1 padding-right-0"
+              className={`${classNames({
+                'border-primary-darker': indent === 0,
+                'border-primary-dark': indent === 1,
+                'border-primary': indent === 2,
+                'border-primary-light': indent === 3
+              })} border-left-2px`}
             >
-              {dropDown &&
-                subEntries &&
-                subEntries.map((subEntry, index) => (
-                  <InventoryCodeSectionComponent
-                    key={index} // eslint-disable-line react/no-array-index-key
-                    entry={subEntry}
-                    isRequired={Array.isArray(required) && required.includes(subEntry[0])}
-                    indent={indent + 1}
-                    toggleDetails={toggleDetails}
-                    optionalToggle={optionalToggle}
-                  />
-                ))}
+              <div
+                id={`${key}-section`}
+                className={`${classNames({
+                  'top-level': topLevel,
+                  'text-accent-cool-dark': optionalField,
+                  'display-none': optionalField && optionalToggle
+                })} usa-accordion__content margin-y-0 padding-y-0 margin-left-3 tablet-lg:margin-left-4 padding-left-1 padding-right-0`}
+              >
+                {dropDown &&
+                  subEntries &&
+                  subEntries.map((subEntry, index) => (
+                    <InventoryCodeSectionComponent
+                      key={index} // eslint-disable-line react/no-array-index-key
+                      entry={subEntry}
+                      isRequired={Array.isArray(required) && required.includes(subEntry[0])}
+                      indent={indent + 1}
+                      toggleDetails={toggleDetails}
+                      optionalToggle={optionalToggle}
+                    />
+                  ))}
+              </div>
             </div>
           </>
         ) : (
@@ -118,16 +134,16 @@ class InventoryCodeSectionComponent extends Component {
             <div
               className={`${classNames({
                 'top-level': topLevel,
-                'text-red': optionalField,
+                'text-accent-cool-dark': optionalField,
                 'display-none': optionalField && optionalToggle,
-                'border-black': indent === 0,
+                'border-primary-darker': indent === 0,
                 'border-primary-dark': indent === 1,
                 'border-primary': indent === 2,
                 'border-primary-light': indent === 3
-              })} border-left-1 font-body-md bg-base-lightest padding-x-3 text-bold padding-y-2 border-bottom-2px`}
+              })} border-left-2px font-body-md padding-x-205 text-bold padding-y-105 tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
             >
               <span className="usa-sr-only">Field Name: </span>
-              {key}
+              <span>{key}</span>
               <span className="usa-sr-only">Data Type: </span>
               <span className="data-type font-body-3xs text-normal margin-left-1">
                 {displayType}
@@ -135,8 +151,8 @@ class InventoryCodeSectionComponent extends Component {
               <span className="usa-sr-only">Definition: </span>
               <p
                 className={`${classNames({
-                  'text-red': optionalField
-                })} description text-normal font-body-3xs margin-bottom-0`}
+                  'text-accent-cool-dark': optionalField
+                })} description text-normal font-body-3xs margin-bottom-0 margin-top-2px`}
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </div>
@@ -156,8 +172,7 @@ InventoryCodeSectionComponent.propTypes = {
     PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.object.isRequired])
   ).isRequired,
   isRequired: PropTypes.bool.isRequired,
-  indent: PropTypes.number,
-  toggleDetails: PropTypes.func.isRequired
+  indent: PropTypes.number
 }
 
 export default InventoryCodeSectionComponent

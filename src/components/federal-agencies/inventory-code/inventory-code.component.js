@@ -104,24 +104,10 @@ class InventoryCodeComponent extends Component {
 }
 
 const InventoryCodeTableComponent = ({ children }) => (
-  // <table className="usa-table" id="code-table">
-  //   <thead className="font-body-sm">
-  //     <tr>
-  //       <th className="field-name-column" scope="col">
-  //         Field Name
-  //       </th>
-  //       <th className="data-type-column" scope="col">
-  //         Data Type
-  //       </th>
-  //       <th className="description-column" scope="col">
-  //         Description
-  //       </th>
-  //     </tr>
-  //   </thead>
-  //   <tbody className="font-body-xs">{children}</tbody>
-  // </table>
-
-  <div className="usa-accordion margin-top-2 margin-bottom-4 border-2px" id="code-table">
+  <div
+    className="usa-accordion margin-top-2 margin-bottom-4 border-right-2px border-bottom-2px border-top-2px border-primary-darker"
+    id="code-table"
+  >
     {children}
   </div>
 )
