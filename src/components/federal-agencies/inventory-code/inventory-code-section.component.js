@@ -65,33 +65,39 @@ class InventoryCodeSectionComponent extends Component {
         {hasDropDown ? (
           <>
             <button
-              className={
-                `${classNames({
-                  'top-level': topLevel,
-                  'text-red': optionalField,
-                  'display-none': optionalField && optionalToggle
-                }) 
-                } border-black usa-accordion__button border-left-1 font-body-md border-bottom-2px`
-              }
+              className={`${classNames({
+                'top-level': topLevel,
+                'text-red': optionalField,
+                'display-none': optionalField && optionalToggle,
+                'border-black': indent === 0,
+                'border-primary-dark': indent === 1,
+                'border-primary': indent === 2,
+                'border-primary-light': indent === 3
+              })} usa-accordion__button border-left-1 font-body-md border-bottom-2px`}
               aria-expanded={dropDown}
-              aria-controls={`${key  }-section`}
+              aria-controls={`${key}-section`}
               onClick={this.toggleDropDown}
             >
+              <span className="usa-sr-only">Field Name: </span>
               {key}
+              <span className="usa-sr-only">Data Type: </span>
               <span className="data-type font-body-3xs text-normal margin-left-1">
                 {displayType}
               </span>
+              <span className="usa-sr-only">Definition: </span>
               <p
-                className={
-                  `${classNames({ 'text-red': optionalField }) 
-                  } description text-normal font-body-3xs`
-                }
+                className={`${classNames({
+                  'text-red': optionalField
+                })} description text-normal font-body-3xs`}
                 dangerouslySetInnerHTML={{ __html: description }}
               />
+              <span className="usa-sr-only">
+                Toggle the button to view or hide the fields nested in this object.
+              </span>
             </button>
             <div
-              id={`${key  }-section`}
-              className="usa-accordion__content margin-y-0 padding-y-0 padding-left-1 padding-right-0 bg-base-darkest"
+              id={`${key}-section`}
+              className="usa-accordion__content margin-y-0 padding-y-0 padding-left-1 padding-right-0"
             >
               {dropDown &&
                 subEntries &&
@@ -110,24 +116,27 @@ class InventoryCodeSectionComponent extends Component {
         ) : (
           <>
             <div
-              className={
-                `${classNames({
-                  'top-level': topLevel,
-                  'text-red': optionalField,
-                  'display-none': optionalField && optionalToggle
-                }) 
-                } border-black border-left-1 font-body-md bg-base-lightest padding-x-3 text-bold padding-y-2 border-bottom-2px`
-              }
+              className={`${classNames({
+                'top-level': topLevel,
+                'text-red': optionalField,
+                'display-none': optionalField && optionalToggle,
+                'border-black': indent === 0,
+                'border-primary-dark': indent === 1,
+                'border-primary': indent === 2,
+                'border-primary-light': indent === 3
+              })} border-left-1 font-body-md bg-base-lightest padding-x-3 text-bold padding-y-2 border-bottom-2px`}
             >
+              <span className="usa-sr-only">Field Name: </span>
               {key}
+              <span className="usa-sr-only">Data Type: </span>
               <span className="data-type font-body-3xs text-normal margin-left-1">
                 {displayType}
               </span>
+              <span className="usa-sr-only">Definition: </span>
               <p
-                className={
-                  `${classNames({ 'text-red': optionalField }) 
-                  } description text-normal font-body-3xs margin-bottom-0`
-                }
+                className={`${classNames({
+                  'text-red': optionalField
+                })} description text-normal font-body-3xs margin-bottom-0`}
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </div>
