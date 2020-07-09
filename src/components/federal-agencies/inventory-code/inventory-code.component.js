@@ -2,47 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import InventoryCodeSectionComponent from './inventory-code-section.component'
-import InventoryCodeDetailsComponent from './inventory-code-details.component'
 
 class InventoryCodeComponent extends Component {
   state = {
-    optionalFields: false,
-    details: false,
-    mobileView: true
+    optionalFields: false
   }
 
   toggleOptionalFields = () => {
     this.setState(state => ({ optionalFields: !state.optionalFields }))
-  }
-
-  toggleDetails = value => {
-    this.setState({ details: value ? { ...value } : false })
-    console.log('toggle details')
-    const mobileView = !this.state.mobileView
-    this.setState({ mobileView })
-    if (this.state.mobileView) {
-      document.getElementById('code-table').setAttribute('hidden', 'true')
-      document.getElementById('optional-toggle-form').setAttribute('hidden', 'true')
-      document.getElementById('how-to-inventory-a').setAttribute('hidden', 'true')
-      document.getElementById('how-to-inventory-b').setAttribute('hidden', 'true')
-      document.getElementsByClassName('usa-section')[0].setAttribute('hidden', 'true')
-      document.getElementsByClassName('menu-banner-header')[0].setAttribute('hidden', 'true')
-      document.getElementsByClassName('show-w-lte-600')[0].setAttribute('hidden', 'true')
-      document.getElementsByClassName('usa-skipnav')[0].setAttribute('hidden', 'true')
-      document.getElementById('breadcrumbs').setAttribute('hidden', 'true')
-      document.querySelector('footer').setAttribute('hidden', 'true')
-    } else {
-      document.getElementById('code-table').removeAttribute('hidden')
-      document.getElementById('optional-toggle-form').removeAttribute('hidden')
-      document.getElementById('how-to-inventory-a').removeAttribute('hidden')
-      document.getElementById('how-to-inventory-b').removeAttribute('hidden')
-      document.getElementsByClassName('usa-section')[0].removeAttribute('hidden')
-      document.getElementsByClassName('menu-banner-header')[0].removeAttribute('hidden')
-      document.getElementsByClassName('show-w-lte-600')[0].removeAttribute('hidden')
-      document.getElementsByClassName('usa-skipnav')[0].removeAttribute('hidden')
-      document.getElementById('breadcrumbs').removeAttribute('hidden')
-      document.querySelector('footer').removeAttribute('hidden')
-    }
   }
 
   renderIntro = () => (
@@ -66,14 +33,13 @@ class InventoryCodeComponent extends Component {
 
   render() {
     const { schema } = this.props
-    const { optionalFields, details, mobileView } = this.state
+    const { optionalFields } = this.state
 
     return (
       <div
         id="schema-viewer"
         className={`margin-top-4 ${classNames({
-          'hide-optional-fields': !optionalFields,
-          'hide-details': !details
+          'hide-optional-fields': !optionalFields
         })}`}
       >
         {this.renderIntro()}
@@ -85,18 +51,10 @@ class InventoryCodeComponent extends Component {
                   key={index} // eslint-disable-line react/no-array-index-key
                   entry={entry}
                   isRequired={schema.required.includes(entry[0])}
-                  toggleDetails={this.toggleDetails}
                   optionalToggle={optionalFields}
                 />
               ))}
           </InventoryCodeTableComponent>
-          {details && (
-            <InventoryCodeDetailsComponent
-              toggleDetails={this.toggleDetails}
-              details={details}
-              mobileView={mobileView}
-            />
-          )}
         </div>
       </div>
     )

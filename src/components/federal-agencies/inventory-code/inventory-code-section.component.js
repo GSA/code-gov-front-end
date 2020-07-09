@@ -41,7 +41,7 @@ class InventoryCodeSectionComponent extends Component {
   }
 
   render() {
-    const { entry, isRequired, indent, toggleDetails, optionalToggle } = this.props
+    const { entry, isRequired, indent, optionalToggle } = this.props
     const { dropDown } = this.state
     const [key, value] = entry
     const { items, properties, type } = value
@@ -122,7 +122,6 @@ class InventoryCodeSectionComponent extends Component {
                       entry={subEntry}
                       isRequired={Array.isArray(required) && required.includes(subEntry[0])}
                       indent={indent + 1}
-                      toggleDetails={toggleDetails}
                       optionalToggle={optionalToggle}
                     />
                   ))}
