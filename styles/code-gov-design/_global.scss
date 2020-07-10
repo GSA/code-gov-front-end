@@ -3,10 +3,10 @@ html {
   // font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
 
   body {
-    background-color: $color-white;
+    // background-color: $color-white;
     box-sizing: border-box;
     // font-family: "Source Sans Pro Web", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-    font-feature-settings: "kern", "liga", "pnum";
+    font-feature-settings: 'kern', 'liga', 'pnum';
     margin: 0;
     overflow-x: hidden;
     -moz-text-size-adjust: 100%;
@@ -25,11 +25,11 @@ html {
       outline: none;
     }
 
-    a:focus {
-      box-shadow: none;
-      outline: 2px dotted $color-gray-light;
-      outline-offset: 3px;
-    }
+    // a:focus {
+    //   box-shadow: none;
+    //   outline: 2px dotted $color-gray-light;
+    //   outline-offset: 3px;
+    // }
 
     h2 {
       font-weight: 700;
@@ -48,9 +48,9 @@ html {
       margin-top: 1em;
     }
 
-    section {
-      position: relative;
-    }
+    // section {
+    //   position: relative;
+    // }
 
     ul {
       list-style-type: none;

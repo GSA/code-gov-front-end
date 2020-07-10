@@ -1,4 +1,4 @@
-$icon-color: $color-primary;
+// $icon-color: $color-primary;
 
 .icon {
   // color: $icon-color;
@@ -24,7 +24,7 @@ $icon-color: $color-primary;
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 
   &:not(.devicons) {
-    font-family: "code-gov"; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+    font-family: 'code-gov'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
   }
 
   &::before {
