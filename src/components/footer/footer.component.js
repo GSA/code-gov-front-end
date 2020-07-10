@@ -100,7 +100,7 @@ export default class Footer extends PureComponent {
                         aria-label={social.name}
                         className="font-body-xl"
                       >
-                        <div className={`text-base-darker ${social.icon}`} />
+                        <div className={`text-base-darker display-inline-block ${social.icon}`} />
                       </a>
                     </li>
                   ))}

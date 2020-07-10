@@ -33,7 +33,7 @@ export default class QualityPopover extends Component {
   }
 
   render() {
-    const iconClassName = 'icon icon-help-circled popper'
+    const iconClassName = 'icon icon-help-circled popper display-inline'
     return (
       <div>
         <div className="pin-right padding-right-105">
