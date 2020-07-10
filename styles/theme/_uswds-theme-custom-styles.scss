@@ -37,8 +37,20 @@ i.e.
   border-bottom: 2px solid #07648d;
 }
 
-p {
+p,
+ul,
+li {
   color: #5b616b;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #5b616b;
+  font-weight: 500;
 }
 
 select {
@@ -50,18 +62,6 @@ select {
     border: 0px;
   }
 }
-
-// .usa-header {
-//   [role="search"] {
-//   @include at-media($theme-header-min-width) {
-//     float: right;
-//     max-width: calc(
-//       #{$theme-search-min-width} + #{units($theme-button-small-width)}
-//     );
-//     width: 100%;
-//   }
-//   }
-// }
 
 .mobile-search-bar {
   flex: none;
@@ -105,13 +105,5 @@ select {
 .usa-footer__secondary-section {
   @media (max-width: 879.5px) {
     background-color: #e1f3f8;
-  }
-}
-
-#schema-viewer {
-  thead {
-    th {
-      text-align: center;
-    }
   }
 }
