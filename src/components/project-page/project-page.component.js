@@ -31,11 +31,7 @@ export default class ProjectPage extends Component {
   get lastModifiedDateHTML() {
     const lastModifiedDate = getLastModifiedDateString(this.props.repo)
     if (lastModifiedDate) {
-      return (
-        <span>
-          <div className="padding-top-1 font-body-2xs">{`Last updated on ${lastModifiedDate}`}</div>
-        </span>
-      )
+      return <p className="font-body-2xs margin-y-2px">{`Last updated on ${lastModifiedDate}`}</p>
     }
   }
 
@@ -47,7 +43,7 @@ export default class ProjectPage extends Component {
           <CustomLink
             key={tag}
             to={`/search?query=${tag}`}
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1"
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 grid-col-auto"
           >
             <span className="text-white text-no-underline text-normal">{tag}</span>
           </CustomLink>
@@ -111,18 +107,11 @@ export default class ProjectPage extends Component {
   get languages() {
     const langs = parseLanguages(this.props.repo)
     if (some(langs)) {
-      const count = langs.length
-      const lastIndex = count - 1
       return (
         <span className="font-body-3xs">
           <li>
             <i className="icon icon-code" />
-            {map(langs, (lang, i) => (
-              <span className={`language${i === lastIndex && ' last'}`} key={lang}>
-                {lang}
-                <span className="comma">, </span>
-              </span>
-            ))}
+            {langs.join(', ')}
           </li>
         </span>
       )
