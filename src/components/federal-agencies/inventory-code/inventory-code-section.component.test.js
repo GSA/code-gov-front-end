@@ -18,21 +18,20 @@ describe('components - InventoryCodeSectionComponent', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should render proper background color for top level entries', () => {
-    expect(wrapper.find('tr').prop('className')).toContain('top-level')
+  it('should render proper left border for fields', () => {
+    expect(wrapper.find('div').prop('className')).toContain('top-level')
+    expect(wrapper.find('div').prop('className')).toContain('border-left-0')
 
     wrapper.setProps({ indent: 1 })
-    expect(wrapper.find('tr').prop('className')).not.toContain('partial')
+    expect(wrapper.find('div').prop('className')).toContain('border-left-2px')
   })
 
-  it('should render proper background color only for top level entries', () => {
-    expect(wrapper.find('tr').prop('className')).toContain('top-level')
-
+  it('should render proper text color for optional fields', () => {
     wrapper.setProps({ isRequired: false })
-    expect(wrapper.find('tr').prop('className')).toContain('optional')
+    expect(wrapper.find('div').prop('className')).toContain('text-accent-cool-dark')
   })
 
-  it('should render drop down arrow only if it contains sub-entries', () => {
+  it('should render as a button if it contains sub-entries', () => {
     expect(wrapper.find('.dropdown > div').exists()).toBeFalsy()
 
     wrapper.setProps({
@@ -40,24 +39,24 @@ describe('components - InventoryCodeSectionComponent', () => {
         'measurementType',
         {
           properties: {
-            ifOther: { type: 'string', dsecription: 'A one- or two- sentence description...' }
+            ifOther: { type: 'string', description: 'A one- or two- sentence description...' }
           },
           type: 'object'
         }
       ]
     })
-    expect(wrapper.find('.dropdown > div').prop('className')).toContain('arrow-up-or-down')
+    expect(wrapper.find('button').prop('className')).toContain('usa-accordion__button')
   })
 
-  it('should hide drop down on click', () => {
-    expect(wrapper.state('dropDown')).toBeTruthy()
+  it('should show subfields on click', () => {
+    expect(wrapper.state('dropDown')).toBeFalsy()
 
     wrapper.setProps({
       entry: [
         'measurementType',
         {
           properties: {
-            ifOther: { type: 'string', dsecription: 'A one- or two- sentence description...' }
+            ifOther: { type: 'string', description: 'A one- or two- sentence description...' }
           },
           type: 'object'
         }
@@ -66,7 +65,7 @@ describe('components - InventoryCodeSectionComponent', () => {
 
     console.log(wrapper.debug())
 
-    wrapper.find('.dropdown').simulate('click')
-    expect(wrapper.state('dropDown')).toBeFalsy()
+    wrapper.find('.usa-accordion__button').simulate('click')
+    expect(wrapper.state('dropDown')).toBeTruthy()
   })
 })
