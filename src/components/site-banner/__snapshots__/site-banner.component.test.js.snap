@@ -14,7 +14,7 @@ exports[`components - SiteBanner should render correctly 1`] = `
         className="tablet:grid-col"
       >
         <h1
-          className="font-heading-3xl text-white text-center text-uppercase"
+          className="tablet:font-heading-3xl text-white text-center text-uppercase"
         >
           test-title
         </h1>

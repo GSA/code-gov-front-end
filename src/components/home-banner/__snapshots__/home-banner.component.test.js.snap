@@ -16,7 +16,7 @@ exports[`components - HomeBanner should render correctly 1`] = `
         test-motto
       </div>
       <div
-        className="font-heading-lg text-white show-w-gt-1200"
+        className="font-heading-lg text-white show-w-gt-1200 padding-top-1"
       >
         test-subtitle
       </div>

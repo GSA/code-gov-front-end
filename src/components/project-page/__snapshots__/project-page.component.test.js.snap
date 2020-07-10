@@ -34,19 +34,17 @@ exports[`components - ProjectPage render should render correctly 1`] = `
         >
           repo-name
         </h2>
-        <span>
-          <div
-            className="padding-top-1 font-body-2xs"
-          >
-            Last updated on 12/10/2020
-          </div>
-        </span>
+        <p
+          className="font-body-2xs margin-y-2px"
+        >
+          Last updated on 12/10/2020
+        </p>
         <div
           className="grid-row margin-top-0"
           id="repo-tags"
         >
           <Connect(CustomLinkComponent)
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1"
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 grid-col-auto"
             key="repo-tag-1"
             to="/search?query=repo-tag-1"
           >
@@ -57,7 +55,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
             </span>
           </Connect(CustomLinkComponent)>
           <Connect(CustomLinkComponent)
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1"
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 grid-col-auto"
             key="repo-tag-2"
             to="/search?query=repo-tag-2"
           >
@@ -98,28 +96,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
               <i
                 className="icon icon-code"
               />
-              <span
-                className="languagefalse"
-                key="repo-lang-1"
-              >
-                repo-lang-1
-                <span
-                  className="comma"
-                >
-                  , 
-                </span>
-              </span>
-              <span
-                className="language last"
-                key="repo-lang-2"
-              >
-                repo-lang-2
-                <span
-                  className="comma"
-                >
-                  , 
-                </span>
-              </span>
+              repo-lang-1, repo-lang-2
             </li>
           </span>
           <span
