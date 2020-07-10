@@ -39,7 +39,7 @@ class InventoryCodeComponent extends Component {
       <div
         id="schema-viewer"
         className={`margin-top-4 ${classNames({
-          'hide-optional-fields': !optionalFields
+          'hide-optional-fields': optionalFields
         })}`}
       >
         {this.renderIntro()}

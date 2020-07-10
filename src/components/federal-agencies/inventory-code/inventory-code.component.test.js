@@ -17,18 +17,14 @@ describe('components - InventoryCodeComponent', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should not render mobile details on load', () => {
-    expect(wrapper.find('#schema-viewer').prop('className')).toContain('hide-details')
-  })
-
   it('should render optional entries on load', () => {
     expect(wrapper.find('#schema-viewer').prop('className')).not.toContain('hide-optional-fields')
   })
 
   it('should render toggle optional entries on click', () => {
     wrapper.find('#hide-optional-fields').simulate('click')
-    expect(wrapper.state('optionalFields')).toBeFalsy()
-    wrapper.find('#hide-optional-fields').simulate('click')
     expect(wrapper.state('optionalFields')).toBeTruthy()
+    wrapper.find('#hide-optional-fields').simulate('click')
+    expect(wrapper.state('optionalFields')).toBeFalsy()
   })
 })
