@@ -15,8 +15,19 @@ export default class QualityPopover extends Component {
     this.onPopoverToggle()
   }
 
-  onKeyPress(event) {
-    if (event.which === 13) {
+  onKeyDown(event) {
+    if (event.keyCode === 32) {
+      event.preventDefault()
+    } else if (event.keyCode === 13) {
+      this.setState(state => ({
+        activated: !state.activated
+      }))
+      this.onPopoverToggle()
+    }
+  }
+
+  onKeyUp(event) {
+    if (event.keyCode === 32) {
       this.setState(state => ({
         activated: !state.activated
       }))
@@ -44,7 +55,8 @@ export default class QualityPopover extends Component {
             className={iconClassName}
             onClick={::this.onClick}
             ref={this.icon}
-            onKeyPress={::this.onKeyPress}
+            onKeyDown={::this.onKeyDown}
+            onKeyUp={::this.onKeyUp}
             tabIndex="0"
             aria-labelledby="data-quality-title"
             role="button"
