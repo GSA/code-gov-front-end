@@ -243,7 +243,7 @@ exports[`components - Footer should render correctly 1`] = `
                 target="_blank"
               >
                 <div
-                  className="text-base-darker i1"
+                  className="text-base-darker display-inline-block i1"
                 />
               </a>
             </li>
@@ -259,7 +259,7 @@ exports[`components - Footer should render correctly 1`] = `
                 target="_blank"
               >
                 <div
-                  className="text-base-darker i2"
+                  className="text-base-darker display-inline-block i2"
                 />
               </a>
             </li>
@@ -275,7 +275,7 @@ exports[`components - Footer should render correctly 1`] = `
                 target="_blank"
               >
                 <div
-                  className="text-base-darker i3"
+                  className="text-base-darker display-inline-block i3"
                 />
               </a>
             </li>
@@ -291,7 +291,7 @@ exports[`components - Footer should render correctly 1`] = `
                 target="_blank"
               >
                 <div
-                  className="text-base-darker i4"
+                  className="text-base-darker display-inline-block i4"
                 />
               </a>
             </li>

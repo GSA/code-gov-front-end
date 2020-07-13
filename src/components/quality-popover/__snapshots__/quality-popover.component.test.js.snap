@@ -13,7 +13,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     </span>
     <div
       aria-labelledby="data-quality-title"
-      className="icon icon-help-circled popper"
+      className="icon icon-help-circled popper display-inline"
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
