@@ -2,10 +2,9 @@
 
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
-import MobileMenuControl from 'components/mobile-menu-control'
 import { map } from '@code.gov/cautious'
 import MobileMenuSearchBoxComponent from 'components/mobile-menu-search-box'
-import { PrimaryMenuOption, SecondaryDropdown, SearchBoxDropDown } from './subcomponents'
+import { PrimaryMenuOption, SecondaryDropdown } from './subcomponents'
 
 export default class Menu extends Component {
   constructor(props) {
@@ -63,7 +62,7 @@ export default class Menu extends Component {
   }
 
   render() {
-    const { color, onHomePage, siteTitle, toggleSearchDropdown } = this.props
+    const { color, siteTitle } = this.props
     return (
       <>
         <div className="usa-overlay" />
@@ -80,11 +79,16 @@ export default class Menu extends Component {
                   />
                 </CustomLink>
               </div>
-              <button className="usa-menu-btn bg-white" onClick={::this.onToggleMobileMenu}>
+              <button
+                className="usa-menu-btn bg-white"
+                onClick={::this.onToggleMobileMenu}
+                aria-labelledby="open-menu"
+              >
                 <i
                   className="icon icon-menu text-primary font-body-xl"
                   role="img"
                   aria-label="open menu"
+                  id="open-menu"
                 />
               </button>
             </div>
@@ -92,11 +96,16 @@ export default class Menu extends Component {
               aria-label="Primary navigation"
               className={this.state.mobileMenu ? 'usa-nav is-visible' : 'usa-nav'}
             >
-              <button className="usa-nav__close" onClick={::this.onToggleMobileMenu}>
+              <button
+                className="usa-nav__close"
+                onClick={::this.onToggleMobileMenu}
+                aria-labelledby="close-menu"
+              >
                 <i
                   className="icon icon-close text-primary font-body-lg padding-right-4 padding-top-2"
                   role="img"
                   aria-label="close menu"
+                  id="close-menu"
                 />
               </button>
               <ul className="usa-nav__primary usa-accordion">
