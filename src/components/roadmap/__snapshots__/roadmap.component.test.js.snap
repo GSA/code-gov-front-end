@@ -13,26 +13,24 @@ exports[`components - Roadmap - Column should render correctly 1`] = `
     <div
       className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter"
     >
-      <span>
-        <Row
-          key="todo-1"
-          todo={
-            Object {
-              "name": "todo-1",
-              "status": "In Progress",
-            }
+      <Row
+        key="todo-1"
+        todo={
+          Object {
+            "name": "todo-1",
+            "status": "In Progress",
           }
-        />
-        <Row
-          key="todo-2"
-          todo={
-            Object {
-              "name": "todo-2",
-              "status": "Released",
-            }
+        }
+      />
+      <Row
+        key="todo-2"
+        todo={
+          Object {
+            "name": "todo-2",
+            "status": "Released",
           }
-        />
-      </span>
+        }
+      />
     </div>
   </div>
 </div>
@@ -175,11 +173,9 @@ exports[`components - Roadmap render should render correctly 1`] = `
       className="grid-container margin-top-205 margin-bottom-5 padding-0"
     >
       <div
-        aria-label="green check mark icon"
         className="grid-row border-0 padding-bottom-0"
       >
         <i
-          aria-hidden="true"
           className="icon icon-ok text-green"
         />
         <span
@@ -189,11 +185,9 @@ exports[`components - Roadmap render should render correctly 1`] = `
         </span>
       </div>
       <div
-        aria-label="yellow circle icon"
         className="grid-row border-0 padding-top-05"
       >
         <i
-          aria-hidden="true"
           className="icon icon-circle text-accent-warm-light padding-top-05"
         />
         <span

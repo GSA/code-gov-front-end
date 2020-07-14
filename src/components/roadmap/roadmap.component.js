@@ -6,18 +6,23 @@ import { map } from '@code.gov/cautious'
 
 export const Row = ({ todo }) => {
   let iconClass = 'icon'
+  let taskStatus = ''
   const status = normalize(todo.status)
   if (status === 'released') {
     iconClass += ' icon-ok text-green'
+    taskStatus = 'released'
   } else if (status === 'in progress') {
     iconClass += ' icon-circle text-accent-warm-light'
+    taskStatus = 'in progress'
+  } else {
+    taskStatus = 'no status'
   }
 
   return (
     <section>
       <div className="grid-row">
         <div className="grid-col-1 padding-top-1 tablet:padding-top-2 padding-left-1">
-          <i className={iconClass} aria-label={status} />
+          <i className={iconClass} aria-label={taskStatus} />
         </div>
         <div className="grid-col-11 padding-y-1 padding-x-1 font-body-3xs text-base-dark padding-left-3">
           {todo.name}
@@ -34,11 +39,9 @@ export const Column = ({ phase, todos }) => (
         {phase}
       </h3>
       <div className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter">
-        <span>
-          {map(todos, todo => (
-            <Row key={todo.name} todo={todo} />
-          ))}
-        </span>
+        {map(todos, todo => (
+          <Row key={todo.name} todo={todo} />
+        ))}
       </div>
     </div>
   </div>
@@ -89,17 +92,14 @@ export default class Roadmap extends React.Component {
             className="grid-container margin-top-205 margin-bottom-5 padding-0"
             aria-hidden="true"
           >
-            <div className="grid-row border-0 padding-bottom-0" aria-label="green check mark icon">
-              <i className="icon icon-ok text-green" aria-hidden="true" />
+            <div className="grid-row border-0 padding-bottom-0">
+              <i className="icon icon-ok text-green" />
               <span className="border-0 font-body-3xs padding-left-1 padding-bottom-0 text-base-dark">
                 Released
               </span>
             </div>
-            <div className="grid-row border-0 padding-top-05" aria-label="yellow circle icon">
-              <i
-                className="icon icon-circle text-accent-warm-light padding-top-05"
-                aria-hidden="true"
-              />
+            <div className="grid-row border-0 padding-top-05">
+              <i className="icon icon-circle text-accent-warm-light padding-top-05" />
               <span className="border-0 font-body-3xs padding-left-1 padding-top-05 text-base-dark">
                 In Progress
               </span>
