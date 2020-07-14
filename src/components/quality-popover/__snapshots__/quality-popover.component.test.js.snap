@@ -15,7 +15,8 @@ exports[`components - QualityPopover render should render correctly 1`] = `
       aria-labelledby="data-quality-title"
       className="icon icon-help-circled popper display-inline"
       onClick={[Function]}
-      onKeyPress={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
       role="button"
       tabIndex="0"
     />

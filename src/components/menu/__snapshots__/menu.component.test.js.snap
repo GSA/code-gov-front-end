@@ -32,12 +32,14 @@ exports[`components - Menu render should render correctly 1`] = `
           </Connect(CustomLinkComponent)>
         </div>
         <button
+          aria-labelledby="open-menu"
           className="usa-menu-btn bg-white"
           onClick={[Function]}
         >
           <i
             aria-label="open menu"
             className="icon icon-menu text-primary font-body-xl"
+            id="open-menu"
             role="img"
           />
         </button>
@@ -47,12 +49,14 @@ exports[`components - Menu render should render correctly 1`] = `
         className="usa-nav"
       >
         <button
+          aria-labelledby="close-menu"
           className="usa-nav__close"
           onClick={[Function]}
         >
           <i
             aria-label="close menu"
             className="icon icon-close text-primary font-body-lg padding-right-4 padding-top-2"
+            id="close-menu"
             role="img"
           />
         </button>
