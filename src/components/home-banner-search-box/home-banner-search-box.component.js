@@ -62,38 +62,34 @@ export default class HomeBannerSearchBoxComponent extends Component {
       query
     } = this.props
     return (
-      <div className="padding-bottom-2px">
-        <div>
-          <div>
-            <div className="text-uppercase text-bold text-base-darker show-w-gt-800">
-              {searchDescriptionHeading}
-            </div>
-            {searchDescriptionText && (
-              <div className="margin-bottom-1 text-bold text-base-darker show-w-gt-800">
-                {searchDescriptionText}
-              </div>
-            )}
-            {searchDescriptionTextMobile && (
-              <div className="show-w-lte-800 text-bold text-base-darker padding-bottom-105">
-                {searchDescriptionTextMobile}
-              </div>
-            )}
-          </div>
-          <div className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6">
-            <SearchBox
-              placeholder={placeholder}
-              onBlur={::this.handleBlur}
-              onChange={::this.handleChange}
-              onFocus={::this.handleFocus}
-              onSubmit={onSubmit}
-              query={query}
-            />
-            {this.state.showAutocomplete && some(this.state.suggestions) && (
-              <Autocomplete options={this.state.suggestions} onClick={::this.handleClick} />
-            )}
-          </div>
+      <>
+        <div className="text-uppercase text-bold text-base-darker show-w-gt-800 padding-bottom-2px">
+          {searchDescriptionHeading}
         </div>
-      </div>
+        {searchDescriptionText && (
+          <div className="margin-bottom-105 text-bold text-base-darker show-w-gt-800">
+            {searchDescriptionText}
+          </div>
+        )}
+        {searchDescriptionTextMobile && (
+          <div className="show-w-lte-800 text-bold text-base-darker padding-bottom-105">
+            {searchDescriptionTextMobile}
+          </div>
+        )}
+        <div className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6">
+          <SearchBox
+            placeholder={placeholder}
+            onBlur={::this.handleBlur}
+            onChange={::this.handleChange}
+            onFocus={::this.handleFocus}
+            onSubmit={onSubmit}
+            query={query}
+          />
+          {this.state.showAutocomplete && some(this.state.suggestions) && (
+            <Autocomplete options={this.state.suggestions} onClick={::this.handleClick} />
+          )}
+        </div>
+      </>
     )
   }
 }
