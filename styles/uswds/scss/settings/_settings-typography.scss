@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.0
 ----------------------------------------
 TYPOGRAPHY SETTINGS
 ----------------------------------------
@@ -77,7 +77,7 @@ Relative font file path
 ----------------------------------------
 */
 
-$theme-font-path: "../fonts" !default;
+$theme-font-path: '../fonts' !default;
 
 /*
 ----------------------------------------
@@ -123,11 +123,11 @@ names to something more descriptive.
 
 $theme-typeface-tokens: (
   example-serif-token: (
-    display-name: "Example Serif Display Name",
+    display-name: 'Example Serif Display Name',
     cap-height: 364px
   ),
   example-sans-token: (
-    display-name: "Example Sans Display Name",
+    display-name: 'Example Sans Display Name',
     cap-height: 364px
   )
 ) !default;
@@ -164,13 +164,13 @@ $theme-font-type-icon: false !default;
 $theme-font-type-lang: false !default;
 
 // monospace
-$theme-font-type-mono: "roboto-mono" !default;
+$theme-font-type-mono: 'roboto-mono' !default;
 
 // sans-serif
-$theme-font-type-sans: "source-sans-pro" !default;
+$theme-font-type-sans: 'source-sans-pro' !default;
 
 // serif
-$theme-font-type-serif: "merriweather" !default;
+$theme-font-type-serif: 'merriweather' !default;
 
 /*
 ----------------------------------------
@@ -283,11 +283,11 @@ tokens.
 ----------------------------------------
 */
 
-$theme-font-role-ui: "sans" !default;
-$theme-font-role-heading: "serif" !default;
-$theme-font-role-body: "sans" !default;
-$theme-font-role-code: "mono" !default;
-$theme-font-role-alt: "serif" !default;
+$theme-font-role-ui: 'sans' !default;
+$theme-font-role-heading: 'serif' !default;
+$theme-font-role-body: 'sans' !default;
+$theme-font-role-code: 'mono' !default;
+$theme-font-role-alt: 'serif' !default;
 
 /*
 ----------------------------------------
@@ -391,32 +391,32 @@ none:    none
 */
 
 // Body settings are the equivalent of setting the <body> element
-$theme-body-font-family: "body" !default;
-$theme-body-font-size: "sm" !default;
+$theme-body-font-family: 'body' !default;
+$theme-body-font-size: 'sm' !default;
 $theme-body-line-height: 5 !default;
 
 // If true, explicitly style the <body> element with the base styles
 $theme-style-body-element: false !default;
 
 // Headings
-$theme-h1-font-size: "2xl" !default;
-$theme-h2-font-size: "xl" !default;
-$theme-h3-font-size: "lg" !default;
-$theme-h4-font-size: "sm" !default;
-$theme-h5-font-size: "xs" !default;
-$theme-h6-font-size: "3xs" !default;
+$theme-h1-font-size: '2xl' !default;
+$theme-h2-font-size: 'xl' !default;
+$theme-h3-font-size: 'lg' !default;
+$theme-h4-font-size: 'sm' !default;
+$theme-h5-font-size: 'xs' !default;
+$theme-h6-font-size: '3xs' !default;
 $theme-heading-line-height: 2 !default;
-$theme-small-font-size: "2xs" !default;
-$theme-display-font-size: "3xl" !default;
+$theme-small-font-size: '2xs' !default;
+$theme-display-font-size: '3xl' !default;
 
 // Text and prose
 $theme-text-measure-narrow: 1 !default;
 $theme-text-measure: 4 !default;
 $theme-text-measure-wide: 6 !default;
-$theme-prose-font-family: "body" !default;
+$theme-prose-font-family: 'body' !default;
 
 // Lead text
-$theme-lead-font-family: "heading" !default;
-$theme-lead-font-size: "lg" !default;
+$theme-lead-font-family: 'heading' !default;
+$theme-lead-font-size: 'lg' !default;
 $theme-lead-line-height: 6 !default;
 $theme-lead-measure: 6 !default;

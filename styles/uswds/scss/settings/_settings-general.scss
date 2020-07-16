@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.0
 ----------------------------------------
 GENERAL SETTINGS
 ----------------------------------------
@@ -25,7 +25,7 @@ Relative image file path
 ----------------------------------------
 */
 
-$theme-image-path: "../img" !default;
+$theme-image-path: '../img' !default;
 
 /*
 ----------------------------------------
@@ -48,12 +48,12 @@ Namespace
 */
 
 $theme-namespace: (
-  "grid": (
-    namespace: "grid-",
+  'grid': (
+    namespace: 'grid-',
     output: true
   ),
-  "utility": (
-    namespace: "u-",
+  'utility': (
+    namespace: 'u-',
     output: false
   )
 ) !default;
@@ -87,7 +87,7 @@ Focus styles
 ----------------------------------------
 */
 
-$theme-focus-color: "blue-40v" !default;
+$theme-focus-color: 'blue-40v' !default;
 $theme-focus-offset: 0 !default;
 $theme-focus-style: solid !default;
 $theme-focus-width: 0.5 !default;

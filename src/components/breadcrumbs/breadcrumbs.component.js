@@ -4,23 +4,50 @@ import CustomLink from 'components/custom-link'
 export default function Breadcrumbs({ crumbs }) {
   return (
     <div className="grid-container" id="breadcrumbs">
-      <ul className="grid-row margin-top-4">
-        {crumbs.map(({ text, to }) => {
-          if (to) {
+      <nav className="usa-breadcrumb grid-row margin-top-4" aria-label="Breadcrumbs">
+        <ol className="usa-breadcrumb__list font-body-2xs">
+          {crumbs.map(({ text, to }) => {
+            if (to) {
+              return (
+                <li key={text} className="usa-breadcrumb__list-item">
+                  <CustomLink to={to} class="usa-breadcrumb__link">
+                    <span>{text}</span>
+                  </CustomLink>
+                </li>
+              )
+            }
             return (
-              <li key={text}>
-                <CustomLink to={to}>{text}</CustomLink>
-                <span className="padding-x-2px"> &gt; </span>
+              <li
+                key={text}
+                className="usa-breadcrumb__list-item usa-current text-bold"
+                aria-current="page"
+              >
+                <span>{text}</span>
               </li>
             )
-          }
-          return (
-            <li key={text} className="text-bold">
-              {text}
-            </li>
-          )
-        })}
-      </ul>
+          })}
+        </ol>
+      </nav>
     </div>
+
+    // <div className="grid-container" id="breadcrumbs">
+    //   <ul className="grid-row margin-top-4">
+    //     {crumbs.map(({ text, to }) => {
+    //       if (to) {
+    //         return (
+    //           <li key={text}>
+    //             <CustomLink to={to}>{text}</CustomLink>
+    //             <span className="padding-x-2px"> &gt; </span>
+    //           </li>
+    //         )
+    //       }
+    //       return (
+    //         <li key={text} className="text-bold">
+    //           {text}
+    //         </li>
+    //       )
+    //     })}
+    //   </ul>
+    // </div>
   )
 }

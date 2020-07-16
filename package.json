@@ -138,7 +138,7 @@
     "snyk": "^1.336.0",
     "style-loader": "^0.23.1",
     "url-search-params-polyfill": "^5.1.0",
-    "uswds": "^2.7.0",
+    "uswds": "^2.8.0",
     "webpack": "^4.42.1",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",

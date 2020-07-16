@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.7.0
+USWDS 2.8.0
 ----------------------------------------
 UTILITIES SETTINGS
 ----------------------------------------
@@ -31,23 +31,23 @@ used by utilities or layout grid
 */
 
 $theme-utility-breakpoints: (
-  "card": false,
+  'card': false,
   // 160px
-    "card-lg": false,
+    'card-lg': false,
   // 240px
-    "mobile": false,
+    'mobile': false,
   // 320px
-    "mobile-lg": true,
+    'mobile-lg': true,
   // 480px
-    "tablet": true,
+    'tablet': true,
   // 640px
-    "tablet-lg": false,
+    'tablet-lg': false,
   // 800px
-    "desktop": true,
+    'desktop': true,
   // 1024px
-    "desktop-lg": false,
+    'desktop-lg': false,
   // 1200px
-    "widescreen": false,
+    'widescreen': false,
   // 1400px
 ) !default;
 
@@ -63,7 +63,7 @@ The following palettes will be added to
 ----------------------------------------
 */
 
-$global-color-palettes: ("palette-color-default") !default;
+$global-color-palettes: ('palette-color-default') !default;
 
 /*
 ----------------------------------------
@@ -559,7 +559,7 @@ $whitespace-settings: (
 
 $width-settings: (
   output: true,
-  responsive: false,
+  responsive: true,
   active: false,
   focus: false,
   hover: false,
@@ -588,7 +588,7 @@ $add-aspect-manual-values: () !default;
 
 // .align-items
 
-$align-items-palettes: ("palette-align-items-default") !default;
+$align-items-palettes: ('palette-align-items-default') !default;
 $align-items-manual-values: () !default;
 
 // .background-color
@@ -598,7 +598,7 @@ $background-color-manual-values: () !default;
 
 // .border
 
-$border-palettes: ("palette-border-default") !default;
+$border-palettes: ('palette-border-default') !default;
 $border-manual-values: () !default;
 
 // .border-color
@@ -608,34 +608,34 @@ $border-color-manual-values: () !default;
 
 // .border-radius
 
-$border-radius-palettes: ("palette-border-radius-default") !default;
+$border-radius-palettes: ('palette-border-radius-default') !default;
 $border-radius-manual-values: () !default;
 
 // .border-style
 
-$border-style-palettes: ("palette-border-style-default") !default;
+$border-style-palettes: ('palette-border-style-default') !default;
 $border-style-manual-values: () !default;
 
 // .border-width
 
-$border-width-palettes: ("palette-border-width-default") !default;
+$border-width-palettes: ('palette-border-width-default') !default;
 $border-width-manual-values: () !default;
 
 // .bottom
 
-$bottom-palettes: ("palette-bottom-default") !default;
+$bottom-palettes: ('palette-bottom-default') !default;
 
 $bottom-manual-values: () !default;
 
 // .box-shadow
 
-$box-shadow-palettes: ("palette-box-shadow-default") !default;
+$box-shadow-palettes: ('palette-box-shadow-default') !default;
 
 $box-shadow-manual-values: () !default;
 
 // .circle
 
-$circle-palettes: ("palette-circle-default") !default;
+$circle-palettes: ('palette-circle-default') !default;
 $circle-manual-values: () !default;
 
 // .color
@@ -645,171 +645,171 @@ $color-manual-values: () !default;
 
 // .cursor
 
-$cursor-palettes: ("palette-cursor-default") !default;
+$cursor-palettes: ('palette-cursor-default') !default;
 $cursor-manual-values: () !default;
 
 // .display
 
-$display-palettes: ("palette-display-default") !default;
+$display-palettes: ('palette-display-default') !default;
 $display-manual-values: () !default;
 
 // .flex
 
-$flex-palettes: ("palette-flex-default") !default;
+$flex-palettes: ('palette-flex-default') !default;
 $flex-manual-values: () !default;
 
 // .flex-direction
 
-$flex-direction-palettes: ("palette-flex-direction-default") !default;
+$flex-direction-palettes: ('palette-flex-direction-default') !default;
 $flex-direction-manual-values: () !default;
 
 // .flex-wrap
 
-$flex-wrap-palettes: ("palette-flex-wrap-default") !default;
+$flex-wrap-palettes: ('palette-flex-wrap-default') !default;
 $flex-wrap-manual-values: () !default;
 
 // .float
 
-$float-palettes: ("palette-float-default") !default;
+$float-palettes: ('palette-float-default') !default;
 $float-manual-values: () !default;
 
 // .font
 
-$font-palettes: ("palette-font-default") !default;
+$font-palettes: ('palette-font-default') !default;
 $font-manual-values: () !default;
 
 // .font-family
 
-$font-family-palettes: ("palette-font-family-default") !default;
+$font-family-palettes: ('palette-font-family-default') !default;
 $font-family-manual-values: () !default;
 
 // .font-feature-settings
 
-$font-feature-palettes: ("palette-font-feature-settings-default") !default;
+$font-feature-palettes: ('palette-font-feature-settings-default') !default;
 $font-feature-manual-values: () !default;
 
 // .font-style
 
-$font-style-palettes: ("palette-font-style-default") !default;
+$font-style-palettes: ('palette-font-style-default') !default;
 $font-style-manual-values: () !default;
 
 // .font-weight
 
-$font-weight-palettes: ("palette-font-weight-default") !default;
+$font-weight-palettes: ('palette-font-weight-default') !default;
 $font-weight-manual-values: () !default;
 
 // .height
 
-$height-palettes: ("palette-height-default") !default;
+$height-palettes: ('palette-height-default') !default;
 $height-manual-values: () !default;
 
 // .justify-content
 
-$justify-content-palettes: ("palette-justify-content-default") !default;
+$justify-content-palettes: ('palette-justify-content-default') !default;
 $justify-content-manual-values: () !default;
 
 // .left
 
-$left-palettes: ("palette-left-default") !default;
+$left-palettes: ('palette-left-default') !default;
 $left-manual-values: () !default;
 
 // .letter-spacing
 
-$letter-spacing-palettes: ("palette-letter-spacing-default") !default;
+$letter-spacing-palettes: ('palette-letter-spacing-default') !default;
 $letter-spacing-manual-values: () !default;
 
 // .line-height
 
-$line-height-palettes: ("palette-line-height-default") !default;
+$line-height-palettes: ('palette-line-height-default') !default;
 $line-height-manual-values: () !default;
 
 // .margin
 
-$margin-palettes: ("palette-margin-default") !default;
+$margin-palettes: ('palette-margin-default') !default;
 $margin-manual-values: () !default;
-$margin-vertical-palettes: ("palette-margin-vertical-default") !default;
+$margin-vertical-palettes: ('palette-margin-vertical-default') !default;
 $margin-vertical-manual-values: () !default;
-$margin-horizontal-palettes: ("palette-margin-horizontal-default") !default;
+$margin-horizontal-palettes: ('palette-margin-horizontal-default') !default;
 $margin-horizontal-manual-values: () !default;
 
 // .max-height
 
-$max-height-palettes: ("palette-max-height-default") !default;
+$max-height-palettes: ('palette-max-height-default') !default;
 $max-height-manual-values: () !default;
 
 // .max-width
 
-$max-width-palettes: ("palette-max-width-default") !default;
+$max-width-palettes: ('palette-max-width-default') !default;
 $max-width-manual-values: () !default;
 
 // .measure
 
-$measure-palettes: ("palette-measure-default") !default;
+$measure-palettes: ('palette-measure-default') !default;
 $measure-manual-values: () !default;
 
 // .min-height
 
-$min-height-palettes: ("palette-min-height-default") !default;
+$min-height-palettes: ('palette-min-height-default') !default;
 $min-height-manual-values: () !default;
 
 // .min-width
 
-$min-width-palettes: ("palette-min-width-default") !default;
+$min-width-palettes: ('palette-min-width-default') !default;
 $min-width-manual-values: () !default;
 
 // .opacity
 
-$opacity-palettes: ("palette-opacity-default") !default;
+$opacity-palettes: ('palette-opacity-default') !default;
 $opacity-manual-values: () !default;
 
 // .order
 
-$order-palettes: ("palette-order-default") !default;
+$order-palettes: ('palette-order-default') !default;
 $order-manual-values: () !default;
 
 // .outline
 
-$outline-palettes: ("palette-outline-default") !default;
+$outline-palettes: ('palette-outline-default') !default;
 $outline-manual-values: () !default;
 
 // .outline-color
 
-$outline-color-palettes: ("palette-outline-color-default") !default;
+$outline-color-palettes: ('palette-outline-color-default') !default;
 $outline-color-manual-values: () !default;
 
 // .overflow
 
-$overflow-palettes: ("palette-overflow-default") !default;
+$overflow-palettes: ('palette-overflow-default') !default;
 $overflow-manual-values: () !default;
 
 // .padding
 
-$padding-palettes: ("palette-padding-default") !default;
+$padding-palettes: ('palette-padding-default') !default;
 $padding-manual-values: () !default;
 
 // .position
 
-$position-palettes: ("palette-position-default") !default;
+$position-palettes: ('palette-position-default') !default;
 $position-manual-values: () !default;
 
 // .right
 
-$right-palettes: ("palette-right-default") !default;
+$right-palettes: ('palette-right-default') !default;
 $right-manual-values: () !default;
 
 // .square
 
-$square-palettes: ("palette-square-default") !default;
+$square-palettes: ('palette-square-default') !default;
 $square-manual-values: () !default;
 
 // .text-align
 
-$text-align-palettes: ("palette-text-align-default") !default;
+$text-align-palettes: ('palette-text-align-default') !default;
 $text-align-manual-values: () !default;
 
 // .text-decoration
 
-$text-decoration-palettes: ("palette-text-decoration-default") !default;
+$text-decoration-palettes: ('palette-text-decoration-default') !default;
 $text-decoration-manual-values: () !default;
 
 // .text-decoration-color
@@ -819,35 +819,35 @@ $text-decoration-color-manual-values: () !default;
 
 // .text-indent
 
-$text-indent-palettes: ("palette-text-indent-default") !default;
+$text-indent-palettes: ('palette-text-indent-default') !default;
 $text-indent-manual-values: () !default;
 
 // .text-transform
 
-$text-transform-palettes: ("palette-text-transform-default") !default;
+$text-transform-palettes: ('palette-text-transform-default') !default;
 $text-transform-manual-values: () !default;
 
 // .top
 
-$top-palettes: ("palette-top-default") !default;
+$top-palettes: ('palette-top-default') !default;
 $top-manual-values: () !default;
 
 // .vertical-align
 
-$vertical-align-palettes: ("palette-vertical-align-default") !default;
+$vertical-align-palettes: ('palette-vertical-align-default') !default;
 $vertical-align-manual-values: () !default;
 
 // .white-space
 
-$whitespace-palettes: ("palette-white-space-default") !default;
+$whitespace-palettes: ('palette-white-space-default') !default;
 $whitespace-manual-values: () !default;
 
 // .width
 
-$width-palettes: ("palette-width-default") !default;
+$width-palettes: ('palette-width-default') !default;
 $width-manual-values: () !default;
 
 // .z-index
 
-$z-index-palettes: ("palette-z-index-default") !default;
+$z-index-palettes: ('palette-z-index-default') !default;
 $z-index-manual-values: () !default;
