@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - Pagination render should render correctly 1`] = `
-<div
-  className="pin-right padding-right-2px margin-top-neg-3 padding-bottom-8 margin-bottom-4"
->
+<Fragment>
   <nav
     aria-label="Pagination Navigation"
     className="margin-top-neg-3"
@@ -11,10 +9,10 @@ exports[`components - Pagination render should render correctly 1`] = `
     tabIndex="0"
   >
     <ul
-      className="display-inline-block font-body-3xs text-bold"
+      className="display-block font-body-3xs text-bold text-center padding-bottom-4"
     >
       <li
-        className="display-inline-block"
+        className="tablet-lg:display-inline-block display-block"
       >
         <p
           className="display-inline-block"
@@ -103,5 +101,5 @@ exports[`components - Pagination render should render correctly 1`] = `
       </li>
     </ul>
   </nav>
-</div>
+</Fragment>
 `;

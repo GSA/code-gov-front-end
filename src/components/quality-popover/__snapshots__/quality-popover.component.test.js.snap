@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - QualityPopover render should render correctly 1`] = `
-<div>
+<div
+  className="tablet-lg:padding-top-0 padding-top-2"
+>
   <div
     className="pin-right padding-right-105"
   >

@@ -136,15 +136,15 @@ export default class Pagination extends Component {
     const displayPages = this.getDisplayPages()
 
     return (
-      <div className="pin-right padding-right-2px margin-top-neg-3 padding-bottom-8 margin-bottom-4">
+      <>
         <nav
           role="navigation"
           aria-label="Pagination Navigation"
           tabIndex="0"
           className="margin-top-neg-3"
         >
-          <ul className="display-inline-block font-body-3xs text-bold">
-            <li className="display-inline-block">
+          <ul className="display-block font-body-3xs text-bold text-center padding-bottom-4">
+            <li className="tablet-lg:display-inline-block display-block">
               <p className="display-inline-block">{summary}</p>
             </li>
             <li
@@ -211,7 +211,7 @@ export default class Pagination extends Component {
             </li>
           </ul>
         </nav>
-      </div>
+      </>
     )
   }
 }
