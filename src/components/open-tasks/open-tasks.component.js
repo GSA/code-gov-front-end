@@ -32,11 +32,11 @@ export default class OpenTasks extends React.Component {
       total,
       {
         default: 'Loading Tasks',
-        '0': 'There are currently no open tasks',
-        '1': 'There is currently 1 open task',
-        '2': `There are [VALUE] open tasks`
+        '0': 'There are currently no open tasks.',
+        '1': 'There is currently 1 open task.',
+        '2': `There are [VALUE] open tasks.`
       },
-      'repos-count width-three-quarters'
+      'repos-count font-heading-lg text-bold margin-y-105'
     )
   }
 

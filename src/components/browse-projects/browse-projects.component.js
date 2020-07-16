@@ -34,7 +34,11 @@ export default class BrowseProjects extends React.Component {
       '2': `[VALUE] Repositories`
     }
 
-    return getReposCount(total, messages, 'repos-count grid-col')
+    return getReposCount(
+      total,
+      messages,
+      'repos-count tablet-lg:grid-col-9 grid-col-12 tablet:grid-col-4 font-heading-lg text-bold margin-y-105'
+    )
   }
 
   get reposContainer() {
@@ -73,7 +77,7 @@ export default class BrowseProjects extends React.Component {
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Projects' }]} />
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div className="margin-top-2 tablet:grid-col-3">
+            <div className="margin-top-1 grid-col-12 tablet-lg:grid-col-3 tablet:grid-col-8">
               <QuickSearchBox />
             </div>
             {ReactHtmlParser(this.repoCounter)}
