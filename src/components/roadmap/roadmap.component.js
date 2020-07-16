@@ -19,7 +19,7 @@ export const Row = ({ todo }) => {
   }
 
   return (
-    <section>
+    <li className="margin-bottom-0">
       <div className="grid-row">
         <div className="grid-col-1 padding-top-1 tablet:padding-top-2 padding-left-1">
           <i className={iconClass} aria-label={taskStatus} />
@@ -28,7 +28,7 @@ export const Row = ({ todo }) => {
           {todo.name}
         </div>
       </div>
-    </section>
+    </li>
   )
 }
 
@@ -38,11 +38,11 @@ export const Column = ({ phase, todos }) => (
       <h3 className="bg-base-lighter padding-y-2 text-center text-bold text-base-darker border-base-lighter font-body-md radius-top-lg border-1px border-bottom-0">
         {phase}
       </h3>
-      <div className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter">
+      <ul className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter">
         {map(todos, todo => (
           <Row key={todo.name} todo={todo} />
         ))}
-      </div>
+      </ul>
     </div>
   </div>
 )
@@ -54,8 +54,8 @@ export default class Roadmap extends React.Component {
 
   get overview() {
     return (
-      <div className="margin-top-3">
-        <h3 className="font-heading-lg text-bold">Overview</h3>
+      <div className="margin-top-1">
+        <h2>Overview</h2>
         {map(this.props.overview, paragraph => (
           <p
             className="maxw-none"
@@ -77,7 +77,7 @@ export default class Roadmap extends React.Component {
           {this.overview}
 
           <div>
-            <h3 className="margin-top-4 font-heading-lg text-bold">Roadmap</h3>
+            <h2 className="margin-top-4">Roadmap</h2>
           </div>
 
           <section className="grid-container padding-0">
@@ -107,7 +107,7 @@ export default class Roadmap extends React.Component {
           </section>
 
           <div className="margin-y-3">
-            <h3 className="font-heading-lg text-bold">Disclaimer</h3>
+            <h2>Disclaimer</h2>
             <p className="maxw-none">{this.props.disclaimer}</p>
           </div>
         </div>

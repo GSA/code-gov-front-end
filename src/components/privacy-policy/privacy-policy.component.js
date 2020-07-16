@@ -13,8 +13,7 @@ export default class PrivacyPolicy extends React.Component {
       <div id="main-content">
         <SiteBanner title="Privacy Policy" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Privacy Policy' }]} />
-        <div className="grid-container">
-          <br />
+        <div className="grid-container margin-top-1">
           <div dangerouslySetInnerHTML={{ __html: this.props.privacyPolicy }} />
         </div>
       </div>

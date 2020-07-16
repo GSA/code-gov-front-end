@@ -63,18 +63,18 @@ export default class HomeBannerSearchBoxComponent extends Component {
     } = this.props
     return (
       <>
-        <div className="text-uppercase text-bold text-base-darker show-w-gt-800 padding-bottom-2px">
+        <h2 className="text-uppercase text-bold text-base-darker show-w-gt-800 font-body-xs">
           {searchDescriptionHeading}
-        </div>
+        </h2>
         {searchDescriptionText && (
-          <div className="margin-bottom-105 text-bold text-base-darker show-w-gt-800">
+          <div className="margin-bottom-105 margin-top-2px text-bold text-base-darker show-w-gt-800">
             {searchDescriptionText}
           </div>
         )}
         {searchDescriptionTextMobile && (
-          <div className="show-w-lte-800 text-bold text-base-darker padding-bottom-105">
+          <h2 className="show-w-lte-800 text-uppercase text-bold margin-top-0 text-base-darker font-body-xs">
             {searchDescriptionTextMobile}
-          </div>
+          </h2>
         )}
         <div className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6">
           <SearchBox
