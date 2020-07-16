@@ -10,7 +10,7 @@ export default function Breadcrumbs({ crumbs }) {
             if (to) {
               return (
                 <li key={text} className="usa-breadcrumb__list-item">
-                  <CustomLink to={to} class="usa-breadcrumb__link">
+                  <CustomLink to={to} className="usa-breadcrumb__link">
                     <span>{text}</span>
                   </CustomLink>
                 </li>
@@ -29,25 +29,5 @@ export default function Breadcrumbs({ crumbs }) {
         </ol>
       </nav>
     </div>
-
-    // <div className="grid-container" id="breadcrumbs">
-    //   <ul className="grid-row margin-top-4">
-    //     {crumbs.map(({ text, to }) => {
-    //       if (to) {
-    //         return (
-    //           <li key={text}>
-    //             <CustomLink to={to}>{text}</CustomLink>
-    //             <span className="padding-x-2px"> &gt; </span>
-    //           </li>
-    //         )
-    //       }
-    //       return (
-    //         <li key={text} className="text-bold">
-    //           {text}
-    //         </li>
-    //       )
-    //     })}
-    //   </ul>
-    // </div>
   )
 }
