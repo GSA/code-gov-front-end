@@ -21,9 +21,8 @@ exports[`components - PrivacyPolicy render should render correctly 1`] = `
     }
   />
   <div
-    className="grid-container"
+    className="grid-container margin-top-1"
   >
-    <br />
     <div
       dangerouslySetInnerHTML={
         Object {

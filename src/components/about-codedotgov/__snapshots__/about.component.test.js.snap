@@ -21,14 +21,11 @@ exports[`components - AboutCodeDotGov render should render correctly 1`] = `
     }
   />
   <div
-    className="grid-container"
+    className="grid-container margin-top-1"
   >
-    <br />
-    <div>
-      <LazyHTML
-        url="/src/components/about-codedotgov/html/overview/introduction.html"
-      />
-    </div>
+    <LazyHTML
+      url="/src/components/about-codedotgov/html/overview/introduction.html"
+    />
   </div>
 </div>
 `;

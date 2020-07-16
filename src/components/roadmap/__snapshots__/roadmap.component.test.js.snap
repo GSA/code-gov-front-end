@@ -10,7 +10,7 @@ exports[`components - Roadmap - Column should render correctly 1`] = `
     >
       test-phase
     </h3>
-    <div
+    <ul
       className="radius-bottom-lg margin-top-0 padding-y-1 padding-x-05 border-1px border-top-0 border-base-lighter"
     >
       <Row
@@ -31,13 +31,15 @@ exports[`components - Roadmap - Column should render correctly 1`] = `
           }
         }
       />
-    </div>
+    </ul>
   </div>
 </div>
 `;
 
 exports[`components - Roadmap - Row should render correctly 1`] = `
-<section>
+<li
+  className="margin-bottom-0"
+>
   <div
     className="grid-row"
   >
@@ -55,7 +57,7 @@ exports[`components - Roadmap - Row should render correctly 1`] = `
       todo-name
     </div>
   </div>
-</section>
+</li>
 `;
 
 exports[`components - Roadmap render should render correctly 1`] = `
@@ -82,13 +84,11 @@ exports[`components - Roadmap render should render correctly 1`] = `
     className="grid-container"
   >
     <div
-      className="margin-top-3"
+      className="margin-top-1"
     >
-      <h3
-        className="font-heading-lg text-bold"
-      >
+      <h2>
         Overview
-      </h3>
+      </h2>
       <p
         className="maxw-none"
         dangerouslySetInnerHTML={
@@ -109,11 +109,11 @@ exports[`components - Roadmap render should render correctly 1`] = `
       />
     </div>
     <div>
-      <h3
-        className="margin-top-4 font-heading-lg text-bold"
+      <h2
+        className="margin-top-4"
       >
         Roadmap
-      </h3>
+      </h2>
     </div>
     <section
       className="grid-container padding-0"
@@ -200,11 +200,9 @@ exports[`components - Roadmap render should render correctly 1`] = `
     <div
       className="margin-y-3"
     >
-      <h3
-        className="font-heading-lg text-bold"
-      >
+      <h2>
         Disclaimer
-      </h3>
+      </h2>
       <p
         className="maxw-none"
       >

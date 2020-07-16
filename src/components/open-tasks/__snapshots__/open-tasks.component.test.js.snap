@@ -27,12 +27,12 @@ exports[`components - OpenTasks render should render correctly 1`] = `
     <div
       className="tablet:grid-col-3"
     />
-    <h3
-      classname="repos-count width-three-quarters"
+    <p
+      className="repos-count font-heading-lg text-bold margin-y-105"
       key="0"
     >
-      There are 2 open tasks
-    </h3>
+      There are 2 open tasks.
+    </p>
   </div>
   <div
     className="grid-container"

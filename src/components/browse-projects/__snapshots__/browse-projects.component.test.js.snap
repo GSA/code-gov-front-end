@@ -28,16 +28,16 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
       className="grid-row grid-gap"
     >
       <div
-        className="margin-top-2 tablet:grid-col-3"
+        className="margin-top-1 grid-col-12 tablet-lg:grid-col-3 tablet:grid-col-8"
       >
         <Connect(QuickSearchBoxComponent) />
       </div>
-      <h3
-        classname="repos-count grid-col"
+      <p
+        className="repos-count tablet-lg:grid-col-9 grid-col-12 tablet:grid-col-4 font-heading-lg text-bold margin-y-105"
         key="0"
       >
         2 Repositories
-      </h3>
+      </p>
     </div>
   </div>
   <div
