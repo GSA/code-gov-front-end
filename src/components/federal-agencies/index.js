@@ -45,9 +45,8 @@ class FederalAgencies extends Component {
       <div id="main-content">
         <SiteBanner title="FEDERAL AGENCIES" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Federal Agencies' }]} />
-        <br />
         <div className="grid-container">
-          <div className="show-w-lte-600" style={{ padding: '30px', textAlign: 'center' }}>
+          <div className="show-w-lte-600 padding-bottom-4">
             <NavSelect pages={pagesForSelect} />
           </div>
           <div className="grid-row grid-gap">
