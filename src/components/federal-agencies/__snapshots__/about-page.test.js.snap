@@ -111,18 +111,11 @@ exports[`components - AboutPage render should render correctly 1`] = `
       ]
     }
   />
-  <br />
   <div
     className="grid-container"
   >
     <div
-      className="show-w-lte-600"
-      style={
-        Object {
-          "padding": "30px",
-          "textAlign": "center",
-        }
-      }
+      className="show-w-lte-600 padding-bottom-4"
     >
       <Connect(NavSelect)
         pages={

@@ -1,37 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
-<div
-  className="padding-bottom-2px"
->
-  <div>
-    <div>
-      <div
-        className="text-uppercase text-bold text-base-darker show-w-gt-800"
-      />
-      <div
-        className="margin-bottom-1 text-bold text-base-darker show-w-gt-800"
-      >
-        test-text
-      </div>
-      <div
-        className="show-w-lte-800 text-bold text-base-darker padding-bottom-105"
-      >
-        test-mobile-text
-      </div>
-    </div>
-    <div
-      className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6"
-    >
-      <SearchBox
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onSubmit={[MockFunction]}
-        placeholder="test-placeholder"
-        query="test-query"
-      />
-    </div>
+<Fragment>
+  <div
+    className="text-uppercase text-bold text-base-darker show-w-gt-800 padding-bottom-2px"
+  />
+  <div
+    className="margin-bottom-105 text-bold text-base-darker show-w-gt-800"
+  >
+    test-text
   </div>
-</div>
+  <div
+    className="show-w-lte-800 text-bold text-base-darker padding-bottom-105"
+  >
+    test-mobile-text
+  </div>
+  <div
+    className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6"
+  >
+    <SearchBox
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onSubmit={[MockFunction]}
+      placeholder="test-placeholder"
+      query="test-query"
+    />
+  </div>
+</Fragment>
 `;

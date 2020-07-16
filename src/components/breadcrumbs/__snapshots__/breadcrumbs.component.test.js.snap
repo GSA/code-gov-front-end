@@ -5,43 +5,49 @@ exports[`components - Breadcrumbs should render correctly 1`] = `
   className="grid-container"
   id="breadcrumbs"
 >
-  <ul
-    className="grid-row margin-top-4"
+  <nav
+    aria-label="Breadcrumbs"
+    className="usa-breadcrumb grid-row margin-top-4"
   >
-    <li
-      key="text-1"
+    <ol
+      className="usa-breadcrumb__list font-body-2xs"
     >
-      <Connect(CustomLinkComponent)
-        to="/to-1"
+      <li
+        className="usa-breadcrumb__list-item"
+        key="text-1"
       >
-        text-1
-      </Connect(CustomLinkComponent)>
-      <span
-        className="padding-x-2px"
+        <Connect(CustomLinkComponent)
+          className="usa-breadcrumb__link"
+          to="/to-1"
+        >
+          <span>
+            text-1
+          </span>
+        </Connect(CustomLinkComponent)>
+      </li>
+      <li
+        className="usa-breadcrumb__list-item"
+        key="text-2"
       >
-         &gt; 
-      </span>
-    </li>
-    <li
-      key="text-2"
-    >
-      <Connect(CustomLinkComponent)
-        to="/to-2"
+        <Connect(CustomLinkComponent)
+          className="usa-breadcrumb__link"
+          to="/to-2"
+        >
+          <span>
+            text-2
+          </span>
+        </Connect(CustomLinkComponent)>
+      </li>
+      <li
+        aria-current="page"
+        className="usa-breadcrumb__list-item usa-current text-bold"
+        key="text-3"
       >
-        text-2
-      </Connect(CustomLinkComponent)>
-      <span
-        className="padding-x-2px"
-      >
-         &gt; 
-      </span>
-    </li>
-    <li
-      className="text-bold"
-      key="text-3"
-    >
-      text-3
-    </li>
-  </ul>
+        <span>
+          text-3
+        </span>
+      </li>
+    </ol>
+  </nav>
 </div>
 `;
