@@ -84,26 +84,28 @@ export default class TaskCardComponent extends Component {
     // const lastModifiedString = getLastModifiedDateString(this.props.task) || 'Not Available'
 
     return (
-      <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto margin-bottom-2 card-list-item margin-top-1">
-        <header className="usa-card__header">
-          <h3 className="usa-card__heading font-heading-lg margin-top-0">{this.cardTitle}</h3>
-        </header>
-        {this.cardDescription}
-        <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light show-w-gt-1000">
-          {this.agencyLink}
-        </dl>
-        <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
-          <div className="grid-row">
-            <ul className="display-inline-block tablet:grid-col-9 grid-col-12">
-              <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
-              <CardPart title="Type" text={capitalize(get(task, 'type'))} />
-              <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
-              <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
-            </ul>
-            {this.goToIssueButton}
+      <li className="usa-card width-full margin-bottom-2">
+        <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto card-list-item">
+          <header className="usa-card__header">
+            <h3 className="usa-card__heading font-heading-lg margin-top-0">{this.cardTitle}</h3>
+          </header>
+          {this.cardDescription}
+          <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light show-w-gt-1000">
+            {this.agencyLink}
+          </dl>
+          <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
+            <div className="grid-row">
+              <ul className="display-inline-block tablet:grid-col-9 grid-col-12">
+                <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
+                <CardPart title="Type" text={capitalize(get(task, 'type'))} />
+                <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
+                <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
+              </ul>
+              {this.goToIssueButton}
+            </div>
           </div>
         </div>
-      </div>
+      </li>
     )
   }
 }
