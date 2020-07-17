@@ -41,11 +41,11 @@ exports[`components - OpenTasks render should render correctly 1`] = `
       className="grid-row grid-gap"
     >
       <div
-        className="tablet-lg:grid-col-3 margin-top-4"
+        className="tablet-lg:grid-col-3 margin-top-105"
         id="filter-boxes-section"
       >
         <h2
-          className="margin-bottom-4"
+          className="margin-bottom-2"
         >
           Filter
         </h2>
@@ -84,12 +84,10 @@ exports[`components - OpenTasks render should render correctly 1`] = `
         id="filter-results-section"
       >
         <div
-          className="grid-row margin-top-4"
+          className="grid-row tablet-lg:margin-top-105 margin-bottom-1 margin-top-4"
         >
           <h2>
-            <span>
-              Explore Open Tasks
-            </span>
+            Explore Open Tasks
           </h2>
         </div>
         <_default
@@ -105,28 +103,24 @@ exports[`components - OpenTasks render should render correctly 1`] = `
           className="card-list"
         >
           <ul
-            className="usa-card-group padding-top-3"
+            className="usa-card-group usa-card-group margin-top-2"
           >
-            <li
-              className="usa-card width-full margin-bottom-2"
-            >
-              <TaskCardComponent
-                key="task-1"
-                task={
-                  Object {
-                    "id": "task-1",
-                  }
+            <TaskCardComponent
+              key="task-1"
+              task={
+                Object {
+                  "id": "task-1",
                 }
-              />
-              <TaskCardComponent
-                key="task-2"
-                task={
-                  Object {
-                    "id": "task-2",
-                  }
+              }
+            />
+            <TaskCardComponent
+              key="task-2"
+              task={
+                Object {
+                  "id": "task-2",
                 }
-              />
-            </li>
+              }
+            />
           </ul>
           <Pagination
             count={2}
