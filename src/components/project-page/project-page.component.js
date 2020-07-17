@@ -212,7 +212,7 @@ export default class ProjectPage extends Component {
           />
           <section className="grid-container">
             <header>
-              <div className="margin-top-3">
+              <div className="margin-top-1">
                 <h2 className="font-heading-xl">{repoName}</h2>
                 {this.lastModifiedDateHTML}
                 <div id="repo-tags" className="grid-row margin-top-0">
