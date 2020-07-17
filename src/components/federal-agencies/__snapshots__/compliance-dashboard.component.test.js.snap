@@ -9,7 +9,7 @@ exports[`components - ComplianceDashboard should render correctly 1`] = `
     className="usa-card-group padding-x-3 dashboard-container"
   >
     <li
-      className="usa-card radius-0 border-warning border-left-3 height-auto width-full"
+      className="usa-card radius-0 border-warning border-left-3 height-auto width-full margin-bottom-3"
       key="card-Department of Agriculture"
     >
       <div
@@ -25,18 +25,18 @@ exports[`components - ComplianceDashboard should render correctly 1`] = `
           />
         </div>
         <div
-          className="usa-card__body display-block margin-left-6 margin-top-105 margin-bottom-neg-2"
+          className="usa-card__body display-block mobile-lg:margin-left-6 mobile-lg:margin-top-105 margin-top-10 margin-bottom-neg-2 mobile-lg:padding-left-3 padding-left-0"
         >
           <header
             className="usa-card__header"
           >
             <h3
-              className="usa-card__heading"
+              className="usa-card__heading text-normal"
             >
               Department of Agriculture
             </h3>
             <h4
-              className="h4 text-warning-darker"
+              className="font-heading-sm margin-top-105 text-warning-darker"
             >
               Partially compliant
             </h4>

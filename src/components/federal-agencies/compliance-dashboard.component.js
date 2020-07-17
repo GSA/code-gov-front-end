@@ -55,7 +55,7 @@ const getCard = (config, entry) => {
 
   return (
     <li
-      className={`usa-card radius-0 ${borderColor[overallStatus]} border-left-3 height-auto width-full`}
+      className={`usa-card radius-0 ${borderColor[overallStatus]} border-left-3 height-auto width-full margin-bottom-3`}
       key={`card-${name}`}
     >
       <div
@@ -65,10 +65,12 @@ const getCard = (config, entry) => {
         <div className="usa-card__media usa-card__media--inset display-block pin-top pin-left">
           <img src={img} alt={`${name} logo`} />
         </div>
-        <div className="usa-card__body display-block margin-left-6 margin-top-105 margin-bottom-neg-2">
+        <div className="usa-card__body display-block mobile-lg:margin-left-6 mobile-lg:margin-top-105 margin-top-10 margin-bottom-neg-2 mobile-lg:padding-left-3 padding-left-0">
           <header className="usa-card__header">
-            <h3 className="usa-card__heading">{name}</h3>
-            <h4 className={`h4 ${statusColor[overallStatus]}`}>{displayStatus[overallStatus]}</h4>
+            <h3 className="usa-card__heading text-normal">{name}</h3>
+            <h4 className={`font-heading-sm margin-top-105 ${statusColor[overallStatus]}`}>
+              {displayStatus[overallStatus]}
+            </h4>
             {config.text.map(textPart => {
               const { req, variants } = textPart
               const status = getStatusAsText(config, entry.requirements.sub[req])
