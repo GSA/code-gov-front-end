@@ -80,8 +80,8 @@ export default class RepoCardComponent extends Component {
       <li className="usa-card width-full margin-bottom-2">
         <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 card-list-item">
           <quality-tag class="display-flex flex-justify-end" score={score} />
-          <header className="usa-card__header margin-top-neg-3 padding-top-0">
-            <h3 className="usa-card__heading font-heading-lg margin-top-0 grid-col-10">
+          <header className="usa-card__header margin-top-neg-3 padding-top-0 grid-col-9">
+            <h3 className="usa-card__heading font-heading-lg margin-top-0">
               <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
             </h3>
           </header>

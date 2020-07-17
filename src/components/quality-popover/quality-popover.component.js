@@ -44,11 +44,11 @@ export default class QualityPopover extends Component {
   }
 
   render() {
-    const iconClassName = 'icon icon-help-circled popper display-inline'
+    const iconClassName = 'icon icon-help-circled popper display-inline text-primary'
     return (
       <div className="tablet-lg:padding-top-0 padding-top-2">
         <div className="pin-right padding-right-105">
-          <span className="data-quality-title" id="data-quality-title">
+          <span className="data-quality-title text-bold font-body-2xs" id="data-quality-title">
             Data Quality Score
           </span>
           <div

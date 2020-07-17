@@ -40,7 +40,7 @@ i.e.
 p,
 ul,
 li {
-  color: #5b616b;
+  color: #565c65;
 }
 
 h1,
@@ -49,7 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #5b616b;
+  color: #565c65;
   font-weight: 500;
 }
 
@@ -106,4 +106,8 @@ select {
   @media (max-width: 879.5px) {
     background-color: #e1f3f8;
   }
+}
+
+body {
+  color: #565c65;
 }
