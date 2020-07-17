@@ -63,7 +63,7 @@ export default class QualityPopover extends Component {
           />
         </div>
         <div id="data-quality-popover" className="padding-top-3" hidden>
-          <div className="z-top bg-base-lighter padding-1 radius-lg margin-bottom-neg-2">
+          <div className="z-top bg-base-lightest padding-2 radius-lg margin-bottom-neg-2">
             The Data Quality Score is determined by using the information provided by Agencies in
             their <CustomLink to="/about/compliance/inventory-code">code.json</CustomLink> and by
             factors such as completeness and adherence to the{' '}

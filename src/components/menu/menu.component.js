@@ -68,7 +68,7 @@ export default class Menu extends Component {
         <div className="usa-overlay" />
         <header className="usa-header usa-header--basic bg-white">
           <div className="usa-nav-container">
-            <div className="usa-navbar">
+            <div className="usa-navbar border-bottom-0">
               <div className="usa-logo" id="basic-logo">
                 <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
                   <img

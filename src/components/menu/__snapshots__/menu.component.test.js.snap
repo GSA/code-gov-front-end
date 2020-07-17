@@ -12,7 +12,7 @@ exports[`components - Menu render should render correctly 1`] = `
       className="usa-nav-container"
     >
       <div
-        className="usa-navbar"
+        className="usa-navbar border-bottom-0"
       >
         <div
           className="usa-logo"

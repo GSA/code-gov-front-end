@@ -29,7 +29,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     id="data-quality-popover"
   >
     <div
-      className="z-top bg-base-lighter padding-1 radius-lg margin-bottom-neg-2"
+      className="z-top bg-base-lightest padding-2 radius-lg margin-bottom-neg-2"
     >
       The Data Quality Score is determined by using the information provided by Agencies in their 
       <Connect(CustomLinkComponent)
