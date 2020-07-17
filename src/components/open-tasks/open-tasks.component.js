@@ -57,8 +57,8 @@ export default class OpenTasks extends React.Component {
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div id="filter-boxes-section" className="tablet-lg:grid-col-3 margin-top-4">
-              <h2 className="margin-bottom-4">Filter</h2>
+            <div id="filter-boxes-section" className="tablet-lg:grid-col-3 margin-top-105">
+              <h2 className="margin-bottom-2">Filter</h2>
 
               <FilterBoxes
                 boxes={this.props.boxes}
@@ -73,19 +73,15 @@ export default class OpenTasks extends React.Component {
               />
             </div>
             <div id="filter-results-section" className="tablet-lg:grid-col-9">
-              <div className="grid-row margin-top-4">
-                <h2>
-                  <span>Explore Open Tasks</span>
-                </h2>
+              <div className="grid-row tablet-lg:margin-top-105 margin-bottom-1 margin-top-4">
+                <h2>Explore Open Tasks</h2>
               </div>
               <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
               <div className="card-list">
-                <ul className="usa-card-group padding-top-3">
-                  <li className="usa-card width-full margin-bottom-2">
-                    {map(this.props.tasks, task => (
-                      <TaskCard key={task.id} task={task} />
-                    ))}
-                  </li>
+                <ul className="usa-card-group usa-card-group margin-top-2">
+                  {map(this.props.tasks, task => (
+                    <TaskCard key={task.id} task={task} />
+                  ))}
                 </ul>
                 {numPages > 0 && (
                   <Pagination

@@ -37,7 +37,7 @@ export default class BrowseProjects extends React.Component {
     return getReposCount(
       total,
       messages,
-      'repos-count tablet-lg:grid-col-9 grid-col-12 tablet:grid-col-4 font-heading-lg text-bold margin-y-105'
+      'repos-count tablet-lg:grid-col-9 grid-col-12 tablet:grid-col-4 font-heading-lg text-bold tablet:margin-y-105 margin-top-3 margin-bottom-0'
     )
   }
 
@@ -85,7 +85,10 @@ export default class BrowseProjects extends React.Component {
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div id="filter-boxes-section" className="tablet-lg:grid-col-3 margin-top-4">
+            <div
+              id="filter-boxes-section"
+              className="tablet-lg:grid-col-3 tablet-lg:margin-top-4 margin-top-3"
+            >
               <h2 className="tablet-lg:margin-bottom-4 margin-bottom-105">Filter</h2>
 
               <FilterBoxes
