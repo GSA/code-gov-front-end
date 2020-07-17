@@ -51,7 +51,7 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
         id="filter-boxes-section"
       >
         <h2
-          className="margin-bottom-4"
+          className="tablet-lg:margin-bottom-4 margin-bottom-105"
         >
           Filter
         </h2>

@@ -8,14 +8,14 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     className="pin-right padding-right-105"
   >
     <span
-      className="data-quality-title"
+      className="data-quality-title text-bold font-body-2xs"
       id="data-quality-title"
     >
       Data Quality Score
     </span>
     <div
       aria-labelledby="data-quality-title"
-      className="icon icon-help-circled popper display-inline"
+      className="icon icon-help-circled popper display-inline text-primary"
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}

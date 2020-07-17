@@ -27,7 +27,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
   >
     <header>
       <div
-        className="margin-top-3"
+        className="margin-top-1"
       >
         <h2
           className="font-heading-xl"
