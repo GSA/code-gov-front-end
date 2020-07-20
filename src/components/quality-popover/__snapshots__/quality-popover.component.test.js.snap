@@ -5,7 +5,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
   className="tablet-lg:padding-top-0 padding-top-2"
 >
   <div
-    className="pin-right padding-right-105"
+    className="pin-right tablet-lg:padding-right-1"
   >
     <span
       className="data-quality-title text-bold font-body-2xs"
@@ -15,7 +15,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     </span>
     <div
       aria-labelledby="data-quality-title"
-      className="icon icon-help-circled popper display-inline text-primary"
+      className="icon usa-button bg-white icon-help-circled popper display-inline text-primary padding-0 margin-left-2px"
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
@@ -29,7 +29,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     id="data-quality-popover"
   >
     <div
-      className="z-top bg-base-lightest padding-2 radius-lg margin-bottom-neg-2"
+      className="z-top bg-base-lightest padding-x-2 padding-y-105 radius-lg margin-bottom-neg-2 font-body-2xs line-height-sans-3"
     >
       The Data Quality Score is determined by using the information provided by Agencies in their 
       <Connect(CustomLinkComponent)

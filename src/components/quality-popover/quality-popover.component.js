@@ -44,10 +44,11 @@ export default class QualityPopover extends Component {
   }
 
   render() {
-    const iconClassName = 'icon icon-help-circled popper display-inline text-primary'
+    const iconClassName =
+      'icon usa-button bg-white icon-help-circled popper display-inline text-primary padding-0 margin-left-2px'
     return (
       <div className="tablet-lg:padding-top-0 padding-top-2">
-        <div className="pin-right padding-right-105">
+        <div className="pin-right tablet-lg:padding-right-1">
           <span className="data-quality-title text-bold font-body-2xs" id="data-quality-title">
             Data Quality Score
           </span>
@@ -63,7 +64,7 @@ export default class QualityPopover extends Component {
           />
         </div>
         <div id="data-quality-popover" className="padding-top-3" hidden>
-          <div className="z-top bg-base-lightest padding-2 radius-lg margin-bottom-neg-2">
+          <div className="z-top bg-base-lightest padding-x-2 padding-y-105 radius-lg margin-bottom-neg-2 font-body-2xs line-height-sans-3">
             The Data Quality Score is determined by using the information provided by Agencies in
             their <CustomLink to="/about/compliance/inventory-code">code.json</CustomLink> and by
             factors such as completeness and adherence to the{' '}
