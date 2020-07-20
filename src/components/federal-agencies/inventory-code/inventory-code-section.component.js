@@ -65,7 +65,7 @@ class InventoryCodeSectionComponent extends Component {
                 'border-left-0': indent === 0,
                 'border-base-lighter': indent === 1 || 2 || 3,
                 'border-left-2px': indent === 1 || 2 || 3
-              })} usa-accordion__button bg-white border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
+              })} usa-accordion__button bg-white padding-left-1 mobile:padding-left-205 border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
               aria-expanded={dropDown}
               aria-controls={`${key}-section`}
               onClick={this.toggleDropDown}
@@ -114,7 +114,7 @@ class InventoryCodeSectionComponent extends Component {
                   'top-level': topLevel,
                   'text-accent-cool-dark': optionalField,
                   'display-none': optionalField && optionalToggle
-                })} usa-accordion__content margin-y-0 padding-y-0 margin-left-3 tablet-lg:margin-left-4 padding-left-1 padding-right-0`}
+                })} usa-accordion__content margin-y-0 padding-y-0 margin-left-1 mobile:margin-left-3 tablet-lg:margin-left-4 padding-left-1 padding-right-0`}
               >
                 {dropDown &&
                   subEntries &&
@@ -140,7 +140,7 @@ class InventoryCodeSectionComponent extends Component {
                 'border-left-0': indent === 0,
                 'border-base-lighter': indent === 1 || 2 || 3,
                 'border-left-2px': indent === 1 || 2 || 3
-              })} border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md padding-x-205 text-bold padding-y-105 tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
+              })} border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md padding-x-1 mobile:padding-x-205 text-bold padding-y-105 tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
             >
               <span className="usa-sr-only">Field Name: </span>
               <p
