@@ -143,7 +143,7 @@ export default class Pagination extends Component {
           tabIndex="0"
           className="margin-top-neg-3"
         >
-          <ul className="display-block font-body-3xs text-bold text-center padding-bottom-4">
+          <ul className="display-block font-body-3xs text-bold text-center padding-bottom-4 float-none tablet-lg:float-right">
             <li className="tablet-lg:display-inline-block display-block">
               <p className="display-inline-block">{summary}</p>
             </li>
