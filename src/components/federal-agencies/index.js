@@ -46,11 +46,11 @@ class FederalAgencies extends Component {
         <SiteBanner title="FEDERAL AGENCIES" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Federal Agencies' }]} />
         <div className="grid-container">
-          <div className="show-w-lte-600 padding-bottom-4">
+          <div className="tablet-lg:display-none display-block padding-bottom-4">
             <NavSelect pages={pagesForSelect} />
           </div>
           <div className="grid-row grid-gap">
-            <div className="grid-col tablet:grid-col-3 show-w-gt-600 sticky height-viewport">
+            <div className="grid-col tablet-lg:grid-col-3 tablet-lg:display-block display-none sticky height-viewport">
               <SideNav
                 alignment="left"
                 baseurl={abouturl}
@@ -58,7 +58,7 @@ class FederalAgencies extends Component {
                 onLinkClick={::this.onNavChange}
               />
             </div>
-            <div className="grid-col tablet:grid-col-9">
+            <div className="grid-col tablet-lg:grid-col-9">
               <Switch>
                 <Route path={`${abouturl}/compliance/dashboard`} component={ComplianceDashboard} />
                 <Route path={`${abouturl}/compliance/procurement`} component={Procurement} />

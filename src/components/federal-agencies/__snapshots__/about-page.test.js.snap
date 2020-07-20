@@ -115,7 +115,7 @@ exports[`components - AboutPage render should render correctly 1`] = `
     className="grid-container"
   >
     <div
-      className="show-w-lte-600 padding-bottom-4"
+      className="tablet-lg:display-none display-block padding-bottom-4"
     >
       <Connect(NavSelect)
         pages={
@@ -140,7 +140,7 @@ exports[`components - AboutPage render should render correctly 1`] = `
       className="grid-row grid-gap"
     >
       <div
-        className="grid-col tablet:grid-col-3 show-w-gt-600 sticky height-viewport"
+        className="grid-col tablet-lg:grid-col-3 tablet-lg:display-block display-none sticky height-viewport"
       >
         <SideNav
           alignment="left"
@@ -165,7 +165,7 @@ exports[`components - AboutPage render should render correctly 1`] = `
         />
       </div>
       <div
-        className="grid-col tablet:grid-col-9"
+        className="grid-col tablet-lg:grid-col-9"
       >
         <Switch>
           <Route
