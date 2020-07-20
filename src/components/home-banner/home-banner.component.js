@@ -15,7 +15,7 @@ export default class HomeBanner extends React.Component {
             <div className="font-heading-xl tablet:font-heading-2xl text-white">
               {this.props.motto}
             </div>
-            <div className="font-heading-lg text-white show-w-gt-1200 margin-top-1">
+            <div className="font-heading-lg text-white desktop:display-block display-none margin-top-1">
               {this.props.subtitle}
             </div>
           </div>
