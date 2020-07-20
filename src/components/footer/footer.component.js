@@ -52,7 +52,10 @@ export default class Footer extends PureComponent {
           </nav>
         </div>
 
-        <div className="usa-footer__secondary-section bg-white" data-test="logos">
+        <div
+          className="usa-footer__secondary-section tablet-lg:bg-white bg-primary-lighter"
+          data-test="logos"
+        >
           <div className="grid-container">
             <div className="grid-row grid-gap">
               <div className="usa-footer__logo grid-row grid-col-12 tablet-lg:grid-col-8">
