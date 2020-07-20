@@ -15,7 +15,7 @@ exports[`components - RepoCard render should render correctly 1`] = `
       className="usa-card__header margin-top-neg-3 padding-top-0 grid-col-9"
     >
       <h3
-        className="usa-card__heading font-heading-lg margin-top-0"
+        className="usa-card__heading font-heading-lg margin-top-0 overflow-hidden"
       >
         <Connect(CustomLinkComponent)
           to="/projects/repo-id"

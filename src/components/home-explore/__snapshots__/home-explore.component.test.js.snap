@@ -12,7 +12,7 @@ exports[`components - HomeExplore should render correctly 1`] = `
       className="explore-actions grid-row text-center tablet:border-bottom-2px tablet:border-top-2px padding-top-205 padding-bottom-205"
     >
       <div
-        className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px"
+        className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px margin-bottom-5 tablet:margin-bottom-0"
         key="t1"
       >
         <div>
@@ -36,19 +36,16 @@ exports[`components - HomeExplore should render correctly 1`] = `
             key="n1"
           >
             <a
-              className="usa-button font-body-sm padding-x-6"
+              className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
               href="u1"
             >
               n1
             </a>
           </span>
         </div>
-        <div
-          className="height-6 show-w-lte-600"
-        />
       </div>
       <div
-        className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px"
+        className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px margin-bottom-5 tablet:margin-bottom-0"
         key="t2"
       >
         <div>
@@ -72,19 +69,16 @@ exports[`components - HomeExplore should render correctly 1`] = `
             key="n2"
           >
             <a
-              className="usa-button font-body-sm padding-x-6"
+              className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
               href="u2"
             >
               n2
             </a>
           </span>
         </div>
-        <div
-          className="height-6 show-w-lte-600"
-        />
       </div>
       <div
-        className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px"
+        className="explore-action grid-row flex-column flex-justify  padding-right-2 padding-left-2 tablet:grid-col-4 tablet:border-right-2px margin-bottom-5 tablet:margin-bottom-0"
         key="t3"
       >
         <div>
@@ -108,16 +102,13 @@ exports[`components - HomeExplore should render correctly 1`] = `
             key="n3"
           >
             <a
-              className="usa-button font-body-sm padding-x-6"
+              className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
               href="u3"
             >
               n3
             </a>
           </span>
         </div>
-        <div
-          className="height-6 show-w-lte-600"
-        />
       </div>
     </div>
   </section>

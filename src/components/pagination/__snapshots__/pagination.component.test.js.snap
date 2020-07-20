@@ -9,7 +9,7 @@ exports[`components - Pagination render should render correctly 1`] = `
     tabIndex="0"
   >
     <ul
-      className="display-block font-body-3xs text-bold text-center padding-bottom-4"
+      className="display-block font-body-3xs text-bold text-center padding-bottom-4 float-none tablet-lg:float-right"
     >
       <li
         className="tablet-lg:display-inline-block display-block"

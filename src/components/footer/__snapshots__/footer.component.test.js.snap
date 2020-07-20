@@ -98,7 +98,7 @@ exports[`components - Footer should render correctly 1`] = `
     </nav>
   </div>
   <div
-    className="usa-footer__secondary-section bg-white"
+    className="usa-footer__secondary-section tablet-lg:bg-white bg-primary-lighter"
     data-test="logos"
   >
     <div
