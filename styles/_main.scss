@@ -2,46 +2,10 @@
 
 @import 'fonts.css';
 @import '~@code.gov/code-gov-font/css/code-gov';
-/*@import '~devicons/css/devicons.scss';*/
 
 @import './styles/theme/styles.scss';
-// @import '~@code.gov/code-gov-style/_sass/_all.scss';
 
 @import './styles/code-gov-design/all';
 
 // for lazy-html component
 @import '~react-placeholder/lib/reactPlaceholder.css';
-
-// @import './json-schema.scss';
-
-// html {
-//   background-color: $color-white;
-
-//   #app {
-//     background: $color-white;
-
-//     .icon {
-//       cursor: pointer;
-//     }
-//   }
-// }
-
-// overwrites and fixes
-// weird fix for https://github.com/GSA/caribou/issues/76
-// ul.breadcrumbs {
-//   li {
-//     margin-right: 5px;
-//   }
-// }
-
-// pads footnotes
-// [id*='fn'] {
-//   @media screen and (max-width: $header-switch) {
-//     margin-top: -60px;
-//     padding-top: 60px;
-//   }
-//   @media screen and (min-width: $header-switch) {
-//     margin-top: -90px; /* Size of fixed header */
-//     padding-top: 90px;
-//   }
-// }
