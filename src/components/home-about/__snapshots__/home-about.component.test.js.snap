@@ -25,7 +25,7 @@ exports[`components - HomeAbout should render correctly 1`] = `
         className="padding-y-3"
       >
         <h2
-          className="text-primary-darker text-uppercase margin-left-9 margin-bottom-0"
+          className="text-primary-darker text-uppercase tablet:margin-left-9 margin-bottom-0"
         >
           Vision
         </h2>
@@ -39,14 +39,14 @@ exports[`components - HomeAbout should render correctly 1`] = `
           </p>
           <img
             alt=""
-            className="order-first height-7 margin-top-3 margin-right-2"
+            className="order-first height-7 margin-top-3 margin-right-2 display-none tablet:display-block"
             src="/assets/img/icons/vision_icon_sm.png"
           />
         </span>
       </li>
       <li>
         <h2
-          className="text-primary-darker text-uppercase margin-left-9 margin-bottom-0"
+          className="text-primary-darker text-uppercase tablet:margin-left-9 margin-bottom-0"
         >
           Mission
         </h2>
@@ -58,7 +58,7 @@ exports[`components - HomeAbout should render correctly 1`] = `
           </p>
           <img
             alt=""
-            className="order-first height-7 margin-top-3 margin-right-2"
+            className="order-first height-7 margin-top-3 margin-right-2 display-none tablet:display-block"
             src="/assets/img/icons/mission_icon_sm.png"
           />
         </span>

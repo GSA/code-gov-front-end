@@ -12,27 +12,27 @@ export default class HomeAbout extends React.Component {
           </header>
           <ul className="padding-x-4">
             <li className="padding-y-3">
-              <h2 className="text-primary-darker text-uppercase margin-left-9 margin-bottom-0">
+              <h2 className="text-primary-darker text-uppercase tablet:margin-left-9 margin-bottom-0">
                 Vision
               </h2>
               <span className="display-flex tablet:flex-row margin-0">
                 <p className="">{this.props.vision}</p>
                 <img
                   alt=""
-                  className="order-first height-7 margin-top-3 margin-right-2"
+                  className="order-first height-7 margin-top-3 margin-right-2 display-none tablet:display-block"
                   src={`${PUBLIC_PATH}assets/img/icons/vision_icon_sm.png`}
                 />
               </span>
             </li>
             <li>
-              <h2 className="text-primary-darker text-uppercase margin-left-9 margin-bottom-0">
+              <h2 className="text-primary-darker text-uppercase tablet:margin-left-9 margin-bottom-0">
                 Mission
               </h2>
               <span className="display-flex table:flex-row margin-0">
                 <p>{this.props.mission}</p>
                 <img
                   alt=""
-                  className="order-first height-7 margin-top-3 margin-right-2"
+                  className="order-first height-7 margin-top-3 margin-right-2 display-none tablet:display-block"
                   src={`${PUBLIC_PATH}assets/img/icons/mission_icon_sm.png`}
                 />
               </span>
