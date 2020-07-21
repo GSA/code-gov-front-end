@@ -32,16 +32,12 @@ exports[`components - HomeExplore should render correctly 1`] = `
         <div
           className="buttons"
         >
-          <span
+          <LinkButtons
+            className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
             key="n1"
-          >
-            <a
-              className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
-              href="u1"
-            >
-              n1
-            </a>
-          </span>
+            name="n1"
+            url="u1"
+          />
         </div>
       </div>
       <div
@@ -65,16 +61,12 @@ exports[`components - HomeExplore should render correctly 1`] = `
         <div
           className="buttons"
         >
-          <span
+          <LinkButtons
+            className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
             key="n2"
-          >
-            <a
-              className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
-              href="u2"
-            >
-              n2
-            </a>
-          </span>
+            name="n2"
+            url="u2"
+          />
         </div>
       </div>
       <div
@@ -98,16 +90,12 @@ exports[`components - HomeExplore should render correctly 1`] = `
         <div
           className="buttons"
         >
-          <span
+          <LinkButtons
+            className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
             key="n3"
-          >
-            <a
-              className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
-              href="u3"
-            >
-              n3
-            </a>
-          </span>
+            name="n3"
+            url="u3"
+          />
         </div>
       </div>
     </div>

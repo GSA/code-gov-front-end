@@ -1,5 +1,21 @@
 import React, { Fragment } from 'react'
 import CustomLink from 'components/custom-link'
+import { startsWith } from '@code.gov/cautious'
+
+function LinkButtons({ name, className, url }) {
+  if (startsWith(url, 'http') || startsWith(url, 'mailto')) {
+    return (
+      <a href={url} className={className} target="_blank" rel="noopener noreferrer">
+        {name}
+      </a>
+    )
+  }
+  return (
+    <CustomLink to={url} className={className}>
+      {name}
+    </CustomLink>
+  )
+}
 
 export default class HomeExplore extends React.Component {
   render() {
@@ -19,14 +35,12 @@ export default class HomeExplore extends React.Component {
                   </div>
                   <div className="buttons">
                     {item.links.map(link => (
-                      <span key={link.name}>
-                        <a
-                          href={link.url}
-                          className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
-                        >
-                          {link.name}
-                        </a>
-                      </span>
+                      <LinkButtons
+                        key={link.name}
+                        className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
+                        name={link.name}
+                        url={link.url}
+                       />
                     ))}
                   </div>
                 </div>

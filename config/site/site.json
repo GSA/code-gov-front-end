@@ -184,8 +184,8 @@
           "description": "Federal agency partners use Code.gov to share usable open source code, promote open source projects, and track compliance with federal open source policy.",
           "links": [
             {
-              "name": "Compliance Dashboard",
-              "url": "/about/compliance/dashboard"
+              "name": "Agency Compliance",
+              "url": "/federal-agencies/compliance/dashboard"
             }
           ]
         }
