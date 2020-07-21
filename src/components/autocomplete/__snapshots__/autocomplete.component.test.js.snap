@@ -2,7 +2,7 @@
 
 exports[`components - Autocomplete should render correctly 1`] = `
 <ul
-  className="autocomplete bg-white border-1px border-primary margin-top-1px text-left z-100"
+  className="autocomplete bg-white border-1px border-primary margin-top-1px text-left z-100 padding-left-0"
 >
   <li
     key="/to-1"

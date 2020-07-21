@@ -3,7 +3,7 @@ import CustomLink from 'components/custom-link'
 
 export default function Autocomplete({ onClick, options }) {
   return (
-    <ul className="autocomplete bg-white border-1px border-primary margin-top-1px text-left z-100">
+    <ul className="autocomplete bg-white border-1px border-primary margin-top-1px text-left z-100 padding-left-0">
       {options.map(option => {
         const { text, to } = option
         return (
