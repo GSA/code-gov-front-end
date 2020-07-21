@@ -90,7 +90,7 @@ export default class TaskCardComponent extends Component {
             <h3 className="usa-card__heading font-heading-lg margin-top-0">{this.cardTitle}</h3>
           </header>
           {this.cardDescription}
-          <dl className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light show-w-gt-1000">
+          <dl className="width-full usa-card__body font-body-3xs padding-bottom-3 padding-top-0 border-bottom-1px border-base-light desktop:display-block display-none">
             {this.agencyLink}
           </dl>
           <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
