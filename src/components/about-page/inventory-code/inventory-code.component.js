@@ -97,15 +97,16 @@ InventoryCodeComponent.propTypes = {
     additionalProperties: PropTypes.bool,
     description: PropTypes.string,
     properties: PropTypes.shape({
-      version: PropTypes.object,
-      measurementType: PropTypes.object,
-      agency: PropTypes.object,
-      releases: PropTypes.object}),
+      version: PropTypes.objectOf(PropTypes.object),
+      measurementType: PropTypes.objectOf(PropTypes.object),
+      agency: PropTypes.objectOf(PropTypes.object),
+      releases: PropTypes.objectOf(PropTypes.object)
+    }),
     required: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.string
   }).isRequired,
-  url:PropTypes.string.isRequired
+  url: PropTypes.string.isRequired
 }
 
 export default InventoryCodeComponent
