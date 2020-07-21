@@ -86,7 +86,7 @@ export default class Footer extends PureComponent {
                   <a href="mailto:code@gsa.gov">code@gsa.gov</a>
                 </p>
                 <ul
-                  className="usa-footer__social-links grid-row flex-justify-start"
+                  className="usa-footer__social-links grid-row flex-justify-start padding-0"
                   data-test="socials"
                 >
                   {map(this.props.socials, social => (

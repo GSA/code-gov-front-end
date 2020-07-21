@@ -224,7 +224,7 @@ exports[`components - Footer should render correctly 1`] = `
             </a>
           </p>
           <ul
-            className="usa-footer__social-links grid-row flex-justify-start"
+            className="usa-footer__social-links grid-row flex-justify-start padding-0"
             data-test="socials"
           >
             <li

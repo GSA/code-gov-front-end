@@ -218,7 +218,7 @@ export default class ProjectPage extends Component {
                 <div id="repo-tags" className="grid-row margin-top-0">
                   {this.repoTags}
                 </div>
-                <ul>
+                <ul className="padding-0">
                   {this.usageType}
                   {this.license}
                   {this.displayLaborHours}
