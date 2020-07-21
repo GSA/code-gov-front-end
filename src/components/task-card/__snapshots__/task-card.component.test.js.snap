@@ -75,7 +75,7 @@ exports[`components - TaskCard render should render correctly 1`] = `
         className="grid-row"
       >
         <ul
-          className="display-inline-block tablet:grid-col-9 grid-col-12"
+          className="display-inline-block tablet:grid-col-9 grid-col-12 padding-0"
         >
           <CardPart
             title="Languages"
