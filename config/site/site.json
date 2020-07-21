@@ -192,28 +192,28 @@
       ],
       "news": [
         {
-          "title": "Introducing Our Summer Fellow: Anna Zhang",
-          "description": "Every year, as we prepare for summer we look to bring in a fellow...",
-          "url": "https://medium.com/codedotgov/introducing-our-summer-fellow-anna-zhang-455fd792cad8",
-          "date": "04/24/2020",
-          "image": "/assets/img/news/summer_fellow.jpeg",
-          "alt": "Summer Fellow"
+          "title": "Federal Source Code Summit: Towards a Source Code Community",
+          "description": "Code.gov will host its first annual Federal Source Code Summit...",
+          "url": "https://digital.gov/event/2020/10/08/federal-source-code-summit-building-coding/",
+          "date": "10/08/2020",
+          "image": "/assets/img/news/summit.jpeg",
+          "alt": "Federal Source Code Summit"
         },
         {
-          "title": "A Hacking Good Time with the Social Security Administration",
-          "description": "What happens when the Social Security Administration (SSA) and the Code.gov team get together...",
-          "url": "https://medium.com/codedotgov/a-hacking-good-time-with-the-social-security-administration-and-code-gov-78a323f3f117",
-          "date": "03/19/2020",
-          "image": "/assets/img/news/ssa_hackathon.jpeg",
-          "alt": "Hackathon"
+          "title": "Federal Source Code Study Series Part 4: Cultural Beliefs",
+          "description": "We’re back with our fourth installment of the Federal Source Code Series...",
+          "url": "https://medium.com/codedotgov/federal-source-code-study-series-part-4-cultural-beliefs-15ef04ea812b",
+          "date": "07/14/2020",
+          "image": "/assets/img/news/fscslogo.png",
+          "alt": "Source Code Study Cultural Beliefs"
         },
         {
-          "title": "Happy 3rd Birthday Code.gov!",
-          "description": "For our 3rd trip around the sun, we wanted to share where we’ve been, where we are going, and the implementation of the federal source code policy...",
-          "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
-          "date": "11/20/2019",
-          "image": "/assets/img/news/bday.jpeg",
-          "alt": "Happy Birthday"
+          "title": "Better Know an Engineer: Sara Cope",
+          "description": "The Code.gov team is pleased to bring you a new series highlighting our amazing engineer friends...",
+          "url": "https://medium.com/codedotgov/code-gov-better-know-an-engineer-sara-cope-a840640bb96d",
+          "date": "06/12/2020",
+          "image": "/assets/img/news/sara.jpeg",
+          "alt": "Know an Engineer"
         }
       ],
       "about": [
