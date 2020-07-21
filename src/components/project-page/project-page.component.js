@@ -43,7 +43,7 @@ export default class ProjectPage extends Component {
           <CustomLink
             key={tag}
             to={`/search?query=${tag}`}
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 grid-col-auto"
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
           >
             <span className="text-white text-no-underline text-normal">{tag}</span>
           </CustomLink>

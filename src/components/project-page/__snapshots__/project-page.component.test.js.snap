@@ -44,7 +44,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           id="repo-tags"
         >
           <Connect(CustomLinkComponent)
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 grid-col-auto"
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
             key="repo-tag-1"
             to="/search?query=repo-tag-1"
           >
@@ -55,7 +55,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
             </span>
           </Connect(CustomLinkComponent)>
           <Connect(CustomLinkComponent)
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 grid-col-auto"
+            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
             key="repo-tag-2"
             to="/search?query=repo-tag-2"
           >

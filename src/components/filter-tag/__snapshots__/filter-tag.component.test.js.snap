@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - FilterTag should render correctly 1`] = `
-<span
-  className="usa-tag margin-top-3 margin-right-2 padding-1 bg-primary display-inline-block radius-md font-body-3xs padding-x-205 text-no-uppercase"
+<button
+  className="usa-button width-auto margin-top-3 margin-right-2 padding-1 bg-primary display-inline-block radius-md font-body-3xs padding-105 text-no-uppercase"
   onClick={[Function]}
 >
+  <i
+    className="icon icon-close padding-right-2px"
+  />
   test-title
-</span>
+</button>
 `;
