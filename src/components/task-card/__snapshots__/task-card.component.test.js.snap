@@ -28,7 +28,7 @@ exports[`components - TaskCard render should render correctly 1`] = `
       task-desc
     </p>
     <dl
-      className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light show-w-gt-1000"
+      className="width-full usa-card__body font-body-3xs padding-bottom-3 padding-top-0 border-bottom-1px border-base-light desktop:display-block display-none"
     >
       <dt
         className="display-inline text-bold margin-right-2px"
@@ -75,7 +75,7 @@ exports[`components - TaskCard render should render correctly 1`] = `
         className="grid-row"
       >
         <ul
-          className="display-inline-block tablet:grid-col-9 grid-col-12"
+          className="display-inline-block tablet:grid-col-9 grid-col-12 padding-0"
         >
           <CardPart
             title="Languages"
