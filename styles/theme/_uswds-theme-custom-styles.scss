@@ -44,13 +44,17 @@ li {
 }
 
 h1,
-h2,
 h3,
 h4,
 h5,
 h6 {
   color: #565c65;
   font-weight: 500;
+}
+
+h2 {
+  color: #565c65;
+  font-weight: 700;
 }
 
 select {
@@ -102,6 +106,27 @@ select {
   }
 }
 
-body {
-  color: #565c65;
+html {
+  box-sizing: border-box;
+  body {
+    color: #565c65;
+    box-sizing: border-box;
+    font-feature-settings: 'kern', 'liga', 'pnum';
+    margin: 0;
+    overflow-x: hidden;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    p {
+      line-height: 1.5;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+  }
 }
