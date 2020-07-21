@@ -71,8 +71,12 @@ typings/
 
 # .DS_Store
 .DS_Store
+
 # Cypress files
 cypress.env.json
+
+# cypress videos
+cypress/videos/*
 
 # env files
 .env.local
