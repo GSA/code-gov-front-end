@@ -86,7 +86,7 @@ const patterns = [
     to: join(OUTPUT_PATH, '404.html')
   },
   {
-    from: join(nodeModulesDir, '@code.gov/code-gov-style/dist/js/code-gov-web-components.js'),
+    from: './src/components/web-components/code-gov-web-components.js',
     to: 'webcomponents/code-gov-web-components.js'
   },
   {
