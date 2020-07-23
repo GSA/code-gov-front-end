@@ -5,6 +5,6 @@ exports[`components - OfficialBanner should render correctly 1`] = `
   className="width-full"
   data-testid="component-gov-banner"
 >
-  <gov-banner />
+  <GovBanner />
 </div>
 `;

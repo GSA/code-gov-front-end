@@ -17,10 +17,82 @@ exports[`components - FilterBox render should render correctly 1`] = `
   }
   title="test-title"
 >
-  <filter-box
-    className="padding-top-2"
+  <FilterBoxWeb
+    eventChange={[MockFunction]}
+    key="test-title Filter"
     options="[{\\"id\\":1,\\"value\\":\\"opt-1\\"},{\\"id\\":2,\\"value\\":\\"opt-2\\"}]"
     title="test-title"
-  />
+  >
+    <div
+      className="usa-accordion border-base-light border-1px tablet-lg:margin-bottom-2 margin-bottom-0"
+    >
+      <div
+        className="usa-accordion__heading"
+      >
+        <button
+          aria-controls="test-title"
+          aria-expanded={true}
+          className="usa-accordion__button font-heading-md text-base-darker"
+          id="button-test-title"
+          onClick={[Function]}
+        >
+          test-title
+        </button>
+      </div>
+      <div
+        className="usa-accordion__content usa-prose border-top-1px border-base-light"
+        hidden={false}
+        id="test-title"
+      >
+        <form
+          className="usa-form maxw-none"
+        >
+          <fieldset
+            aria-labelledby="button-test-title"
+            className="usa-fieldset"
+          >
+            <legend
+              aria-labelledby="button-test-title"
+              className="usa-sr-only"
+            />
+            <div
+              className="usa-checkbox"
+            >
+              <input
+                className="usa-checkbox__input"
+                id="opt-1"
+                onChange={[Function]}
+                type="checkbox"
+                value="opt-1"
+              />
+              <label
+                className="usa-checkbox__label font-body-2xs text-base-dark"
+                htmlFor="opt-1"
+              >
+                <span />
+              </label>
+            </div>
+            <div
+              className="usa-checkbox"
+            >
+              <input
+                className="usa-checkbox__input"
+                id="opt-2"
+                onChange={[Function]}
+                type="checkbox"
+                value="opt-2"
+              />
+              <label
+                className="usa-checkbox__label font-body-2xs text-base-dark"
+                htmlFor="opt-2"
+              >
+                <span />
+              </label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </FilterBoxWeb>
 </FilterBox>
 `;

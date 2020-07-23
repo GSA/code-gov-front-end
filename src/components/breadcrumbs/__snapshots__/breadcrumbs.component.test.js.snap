@@ -7,7 +7,7 @@ exports[`components - Breadcrumbs should render correctly 1`] = `
 >
   <nav
     aria-label="Breadcrumbs"
-    className="usa-breadcrumb grid-row margin-top-4"
+    className="usa-breadcrumb grid-row tablet-lg:margin-top-4 margin-top-2"
   >
     <ol
       className="usa-breadcrumb__list font-body-2xs"
