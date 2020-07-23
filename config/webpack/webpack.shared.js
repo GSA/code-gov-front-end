@@ -86,10 +86,6 @@ const patterns = [
     to: join(OUTPUT_PATH, '404.html')
   },
   {
-    from: './src/components/web-components/code-gov-web-components.js',
-    to: 'webcomponents/code-gov-web-components.js'
-  },
-  {
     from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
     to: 'polyfills/custom-elements.js'
   },
