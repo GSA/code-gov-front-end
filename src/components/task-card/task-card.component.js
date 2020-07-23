@@ -6,26 +6,6 @@ import { getLastModifiedDateString } from 'utils/repo-parsing'
 import CardPart from 'components/card-part'
 
 export default class TaskCardComponent extends Component {
-  get goToIssueButton() {
-    const issueGitHubURL = get(this.props.task, 'issueURL')
-    const title = get(this.props.task, 'title')
-    if (typeof issueGitHubURL === 'string' && issueGitHubURL.includes('github.com')) {
-      return (
-        <div className="tablet:grid-col-3 margin-bottom-2 grid-col-12 margin-top-5 tablet:margin-top-0">
-          <a
-            href={issueGitHubURL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="usa-button font-heading-2xs padding-x-2 pin-bottom pin-right"
-          >
-            Go to Issue
-            <p className="usa-sr-only">{title}</p>
-          </a>
-        </div>
-      )
-    }
-  }
-
   get cardTitle() {
     const issueURL = get(this.props.task, 'issueURL')
     const title = get(this.props.task, 'title')
@@ -90,18 +70,33 @@ export default class TaskCardComponent extends Component {
             <h3 className="usa-card__heading font-heading-lg margin-top-0">{this.cardTitle}</h3>
           </header>
           {this.cardDescription}
-          <dl className="width-full usa-card__body font-body-3xs padding-bottom-3 padding-top-0 border-bottom-1px border-base-light desktop:display-block display-none">
+          <dl className="width-full usa-card__body font-body-3xs padding-bottom-205 padding-top-0 border-bottom-1px border-base-light desktop:display-block display-none">
             {this.agencyLink}
           </dl>
           <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
-            <div className="grid-row">
-              <ul className="display-inline-block tablet:grid-col-9 grid-col-12 padding-0">
-                <CardPart title="Languages" text={join(get(task, 'languages'), ',')} />
-                <CardPart title="Type" text={capitalize(get(task, 'type'))} />
-                <CardPart title="Skill Level" text={capitalize(get(task, 'skill'))} />
-                <CardPart title="Effort" text={capitalize(get(task, 'effort'))} />
+            <div className="grid-row margin-bottom-2 tablet-lg:margin-bottom-1">
+              <ul className="display-inline-block padding-0">
+                <CardPart
+                  title="Languages"
+                  text={join(get(task, 'languages'), ',')}
+                  className="tablet:display-inline tablet:margin-right-205 display-block"
+                />
+                <CardPart
+                  title="Type"
+                  text={capitalize(get(task, 'type'))}
+                  className="tablet:display-inline tablet:margin-right-205 display-block"
+                />
+                <CardPart
+                  title="Skill Level"
+                  text={capitalize(get(task, 'skill'))}
+                  className="tablet:display-inline tablet:margin-right-205 display-block"
+                />
+                <CardPart
+                  title="Effort"
+                  text={capitalize(get(task, 'effort'))}
+                  className="tablet:display-inline tablet:margin-right-205 display-block"
+                />
               </ul>
-              {this.goToIssueButton}
             </div>
           </div>
         </div>

@@ -89,7 +89,7 @@ export default class RepoCardComponent extends Component {
 
           {this.repoDescription}
 
-          <ul className="width-full usa-card__body font-body-3xs padding-bottom-4 border-bottom-1px border-base-light">
+          <ul className="width-full usa-card__body font-body-3xs padding-bottom-3 border-bottom-1px border-base-light">
             <li>
               {' '}
               <span className="text-bold">Agency: </span>

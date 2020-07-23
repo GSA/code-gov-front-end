@@ -27,7 +27,7 @@ export default class GovBanner extends Component {
       <section aria-label="Official government website" className="usa-banner bg-base-darker">
         <div className="usa-accordion">
           <header className="usa-banner__header">
-            <div className="usa-banner__inner margin-right-0">
+            <div className="usa-banner__inner">
               <div className="grid-col-auto">
                 <img className="usa-banner__header-flag" src={smallUsFlagURI} alt="U.S. flag" />
               </div>
