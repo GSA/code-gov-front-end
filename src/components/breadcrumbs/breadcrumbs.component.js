@@ -4,7 +4,10 @@ import CustomLink from 'components/custom-link'
 export default function Breadcrumbs({ crumbs }) {
   return (
     <div className="grid-container" id="breadcrumbs">
-      <nav className="usa-breadcrumb grid-row margin-top-4" aria-label="Breadcrumbs">
+      <nav
+        className="usa-breadcrumb grid-row tablet-lg:margin-top-4 margin-top-2"
+        aria-label="Breadcrumbs"
+      >
         <ol className="usa-breadcrumb__list font-body-2xs">
           {crumbs.map(({ text, to }) => {
             if (to) {
