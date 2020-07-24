@@ -9,17 +9,58 @@
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-  font-family: 'TT Lakes';
-  src: url('../assets/fonts/tt_lakes_medium-webfont.eot');
-  src: url('../assets/fonts/tt_lakes_medium-webfont.eot') format('embedded-opentype'),
-       url('../assets/fonts/tt_lakes_medium-webfont-subset.woff2') format("woff2"),
-       url('../assets/fonts/tt_lakes_medium-webfont-subset.zopfli.woff') format("woff"),
-       url('../assets/fonts/tt_lakes_medium-webfont-subset.ttf') format("truetype"),
-       url('../assets/fonts/tt_lakes_medium-webfont.svg') format("svg"),
-       url('../assets/fonts/tt_lakes_demibold-webfont.ttf') format("truetype"),
-       url('../assets/fonts/tt_lakes_demibold-webfont.woff') format("woff"),
-       url('../assets/fonts/tt_lakes_demibold-webfont.woff2') format("woff2");
-  unicode-range: U+20-7E;
+ 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "code-gov";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-align: center;
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+ 
+.icon-search:before { content: '\e800'; } /* '' */
+.icon-cancel:before { content: '\e801'; } /* '' */
+.icon-ok-circled2:before { content: '\e802'; } /* '' */
+.icon-arrows-cw:before { content: '\e803'; } /* '' */
+.icon-user:before { content: '\e804'; } /* '' */
+.icon-mail:before { content: '\e805'; } /* '' */
+.icon-ok:before { content: '\e806'; } /* '' */
+.icon-pencil:before { content: '\e807'; } /* '' */
+.icon-floppy:before { content: '\e808'; } /* '' */
+.icon-down-open:before { content: '\e809'; } /* '' */
+.icon-up-open:before { content: '\e80a'; } /* '' */
+.icon-link:before { content: '\e80b'; } /* '' */
+.icon-help-circled:before { content: '\e80c'; } /* '' */
+.icon-close:before { content: '\e80d'; } /* '' */
+.icon-mail-1:before { content: '\e80e'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-github-circled:before { content: '\f09b'; } /* '' */
+.icon-certificate:before { content: '\f0a3'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */
+.icon-doc-text:before { content: '\f0f6'; } /* '' */
+.icon-plus-squared:before { content: '\f0fe'; } /* '' */
+.icon-angle-up:before { content: '\f106'; } /* '' */
+.icon-angle-down:before { content: '\f107'; } /* '' */
+.icon-circle:before { content: '\f111'; } /* '' */
+.icon-github:before { content: '\f113'; } /* '' */
+.icon-code:before { content: '\f121'; } /* '' */
+.icon-angle-circled-left:before { content: '\f137'; } /* '' */
+.icon-angle-circled-right:before { content: '\f138'; } /* '' */
+.icon-angle-circled-up:before { content: '\f139'; } /* '' */
+.icon-angle-circled-down:before { content: '\f13a'; } /* '' */
+.icon-minus-squared-alt:before { content: '\f147'; } /* '' */
+.icon-plus-squared-alt:before { content: '\f196'; } /* '' */
+.icon-share:before { content: '\f1e0'; } /* '' */
+.icon-trash:before { content: '\f1f8'; } /* '' */
+.icon-medium:before { content: '\f23a'; } /* '' */
+.icon-hourglass-3:before { content: '\f253'; } /* '' */
+.icon-linkedin-squared:before { content: '\f30c'; } /* '' */
