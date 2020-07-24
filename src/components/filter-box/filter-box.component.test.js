@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import FilterBox from 'components/filter-box/filter-box.component'
 
@@ -19,7 +19,7 @@ let wrapper
 let instance
 describe('components - FilterBox', () => {
   beforeEach(() => {
-    wrapper = mount(<FilterBox {...props} />)
+    wrapper = shallow(<FilterBox {...props} />)
     instance = wrapper.instance()
   })
 
