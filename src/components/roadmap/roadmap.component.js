@@ -21,7 +21,7 @@ export const Row = ({ todo }) => {
   return (
     <li className="margin-bottom-0">
       <div className="grid-row">
-        <div className="grid-col-1 padding-top-1 tablet:padding-top-2 padding-left-1">
+        <div className="grid-col-1 padding-top-1 padding-left-2">
           <i className={iconClass} aria-label={taskStatus} />
         </div>
         <div className="grid-col-11 padding-y-1 padding-x-1 font-body-3xs text-base-dark padding-left-3">
