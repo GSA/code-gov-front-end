@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - QualityTag render should render correctly 1`] = `
+<div
+  aria-label="high data quality score"
+  className="height-4 pin-right width-6 radius-lg display-flex flex-column flex-justify-center margin-top-205 margin-right-3 bg-success-dark"
+>
+  <span
+    className="text-center font-body-3xs text-white"
+  >
+    8.9
+  </span>
+</div>
+`;
