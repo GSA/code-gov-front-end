@@ -76,10 +76,10 @@ InventoryCodeComponent.propTypes = {
     additionalProperties: PropTypes.bool,
     description: PropTypes.string,
     properties: PropTypes.shape({
-      version: PropTypes.object,
-      measurementType: PropTypes.object,
-      agency: PropTypes.object,
-      releases: PropTypes.object
+      version: PropTypes.objectOf(PropTypes.object).isRequired,
+      measurementType: PropTypes.objectOf(PropTypes.object).isRequired,
+      agency: PropTypes.objectOf(PropTypes.object).isRequired,
+      releases: PropTypes.objectOf(PropTypes.object).isRequired
     }),
     required: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string,

@@ -95,8 +95,8 @@ const ComplianceDashboardComponent = props => (
 
 ComplianceDashboardComponent.propTypes = {
   config: PropTypes.PropTypes.shape({
-    scores: PropTypes.object.isRequired,
-    text: PropTypes.array.isRequired
+    scores: PropTypes.objectOf(PropTypes.object).isRequired,
+    text: PropTypes.arrayOf(PropTypes.array).isRequired
   }).isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
