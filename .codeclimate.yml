@@ -14,3 +14,4 @@ exclude_patterns:
   - 'src/**/*.test.js'
   - 'styles/uswds/'
   - 'src/components/federal-agencies/inventory-code/*.js'
+  - 'src/components/gov-banner/*.js'
