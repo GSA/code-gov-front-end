@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - TaskCard render should render correctly 1`] = `
+<li
+  className="usa-card width-full margin-bottom-2"
+>
+  <div
+    className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 height-auto card-list-item"
+  >
+    <header
+      className="usa-card__header"
+    >
+      <h3
+        className="usa-card__heading font-heading-lg margin-top-0"
+      >
+        <a
+          className="issue-link"
+          href="/task-issue-url"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          task-title
+        </a>
+      </h3>
+    </header>
+    <p
+      className="width-full usa-card__body font-body-2xs"
+    >
+      task-desc
+    </p>
+    <dl
+      className="width-full usa-card__body font-body-3xs padding-bottom-205 padding-top-0 border-bottom-1px border-base-light desktop:display-block display-none"
+    >
+      <dt
+        className="display-inline text-bold margin-right-2px"
+      >
+        Project:
+      </dt>
+      <dd
+        className="display-inline margin-left-2px margin-right-3"
+      >
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+        />
+      </dd>
+      <dt
+        className="display-inline text-bold margin-right-2px"
+      >
+        Agency:
+      </dt>
+      <dd
+        className="display-inline margin-left-2px margin-right-3"
+      >
+        <Connect(CustomLinkComponent)
+          to="/browse-projects?agencies=task-agency-acronym"
+        >
+          task-agency-name
+        </Connect(CustomLinkComponent)>
+      </dd>
+      <dt
+        className="display-inline text-bold margin-right-2px"
+      >
+        Last Updated:
+      </dt>
+      <dd
+        className="display-inline margin-left-2px margin-right-3"
+      >
+        12/10/2020
+      </dd>
+    </dl>
+    <div
+      className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0"
+    >
+      <div
+        className="grid-row margin-bottom-2 tablet-lg:margin-bottom-1"
+      >
+        <ul
+          className="display-inline-block padding-0"
+        >
+          <CardPart
+            className="tablet:display-inline tablet:margin-right-205 display-block"
+            title="Languages"
+          />
+          <CardPart
+            className="tablet:display-inline tablet:margin-right-205 display-block"
+            title="Type"
+          />
+          <CardPart
+            className="tablet:display-inline tablet:margin-right-205 display-block"
+            title="Skill Level"
+          />
+          <CardPart
+            className="tablet:display-inline tablet:margin-right-205 display-block"
+            title="Effort"
+          />
+        </ul>
+      </div>
+    </div>
+  </div>
+</li>
+`;
