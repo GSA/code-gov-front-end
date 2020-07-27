@@ -45,7 +45,7 @@ export default class QualityPopover extends Component {
 
   render() {
     const iconClassName =
-      'icon usa-button bg-white icon-help-circled popper display-inline text-primary padding-0 margin-left-2px'
+      'icon usa-button bg-white icon-help-circled popper display-inline text-primary padding-x-05 padding-y-0 margin-left-2px'
     return (
       <div className="tablet-lg:padding-top-0 padding-top-2">
         <div className="pin-right tablet-lg:padding-right-1">
