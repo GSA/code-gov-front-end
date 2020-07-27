@@ -106,6 +106,10 @@ select {
   }
 }
 
+.moreLessToggle {
+  cursor: pointer;
+}
+
 html {
   box-sizing: border-box;
   body {
@@ -127,6 +131,9 @@ html {
 
     ul {
       list-style-type: none;
+    }
+    a:hover {
+      color: #00a398;
     }
   }
 }
