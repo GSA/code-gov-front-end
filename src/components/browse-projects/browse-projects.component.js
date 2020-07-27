@@ -67,6 +67,7 @@ export default class BrowseProjects extends React.Component {
   updatePage(newPage) {
     scrollToTopOfResults()
     this.props.updatePage(newPage)
+    document.getElementsByClassName('project-link')[0].focus()
   }
 
   render() {

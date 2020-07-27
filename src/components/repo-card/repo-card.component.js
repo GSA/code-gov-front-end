@@ -83,7 +83,9 @@ export default class RepoCardComponent extends Component {
           <QualityTag className="display-flex flex-justify-end" score={score} />
           <header className="usa-card__header grid-col-9">
             <h3 className="usa-card__heading font-heading-lg margin-top-0">
-              <CustomLink to={`/projects/${repo.repoID}`}>{repo.name}</CustomLink>
+              <CustomLink to={`/projects/${repo.repoID}`} className="project-link">
+                {repo.name}
+              </CustomLink>
             </h3>
           </header>
 
