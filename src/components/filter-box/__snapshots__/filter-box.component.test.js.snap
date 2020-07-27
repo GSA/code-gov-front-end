@@ -11,7 +11,7 @@ exports[`components - FilterBox render should render correctly 1`] = `
       aria-controls="test-title"
       aria-expanded={true}
       className="usa-accordion__button font-heading-md text-base-darker"
-      id="button-test-title"
+      id="test-title-button"
       onClick={[Function]}
     >
       test-title
@@ -26,11 +26,11 @@ exports[`components - FilterBox render should render correctly 1`] = `
       className="usa-form maxw-none"
     >
       <fieldset
-        aria-labelledby="button-test-title"
+        aria-labelledby="test-title-button"
         className="usa-fieldset"
       >
         <legend
-          aria-labelledby="button-test-title"
+          aria-labelledby="test-title-button"
           className="usa-sr-only"
         />
         <div

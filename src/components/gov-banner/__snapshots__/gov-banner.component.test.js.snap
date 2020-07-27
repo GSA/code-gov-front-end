@@ -24,7 +24,7 @@ exports[`components - GovBanner should render correctly 1`] = `
           />
         </div>
         <div
-          className="grid-col-fill tablet:grid-col-auto"
+          className="grid-col-fill tablet:grid-col-auto tablet:padding-right-0 padding-right-6"
         >
           <p
             className="usa-banner__header-text text-white"
@@ -33,7 +33,7 @@ exports[`components - GovBanner should render correctly 1`] = `
           </p>
           <p
             aria-hidden="true"
-            className="usa-banner__header-action text-primary-lighter"
+            className="usa-banner__header-action text-primary-lighter "
           >
             Here's how you know
           </p>

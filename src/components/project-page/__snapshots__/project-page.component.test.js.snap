@@ -74,7 +74,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           >
             <li>
               <i
-                className="icon icon-certificate"
+                className="icon icon-certificate padding-right-05"
               />
               <span>
                 repo-license
@@ -86,7 +86,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           >
             <li>
               <i
-                className="icon icon-hourglass-end"
+                className="icon icon-hourglass-end padding-right-05"
               />
               123 hours
             </li>
@@ -96,7 +96,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           >
             <li>
               <i
-                className="icon icon-code"
+                className="icon icon-code padding-right-05"
               />
               repo-lang-1, repo-lang-2
             </li>
@@ -106,7 +106,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           >
             <li>
               <i
-                className="icon icon-mail"
+                className="icon icon-mail padding-right-05"
               />
               <a
                 href="mailto:repo-email?Subject=Contribution%20Inquiry"
