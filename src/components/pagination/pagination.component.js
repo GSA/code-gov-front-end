@@ -137,12 +137,7 @@ export default class Pagination extends Component {
 
     return (
       <>
-        <nav
-          role="navigation"
-          aria-label="Pagination Navigation"
-          tabIndex="0"
-          className="margin-top-neg-3"
-        >
+        <nav role="navigation" aria-label="Pagination Navigation" className="margin-top-neg-3">
           <ul className="display-block font-body-3xs text-bold text-center padding-bottom-4 float-none tablet-lg:float-right padding-left-0">
             <li className="tablet-lg:display-inline-block display-block">
               <p className="display-inline-block">{summary}</p>
@@ -171,9 +166,9 @@ export default class Pagination extends Component {
                   className={`display-none tablet:display-inline padding-left-1 padding-right-1 ${className}`}
                   key={i}
                 >
-                  {ellipsis && <span tabIndex={tabIndex}>...</span>}
+                  {ellipsis && <span>...</span>}
                   {current && (
-                    <span tabIndex={tabIndex} aria-label={`Current Page ${i}`} aria-current="true">
+                    <span aria-label={`Current Page ${i}`} aria-current="true">
                       {i}
                     </span>
                   )}
