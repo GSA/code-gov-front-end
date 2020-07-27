@@ -6,7 +6,6 @@ exports[`components - Pagination render should render correctly 1`] = `
     aria-label="Pagination Navigation"
     className="margin-top-neg-3"
     role="navigation"
-    tabIndex="0"
   >
     <ul
       className="display-block font-body-3xs text-bold text-center padding-bottom-4 float-none tablet-lg:float-right padding-left-0"
@@ -64,7 +63,6 @@ exports[`components - Pagination render should render correctly 1`] = `
         <span
           aria-current="true"
           aria-label="Current Page 2"
-          tabIndex={0}
         >
           2
         </span>

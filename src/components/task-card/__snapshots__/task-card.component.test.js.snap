@@ -14,6 +14,7 @@ exports[`components - TaskCard render should render correctly 1`] = `
         className="usa-card__heading font-heading-lg margin-top-0"
       >
         <a
+          className="issue-link"
           href="/task-issue-url"
           rel="noopener noreferrer"
           target="_blank"

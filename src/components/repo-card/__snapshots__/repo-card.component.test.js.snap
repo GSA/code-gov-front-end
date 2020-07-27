@@ -18,6 +18,7 @@ exports[`components - RepoCard render should render correctly 1`] = `
         className="usa-card__heading font-heading-lg margin-top-0"
       >
         <Connect(CustomLinkComponent)
+          className="project-link"
           to="/projects/repo-id"
         >
           repo-name
