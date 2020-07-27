@@ -17,9 +17,11 @@ export default class GovBanner extends Component {
     const httpsIconURI =
       'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NCA1NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM3MTlmMmE7fS5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiM1MzgyMDA7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5odHRwcyBpY29uPC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNC43MiwzNC44NGExLjI5LDEuMjksMCwwLDEtMS4yOSwxLjI5SDIwLjU3YTEuMjksMS4yOSwwLDAsMS0xLjI5LTEuMjlWMjcuMTJhMS4yOSwxLjI5LDAsMCwxLDEuMjktMS4yOUgyMVYyMy4yNmE2LDYsMCwwLDEsMTIsMHYyLjU3aDAuNDNhMS4yOSwxLjI5LDAsMCwxLDEuMjksMS4yOXY3LjcyWm0tNC4yOS05VjIzLjI2YTMuNDMsMy40MywwLDAsMC02Ljg2LDB2Mi41N2g2Ljg2WiIvPjxjaXJjbGUgY2xhc3M9ImNscy0yIiBjeD0iMjciIGN5PSIyNy4xMiIgcj0iMjYiLz48L3N2Zz4='
     const { dropDown } = this.state
+    let hideText = ''
     const accordionContent = {}
     if (dropDown) {
       accordionContent.hidden = false
+      hideText = 'display-none'
     } else {
       accordionContent.hidden = true
     }
@@ -32,11 +34,14 @@ export default class GovBanner extends Component {
               <div className="grid-col-auto">
                 <img className="usa-banner__header-flag" src={smallUsFlagURI} alt="U.S. flag" />
               </div>
-              <div className="grid-col-fill tablet:grid-col-auto">
+              <div className="grid-col-fill tablet:grid-col-auto tablet:padding-right-0 padding-right-6">
                 <p className="usa-banner__header-text text-white">
                   An official website of the United States government
                 </p>
-                <p className="usa-banner__header-action text-primary-lighter" aria-hidden="true">
+                <p
+                  className={`usa-banner__header-action text-primary-lighter ${hideText}`}
+                  aria-hidden="true"
+                >
                   Here&apos;s how you know
                 </p>
               </div>
