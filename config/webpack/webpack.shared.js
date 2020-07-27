@@ -74,8 +74,9 @@ const patterns = [
     flatten: true
   },
   {
-    from: './styles/uswds/fonts',
-    to: join(OUTPUT_PATH, '/uswds/fonts')
+    from: './styles/uswds/fonts/**/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    force: true
   },
   {
     from: './src/components/federal-agencies/html',
