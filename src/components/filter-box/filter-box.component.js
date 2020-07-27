@@ -107,6 +107,7 @@ export default class FilterBox extends Component {
 
   render() {
     const title = this.props.title
+    const accordionID = this.props.title.replace(/\s+/g, '-').toLowerCase()
     const accordionContent = {}
     if (this.state.accordionExpand) {
       accordionContent.hidden = false
@@ -119,21 +120,21 @@ export default class FilterBox extends Component {
           <button
             className="usa-accordion__button font-heading-md text-base-darker"
             aria-expanded={this.state.accordionExpand}
-            aria-controls={title}
-            id={`button-${title}`}
+            aria-controls={accordionID}
+            id={`${accordionID}-button`}
             onClick={this.handleExpand}
           >
             {title}
           </button>
         </div>
         <div
-          id={title}
+          id={accordionID}
           className="usa-accordion__content usa-prose border-top-1px border-base-light"
           {...accordionContent}
         >
           <form className="usa-form maxw-none">
-            <fieldset className="usa-fieldset" aria-labelledby={`button-${title}`}>
-              <legend className="usa-sr-only" aria-labelledby={`button-${title}`} />
+            <fieldset className="usa-fieldset" aria-labelledby={`${accordionID}-button`}>
+              <legend className="usa-sr-only" aria-labelledby={`${accordionID}-button`} />
               {this.filterOptions}
               {JSON.parse(this.props.options).length > 4 ? (
                 <div>
