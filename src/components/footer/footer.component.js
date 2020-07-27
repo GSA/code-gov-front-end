@@ -4,11 +4,15 @@ import CustomLink from 'components/custom-link'
 import React, { PureComponent } from 'react'
 
 export default class Footer extends PureComponent {
+  setFocus() {
+    document.getElementsByClassName('usa-skipnav')[0].focus()
+  }
+
   render() {
     return (
       <footer className="usa-footer" role="contentinfo">
         <div className="grid-container usa-footer__return-to-top">
-          <a href="#" className="text-bold font-body-3xs">
+          <a href="#" className="text-bold font-body-3xs" onClick={this.setFocus}>
             Return to top
           </a>
         </div>
