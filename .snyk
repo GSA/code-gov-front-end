@@ -457,6 +457,10 @@ ignore:
     - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > url-regex:
         reason: No remediation.
         expires: '2020-08-14T17:47:47.781Z'
+  SNYK-JS-MARKED-584281:
+    - markdown-loader > marked:
+        reason: No remediation available.
+        expires: '2020-08-26T17:46:55.233Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
