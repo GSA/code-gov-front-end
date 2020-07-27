@@ -82,6 +82,10 @@ const patterns = [
     to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
   },
   {
+    from: './src/components/about-codedotgov/html',
+    to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
+  },
+  {
     from: './404.html',
     to: join(OUTPUT_PATH, '404.html')
   },
