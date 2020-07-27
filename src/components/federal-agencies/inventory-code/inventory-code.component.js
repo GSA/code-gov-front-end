@@ -63,7 +63,7 @@ class InventoryCodeComponent extends Component {
 
 const InventoryCodeTableComponent = ({ children }) => (
   <div
-    className="usa-accordion margin-top-2 margin-bottom-4 border-2px border-base"
+    className="usa-accordion margin-top-2 margin-bottom-4 border-2px border-base text-base-dark"
     id="code-table"
   >
     {children}

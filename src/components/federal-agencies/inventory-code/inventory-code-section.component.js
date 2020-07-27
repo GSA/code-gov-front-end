@@ -70,34 +70,46 @@ class InventoryCodeSectionComponent extends Component {
               aria-controls={`${key}-section`}
               onClick={this.toggleDropDown}
             >
-              <span className="usa-sr-only">Field Name: </span>
-              <p
-                className={`${classNames({
-                  'text-accent-cool-dark display-inline': optionalField
-                })} display-inline`}
-              >
-                {key}
-              </p>
-              {optionalField ? (
-                <span className="usa-sr-only">Optional field.</span>
-              ) : (
-                <span className="usa-sr-only">Required field.</span>
-              )}
-              <span className="usa-sr-only">Data Type: </span>
-              <p
-                className={`${classNames({
-                  'text-accent-cool-dark': optionalField
-                })} data-type font-body-3xs text-normal margin-left-1 display-inline`}
-              >
-                {displayType}
-              </p>
-              <span className="usa-sr-only">Definition: </span>
-              <p
-                className={`${classNames({
-                  'text-accent-cool-dark': optionalField
-                })} description text-normal font-body-3xs margin-bottom-0 margin-top-2px`}
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
+              <dl className="margin-0 text-base-dark line-height-sans-4">
+                <dt className="margin-left-0 usa-sr-only">Field Name: </dt>
+                <dd
+                  className={`${classNames({
+                    'text-accent-cool-dark': optionalField
+                  })} display-inline margin-left-0`}
+                >
+                  {key}
+                </dd>
+                {optionalField ? (
+                  <dd className="usa-sr-only margin-left-0">Optional field.</dd>
+                ) : (
+                  <dd className="usa-sr-only margin-left-0">Required field.</dd>
+                )}
+                <dt className="usa-sr-only margin-left-0">Data Type: </dt>
+                <dd
+                  className={`${classNames({
+                    'text-accent-cool-dark': optionalField
+                  })} data-type font-body-3xs text-normal margin-left-05 display-inline`}
+                >
+                  {displayType}
+                </dd>
+                {optionalField ? (
+                  <dd
+                    className="text-accent-cool-dark font-body-3xs text-italic text-normal margin-left-05 display-inline"
+                    aria-hidden="true"
+                  >
+                    (optional)
+                  </dd>
+                ) : (
+                  ''
+                )}
+                <dt className="usa-sr-only margin-left-0">Definition: </dt>
+                <dd
+                  className={`${classNames({
+                    'text-accent-cool-dark': optionalField
+                  })} description text-normal font-body-3xs margin-bottom-0 margin-left-0 margin-top-05 line-height-sans-4`}
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              </dl>
               <span className="usa-sr-only">
                 Toggle the button to view or hide the fields nested in this object.
               </span>
@@ -142,34 +154,46 @@ class InventoryCodeSectionComponent extends Component {
                 'border-left-2px': indent === 1 || 2 || 3
               })} border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md padding-x-1 mobile:padding-x-205 text-bold padding-y-105 tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
             >
-              <span className="usa-sr-only">Field Name: </span>
-              <p
-                className={`${classNames({
-                  'text-accent-cool-dark display-inline': optionalField
-                })} display-inline`}
-              >
-                {key}
-              </p>
-              {optionalField ? (
-                <span className="usa-sr-only">Optional field.</span>
-              ) : (
-                <span className="usa-sr-only">Required field.</span>
-              )}
-              <span className="usa-sr-only">Data Type: </span>
-              <p
-                className={`${classNames({
-                  'text-accent-cool-dark': optionalField
-                })} data-type font-body-3xs text-normal margin-left-1 display-inline`}
-              >
-                {displayType}
-              </p>
-              <span className="usa-sr-only">Definition: </span>
-              <p
-                className={`${classNames({
-                  'text-accent-cool-dark': optionalField
-                })} description text-normal font-body-3xs margin-bottom-0 margin-top-2px`}
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
+              <dl className="margin-0 text-base-dark">
+                <dt className="margin-left-0 usa-sr-only">Field Name: </dt>
+                <dd
+                  className={`${classNames({
+                    'text-accent-cool-dark': optionalField
+                  })} display-inline margin-left-0`}
+                >
+                  {key}
+                </dd>
+                {optionalField ? (
+                  <dd className="usa-sr-only margin-left-0">Optional field.</dd>
+                ) : (
+                  <dd className="usa-sr-only margin-left-0">Required field.</dd>
+                )}
+                <dt className="usa-sr-only margin-left-0">Data Type: </dt>
+                <dd
+                  className={`${classNames({
+                    'text-accent-cool-dark': optionalField
+                  })} data-type font-body-3xs text-normal margin-left-05 display-inline`}
+                >
+                  {displayType}
+                </dd>
+                {optionalField ? (
+                  <dd
+                    className="text-accent-cool-dark font-body-3xs text-italic text-normal margin-left-05 display-inline"
+                    aria-hidden="true"
+                  >
+                    (optional)
+                  </dd>
+                ) : (
+                  ''
+                )}
+                <dt className="usa-sr-only margin-left-0">Definition: </dt>
+                <dd
+                  className={`${classNames({
+                    'text-accent-cool-dark': optionalField
+                  })} description text-normal font-body-3xs margin-bottom-0 margin-top-05 margin-left-0`}
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              </dl>
             </div>
           </>
         )}
