@@ -11,7 +11,7 @@ export default class TaskCardComponent extends Component {
     const title = get(this.props.task, 'title')
     if (issueURL && title) {
       return (
-        <a href={issueURL} target="_blank" rel="noopener noreferrer">
+        <a href={issueURL} target="_blank" rel="noopener noreferrer" className="issue-link">
           {title}
         </a>
       )

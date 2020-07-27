@@ -43,6 +43,7 @@ export default class OpenTasks extends React.Component {
   updatePage(newPage) {
     scrollToTopOfResults()
     this.props.updatePage(newPage)
+    document.getElementsByClassName('issue-link')[0].focus()
   }
 
   render() {
