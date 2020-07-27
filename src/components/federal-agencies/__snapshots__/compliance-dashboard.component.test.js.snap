@@ -30,16 +30,16 @@ exports[`components - ComplianceDashboard should render correctly 1`] = `
           <header
             className="usa-card__header"
           >
-            <h3
+            <h2
               className="usa-card__heading text-normal"
             >
               Department of Agriculture
-            </h3>
-            <h4
+            </h2>
+            <h3
               className="font-heading-sm margin-top-105 text-warning-darker"
             >
               Partially compliant
-            </h4>
+            </h3>
             <div
               className="border-warning border-left-1 margin-bottom-1"
               key="Department of Agriculture-agencyWidePolicy"

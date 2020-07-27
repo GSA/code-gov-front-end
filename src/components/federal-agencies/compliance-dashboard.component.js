@@ -67,10 +67,10 @@ const getCard = (config, entry) => {
         </div>
         <div className="usa-card__body display-block mobile-lg:margin-left-6 mobile-lg:margin-top-105 margin-top-10 margin-bottom-neg-2 mobile-lg:padding-left-3 padding-left-0">
           <header className="usa-card__header">
-            <h3 className="usa-card__heading text-normal">{name}</h3>
-            <h4 className={`font-heading-sm margin-top-105 ${statusColor[overallStatus]}`}>
+            <h2 className="usa-card__heading text-normal">{name}</h2>
+            <h3 className={`font-heading-sm margin-top-105 ${statusColor[overallStatus]}`}>
               {displayStatus[overallStatus]}
-            </h4>
+            </h3>
             {config.text.map(textPart => {
               const { req, variants } = textPart
               const status = getStatusAsText(config, entry.requirements.sub[req])

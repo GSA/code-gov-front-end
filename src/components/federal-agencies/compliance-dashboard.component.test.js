@@ -64,7 +64,7 @@ describe('components - ComplianceDashboard', () => {
     })
 
     it('should render agency name', () => {
-      expect(wrapper.find('h3').text()).toEqual('Department of Agriculture')
+      expect(wrapper.find('h2').text()).toEqual('Department of Agriculture')
     })
 
     it('should render proper number of requirement lines', () => {
@@ -83,8 +83,8 @@ describe('components - ComplianceDashboard', () => {
           }
         ]
       })
-      expect(wrapper.find('h4').text()).toEqual('Fully compliant')
-      expect(wrapper.find('h4').prop('className')).toContain('text-success-dark')
+      expect(wrapper.find('h3').text()).toEqual('Fully compliant')
+      expect(wrapper.find('h3').prop('className')).toContain('text-success-dark')
       expect(wrapper.find('.usa-card').prop('className')).toContain('border-success')
     })
 
@@ -100,8 +100,8 @@ describe('components - ComplianceDashboard', () => {
           }
         ]
       })
-      expect(wrapper.find('h4').text()).toEqual('Partially compliant')
-      expect(wrapper.find('h4').prop('className')).toContain('text-warning-darker')
+      expect(wrapper.find('h3').text()).toEqual('Partially compliant')
+      expect(wrapper.find('h3').prop('className')).toContain('text-warning-darker')
       expect(wrapper.find('.usa-card').prop('className')).toContain('border-warning')
     })
 
@@ -117,8 +117,8 @@ describe('components - ComplianceDashboard', () => {
           }
         ]
       })
-      expect(wrapper.find('h4').text()).toEqual('Non-compliant')
-      expect(wrapper.find('h4').prop('className')).toContain('text-error-dark')
+      expect(wrapper.find('h3').text()).toEqual('Non-compliant')
+      expect(wrapper.find('h3').prop('className')).toContain('text-error-dark')
       expect(wrapper.find('.usa-card').prop('className')).toContain('border-error-dark')
     })
 
