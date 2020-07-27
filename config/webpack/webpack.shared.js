@@ -79,6 +79,11 @@ const patterns = [
     force: true
   },
   {
+    from: 'node_modules/uswds/src/fonts/**/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    force: true
+  },
+  {
     from: './src/components/federal-agencies/html',
     to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
   },
