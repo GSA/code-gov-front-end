@@ -1,4 +1,4 @@
-const { dirname, join } = require('path')
+const { dirname, join, resolve } = require('path')
 const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -10,6 +10,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
+const uswdsContext = resolve(rootDir, 'node_modules', 'uswds', 'src', 'fonts')
 
 require('dotenv-flow').config()
 
@@ -79,9 +80,9 @@ const patterns = [
     force: true
   },
   {
-    from: 'node_modules/uswds/src/fonts/**/*',
-    to: join(OUTPUT_PATH, '/uswds/fonts/'),
-    force: true
+    from: '**/*',
+    context: uswdsContext,
+    to: join(OUTPUT_PATH, '/uswds/fonts/')
   },
   {
     from: './src/components/federal-agencies/html',
