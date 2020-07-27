@@ -58,7 +58,7 @@ export default class ProjectPage extends Component {
       return (
         <li className="margin-bottom-0">
           <span className="font-body-3xs">
-            <i className="icon icon-ok-circled2" />
+            <i className="icon icon-ok-circled2 padding-right-05" />
             Open Source
           </span>
         </li>
@@ -68,7 +68,7 @@ export default class ProjectPage extends Component {
       return (
         <li className="margin-bottom-0">
           <span className="font-body-3xs">
-            <i className="icon icon-arrows-cw" />
+            <i className="icon icon-arrows-cw padding-right-05" />
             Government-Wide Reuse
           </span>
         </li>
@@ -82,7 +82,7 @@ export default class ProjectPage extends Component {
       return (
         <span className="font-body-3xs">
           <li>
-            <i className="icon icon-certificate" />
+            <i className="icon icon-certificate padding-right-05" />
             <span>{text}</span>
           </li>
         </span>
@@ -96,7 +96,7 @@ export default class ProjectPage extends Component {
       return (
         <span className="font-body-3xs">
           <li>
-            <i className="icon icon-hourglass-end" />
+            <i className="icon icon-hourglass-end padding-right-05" />
             {`${laborHours} hours`}
           </li>
         </span>
@@ -110,7 +110,7 @@ export default class ProjectPage extends Component {
       return (
         <span className="font-body-3xs">
           <li>
-            <i className="icon icon-code" />
+            <i className="icon icon-code padding-right-05" />
             {langs.join(', ')}
           </li>
         </span>
@@ -124,7 +124,7 @@ export default class ProjectPage extends Component {
       return (
         <span className="font-body-3xs">
           <li>
-            <i className="icon icon-mail" />
+            <i className="icon icon-mail padding-right-05" />
             <a href={`mailto:${email}?Subject=Contribution%20Inquiry`} target="_top">
               {email}
             </a>

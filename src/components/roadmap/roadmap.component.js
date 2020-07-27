@@ -94,13 +94,13 @@ export default class Roadmap extends React.Component {
           >
             <div className="grid-row border-0 padding-bottom-0">
               <i className="icon icon-ok text-green" />
-              <span className="border-0 font-body-3xs padding-left-1 padding-bottom-0 text-base-dark">
+              <span className="border-0 font-body-3xs padding-left-1 padding-bottom-0 text-base-dark padding-top-1px">
                 Released
               </span>
             </div>
-            <div className="grid-row border-0 padding-top-05">
-              <i className="icon icon-circle text-accent-warm-light padding-top-05" />
-              <span className="border-0 font-body-3xs padding-left-1 padding-top-05 text-base-dark">
+            <div className="grid-row border-0 padding-top-1">
+              <i className="icon icon-circle text-accent-warm-light" />
+              <span className="border-0 font-body-3xs padding-left-1 text-base-dark padding-top-1px">
                 In Progress
               </span>
             </div>
