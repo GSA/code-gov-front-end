@@ -6,7 +6,7 @@ exports[`components - FilterTag should render correctly 1`] = `
   onClick={[Function]}
 >
   <i
-    className="icon icon-close padding-right-2px"
+    className="icon icon-close padding-right-05"
   />
   test-title
 </button>
