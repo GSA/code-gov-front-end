@@ -38,7 +38,11 @@ export default class SearchPage extends React.Component {
         textContent = `Top ${total} repositories for "${query}"`
       }
     }
-    return <h3 className="grid-col">{textContent}</h3>
+    return (
+      <p className="repos-count tablet-lg:grid-col-9 grid-col-12 tablet:grid-col-4 font-heading-lg text-bold tablet:margin-y-105 margin-top-3 margin-bottom-0">
+        {textContent}
+      </p>
+    )
   }
 
   get reposContainer() {
@@ -62,6 +66,7 @@ export default class SearchPage extends React.Component {
   updatePage(newPage) {
     scrollToTopOfResults()
     this.props.updatePage(newPage)
+    document.getElementsByClassName('project-link')[0].focus()
   }
 
   render() {
@@ -72,7 +77,7 @@ export default class SearchPage extends React.Component {
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Search Results' }]} />
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div className="margin-top-2 tablet:grid-col-3">
+            <div className="margin-top-1 grid-col-12 tablet-lg:grid-col-3 tablet:grid-col-8">
               <QuickSearchBox value={this.props.searchParams.query} />
             </div>
             {this.repoCounter}
@@ -80,8 +85,11 @@ export default class SearchPage extends React.Component {
         </div>
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div id="filter-boxes-section" className="tablet:grid-col-3 margin-top-4">
-              <h2 className="margin-bottom-4">Filter</h2>
+            <div
+              id="filter-boxes-section"
+              className="tablet-lg:grid-col-3 tablet-lg:margin-top-4 margin-top-3"
+            >
+              <h2 className="tablet-lg:margin-bottom-4 margin-bottom-105">Filter</h2>
 
               <FilterBoxes
                 boxes={this.props.boxes}

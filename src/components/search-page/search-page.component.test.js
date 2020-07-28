@@ -12,18 +12,18 @@ const props = {
   total: 2,
   searchParams: { query: 'test-params-query' },
   query: 'test-query',
-  filteredResults: [ { repoId: 'repo-1' }, { repoId: 'repo-2' } ],
-  boxes: [ 'box-1' , 'box-2' ],
-  sortOptions: [ 'sort-1', 'sort-2' ],
+  filteredResults: [{ repoId: 'repo-1' }, { repoId: 'repo-2' }],
+  boxes: ['box-1', 'box-2'],
+  sortOptions: ['sort-1', 'sort-2'],
   onSortChange: jest.fn(),
-  filterTags: [ 'filter-1', 'filter-2' ],
+  filterTags: ['filter-1', 'filter-2'],
   onFilterTagClick: jest.fn(),
   filterData: false,
   selectedPage: 1,
   selectedPageSize: 2,
   saveFilterData: jest.fn(),
   onFilterBoxChange: jest.fn(),
-  updatePage: jest.fn(),
+  updatePage: jest.fn()
 }
 
 let wrapper
@@ -70,6 +70,8 @@ describe('components - SearchPage', () => {
     })
 
     it('should scroll to the top of the results', () => {
+      document.body.innerHTML =
+        '<header class="usa-card__header grid-col-9"><h3 class="usa-card__heading font-heading-lg margin-top-0"><a class="project-link" href="/projects/nsf_1_ember_common_components">ember-common-components</a></h3></header>'
       expect(scrollToTopOfResults).toBeCalled()
     })
 
@@ -80,18 +82,15 @@ describe('components - SearchPage', () => {
 
   describe('repoCounter', () => {
     it.each`
-      total         | match
-      ${0}          | ${/no/i}
-      ${1}          | ${/1/}
-      ${9}          | ${/9/}
-      ${undefined}  | ${/loading/i}
-    `(
-      'should render text that matches $match when the total is $total',
-      ({ total, match }) => {
-        wrapper.setProps({ total })
-        testRenderText(instance.repoCounter, match)
-      }
-    )
+      total        | match
+      ${0}         | ${/no/i}
+      ${1}         | ${/1/}
+      ${9}         | ${/9/}
+      ${undefined} | ${/loading/i}
+    `('should render text that matches $match when the total is $total', ({ total, match }) => {
+      wrapper.setProps({ total })
+      testRenderText(instance.repoCounter, match)
+    })
 
     it('should render text that matches `loading` when no `filteredResults` provided', () => {
       wrapper.setProps({ filteredResults: undefined })
@@ -119,7 +118,9 @@ describe('components - SearchPage', () => {
       expect(scrollToTopOfResults).toBeCalled()
     })
 
-    it('should udpate the page value', () => {
+    it('should update the page value', () => {
+      document.body.innerHTML =
+        '<header class="usa-card__header grid-col-9"><h3 class="usa-card__heading font-heading-lg margin-top-0"><a class="project-link" href="/projects/nsf_1_ember_common_components">ember-common-components</a></h3></header>'
       expect(props.updatePage).toBeCalledWith('page')
     })
   })
