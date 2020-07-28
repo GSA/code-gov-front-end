@@ -114,6 +114,9 @@ export default class FilterBox extends Component {
     } else {
       accordionContent.hidden = true
     }
+    const showMoreButton = JSON.parse(this.props.options).length > 4
+    const paddingBottom = showMoreButton ? 'padding-bottom-105' : 'padding-bottom-05'
+
     return (
       <div className="usa-accordion border-base-light border-1px tablet-lg:margin-bottom-2 margin-bottom-0">
         <div className="usa-accordion__heading">
@@ -129,31 +132,31 @@ export default class FilterBox extends Component {
         </div>
         <div
           id={accordionID}
-          className="usa-accordion__content usa-prose border-top-1px border-base-light"
+          className={`usa-accordion__content usa-prose border-top-1px border-base-light ${paddingBottom}`}
           {...accordionContent}
         >
           <form className="usa-form maxw-none">
             <fieldset className="usa-fieldset" aria-labelledby={`${accordionID}-button`}>
               <legend className="usa-sr-only" aria-labelledby={`${accordionID}-button`} />
               {this.filterOptions}
-              {JSON.parse(this.props.options).length > 4 ? (
-                <div>
-                  <span
-                    className="moreLessToggle text-underline text-primary font-body-2xs"
-                    onKeyDown={this.handleKeyDown}
-                    onKeyUp={this.handleKeyUp}
-                    onClick={this.handleClickToggle}
-                    role="button"
-                    tabIndex="0"
-                  >
-                    {this.state.showAll ? 'Show less' : 'Show more'}
-                  </span>
-                </div>
-              ) : (
-                ''
-              )}
             </fieldset>
           </form>
+          {showMoreButton ? (
+            <div>
+              <span
+                className="moreLessToggle text-underline text-primary font-body-2xs"
+                onKeyDown={this.handleKeyDown}
+                onKeyUp={this.handleKeyUp}
+                onClick={this.handleClickToggle}
+                role="button"
+                tabIndex="0"
+              >
+                {this.state.showAll ? 'Show less' : 'Show more'}
+              </span>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     )

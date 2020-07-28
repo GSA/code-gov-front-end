@@ -18,7 +18,7 @@ exports[`components - FilterBox render should render correctly 1`] = `
     </button>
   </div>
   <div
-    className="usa-accordion__content usa-prose border-top-1px border-base-light"
+    className="usa-accordion__content usa-prose border-top-1px border-base-light padding-bottom-105"
     hidden={false}
     id="test-title"
   >
@@ -119,20 +119,20 @@ exports[`components - FilterBox render should render correctly 1`] = `
             <span />
           </label>
         </div>
-        <div>
-          <span
-            className="moreLessToggle text-underline text-primary font-body-2xs"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            tabIndex="0"
-          >
-            Show more
-          </span>
-        </div>
       </fieldset>
     </form>
+    <div>
+      <span
+        className="moreLessToggle text-underline text-primary font-body-2xs"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        Show more
+      </span>
+    </div>
   </div>
 </div>
 `;
