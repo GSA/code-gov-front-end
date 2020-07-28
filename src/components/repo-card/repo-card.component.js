@@ -76,6 +76,11 @@ export default class RepoCardComponent extends Component {
     const dateLastModified = getLastModifiedDateString(this.props.repo) || 'Not Available'
     const usageType = getDisplayTextForUsageType(this.props.repo)
     const license = getLicenseName(this.props.repo)
+    const url = get(this.props.repo, 'repositoryURL')
+    const marginBottom =
+      url && typeof url === 'string' && url.includes('github.com')
+        ? 'margin-bottom-0'
+        : 'margin-bottom-105'
 
     return (
       <li className="usa-card width-full margin-bottom-2">
@@ -107,7 +112,7 @@ export default class RepoCardComponent extends Component {
           </ul>
 
           <div className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0">
-            <div className="grid-row">
+            <div className={`grid-row ${marginBottom}`}>
               <ul className="display-inline-block tablet:grid-col-9 desktop:grid-col-10 grid-col-12 padding-0">
                 <CardPart title="Usage Type" text={usageType} />
                 <CardPart title="Languages" text={this.repoLanguages} />

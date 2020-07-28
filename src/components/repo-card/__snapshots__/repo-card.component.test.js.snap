@@ -59,7 +59,7 @@ exports[`components - RepoCard render should render correctly 1`] = `
       className="usa-card__footer font-body-3xs padding-bottom-1 padding-top-1px grid-container margin-0"
     >
       <div
-        className="grid-row"
+        className="grid-row margin-bottom-0"
       >
         <ul
           className="display-inline-block tablet:grid-col-9 desktop:grid-col-10 grid-col-12 padding-0"
