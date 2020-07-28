@@ -39,7 +39,7 @@ export default class SearchPage extends React.Component {
       }
     }
     return (
-      <p className="repos-count tablet-lg:grid-col-9 grid-col-12 tablet:grid-col-4 font-heading-lg text-bold tablet:margin-y-105 margin-top-3 margin-bottom-0">
+      <p className="repos-count tablet-lg:grid-col-9 grid-col-12 font-heading-lg text-bold tablet:margin-y-105 margin-top-3 margin-bottom-0">
         {textContent}
       </p>
     )
@@ -77,7 +77,7 @@ export default class SearchPage extends React.Component {
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Search Results' }]} />
         <div className="grid-container">
           <div className="grid-row grid-gap">
-            <div className="margin-top-1 grid-col-12 tablet-lg:grid-col-3 tablet:grid-col-8">
+            <div className="margin-top-1 grid-col-12 tablet-lg:grid-col-3">
               <QuickSearchBox value={this.props.searchParams.query} />
             </div>
             {this.repoCounter}
@@ -102,7 +102,7 @@ export default class SearchPage extends React.Component {
                 onFilterBoxChange={::this.onFilterBoxChange}
               />
             </div>
-            <div id="filter-results-section" className=" tablet:grid-col-9">
+            <div id="filter-results-section" className=" tablet-lg:grid-col-9">
               <SortSection
                 options={this.props.sortOptions}
                 onSortChange={this.props.onSortChange}
