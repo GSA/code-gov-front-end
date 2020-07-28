@@ -85,7 +85,7 @@ exports[`components - Pagination render should render correctly 1`] = `
       </li>
       <li
         aria-label="Go to the next page."
-        className="display-inline padding-left-1 padding-right-1"
+        className="display-inline padding-left-1 tablet:padding-right-1 padding-right-2"
       >
         <button
           className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"

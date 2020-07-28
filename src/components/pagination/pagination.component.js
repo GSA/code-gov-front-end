@@ -193,7 +193,7 @@ export default class Pagination extends Component {
               )
             })}
             <li
-              className={`display-inline padding-left-1 padding-right-1${
+              className={`display-inline padding-left-1 tablet:padding-right-1 padding-right-2${
                 this.isLastPage ? ' disabled' : ''
               }`}
               aria-label={`${
