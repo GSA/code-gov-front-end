@@ -13,12 +13,15 @@ const props = {
   ],
   logos: [
     { name: 'logo-1', url: '/logo-1.png', image: 'logo-src-1' },
-    { name: 'logo-2', url: '/logo-2.png', image: 'logo-src-2' }
+    { name: 'logo-2', url: '/logo-2.png', image: 'logo-src-2' },
+    { name: 'logo-3', url: '/logo-3.png', image: 'logo-src-3' },
+    { name: 'logo-4', url: '/logo-4.png', image: 'logo-src-4' }
   ],
   socials: [
     { name: 'social-1', url: 'u1', icon: 'i1' },
     { name: 'social-2', url: 'u2', icon: 'i2' },
-    { name: 'social-3', url: 'u3', icon: 'i3' }
+    { name: 'social-3', url: 'u3', icon: 'i3' },
+    { name: 'social-4', url: 'u4', icon: 'i4' }
   ]
 }
 

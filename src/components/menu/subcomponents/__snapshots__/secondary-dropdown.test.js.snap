@@ -2,9 +2,12 @@
 
 exports[`components - Menu - SecondaryDropdown should render correctly 1`] = `
 <ul
-  role="menu"
+  className="usa-nav__submenu"
+  hidden={true}
+  id="option-name-menu"
 >
   <li
+    className="usa-nav__submenu-item"
     key="/link-1-url"
   >
     <LinkPart
@@ -14,6 +17,7 @@ exports[`components - Menu - SecondaryDropdown should render correctly 1`] = `
     />
   </li>
   <li
+    className="usa-nav__submenu-item"
     key="http://link-2-url"
   >
     <LinkPart
@@ -23,6 +27,7 @@ exports[`components - Menu - SecondaryDropdown should render correctly 1`] = `
     />
   </li>
   <li
+    className="usa-nav__submenu-item"
     key="mailto:link-3-url"
   >
     <LinkPart
@@ -32,4 +37,4 @@ exports[`components - Menu - SecondaryDropdown should render correctly 1`] = `
     />
   </li>
 </ul>
-`
+`;

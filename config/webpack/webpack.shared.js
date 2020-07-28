@@ -69,20 +69,26 @@ const patterns = [
     to: join(OUTPUT_PATH, '/uswds/js')
   },
   {
-    from: './styles/uswds/fonts',
-    to: join(OUTPUT_PATH, '/uswds/fonts')
+    from: './assets/fonts/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    flatten: true
   },
   {
-    from: './src/components/about-page/html',
-    to: join(OUTPUT_PATH, '/src/components/about-page/html')
+    from: './styles/uswds/fonts/**/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    force: true
+  },
+  {
+    from: './src/components/federal-agencies/html',
+    to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
+  },
+  {
+    from: './src/components/about-codedotgov/html',
+    to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
   },
   {
     from: './404.html',
     to: join(OUTPUT_PATH, '404.html')
-  },
-  {
-    from: join(nodeModulesDir, '@code.gov/code-gov-style/dist/js/code-gov-web-components.js'),
-    to: 'webcomponents/code-gov-web-components.js'
   },
   {
     from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
@@ -218,7 +224,7 @@ module.exports = {
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     // new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
-    new CopyWebpackPlugin(patterns),
+    new CopyWebpackPlugin({ patterns }),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       hash: true,

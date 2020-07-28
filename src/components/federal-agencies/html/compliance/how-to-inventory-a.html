@@ -1,0 +1,50 @@
+<h1 id="creatingyourenterprisecodeinventory">Creating your enterprise code inventory</h1>
+<h2 id="overview">Overview</h2>
+<p>
+  Section
+  <a
+    href="https://sourcecode.cio.gov/Implementation/#72-code-inventories-and-discovery"
+    target="_blank" rel="noopener noreferrer"
+    >7.2</a
+  >
+  and <a href="https://sourcecode.cio.gov/Implementation/#73-codegov" target="_blank" rel="noopener noreferrer">7.3</a> of the
+  Source Code Policy require agencies to provide an inventory of their 'custom-developed code' to
+  support government-wide reuse and make Federal open source code easier to find.
+</p>
+<p>
+  Using these inventories, <a href="https://Code.gov">Code.gov</a> will provide a platform to search
+  federally funded open source software and software available for government-wide reuse.
+</p>
+<h2 id="publishingyouragencysinventory">Publishing Your Agency's Inventory</h2>
+<p>
+  Agencies are required to publish their inventories using a standard metadata schema - a JSON file
+  that they'll make available on their agency websites. Agencies are strongly encouraged to use
+  version 2.0.0 of the schema, which is described below. This version includes revisions that make
+  your inventory much more useful and intuitive.
+</p>
+<p>
+  Agencies should make the "code.json" available in the root folder of their website (e.g.,
+  https://www.agency.gov/code.json). Code.gov will then retrieve these JSON files daily and compile
+  them.
+</p>
+<h2 id="metadataschemaversion200">Metadata Schema version 2.0.0</h2>
+<p>
+  The schema fields and definitions are listed below.
+  <span class="text-accent-cool-dark" aria-hidden="true"
+    >The schema fields marked in blue are optional but recommended as they provide additional,
+    helpful information.</span
+  >
+  Here is
+  <a href="https://github.com/GSA/code-gov-data/blob/master/schemas/schema-2.0.0.json"
+    >version 2.0.0 of the metadata schema file in JSON format</a
+  >
+  with parent/child relationships.
+</p>
+<h3 id="filelocationandcontents">Agency code.json file location and contents:</h3>
+<ul class="margin-left-2 padding-0 font-body-3xs">
+  <li><code class="bg-base-darker padding-y-2px padding-x-1 text-white radius-sm">code.json</code> must live in the root directory of your agency’s website.</li>
+  <li>
+    <code class="bg-base-darker padding-y-2px padding-x-1 text-white radius-sm">code.json</code> must include a single object represented as JSON, with key-value pairs
+    according to the list below.
+  </li>
+</ul>

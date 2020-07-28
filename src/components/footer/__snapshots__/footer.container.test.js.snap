@@ -5,16 +5,16 @@ Object {
   "color": "white",
   "links": Array [
     Object {
-      "name": "Web Policies",
-      "url": "/privacy-policy",
-    },
-    Object {
-      "name": "Visit Project Page",
-      "url": "https://github.com/GSA/code-gov",
+      "name": "About",
+      "url": "/about-page",
     },
     Object {
       "name": "Roadmap",
       "url": "/roadmap",
+    },
+    Object {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy",
     },
   ],
   "logos": Array [
@@ -25,6 +25,11 @@ Object {
     },
   ],
   "socials": Array [
+    Object {
+      "icon": "icon icon-github-circled",
+      "name": "Code.gov on GitHub",
+      "url": "https://github.com/GSA/code-gov",
+    },
     Object {
       "icon": "icon icon-twitter",
       "name": "Code.gov on Twitter",
@@ -42,4 +47,4 @@ Object {
     },
   ],
 }
-`
+`;

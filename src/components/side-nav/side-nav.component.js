@@ -1,15 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { len, map } from '@code.gov/cautious'
+import { NavLink } from 'react-router-dom'
 
 export const SideNavPart = ({ baseurl, links, onLinkClick }) => {
+  const currentPage = window.location.pathname
   if (len(links) > 0) {
     return (
-      <ul>
+      <ul className="usa-sidenav">
         {map(links, link => (
-          <li key={link.text + link.route}>
+          <li key={link.text + link.route} className="usa-sidenav__item">
             <NavLink
-              activeClassName="current"
+              activeClassName="usa-current"
               to={`${baseurl}${link.route}`}
               onClick={() => (onLinkClick ? onLinkClick() : null)}
             >
@@ -26,7 +27,7 @@ export const SideNavPart = ({ baseurl, links, onLinkClick }) => {
 }
 
 const SideNav = ({ alignment = '', baseurl = '', links = [], onLinkClick }) => (
-  <nav className={`sidebar ${alignment}`}>
+  <nav aria-label="Side navigation" className={`sidebar ${alignment}`}>
     <SideNavPart baseurl={baseurl} links={links} onLinkClick={onLinkClick} />
   </nav>
 )

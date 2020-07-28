@@ -1,21 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - LazyHTML render should render a loading indicator before html is loaded 1`] = `
-<div
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "<h1>LOADING</h1>",
+<ReactPlaceholder
+  rows={20}
+  showLoadingAnimation={true}
+  type="text"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h1>LOADING</h1>",
+      }
     }
-  }
-/>
-`
+  />
+</ReactPlaceholder>
+`;
 
 exports[`components - LazyHTML render should render correctly 1`] = `
-<div
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "test-html",
+<ReactPlaceholder
+  ready={true}
+  rows={20}
+  showLoadingAnimation={true}
+  type="text"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "test-html",
+      }
     }
-  }
-/>
-`
+  />
+</ReactPlaceholder>
+`;

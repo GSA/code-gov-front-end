@@ -17,40 +17,23 @@
       },
       "menu": [
         {
-          "name": "ABOUT",
-          "links": [
-            {
-              "name": "Overview",
-              "url": "/about/overview/introduction"
-            },
-            {
-              "name": "Compliance",
-              "url": "/about/compliance/dashboard"
-            },
-            {
-              "name": "Open Source Pilot",
-              "url": "/about/open-source/introduction"
-            },
-            {
-              "name": "Source Code Policy",
-              "url": "https://sourcecode.cio.gov/"
-            }
-          ]
-        },
-        {
-          "name": "BROWSE PROJECTS",
+          "name": "PROJECTS",
           "url": "/browse-projects?page=1&size=10&sort=data_quality"
         },
         {
           "name": "FEDERAL AGENCIES",
           "links": [
             {
-              "name": "How to Inventory Code",
-              "url": "/about/compliance/inventory-code"
+              "name": "Agency Compliance",
+              "url": "/federal-agencies/compliance/dashboard"
             },
             {
-              "name": "Compliance Dashboard",
-              "url": "/about/compliance/dashboard"
+              "name": "How to Procure Software",
+              "url": "/federal-agencies/compliance/procurement"
+            },
+            {
+              "name": "How to Inventory Code",
+              "url": "/federal-agencies/compliance/inventory-code"
             }
           ]
         },
@@ -58,45 +41,12 @@
           "name": "DEVELOPERS",
           "links": [
             {
-              "name": "code.gov API",
-              "url": "https://open.gsa.gov/api/codedotgov/"
-            },
-            {
               "name": "Open Tasks",
               "url": "/open-tasks?page=1&size=10"
             },
             {
-              "name": "Notebooks",
-              "url": "https://beta.observablehq.com/search?query=%22code.gov%22"
-            },
-            {
-              "name": "Resources",
-              "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources"
-            }
-          ]
-        },
-        {
-          "name": "SOCIAL",
-          "links": [
-            {
-              "name": "code.gov Repo",
-              "url": "http://github.com/GSA/code-gov"
-            },
-            {
-              "name": "Blog",
-              "url": "https://medium.com/codedotgov"
-            },
-            {
-              "name": "LinkedIn",
-              "url": "https://www.linkedin.com/company/code-gov"
-            },
-            {
-              "name": "Twitter",
-              "url": "https://twitter.com/codedotgov"
-            },
-            {
-              "name": "Contact Us",
-              "url": "mailto:code@gsa.gov"
+              "name": "Code.gov API",
+              "url": "https://open.gsa.gov/api/codedotgov/"
             }
           ]
         }
@@ -107,15 +57,15 @@
           "links": [
             {
               "name": "Overview",
-              "url": "/about/overview/introduction"
+              "url": "/federal-agencies/overview/introduction"
             },
             {
               "name": "Compliance",
-              "url": "/about/compliance/dashboard"
+              "url": "/federal-agencies/compliance/dashboard"
             },
             {
               "name": "Open Source Pilot",
-              "url": "/about/open-source/introduction"
+              "url": "/federal-agencies/open-source/introduction"
             },
             {
               "name": "Source Code Policy",
@@ -124,7 +74,7 @@
           ]
         },
         {
-          "name": "Browse Projects",
+          "name": "Projects",
           "url": "/browse-projects?page=1&size=10&sort=data_quality"
         },
         {
@@ -132,11 +82,11 @@
           "links": [
             {
               "name": "How to Inventory Code",
-              "url": "/about/compliance/inventory-code"
+              "url": "/federal-agencies/compliance/inventory-code"
             },
             {
               "name": "Compliance Dashboard",
-              "url": "/about/compliance/dashboard"
+              "url": "/federal-agencies/compliance/dashboard"
             }
           ]
         },
@@ -234,36 +184,36 @@
           "description": "Federal agency partners use Code.gov to share usable open source code, promote open source projects, and track compliance with federal open source policy.",
           "links": [
             {
-              "name": "Compliance Dashboard",
-              "url": "/about/compliance/dashboard"
+              "name": "Agency Compliance",
+              "url": "/federal-agencies/compliance/dashboard"
             }
           ]
         }
       ],
       "news": [
         {
-          "title": "Introducing Our Summer Fellow: Anna Zhang",
-          "description": "Every year, as we prepare for summer we look to bring in a fellow...",
-          "url": "https://medium.com/codedotgov/introducing-our-summer-fellow-anna-zhang-455fd792cad8",
-          "date": "04/24/2020",
-          "image": "/assets/img/news/summer_fellow.jpeg",
-          "alt": "Summer Fellow"
+          "title": "Federal Source Code Summit: Towards a Source Code Community",
+          "description": "Code.gov will host its first annual Federal Source Code Summit...",
+          "url": "https://digital.gov/event/2020/10/08/federal-source-code-summit-building-coding/",
+          "date": "10/08/2020",
+          "image": "/assets/img/news/summit.jpeg",
+          "alt": "Federal Source Code Summit"
         },
         {
-          "title": "A Hacking Good Time with the Social Security Administration",
-          "description": "What happens when the Social Security Administration (SSA) and the Code.gov team get together...",
-          "url": "https://medium.com/codedotgov/a-hacking-good-time-with-the-social-security-administration-and-code-gov-78a323f3f117",
-          "date": "03/19/2020",
-          "image": "/assets/img/news/ssa_hackathon.jpeg",
-          "alt": "Hackathon"
+          "title": "Federal Source Code Study Series Part 4: Cultural Beliefs",
+          "description": "We’re back with our fourth installment of the Federal Source Code Series...",
+          "url": "https://medium.com/codedotgov/federal-source-code-study-series-part-4-cultural-beliefs-15ef04ea812b",
+          "date": "07/14/2020",
+          "image": "/assets/img/news/fscslogo.png",
+          "alt": "Source Code Study Cultural Beliefs"
         },
         {
-          "title": "Happy 3rd Birthday Code.gov!",
-          "description": "For our 3rd trip around the sun, we wanted to share where we’ve been, where we are going, and the implementation of the federal source code policy...",
-          "url": "https://medium.com/codedotgov/happy-3rd-birthday-code-gov-3b9171ceb88e",
-          "date": "11/20/2019",
-          "image": "/assets/img/news/bday.jpeg",
-          "alt": "Happy Birthday"
+          "title": "Better Know an Engineer: Sara Cope",
+          "description": "The Code.gov team is pleased to bring you a new series highlighting our amazing engineer friends...",
+          "url": "https://medium.com/codedotgov/code-gov-better-know-an-engineer-sara-cope-a840640bb96d",
+          "date": "06/12/2020",
+          "image": "/assets/img/news/sara.jpeg",
+          "alt": "Know an Engineer"
         }
       ],
       "about": [
@@ -371,16 +321,16 @@
     "footer": {
       "links": [
         {
-          "name": "Web Policies",
-          "url": "/privacy-policy"
-        },
-        {
-          "name": "Visit Project Page",
-          "url": "https://github.com/GSA/code-gov"
+          "name": "About",
+          "url": "/about-page"
         },
         {
           "name": "Roadmap",
           "url": "/roadmap"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
         }
       ],
       "logos": [
@@ -391,6 +341,11 @@
         }
       ],
       "socials": [
+        {
+          "name": "Code.gov on GitHub",
+          "icon": "icon icon-github-circled",
+          "url": "https://github.com/GSA/code-gov"
+        },
         {
           "name": "Code.gov on Twitter",
           "icon": "icon icon-twitter",

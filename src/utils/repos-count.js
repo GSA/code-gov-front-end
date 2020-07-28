@@ -13,5 +13,5 @@ export function getReposCount(total, messages, cssClasses = '') {
   }
 
   textContent = textContent.replace('[VALUE]', total)
-  return `<h3 className="${cssClasses}">${textContent}</h3>`
+  return `<p class="${cssClasses}">${textContent}</p>`
 }

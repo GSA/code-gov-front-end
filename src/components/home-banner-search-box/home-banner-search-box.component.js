@@ -56,40 +56,34 @@ export default class HomeBannerSearchBoxComponent extends Component {
     const {
       searchDescriptionHeading,
       searchDescriptionText,
-      searchDescriptionTextMobile,
       onSubmit,
       placeholder,
       query
     } = this.props
     return (
-      <div className="search-input-container">
-        <div className="search-input-wrapper">
-          <div className="search-description-wrapper">
-            <div className="search-description-heading show-w-gt-800">
-              {searchDescriptionHeading}
-            </div>
-            {searchDescriptionText && (
-              <div className="search-description-text show-w-gt-800">{searchDescriptionText}</div>
-            )}
-            {searchDescriptionTextMobile && (
-              <div className="show-w-lte-800">{searchDescriptionTextMobile}</div>
-            )}
+      <>
+        <h2 className="tablet-lg:text-uppercase text-bold text-base-darker margin-bottom-1 tablet-lg:margin-bottom-0 font-body-xs">
+          {searchDescriptionHeading}
+        </h2>
+        {searchDescriptionText && (
+          <div className="margin-bottom-105 margin-top-2px text-bold text-base-darker tablet-lg:display-block display-none">
+            {searchDescriptionText}
           </div>
-          <div className="search-input-and-button-wrapper">
-            <SearchBox
-              placeholder={placeholder}
-              onBlur={::this.handleBlur}
-              onChange={::this.handleChange}
-              onFocus={::this.handleFocus}
-              onSubmit={onSubmit}
-              query={query}
-            />
-            {this.state.showAutocomplete && some(this.state.suggestions) && (
-              <Autocomplete options={this.state.suggestions} onClick={::this.handleClick} />
-            )}
-          </div>
+        )}
+        <div className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6">
+          <SearchBox
+            placeholder={placeholder}
+            onBlur={::this.handleBlur}
+            onChange={::this.handleChange}
+            onFocus={::this.handleFocus}
+            onSubmit={onSubmit}
+            query={query}
+          />
+          {this.state.showAutocomplete && some(this.state.suggestions) && (
+            <Autocomplete options={this.state.suggestions} onClick={::this.handleClick} />
+          )}
         </div>
-      </div>
+      </>
     )
   }
 }

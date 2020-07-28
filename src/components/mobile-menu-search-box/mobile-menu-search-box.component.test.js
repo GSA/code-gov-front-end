@@ -5,6 +5,8 @@ import MobileMenuSearchBox from 'components/mobile-menu-search-box/mobile-menu-s
 
 const props = {
   onSubmit: jest.fn(),
+  toggleMobileMenu: jest.fn(),
+  mobileMenu: true
 }
 
 let wrapper
@@ -37,6 +39,10 @@ describe('components - MobileMenuSearchBox', () => {
 
     it('should clear the value', () => {
       expect(wrapper.state('value')).toBe('')
+    })
+
+    it('should call `toggleMobileMenu` with props.mobileMenu', () => {
+      expect(props.toggleMobileMenu).toBeCalledWith(props.mobileMenu)
     })
   })
 

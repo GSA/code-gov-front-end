@@ -2,11 +2,14 @@
 
 exports[`components - CardPart should render correctly 1`] = `
 <Fragment>
-  <dt>
-    test-title:
-  </dt>
-  <dd>
+  <li>
+    <span
+      className="text-bold"
+    >
+      test-title
+      : 
+    </span>
     test-text
-  </dd>
+  </li>
 </Fragment>
-`
+`;

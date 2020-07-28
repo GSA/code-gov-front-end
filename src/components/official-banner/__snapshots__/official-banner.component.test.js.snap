@@ -2,9 +2,9 @@
 
 exports[`components - OfficialBanner should render correctly 1`] = `
 <div
-  className="gov-banner"
+  className="width-full"
   data-testid="component-gov-banner"
 >
-  <gov-banner />
+  <GovBanner />
 </div>
-`
+`;

@@ -15,19 +15,16 @@
      }
     },
     "urls": [
-    "http://localhost:8080/projects/gsa_18f_1_10x_product_market_research",
-    "http://localhost:8080/projects/nsa_1_atomicwatch",
-    "http://localhost:8080/projects/dod_nci_agency_1_anet",
+    "http://localhost:8080/",
     "http://localhost:8080/browse-projects",
-    "http://localhost:8080/about/overview/introduction",
-    "http://localhost:8080/about/overview/tracking-progress",
+    "http://localhost:8080/projects/treasury_bureau_fiscal_service_bfs_1_data_act_broker_backend",
+    "http://localhost:8080/search?page=1&query=javascript&size=10&sort=best_match",
+    "http://localhost:8080/federal-agencies/compliance/dashboard",
+    "http://localhost:8080/federal-agencies/compliance/procurement",
+    "http://localhost:8080/federal-agencies/compliance/inventory-code",
     "http://localhost:8080/open-tasks",
-    "http://localhost:8080/about/compliance/dashboard",
-    "http://localhost:8080/about/compliance/procurement",
-    "http://localhost:8080/about/compliance/inventory-code",
-    "http://localhost:8080/about/open-source/introduction",
-    "http://localhost:8080/about/open-source/resources",
-    "http://localhost:8080/about/open-source/measuring-code",
-    "http://localhost:8080/about/open-source/licensing"
+    "http://localhost:8080/about-page",
+    "http://localhost:8080/roadmap",
+    "http://localhost:8080/privacy-policy"
     ]
 }

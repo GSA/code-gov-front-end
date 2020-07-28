@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`containers - MobileMenuControl mapStateToProps should return the correct properties 1`] = `
-Object {
-  "color": "white",
-  "displayMobileMenu": true,
-}
-`;

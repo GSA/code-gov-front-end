@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-MOBIUS1SELECTR-173698:
@@ -203,124 +203,314 @@ ignore:
         expires: '2020-03-06T12:53:00.365Z'
   SNYK-JS-DECOMPRESSTAR-559095:
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.601Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.601Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.601Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.601Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.602Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.602Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.603Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.603Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.603Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.603Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.603Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.604Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.604Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.604Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.604Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.605Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.605Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.605Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.605Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.053Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.607Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.608Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
   SNYK-JS-MINIMIST-559764:
     - favicons > to-ico > resize-img > jimp > mkdirp > minimist:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.608Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
     - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > mkdirp > minimist:
-        reason: No remediation available.
-        expires: '2020-05-20T19:44:43.608Z'
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
   SNYK-JS-YARGSPARSER-560381:
     - webpack-dev-server > yargs > yargs-parser:
         reason: No remediation available.
         expires: '2020-05-20T19:44:43.608Z'
+  SNYK-JS-HTTPPROXY-569139:
+    - webpack-dev-server > http-proxy-middleware > http-proxy:
+        reason: No upgrade or patch available.
+        expires: '2020-06-17T15:58:20.556Z'
+  SNYK-JS-JPEGJS-570039:
+    - favicons > jimp > @jimp/types > @jimp/jpeg > jpeg-js:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+    - app-manifest-webpack-plugin > favicons > jimp > @jimp/types > @jimp/jpeg > jpeg-js:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+    - favicons > to-ico > resize-img > jimp > jpeg-js:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+    - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > jpeg-js:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+    - favicons > to-ico > resize-img > jpeg-js:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+    - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jpeg-js:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+  SNYK-JS-LODASH-567746:
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-pure-annotations > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-split-export-declaration > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-split-export-declaration > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.312Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.313Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.314Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.314Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.314Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.315Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.315Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        reason: No remediation.
+        expires: '2020-07-05T17:59:22.315Z'
+  SNYK-JS-URLREGEX-569472:
+    - favicons > to-ico > resize-img > jimp > url-regex:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.054Z'
+    - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > url-regex:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.055Z'
+  SNYK-JS-AJV-584908:
+    - ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.045Z'
+    - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > request > har-validator > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.048Z'
+    - babel-loader > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.048Z'
+    - copy-webpack-plugin > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.048Z'
+    - favicons > to-ico > resize-img > jimp > request > har-validator > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - file-loader > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - jsoneditor > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - mini-css-extract-plugin > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - postcss-loader > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - style-loader > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - webpack > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+    - webpack > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.050Z'
+    - webpack > terser-webpack-plugin > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.051Z'
+    - webpack-dev-server > schema-utils > ajv:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
+  SNYK-JS-JSONEDITOR-575026:
+    - jsoneditor:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.049Z'
+  SNYK-JS-ELLIPTIC-571484:
+    - webpack > node-libs-browser > crypto-browserify > browserify-sign > elliptic:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.051Z'
+    - webpack > node-libs-browser > crypto-browserify > create-ecdh > elliptic:
+        reason: Will correct with master rebase.
+        expires: '2020-08-20T15:29:55.052Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
@@ -345,148 +535,76 @@ patch:
   SNYK-JS-LODASH-567746:
     - '@babel/core > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      webpack-merge > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - css-loader > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      html-webpack-plugin > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - html-webpack-plugin > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      dotnet-deps-parser > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      css-loader > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - webpack-bundle-analyzer > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@snyk/composer-lockfile-parser > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - webpack-merge > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      webpack-bundle-analyzer > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/core > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - babel-eslint > @babel/traverse > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - gh-pages > async > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/core > @babel/types > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      gh-pages > async > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > @snyk/dep-graph > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > snyk-nuget-plugin > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > inquirer > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > snyk-nodejs-lockfile-parser > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-config > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > snyk-mvn-plugin > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-mvn-plugin > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > snyk-config > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-nodejs-lockfile-parser > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > @snyk/dep-graph > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-nuget-plugin > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - webpack-dev-server > http-proxy-middleware > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      webpack-dev-server > http-proxy-middleware > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - babel-eslint > @babel/traverse > @babel/generator > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - webpack-dev-server > portfinder > async > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/plugin-transform-classes > @babel/helper-define-map > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > @snyk/dep-graph > graphlib > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > inquirer > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-go-plugin > graphlib > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/core > @babel/helper-module-transforms > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      babel-eslint > @babel/traverse > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/core > @babel/traverse > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/core > @babel/generator > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      babel-eslint > @babel/types > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/preset-env > @babel/types > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - babel-eslint > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > snyk-go-plugin > graphlib > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > @snyk/dep-graph > graphlib > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/preset-modules > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      '@snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
-        patched: '2020-04-30T21:48:33.059Z'
     - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/plugin-transform-runtime > @babel/helper-module-imports > @babel/types > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
         patched: '2020-04-30T15:08:23.618Z'
-      '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/helper-module-imports > @babel/types > lodash':
         patched: '2020-04-30T21:48:33.059Z'
     - '@snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash':
@@ -914,7 +1032,7 @@ patch:
     - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
         patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
+        patched: '2020-06-05T18:10:14.093Z'
     - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/template > @babel/types > lodash':
         patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
@@ -994,9 +1112,9 @@ patch:
     - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
         patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
+        patched: '2020-06-05T18:10:14.093Z'
     - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
-        patched: '2020-04-30T21:48:33.059Z'
+        patched: '2020-06-05T18:10:14.093Z'
     - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
         patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
@@ -1063,3 +1181,733 @@ patch:
         patched: '2020-04-30T21:48:33.059Z'
     - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
         patched: '2020-04-30T21:48:33.059Z'
+    - webpack-merge > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - html-webpack-plugin > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - dotnet-deps-parser > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - css-loader > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@snyk/composer-lockfile-parser > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - webpack-bundle-analyzer > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/core > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/core > @babel/types > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - gh-pages > async > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > snyk-config > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - babel-eslint > @babel/traverse > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/core > @babel/traverse > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/core > @babel/generator > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - babel-eslint > @babel/types > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/preset-env > @babel/types > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/plugin-transform-runtime > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-04-30T21:48:33.059Z'
+    - webpack-bundle-analyzer > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - html-webpack-plugin > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - css-loader > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - gh-pages > async > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/preset-modules > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-runtime > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-define-map > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - webpack-dev-server > portfinder > async > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx-development > @babel/helper-builder-react-jsx-experimental > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx-experimental > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-named-capturing-groups-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-hoist-variables > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-pure-annotations > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-template-literals > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-object-rest-spread > @babel/plugin-transform-parameters > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/preset-modules > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/preset-modules > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-regex > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx-experimental > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx-development > @babel/helper-builder-react-jsx-experimental > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx-development > @babel/helper-builder-react-jsx-experimental > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx-experimental > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-react > @babel/plugin-transform-react-jsx > @babel/helper-builder-react-jsx > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-unicode-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-named-capturing-groups-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-object-rest-spread > @babel/plugin-transform-parameters > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-function-name > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/preset-modules > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/preset-modules > @babel/plugin-transform-dotall-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-amd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - '@babel/preset-env > @babel/plugin-transform-modules-systemjs > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-06-05T18:10:14.093Z'
+    - webpack-merge > lodash:
+        patched: '2020-06-05T18:10:14.093Z'

@@ -1,41 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - HomeBannerSearchBox render should render correctly 1`] = `
-<div
-  className="search-input-container"
->
+<Fragment>
+  <h2
+    className="tablet-lg:text-uppercase text-bold text-base-darker margin-bottom-1 tablet-lg:margin-bottom-0 font-body-xs"
+  />
   <div
-    className="search-input-wrapper"
+    className="margin-bottom-105 margin-top-2px text-bold text-base-darker tablet-lg:display-block display-none"
   >
-    <div
-      className="search-description-wrapper"
-    >
-      <div
-        className="search-description-heading show-w-gt-800"
-      />
-      <div
-        className="search-description-text show-w-gt-800"
-      >
-        test-text
-      </div>
-      <div
-        className="show-w-lte-800"
-      >
-        test-mobile-text
-      </div>
-    </div>
-    <div
-      className="search-input-and-button-wrapper"
-    >
-      <SearchBox
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onSubmit={[MockFunction]}
-        placeholder="test-placeholder"
-        query="test-query"
-      />
-    </div>
+    test-text
   </div>
-</div>
-`
+  <div
+    className="margin-x-auto borderless-search mobile-lg:grid-col-10 tablet:grid-col-8 tablet-lg:grid-col-6"
+  >
+    <SearchBox
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onSubmit={[MockFunction]}
+      placeholder="test-placeholder"
+      query="test-query"
+    />
+  </div>
+</Fragment>
+`;

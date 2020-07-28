@@ -67,7 +67,7 @@ unclassed elements:
 
 $theme-global-paragraph-styles: false;
 $theme-global-link-styles: false;
-$theme-global-content-styles: false;
+$theme-global-content-styles: true;
 
 /*
 ----------------------------------------
@@ -77,60 +77,7 @@ Relative font file path
 ----------------------------------------
 */
 
-$theme-font-path: "./uswds/fonts";
-
-/*
-----------------------------------------
-Custom typeface tokens
-----------------------------------------
-Add a new custom typeface token if
-your project uses a typeface not already
-defined by USWDS.
-----------------------------------------
-USWDS defines the following tokens
-by default:
-----------------------------------------
-'georgia'
-'helvetica'
-'merriweather'
-'open-sans'
-'public-sans'
-'roboto-mono'
-'source-sans-pro'
-'system'
-'tahoma'
-'verdana'
-----------------------------------------
-Add as many new tokens as you have
-custom typefaces. Reference your new
-token(s) in the type-based font settings
-using the quoted name of the token.
-
-For example:
-
-$theme-font-type-cond: 'example-font-token';
-
-display-name:
-The display name of your font
-
-cap-height:
-The height of a 500px `N` in Sketch
-----------------------------------------
-You should change `example-[style]-token`
-names to something more descriptive.
-----------------------------------------
-*/
-
-$theme-typeface-tokens: (
-  example-serif-token: (
-    display-name: "Example Serif Display Name",
-    cap-height: 364px
-  ),
-  example-sans-token: (
-    display-name: "Example Sans Display Name",
-    cap-height: 364px
-  )
-);
+$theme-font-path: '/uswds/fonts';
 
 /*
 ----------------------------------------
@@ -164,13 +111,13 @@ $theme-font-type-icon: false;
 $theme-font-type-lang: false;
 
 // monospace
-$theme-font-type-mono: "roboto-mono";
+$theme-font-type-mono: 'roboto-mono';
 
 // sans-serif
-$theme-font-type-sans: "source-sans-pro";
+$theme-font-type-sans: 'ttlakes';
 
 // serif
-$theme-font-type-serif: "merriweather";
+$theme-font-type-serif: 'source-sans-pro';
 
 /*
 ----------------------------------------
@@ -259,6 +206,73 @@ $theme-font-serif-custom-src: (
 ----------------------------------------
 */
 
+/*
+----------------------------------------
+Custom typeface tokens
+----------------------------------------
+Add a new custom typeface token if
+your project uses a typeface not already
+defined by USWDS.
+----------------------------------------
+USWDS defines the following tokens
+by default:
+----------------------------------------
+'georgia'
+'helvetica'
+'merriweather'
+'open-sans'
+'public-sans'
+'roboto-mono'
+'source-sans-pro'
+'system'
+'tahoma'
+'verdana'
+----------------------------------------
+Add as many new tokens as you have
+custom typefaces. Reference your new
+token(s) in the type-based font settings
+using the quoted name of the token.
+
+For example:
+
+$theme-font-type-cond: 'example-font-token';
+
+display-name:
+The display name of your font
+
+cap-height:
+The height of a 500px `N` in Sketch
+----------------------------------------
+You should change `example-[style]-token`
+names to something more descriptive.
+----------------------------------------
+*/
+
+$theme-typeface-tokens: (
+  'ttlakes': (
+    display-name: 'TT Lakes',
+    cap-height: 371px,
+    stack: (
+      'Helvetica',
+      sans-serif
+    ),
+    src: (
+      dir: 'uswds/fonts/',
+      roman: (
+        100: false,
+        200: false,
+        300: false,
+        400: 'tt_lakes_medium-webfont',
+        500: false,
+        600: false,
+        700: 'tt_lakes_demibold-webfont',
+        800: false,
+        900: false
+      )
+    )
+  )
+);
+
 $theme-font-cond-custom-src: false;
 $theme-font-icon-custom-src: false;
 $theme-font-lang-custom-src: false;
@@ -283,11 +297,11 @@ tokens.
 ----------------------------------------
 */
 
-$theme-font-role-ui: "sans";
-$theme-font-role-heading: "serif";
-$theme-font-role-body: "sans";
-$theme-font-role-code: "mono";
-$theme-font-role-alt: "serif";
+$theme-font-role-ui: 'sans';
+$theme-font-role-heading: 'sans';
+$theme-font-role-body: 'serif';
+$theme-font-role-code: 'mono';
+$theme-font-role-alt: 'serif';
 
 /*
 ----------------------------------------
@@ -325,7 +339,7 @@ $theme-font-weight-normal: 400;
 $theme-font-weight-medium: false;
 $theme-font-weight-semibold: false;
 $theme-font-weight-bold: 700;
-$theme-font-weight-heavy: false;
+$theme-font-weight-heavy: 900;
 
 // If USWDS is generating your @font-face rules,
 // should we generate all available weights
@@ -391,32 +405,32 @@ none:    none
 */
 
 // Body settings are the equivalent of setting the <body> element
-$theme-body-font-family: "body";
-$theme-body-font-size: "sm";
+$theme-body-font-family: 'body';
+$theme-body-font-size: 'sm';
 $theme-body-line-height: 5;
 
 // If true, explicitly style the <body> element with the base styles
 $theme-style-body-element: false;
 
 // Headings
-$theme-h1-font-size: "2xl";
-$theme-h2-font-size: "xl";
-$theme-h3-font-size: "lg";
-$theme-h4-font-size: "sm";
-$theme-h5-font-size: "xs";
-$theme-h6-font-size: "3xs";
+$theme-h1-font-size: 'xl';
+$theme-h2-font-size: 'lg';
+$theme-h3-font-size: 'md';
+$theme-h4-font-size: 'sm';
+$theme-h5-font-size: 'xs';
+$theme-h6-font-size: '3xs';
 $theme-heading-line-height: 2;
-$theme-small-font-size: "2xs";
-$theme-display-font-size: "3xl";
+$theme-small-font-size: '2xs';
+$theme-display-font-size: '2xl';
 
 // Text and prose
 $theme-text-measure-narrow: 1;
-$theme-text-measure: 4;
+$theme-text-measure: none;
 $theme-text-measure-wide: 6;
-$theme-prose-font-family: "body";
+$theme-prose-font-family: 'body';
 
 // Lead text
-$theme-lead-font-family: "heading";
-$theme-lead-font-size: "lg";
+$theme-lead-font-family: 'heading';
+$theme-lead-font-size: 'lg';
 $theme-lead-line-height: 6;
 $theme-lead-measure: 6;

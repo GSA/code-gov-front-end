@@ -31,11 +31,7 @@ export default class ProjectPage extends Component {
   get lastModifiedDateHTML() {
     const lastModifiedDate = getLastModifiedDateString(this.props.repo)
     if (lastModifiedDate) {
-      return (
-        <span className="updated">
-          <div>{`Last updated on ${lastModifiedDate}`}</div>
-        </span>
-      )
+      return <p className="font-body-2xs margin-y-2px">{`Last updated on ${lastModifiedDate}`}</p>
     }
   }
 
@@ -44,10 +40,12 @@ export default class ProjectPage extends Component {
     return (
       <Fragment>
         {map(tags, tag => (
-          <CustomLink key={tag} to={`/search?query=${tag}`}>
-            <span>
-              <button className="tag">{tag}</button>
-            </span>
+          <CustomLink
+            key={tag}
+            to={`/search?query=${tag}`}
+            className="usa-button font-body-2xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
+          >
+            <span className="text-white text-no-underline text-normal">{tag}</span>
           </CustomLink>
         ))}
       </Fragment>
@@ -58,21 +56,17 @@ export default class ProjectPage extends Component {
     const text = getDisplayTextForUsageType(this.props.repo)
     if (text === 'Open Source') {
       return (
-        <li>
-          <span>
-            <i className="icon icon-ok-circled2" />
-            Open Source
-          </span>
+        <li className="margin-bottom-0">
+          <i className="icon icon-ok-circled2 padding-right-05" />
+          Open Source
         </li>
       )
     }
     if (text === 'Gov-wide Reuse') {
       return (
-        <li>
-          <span>
-            <i className="icon icon-arrows-cw" />
-            Government-Wide Reuse
-          </span>
+        <li className="margin-bottom-0">
+          <i className="icon icon-arrows-cw padding-right-05" />
+          Government-Wide Reuse
         </li>
       )
     }
@@ -82,12 +76,10 @@ export default class ProjectPage extends Component {
     const text = getLicenseName(this.props.repo)
     if (text) {
       return (
-        <span>
-          <li>
-            <i className="icon icon-certificate" />
-            <span>{text}</span>
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-certificate padding-right-05" />
+          {text}
+        </li>
       )
     }
   }
@@ -96,12 +88,10 @@ export default class ProjectPage extends Component {
     const laborHours = getLaborHours(this.props.repo)
     if (laborHours) {
       return (
-        <span>
-          <li>
-            <i className="icon icon-hourglass-end" />
-            {`${laborHours} hours`}
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-hourglass-end padding-right-05" />
+          {`${laborHours} hours`}
+        </li>
       )
     }
   }
@@ -109,20 +99,11 @@ export default class ProjectPage extends Component {
   get languages() {
     const langs = parseLanguages(this.props.repo)
     if (some(langs)) {
-      const count = langs.length
-      const lastIndex = count - 1
       return (
-        <span>
-          <li>
-            <i className="icon icon-code" />
-            {map(langs, (lang, i) => (
-              <span className={`language${i === lastIndex && ' last'}`} key={lang}>
-                {lang}
-                <span className="comma">, </span>
-              </span>
-            ))}
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-code padding-right-05" />
+          {langs.join(', ')}
+        </li>
       )
     }
   }
@@ -131,14 +112,12 @@ export default class ProjectPage extends Component {
     const email = parseEmail(this.props.repo)
     if (email) {
       return (
-        <span>
-          <li>
-            <i className="icon icon-mail" />
-            <a href={`mailto:${email}?Subject=Contribution%20Inquiry`} target="_top">
-              {email}
-            </a>
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-mail padding-right-05" />
+          <a href={`mailto:${email}?Subject=Contribution%20Inquiry`} target="_top">
+            {email}
+          </a>
+        </li>
       )
     }
   }
@@ -148,8 +127,13 @@ export default class ProjectPage extends Component {
 
     if (url) {
       return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          <button className="button">Visit Repo</button>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="usa-button margin-bottom-6 margin-top-neg-2px"
+        >
+          Visit Repo
         </a>
       )
     }
@@ -205,8 +189,8 @@ export default class ProjectPage extends Component {
       const agencyAcronym = repo.agency.acronym
       const repoName = repo.name
       return (
-        <div className="repo-general">
-          <SiteBanner title="Browse Projects" />
+        <main id="main-content">
+          <SiteBanner title="Projects" />
           <Breadcrumbs
             crumbs={[
               { text: 'Home', to: '/' },
@@ -214,27 +198,29 @@ export default class ProjectPage extends Component {
               { text: repoName }
             ]}
           />
-          <section className="repo-container indented">
+          <section className="grid-container">
             <header>
-              <div className="repo-header-container">
-                <h2>{repoName}</h2>
+              <div className="margin-top-1">
+                <h2 className="font-heading-xl">{repoName}</h2>
                 {this.lastModifiedDateHTML}
-                {this.repoTags}
-                <ul className="repo-features">
+                <div id="repo-tags" className="grid-row margin-top-0">
+                  {this.repoTags}
+                </div>
+                <ul className="padding-0 font-body-2xs">
                   {this.usageType}
                   {this.license}
                   {this.displayLaborHours}
                   {this.languages}
                   {this.contact}
                 </ul>
-                <p>{repo.description}</p>
+                <p className="maxw-none font-body-2xs">{repo.description}</p>
                 {this.additionalData}
                 <br />
                 {this.repositoryURL}
               </div>
             </header>
           </section>
-        </div>
+        </main>
       )
     }
     return <div>Loading Project</div>

@@ -26,10 +26,20 @@ exports[`components - App render should render correctly 1`] = `
   <div
     className="App"
   >
-    <OfficialBanner
-      isDark={true}
-    />
-    <withRouter(Connect(Menu)) />
+    <a
+      className="usa-skipnav z-500"
+      href="#main-content"
+    >
+      Skip to main content
+    </a>
+    <div
+      className="width-full menu-banner-header"
+    >
+      <OfficialBanner
+        isDark={true}
+      />
+      <withRouter(Connect(Menu)) />
+    </div>
     <Switch>
       <Route
         component={[Function]}
@@ -42,7 +52,7 @@ exports[`components - App render should render correctly 1`] = `
       />
       <Route
         component={[Function]}
-        path="/about"
+        path="/federal-agencies"
       />
       <Route
         component={[Function]}
@@ -66,7 +76,7 @@ exports[`components - App render should render correctly 1`] = `
       />
       <Route
         component={[Function]}
-        path="/about"
+        path="/about-page"
       />
       <Redirect
         to="/"
@@ -75,4 +85,4 @@ exports[`components - App render should render correctly 1`] = `
     <Connect(Footer) />
   </div>
 </Connect(ConnectedRouter)>
-`;
+`

@@ -6,3 +6,4 @@ dist/*
 docs/*
 src/**/**/*.json
 styles/uswds/*
+*.snap
