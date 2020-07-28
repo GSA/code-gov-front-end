@@ -44,7 +44,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           id="repo-tags"
         >
           <Connect(CustomLinkComponent)
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
+            className="usa-button font-body-2xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
             key="repo-tag-1"
             to="/search?query=repo-tag-1"
           >
@@ -55,7 +55,7 @@ exports[`components - ProjectPage render should render correctly 1`] = `
             </span>
           </Connect(CustomLinkComponent)>
           <Connect(CustomLinkComponent)
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
+            className="usa-button font-body-2xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
             key="repo-tag-2"
             to="/search?query=repo-tag-2"
           >
@@ -67,55 +67,37 @@ exports[`components - ProjectPage render should render correctly 1`] = `
           </Connect(CustomLinkComponent)>
         </div>
         <ul
-          className="padding-0"
+          className="padding-0 font-body-2xs"
         >
-          <span
-            className="font-body-3xs"
-          >
-            <li>
-              <i
-                className="icon icon-certificate padding-right-05"
-              />
-              <span>
-                repo-license
-              </span>
-            </li>
-          </span>
-          <span
-            className="font-body-3xs"
-          >
-            <li>
-              <i
-                className="icon icon-hourglass-end padding-right-05"
-              />
-              123 hours
-            </li>
-          </span>
-          <span
-            className="font-body-3xs"
-          >
-            <li>
-              <i
-                className="icon icon-code padding-right-05"
-              />
-              repo-lang-1, repo-lang-2
-            </li>
-          </span>
-          <span
-            className="font-body-3xs"
-          >
-            <li>
-              <i
-                className="icon icon-mail padding-right-05"
-              />
-              <a
-                href="mailto:repo-email?Subject=Contribution%20Inquiry"
-                target="_top"
-              >
-                repo-email
-              </a>
-            </li>
-          </span>
+          <li>
+            <i
+              className="icon icon-certificate padding-right-05"
+            />
+            repo-license
+          </li>
+          <li>
+            <i
+              className="icon icon-hourglass-end padding-right-05"
+            />
+            123 hours
+          </li>
+          <li>
+            <i
+              className="icon icon-code padding-right-05"
+            />
+            repo-lang-1, repo-lang-2
+          </li>
+          <li>
+            <i
+              className="icon icon-mail padding-right-05"
+            />
+            <a
+              href="mailto:repo-email?Subject=Contribution%20Inquiry"
+              target="_top"
+            >
+              repo-email
+            </a>
+          </li>
         </ul>
         <p
           className="maxw-none font-body-2xs"

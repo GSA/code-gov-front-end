@@ -43,7 +43,7 @@ export default class ProjectPage extends Component {
           <CustomLink
             key={tag}
             to={`/search?query=${tag}`}
-            className="usa-button font-body-3xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
+            className="usa-button font-body-2xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
           >
             <span className="text-white text-no-underline text-normal">{tag}</span>
           </CustomLink>
@@ -57,20 +57,16 @@ export default class ProjectPage extends Component {
     if (text === 'Open Source') {
       return (
         <li className="margin-bottom-0">
-          <span className="font-body-3xs">
-            <i className="icon icon-ok-circled2 padding-right-05" />
-            Open Source
-          </span>
+          <i className="icon icon-ok-circled2 padding-right-05" />
+          Open Source
         </li>
       )
     }
     if (text === 'Gov-wide Reuse') {
       return (
         <li className="margin-bottom-0">
-          <span className="font-body-3xs">
-            <i className="icon icon-arrows-cw padding-right-05" />
-            Government-Wide Reuse
-          </span>
+          <i className="icon icon-arrows-cw padding-right-05" />
+          Government-Wide Reuse
         </li>
       )
     }
@@ -80,12 +76,10 @@ export default class ProjectPage extends Component {
     const text = getLicenseName(this.props.repo)
     if (text) {
       return (
-        <span className="font-body-3xs">
-          <li>
-            <i className="icon icon-certificate padding-right-05" />
-            <span>{text}</span>
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-certificate padding-right-05" />
+          {text}
+        </li>
       )
     }
   }
@@ -94,12 +88,10 @@ export default class ProjectPage extends Component {
     const laborHours = getLaborHours(this.props.repo)
     if (laborHours) {
       return (
-        <span className="font-body-3xs">
-          <li>
-            <i className="icon icon-hourglass-end padding-right-05" />
-            {`${laborHours} hours`}
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-hourglass-end padding-right-05" />
+          {`${laborHours} hours`}
+        </li>
       )
     }
   }
@@ -108,12 +100,10 @@ export default class ProjectPage extends Component {
     const langs = parseLanguages(this.props.repo)
     if (some(langs)) {
       return (
-        <span className="font-body-3xs">
-          <li>
-            <i className="icon icon-code padding-right-05" />
-            {langs.join(', ')}
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-code padding-right-05" />
+          {langs.join(', ')}
+        </li>
       )
     }
   }
@@ -122,14 +112,12 @@ export default class ProjectPage extends Component {
     const email = parseEmail(this.props.repo)
     if (email) {
       return (
-        <span className="font-body-3xs">
-          <li>
-            <i className="icon icon-mail padding-right-05" />
-            <a href={`mailto:${email}?Subject=Contribution%20Inquiry`} target="_top">
-              {email}
-            </a>
-          </li>
-        </span>
+        <li>
+          <i className="icon icon-mail padding-right-05" />
+          <a href={`mailto:${email}?Subject=Contribution%20Inquiry`} target="_top">
+            {email}
+          </a>
+        </li>
       )
     }
   }
@@ -218,7 +206,7 @@ export default class ProjectPage extends Component {
                 <div id="repo-tags" className="grid-row margin-top-0">
                   {this.repoTags}
                 </div>
-                <ul className="padding-0">
+                <ul className="padding-0 font-body-2xs">
                   {this.usageType}
                   {this.license}
                   {this.displayLaborHours}
