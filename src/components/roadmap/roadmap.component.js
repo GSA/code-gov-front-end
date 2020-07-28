@@ -69,7 +69,7 @@ export default class Roadmap extends React.Component {
 
   render() {
     return (
-      <div id="main-content">
+      <main id="main-content">
         <SiteBanner title="Roadmap" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Roadmap' }]} />
 
@@ -111,7 +111,7 @@ export default class Roadmap extends React.Component {
             <p className="maxw-none">{this.props.disclaimer}</p>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

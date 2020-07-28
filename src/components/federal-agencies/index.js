@@ -42,7 +42,7 @@ class FederalAgencies extends Component {
 
   render() {
     return (
-      <div id="main-content">
+      <main id="main-content">
         <SiteBanner title="FEDERAL AGENCIES" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Federal Agencies' }]} />
         <div className="grid-container">
@@ -70,7 +70,7 @@ class FederalAgencies extends Component {
         </div>
         <br />
         <br />
-      </div>
+      </main>
     )
   }
 }

@@ -70,7 +70,7 @@ export default class Menu extends Component {
           <div className="usa-nav-container">
             <div className="usa-navbar border-bottom-0">
               <div className="usa-logo" id="basic-logo">
-                <CustomLink to="/" className="svg-container" title={`${siteTitle} Home`}>
+                <CustomLink to="/" className="svg-container code-logo" title={`${siteTitle} Home`}>
                   <img
                     src={color === 'white' ? this.props.logoDark : this.props.logoLight}
                     alt="code.gov"

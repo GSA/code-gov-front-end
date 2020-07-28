@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - PrivacyPolicy render should render correctly 1`] = `
-<div
+<main
   id="main-content"
 >
   <Connect(SiteBanner)
@@ -31,5 +31,5 @@ exports[`components - PrivacyPolicy render should render correctly 1`] = `
       }
     />
   </div>
-</div>
+</main>
 `;

@@ -61,7 +61,7 @@ exports[`components - Roadmap - Row should render correctly 1`] = `
 `;
 
 exports[`components - Roadmap render should render correctly 1`] = `
-<div
+<main
   id="main-content"
 >
   <Connect(SiteBanner)
@@ -210,5 +210,5 @@ exports[`components - Roadmap render should render correctly 1`] = `
       </p>
     </div>
   </div>
-</div>
+</main>
 `;

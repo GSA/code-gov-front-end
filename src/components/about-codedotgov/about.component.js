@@ -13,13 +13,13 @@ export default class AboutCodeDotGov extends React.Component {
 
   render() {
     return (
-      <div id="main-content">
+      <main id="main-content">
         <SiteBanner title="About" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'About' }]} />
         <div className="grid-container margin-top-1">
           <LazyHTML url={`${dataurl}overview/introduction.html`} />
         </div>
-      </div>
+      </main>
     )
   }
 }

@@ -92,7 +92,7 @@ exports[`components - AboutPage - InventoryCode render should render correctly 1
 `;
 
 exports[`components - AboutPage render should render correctly 1`] = `
-<div
+<main
   id="main-content"
 >
   <Connect(SiteBanner)
@@ -191,5 +191,5 @@ exports[`components - AboutPage render should render correctly 1`] = `
   </div>
   <br />
   <br />
-</div>
+</main>
 `;

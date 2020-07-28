@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - ProjectPage render should render correctly 1`] = `
-<div>
+<main
+  id="main-content"
+>
   <Connect(SiteBanner)
     title="Projects"
   />
@@ -175,5 +177,5 @@ exports[`components - ProjectPage render should render correctly 1`] = `
       </div>
     </header>
   </section>
-</div>
+</main>
 `;

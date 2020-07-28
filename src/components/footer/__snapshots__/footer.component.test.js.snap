@@ -10,8 +10,7 @@ exports[`components - Footer should render correctly 1`] = `
   >
     <a
       className="text-bold font-body-3xs"
-      href="#"
-      onClick={[Function]}
+      href="#app"
     >
       Return to top
     </a>

@@ -189,7 +189,7 @@ export default class ProjectPage extends Component {
       const agencyAcronym = repo.agency.acronym
       const repoName = repo.name
       return (
-        <div>
+        <main id="main-content">
           <SiteBanner title="Projects" />
           <Breadcrumbs
             crumbs={[
@@ -220,7 +220,7 @@ export default class ProjectPage extends Component {
               </div>
             </header>
           </section>
-        </div>
+        </main>
       )
     }
     return <div>Loading Project</div>

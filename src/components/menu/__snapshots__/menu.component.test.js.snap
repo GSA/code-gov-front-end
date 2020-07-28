@@ -19,7 +19,7 @@ exports[`components - Menu render should render correctly 1`] = `
           id="basic-logo"
         >
           <Connect(CustomLinkComponent)
-            className="svg-container"
+            className="svg-container code-logo"
             title="test-title Home"
             to="/"
           >
