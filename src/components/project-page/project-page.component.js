@@ -190,7 +190,7 @@ export default class ProjectPage extends Component {
       const repoName = repo.name
       return (
         <div>
-          <SiteBanner title="Browse Projects" />
+          <SiteBanner title="Projects" />
           <Breadcrumbs
             crumbs={[
               { text: 'Home', to: '/' },

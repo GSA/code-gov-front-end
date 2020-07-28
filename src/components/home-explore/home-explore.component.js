@@ -22,7 +22,7 @@ export default class HomeExplore extends React.Component {
     return (
       <div className="grid-row">
         <section id="explore" className="explore usa-section">
-          <div className="explore-actions grid-row text-center tablet:border-bottom-2px tablet:border-top-2px padding-top-205 padding-bottom-205">
+          <div className="explore-actions grid-row text-center tablet:border-bottom-2px tablet:border-top-2px tablet:padding-top-205 padding-top-3 tablet:padding-bottom-205 padding-bottom-0">
             {this.props.exploreItems &&
               this.props.exploreItems.map(item => (
                 <div
@@ -40,7 +40,7 @@ export default class HomeExplore extends React.Component {
                         className="usa-button font-body-sm tablet-lg:padding-x-5 line-height-sans-2"
                         name={link.name}
                         url={link.url}
-                       />
+                      />
                     ))}
                   </div>
                 </div>

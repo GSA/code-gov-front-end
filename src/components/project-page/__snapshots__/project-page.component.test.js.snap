@@ -3,7 +3,7 @@
 exports[`components - ProjectPage render should render correctly 1`] = `
 <div>
   <Connect(SiteBanner)
-    title="Browse Projects"
+    title="Projects"
   />
   <Breadcrumbs
     crumbs={
