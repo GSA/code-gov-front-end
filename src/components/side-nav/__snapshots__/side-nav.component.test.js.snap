@@ -1,12 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - SideNav SideNavPart should render correctly 1`] = `
-<ul>
+<ul
+  className="usa-sidenav"
+>
   <li
+    className="usa-sidenav__item"
     key="link-1/link-1"
   >
     <NavLink
-      activeClassName="current"
+      activeClassName="usa-current"
       aria-current="page"
       onClick={[Function]}
       to="/test-url/link-1"
@@ -27,10 +30,11 @@ exports[`components - SideNav SideNavPart should render correctly 1`] = `
     />
   </li>
   <li
+    className="usa-sidenav__item"
     key="link-2/link-2"
   >
     <NavLink
-      activeClassName="current"
+      activeClassName="usa-current"
       aria-current="page"
       onClick={[Function]}
       to="/test-url/link-2"
@@ -39,10 +43,11 @@ exports[`components - SideNav SideNavPart should render correctly 1`] = `
     </NavLink>
   </li>
 </ul>
-`
+`;
 
 exports[`components - SideNav should render correctly 1`] = `
 <nav
+  aria-label="Side navigation"
   className="sidebar left"
 >
   <SideNavPart
@@ -68,4 +73,4 @@ exports[`components - SideNav should render correctly 1`] = `
     onLinkClick={[MockFunction]}
   />
 </nav>
-`
+`;

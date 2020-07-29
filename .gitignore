@@ -78,8 +78,12 @@ cypress.env.json
 # cypress videos
 cypress/videos/*
 
+# VS Code Development Files
+.vscode/
+
 # env files
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - AboutCodeDotGov render should render correctly 1`] = `
+<main
+  id="main-content"
+>
+  <Connect(SiteBanner)
+    title="About"
+  />
+  <Breadcrumbs
+    crumbs={
+      Array [
+        Object {
+          "text": "Home",
+          "to": "/",
+        },
+        Object {
+          "text": "About",
+        },
+      ]
+    }
+  />
+  <div
+    className="grid-container margin-top-1"
+  >
+    <LazyHTML
+      url="/src/components/about-codedotgov/html/overview/introduction.html"
+    />
+  </div>
+</main>
+`;

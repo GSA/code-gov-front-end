@@ -22,6 +22,6 @@ describe('components - HomeExplore', () => {
   })
 
   it('should map all the `exploreItems`', () => {
-    expect(wrapper.find('li').length).toBe(props.exploreItems.length)
+    expect(wrapper.find('.explore-action').length).toBe(props.exploreItems.length)
   })
 })

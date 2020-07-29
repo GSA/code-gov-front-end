@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
 
-export default function CardPart({ title, text = 'Not Available' }) {
+export default function CardPart({ title, text, className }) {
   return (
     <Fragment>
-      <dt>{`${title}:`}</dt>
-      <dd>{text || 'Not Available'}</dd>
+      <li className={className}>
+        <span className="text-bold">{title}: </span>
+        {text && text !== '' && text !== 'null' ? text : 'Not Available'}
+      </li>
     </Fragment>
   )
 }

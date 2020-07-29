@@ -2,123 +2,153 @@
 
 exports[`components - HomeNews should render correctly 1`] = `
 <section
-  className="news tablet:grid-col-6"
+  className="tablet:grid-col-6"
 >
-  <h2>
-    Open Source News & Events
-  </h2>
-  <ul>
-    <li
-      className="news-item"
-      key="t1"
+  <div
+    className="bg-primary-lighter"
+  >
+    <header
+      className="padding-x-4  padding-top-6"
     >
-      <div
-        className="news-content"
+      <h2
+        className="font-heading-l text-primary-darker text-center"
       >
-        <h1>
-          <a
-            href="u1"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            t1
-          </a>
-        </h1>
-        <p>
-          d1
-        </p>
-        <time>
-          dt1
-        </time>
-      </div>
-      <picture
-        className="news-image"
-      >
-        <source
-          media="min-width: 800px"
-          srcSet="i1"
-        />
-        <img
-          alt="alt1"
-          className="news-image"
-          src="i1"
-        />
-      </picture>
-    </li>
-    <li
-      className="news-item"
-      key="t2"
+        Open Source News & Events
+      </h2>
+    </header>
+    <ul
+      className="padding-x-1 padding-bottom-2"
     >
-      <div
-        className="news-content"
+      <li
+        className="bg-white grid-row margin-1 padding-2"
+        key="t1"
       >
-        <h1>
-          <a
-            href="u2"
-            rel="noopener noreferrer"
-            target="_blank"
+        <div
+          className="flex-1"
+        >
+          <h3
+            className="font-heading-sm text-bold"
           >
-            t2
-          </a>
-        </h1>
-        <p>
-          d2
-        </p>
-        <time>
-          dt2
-        </time>
-      </div>
-      <picture
-        className="news-image"
-      >
-        <source
-          media="min-width: 800px"
-          srcSet="i2"
-        />
-        <img
-          alt="alt2"
-          className="news-image"
-          src="i2"
-        />
-      </picture>
-    </li>
-    <li
-      className="news-item"
-      key="t3"
-    >
-      <div
-        className="news-content"
-      >
-        <h1>
-          <a
-            href="u3"
-            rel="noopener noreferrer"
-            target="_blank"
+            <a
+              href="u1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              t1
+            </a>
+          </h3>
+          <p
+            className="margin-bottom-0 font-body-2xs margin-top-105"
           >
-            t3
-          </a>
-        </h1>
-        <p>
-          d3
-        </p>
-        <time>
-          dt3
-        </time>
-      </div>
-      <picture
-        className="news-image"
+            d1
+          </p>
+          <time
+            className="font-body-3xs"
+          >
+            dt1
+          </time>
+        </div>
+        <picture
+          className="order-first padding-right-2"
+        >
+          <source
+            media="min-width: 800px"
+            srcSet="i1"
+          />
+          <img
+            alt="alt1"
+            className="maxw-15 margin-right-1"
+            src="i1"
+          />
+        </picture>
+      </li>
+      <li
+        className="bg-white grid-row margin-1 padding-2"
+        key="t2"
       >
-        <source
-          media="min-width: 800px"
-          srcSet="i3"
-        />
-        <img
-          alt="alt3"
-          className="news-image"
-          src="i3"
-        />
-      </picture>
-    </li>
-  </ul>
+        <div
+          className="flex-1"
+        >
+          <h3
+            className="font-heading-sm text-bold"
+          >
+            <a
+              href="u2"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              t2
+            </a>
+          </h3>
+          <p
+            className="margin-bottom-0 font-body-2xs margin-top-105"
+          >
+            d2
+          </p>
+          <time
+            className="font-body-3xs"
+          >
+            dt2
+          </time>
+        </div>
+        <picture
+          className="order-first padding-right-2"
+        >
+          <source
+            media="min-width: 800px"
+            srcSet="i2"
+          />
+          <img
+            alt="alt2"
+            className="maxw-15 margin-right-1"
+            src="i2"
+          />
+        </picture>
+      </li>
+      <li
+        className="bg-white grid-row margin-1 padding-2"
+        key="t3"
+      >
+        <div
+          className="flex-1"
+        >
+          <h3
+            className="font-heading-sm text-bold"
+          >
+            <a
+              href="u3"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              t3
+            </a>
+          </h3>
+          <p
+            className="margin-bottom-0 font-body-2xs margin-top-105"
+          >
+            d3
+          </p>
+          <time
+            className="font-body-3xs"
+          >
+            dt3
+          </time>
+        </div>
+        <picture
+          className="order-first padding-right-2"
+        >
+          <source
+            media="min-width: 800px"
+            srcSet="i3"
+          />
+          <img
+            alt="alt3"
+            className="maxw-15 margin-right-1"
+            src="i3"
+          />
+        </picture>
+      </li>
+    </ul>
+  </div>
 </section>
-`
+`;

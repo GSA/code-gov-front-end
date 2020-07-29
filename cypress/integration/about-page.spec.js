@@ -1,16 +1,15 @@
 describe('about page tests', () => {
   beforeEach(() => {
     cy.visit('/')
-  })
-  it('selects the about menu item', () => {
-    cy.get('li a[role="menuitem"]')
+      .get('li a')
       .contains(/about/i)
       .click()
   })
-  it('visits the about/overview page', () => {
-    cy.get('ul[role="menu"] > li > a')
-      .contains(/overview/i)
-      .click({ force: true })
+  it('visits the about page', () => {
+    cy.visit('/')
+      .get('li a')
+      .contains(/about/i)
+      .click()
       .get('#aboutthesourcecodepolicy')
       .contains(/source code/i)
       .should('exist')

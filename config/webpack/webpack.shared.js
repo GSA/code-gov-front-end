@@ -1,4 +1,4 @@
-const { dirname, join } = require('path')
+const { dirname, join, resolve } = require('path')
 const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -10,6 +10,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = dirname(dirname(__dirname))
 const nodeModulesDir = join(rootDir, 'node_modules')
+const uswdsContext = resolve(rootDir, 'node_modules', 'uswds', 'src', 'fonts')
 
 require('dotenv-flow').config()
 
@@ -69,25 +70,36 @@ const patterns = [
     to: join(OUTPUT_PATH, '/uswds/js')
   },
   {
-    from: './styles/uswds/fonts',
-    to: join(OUTPUT_PATH, '/uswds/fonts')
+    from: './assets/fonts/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    flatten: true
   },
   {
-    from: './src/components/about-page/html',
-    to: join(OUTPUT_PATH, '/src/components/about-page/html')
+    from: './styles/uswds/fonts/**/*',
+    to: join(OUTPUT_PATH, '/uswds/fonts/'),
+    force: true
+  },
+  {
+    from: '**/*',
+    context: uswdsContext,
+    to: join(OUTPUT_PATH, '/uswds/fonts/')
+  },
+  {
+    from: './src/components/federal-agencies/html',
+    to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
+  },
+  {
+    from: './src/components/about-codedotgov/html',
+    to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
   },
   {
     from: './404.html',
     to: join(OUTPUT_PATH, '404.html')
   },
   {
-    from: join(nodeModulesDir, '@code.gov/code-gov-style/dist/js/code-gov-web-components.js'),
-    to: 'webcomponents/code-gov-web-components.js'
-  },
-  {
     from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
     to: 'polyfills/custom-elements.js'
-   },
+  },
   {
     from: 'node_modules/custom-event-polyfill/polyfill.js',
     to: 'polyfills/custom-event.js'
@@ -218,7 +230,7 @@ module.exports = {
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
     // new CleanWebpackPlugin([OUTPUT_PATH], { root: rootDir }),
-    new CopyWebpackPlugin({patterns: patterns}),
+    new CopyWebpackPlugin({ patterns }),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       hash: true,

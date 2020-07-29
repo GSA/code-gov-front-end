@@ -19,14 +19,16 @@ export default class HomeComponent extends React.Component {
   render() {
     return (
       <Fragment>
-        <HomeBanner />
-        <div className="home-container grid-container">
-          <HomeExplore />
-          <div className="grid-row grid-gap">
-            <HomeAbout />
-            <HomeNews />
+        <main id="main-content">
+          <HomeBanner />
+          <div className="grid-container">
+            <HomeExplore />
+            <div className="grid-row grid-gap">
+              <HomeAbout />
+              <HomeNews />
+            </div>
           </div>
-        </div>
+        </main>
       </Fragment>
     )
   }

@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - SearchPage render should render correctly 1`] = `
-<div
+<main
   className="search-results-content"
+  id="main-content"
 >
   <Connect(SiteBanner)
     title="Search Results"
@@ -21,119 +22,125 @@ exports[`components - SearchPage render should render correctly 1`] = `
     }
   />
   <div
-    className="search-results-header"
+    className="grid-container"
   >
     <div
-      className="indented"
+      className="grid-row grid-gap"
     >
       <div
-        className="width-quarter"
+        className="margin-top-1 grid-col-12 tablet-lg:grid-col-3"
       >
         <Connect(QuickSearchBoxComponent)
           value="test-params-query"
         />
       </div>
-      <h3
-        className="repos-count width-three-quarters"
+      <p
+        className="repos-count tablet-lg:grid-col-9 grid-col-12 font-heading-lg text-bold tablet:margin-y-105 margin-top-3 margin-bottom-0"
       >
         Top 2 repositories for "test-query"
-      </h3>
+      </p>
     </div>
   </div>
   <div
-    className="indented"
+    className="grid-container"
   >
     <div
-      id="filter-boxes-section"
+      className="grid-row grid-gap"
     >
-      <h2>
-        Filter
-      </h2>
-      <FilterBoxes
-        boxes={
-          Array [
-            "box-1",
-            "box-2",
-          ]
-        }
-        config={
-          Array [
-            Array [
-              "Language",
-              "languages",
-            ],
-            Array [
-              "Federal Agency",
-              "agencies",
-            ],
-            Array [
-              "Licenses",
-              "licenses",
-            ],
-            Array [
-              "Usage Types",
-              "usageTypes",
-            ],
-          ]
-        }
-        onFilterBoxChange={[Function]}
-      />
-    </div>
-    <div
-      id="filter-results-section"
-    >
-      <SortSection
-        onSortChange={[MockFunction]}
-        options={
-          Array [
-            "sort-1",
-            "sort-2",
-          ]
-        }
-      />
-      <_default
-        filters={
-          Array [
-            "filter-1",
-            "filter-2",
-          ]
-        }
-        onClick={[Function]}
-      />
       <div
-        className="card-list"
+        className="tablet-lg:grid-col-3 tablet-lg:margin-top-4 margin-top-3"
+        id="filter-boxes-section"
       >
-        <div
-          className="card-container"
+        <h2
+          className="tablet-lg:margin-bottom-4 margin-bottom-105"
         >
-          <QualityPopover />
-          <ul
-            className="card-ul"
-          >
-            <RepoCardComponent
-              repo={
-                Object {
-                  "repoId": "repo-1",
-                }
-              }
-            />
-            <RepoCardComponent
-              repo={
-                Object {
-                  "repoId": "repo-2",
-                }
-              }
-            />
-          </ul>
-        </div>
-        <Pagination
-          count={2}
-          page={1}
-          pagesize={2}
-          updatePage={[Function]}
+          Filter
+        </h2>
+        <FilterBoxes
+          boxes={
+            Array [
+              "box-1",
+              "box-2",
+            ]
+          }
+          config={
+            Array [
+              Array [
+                "Language",
+                "languages",
+              ],
+              Array [
+                "Federal Agency",
+                "agencies",
+              ],
+              Array [
+                "Licenses",
+                "licenses",
+              ],
+              Array [
+                "Usage Types",
+                "usageTypes",
+              ],
+            ]
+          }
+          onFilterBoxChange={[Function]}
         />
+      </div>
+      <div
+        className=" tablet-lg:grid-col-9"
+        id="filter-results-section"
+      >
+        <SortSection
+          onSortChange={[MockFunction]}
+          options={
+            Array [
+              "sort-1",
+              "sort-2",
+            ]
+          }
+        />
+        <_default
+          filters={
+            Array [
+              "filter-1",
+              "filter-2",
+            ]
+          }
+          onClick={[Function]}
+        />
+        <div
+          className="card-list"
+        >
+          <div>
+            <QualityPopover />
+            <ul
+              className="usa-card-group padding-top-3"
+            >
+              <RepoCardComponent
+                repo={
+                  Object {
+                    "repoId": "repo-1",
+                  }
+                }
+              />
+              <RepoCardComponent
+                repo={
+                  Object {
+                    "repoId": "repo-2",
+                  }
+                }
+              />
+            </ul>
+          </div>
+          <Pagination
+            count={2}
+            page={1}
+            pagesize={2}
+            updatePage={[Function]}
+          />
+        </div>
       </div>
     </div>
   </div>
-</div>
-`
+</main>
+`;

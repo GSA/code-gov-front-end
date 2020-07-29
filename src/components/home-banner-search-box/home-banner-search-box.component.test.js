@@ -98,13 +98,8 @@ describe('components - HomeBannerSearchBox', () => {
       expect(wrapper.find('.search-description-text').length).toBe(0) // TODO: make data-test attributes...
     })
 
-    it('should not render `searchDescriptionTextMobile` if not provided', () => {
-      wrapper.setProps({ searchDescriptionTextMobile: undefined })
-      expect(wrapper.find('.show-w-lte-800').length).toBe(0) // TODO: make data-test attributes...
-    })
-
     it('should render the auto complete if there are suggestions and should be shown', () => {
-      wrapper.setState({ showAutocomplete: true, suggestions: ['term-1', 'term-2'] })
+      wrapper.setState({ showAutocomplete: true, suggestions: ['term-1', 'term-2', 'term-3'] })
       expect(wrapper.find(Autocomplete).length).toBe(1)
     })
   })

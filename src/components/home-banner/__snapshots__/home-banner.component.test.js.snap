@@ -2,38 +2,36 @@
 
 exports[`components - HomeBanner should render correctly 1`] = `
 <section
-  className="banner"
   id="banner-home"
 >
   <div
-    className="banner-content"
+    className="bg-primary text-center"
   >
     <div
-      className="banner-title"
-    >
-      test-motto
-    </div>
-    <div
-      className="banner-subtitle show-w-gt-1200"
-    >
-      test-subtitle
-    </div>
-    <div
-      className="banner-search"
+      className="padding-y-205 tablet:padding-y-4"
     >
       <div
-        className="banner-subsection width-half"
-        style={
-          Object {
-            "zIndex": 30,
-          }
-        }
+        className="font-heading-xl tablet:font-heading-2xl text-white line-height-sans-2"
+      >
+        test-motto
+      </div>
+      <div
+        className="font-heading-lg text-white desktop:display-block display-none margin-top-1"
+      >
+        test-subtitle
+      </div>
+    </div>
+    <div
+      className="bg-primary-lighter padding-y-205 tablet:padding-y-3"
+    >
+      <div
+        className="grid-container"
       >
         <div
-          className="banner-subsection-content"
+          className="grid-row"
         >
           <div
-            className="banner-subsection-content-padder"
+            className="tablet:grid-col"
           >
             <Connect(HomeBannerSearchBoxComponent) />
           </div>
@@ -42,4 +40,4 @@ exports[`components - HomeBanner should render correctly 1`] = `
     </div>
   </div>
 </section>
-`
+`;

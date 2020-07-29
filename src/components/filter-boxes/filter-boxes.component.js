@@ -21,7 +21,7 @@ export default class FilterBoxes extends React.Component {
             <FilterBox
               key={text}
               title={text}
-              options={this.props.boxes[category]}
+              options={JSON.stringify(this.props.boxes[category])}
               onChange={change => this.props.onFilterBoxChange(category, change)}
             />
           ))}

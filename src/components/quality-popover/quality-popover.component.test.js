@@ -1,12 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
-import { eventMap } from 'mocks/document'
 import QualityPopover from 'components/quality-popover/quality-popover.component'
 
-const props = {
+const props = {}
 
-}
+const popoverToggle = jest.fn()
 
 let wrapper
 let instance
@@ -16,43 +14,30 @@ describe('components - QualityPopover', () => {
     instance = wrapper.instance()
   })
 
-  describe('componentDidMount', () => {
-    it('should attach a `click` listener that sets as inactive if clicked outside the icon', () => {
-      wrapper.setState({ activated: true })
-      // shallow render does not give refs, so mocking here
-      instance.icon = { current: 'icon-target' }
-      // click on icon, should do nothing
-      eventMap.click({ target: 'icon-target' })
-      expect(wrapper.state('activated')).toBeTruthy()
-      // click outside icon, should make inactive
-      eventMap.click({ target: 'other-target' })
-      expect(wrapper.state('activated')).toBeFalsy()
-    })
-  })
-
   describe('onClick', () => {
     it('should toggle `activated`', () => {
+      document.body.innerHTML =
+        '<div id="data-quality-popover" className="padding-top-3" hidden> </div>'
       instance.onClick()
       expect(wrapper.state('activated')).toBeTruthy()
       instance.onClick()
       expect(wrapper.state('activated')).toBeFalsy()
+    })
+
+    it('should toggle popover', () => {
+      document.body.innerHTML =
+        '<div id="data-quality-popover" className="padding-top-3" hidden> </div>'
+      instance.onPopoverToggle()
+      expect(
+        wrapper.findWhere(x => x.prop('hidden') && x.prop('id').match('data-quality-popover'))
+          .length
+      ).toBe(1)
     })
   })
 
   describe('render', () => {
     it('should render correctly', () => {
       expect(wrapper).toMatchSnapshot()
-    })
-
-    it('should attach an `activated` class if `activated`', () => {
-      wrapper.setState({ activated: true })
-
-      expect(
-        wrapper.findWhere(x =>
-          x.prop('className')
-          && x.prop('className').match('activated')
-        ).length
-      ).toBe(1)
     })
   })
 })

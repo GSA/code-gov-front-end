@@ -2,25 +2,34 @@
 
 exports[`components - QualityPopover render should render correctly 1`] = `
 <div
-  style={
-    Object {
-      "position": "absolute",
-      "right": "0",
-      "top": "-25px",
-    }
-  }
+  className="tablet-lg:padding-top-0 padding-top-2"
 >
-  <span
-    className="data-quality-title"
-  >
-    Data Quality Score
-  </span>
   <div
-    className="icon icon-help-circled popper"
-    onClick={[Function]}
+    className="pin-right tablet-lg:padding-right-1"
+  >
+    <span
+      className="data-quality-title text-bold font-body-2xs"
+      id="data-quality-title"
+    >
+      Data Quality Score
+    </span>
+    <div
+      aria-labelledby="data-quality-title"
+      className="icon usa-button bg-white icon-help-circled popper display-inline text-primary padding-x-05 padding-y-0 margin-left-2px"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      role="button"
+      tabIndex="0"
+    />
+  </div>
+  <div
+    className="padding-top-3"
+    hidden={true}
+    id="data-quality-popover"
   >
     <div
-      className="popover desktop left"
+      className="z-top bg-base-lightest padding-x-2 padding-y-105 radius-lg margin-bottom-neg-2 font-body-2xs line-height-sans-3"
     >
       The Data Quality Score is determined by using the information provided by Agencies in their 
       <Connect(CustomLinkComponent)
@@ -28,29 +37,8 @@ exports[`components - QualityPopover render should render correctly 1`] = `
       >
         code.json
       </Connect(CustomLinkComponent)>
-       and by factors such as completeness and adherence to the 
-      <Connect(CustomLinkComponent)
-        to="/about/compliance/inventory-code"
-      >
-        metadata schema
-      </Connect(CustomLinkComponent)>
-      .
-    </div>
-    <div
-      className="popover mobile left"
-    >
-      <div
-        className="popover-title"
-      >
-        Data Quality Score
-      </div>
-      The Data Quality Score is determined by using the information provided by Agencies in their 
-      <Connect(CustomLinkComponent)
-        to="/about/compliance/inventory-code"
-      >
-        code.json
-      </Connect(CustomLinkComponent)>
-       and by factors such as completeness and adherence to the 
+       and by factors such as completeness and adherence to the
+       
       <Connect(CustomLinkComponent)
         to="/about/compliance/inventory-code"
       >
@@ -60,4 +48,4 @@ exports[`components - QualityPopover render should render correctly 1`] = `
     </div>
   </div>
 </div>
-`
+`;

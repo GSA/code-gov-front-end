@@ -2,12 +2,13 @@
 
 exports[`components - Autocomplete should render correctly 1`] = `
 <ul
-  className="autocomplete"
+  className="autocomplete bg-white border-1px border-primary margin-top-1px text-left z-100 padding-left-0"
 >
   <li
     key="/to-1"
   >
     <Connect(CustomLinkComponent)
+      className="display-block padding-1 text-no-underline"
       onClick={[Function]}
       to="/to-1"
     >
@@ -15,7 +16,9 @@ exports[`components - Autocomplete should render correctly 1`] = `
         aria-label="search"
         className="icon icon-search"
       />
-      <span>
+      <span
+        className="text-black font-body-3xs padding-left-2px overflow-hidden text-no-wrap width-full display-inline-block text-bottom"
+      >
         text-1
       </span>
     </Connect(CustomLinkComponent)>
@@ -24,6 +27,7 @@ exports[`components - Autocomplete should render correctly 1`] = `
     key="/to-2"
   >
     <Connect(CustomLinkComponent)
+      className="display-block padding-1 text-no-underline"
       onClick={[Function]}
       to="/to-2"
     >
@@ -31,10 +35,12 @@ exports[`components - Autocomplete should render correctly 1`] = `
         aria-label="search"
         className="icon icon-search"
       />
-      <span>
+      <span
+        className="text-black font-body-3xs padding-left-2px overflow-hidden text-no-wrap width-full display-inline-block text-bottom"
+      >
         text-2
       </span>
     </Connect(CustomLinkComponent)>
   </li>
 </ul>
-`
+`;

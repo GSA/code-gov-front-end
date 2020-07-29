@@ -70,6 +70,8 @@ describe('components - OpenTasks', () => {
     })
 
     it('should scroll to the top of the results', () => {
+      document.body.innerHTML =
+        '<header class="usa-card__header"><h3 class="usa-card__heading font-heading-lg margin-top-0"><a href="https://github.com/GSA/code-gov-api/issues/207" target="_blank" rel="noopener noreferrer" class="issue-link">Add broken links to status report</a></h3></header>'
       expect(scrollToTopOfResults).toBeCalled()
     })
 
@@ -87,7 +89,9 @@ describe('components - OpenTasks', () => {
       expect(scrollToTopOfResults).toBeCalled()
     })
 
-    it('should udpate the page value', () => {
+    it('should update the page value', () => {
+      document.body.innerHTML =
+        '<header class="usa-card__header"><h3 class="usa-card__heading font-heading-lg margin-top-0"><a href="https://github.com/GSA/code-gov-api/issues/207" target="_blank" rel="noopener noreferrer" class="issue-link">Add broken links to status report</a></h3></header>'
       expect(props.updatePage).toBeCalledWith('page')
     })
   })
