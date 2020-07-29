@@ -511,6 +511,10 @@ ignore:
     - webpack > node-libs-browser > crypto-browserify > create-ecdh > elliptic:
         reason: Will correct with master rebase.
         expires: '2020-08-20T15:29:55.052Z'
+  SNYK-JS-MARKED-584281:
+    - markdown-loader > marked:
+        reason: No remidiation available.
+        expires: '2020-08-28T19:50:57.722Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
