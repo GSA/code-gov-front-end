@@ -4,7 +4,6 @@
     "base": "https://api.code.gov/",
     "key": "eQjuCayvuIpnxRjFZ0ev0jDHoTvhidzrX0hL3ttC"
   },
-  "style": "code-gov-style",
   "twitter": {
     "handle": ""
   },
@@ -15,9 +14,18 @@
         "light": "./assets/img/logos/pub-code-light.svg"
       },
       "links": [
-        { "name": "Browse Projects", "url": "/#!/explore-code" },
-        { "name": "Help Wanted", "url": "/#!/help-wanted" },
-        { "name": "Roadmap", "url": "/#!/roadmap" }
+        {
+          "name": "Browse Projects",
+          "url": "/#!/explore-code"
+        },
+        {
+          "name": "Help Wanted",
+          "url": "/#!/help-wanted"
+        },
+        {
+          "name": "Roadmap",
+          "url": "/#!/roadmap"
+        }
       ]
     },
     "home": {
@@ -57,15 +65,26 @@
           "description": "The GNEIMO methods and algorithms build up on the Spatial Operator Algebra (SOA) multibody dynamics framework.",
           "image": "/assets/img/featured-projects/Science.svg",
           "links": [
-            { "name": "View Project", "url": "/#!/explore-code/agencies/NASA/repos/nasa_jpl_gneimo_advanced_techniques_for_constrained_internal_coordinate_molecular_dynamics" },
-            { "name": "Go to Repo", "url": "https://software.nasa.gov/software/NPO-48712-1" }
+            {
+              "name": "View Project",
+              "url": "/#!/explore-code/agencies/NASA/repos/nasa_jpl_gneimo_advanced_techniques_for_constrained_internal_coordinate_molecular_dynamics"
+            },
+            {
+              "name": "Go to Repo",
+              "url": "https://software.nasa.gov/software/NPO-48712-1"
+            }
           ]
         }
       ]
     },
     "browse_projects": {
-      "agencies": ["DOE", "HHS", "NASA","USDA"],
-      "browse_by_text": "Browse by Agency"      
+      "agencies": [
+        "DOE",
+        "HHS",
+        "NASA",
+        "USDA"
+      ],
+      "browse_by_text": "Browse by Agency"
     },
     "search": {
       "entities": [
@@ -114,17 +133,38 @@
         "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap."
       ],
       "near": [
-        { "name": "Create Prototype", "status": "Released" },
-        { "name": "Roadmap on site", "status": "Released" },
-        { "name": "Create Metadata Schema", "status": "In Progress" },
-        { "name": "Create MVP", "status": "In Progress" }
+        {
+          "name": "Create Prototype",
+          "status": "Released"
+        },
+        {
+          "name": "Roadmap on site",
+          "status": "Released"
+        },
+        {
+          "name": "Create Metadata Schema",
+          "status": "In Progress"
+        },
+        {
+          "name": "Create MVP",
+          "status": "In Progress"
+        }
       ],
       "mid": [
-        { "name": "Integrate Quality Metric", "status": null }
+        {
+          "name": "Integrate Quality Metric",
+          "status": null
+        }
       ],
       "long": [
-        { "name": "Integrate literature highlighting by Bowtie v Bowtie2", "status": null },
-        { "name": "Integrate u-INDEX by Callahan et al. (2018)", "status": null }
+        {
+          "name": "Integrate literature highlighting by Bowtie v Bowtie2",
+          "status": null
+        },
+        {
+          "name": "Integrate u-INDEX by Callahan et al. (2018)",
+          "status": null
+        }
       ],
       "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The PubCode team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of PubCode, the Presidential Innovation Fellows, the National Center for Biotechnology Information, and the United States Federal Government."
     }
