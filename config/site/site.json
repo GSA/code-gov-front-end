@@ -439,5 +439,8 @@
       ],
       "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The Code.gov team will update the Roadmap as frequently as possible but it is subject to change at any time. The information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of Code.gov and the U.S. General Services Administration."
     }
+  },
+  "images": {
+    "background": "./assets/img/logos/code-gov-light.svg"
   }
 }
