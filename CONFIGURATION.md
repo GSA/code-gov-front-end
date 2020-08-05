@@ -13,9 +13,6 @@ To change the title of the website change the `title` property in `/config/site/
 ## api
 code-gov-front-end is the front-end and needs to communicate with a backend.  You can specify the base endpoint and api key.  For example, [code.gov](https://code.gov) sets `base` to `https://api.code.gov/` and sets `key` to our public api key.
 
-## style
-You can also configure the style sheets that your version of code-gov-front-end uses.  The `style` property takes a value of the name of the npm package to use for styles.  The easiest way to create your own style is to fork [code-gov-style](https://github.com/GSA/code-gov-style) and npm install it into your version.
-
 ## twitter handle
 You can add the handle for your twitter account.  This is used to generate the link for the Twitter icon in the top right of each page.
 

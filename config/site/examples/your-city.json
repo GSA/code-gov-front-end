@@ -4,7 +4,6 @@
     "base": "https://api.code.gov/",
     "key": "OC457325hyT6DpFm5HBBZ1i8SR6gtp5U2CdqtHZQ"
   },
-  "style": "code-gov-style",
   "twitter": {
     "handle": "yourcitydotgov"
   },
@@ -15,9 +14,18 @@
         "light": "./assets/img/logos/your-city-light.svg"
       },
       "links": [
-        { "name": "Browse Projects", "url": "/#!/explore-code" },
-        { "name": "Help Wanted", "url": "/#!/help-wanted" },
-        { "name": "Roadmap", "url": "/#!/roadmap" }
+        {
+          "name": "Browse Projects",
+          "url": "/#!/explore-code"
+        },
+        {
+          "name": "Help Wanted",
+          "url": "/#!/help-wanted"
+        },
+        {
+          "name": "Roadmap",
+          "url": "/#!/roadmap"
+        }
       ]
     },
     "home": {
@@ -57,8 +65,14 @@
           "description": "A website with resource and tools for starting your own business in Your City",
           "image": "/assets/img/featured-projects/biz_400x400.png",
           "links": [
-            { "name": "View Project", "url": "/#!/explore-code/agencies/" },
-            { "name": "Go to Repo", "url": "https://github.com/"}
+            {
+              "name": "View Project",
+              "url": "/#!/explore-code/agencies/"
+            },
+            {
+              "name": "Go to Repo",
+              "url": "https://github.com/"
+            }
           ]
         },
         {
@@ -68,8 +82,14 @@
           "description": "A mobile-friendly online interactive map that shows transportation routes and current locations of public transportation options",
           "image": "/assets/img/featured-projects/transportation_409x409.png",
           "links": [
-            { "name": "View Project", "url": "/#!/explore-code/agencies/" },
-            { "name": "Go to Repo", "url": "https://github.com" }
+            {
+              "name": "View Project",
+              "url": "/#!/explore-code/agencies/"
+            },
+            {
+              "name": "Go to Repo",
+              "url": "https://github.com"
+            }
           ]
         }
       ]
@@ -111,17 +131,38 @@
         "The Development Roadmap is organized into three categories – Near-term, Mid-term, and Long-term. Priorities are sorted into roadmap categories based on feedback we receive during user interviews. Dependencies and resources are also factors that affect placement on the roadmap. If you want to join the code.yourcity.gov user testing group, please email us at <a href='mailto:code@yourcity.gov'>code@yourcity.gov</a>."
       ],
       "near": [
-        { "name": "Feature 1", "status": "Released" },
-        { "name": "Feature 2", "status": "Released" }
+        {
+          "name": "Feature 1",
+          "status": "Released"
+        },
+        {
+          "name": "Feature 2",
+          "status": "Released"
+        }
       ],
       "mid": [
-        { "name": "Feature 3", "status": "In Progress" },
-        { "name": "Feature 4", "status": null },
-        { "name": "Feature 5", "status": "In Progress" }
+        {
+          "name": "Feature 3",
+          "status": "In Progress"
+        },
+        {
+          "name": "Feature 4",
+          "status": null
+        },
+        {
+          "name": "Feature 5",
+          "status": "In Progress"
+        }
       ],
       "long": [
-        { "name": "Feature 6", "status": null },
-        { "name": "Feature 7", "status": null }
+        {
+          "name": "Feature 6",
+          "status": null
+        },
+        {
+          "name": "Feature 7",
+          "status": null
+        }
       ],
       "disclaimer": "This Development Roadmap (Roadmap) is for informational purposes only. The code.yourcity.gov team will update the Roadmap as frequently as possible but, given that it’s subject to change at any time, the information presented by the Roadmap should not be used for planning purposes. The information presented in the Roadmap does not represent a solicitation or similar contract vehicle. All items in the Roadmap will be developed and released at the sole discretion of code.yourcity.gov, the Your City Innovation Office and the Your City Office of the Mayor."
     }

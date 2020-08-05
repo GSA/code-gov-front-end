@@ -22,7 +22,6 @@ Here’s how you can help contribute to code.gov:
 
 - Code.gov
   - To provide feedback on code-gov-front-end, please checkout our [Contributing Guildelines](CONTRIBUTING.md).
-  - To contribute to the Code.gov style guide, head over to the [code-gov-style](https://github.com/GSA/code-gov-style) repo.
   - To contribute to the Code.gov data, go to the [code-gov-data] repo at (https://github.com/GSA/code-gov-data)
   - Checkout [code-gov](https://github.com/GSA/code-gov) for a list of additional project repositories. If you aren't sure where your question or idea fits, this is a good place to share it.
 
@@ -56,16 +55,6 @@ The directories in `src` are organized around the pillars of React, along
 with several additional custom file types. When creating new files, be sure to
 add your file and any necessary templates, styles, and tests to a directory
 dedicated to your new file in the appropriate place.
-
-### Style Guide
-
-The bulk of the CSS for this application is at [Style Guide repository](https://github.com/GSA/code-gov-style) so that we can more easily keep things consistent and deploy changes more quickly.
-
-You'll need to clone/download the [Style Guide repository](https://github.com/GSA/code-gov-style) to get started.
-
-If you need to make CSS changes, make them within this directory and commit them to that repository.
-
-For more instructions on how to make changes, view the readme inside of the [Style Guide repository](https://github.com/GSA/code-gov-style).
 
 ### Testing
 
