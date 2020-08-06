@@ -2,8 +2,6 @@
 
 ### Files licensed under the SIL Open Font License
 
-The FontAwesome SVG's are found inside code-gov-font's font files.  [Font Awesome](http://fontawesome.io/) is by Dave Gandy under the [SIL Open Font License 1.1](http://scripts.sil.org/OFL).
-
 The TT Lakes font files in `src/assets/fonts` are from [Fontspring](https://www.fontspring.com/fonts/typetype/tt-lakes), licensed under the [Fontspring Font License](https://www.fontspring.com/lic/lv4e5lv2k2), and copyright The Foundry.
 
 ### Project dependencies

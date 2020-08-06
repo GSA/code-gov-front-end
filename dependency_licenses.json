@@ -661,33 +661,12 @@
     "path": "/Users/josephcastle/Development/DevCode/code-gov-front-end/node_modules/@code.gov/cautious",
     "licenseFile": "node_modules/@code.gov/cautious/README.md"
   },
-  "@code.gov/code-gov-font@0.10.0": {
-    "licenses": "CC0-1.0",
-    "repository": "https://github.com/GSA/code-gov-font",
-    "publisher": "Daniel J. Dufour",
-    "path": "/Users/josephcastle/Development/DevCode/code-gov-front-end/node_modules/@code.gov/code-gov-style/node_modules/@code.gov/code-gov-font",
-    "licenseFile": "node_modules/@code.gov/code-gov-style/node_modules/@code.gov/code-gov-font/LICENSE.md"
-  },
-  "@code.gov/code-gov-font@0.10.1": {
-    "licenses": "CC0-1.0",
-    "repository": "https://github.com/GSA/code-gov-font",
-    "publisher": "Daniel J. Dufour",
-    "path": "/Users/josephcastle/Development/DevCode/code-gov-front-end/node_modules/@code.gov/code-gov-font",
-    "licenseFile": "node_modules/@code.gov/code-gov-font/LICENSE.md"
-  },
   "@code.gov/code-gov-front-end@1.2.0": {
     "licenses": "CC0-1.0",
     "repository": "https://github.com/GSA/code-gov-front-end",
     "publisher": "Daniel J. Dufour",
     "path": "/Users/josephcastle/Development/DevCode/code-gov-front-end",
     "licenseFile": "LICENSE.md"
-  },
-  "@code.gov/code-gov-style@2.0.5": {
-    "licenses": "CC0-1.0",
-    "repository": "https://github.com/GSA/code-gov-style",
-    "publisher": "Daniel J. Dufour",
-    "path": "/Users/josephcastle/Development/DevCode/code-gov-front-end/node_modules/@code.gov/code-gov-style",
-    "licenseFile": "node_modules/@code.gov/code-gov-style/LICENSE.md"
   },
   "@code.gov/site-map-generator@1.0.12": {
     "licenses": "CC0-1.0",
