@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - OpenTasks render should render correctly 1`] = `
-<div
+<main
   className="search-results-content"
+  id="main-content"
 >
   <Connect(SiteBanner)
     title="Open Tasks"
@@ -21,86 +22,88 @@ exports[`components - OpenTasks render should render correctly 1`] = `
     }
   />
   <div
-    className="search-results-header"
+    className="grid-container"
   >
     <div
-      className="width-quarter"
+      className="tablet:grid-col-3"
     />
-    <h3
-      classname="repos-count width-three-quarters"
+    <p
+      className="repos-count font-heading-lg text-bold margin-y-105"
       key="0"
     >
-      There are 2 open tasks
-    </h3>
+      There are 2 open tasks.
+    </p>
   </div>
   <div
-    className="indented"
+    className="grid-container"
   >
     <div
-      id="filter-boxes-section"
-    >
-      <h2>
-        Filter
-      </h2>
-      <FilterBoxes
-        boxes={
-          Array [
-            "box-1",
-            "box-2",
-          ]
-        }
-        config={
-          Array [
-            Array [
-              "Federal Agency",
-              "agencies",
-            ],
-            Array [
-              "Skill Level",
-              "skillLevels",
-            ],
-            Array [
-              "Time Required",
-              "timeRequired",
-            ],
-            Array [
-              "Type",
-              "categories",
-            ],
-          ]
-        }
-        onFilterBoxChange={[Function]}
-      />
-    </div>
-    <div
-      id="filter-results-section"
+      className="grid-row grid-gap"
     >
       <div
-        className="sort-section"
+        className="tablet-lg:grid-col-3 margin-top-105"
+        id="filter-boxes-section"
       >
-        <h2>
-          <span>
-            Explore Open Tasks
-          </span>
+        <h2
+          className="margin-bottom-2"
+        >
+          Filter
         </h2>
+        <FilterBoxes
+          boxes={
+            Array [
+              "box-1",
+              "box-2",
+            ]
+          }
+          config={
+            Array [
+              Array [
+                "Federal Agency",
+                "agencies",
+              ],
+              Array [
+                "Skill Level",
+                "skillLevels",
+              ],
+              Array [
+                "Time Required",
+                "timeRequired",
+              ],
+              Array [
+                "Type",
+                "categories",
+              ],
+            ]
+          }
+          onFilterBoxChange={[Function]}
+        />
       </div>
-      <_default
-        filters={
-          Array [
-            "filter-1",
-            "filter-2",
-          ]
-        }
-        onClick={[Function]}
-      />
       <div
-        className="card-list"
+        className="tablet-lg:grid-col-9"
+        id="filter-results-section"
       >
         <div
-          className="card-container"
+          className="grid-row tablet-lg:margin-top-105 margin-bottom-1 margin-top-4"
+        >
+          <h2>
+            Explore Open Tasks
+          </h2>
+        </div>
+        <_default
+          filters={
+            Array [
+              "filter-1",
+              "filter-2",
+            ]
+          }
+          onClick={[Function]}
+        />
+        <div
+          className="card-list"
         >
           <ul
-            className="card-ul"
+            className="usa-card-group usa-card-group margin-top-2"
           >
             <TaskCardComponent
               key="task-1"
@@ -119,15 +122,15 @@ exports[`components - OpenTasks render should render correctly 1`] = `
               }
             />
           </ul>
+          <Pagination
+            count={2}
+            page={1}
+            pagesize={2}
+            updatePage={[Function]}
+          />
         </div>
-        <Pagination
-          count={2}
-          page={1}
-          pagesize={2}
-          updatePage={[Function]}
-        />
       </div>
     </div>
   </div>
-</div>
-`
+</main>
+`;

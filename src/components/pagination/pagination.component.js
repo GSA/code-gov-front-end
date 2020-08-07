@@ -14,16 +14,19 @@ export default class Pagination extends Component {
   get leftIcon() {
     if (equal(this.props.page, 1)) {
       return (
-        <span aria-label="Previous">
+        <span className="text-no-underline" aria-label="Previous">
           <i className="icon icon-angle-circled-left" /> Prev
         </span>
       )
     }
     if (Number(this.props.page) > 1) {
       return (
-        <a onClick={::this.handlePrevious}>
+        <button
+          className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"
+          onClick={::this.handlePrevious}
+        >
           <i className="icon icon-angle-circled-left" /> Prev
-        </a>
+        </button>
       )
     }
   }
@@ -31,15 +34,18 @@ export default class Pagination extends Component {
   get rightIcon() {
     if (this.isLastPage) {
       return (
-        <span>
+        <span className="text-no-underline">
           Next <i className="icon icon-angle-circled-right" />
         </span>
       )
     }
     return (
-      <a onClick={::this.handleNext}>
+      <button
+        className="text-no-underline border-0 bg-white text-bold padding-0 text-primary"
+        onClick={::this.handleNext}
+      >
         Next <i className="icon icon-angle-circled-right" />
-      </a>
+      </button>
     )
   }
 
@@ -130,47 +136,77 @@ export default class Pagination extends Component {
     const displayPages = this.getDisplayPages()
 
     return (
-      <nav role="navigation" aria-label="Pagination Navigation" tabIndex="0">
-        <ul className="ngx-pagination">
-          <div className="repo-list-summary-wrapper" tabIndex="0">
-            <p className="repo-list-summary">{summary}</p>
-          </div>
-          <li className={`pagination-previous${page === 1 ? ' disabled' : ''}`} tabIndex="0">
-            {this.leftIcon}
-          </li>
-          {displayPages.map((i, index) => {
-            const ellipsis = endsWith(i, 'ellipsis')
-            const current = equal(i, page)
-            let className = 'page'
-            const tabIndex = index + 1
-            if (i === 1) className += ' first'
-            if (current) className += ' current'
-            return (
-              <li className={className} key={i}>
-                {ellipsis && <span tabIndex={tabIndex}>...</span>}
-                {current && (
-                  <span tabIndex={tabIndex} aria-label={`Current Page ${i}`} aria-current="true">
-                    {i}
-                  </span>
-                )}
-                {!ellipsis && !current && (
-                  <a
-                    data-testid={`component-pagination-page-link-${i}`}
-                    tabIndex={tabIndex}
-                    aria-label={`Go to page ${i}`}
-                    onClick={() => this.handleChangePage(i)}
-                  >
-                    {i}
-                  </a>
-                )}
-              </li>
-            )
-          })}
-          <li className={`pagination-next${this.isLastPage ? ' disabled' : ''}`} tabIndex="8">
-            {this.rightIcon}
-          </li>
-        </ul>
-      </nav>
+      <>
+        <nav role="navigation" aria-label="Pagination Navigation" className="margin-top-neg-3">
+          <ul className="display-block font-body-3xs text-bold text-center padding-bottom-4 float-none tablet-lg:float-right padding-left-0">
+            <li className="tablet-lg:display-inline-block display-block">
+              <p className="display-inline-block">{summary}</p>
+            </li>
+            <li
+              className={`display-inline-block padding-left-2 padding-right-1${
+                page === 1 ? ' disabled' : ''
+              }`}
+              aria-label={`${
+                page === 1
+                  ? 'You are on the first page. There is no previous page.'
+                  : 'Go to the previous page.'
+              }`}
+            >
+              {this.leftIcon}
+            </li>
+            {displayPages.map((i, index) => {
+              const ellipsis = endsWith(i, 'ellipsis')
+              const current = equal(i, page)
+              let className = 'page'
+              const tabIndex = 0
+              if (i === 1) className += ' first'
+              if (current) className += ' current'
+              return (
+                <li
+                  className={`display-none tablet:display-inline padding-left-1 padding-right-1 ${className}`}
+                  key={i}
+                >
+                  {ellipsis && <span>...</span>}
+                  {current && (
+                    <span aria-label={`Current Page ${i}`} aria-current="true">
+                      {i}
+                    </span>
+                  )}
+                  {!ellipsis && !current && (
+                    <a
+                      data-testid={`component-pagination-page-link-${i}`}
+                      tabIndex={tabIndex}
+                      aria-label={`Go to page ${i}`}
+                      className="text-no-underline"
+                      index={i}
+                      onClick={() => this.handleChangePage(i)}
+                      onKeyPress={event => {
+                        if (event.which === 13) {
+                          this.handleChangePage(i)
+                        }
+                      }}
+                    >
+                      {i}
+                    </a>
+                  )}
+                </li>
+              )
+            })}
+            <li
+              className={`display-inline padding-left-1 tablet:padding-right-1 padding-right-2${
+                this.isLastPage ? ' disabled' : ''
+              }`}
+              aria-label={`${
+                this.isLastPage
+                  ? 'You are on the last page. There is no next page.'
+                  : 'Go to the next page.'
+              }`}
+            >
+              {this.rightIcon}
+            </li>
+          </ul>
+        </nav>
+      </>
     )
   }
 }

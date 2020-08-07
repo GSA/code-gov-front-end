@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*! uswds v2.8.0 */
+
+/* Banner */
+  .usa-banner__header-action::after {
+    background: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+    display: inline-block;
+    height: 0.8ex;
+    width: 1.3128205128ex;
+    content: '';
+    vertical-align: middle;
+    margin-left: 2px;
+  }
+  @supports ((-webkit-mask: url('')) or (mask: url(''))) or (-webkit-mask: url('')) {
+    .usa-banner__header-action::after {
+      background: none;
+      background-color: #005ea2;
+      -webkit-mask: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+      mask: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+    }
+
+  }
+  @media all and (max-width: 39.99em) {
+    .usa-banner__button[aria-expanded='true']::after {
+      background: url('../img/close-alt.svg') no-repeat center/1rem 1rem;
+      display: inline-block;
+      height: 3rem;
+      width: 3rem;
+      content: '';
+      vertical-align: middle;
+      margin-left: 0;
+    }
+    @supports ((-webkit-mask: url('')) or (mask: url(''))) or (-webkit-mask: url('')) {
+      .usa-banner__button[aria-expanded='true']::after {
+        background: none;
+        background-color: #005ea2;
+        -webkit-mask: url('../img/close-alt.svg') no-repeat center/1rem 1rem;
+        mask: url('../img/close-alt.svg') no-repeat center/1rem 1rem;
+      }
+    }
+  }
+  @media all and (min-width: 40em) {
+    .usa-banner__button::after {
+        background: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+        display: inline-block;
+        height: 0.8ex;
+        width: 1.3128205128ex;
+        content: '';
+        vertical-align: middle;
+        margin-left: 2px;
+      }
+    @supports ((-webkit-mask: url('')) or (mask: url(''))) or (-webkit-mask: url('')) {
+    .usa-banner__button::after {
+        background: none;
+        background-color: #005ea2;
+        -webkit-mask: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+        mask: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+    }
+    .usa-banner__button::after:hover {
+        background-color: #0b4778;
+    }
+    }
+    .usa-banner__button[aria-expanded='true']::after {
+      background: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+      display: inline-block;
+      height: 0.8ex;
+      width: 1.3128205128ex;
+      transform: rotate(180deg);
+      content: '';
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+    @supports ((-webkit-mask: url('')) or (mask: url(''))) or (-webkit-mask: url('')) {
+      .usa-banner__button[aria-expanded='true']::after {
+        background: none;
+        background-color: #005ea2;
+        -webkit-mask: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+        mask: url('../img/chevron.svg') no-repeat center/1.3128205128ex 0.8ex;
+      }
+    }
+  }
+
+
+/* Breadcrumbs */
+  @media all and (max-width: 29.99em) {
+    .usa-breadcrumb__list-item:nth-last-child(2) .usa-breadcrumb__link::before {
+      background: url('../img/arrow-left.svg') no-repeat center/1.35ex 1.35ex;
+      display: inline-block;
+      height: 1.35ex;
+      width: 1.35ex;
+      content: '';
+      vertical-align: baseline;
+      margin-right: 0;
+    }
+    @supports ((-webkit-mask: url('')) or (mask: url(''))) or (-webkit-mask: url('')) {
+      .usa-breadcrumb__list-item:nth-last-child(2) .usa-breadcrumb__link::before {
+        background: none;
+        background-color: #71767a;
+        -webkit-mask: url('../img/arrow-left.svg') no-repeat center/1.35ex 1.35ex;
+        mask: url('../img/arrow-left.svg') no-repeat center/1.35ex 1.35ex;
+      }
+    }
+  }
+  @media all and (min-width: 30em) {
+    .usa-breadcrumb__list-item:not(:last-child)::after {
+      background: url('../img/angle-arrow-right.svg') no-repeat center/0.84375ex 1.35ex;
+      display: inline-block;
+      height: 1.35ex;
+      width: 0.84375ex;
+      content: '';
+      vertical-align: baseline;
+      margin-left: 0;
+    }
+    @supports ((-webkit-mask: url('')) or (mask: url(''))) or (-webkit-mask: url('')) {
+      .usa-breadcrumb__list-item:not(:last-child)::after {
+        background: none;
+        background-color: #71767a;
+        -webkit-mask: url('../img/angle-arrow-right.svg') no-repeat center/0.84375ex 1.35ex;
+        mask: url('../img/angle-arrow-right.svg') no-repeat center/0.84375ex 1.35ex;
+      }
+    }
+  }
+  
+  

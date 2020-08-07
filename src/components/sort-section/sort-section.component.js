@@ -16,17 +16,27 @@ export default class SortSection extends Component {
     console.log('rendering sort-section', this.props.options)
     const selection = find(this.props.options, option => option.selected).value
     return (
-      <div className="sort-section">
-        <h2>
-          <span>Sort by</span>
-          <select aria-label="sort" onChange={::this.onSortChange} value={selection}>
+      <div className="grid-row">
+        <h2 className="margin-top-4" aria-hidden="true">
+          Sort by
+        </h2>
+        <form className="usa-form">
+          <label className="usa-label usa-sr-only" htmlFor="sort-options">
+            Sort by
+          </label>
+          <select
+            onChange={::this.onSortChange}
+            value={selection}
+            className="usa-select margin-left-1 radius-md"
+            id="sort-options"
+          >
             {map(this.props.options, option => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
           </select>
-        </h2>
+        </form>
       </div>
     )
   }

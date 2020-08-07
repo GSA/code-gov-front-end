@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - InventoryCodeComponent should render correctly 1`] = `
+<div
+  className="margin-top-4 "
+  id="schema-viewer"
+>
+  <form
+    className="usa-form"
+    id="optional-toggle-form"
+  >
+    <div
+      className="usa-checkbox"
+    >
+      <input
+        className="usa-checkbox__input"
+        id="hide-optional-fields"
+        onClick={[Function]}
+        type="checkbox"
+        value="hide-optional-fields"
+      />
+      <label
+        className="usa-checkbox__label"
+        htmlFor="hide-optional-fields"
+      >
+        Hide Optional Fields
+      </label>
+    </div>
+  </form>
+  <div
+    className="desktop-and-mobile-views"
+  >
+    <InventoryCodeTableComponent />
+  </div>
+</div>
+`;

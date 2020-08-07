@@ -8,7 +8,7 @@ const props = {
   page: 2, // 1 = first, 3 = last (30 total with 10 per page)
   count: 30,
   pagesize: 10,
-  updatePage: jest.fn(),
+  updatePage: jest.fn()
 }
 
 let wrapper
@@ -51,7 +51,15 @@ describe('components - Pagination', () => {
       expect(instance.getDisplayPages()).toEqual([1, 'left-ellipsis', 4, 5, 6, 7, 8])
 
       wrapper.setProps({ count: 100 })
-      expect(instance.getDisplayPages()).toEqual([1, 'left-ellipsis', 4, 5, 6, 'right-ellipsis', 10])
+      expect(instance.getDisplayPages()).toEqual([
+        1,
+        'left-ellipsis',
+        4,
+        5,
+        6,
+        'right-ellipsis',
+        10
+      ])
     })
   })
 
@@ -85,7 +93,7 @@ describe('components - Pagination', () => {
       jest.spyOn(instance, 'handlePrevious')
       const icon = shallow(instance.leftIcon)
       icon.simulate('click')
-      expect(icon.find('a').length).toBe(1)
+      expect(icon.find('button').length).toBe(1)
       expect(instance.handlePrevious).toBeCalled()
     })
   })
@@ -97,11 +105,11 @@ describe('components - Pagination', () => {
       expect(icon.find('span').length).toBe(1)
     })
 
-    it('should return an anchor that calls `handlePrevious` on click if not on the last page', () => {
+    it('should return an anchor that calls `handleNext` on click if not on the last page', () => {
       jest.spyOn(instance, 'handleNext')
       const icon = shallow(instance.rightIcon)
       icon.simulate('click')
-      expect(icon.find('a').length).toBe(1)
+      expect(icon.find('button').length).toBe(1)
       expect(instance.handleNext).toBeCalled()
     })
   })

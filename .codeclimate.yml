@@ -9,7 +9,9 @@ checks:
       threshold: 6
   method-lines:
     config:
-      threshold: 50
+      threshold: 85
 exclude_patterns:
   - 'src/**/*.test.js'
   - 'styles/uswds/'
+  - 'src/components/federal-agencies/inventory-code/*.js'
+  - 'src/components/gov-banner/*.js'

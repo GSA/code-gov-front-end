@@ -2,30 +2,36 @@
 
 exports[`components - SearchBox render should render correctly 1`] = `
 <form
-  className="search-form"
+  className="usa-search"
   onSubmit={[Function]}
+  role="search"
 >
-  <div
-    className="search-input-wrapper"
+  <label
+    className="usa-sr-only"
+    htmlFor="search-field"
   >
-    <div
-      className="search-input-and-button-wrapper"
+    Search Projects
+  </label>
+  <input
+    className="usa-input text-italic text-center font-body-3xs radius-left-md borderless"
+    data-testid="input-search-box"
+    id="search-field"
+    name="search"
+    onChange={[Function]}
+    placeholder="test-placholder"
+    type="input"
+    value="test-value"
+  />
+  <button
+    className="usa-button text-center font-body-sm"
+    data-testid="button-search-box"
+    type="submit"
+  >
+    <span
+      className="usa-search__submit-text"
     >
-      <input
-        aria-label="search"
-        data-testid="input-search-box"
-        onChange={[Function]}
-        placeholder="test-placholder"
-        type="input"
-        value="test-value"
-      />
-      <button
-        className="go"
-        data-testid="button-search-box"
-      >
-        Go
-      </button>
-    </div>
-  </div>
+      Go
+    </span>
+  </button>
 </form>
-`
+`;

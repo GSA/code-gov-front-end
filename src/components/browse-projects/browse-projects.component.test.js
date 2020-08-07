@@ -10,18 +10,18 @@ jest.mock('utils/other')
 
 const props = {
   total: 2,
-  repos: [ { repoId: 'repo-1' }, { repoId: 'repo-2' } ],
-  boxes: [ 'box-1' , 'box-2' ],
-  sortOptions: [ 'sort-1', 'sort-2' ],
+  repos: [{ repoId: 'repo-1' }, { repoId: 'repo-2' }],
+  boxes: ['box-1', 'box-2'],
+  sortOptions: ['sort-1', 'sort-2'],
   onSortChange: jest.fn(),
-  filterTags: [ 'filter-1', 'filter-2' ],
+  filterTags: ['filter-1', 'filter-2'],
   onFilterTagClick: jest.fn(),
   filterData: false,
   selectedPage: 1,
   selectedPageSize: 2,
   saveFilterData: jest.fn(),
   onFilterBoxChange: jest.fn(),
-  updatePage: jest.fn(),
+  updatePage: jest.fn()
 }
 
 let wrapper
@@ -51,18 +51,15 @@ describe('components - BrowseProjects', () => {
 
   describe('repoCounter', () => {
     it.each`
-      total         | match
-      ${0}          | ${/no/i}
-      ${1}          | ${/1/}
-      ${9}          | ${/9/}
-      ${undefined}  | ${/loading/i}
-    `(
-      'should render text that matches $match when the total is $total',
-      ({ total, match }) => {
-        wrapper.setProps({ total })
-        testRenderText(instance.repoCounter, match)
-      }
-    )
+      total        | match
+      ${0}         | ${/no/i}
+      ${1}         | ${/1/}
+      ${9}         | ${/9/}
+      ${undefined} | ${/loading/i}
+    `('should render text that matches $match when the total is $total', ({ total, match }) => {
+      wrapper.setProps({ total })
+      testRenderText(instance.repoCounter, match)
+    })
   })
 
   describe('reposContainer', () => {
@@ -95,6 +92,8 @@ describe('components - BrowseProjects', () => {
     })
 
     it('should scroll to the top of the results', () => {
+      document.body.innerHTML =
+        '<header class="usa-card__header grid-col-9"><h3 class="usa-card__heading font-heading-lg margin-top-0"><a class="project-link" href="/projects/treasury_bureau_fiscal_service_bfs_1_data_act_broker_backend">data-act-broker-backend</a></h3></header>'
       expect(scrollToTopOfResults).toBeCalled()
     })
 
@@ -109,10 +108,12 @@ describe('components - BrowseProjects', () => {
     })
 
     it('should scroll to the top of the results', () => {
+      document.body.innerHTML =
+        '<header class="usa-card__header grid-col-9"><h3 class="usa-card__heading font-heading-lg margin-top-0"><a class="project-link" href="/projects/treasury_bureau_fiscal_service_bfs_1_data_act_broker_backend">data-act-broker-backend</a></h3></header>'
       expect(scrollToTopOfResults).toBeCalled()
     })
 
-    it('should udpate the page value', () => {
+    it('should update the page value', () => {
       expect(props.updatePage).toBeCalledWith('page')
     })
   })

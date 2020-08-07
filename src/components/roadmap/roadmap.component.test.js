@@ -9,9 +9,18 @@ jest.spyOn(utilOther, 'refreshView')
 
 const props = {
   disclaimer: 'test-disclaimer',
-  long: [{ name: 'long-1', status: null }, { name: 'long-1', status: 'In Progress' }],
-  mid: [{ name: 'mid-1', status: 'Released' }, { name: 'mid-1', status: 'Released' }],
-  near: [{ name: 'near-1', status: 'In Progress' }, { name: 'near-1', status: 'Released' }],
+  long: [
+    { name: 'long-1', status: null },
+    { name: 'long-1', status: 'In Progress' }
+  ],
+  mid: [
+    { name: 'mid-1', status: 'Released' },
+    { name: 'mid-1', status: 'Released' }
+  ],
+  near: [
+    { name: 'near-1', status: 'In Progress' },
+    { name: 'near-1', status: 'Released' }
+  ],
   overview: ['overview-1', 'overview-2']
 }
 
@@ -57,7 +66,7 @@ describe('components - Roadmap - Row', () => {
 
   it('should render an `icon-circle` class if in progress', () => {
     wrapper.setProps({ todo: { ...rowProps.todo, status: 'in progress' } })
-    expect(wrapper.find('i').prop('className')).toBe('icon icon-circle')
+    expect(wrapper.find('i').prop('className')).toBe('icon icon-circle text-accent-warm-light')
   })
 
   it('should render an `icon` class if in progress', () => {
@@ -68,7 +77,10 @@ describe('components - Roadmap - Row', () => {
 
 const columnProps = {
   phase: 'test-phase',
-  todos: [{ name: 'todo-1', status: 'In Progress' }, { name: 'todo-2', status: 'Released' }]
+  todos: [
+    { name: 'todo-1', status: 'In Progress' },
+    { name: 'todo-2', status: 'Released' }
+  ]
 }
 
 describe('components - Roadmap - Column', () => {

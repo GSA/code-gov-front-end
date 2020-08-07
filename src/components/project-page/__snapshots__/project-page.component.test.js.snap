@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - ProjectPage render should render correctly 1`] = `
-<div
-  className="repo-general"
+<main
+  id="main-content"
 >
   <Connect(SiteBanner)
-    title="Browse Projects"
+    title="Projects"
   />
   <Breadcrumbs
     crumbs={
@@ -25,111 +25,85 @@ exports[`components - ProjectPage render should render correctly 1`] = `
     }
   />
   <section
-    className="repo-container indented"
+    className="grid-container"
   >
     <header>
       <div
-        className="repo-header-container"
+        className="margin-top-1"
       >
-        <h2>
+        <h2
+          className="font-heading-xl"
+        >
           repo-name
         </h2>
-        <span
-          className="updated"
+        <p
+          className="font-body-2xs margin-y-2px"
         >
-          <div>
-            Last updated on 12/10/2020
-          </div>
-        </span>
-        <Connect(CustomLinkComponent)
-          key="repo-tag-1"
-          to="/search?query=repo-tag-1"
+          Last updated on 12/10/2020
+        </p>
+        <div
+          className="grid-row margin-top-0"
+          id="repo-tags"
         >
-          <span>
-            <button
-              className="tag"
+          <Connect(CustomLinkComponent)
+            className="usa-button font-body-2xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
+            key="repo-tag-1"
+            to="/search?query=repo-tag-1"
+          >
+            <span
+              className="text-white text-no-underline text-normal"
             >
               repo-tag-1
-            </button>
-          </span>
-        </Connect(CustomLinkComponent)>
-        <Connect(CustomLinkComponent)
-          key="repo-tag-2"
-          to="/search?query=repo-tag-2"
-        >
-          <span>
-            <button
-              className="tag"
+            </span>
+          </Connect(CustomLinkComponent)>
+          <Connect(CustomLinkComponent)
+            className="usa-button font-body-2xs padding-1 padding-x-205 bg-primary text-lowercase radius-md margin-top-1 width-auto"
+            key="repo-tag-2"
+            to="/search?query=repo-tag-2"
+          >
+            <span
+              className="text-white text-no-underline text-normal"
             >
               repo-tag-2
-            </button>
-          </span>
-        </Connect(CustomLinkComponent)>
+            </span>
+          </Connect(CustomLinkComponent)>
+        </div>
         <ul
-          className="repo-features"
+          className="padding-0 font-body-2xs"
         >
-          <span>
-            <li>
-              <i
-                className="icon icon-certificate"
-              />
-              <span>
-                repo-license
-              </span>
-            </li>
-          </span>
-          <span>
-            <li>
-              <i
-                className="icon icon-hourglass-end"
-              />
-              123 hours
-            </li>
-          </span>
-          <span>
-            <li>
-              <i
-                className="icon icon-code"
-              />
-              <span
-                className="languagefalse"
-                key="repo-lang-1"
-              >
-                repo-lang-1
-                <span
-                  className="comma"
-                >
-                  , 
-                </span>
-              </span>
-              <span
-                className="language last"
-                key="repo-lang-2"
-              >
-                repo-lang-2
-                <span
-                  className="comma"
-                >
-                  , 
-                </span>
-              </span>
-            </li>
-          </span>
-          <span>
-            <li>
-              <i
-                className="icon icon-mail"
-              />
-              <a
-                href="mailto:repo-email?Subject=Contribution%20Inquiry"
-                target="_top"
-              >
-                repo-email
-              </a>
-            </li>
-          </span>
+          <li>
+            <i
+              className="icon icon-certificate padding-right-05"
+            />
+            repo-license
+          </li>
+          <li>
+            <i
+              className="icon icon-hourglass-end padding-right-05"
+            />
+            123 hours
+          </li>
+          <li>
+            <i
+              className="icon icon-code padding-right-05"
+            />
+            repo-lang-1, repo-lang-2
+          </li>
+          <li>
+            <i
+              className="icon icon-mail padding-right-05"
+            />
+            <a
+              href="mailto:repo-email?Subject=Contribution%20Inquiry"
+              target="_top"
+            >
+              repo-email
+            </a>
+          </li>
         </ul>
-        <p>
+        <p
+          className="maxw-none font-body-2xs"
+        >
           repo-desc
         </p>
         <div>
@@ -193,18 +167,15 @@ exports[`components - ProjectPage render should render correctly 1`] = `
         </div>
         <br />
         <a
+          className="usa-button margin-bottom-6 margin-top-neg-2px"
           href="https://github.com/repo-url"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <button
-            className="button"
-          >
-            Visit Repo
-          </button>
+          Visit Repo
         </a>
       </div>
     </header>
   </section>
-</div>
-`
+</main>
+`;

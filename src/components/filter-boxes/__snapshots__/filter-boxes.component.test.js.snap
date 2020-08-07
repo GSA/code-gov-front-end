@@ -5,32 +5,14 @@ exports[`components - FilterBoxes render should render correctly 1`] = `
   <FilterBox
     key="c1"
     onChange={[Function]}
-    options={
-      Array [
-        Object {
-          "id": "a1",
-          "value": "v1",
-        },
-        Object {
-          "id": "a2",
-          "value": "v2",
-        },
-      ]
-    }
+    options="[{\\"id\\":\\"a1\\",\\"value\\":\\"v1\\"},{\\"id\\":\\"a2\\",\\"value\\":\\"v2\\"}]"
     title="c1"
   />
   <FilterBox
     key="c2"
     onChange={[Function]}
-    options={
-      Array [
-        Object {
-          "id": "l1",
-          "value": "v3",
-        },
-      ]
-    }
+    options="[{\\"id\\":\\"l1\\",\\"value\\":\\"v3\\"}]"
     title="c2"
   />
 </Fragment>
-`
+`;

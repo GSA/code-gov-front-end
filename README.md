@@ -22,7 +22,6 @@ Here’s how you can help contribute to code.gov:
 
 - Code.gov
   - To provide feedback on code-gov-front-end, please checkout our [Contributing Guildelines](CONTRIBUTING.md).
-  - To contribute to the Code.gov style guide, head over to the [code-gov-style](https://github.com/GSA/code-gov-style) repo.
   - To contribute to the Code.gov data, go to the [code-gov-data] repo at (https://github.com/GSA/code-gov-data)
   - Checkout [code-gov](https://github.com/GSA/code-gov) for a list of additional project repositories. If you aren't sure where your question or idea fits, this is a good place to share it.
 
@@ -45,7 +44,8 @@ If you want to override that, specify an `CODE_GOV_API_KEY` environmental variab
 ```
 CODE_GOV_API_KEY=l87sfdi7ybc2bic7bai8cb2i176c3b872tb3 npm run start
 ```
-An alternate approach to using your API key every time you use ```npm run start``` is to create a ```.env.local``` file and store your API key. (Remember to use ```CODE_GOV_API_KEY=...```) In accordance with [dotenv-flow](https://www.npmjs.com/package/dotenv-flow), your personal key will be ignored when committing updates to GH.
+
+An alternate approach to using your API key every time you use `npm run start` is to create a `.env.local` file and store your API key. (Remember to use `CODE_GOV_API_KEY=...`) In accordance with [dotenv-flow](https://www.npmjs.com/package/dotenv-flow), your personal key will be ignored when committing updates to GH.
 
 You can sign up for an [API key](https://open.gsa.gov/api/codedotgov/).
 
@@ -55,16 +55,6 @@ The directories in `src` are organized around the pillars of React, along
 with several additional custom file types. When creating new files, be sure to
 add your file and any necessary templates, styles, and tests to a directory
 dedicated to your new file in the appropriate place.
-
-### Style Guide
-
-The bulk of the CSS for this application is at [Style Guide repository](https://github.com/GSA/code-gov-style) so that we can more easily keep things consistent and deploy changes more quickly.
-
-You'll need to clone/download the [Style Guide repository](https://github.com/GSA/code-gov-style) to get started.
-
-If you need to make CSS changes, make them within this directory and commit them to that repository.
-
-For more instructions on how to make changes, view the readme inside of the [Style Guide repository](https://github.com/GSA/code-gov-style).
 
 ### Testing
 
@@ -95,16 +85,15 @@ To run Cypress testing do the following:
 a. Make sure you run `npm install` to install all of the
 project’s dependencies.  
 b. Start a server by running `npm run start`.  
-c. Use the `npm run test:cypress` command to run the Cypress tests.  
+c. Use the `npm run test:cypress` command to run the Cypress tests.
 
-Once these steps are completed, you should see the list of spec files.  
+Once these steps are completed, you should see the list of spec files.
 
-![Cypress startup](assets/img/cypress-running.png)  
+![Cypress startup](assets/img/cypress-running.png)
 
-Click the `run all specs` button (in the upper right) to run the tests.   
- 
+Click the `run all specs` button (in the upper right) to run the tests.
+
 ![Cypress tests](assets/img/cypress-tests.png)
-
 
 ## Deployment
 

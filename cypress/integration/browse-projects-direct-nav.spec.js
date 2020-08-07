@@ -10,7 +10,7 @@ describe('browse projects page tests (direct nav)', () => {
   })
 
   it('properly filters projects by language', () => {
-    cy.get('input[value="C"]')
+    cy.get('input[value="HTML"]')
       .check({ force: true })
       // using wait not ideal: https://docs.cypress.io/guides/references/best-practices.html#Unnecessary-Waiting
       // this will have to be refactored but was the only way I could get the test to pass
@@ -18,13 +18,11 @@ describe('browse projects page tests (direct nav)', () => {
       // https://docs.cypress.io/api/commands/wait.html#Alias
       // https://docs.cypress.io/api/commands/route.html#Examples
       .wait(3000)
-      .get('.card-list-item')
-      .each((item) => {
-        cy.wrap(item)
-          .within(() => {
-            cy.contains('dl > dd > span', /^c$/i)
-            .should('exist')
-          })
+      .get('.usa-card')
+      .each(item => {
+        cy.wrap(item).within(() => {
+          cy.contains('div > ul > li', /html/i).should('exist')
+        })
       })
   })
 })
