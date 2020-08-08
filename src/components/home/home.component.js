@@ -3,13 +3,14 @@ import HomeExplore from 'components/home-explore'
 import HomeAbout from 'components/home-about'
 import HomeBanner from 'components/home-banner'
 import HomeNews from 'components/home-news'
+import HomeMetrics from 'components/home-metrics'
 import { refreshView } from 'utils/other'
 
 export default class HomeComponent extends React.Component {
   componentDidMount() {
     refreshView()
     window.addEventListener('popstate', _event => {
-      console.log('pop start in home cpoment:', PUBLIC_PATH)
+      console.log('pop start in home component:', PUBLIC_PATH)
       if (window.location.pathname === PUBLIC_PATH) {
         refreshView()
       }
@@ -26,6 +27,9 @@ export default class HomeComponent extends React.Component {
             <div className="grid-row grid-gap">
               <HomeAbout />
               <HomeNews />
+            </div>
+            <div className="grid-row">
+              <HomeMetrics />
             </div>
           </div>
         </main>
