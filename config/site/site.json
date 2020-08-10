@@ -217,14 +217,15 @@
       ],
       "metrics": [
         {
-          "date": "6/1/2020",
           "agencies": "26",
           "repos": "7,911",
           "forks": "51,612",
           "stars-watchers": "113,741",
           "open-issues": "38,566",
           "code-type-oss-percent": "0%",
-          "code-type-reuse-percent": "0%"
+          "code-type-reuse-percent": "0%",
+          "date": "6/1/2020",
+          "disclaimer": "Something here..."
         }
       ],
       "about": [
