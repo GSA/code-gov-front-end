@@ -31,6 +31,7 @@ class InventoryCodeContainer extends Component {
           <LazyHTML url={`${dataurl}compliance/how-to-inventory-a.html`} />
         </div>
         <InventoryCodeComponent url={schemaUrl} schema={schema} />
+        <LazyHTML url={`${dataurl}compliance/data-assets-ai.html`} />
         <div id="how-to-inventory-b">
           <LazyHTML url={`${dataurl}compliance/how-to-inventory-b.html`} />
         </div>
