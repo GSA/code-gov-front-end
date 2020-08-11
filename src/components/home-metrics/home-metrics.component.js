@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class HomeMetrics extends Component {
   render() {
     return (
-      <div className="grid-row">
+      <div className="grid-col-4 grid-offset-4">
         <section id="metrics" className="metrics usa-section">
           <h2 className="text-primary">Federal Source Code Metrics</h2>
           <h3>Last updated: 6/1/2020</h3>
