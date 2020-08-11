@@ -215,19 +215,20 @@
           "alt": "Know an Engineer"
         }
       ],
-      "metrics": [
-        {
-          "agencies": "26",
-          "repos": "7,911",
-          "forks": "51,612",
-          "stars-watchers": "113,741",
-          "open-issues": "38,566",
-          "code-type-oss-percent": "0%",
-          "code-type-reuse-percent": "0%",
-          "date": "6/1/2020",
-          "disclaimer": "Something here..."
-        }
-      ],
+      "metrics": {
+        "title": "Federal Source Code Engagement Metrics",
+        "date": "6/1/2020",
+        "data": {
+          "Agencies": "26",
+          "Repositories": "7,911",
+          "Forks": "51,612",
+          "Stars & watchers": "113,741",
+          "Open issues": "38,566",
+          "Open source software": "0%",
+          "Government-wide reuse": "0%"
+        },
+        "disclaimer": "*Data collected through GitHub API."
+      },
       "about": [
         {
           "title": "About Us",
