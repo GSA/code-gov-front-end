@@ -37,6 +37,15 @@ i.e.
   border-bottom: 2px solid #07648d;
 }
 
+.metrics-box {
+  ul {
+    padding-left: 1ch;
+  }
+  border-top: 2px solid #07648d;
+  border-bottom: 2px solid #07648d;
+  padding-bottom: 1em;
+}
+
 p,
 ul,
 li {
