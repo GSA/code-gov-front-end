@@ -1,7 +1,8 @@
 {
   "defaults": {
-  "timeout": 100000,
-  "wait": 1000,
+     "timeout": 100000,
+     "wait": 1000
+  },
   "standard": "WCAG2AA",
   "ignore": [
       "notice",
@@ -12,7 +13,6 @@
   "viewport": {
       "width": 1000,
       "height": 1000 
-     }
     },
     "urls": [
     "http://localhost:8080/",
