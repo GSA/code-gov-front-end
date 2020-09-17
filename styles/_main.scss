@@ -1,7 +1,6 @@
-/* import CSS rules that allow you to use icons */
 @import 'fonts.css';
 
-@import './styles/theme/styles.scss';
+@import '../styles/theme/styles.scss';
 
 // for lazy-html component
-@import '~react-placeholder/lib/reactPlaceholder.css';
+@import '../node_modules/react-placeholder/lib/reactPlaceholder.css';
