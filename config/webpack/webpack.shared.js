@@ -75,6 +75,14 @@ module.exports = {
           context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
         },
         {
+          from: './src/components/about-codedotgov/html',
+          to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
+        },
+        {
+          from: './src/components/federal-agencies/html',
+          to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
+        },
+        {
           from: 'fonts/**/*',
           to: 'uswds/',
           context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
@@ -88,6 +96,26 @@ module.exports = {
           from: 'fonts/*',
           to: 'assets/',
           context: path.resolve(rootDir, 'assets')
+        },
+        {
+          from: './404.html',
+          to: join(OUTPUT_PATH, '404.html')
+        },
+        {
+          from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
+          to: 'polyfills/custom-elements.js'
+        },
+        {
+          from: 'node_modules/custom-event-polyfill/polyfill.js',
+          to: 'polyfills/custom-event.js'
+        },
+        {
+          from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
+          to: 'polyfills/fetch.js'
+        },
+        {
+          from: 'node_modules/url-search-params-polyfill/index.js',
+          to: 'polyfills/url-search-params.js'
         }
       ]
     }),
