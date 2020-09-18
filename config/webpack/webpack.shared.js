@@ -52,7 +52,7 @@ module.exports = {
   plugins: [
     new DefinePlugin({
       ENABLE_GOOGLE_ANALYTICS: BRANCH === 'production',
-      ENABLE_FED_ANALYTICS: BRANCH === 'production',
+      ENABLE_FED_ANALYTICS: BRANCH === 'production' || BRANCH === 'staging',
       PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
       SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
