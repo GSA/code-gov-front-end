@@ -57,9 +57,6 @@ module.exports = {
       SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
-    // new MiniCssExtractPlugin({
-    //  filename: "styles/[name].css"
-    // }),
     new CopyPlugin({
       patterns: [
         { from: 'styles', to: 'css' },
@@ -184,70 +181,6 @@ module.exports = {
           }
         }
       },
-      // {
-      //    // Apply rule for .sass, .scss or .css files
-      //  test: /\.css$/,
-
-      //  // Set loaders to transform files.
-      //  // Loaders are applying from right to left(!)
-      //  // The first loader will be applied after others
-      //  use: [
-      //    {
-      //      // After all CSS loaders we use plugin to do his work.
-      //      // It gets all transformed CSS and extracts it into separate
-      //      // single bundled file
-      //      loader: MiniCssExtractPlugin.loader
-      //    },
-      //    'css-loader'
-      //  ]
-      // },
-      // {
-      //    // Apply rule for .sass, .scss or .css files
-      //  test: /\.(sa|sc|c)ss$/,
-
-      //  // Set loaders to transform files.
-      //  // Loaders are applying from right to left(!)
-      //  // The first loader will be applied after others
-      //  use: [
-      //    //{
-      //    //  loader: 'style-loader', // creates style nodes from JS strings
-      //    //  options: {
-      //    //    sourceMap: true
-      //    //  }
-      //    //},
-      //    {
-      //      loader: MiniCssExtractPlugin.loader
-      //    },
-      //    {
-      //      // This loader resolves url() and @imports inside CSS
-      //      loader: "css-loader", options: { url: false, sourceMap: true }
-      //    },
-      //    {
-      //      // Then we apply postCSS fixes like autoprefixer and minifying
-      //      loader: "postcss-loader",
-      //      options: {
-      //        sourceMap: true
-      //      }
-      //    },
-      //    {
-      //      // First we transform SASS to standard CSS
-      //      loader: "sass-loader",
-      //      options: {
-      //        implementation: require("node-sass"),
-      //        sassOptions: {
-      //          sourceMap: true,
-      //          includePaths: [
-      //            //join(dirname(module.filename), 'node_modules'),
-      //            //join(dirname(module.filename), 'node_modules/uswds/dist/scss')
-      //            path.resolve(__dirname, 'node_modules'),
-      //            path.resolve(__dirname, 'node_modules/uswds/dist/scss'),
-      //            path.resolve(__dirname, 'node_modules/uswds/dist/fonts')
-      //          ]
-      //        }
-      //      }
-      //    }
-      //  ]
-      // },
       {
         test: /\.(s*)css$/,
         use: [
@@ -279,10 +212,7 @@ module.exports = {
             loader: 'html-loader'
           },
           {
-            loader: 'markdown-loader',
-            options: {
-              /* your options here */
-            }
+            loader: 'markdown-loader'
           }
         ]
       },
