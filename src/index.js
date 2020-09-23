@@ -9,6 +9,8 @@ import '../styles/_main.scss'
 import syncers from 'syncers'
 import syncStore from 'sync-store'
 
+require('uswds')
+
 const store = buildStore()
 
 syncStore(store, syncers)

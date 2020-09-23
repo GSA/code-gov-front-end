@@ -16,8 +16,8 @@
 @import 'uswds-theme-spacing';
 @import 'uswds-theme-color';
 @import 'uswds-theme-utilities';
-
-// components import needs to be last
+//
+//// components import needs to be last
 @import 'uswds-theme-components';
 
 // -------------------------------------
@@ -27,6 +27,8 @@
 // First import required and global packages...
 // @import 'packages/required';
 // @import 'packages/global';
+@import 'node_modules/uswds/dist/scss/packages/required';
+@import 'node_modules/uswds/dist/scss/packages/global';
 
 // Then import individual component packages...
 // @import 'packages/form-controls';
@@ -60,10 +62,9 @@
 
 // -------------------------------------
 // ...or import the complete USWDS kit
-@import 'styles/uswds/scss/uswds.scss';
-@import 'uswds/css/uswds-codegov.css';
+//@import 'styles/uswds/scss/uswds.scss';
+@import 'node_modules/uswds/dist/scss/uswds.scss';
 
 // -------------------------------------
 // Import theme custom styles
-
 @import 'uswds-theme-custom-styles';
