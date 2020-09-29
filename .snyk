@@ -204,119 +204,119 @@ ignore:
   SNYK-JS-DECOMPRESSTAR-559095:
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.052Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.053Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-build > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-targz > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.910Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - imagemin-webpack-plugin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-wrapper > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - imagemin-webpack-plugin > imagemin-pngquant > pngquant-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - imagemin-webpack-plugin > imagemin-optipng > optipng-bin > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - imagemin-webpack-plugin > imagemin-gifsicle > gifsicle > bin-build > download > decompress > decompress-tarbz2 > decompress-tar:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
   SNYK-JS-MINIMIST-559764:
     - favicons > to-ico > resize-img > jimp > mkdirp > minimist:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > mkdirp > minimist:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
   SNYK-JS-YARGSPARSER-560381:
     - webpack-dev-server > yargs > yargs-parser:
         reason: No remediation available.
@@ -328,22 +328,22 @@ ignore:
   SNYK-JS-JPEGJS-570039:
     - favicons > jimp > @jimp/types > @jimp/jpeg > jpeg-js:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - app-manifest-webpack-plugin > favicons > jimp > @jimp/types > @jimp/jpeg > jpeg-js:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - favicons > to-ico > resize-img > jimp > jpeg-js:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > jpeg-js:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - favicons > to-ico > resize-img > jpeg-js:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jpeg-js:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
   SNYK-JS-LODASH-567746:
     - '@babel/preset-env > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash':
         reason: No remediation.
@@ -453,10 +453,10 @@ ignore:
   SNYK-JS-URLREGEX-569472:
     - favicons > to-ico > resize-img > jimp > url-regex:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.054Z'
+        expires: '2020-10-17T15:34:30.911Z'
     - app-manifest-webpack-plugin > favicons > to-ico > resize-img > jimp > url-regex:
         reason: Will correct with master rebase.
-        expires: '2020-08-20T15:29:55.055Z'
+        expires: '2020-10-17T15:34:30.911Z'
   SNYK-JS-AJV-584908:
     - ajv:
         reason: Will correct with master rebase.
@@ -514,7 +514,75 @@ ignore:
   SNYK-JS-MARKED-584281:
     - markdown-loader > marked:
         reason: No remidiation available.
-        expires: '2020-08-28T19:50:57.722Z'
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODEFETCH-674311:
+    - recompose > fbjs > isomorphic-fetch > node-fetch:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-535497:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-535498:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-535502:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540956:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540958:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540964:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540974:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540978:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540980:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540990:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540992:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540994:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540996:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-540998:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-541000:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
+  SNYK-JS-NODESASS-541002:
+    - node-sass:
+        reason: None given
+        expires: '2020-10-17T15:34:30.911Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-AXIOS-174505:
