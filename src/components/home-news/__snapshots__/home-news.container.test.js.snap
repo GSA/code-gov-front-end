@@ -12,21 +12,21 @@ Object {
       "url": "https://digital.gov/event/2020/10/08/federal-source-code-summit-building-coding/",
     },
     Object {
-      "alt": "Source Code Study Cultural Beliefs",
-      "date": "07/14/2020",
-      "description": "We’re back with our fourth installment of the Federal Source Code Series...",
-      "image": "/assets/img/news/fscslogo.png",
-      "title": "Federal Source Code Study Series Part 4: Cultural Beliefs",
-      "url": "https://medium.com/codedotgov/federal-source-code-study-series-part-4-cultural-beliefs-15ef04ea812b",
+      "alt": "Frontend Updates Improve Accessibility",
+      "date": "08/27/2020",
+      "description": "Last month we celebrated the 30th anniversary of the Americans with Disabilities Act...",
+      "image": "/assets/img/news/accessibility.jpeg",
+      "title": "Front-End Updates Provide Greater Accessibility for America’s Code",
+      "url": "https://medium.com/codedotgov/all-access-code-gov-website-front-end-updates-provide-greater-accessibility-for-americas-code-e00fc5e76163",
     },
     Object {
       "alt": "Know an Engineer",
-      "date": "06/12/2020",
-      "description": "The Code.gov team is pleased to bring you a new series highlighting our amazing engineer friends...",
-      "image": "/assets/img/news/sara.jpeg",
-      "title": "Better Know an Engineer: Sara Cope",
-      "url": "https://medium.com/codedotgov/code-gov-better-know-an-engineer-sara-cope-a840640bb96d",
+      "date": "08/13/2020",
+      "description": "We’re back with another installment of Better Know an Engineer...",
+      "image": "/assets/img/news/rayvn.jpeg",
+      "title": "Better Know an Engineer: Rayvn Manuel",
+      "url": "https://medium.com/codedotgov/code-gov-better-know-an-engineer-rayvn-manuel-46188c95218b",
     },
   ],
 }
-`
+`;
