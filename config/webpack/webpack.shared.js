@@ -156,8 +156,10 @@ module.exports = {
     port: 8080
   },
   output: {
-    path: path.resolve(rootDir, 'dist'),
-    filename: 'js/[name].js'
+    chunkFilename: '[name].bundle.js',
+    filename: '[name].bundle.js',
+    path: OUTPUT_PATH,
+    publicPath: PUBLIC_PATH
   },
   module: {
     rules: [

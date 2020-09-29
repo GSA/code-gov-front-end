@@ -10,7 +10,9 @@ describe('browse projects page tests (direct nav)', () => {
   })
 
   it('properly filters projects by language', () => {
-    cy.get('input[value="HTML"]')
+    cy.get('#language .moreLessToggle')
+      .click({ force: true })
+      .get('input[value="HTML"]')
       .check({ force: true })
       // using wait not ideal: https://docs.cypress.io/guides/references/best-practices.html#Unnecessary-Waiting
       // this will have to be refactored but was the only way I could get the test to pass
