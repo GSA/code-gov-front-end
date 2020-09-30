@@ -71,7 +71,7 @@
     "@babel/preset-react": "^7.10.4",
     "@code.gov/api-client": "^0.4.2",
     "@code.gov/cautious": "0.3.0",
-    "@code.gov/site-map-generator": "^1.0.13",
+    "@code.gov/site-map-generator": "^1.0.14",
     "@webcomponents/custom-elements": "^1.2.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "ajv": "^6.10.0",
