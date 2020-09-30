@@ -69,7 +69,7 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
-    "@code.gov/api-client": "^0.4.1",
+    "@code.gov/api-client": "^0.4.2",
     "@code.gov/cautious": "0.3.0",
     "@code.gov/site-map-generator": "^1.0.13",
     "@webcomponents/custom-elements": "^1.2.4",
