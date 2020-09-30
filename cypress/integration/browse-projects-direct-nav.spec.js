@@ -10,18 +10,19 @@ describe('browse projects page tests (direct nav)', () => {
   })
 
   it('properly filters projects by language', () => {
-    cy.get('input[value="HTML"]')
+    cy.get('#language .moreLessToggle')
+      .click({ force: true })
+      .get('input[value="HTML"]')
       .check({ force: true })
       // using wait not ideal: https://docs.cypress.io/guides/references/best-practices.html#Unnecessary-Waiting
       // this will have to be refactored but was the only way I could get the test to pass
       // aliasing the api endpoint route and passing that alias to wait looks the most promising:
       // https://docs.cypress.io/api/commands/wait.html#Alias
       // https://docs.cypress.io/api/commands/route.html#Examples
-      .wait(3000)
-      .get('.usa-card')
+      .get('.filter-tags')
       .each(item => {
         cy.wrap(item).within(() => {
-          cy.contains('div > ul > li', /html/i).should('exist')
+          cy.contains('button', /html/i).should('exist')
         })
       })
   })
