@@ -163,7 +163,7 @@
     "jest": "^24.8.0",
     "license-checker": "^24.1.0",
     "lint-staged": "^9.2.5",
-    "pa11y-ci": "^2.3.0"
+    "pa11y-ci": "^2.4.0"
   },
   "browserslist": [
     "last 2 versions",
