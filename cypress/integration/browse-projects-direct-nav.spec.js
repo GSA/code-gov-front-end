@@ -19,11 +19,10 @@ describe('browse projects page tests (direct nav)', () => {
       // aliasing the api endpoint route and passing that alias to wait looks the most promising:
       // https://docs.cypress.io/api/commands/wait.html#Alias
       // https://docs.cypress.io/api/commands/route.html#Examples
-      .wait(3000)
-      .get('.usa-card')
+      .get('.filter-tags')
       .each(item => {
         cy.wrap(item).within(() => {
-          cy.contains('div > ul > li', /html/i).should('exist')
+          cy.contains('button', /html/i).should('exist')
         })
       })
   })
