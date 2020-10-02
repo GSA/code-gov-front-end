@@ -18,8 +18,15 @@ const env_vars = {
 }
 
 console.log('env_vars', env_vars)
-console.log('unlinking ./dist/.gitignore')
-fs.unlinkSync('./dist/.gitignore')
+
+try {
+  if (fs.existsSync('./dist/.gitignore')) {
+    console.log('unlinking ./dist/.gitignore')
+    fs.unlinkSync('./dist/.gitignore')
+  }
+} catch (err) {
+  console.log(err)
+}
 
 if (!DIR) {
   throw new Error('please specify CODE_GOV_DIR as an env variable')
@@ -30,28 +37,27 @@ const options = {
   repo: process.env.CODE_GOV_REPO || 'git@github.com:GSA/code-gov-front-end'
 }
 
-console.log('options:', options)
-
 if (process.env.CODE_GOV_BRANCH) {
   options.branch = process.env.CODE_GOV_BRANCH
 } else {
   throw new Error('no branch specified')
 }
 
-//if (!process.env.CODE_GOV_REPO) {
+console.log('options:', options)
+// if (!process.env.CODE_GOV_REPO) {
 //  throw new Error("no repo specified")
-//}
+// }
 //
-//if (!process.env.CODE_GOV_API_KEY) {
+// if (!process.env.CODE_GOV_API_KEY) {
 //  throw new Error("no api specified")
-//}
+// }
 
-//ghpages.clean()
+// ghpages.clean()
 //
-//ghpages.publish(DIR, options, err => {
+// ghpages.publish(DIR, options, err => {
 //  if (err) {
 //    console.error(err);
 //  } else {
 //    console.log("published successfully");
 //  }
-//});
+// });
