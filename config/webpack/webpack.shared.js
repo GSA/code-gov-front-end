@@ -33,6 +33,64 @@ if (process.env.OUTPUT_PATH) {
   OUTPUT_PATH = join(rootDir, '/dist')
 }
 
+const patterns = [
+  { from: 'styles', to: 'css' },
+  { from: 'assets/data', to: 'assets/data' },
+  { from: 'assets/img', to: 'assets/img' },
+  {
+    from: './src/components/federal-agencies/html',
+    to: 'src/components/federal-agencies/html'
+  },
+  {
+    from: 'img/**/*',
+    to: 'styles/uswds/',
+    context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
+  },
+  {
+    from: './src/components/about-codedotgov/html',
+    to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
+  },
+  {
+    from: './src/components/federal-agencies/html',
+    to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
+  },
+  {
+    from: 'fonts/**/*',
+    to: 'uswds/',
+    context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
+  },
+  {
+    from: 'fonts/*',
+    to: 'uswds/',
+    context: path.resolve(rootDir, 'assets')
+  },
+  {
+    from: 'fonts/*',
+    to: 'assets/',
+    context: path.resolve(rootDir, 'assets')
+  },
+  {
+    from: './404.html',
+    to: join(OUTPUT_PATH, '404.html')
+  },
+  {
+    from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
+    to: 'polyfills/custom-elements.js'
+  },
+  {
+    from: 'node_modules/custom-event-polyfill/polyfill.js',
+    to: 'polyfills/custom-event.js'
+  },
+  {
+    from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
+    to: 'polyfills/fetch.js'
+  },
+  {
+    from: 'node_modules/url-search-params-polyfill/index.js',
+    to: 'polyfills/url-search-params.js'
+  }
+]
+
 if (BRANCH.includes('production')) {
   // only include sitemap if building for production on code.gov
   patterns.push({
@@ -57,65 +115,7 @@ module.exports = {
       SITE_CONFIG: JSON.stringify(SITE_CONFIG)
     }),
     new EnvironmentPlugin(['CODE_GOV_API_BASE', 'CODE_GOV_API_KEY', 'CODE_GOV_TASKS_URL']),
-    new CopyPlugin({
-      patterns: [
-        { from: 'styles', to: 'css' },
-        { from: 'assets/data', to: 'assets/data' },
-        { from: 'assets/img', to: 'assets/img' },
-        {
-          from: './src/components/federal-agencies/html',
-          to: 'src/components/federal-agencies/html'
-        },
-        {
-          from: 'img/**/*',
-          to: 'styles/uswds/',
-          context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
-        },
-        {
-          from: './src/components/about-codedotgov/html',
-          to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
-        },
-        {
-          from: './src/components/federal-agencies/html',
-          to: join(OUTPUT_PATH, '/src/components/federal-agencies/html')
-        },
-        {
-          from: 'fonts/**/*',
-          to: 'uswds/',
-          context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
-        },
-        {
-          from: 'fonts/*',
-          to: 'uswds/',
-          context: path.resolve(rootDir, 'assets')
-        },
-        {
-          from: 'fonts/*',
-          to: 'assets/',
-          context: path.resolve(rootDir, 'assets')
-        },
-        {
-          from: './404.html',
-          to: join(OUTPUT_PATH, '404.html')
-        },
-        {
-          from: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
-          to: 'polyfills/custom-elements.js'
-        },
-        {
-          from: 'node_modules/custom-event-polyfill/polyfill.js',
-          to: 'polyfills/custom-event.js'
-        },
-        {
-          from: 'node_modules/whatwg-fetch/dist/fetch.umd.js',
-          to: 'polyfills/fetch.js'
-        },
-        {
-          from: 'node_modules/url-search-params-polyfill/index.js',
-          to: 'polyfills/url-search-params.js'
-        }
-      ]
-    }),
+    new CopyPlugin({ patterns }),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new HtmlWebpackPlugin({
       hash: true,
