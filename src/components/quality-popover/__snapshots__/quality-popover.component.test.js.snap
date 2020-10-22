@@ -40,7 +40,7 @@ exports[`components - QualityPopover render should render correctly 1`] = `
        and by factors such as completeness and adherence to the
        
       <Connect(CustomLinkComponent)
-        to="/about/compliance/inventory-code"
+        to="/federal-agencies/compliance/inventory-code"
       >
         metadata schema
       </Connect(CustomLinkComponent)>
