@@ -81,6 +81,9 @@ exports[`components - AboutPage - InventoryCode render should render correctly 1
     schema={Object {}}
     url="/assets/data/schema.json"
   />
+  <LazyHTML
+    url="/src/components/federal-agencies/html/compliance/data-assets-ai.html"
+  />
   <div
     id="how-to-inventory-b"
   >

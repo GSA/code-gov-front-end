@@ -1,6 +1,6 @@
 {
   "name": "@code.gov/code-gov-front-end",
-  "version": "1.2.1",
+  "version": "1.4.0",
   "description": "Code.gov — America’s Home for Open Source Projects from the Federal Government",
   "main": "index.js",
   "scripts": {
@@ -69,9 +69,9 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
-    "@code.gov/api-client": "^0.4.1",
+    "@code.gov/api-client": "^0.4.2",
     "@code.gov/cautious": "0.3.0",
-    "@code.gov/site-map-generator": "^1.0.12",
+    "@code.gov/site-map-generator": "^1.0.14",
     "@webcomponents/custom-elements": "^1.2.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "ajv": "^6.10.0",
@@ -163,7 +163,7 @@
     "jest": "^24.8.0",
     "license-checker": "^24.1.0",
     "lint-staged": "^9.2.5",
-    "pa11y-ci": "^2.3.0"
+    "pa11y-ci": "^2.4.0"
   },
   "browserslist": [
     "last 2 versions",
