@@ -68,7 +68,10 @@ export default class QualityPopover extends Component {
             The Data Quality Score is determined by using the information provided by Agencies in
             their <CustomLink to="/about/compliance/inventory-code">code.json</CustomLink> and by
             factors such as completeness and adherence to the{' '}
-            <CustomLink to="/about/compliance/inventory-code">metadata schema</CustomLink>.
+            <CustomLink to="/federal-agencies/compliance/inventory-code">
+              metadata schema
+            </CustomLink>
+            .
           </div>
         </div>
       </div>

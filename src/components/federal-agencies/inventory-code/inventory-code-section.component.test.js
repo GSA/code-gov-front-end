@@ -45,7 +45,7 @@ describe('components - InventoryCodeSectionComponent', () => {
         }
       ]
     })
-    expect(wrapper.find('button').prop('className')).toContain('usa-accordion__button')
+    expect(wrapper.find('button').prop('className')).toContain('api-drop-list')
   })
 
   it('should show subfields on click', () => {
@@ -65,7 +65,7 @@ describe('components - InventoryCodeSectionComponent', () => {
 
     console.log(wrapper.debug())
 
-    wrapper.find('.usa-accordion__button').simulate('click')
+    wrapper.find('.api-drop-list').simulate('click')
     expect(wrapper.state('dropDown')).toBeTruthy()
   })
 })

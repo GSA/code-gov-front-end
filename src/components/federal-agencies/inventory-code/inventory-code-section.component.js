@@ -65,7 +65,7 @@ class InventoryCodeSectionComponent extends Component {
                 'border-left-0': indent === 0,
                 'border-base-lighter': indent === 1 || 2 || 3,
                 'border-left-2px': indent === 1 || 2 || 3
-              })} usa-accordion__button bg-white padding-left-1 mobile:padding-left-205 border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
+              })}  api-drop-list bg-white padding-left-1 mobile:padding-left-205 border-right-0 border-bottom-0 border-top-0 border-dashed font-body-md tablet-lg:padding-left-3 tablet-lg:padding-right-5 tablet-lg:padding-y-2`}
               aria-expanded={dropDown}
               aria-controls={`${key}-section`}
               onClick={this.toggleDropDown}
@@ -75,7 +75,7 @@ class InventoryCodeSectionComponent extends Component {
                 <dd
                   className={`${classNames({
                     'text-accent-cool-dark': optionalField
-                  })} display-inline margin-left-0`}
+                  })} text-bold display-inline margin-left-0`}
                 >
                   {key}
                 </dd>
