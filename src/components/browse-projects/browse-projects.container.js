@@ -6,6 +6,7 @@ import saveFilterOptions from 'actions/save-filter-options'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
 import BrowseProjectsComponent from './browse-projects.component'
+import { sortByName, sortByDataQuality, sortByDate } from '../../utils/repo-sorting'
 
 export const mapStateToProps = ({ browseParams, browseResults, filters }) => {
   const categories = ['agencies', 'languages', 'licenses', 'usageTypes']
@@ -39,17 +40,20 @@ export const mapStateToProps = ({ browseParams, browseResults, filters }) => {
     {
       label: 'Data Quality',
       value: 'data_quality',
-      selected: selectedSorting === 'data_quality'
+      selected: selectedSorting === 'data_quality',
+      sortFn: sortByDataQuality
     },
     {
       label: 'A-Z',
       value: 'a-z',
-      selected: selectedSorting === 'a-z'
+      selected: selectedSorting === 'a-z',
+      sortFn: sortByName
     },
     {
       label: 'Last Updated',
       value: 'last_updated',
-      selected: selectedSorting === 'last_updated'
+      selected: selectedSorting === 'last_updated',
+      sortFn: sortByDate
     }
   ]
 
@@ -88,7 +92,4 @@ export const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BrowseProjectsComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(BrowseProjectsComponent)

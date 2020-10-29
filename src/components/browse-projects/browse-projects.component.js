@@ -44,6 +44,8 @@ export default class BrowseProjects extends React.Component {
   get reposContainer() {
     if (some(this.props.repos)) {
       try {
+        const { sortFn } = this.props.sortOptions.find(option => option.selected)
+        const sortedRepos = [...this.props.repos].sort(sortFn)
         return (
           <div>
             <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
@@ -51,7 +53,7 @@ export default class BrowseProjects extends React.Component {
               <QualityPopover />
             </div>
             <ul className="usa-card-group padding-top-3">
-              {this.props.repos.map(repo => (
+              {sortedRepos.map(repo => (
                 <RepoCard key={repo.repoID} repo={repo} />
               ))}
             </ul>
