@@ -137,6 +137,37 @@ html {
     }
   }
 }
+
+button.api-drop-list {
+  padding-right: 1.25rem;
+  width: 100%;
+
+  .description {
+    padding-right: 1.25rem;
+  }
+
+  & > dl {
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: right center;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    line-height: 1.15;
+  }
+
+  &[aria-expanded='false'] > dl {
+    background-image: url(/fonts/plus.svg),
+      -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
+    background-image: url(/fonts/plus.svg), linear-gradient(transparent, transparent);
+  }
+  &[aria-expanded='true'] > dl {
+    background-image: url(/fonts/minus.svg),
+      -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
+    background-image: url(/fonts/minus.svg), linear-gradient(transparent, transparent);
+  }
+}
+
 code {
   background-color: rgba(0, 0, 0, 0.05);
 }
