@@ -3,6 +3,7 @@ import { includes } from '@code.gov/cautious'
 import get from 'lodash.get'
 import { getFilterTags, getFilterValuesFromParamsByCategory, normalize } from 'utils/other'
 import saveFilterOptions from 'actions/save-filter-options'
+import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 import updateBrowseFilters from 'actions/update-browse-filters'
 import updateBrowseParams from 'actions/update-browse-params'
 import BrowseProjectsComponent from './browse-projects.component'
@@ -34,6 +35,24 @@ export const mapStateToProps = ({ browseParams, browseResults, filters }) => {
 
   const total = get(browseResults, 'total') || 0
   const repos = get(browseResults, 'repos')
+
+  if (Array.isArray(repos)) {
+    /* eslint-disable array-callback-return */
+    repos.sort((a, b) => {
+      if (selectedSorting === 'best_match') {
+        return sortByBestMatch(a, b)
+      }
+      if (selectedSorting === 'data_quality') {
+        return sortByDataQuality(a, b)
+      }
+      if (selectedSorting === 'a-z') {
+        return sortByName(a, b)
+      }
+      if (selectedSorting === 'last_updated') {
+        return sortByDate(a, b)
+      }
+    })
+  }
 
   const sortOptions = [
     {
@@ -88,7 +107,4 @@ export const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BrowseProjectsComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(BrowseProjectsComponent)
