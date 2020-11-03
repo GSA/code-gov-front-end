@@ -74,19 +74,22 @@ Object {
     Object {
       "label": "Data Quality",
       "selected": false,
+      "sortFn": [Function],
       "value": "data_quality",
     },
     Object {
       "label": "A-Z",
       "selected": false,
+      "sortFn": [Function],
       "value": "a-z",
     },
     Object {
       "label": "Last Updated",
       "selected": false,
+      "sortFn": [Function],
       "value": "last_updated",
     },
   ],
   "total": 2,
 }
-`
+`;
