@@ -12,7 +12,18 @@ const props = {
   total: 2,
   repos: [{ repoId: 'repo-1' }, { repoId: 'repo-2' }],
   boxes: ['box-1', 'box-2'],
-  sortOptions: ['sort-1', 'sort-2'],
+  sortOptions: [
+    {
+      label: 'sort-1',
+      sortFn: jest.fn(),
+      selected: true
+    },
+    {
+      label: 'sort-2',
+      sortFn: jest.fn(),
+      selected: false
+    }
+  ],
   onSortChange: jest.fn(),
   filterTags: ['filter-1', 'filter-2'],
   onFilterTagClick: jest.fn(),

@@ -93,8 +93,33 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
           onSortChange={[MockFunction]}
           options={
             Array [
-              "sort-1",
-              "sort-2",
+              Object {
+                "label": "sort-1",
+                "selected": true,
+                "sortFn": [MockFunction] {
+                  "calls": Array [
+                    Array [
+                      Object {
+                        "repoId": "repo-2",
+                      },
+                      Object {
+                        "repoId": "repo-1",
+                      },
+                    ],
+                  ],
+                  "results": Array [
+                    Object {
+                      "type": "return",
+                      "value": undefined,
+                    },
+                  ],
+                },
+              },
+              Object {
+                "label": "sort-2",
+                "selected": false,
+                "sortFn": [MockFunction],
+              },
             ]
           }
         />
