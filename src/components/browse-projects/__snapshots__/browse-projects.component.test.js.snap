@@ -100,10 +100,10 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
                   "calls": Array [
                     Array [
                       Object {
-                        "repoId": "repo-2",
+                        "repoId": "repo-1",
                       },
                       Object {
-                        "repoId": "repo-1",
+                        "repoId": "repo-2",
                       },
                     ],
                   ],
