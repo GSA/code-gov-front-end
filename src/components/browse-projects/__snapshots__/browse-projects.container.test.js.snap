@@ -50,10 +50,10 @@ Object {
   "browseResults": Object {
     "repos": Array [
       Object {
-        "repoId": "repo-1",
+        "repoId": "repo-2",
       },
       Object {
-        "repoId": "repo-2",
+        "repoId": "repo-1",
       },
     ],
     "total": 2,
@@ -61,10 +61,10 @@ Object {
   "filterTags": undefined,
   "repos": Array [
     Object {
-      "repoId": "repo-1",
+      "repoId": "repo-2",
     },
     Object {
-      "repoId": "repo-2",
+      "repoId": "repo-1",
     },
   ],
   "selectedPage": "test-page",
@@ -89,4 +89,4 @@ Object {
   ],
   "total": 2,
 }
-`
+`;
