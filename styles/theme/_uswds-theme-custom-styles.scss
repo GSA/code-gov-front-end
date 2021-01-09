@@ -168,6 +168,76 @@ button.api-drop-list {
   }
 }
 
+.side-search {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  position: relative;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  [role='search'] {
+    display: flex;
+  }
+
+  input[type='search'] {
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  [type='submit'] {
+    background-image: url('/fonts/search.svg'), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1rem;
+    width: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  [type='search'] {
+    padding-bottom: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    float: left;
+    font-size: 0.91rem;
+    height: 2rem;
+    margin: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-right: 1px solid;
+  }
+}
+
+.side-search--left {
+  [type='submit'] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    margin-right: 0;
+  }
+
+  [type='search'] {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+}
+
 code {
   background-color: rgba(0, 0, 0, 0.05);
 }

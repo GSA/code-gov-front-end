@@ -1,5 +1,6 @@
 import clearSearchResults from 'actions/clear-search-results'
 
+import updateAgenciesResults from 'actions/update-agencies-results'
 import updateBrowseResults from 'actions/update-browse-results'
 import updateSearchResults from 'actions/update-search-results'
 import updateTaskResults from 'actions/update-task-results'
@@ -25,7 +26,7 @@ const syncers = [
   {
     select: state => [
       state.router.location.pathname,
-      state.browseParams,
+      state.agenciesParams,
       state.searchParams,
       state.taskParams
     ],
@@ -47,6 +48,24 @@ const syncers = [
       count += 1
       if (count < threshold) {
         dispatch(updateBrowseResults(state.browseParams))
+      } else {
+        console.error('count is greater than threshold so not fetching')
+      }
+    }
+  },
+  {
+    /*
+      This is what listens to browse parameters like language, agency,
+      license, usage type and page number and then updates the results
+      when the user selects something in one of the filter boxes
+      or clicks to view another page of the browse results.
+    */
+    select: state => state.agenciesParams,
+    sync: (state, dispatch) => {
+      console.warn('agenciesParams changed')
+      count += 1
+      if (count < threshold) {
+        dispatch(updateAgenciesResults(state.agenciesParams))
       } else {
         console.error('count is greater than threshold so not fetching')
       }

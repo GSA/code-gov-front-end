@@ -174,7 +174,8 @@ export function now() {
   return new Date().getTime()
 }
 
-export function getFilterValuesFromParamsByCategory(params, category) {
+export function getFilterValuesFromParamsByCategory(params = {}, category) {
+  console.log('other-getFilter: category', category)
   return params.filters
     .filter(entry => entry.category === category)
     .map(entry => entry.value)

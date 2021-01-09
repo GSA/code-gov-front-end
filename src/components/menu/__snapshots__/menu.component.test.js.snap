@@ -132,14 +132,6 @@ exports[`components - Menu render should render correctly 1`] = `
             />
           </li>
         </ul>
-        <div
-          className="mobile-search-bar"
-        >
-          <Connect(MobileMenuSearchBoxComponent)
-            mobileMenu={false}
-            toggleMobileMenu={[Function]}
-          />
-        </div>
       </nav>
     </div>
   </header>

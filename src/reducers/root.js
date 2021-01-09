@@ -14,8 +14,8 @@ import searchDropdown from './search-dropdown'
 
 const rootReducer = combineReducers({
   agencies,
-  browseParams: createParamsReducer('BROWSE'),
-  browseResults: createResultsReducer('BROWSE'),
+  agenciesParams: createParamsReducer('AGENCIES'),
+  agenciesResults: createResultsReducer('AGENCIES'),
   displayMobileMenu,
   expandedMobileMenuOptions,
   filters,

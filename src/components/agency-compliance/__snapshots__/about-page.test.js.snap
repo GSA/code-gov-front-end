@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - AboutPage - ComplianceDashboard render should render correctly 1`] = `
+<Fragment>
+  <LazyHTML
+    url="/src/components/federal-agencies/html/compliance/agency-compliance.html"
+  />
+  <ComplianceDashboardComponent
+    config={
+      Object {
+        "scores": Object {
+          "compliant": Array [
+            1,
+            null,
+          ],
+          "noncompliant": Array [
+            null,
+            0.244444444,
+          ],
+          "partial": Array [
+            0.25,
+            0.9999999,
+          ],
+        },
+        "text": Array [
+          Object {
+            "req": "agencyWidePolicy",
+            "variants": Object {
+              "compliant": "Agency policy is consistent with the Federal Source Code Policy.",
+              "noncompliant": "Agency policy has not been reviewed for consistency with the Federal Source Code Policy.",
+              "partial": "Agency policy is being updated for consistency with the Federal Source Code Policy.",
+            },
+          },
+          Object {
+            "req": "openSourceRequirement",
+            "variants": Object {
+              "compliant": "Agency has open sourced greater than 20% of their custom developed code.",
+              "noncompliant": "Agency has open sourced less than 10% of their custom developed code.",
+              "partial": "Agency has open sourced greater than 10% of their custom developed code.",
+            },
+          },
+          Object {
+            "req": "inventoryRequirement",
+            "variants": Object {
+              "compliant": "Agency has inventoried 100% of new custom code.",
+              "noncompliant": "Agency has inventoried less than 50% of new custom code.",
+              "partial": "Agency has inventoried more than 50% of new custom code.",
+            },
+          },
+        ],
+      }
+    }
+    data={
+      Array [
+        Object {
+          "acronym": "DOD",
+          "img": "/assets/img/logos/agencies/DOD-50x50.png",
+          "name": "agency-1-name",
+        },
+        Object {
+          "acronym": "DOE",
+          "img": "/assets/img/logos/agencies/DOE-50x50.png",
+          "name": "agency-2-name",
+        },
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`components - AboutPage - InventoryCode render should render correctly 1`] = `
+<Fragment>
+  <div
+    id="how-to-inventory-a"
+  >
+    <LazyHTML
+      url="/src/components/federal-agencies/html/compliance/how-to-inventory-a.html"
+    />
+  </div>
+  <InventoryCodeComponent
+    schema={Object {}}
+    url="/assets/data/schema.json"
+  />
+  <LazyHTML
+    url="/src/components/federal-agencies/html/compliance/data-assets-ai.html"
+  />
+  <div
+    id="how-to-inventory-b"
+  >
+    <LazyHTML
+      url="/src/components/federal-agencies/html/compliance/how-to-inventory-b.html"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`components - AboutPage render should render correctly 1`] = `
+<main
+  id="main-content"
+>
+  <Connect(SiteBanner)
+    title="FEDERAL AGENCIES"
+  />
+  <Breadcrumbs
+    crumbs={
+      Array [
+        Object {
+          "text": "Home",
+          "to": "/",
+        },
+        Object {
+          "text": "Federal Agencies",
+        },
+      ]
+    }
+  />
+  <div
+    className="grid-container"
+  >
+    <div
+      className="tablet-lg:display-none display-block padding-bottom-4"
+    >
+      <Connect(NavSelect)
+        pages={
+          Array [
+            Object {
+              "display": "Agency Compliance",
+              "route": "/federal-agencies/compliance/dashboard",
+            },
+            Object {
+              "display": "How to Procure Software",
+              "route": "/federal-agencies/compliance/procurement",
+            },
+            Object {
+              "display": "How to Inventory Code",
+              "route": "/federal-agencies/compliance/inventory-code",
+            },
+          ]
+        }
+      />
+    </div>
+    <div
+      className="grid-row grid-gap"
+    >
+      <div
+        className="grid-col tablet-lg:grid-col-3 tablet-lg:display-block display-none sticky height-viewport"
+      >
+        <SideNav
+          alignment="left"
+          baseurl="/federal-agencies"
+          links={
+            Array [
+              Object {
+                "route": "/compliance/dashboard",
+                "text": "Agency Compliance",
+              },
+              Object {
+                "route": "/compliance/procurement",
+                "text": "How to Procure Software",
+              },
+              Object {
+                "route": "/compliance/inventory-code",
+                "text": "How to Inventory Code",
+              },
+            ]
+          }
+          onLinkClick={[Function]}
+        />
+      </div>
+      <div
+        className="grid-col tablet-lg:grid-col-9"
+      >
+        <Switch>
+          <Route
+            component={[Function]}
+            path="/federal-agencies/compliance/dashboard"
+          />
+          <Route
+            component={[Function]}
+            path="/federal-agencies/compliance/procurement"
+          />
+          <Route
+            component={[Function]}
+            path="/federal-agencies/compliance/inventory-code"
+          />
+          <Redirect
+            from="/federal-agencies/compliance"
+            push={false}
+            to="/federal-agencies/compliance/dashboard"
+          />
+        </Switch>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+</main>
+`;
