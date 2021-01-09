@@ -103,7 +103,7 @@ exports[`components - FilterBox render should render correctly 1`] = `
         </div>
         <div
           className="usa-checkbox"
-          hidden={true}
+          hidden={false}
         >
           <input
             className="usa-checkbox__input"
@@ -130,7 +130,7 @@ exports[`components - FilterBox render should render correctly 1`] = `
         role="button"
         tabIndex="0"
       >
-        Show more
+        Show less
       </span>
     </div>
   </div>

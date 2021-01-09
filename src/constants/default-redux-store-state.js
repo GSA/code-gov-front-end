@@ -6,6 +6,12 @@ export default {
     sort: 'data_quality',
     filters: []
   },
+  agenciesParams: {
+    page: 1,
+    size: 10,
+    sort: 'data_quality',
+    filters: []
+  },
   displayMobileMenu: false,
   expandedMobileMenuOptions: [],
   project: null,

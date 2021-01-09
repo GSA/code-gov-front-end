@@ -15,6 +15,10 @@ export default function(state) {
       if (state.searchParams) {
         storeParams = state.searchParams
       }
+    } else if (pathname.includes('/agencies')) {
+      if (state.agenciesParams) {
+        storeParams = state.agenciesParams
+      }
     } else if (pathname.includes('/open-tasks')) {
       if (state.taskParams) {
         storeParams = state.taskParams

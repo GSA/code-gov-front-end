@@ -48,19 +48,11 @@ exports[`components - App render should render correctly 1`] = `
       />
       <Route
         component={[Function]}
-        path="/search"
+        path="/agencies"
       />
       <Route
         component={[Function]}
-        path="/federal-agencies"
-      />
-      <Route
-        component={[Function]}
-        path="/browse-projects"
-      />
-      <Route
-        component={[Function]}
-        path="/open-tasks"
+        path="/agency-compliance"
       />
       <Route
         component={[Function]}
@@ -68,15 +60,11 @@ exports[`components - App render should render correctly 1`] = `
       />
       <Route
         component={[Function]}
-        path="/projects/:repoID"
-      />
-      <Route
-        component={[Function]}
         path="/roadmap"
       />
       <Route
         component={[Function]}
-        path="/about-page"
+        path="/about"
       />
       <Redirect
         to="/"
@@ -85,4 +73,4 @@ exports[`components - App render should render correctly 1`] = `
     <Connect(Footer) />
   </div>
 </Connect(ConnectedRouter)>
-`
+`;

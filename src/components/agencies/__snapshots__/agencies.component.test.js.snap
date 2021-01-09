@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - ComplianceDashboard should render correctly 1`] = `
+<Fragment>
+  <hr
+    className="border-2px border-primary tablet:margin-x-15 margin-x-2 margin-y-4"
+  />
+  <ul
+    className="usa-card-group padding-x-3 dashboard-container"
+  >
+    <li
+      className="usa-card radius-0 border-warning border-left-3 height-auto width-full margin-bottom-3"
+      key="card-Department of Agriculture"
+    >
+      <div
+        className="usa-card__container radius-0 height-auto border-left-width-0 border-base-light border-width-1px margin-left-0 margin-right-0"
+        key="card-Department of Agriculture-2"
+      >
+        <div
+          className="usa-card__media usa-card__media--inset display-block pin-top pin-left"
+        >
+          <img
+            alt="Department of Agriculture logo"
+            src="/assets/img/logos/agencies/USDA-50x50.png"
+          />
+        </div>
+        <div
+          className="usa-card__body display-block mobile-lg:margin-left-6 mobile-lg:margin-top-105 margin-top-10 margin-bottom-neg-2 mobile-lg:padding-left-3 padding-left-0"
+        >
+          <header
+            className="usa-card__header"
+          >
+            <h2
+              className="usa-card__heading text-normal"
+            >
+              Department of Agriculture
+            </h2>
+            <h3
+              className="font-heading-sm margin-top-105 text-warning-darker"
+            >
+              Partially compliant
+            </h3>
+            <div
+              className="border-warning border-left-1 margin-bottom-1"
+              key="Department of Agriculture-agencyWidePolicy"
+            >
+              <div
+                className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px"
+              >
+                Agency policy is being updated for consistency with the Federal Source Code Policy.
+              </div>
+            </div>
+            <div
+              className="border-error-dark border-left-1 margin-bottom-1"
+              key="Department of Agriculture-openSourceRequirement"
+            >
+              <div
+                className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px"
+              >
+                Agency has open sourced less than 10% of their custom developed code.
+              </div>
+            </div>
+            <div
+              className="border-error-dark border-left-1 margin-bottom-1"
+              key="Department of Agriculture-inventoryRequirement"
+            >
+              <div
+                className="padding-left-1 font-body-3xs height-auto margin-bottom-2 border-base-lighter border-bottom-1px"
+              >
+                Agency has inventoried less than 50% of new custom code.
+              </div>
+            </div>
+          </header>
+        </div>
+      </div>
+    </li>
+  </ul>
+</Fragment>
+`;

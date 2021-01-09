@@ -1,6 +1,6 @@
 describe('federal agencies page tests (direct nav)', () => {
   beforeEach(() => {
-    cy.visit('/federal-agencies/compliance/dashboard')
+    cy.visit('/agency-compliance/compliance/dashboard')
   })
 
   it('has the proper verbiage', () => {

@@ -8,6 +8,15 @@ export default {
     licenses: 'browseParams.filters',
     usageTypes: 'browseParams.filters'
   },
+  agencies: {
+    page: 'agenciesParams.page',
+    size: 'agenciesParam.size',
+    sort: 'agenciesParams.sort',
+    agencies: 'agenciesParams.filters',
+    languages: 'agenciesParams.filters',
+    licenses: 'agenciesParams.filters',
+    usageTypes: 'agenciesParams.filters'
+  },
   search: {
     page: 'searchParams.page',
     query: 'searchParams.query',
