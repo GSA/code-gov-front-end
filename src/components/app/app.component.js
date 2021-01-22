@@ -3,18 +3,15 @@ import { Redirect } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import history from 'browser-history'
-import FederalAgencies from 'components/federal-agencies'
 import Roadmap from 'components/roadmap'
 import Home from 'components/home'
-import BrowseProjects from 'components/browse-projects'
-import OpenTasks from 'components/open-tasks'
-import ProjectPage from 'components/project-page'
-import SearchPage from 'components/search-page'
 import Menu from 'components/menu'
 import Footer from 'components/footer'
-import AboutCodeDotGov from 'components/about-codedotgov'
+import About from 'components/about'
 import OfficialBanner from 'components/official-banner'
 import PrivacyPolicy from 'components/privacy-policy'
+import AgencyCompliance from 'components/agency-compliance'
+import Agencies from 'components/agencies'
 import { refreshView, isHomepage } from 'utils/other'
 
 export default class AppComponent extends Component {
@@ -38,14 +35,11 @@ export default class AppComponent extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/search" component={SearchPage} />
-            <Route path="/federal-agencies" component={FederalAgencies} />
-            <Route path="/browse-projects" component={BrowseProjects} />
-            <Route path="/open-tasks" component={OpenTasks} />
+            <Route path="/agencies" component={Agencies} />
+            <Route path="/agency-compliance" component={AgencyCompliance} />
             <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route path="/projects/:repoID" component={ProjectPage} />
             <Route path="/roadmap" component={Roadmap} />
-            <Route path="/about-page" component={AboutCodeDotGov} />
+            <Route path="/about" component={About} />
             <Redirect to="/" />
           </Switch>
           <Footer />

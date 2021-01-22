@@ -2,7 +2,7 @@ describe('federal agencies page tests', () => {
   beforeEach(() => {
     cy.visit('/')
       .get('li button[class="usa-accordion__button usa-nav__link"]')
-      .contains(/federal agencies/i)
+      .contains(/guidance/i)
       .click({ force: true })
   })
 

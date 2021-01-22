@@ -4,7 +4,7 @@ export default class FilterBox extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showAll: false,
+      showAll: true,
       accordionExpand: true
     }
     this.handleChange = this.handleChange.bind(this)

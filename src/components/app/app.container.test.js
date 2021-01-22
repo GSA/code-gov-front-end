@@ -1,6 +1,5 @@
 import pick from 'lodash.pick'
 
-import updateBrowseParams from 'actions/update-browse-params'
 import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
 import { getNormalizedURLSearchParams, getSection } from 'utils/url-parsing'
@@ -45,21 +44,6 @@ describe('containers - App', () => {
   })
 
   describe('mapDispatchToProps', () => {
-    describe('rehydrate', () => {
-      describe('section is `browse`', () => {
-        it('should dispatch the `updateBrowseParams` action with the correct params', () => {
-          const expected = { ...pick(searchParams, ['page', 'sort', 'size']), filters }
-          testBySection({ section: 'browse', action: updateBrowseParams, expected })
-        })
-
-        it('should dispatch the `updateBrowseParams` action with the default browse params if none provided', () => {
-          const expected = pick(defaultState.browseParams, ['page', 'sort', 'size', 'filters'])
-          getNormalizedURLSearchParams.mockImplementation(() => ({}))
-          testBySection({ section: 'browse', action: updateBrowseParams, expected })
-        })
-      })
-    })
-
     describe('section is `search`', () => {
       it('should dispatch the `updateTaskParams` action with the correct params', () => {
         const expected = { ...pick(searchParams, ['page', 'query', 'sort', 'size']), filters }

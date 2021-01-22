@@ -14,4 +14,8 @@ exclude_patterns:
   - 'src/**/*.test.js'
   - 'styles/uswds/'
   - 'src/components/federal-agencies/inventory-code/*.js'
+  - 'src/components/agency-compliance/inventory-code/*.js'
+  - 'src/components/agency-compliance/*.js'
+  - 'src/components/card-orgs/*.js'
   - 'src/components/gov-banner/*.js'
+  - 'src/components/app/app.container.js'

@@ -7,6 +7,11 @@
   "twitter": {
     "handle": "codedotgov"
   },
+  "search": {
+    "affiliate": "codegov",
+    "action": "https://search.usa.gov/search",
+    "placeholder": "Search Code.gov..."
+  },
   "content": {
     "header": {
       "fork_me_url": "https://github.com/GSA/code-gov-front-end",
@@ -16,36 +21,23 @@
       },
       "menu": [
         {
-          "name": "PROJECTS",
-          "url": "/browse-projects?page=1&size=10&sort=data_quality"
+          "name": "AGENCIES",
+          "url": "/agencies"
         },
         {
-          "name": "FEDERAL AGENCIES",
+          "name": "GUIDANCE",
           "links": [
             {
               "name": "Agency Compliance",
-              "url": "/federal-agencies/compliance/dashboard"
+              "url": "/agency-compliance/compliance/dashboard"
             },
             {
               "name": "How to Procure Software",
-              "url": "/federal-agencies/compliance/procurement"
+              "url": "/agency-compliance/compliance/procurement"
             },
             {
               "name": "How to Inventory Code",
-              "url": "/federal-agencies/compliance/inventory-code"
-            }
-          ]
-        },
-        {
-          "name": "DEVELOPERS",
-          "links": [
-            {
-              "name": "Open Tasks",
-              "url": "/open-tasks?page=1&size=10"
-            },
-            {
-              "name": "Code.gov API",
-              "url": "https://open.gsa.gov/api/codedotgov/"
+              "url": "/agency-compliance/compliance/inventory-code"
             }
           ]
         }
@@ -86,27 +78,6 @@
             {
               "name": "Compliance Dashboard",
               "url": "/federal-agencies/compliance/dashboard"
-            }
-          ]
-        },
-        {
-          "name": "Developers",
-          "links": [
-            {
-              "name": "code.gov API",
-              "url": "https://open.gsa.gov/api/codedotgov/"
-            },
-            {
-              "name": "Open Tasks",
-              "url": "/open-tasks?page=1&size=10"
-            },
-            {
-              "name": "Notebooks",
-              "url": "https://beta.observablehq.com/search?query=%22code.gov%22"
-            },
-            {
-              "name": "Resources",
-              "url": "https://github.com/GSA/code-gov/wiki/Tools-&-Resources"
             }
           ]
         },
@@ -160,17 +131,17 @@
       "explore": [
         {
           "title": "Developers",
-          "description": "The Code.gov website is developed publicly on GitHub. Learn how to <a href='https://github.com/GSA/code-gov/blob/master/README.md' target='_blank' rel='noopener noreferrer'>contribute here</a>. Help improve America's Code by exploring Open Tasks.",
+          "description": "The Code.gov website is developed publicly on GitHub. Learn how to <a href='https://github.com/GSA/code-gov/blob/master/README.md' target='_blank' rel='noopener noreferrer'>contribute here</a>. Help improve America's Code by exploring projects.",
           "links": [
             {
-              "name": "Explore Open Tasks",
-              "url": "/open-tasks"
+              "name": "Explore Projects",
+              "url": "/agencies"
             }
           ]
         },
         {
           "title": "Connect with Us",
-          "description": "Have questions or feedback? <a href='https://github.com/GSA/code-gov-front-end/issues/new/choose' target='_blank' rel='noopener noreferrer'>Open an issue</a> on our open source repository.<br><br>Want to receive our monthly newsletter?",
+          "description": "Have questions or feedback? <a href='https://github.com/GSA/code-gov-front-end/issues/new/choose' target='_blank' rel='noopener noreferrer'>Open an issue</a> on our open source repository.<br><br>Want to receive our quarterly newsletter?",
           "links": [
             {
               "name": "Sign Up Here",
@@ -184,7 +155,7 @@
           "links": [
             {
               "name": "Agency Compliance",
-              "url": "/federal-agencies/compliance/dashboard"
+              "url": "/agency-compliance/compliance/dashboard"
             }
           ]
         }
@@ -321,11 +292,7 @@
       "links": [
         {
           "name": "About",
-          "url": "/about-page"
-        },
-        {
-          "name": "Roadmap",
-          "url": "/roadmap"
+          "url": "/about"
         },
         {
           "name": "Privacy Policy",

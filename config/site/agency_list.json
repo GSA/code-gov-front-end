@@ -1,0 +1,712 @@
+[
+  {
+    "id": 1,
+    "name": "Department of Agriculture",
+    "acronym": "USDA",
+    "website": "https://usda.gov/",
+    "codeUrl": "https://www.usda.gov/code.json",
+    "fallback_file": "USDA.json",
+    "logo": "/assets/img/logos/agencies/USDA-50x50.png",
+    "metrics": {
+      "policy": "yellow",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "orgs": [
+      "GrainGenes",
+      "usda",
+      "usda-ars-agil",
+      "usda-ars-gbru",
+      "usda-ars-ltar",
+      "usda-ars-nwrc",
+      "usda-ars-wmsru",
+      "USDA-ERS",
+      "USDA-FSA",
+      "USDA-NIFA",
+      "usda-vs",
+      "usdaForestService",
+      "WFMRDA"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Department of Commerce",
+    "acronym": "DOC",
+    "website": "https://www.commerce.gov/",
+    "codeUrl": "https://www.commerce.gov/code.json",
+    "fallback_file": "DOC.json",
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "logo": "/assets/img/logos/agencies/DOC-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "orgs": [
+      "businessusa",
+      "commercedataservice",
+      "commercegov",
+      "internationaltradeadministration",
+      "ioos",
+      "nesii",
+      "NMML",
+      "noaa-gfdl",
+      "NOAA-ORR-ERD",
+      "ntia",
+      "SelectUSA",
+      "us-bea",
+      "uscensusbureau",
+      "useda",
+      "USPTO",
+      "XDgov"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Department of Defense",
+    "acronym": "DOD",
+    "website": "https://www.defense.gov/",
+    "codeUrl": "https://www.code.mil/code.json",
+    "fallback_file": "DOD.json",
+    "logo": "/assets/img/logos/agencies/DOD-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": [
+      "adl-aicc",
+      "adlnet",
+      "afrl",
+      "afseo",
+      "defense-cyber-crime-center",
+      "deptofdefense",
+      "erdc-itl",
+      "iadgov",
+      "info-sharing-environment",
+      "M-O-S-E-S",
+      "missioncommand",
+      "NationalGuard",
+      "NationalSecurityAgency",
+      "ngageoint",
+      "nsacyber",
+      "project-interoperability",
+      "psns-imf",
+      "redhawksdr",
+      "screamlab",
+      "usarmyresearchlab",
+      "USNavalResearchLaboratory",
+      "virtual-world-framework"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Department of Education",
+    "acronym": "ED",
+    "website": "https://ed.gov/",
+    "codeUrl": "https://www.ed.gov/code.json",
+    "fallback_file": "ED.json",
+    "logo": "/assets/img/logos/agencies/ED-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["Federal-Aviation-Administration", "IMDProjects", "usdot-fhwa-stol", "usdot-jpo-ode"]
+  },
+  {
+    "id": 5,
+    "name": "Department of Energy",
+    "acronym": "DOE",
+    "website": "https://energy.gov/",
+    "codeUrl": "https://www.energy.gov/code.json",
+    "fallback_file": "DOE.json",
+    "logo": "/assets/img/logos/agencies/DOE-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "green",
+      "overall": "green"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["doecode", "energyapps", "llnl", "ngds", "petsc"]
+  },
+  {
+    "id": 6,
+    "name": "Department of Health and Human Services",
+    "acronym": "HHS",
+    "website": "https://hhs.gov",
+    "codeUrl": "https://www.hhs.gov/code.json",
+    "fallback_file": "HHS.json",
+    "logo": "/assets/img/logos/agencies/HHS-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "orgs": [
+      "blue-button",
+      "CDCgov",
+      "cmsgov",
+      "demand-driven-open-data",
+      "didsr",
+      "fda",
+      "hhs",
+      "HHS-AHRQ",
+      "HHSDigitalMediaAPIPlatform",
+      "HHSIDEAlab",
+      "informaticslab",
+      "nhanes",
+      "nidcd"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Department of Housing and Urban Development",
+    "acronym": "HUD",
+    "website": "https://www.hud.gov/",
+    "codeUrl": "https://www.hud.gov/code.json",
+    "fallback_file": "HUD.json",
+    "logo": "/assets/img/logos/agencies/HUD-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "green",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["hudgov"]
+  },
+  {
+    "id": 8,
+    "name": "Department of Homeland Security",
+    "acronym": "DHS",
+    "website": "https://www.dhs.gov",
+    "codeUrl": "https://www.dhs.gov/code.json",
+    "fallback_file": "DHS.json",
+    "logo": "/assets/img/logos/agencies/DHS-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["cisagov", "US-CBP", "uscis"]
+  },
+  {
+    "id": 9,
+    "name": "Department of Interior",
+    "acronym": "DOI",
+    "website": "https://data.doi.gov/",
+    "codeUrl": "https://www.doi.gov/code.json",
+    "fallback_file": "DOI.json",
+    "logo": "/assets/img/logos/agencies/DOI-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": [
+      "arcticlcc",
+      "nationalparkservice",
+      "NCRN",
+      "usbr",
+      "USFWS",
+      "usgs",
+      "USGS-Astrogeology",
+      "USGS-CIDA",
+      "usgs-cmg",
+      "usgs-eros",
+      "USGS-OWI",
+      "USGS-R",
+      "USGS-WiM",
+      "usindianaffairs",
+      "usinterior"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Department of Justice",
+    "acronym": "DOJ",
+    "website": "https://justice.gov",
+    "codeUrl": "https://www.justice.gov/code.json",
+    "fallback_file": "DOJ.json",
+    "logo": "/assets/img/logos/agencies/DOJ-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["NIEM", "usdoj"]
+  },
+  {
+    "id": 11,
+    "name": "Department of Labor",
+    "acronym": "DOL",
+    "website": "https://www.dol.gov",
+    "codeUrl": "https://www.dol.gov/code.json",
+    "fallback_file": "DOL.json",
+    "logo": "/assets/img/logos/agencies/DOL-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "yellow",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["EEOC", "usdepartmentoflabor"]
+  },
+  {
+    "id": 12,
+    "name": "Department of State",
+    "acronym": "DOS",
+    "website": "https://state.gov/",
+    "codeUrl": "https://www.state.gov/code.json",
+    "fallback_file": "DOS.json",
+    "logo": "/assets/img/logos/agencies/DOS-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": [
+      "CA-CST-Library",
+      "CA-CST-SII",
+      "historyatstate",
+      "IIP-Design",
+      "state-hiu",
+      "usstatedept"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Department of Transportation",
+    "acronym": "DOT",
+    "website": "https://www.transportation.gov/",
+    "codeUrl": "https://www.transportation.gov/code.json",
+    "fallback_file": "DOT.json",
+    "logo": "/assets/img/logos/agencies/DOT-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "green",
+      "overall": "green"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": [
+      "CA-CST-Library",
+      "CA-CST-SII",
+      "historyatstate",
+      "IIP-Design",
+      "state-hiu",
+      "usstatedept"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Department of the Treasury",
+    "acronym": "TREASURY",
+    "website": "https://www.treasury.gov/",
+    "codeUrl": "https://www.treasury.gov/code.json",
+    "fallback_file": "TREASURY.json",
+    "logo": "/assets/img/logos/agencies/TREASURY-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["fedspendingtransparency", "IRSgov", "US-Department-of-the-Treasury"]
+  },
+  {
+    "id": 15,
+    "name": "Department of Veterans Affairs",
+    "acronym": "VA",
+    "website": "https://va.gov/",
+    "codeUrl": "https://www.va.gov/code.json",
+    "fallback_file": "VA.json",
+    "logo": "/assets/img/logos/agencies/VA-50x50.png",
+    "metrics": {
+      "policy": "yellow",
+      "acquisition": "green",
+      "inventory": "green",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["department-of-veterans-affairs", "USDeptVeteransAffairs", "VHAINNOVATIONS"]
+  },
+  {
+    "id": 16,
+    "name": "Environmental Protection Agency",
+    "acronym": "EPA",
+    "website": "https://epa.gov/",
+    "codeUrl": "https://www.epa.gov/code.json",
+    "fallback_file": "EPA.json",
+    "logo": "/assets/img/logos/agencies/EPA-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "yellow",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["usedgov", "regulationsgov", "usepa"]
+  },
+  {
+    "id": 17,
+    "name": "National Aeronautics and Space Administration",
+    "acronym": "NASA",
+    "website": "https://nasa.gov/",
+    "codeUrl": "https://code.nasa.gov/code.json",
+    "fallback_file": "NASA.json",
+    "logo": "/assets/img/logos/agencies/NASA-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "green",
+      "overall": "green"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": [
+      "ccmc",
+      "globegit",
+      "keplergo",
+      "nasa",
+      "nasa-develop",
+      "nasa-gibs",
+      "NASA-rdt",
+      "nasa-tournament-lab",
+      "nasaworldwind",
+      "NeoGeographyToolkit",
+      "Open-Sat",
+      "SERVIR",
+      "sunpy",
+      "visionworkbench"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Agency for International Development",
+    "acronym": "USAID",
+    "website": "https://usaid.gov/",
+    "codeUrl": "https://www.usaid.gov/code.json",
+    "fallback_file": "USAID.json",
+    "logo": "/assets/img/logos/agencies/USAID-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["usaid"]
+  },
+  {
+    "id": 19,
+    "name": "General Services Administration",
+    "acronym": "GSA",
+    "website": "https://gsa.gov/",
+    "codeUrl": "https://www.gsa.gov/code.json",
+    "fallback_file": "GSA.json",
+    "logo": "/assets/img/logos/agencies/GSA-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "green",
+      "overall": "green"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": [
+      "18f",
+      "digital-analytics-program",
+      "eregs",
+      "government-services",
+      "gsa",
+      "gsa-oes",
+      "Innovation-Toolkit",
+      "opengovplatform",
+      "presidential-innovation-fellows",
+      "project-open-data",
+      "sbstusa",
+      "usagov",
+      "usasearch",
+      "usg-scope"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "National Science Foundation",
+    "acronym": "NSF",
+    "website": "https://nsf.gov/",
+    "codeUrl": "https://www.nsf.gov/code.json",
+    "fallback_file": "NSF.json",
+    "logo": "/assets/img/logos/agencies/NSF-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "yellow",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["nsf-open"]
+  },
+  {
+    "id": 21,
+    "name": "Nuclear Regulatory Commission",
+    "acronym": "NRC",
+    "website": "https://www.nrc.gov/",
+    "codeUrl": "https://www.nrc.gov/code.json",
+    "fallback_file": "NRC.json",
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "logo": "/assets/img/logos/agencies/NRC-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "score": 8,
+    "orgs": []
+  },
+  {
+    "id": 22,
+    "name": "Office of Personnel Management",
+    "acronym": "OPM",
+    "website": "https://opm.gov/",
+    "codeUrl": "https://www.opm.gov/code.json",
+    "fallback_file": "OPM.json",
+    "logo": "/assets/img/logos/agencies/OPM-50x50.png",
+    "metrics": {
+      "policy": "yellow",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["usajobs"]
+  },
+  {
+    "id": 23,
+    "name": "Small Business Administration",
+    "acronym": "SBA",
+    "website": "https://sba.gov/",
+    "codeUrl": "https://www.sba.gov/code.json",
+    "fallback_file": "SBA.json",
+    "logo": "/assets/img/logos/agencies/SBA-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "red",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["USSBA"]
+  },
+  {
+    "id": 24,
+    "name": "National Archives and Records Administration",
+    "acronym": "NARA",
+    "website": "https://archives.gov/",
+    "codeUrl": "https://www.archives.gov/code.json",
+    "fallback_file": "NARA.json",
+    "logo": "/assets/img/logos/agencies/NARA-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": false,
+    "agencyDashboard": false,
+    "score": 8,
+    "orgs": ["usnationalarchives"]
+  },
+  {
+    "id": 25,
+    "name": "Social Security Administration",
+    "acronym": "SSA",
+    "website": "https://www.ssa.gov",
+    "codeUrl": "https://www.ssa.gov/code.json",
+    "fallback_file": "SSA.json",
+    "logo": "/assets/img/logos/agencies/SSA-50x50.png",
+    "metrics": {
+      "policy": "green",
+      "acquisition": "green",
+      "inventory": "yellow",
+      "overall": "yellow"
+    },
+    "complianceDashboard": true,
+    "agencyDashboard": true,
+    "score": 8,
+    "orgs": ["SSAgov"]
+  },
+  {
+    "id": 26,
+    "name": "Consumer Financial Protection Bureau",
+    "acronym": "CFPB",
+    "website": "https://consumerfinance.gov/",
+    "codeUrl": "https://consumerfinance.gov/code.json",
+    "fallback_file": "CFPB.json",
+    "logo": "/assets/img/logos/agencies/CFPB-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": false,
+    "agencyDashboard": false,
+    "score": 8,
+    "orgs": ["cfpb"]
+  },
+  {
+    "id": 27,
+    "name": "U.S. Geological Survey",
+    "acronym": "USGS",
+    "website": "https://usgs.gov/",
+    "codeUrl": "https://usgs.gov/code.json",
+    "fallback_file": "USGS.json",
+    "logo": "/assets/img/logos/agencies/USGS-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": false,
+    "agencyDashboard": false,
+    "score": 8,
+    "orgs": [
+      "arcticlcc",
+      "nationalparkservice",
+      "NCRN",
+      "usbr",
+      "USFWS",
+      "usgs",
+      "USGS-Astrogeology",
+      "USGS-CIDA",
+      "usgs-cmg",
+      "usgs-eros",
+      "USGS-OWI",
+      "USGS-R",
+      "USGS-WiM",
+      "usindianaffairs",
+      "usinterior"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "National Security Agency",
+    "acronym": "NSA",
+    "website": "https://nsa.gov/",
+    "codeUrl": "https://code.nsa.gov/code.json",
+    "fallback_file": "NSA.json",
+    "logo": "/assets/img/logos/agencies/NSA-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": false,
+    "agencyDashboard": false,
+    "score": 8,
+    "orgs": []
+  },
+  {
+    "id": 29,
+    "name": "Executive Office of the President",
+    "acronym": "EOP",
+    "website": "https://www.whitehouse.gov/",
+    "codeUrl": "https://raw.githubusercontent.com/EOP-OMB/code_json/master/code.json",
+    "fallback_file": "EOP.json",
+    "logo": "/assets/img/logos/agencies/EOP-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": false,
+    "agencyDashboard": false,
+    "score": 8,
+    "orgs": []
+  },
+  {
+    "id": 30,
+    "name": "Federal Election Commission",
+    "acronym": "FEC",
+    "website": "https://www.fec.gov/",
+    "codeUrl": "https://www.fec.gov/code.json",
+    "fallback_file": "FEC.json",
+    "logo": "/assets/img/logos/agencies/FEC-50x50.png",
+    "metrics": {
+      "policy": "red",
+      "acquisition": "red",
+      "inventory": "red",
+      "overall": "red"
+    },
+    "complianceDashboard": false,
+    "agencyDashboard": false,
+    "orgs": ["fecgov"]
+  }
+]

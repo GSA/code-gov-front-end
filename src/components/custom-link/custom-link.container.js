@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { getNormalizedURLSearchParams, getSearchFromUrl } from 'utils/url-parsing'
 import { fillFilters } from 'utils/other'
 import defaultState from 'constants/default-redux-store-state'
-import updateBrowseParams from 'actions/update-browse-params'
+import updateAgenciesParams from 'actions/update-agencies-params'
 import updateSearchParams from 'actions/update-search-params'
 import updateTaskParams from 'actions/update-task-params'
 import CustomLinkComponent from './custom-link.component'
@@ -13,19 +13,19 @@ export const mapDispatchToProps = (dispatch, _ownProps) => ({
     // this basically intercepts user clicks on links
     // and updates the redux store based on them
     const search = getSearchFromUrl(to)
-    console.log('search:', search)
+    // console.log('search:', search)
     const params = getNormalizedURLSearchParams(search)
-    console.log('params:', params)
+    // console.log('params:', params)
     let categories = ['agencies', 'languages', 'licenses', 'usageType']
-    if (to.startsWith('/browse')) {
+    if (to.startsWith('/agencies')) {
       const result = {
-        page: params.page || defaultState.browseParams.page,
-        size: params.size || defaultState.browseParams.size,
-        sort: params.sort || defaultState.browseParams.sort,
+        page: params.page || defaultState.agenciesParams.page,
+        size: params.size || defaultState.agenciesParams.size,
+        sort: params.sort || defaultState.agenciesParams.sort,
         filters: []
       }
       fillFilters(categories, params, result)
-      dispatch(updateBrowseParams(result))
+      dispatch(updateAgenciesParams(result))
     } else if (to.startsWith('/search')) {
       const result = {
         page: params.page || defaultState.searchParams.page,
@@ -38,8 +38,8 @@ export const mapDispatchToProps = (dispatch, _ownProps) => ({
       dispatch(updateSearchParams(result))
     } else if (to.startsWith('/open-tasks')) {
       const result = {
-        page: params.page || defaultState.browseParams.page,
-        size: params.size || defaultState.browseParams.size,
+        page: params.page || defaultState.agenciesParams.page,
+        size: params.size || defaultState.agenciesParams.size,
         filters: []
       }
 
@@ -50,7 +50,4 @@ export const mapDispatchToProps = (dispatch, _ownProps) => ({
   }
 })
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(CustomLinkComponent)
+export default connect(null, mapDispatchToProps)(CustomLinkComponent)

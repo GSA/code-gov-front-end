@@ -7,42 +7,29 @@ Object {
   "logoLight": "/assets/img/logos/code-gov-light.svg",
   "menu": Array [
     Object {
-      "name": "PROJECTS",
-      "url": "/browse-projects?page=1&size=10&sort=data_quality",
+      "name": "AGENCIES",
+      "url": "/agencies",
     },
     Object {
       "links": Array [
         Object {
           "name": "Agency Compliance",
-          "url": "/federal-agencies/compliance/dashboard",
+          "url": "/agency-compliance/compliance/dashboard",
         },
         Object {
           "name": "How to Procure Software",
-          "url": "/federal-agencies/compliance/procurement",
+          "url": "/agency-compliance/compliance/procurement",
         },
         Object {
           "name": "How to Inventory Code",
-          "url": "/federal-agencies/compliance/inventory-code",
+          "url": "/agency-compliance/compliance/inventory-code",
         },
       ],
-      "name": "FEDERAL AGENCIES",
-    },
-    Object {
-      "links": Array [
-        Object {
-          "name": "Open Tasks",
-          "url": "/open-tasks?page=1&size=10",
-        },
-        Object {
-          "name": "Code.gov API",
-          "url": "https://open.gsa.gov/api/codedotgov/",
-        },
-      ],
-      "name": "DEVELOPERS",
+      "name": "GUIDANCE",
     },
   ],
   "onHomePage": true,
   "searchDropdown": "test-search-dropdown",
   "siteTitle": "code.gov",
 }
-`
+`;

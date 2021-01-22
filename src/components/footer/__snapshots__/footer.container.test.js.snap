@@ -6,11 +6,7 @@ Object {
   "links": Array [
     Object {
       "name": "About",
-      "url": "/about-page",
-    },
-    Object {
-      "name": "Roadmap",
-      "url": "/roadmap",
+      "url": "/about",
     },
     Object {
       "name": "Privacy Policy",
