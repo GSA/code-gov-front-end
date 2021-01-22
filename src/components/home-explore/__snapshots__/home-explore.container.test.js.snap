@@ -28,7 +28,7 @@ Object {
       "links": Array [
         Object {
           "name": "Agency Compliance",
-          "url": "/federal-agencies/compliance/dashboard",
+          "url": "/agency-compliance/compliance/dashboard",
         },
       ],
       "title": "Agency Partners",
