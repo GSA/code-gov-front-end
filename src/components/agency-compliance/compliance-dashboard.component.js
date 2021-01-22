@@ -114,31 +114,15 @@ const ComplianceDashboardComponent = props => (
   <>
     <hr className="border-2px border-primary tablet:margin-x-15 margin-x-2 margin-y-4" />
     <ul className="usa-card-group padding-x-3 dashboard-container">
-      {props.inventory.map(entry => getCard(props.config, entry))}
+      {props.inventory
+        .filter(inv => inv.complianceDashboard === true)
+        .map(entry => getCard(props.config, entry))}
     </ul>
   </>
 )
 
 /* prettier-ignore */
 ComplianceDashboardComponent.propTypes = {
-  inventory: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      acronym: PropTypes.string.isRequired,
-      website: PropTypes.string.isRequired,
-      codeUrl: PropTypes.string,
-      fallback_file: PropTypes.string,
-      metrics: PropTypes.shape({
-        policy: PropTypes.string.isRequired,
-        acquisition: PropTypes.string.isRequired,
-        inventory: PropTypes.string.isRequired,
-        overall: PropTypes.string.isRequired
-      }),
-      complianceDashboard: PropTypes.bool.isRequired,
-      orgs: PropTypes.arrayOf(PropTypes.string)
-    })
-  ),
   config: PropTypes.PropTypes.shape({
     text: PropTypes.arrayOf(
       PropTypes.shape({
@@ -151,23 +135,6 @@ ComplianceDashboardComponent.propTypes = {
       })
     )
   }).isRequired,
-  /* prettier-ignore */
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      acronym: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      requirements: PropTypes.shape({
-        overall: PropTypes.number.isRequired,
-        sub: PropTypes.shape({
-          agencyWidePolicy: PropTypes.number.isRequired,
-          inventoryRequirement: PropTypes.number.isRequired,
-          openSourceRequirement: PropTypes.number.isRequired,
-          schemaFormat: PropTypes.number.isRequired
-        }).isRequired
-      }).isRequired
-    })
-  ).isRequired
 }
 
 export default ComplianceDashboardComponent

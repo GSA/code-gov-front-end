@@ -19,7 +19,10 @@ import { getReposCount } from '../../utils/repos-count'
 class Agencies extends React.Component {
   componentDidMount() {
     refreshView()
-    if (!this.props.filterData) this.props.saveFilterData()
+    if (!this.props.filterData) {
+      this.props.saveFilterData()
+      console.log('this.props.filterData',this.props.filterData)
+    }
   }
 
   onFilterBoxChange(category, values) {
@@ -39,6 +42,7 @@ class Agencies extends React.Component {
     }
     if (some(this.props.AgencyList)) {
       try {
+        const filters = this.props.filterTags
         return (
           <div>
             <FilterTags filters={this.props.filterTags} onClick={::this.props.onFilterTagClick} />
@@ -49,10 +53,11 @@ class Agencies extends React.Component {
                   if (filt.indexOf(agency.acronym) !== -1) {
                     return <AgencyCard key={agency.id} agency={agency} />
                   }
-                } else {
-                  return <AgencyCard key={agency.id} agency={agency} />
-                }
-                return
+
+                  return
+                } 
+                return <AgencyCard key={agency.id} agency={agency} />
+                
               })}
             </ul>
           </div>
@@ -72,6 +77,7 @@ class Agencies extends React.Component {
 
   render() {
     // const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
+    console.log('props.boxes', this.props.boxes)
     return (
       <main className="search-results-content" id="main-content">
         <SiteBanner title="Agencies" />

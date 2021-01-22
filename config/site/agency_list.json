@@ -14,6 +14,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "orgs": [
       "GrainGenes",
       "usda",
@@ -38,6 +39,7 @@
     "codeUrl": "https://www.commerce.gov/code.json",
     "fallback_file": "DOC.json",
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "logo": "/assets/img/logos/agencies/DOC-50x50.png",
     "metrics": {
       "policy": "green",
@@ -79,6 +81,7 @@
       "overall": "red"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": [
       "adl-aicc",
@@ -120,6 +123,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["Federal-Aviation-Administration", "IMDProjects", "usdot-fhwa-stol", "usdot-jpo-ode"]
   },
@@ -138,6 +142,7 @@
       "overall": "green"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["doecode", "energyapps", "llnl", "ngds", "petsc"]
   },
@@ -156,6 +161,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "orgs": [
       "blue-button",
       "CDCgov",
@@ -187,6 +193,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["hudgov"]
   },
@@ -205,6 +212,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["cisagov", "US-CBP", "uscis"]
   },
@@ -223,6 +231,7 @@
       "overall": "red"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": [
       "arcticlcc",
@@ -257,6 +266,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["NIEM", "usdoj"]
   },
@@ -275,6 +285,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["EEOC", "usdepartmentoflabor"]
   },
@@ -293,6 +304,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": [
       "CA-CST-Library",
@@ -318,6 +330,7 @@
       "overall": "green"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": [
       "CA-CST-Library",
@@ -343,6 +356,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["fedspendingtransparency", "IRSgov", "US-Department-of-the-Treasury"]
   },
@@ -361,6 +375,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["department-of-veterans-affairs", "USDeptVeteransAffairs", "VHAINNOVATIONS"]
   },
@@ -379,6 +394,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["usedgov", "regulationsgov", "usepa"]
   },
@@ -397,6 +413,7 @@
       "overall": "green"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": [
       "ccmc",
@@ -430,6 +447,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["usaid"]
   },
@@ -448,6 +466,7 @@
       "overall": "green"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": [
       "18f",
@@ -481,6 +500,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["nsf-open"]
   },
@@ -492,6 +512,7 @@
     "codeUrl": "https://www.nrc.gov/code.json",
     "fallback_file": "NRC.json",
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "logo": "/assets/img/logos/agencies/NRC-50x50.png",
     "metrics": {
       "policy": "green",
@@ -517,6 +538,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["usajobs"]
   },
@@ -535,6 +557,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["USSBA"]
   },
@@ -552,7 +575,8 @@
       "inventory": "red",
       "overall": "red"
     },
-    "complianceDashboard": true,
+    "complianceDashboard": false,
+    "agencyDashboard": false,
     "score": 8,
     "orgs": ["usnationalarchives"]
   },
@@ -571,6 +595,7 @@
       "overall": "yellow"
     },
     "complianceDashboard": true,
+    "agencyDashboard": true,
     "score": 8,
     "orgs": ["SSAgov"]
   },
@@ -588,7 +613,8 @@
       "inventory": "red",
       "overall": "red"
     },
-    "complianceDashboard": true,
+    "complianceDashboard": false,
+    "agencyDashboard": false,
     "score": 8,
     "orgs": ["cfpb"]
   },
@@ -606,7 +632,8 @@
       "inventory": "red",
       "overall": "red"
     },
-    "complianceDashboard": true,
+    "complianceDashboard": false,
+    "agencyDashboard": false,
     "score": 8,
     "orgs": [
       "arcticlcc",
@@ -640,7 +667,8 @@
       "inventory": "red",
       "overall": "red"
     },
-    "complianceDashboard": true,
+    "complianceDashboard": false,
+    "agencyDashboard": false,
     "score": 8,
     "orgs": []
   },
@@ -658,7 +686,8 @@
       "inventory": "red",
       "overall": "red"
     },
-    "complianceDashboard": true,
+    "complianceDashboard": false,
+    "agencyDashboard": false,
     "score": 8,
     "orgs": []
   },
@@ -676,7 +705,8 @@
       "inventory": "red",
       "overall": "red"
     },
-    "complianceDashboard": true,
+    "complianceDashboard": false,
+    "agencyDashboard": false,
     "orgs": ["fecgov"]
   }
 ]

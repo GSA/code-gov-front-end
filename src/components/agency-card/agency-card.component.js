@@ -87,8 +87,8 @@ export default class AgencyCardComponent extends Component {
       <li className="usa-card width-full margin-bottom-2">
         <div className="usa-card__container border-base-light radius-0 border-1px hover:shadow-2 card-list-item">
           <div className="usa-card__media usa-card__media--inset display-block pin-top pin-right">
-            /* prettier-ignore */
-            <img src={img} alt={`${name} logo`} />
+            {/* prettier-ignore */}
+            <img src={img} alt={`${agencyName} logo`} />
           </div>
           <header className="usa-card__header grid-col-9">
             <h3 className="usa-card__heading font-heading-lg margin-top-0">
