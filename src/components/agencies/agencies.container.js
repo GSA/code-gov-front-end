@@ -7,11 +7,14 @@ import updateAgenciesFilters from 'actions/update-agencies-filters'
 import { sortByBestMatch, sortByDataQuality, sortByDate, sortByName } from 'utils/repo-sorting'
 import updateAgenciesParams from 'actions/update-agencies-params'
 import AgenciesComponent from './agencies.component'
-import AgencyList from '../../../config/site/agency_list'
+import Agencies from '../../../config/site/agency_list'
+
+const AgencyList = Agencies.filter(agency => agency.agencyDashboard === true)
 
 export const mapStateToProps = ({ agenciesParams, agenciesResults, filters }) => {
   const categories = ['agencies']
 
+  console.log({ filters, agenciesParams, agenciesResults })
   const selections = categories.reduce((accumulator, key) => {
     accumulator[key] = getFilterValuesFromParamsByCategory(agenciesParams, key)
     return accumulator
