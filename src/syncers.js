@@ -88,20 +88,6 @@ const syncers = [
         }
       }
     }
-  },
-  {
-    /*
-      This syncer updates the results under /open-tasks when the user make a
-      selection from one of the filter boxes on that page.
-    */
-    select: state => state.taskParams,
-    sync: (state, dispatch) => {
-      console.warn('detected change to task params')
-      count += 1
-      if (count < threshold) {
-        dispatch(updateTaskResults(state.taskParams))
-      }
-    }
   }
 ]
 
