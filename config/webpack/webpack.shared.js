@@ -8,6 +8,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
+const marked = require('marked')
+
+const markdownRenderer = new marked.Renderer()
 
 const rootDir = dirname(dirname(__dirname))
 const sass = require('sass')
@@ -38,17 +41,21 @@ const patterns = [
   { from: 'assets/data', to: 'assets/data' },
   { from: 'assets/img', to: 'assets/img' },
   {
-    from: './src/components/federal-agencies/html',
-    to: 'src/components/federal-agencies/html'
-  },
-  {
     from: 'img/**/*',
     to: 'styles/uswds/',
     context: path.resolve(rootDir, 'node_modules', 'uswds', 'dist')
   },
   {
-    from: './src/components/about-codedotgov/html',
-    to: join(OUTPUT_PATH, '/src/components/about-codedotgov/html')
+    from: './src/components/about/html',
+    to: join(OUTPUT_PATH, '/src/components/about/html')
+  },
+  {
+    from: './src/components/privacy-policy/html',
+    to: join(OUTPUT_PATH, '/src/components/privacy-policy/html')
+  },
+  {
+    from: './src/components/agency-compliance/html',
+    to: join(OUTPUT_PATH, '/src/components/agency-compliance/html')
   },
   {
     from: './src/components/federal-agencies/html',
@@ -104,7 +111,7 @@ module.exports = {
     index: ['@babel/polyfill', './src/index.js']
   },
   resolve: {
-    modules: ['node_modules', 'src', 'config'],
+    modules: ['node_modules', 'src', 'config', 'assets'],
     extensions: ['.js', '.json', '.md']
   },
   plugins: [
@@ -214,7 +221,11 @@ module.exports = {
             loader: 'html-loader'
           },
           {
-            loader: 'markdown-loader'
+            loader: 'markdown-loader',
+            options: {
+              pedantic: true,
+              renderer: markdownRenderer
+            }
           }
         ]
       },

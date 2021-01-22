@@ -9,17 +9,17 @@ const params = {
   filters: [
     { category: 'ca-1', value: 'va-1' },
     { category: 'ca-2', value: 'va-2' },
-    { category: 'ca-2', value: 'va-3' },
+    { category: 'ca-2', value: 'va-3' }
   ],
   number: 123,
   string: 'test-string',
-  ignored: { test: 'value' },
+  ignored: { test: 'value' }
 }
 const paramsAsSearch = '&ca-1=va-1&ca-2=va-2%2Cva-3&number=123&string=test-string'
 const state = {
   browseParams: params,
   searchParams: params,
-  taskParams: params,
+  taskParams: params
 }
 
 const dispatch = jest.fn()
@@ -37,12 +37,6 @@ describe('actions - sync-url-search-params', () => {
     it('should not dispatch any actions if `browseParams` are not in state', async () => {
       await syncUrlSearchParams({ ...state, browseParams: undefined })(dispatch)
       expect(dispatch).not.toBeCalled()
-    })
-
-    it('should dispatch the `push` action with the new url', async () => {
-      await syncUrlSearchParams(state)(dispatch)
-      expect(dispatch).toBeCalled()
-      expect(push).toBeCalledWith('/browse-projects')
     })
 
     it('should `push` with the new search params from state', async () => {
@@ -72,29 +66,6 @@ describe('actions - sync-url-search-params', () => {
       pushPath('/search?a=123&b=test')
       await syncUrlSearchParams(state)(dispatch)
       expect(push).toBeCalledWith(`/search?${paramsAsSearch}`)
-    })
-  })
-
-  describe('on `/open-tasks` route', () => {
-    beforeEach(() => {
-      pushPath('/open-tasks')
-    })
-
-    it('should not dispatch any actions if `taskParams` are not in state', async () => {
-      await syncUrlSearchParams({ ...state, taskParams: undefined })(dispatch)
-      expect(dispatch).not.toBeCalled()
-    })
-
-    it('should dispatch the `push` action with the new url', async () => {
-      await syncUrlSearchParams(state)(dispatch)
-      expect(dispatch).toBeCalled()
-      expect(push).toBeCalledWith('/open-tasks')
-    })
-
-    it('should `push` with the new task params from state', async () => {
-      pushPath('/open-tasks?a=123&b=test')
-      await syncUrlSearchParams(state)(dispatch)
-      expect(push).toBeCalledWith(`/open-tasks?${paramsAsSearch}`)
     })
   })
 

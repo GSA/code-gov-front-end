@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - SideNav SideNavPart should render correctly 1`] = `
+<ul
+  className="usa-sidenav"
+>
+  <li
+    className="usa-sidenav__item"
+    key="link-1/link-1"
+  >
+    <NavLink
+      activeClassName="usa-current"
+      aria-current="page"
+      onClick={[Function]}
+      to="/test-url/link-1"
+    >
+      link-1
+    </NavLink>
+    <SideNavPart
+      baseurl="/test-url"
+      links={
+        Array [
+          Object {
+            "route": "/child-1",
+            "text": "child-1",
+          },
+        ]
+      }
+      onLinkClick={[MockFunction]}
+    />
+  </li>
+  <li
+    className="usa-sidenav__item"
+    key="link-2/link-2"
+  >
+    <NavLink
+      activeClassName="usa-current"
+      aria-current="page"
+      onClick={[Function]}
+      to="/test-url/link-2"
+    >
+      link-2
+    </NavLink>
+  </li>
+</ul>
+`;
+
+exports[`components - SideNav should render correctly 1`] = `
+<nav
+  aria-label="Side navigation"
+  className="sidebar left"
+>
+  <SideNavPart
+    baseurl="/test-url"
+    links={
+      Array [
+        Object {
+          "children": Array [
+            Object {
+              "route": "/child-1",
+              "text": "child-1",
+            },
+          ],
+          "route": "/link-1",
+          "text": "link-1",
+        },
+        Object {
+          "route": "/link-2",
+          "text": "link-2",
+        },
+      ]
+    }
+    onLinkClick={[MockFunction]}
+  />
+</nav>
+`;

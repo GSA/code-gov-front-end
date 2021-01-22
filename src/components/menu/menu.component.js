@@ -120,12 +120,6 @@ export default class Menu extends Component {
                   </li>
                 ))}
               </ul>
-              <div className="mobile-search-bar">
-                <MobileMenuSearchBoxComponent
-                  mobileMenu={this.state.mobileMenu}
-                  toggleMobileMenu={::this.onToggleMobileMenu}
-                />
-              </div>
             </nav>
           </div>
         </header>
