@@ -110,7 +110,7 @@
     "lodash.pick": "^4.4.0",
     "lodash.set": "^4.3.2",
     "markdown-loader": "^5.1.0",
-    "marked": "^1.2.5",
+    "marked": "^2.0.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.14.1",
     "offline-plugin": "^5.0.7",
