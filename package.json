@@ -93,7 +93,7 @@
     "dotenv": "^6.2.0",
     "dotenv-flow": "^3.1.0",
     "event-hooks-webpack-plugin": "^2.1.1",
-    "favicons": "^6.1.0",
+    "favicons": "^6.2.1",
     "file-loader": "^2.0.0",
     "fs": "0.0.1-security",
     "gh-pages": "^2.2.0",
