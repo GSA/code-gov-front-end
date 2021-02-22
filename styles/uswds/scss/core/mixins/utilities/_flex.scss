@@ -6,6 +6,11 @@ $flex-utililies: (
       map-deep-get($system-properties, align-items, standard),
       map-deep-get($system-properties, align-items, extended)
     ),
+  align-self:
+    map-collect(
+      map-deep-get($system-properties, align-self, standard),
+      map-deep-get($system-properties, align-self, extended)
+    ),
   flex:
     map-collect(
       map-deep-get($system-properties, flex, standard),
@@ -32,8 +37,8 @@ $flex-utililies: (
   $value: unpack($value);
   $important: null;
   @if has-important($value) {
-    $value: remove($value, "!important");
-    $important: " !important";
+    $value: remove($value, '!important');
+    $important: ' !important';
   }
   @each $this-value in $value {
     $match: false;
