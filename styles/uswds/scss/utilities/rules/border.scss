@@ -22,26 +22,26 @@ example:
 
 $u-border: (
   border: (
-    base: "border",
+    base: 'border',
     modifiers: (
-      noModifier: "",
-      "y": (
-        "-top",
-        "-bottom"
+      noModifier: '',
+      'y': (
+        '-top',
+        '-bottom'
       ),
-      "x": (
-        "-left",
-        "-right"
+      'x': (
+        '-left',
+        '-right'
       ),
-      "top": "-top",
-      "right": "-right",
-      "bottom": "-bottom",
-      "left": "-left"
+      'top': '-top',
+      'right': '-right',
+      'bottom': '-bottom',
+      'left': '-left'
     ),
     values: map-collect(get-palettes($border-palettes), $border-manual-values),
-    valueAppend: " solid",
+    valueAppend: ' solid',
     settings: $border-settings,
-    property: "border",
-    type: "utility"
+    property: 'border',
+    type: 'utility'
   )
 );

@@ -20,8 +20,12 @@ export default class HomeNews extends Component {
                         {news.title}
                       </a>
                     </h3>
-                    <p className="margin-bottom-0 font-body-2xs margin-top-105">{news.description}</p>
+                    <p className="margin-bottom-0 font-body-2xs margin-top-105">
+                      {news.description}
+                    </p>
+                    {/*
                     <time className="font-body-3xs">{news.date}</time>
+                    */}
                   </div>
                   <picture className="order-first padding-right-2">
                     <source srcSet={news.image} media="min-width: 800px" />

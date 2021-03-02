@@ -97,7 +97,7 @@
   );
   $rotate: if(map-has-key($icon-object, 'rotate'), map-get($icon-object, 'rotate'), null);
   $path: if(map-has-key($icon-object, 'path'), map-get($icon-object, 'path'), $theme-image-path);
-  $ie11-variant: get-token-from-bg($contrast-bg, $color-variant, 'black');
+  $ie11-variant: get-color-token-from-bg($contrast-bg, $color-variant, 'black');
   $filename-ie11-variant: if($ie11-variant == 'black', null, $ie11-variant);
   $filename: if(
     $filename-ie11-variant,
@@ -117,7 +117,7 @@
   }
 
   // Mask supportered styles
-  @supports (mask: url('')) or (-webkit-mask: url('')) {
+  @supports (mask: url('')) {
     background: none;
     background-color: color($color);
     mask: $image-props;

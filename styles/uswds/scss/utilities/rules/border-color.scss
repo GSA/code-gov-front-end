@@ -16,8 +16,8 @@ example:
 
 $u-border-color: (
   border-color: (
-    property: "border-color",
-    base: "border",
+    property: 'border-color',
+    base: 'border',
     modifiers: null,
     values:
       map-collect(
@@ -27,6 +27,6 @@ $u-border-color: (
         $border-color-manual-values
       ),
     settings: $border-color-settings,
-    type: "utility"
+    type: 'utility'
   )
 );

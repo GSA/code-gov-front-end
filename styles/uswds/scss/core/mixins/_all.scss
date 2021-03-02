@@ -1,5 +1,6 @@
 // utility mixins
 @import 'utilities/align-items';
+@import 'utilities/align-self';
 @import 'utilities/background-color';
 @import 'utilities/border';
 @import 'utilities/border-color';
@@ -65,6 +66,8 @@
 @import 'add-link-styles';
 @import 'add-list-reset';
 @import 'add-responsive-site-margins';
+@import 'alert-slim-styles';
+@import 'alert-status-styles';
 @import 'at-media';
 @import 'button-disabled';
 @import 'button-unstyled';
