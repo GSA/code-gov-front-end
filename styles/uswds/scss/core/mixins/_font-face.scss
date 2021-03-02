@@ -11,28 +11,21 @@
     font-style: unquote($font-style);
     font-weight: $font-weight;
     font-display: fallback;
-    src: url(#{$file-path}.woff2) format("woff2"),
-      url(#{$file-path}.woff) format("woff"),
-      url(#{$file-path}.ttf) format("truetype");
+    src: url(#{$file-path}.woff2) format('woff2'), url(#{$file-path}.woff) format('woff'),
+      url(#{$file-path}.ttf) format('truetype');
   }
 }
 
 // Loop through weights, then call at-font-face
-@mixin generate-font-face(
-  $font-style-src,
-  $output-weights,
-  $display-name,
-  $dir,
-  $font-style
-) {
+@mixin generate-font-face($font-style-src, $output-weights, $display-name, $dir, $font-style) {
   @each $font-weight, $filename in $font-style-src {
     @each $key, $output-weight in $output-weights {
       @if $output-weight == $font-weight and $filename {
         @include at-font-face(
-          "#{$display-name}",
-          "#{$theme-font-path}/#{$dir}/#{$filename}",
+          '#{$display-name}',
+          '#{$theme-font-path}/#{$dir}/#{$filename}',
           #{$font-weight},
-          unquote("#{$font-style}")
+          unquote('#{$font-style}')
         );
       }
     }
@@ -81,23 +74,11 @@
     $dir: map-get($this-src, dir);
 
     @if $roman {
-      @include generate-font-face(
-        $roman,
-        $output-weights,
-        $display-name,
-        $dir,
-        normal
-      );
+      @include generate-font-face($roman, $output-weights, $display-name, $dir, normal);
     }
 
     @if $italic {
-      @include generate-font-face(
-        $italic,
-        $output-weights,
-        $display-name,
-        $dir,
-        italic
-      );
+      @include generate-font-face($italic, $output-weights, $display-name, $dir, italic);
     }
   }
 }

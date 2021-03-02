@@ -706,7 +706,7 @@
       "overall": "red"
     },
     "complianceDashboard": false,
-    "agencyDashboard": false,
+    "agencyDashboard": true,
     "orgs": ["fecgov"]
   }
 ]

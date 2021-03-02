@@ -19,7 +19,7 @@ example:
 
 $u-circle: (
   circle: (
-    base: "circle",
+    base: 'circle',
     modifiers: null,
     values: map-collect(get-palettes($circle-palettes), $circle-manual-values),
     settings: $circle-settings,
@@ -28,8 +28,8 @@ $u-circle: (
       width
     ),
     extend: (
-      "border-radius": "50%"
+      'border-radius': '50%'
     ),
-    type: "utility"
+    type: 'utility'
   )
 );
