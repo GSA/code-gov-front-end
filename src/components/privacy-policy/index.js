@@ -53,8 +53,8 @@ class PrivacyPolicy extends Component {
     return (
       <main id="main-content">
         <SiteBanner title="PRIVACY POLICY" />
-        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Privacy Policy' }]} />
-        <div className="grid-container">
+        {/* <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Agencies' }]} /> */}
+        <div className="grid-container grid-row tablet-lg:margin-top-4 margin-top-2">
           <div className="tablet-lg:display-none display-block padding-bottom-4">
             <NavSelect
               pages={sections.map(section => ({

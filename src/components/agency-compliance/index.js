@@ -43,9 +43,9 @@ class AgencyCompliance extends Component {
   render() {
     return (
       <main id="main-content">
-        <SiteBanner title="FEDERAL AGENCIES" />
-        <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Federal Agencies' }]} />
-        <div className="grid-container">
+        <SiteBanner title="GUIDANCE" />
+        {/* <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Guidance' }]} /> */}
+        <div className="grid-container grid-row tablet-lg:margin-top-4 margin-top-2">
           <div className="tablet-lg:display-none display-block padding-bottom-4">
             <NavSelect pages={pagesForSelect} />
           </div>
