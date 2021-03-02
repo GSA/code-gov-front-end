@@ -42,11 +42,6 @@ exports[`components - HomeNews should render correctly 1`] = `
           >
             d1
           </p>
-          <time
-            className="font-body-3xs"
-          >
-            dt1
-          </time>
         </div>
         <picture
           className="order-first padding-right-2"
@@ -85,11 +80,6 @@ exports[`components - HomeNews should render correctly 1`] = `
           >
             d2
           </p>
-          <time
-            className="font-body-3xs"
-          >
-            dt2
-          </time>
         </div>
         <picture
           className="order-first padding-right-2"
@@ -128,11 +118,6 @@ exports[`components - HomeNews should render correctly 1`] = `
           >
             d3
           </p>
-          <time
-            className="font-body-3xs"
-          >
-            dt3
-          </time>
         </div>
         <picture
           className="order-first padding-right-2"
