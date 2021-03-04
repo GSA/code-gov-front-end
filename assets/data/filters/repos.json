@@ -15,6 +15,7 @@
     { "name": "Department of Transportation", "value": "DOT" },
     { "name": "Department of Veterans Affairs", "value": "VA" },
     { "name": "Environmental Protection Agency", "value": "EPA" },
+    { "name": "Federal Election Commission", "value": "FEC" },
     { "name": "General Services Administration", "value": "GSA" },
     { "name": "National Aeronautics and Space Administration", "value": "NASA" },
     { "name": "National Science Foundation", "value": "NSF" },

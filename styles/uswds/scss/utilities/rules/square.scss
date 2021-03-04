@@ -27,7 +27,7 @@ $u-square: (
     ),
     values: map-collect(get-palettes($square-palettes), $square-manual-values),
     settings: $square-settings,
-    property: "",
-    type: "utility"
+    property: '',
+    type: 'utility'
   )
 );
