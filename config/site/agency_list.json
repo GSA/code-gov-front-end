@@ -125,7 +125,7 @@
     "complianceDashboard": true,
     "agencyDashboard": true,
     "score": 8,
-    "orgs": ["Federal-Aviation-Administration", "IMDProjects", "usdot-fhwa-stol", "usdot-jpo-ode"]
+    "orgs": ["usedgov"]
   },
   {
     "id": 5,
@@ -332,14 +332,7 @@
     "complianceDashboard": true,
     "agencyDashboard": true,
     "score": 8,
-    "orgs": [
-      "CA-CST-Library",
-      "CA-CST-SII",
-      "historyatstate",
-      "IIP-Design",
-      "state-hiu",
-      "usstatedept"
-    ]
+    "orgs": ["Federal-Aviation-Administration", "IMDProjects", "usdot-fhwa-stol", "usdot-jpo-ode"]
   },
   {
     "id": 14,
