@@ -142,7 +142,7 @@
     "style-loader": "^0.23.1",
     "url-search-params-polyfill": "^5.1.0",
     "uswds": "^2.10.1",
-    "webpack": "^4.42.1",
+    "webpack": "^5.0.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.2",
     "webpack-create-file-plugin": "^1.0.0",
