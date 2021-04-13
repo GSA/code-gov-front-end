@@ -4,6 +4,7 @@ exports[`components - SearchPage render should render correctly 1`] = `
 <main
   className="search-results-content"
   id="main-content"
+  role="main"
 >
   <Connect(SiteBanner)
     title="Search Results"

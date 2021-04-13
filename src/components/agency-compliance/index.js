@@ -42,7 +42,7 @@ class AgencyCompliance extends Component {
 
   render() {
     return (
-      <main id="main-content">
+      <main role="main" id="main-content">
         <SiteBanner title="GUIDANCE" />
         {/* <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Guidance' }]} /> */}
         <div className="grid-container grid-row tablet-lg:margin-top-4 margin-top-2">

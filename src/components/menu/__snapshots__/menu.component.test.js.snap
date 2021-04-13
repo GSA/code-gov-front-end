@@ -47,6 +47,7 @@ exports[`components - Menu render should render correctly 1`] = `
       <nav
         aria-label="Primary navigation"
         className="usa-nav"
+        role="navigation"
       >
         <button
           aria-labelledby="close-menu"

@@ -69,7 +69,7 @@ export default class Roadmap extends React.Component {
 
   render() {
     return (
-      <main id="main-content">
+      <main role="main" id="main-content">
         <SiteBanner title="Roadmap" />
         <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Roadmap' }]} />
 

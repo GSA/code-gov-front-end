@@ -23,54 +23,50 @@ exports[`components - App render should render correctly 1`] = `
     }
   }
 >
-  <div
-    className="App"
+  <a
+    className="usa-skipnav z-500"
+    href="#main-content"
   >
-    <a
-      className="usa-skipnav z-500"
-      href="#main-content"
-    >
-      Skip to main content
-    </a>
-    <div
-      className="width-full menu-banner-header"
-    >
-      <OfficialBanner
-        isDark={true}
-      />
-      <withRouter(Connect(Menu)) />
-    </div>
-    <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
-      <Route
-        component={[Function]}
-        path="/agencies"
-      />
-      <Route
-        component={[Function]}
-        path="/agency-compliance"
-      />
-      <Route
-        component={[Function]}
-        path="/privacy-policy"
-      />
-      <Route
-        component={[Function]}
-        path="/roadmap"
-      />
-      <Route
-        component={[Function]}
-        path="/about"
-      />
-      <Redirect
-        to="/"
-      />
-    </Switch>
-    <Connect(Footer) />
+    Skip to main content
+  </a>
+  <div
+    className="width-full menu-banner-header"
+  >
+    <OfficialBanner
+      isDark={true}
+    />
+    <withRouter(Connect(Menu)) />
   </div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/agencies"
+    />
+    <Route
+      component={[Function]}
+      path="/agency-compliance"
+    />
+    <Route
+      component={[Function]}
+      path="/privacy-policy"
+    />
+    <Route
+      component={[Function]}
+      path="/roadmap"
+    />
+    <Route
+      component={[Function]}
+      path="/about"
+    />
+    <Redirect
+      to="/"
+    />
+  </Switch>
+  <Connect(Footer) />
 </Connect(ConnectedRouter)>
 `;

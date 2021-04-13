@@ -4,6 +4,7 @@ exports[`components - BrowseProjects render should render correctly 1`] = `
 <main
   className="search-results-content"
   id="main-content"
+  role="main"
 >
   <Connect(SiteBanner)
     title="Projects"

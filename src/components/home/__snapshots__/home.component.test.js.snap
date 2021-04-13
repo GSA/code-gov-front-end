@@ -4,6 +4,7 @@ exports[`components - Home render should render correctly 1`] = `
 <Fragment>
   <main
     id="main-content"
+    role="main"
   >
     <Connect(HomeBanner) />
     <div

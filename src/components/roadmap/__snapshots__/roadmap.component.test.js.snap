@@ -63,6 +63,7 @@ exports[`components - Roadmap - Row should render correctly 1`] = `
 exports[`components - Roadmap render should render correctly 1`] = `
 <main
   id="main-content"
+  role="main"
 >
   <Connect(SiteBanner)
     title="Roadmap"

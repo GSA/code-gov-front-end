@@ -3,6 +3,7 @@
 exports[`components - ProjectPage render should render correctly 1`] = `
 <main
   id="main-content"
+  role="main"
 >
   <Connect(SiteBanner)
     title="Projects"

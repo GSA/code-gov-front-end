@@ -189,7 +189,7 @@ export default class ProjectPage extends Component {
       const agencyAcronym = repo.agency.acronym
       const repoName = repo.name
       return (
-        <main id="main-content">
+        <main role="main" id="main-content">
           <SiteBanner title="Projects" />
           <Breadcrumbs
             crumbs={[

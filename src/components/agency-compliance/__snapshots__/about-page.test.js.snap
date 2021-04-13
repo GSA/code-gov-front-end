@@ -97,6 +97,7 @@ exports[`components - AboutPage - InventoryCode render should render correctly 1
 exports[`components - AboutPage render should render correctly 1`] = `
 <main
   id="main-content"
+  role="main"
 >
   <Connect(SiteBanner)
     title="FEDERAL AGENCIES"

@@ -19,7 +19,7 @@ export default class HomeComponent extends React.Component {
   render() {
     return (
       <Fragment>
-        <main id="main-content">
+        <main role="main" id="main-content">
           <HomeBanner />
           <div className="grid-container">
             <HomeExplore />

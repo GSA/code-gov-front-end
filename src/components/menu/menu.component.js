@@ -3,7 +3,6 @@
 import React, { Component, Fragment } from 'react'
 import CustomLink from 'components/custom-link'
 import { map } from '@code.gov/cautious'
-import MobileMenuSearchBoxComponent from 'components/mobile-menu-search-box'
 import { PrimaryMenuOption, SecondaryDropdown } from './subcomponents'
 
 export default class Menu extends Component {
@@ -93,6 +92,7 @@ export default class Menu extends Component {
               </button>
             </div>
             <nav
+              role="navigation"
               aria-label="Primary navigation"
               className={this.state.mobileMenu ? 'usa-nav is-visible' : 'usa-nav'}
             >

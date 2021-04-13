@@ -21,6 +21,7 @@ exports[`components - Footer should render correctly 1`] = `
   >
     <nav
       className="usa-footer__nav padding-top-4 tablet-lg:padding-top-0 border-bottom-0"
+      role="navigation"
     >
       <ul
         className="grid-row grid-gap"

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
-import Breadcrumbs from 'components/breadcrumbs'
 import NavSelect from 'components/nav-select'
 import SiteBanner from 'components/site-banner'
 import SideNav from 'components/side-nav'
@@ -36,7 +34,7 @@ class About extends Component {
 
   render() {
     return (
-      <main id="main-content">
+      <main role="main" id="main-content">
         <SiteBanner title="ABOUT" />
         {/* <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Agencies' }]} /> */}
         <div className="grid-container grid-row tablet-lg:margin-top-4 margin-top-2">

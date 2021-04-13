@@ -79,7 +79,7 @@ class Agencies extends React.Component {
     // const numPages = Math.ceil(this.props.total / this.props.selectedPageSize)
     console.log('props.boxes', this.props.boxes)
     return (
-      <main className="search-results-content" id="main-content">
+      <main role="main"  className="search-results-content" id="main-content">
         <SiteBanner title="Agencies" />
         {/* <Breadcrumbs crumbs={[{ text: 'Home', to: '/' }, { text: 'Agencies' }]} /> */}
         <div className="grid-container grid-row tablet-lg:margin-top-4 margin-top-2">

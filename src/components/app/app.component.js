@@ -25,25 +25,23 @@ export default class AppComponent extends Component {
   render() {
     return (
       <ConnectedRouter history={history}>
-        <div className="App">
-          <a className="usa-skipnav z-500" href="#main-content">
-            Skip to main content
-          </a>
-          <div className="width-full menu-banner-header">
-            {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
-            <Menu />
-          </div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/agencies" component={Agencies} />
-            <Route path="/agency-compliance" component={AgencyCompliance} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route path="/roadmap" component={Roadmap} />
-            <Route path="/about" component={About} />
-            <Redirect to="/" />
-          </Switch>
-          <Footer />
+        <a className="usa-skipnav z-500" href="#main-content">
+          Skip to main content
+        </a>
+        <div className="width-full menu-banner-header">
+          {isHomepage ? <OfficialBanner isDark /> : <OfficialBanner />}
+          <Menu />
         </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/agencies" component={Agencies} />
+          <Route path="/agency-compliance" component={AgencyCompliance} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/roadmap" component={Roadmap} />
+          <Route path="/about" component={About} />
+          <Redirect to="/" />
+        </Switch>
+        <Footer />
       </ConnectedRouter>
     )
   }

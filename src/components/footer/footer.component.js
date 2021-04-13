@@ -13,7 +13,10 @@ export default class Footer extends PureComponent {
           </a>
         </div>
         <div className="usa-footer__primary-section bg-primary-lighter" data-test="links">
-          <nav className="usa-footer__nav padding-top-4 tablet-lg:padding-top-0 border-bottom-0">
+          <nav
+            role="navigation"
+            className="usa-footer__nav padding-top-4 tablet-lg:padding-top-0 border-bottom-0"
+          >
             <ul className="grid-row grid-gap">
               {map(this.props.links, link => {
                 if (startsWith(link.url, 'http') || startsWith(link.url, 'mailto')) {
