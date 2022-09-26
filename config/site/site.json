@@ -297,6 +297,18 @@
         {
           "name": "Privacy Policy",
           "url": "/privacy-policy"
+        },
+        {
+          "name": "FOIA",
+          "url": "https://www.gsa.gov/reference/freedom-of-information-act-foia"
+        },
+        {
+          "name": "Accessibility",
+          "url": "https://www.gsa.gov/website-information/website-policies#accessibility"
+        },
+        {
+          "name": "USA.GOV",
+          "url": "https://www.usa.gov/"
         }
       ],
       "logos": [
