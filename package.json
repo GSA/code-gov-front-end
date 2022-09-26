@@ -115,7 +115,7 @@
     "node-sass": "^6.0.1",
     "offline-plugin": "^5.0.7",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss": "^7.0.27",
+    "postcss": "^7.0.36",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
