@@ -1,0 +1,243 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS THEME CUSTOM STYLES
+----------------------------------------
+!! Copy this file to your project's
+   sass root. Don't edit the version
+   in node_modules.
+----------------------------------------
+Custom project SASS goes here.
+
+i.e.
+@include u-padding-right('05');
+----------------------------------------
+*/
+
+.news {
+  background-clip: content-box;
+}
+
+.explore-actions {
+  .explore-action {
+    @include at-media(tablet) {
+      border-right: 2px solid #07648d;
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+  border-top: 2px solid #07648d;
+  border-bottom: 2px solid #07648d;
+}
+
+p,
+ul,
+li {
+  color: #565c65;
+}
+
+h1,
+h3,
+h4,
+h5,
+h6 {
+  color: #565c65;
+  font-weight: 500;
+}
+
+h2 {
+  color: #565c65;
+  font-weight: 700;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+.borderless-search {
+  .borderless {
+    border: 0px;
+  }
+}
+
+.mobile-search-bar {
+  flex: none;
+  float: right;
+  text-align: center;
+
+  @include at-media($theme-header-min-width) {
+    display: none;
+  }
+
+  + * {
+    clear: both;
+  }
+}
+
+.usa-nav__primary-item {
+  a {
+    color: #565c65;
+  }
+
+  &:hover {
+    color: #07648d;
+  }
+
+  button: {
+    font-weight: normal;
+  }
+}
+
+.autocomplete {
+  li {
+    a {
+      span {
+        text-overflow: ellipsis;
+        width: calc(100% - 50px);
+      }
+    }
+  }
+}
+
+.moreLessToggle {
+  cursor: pointer;
+}
+
+html {
+  box-sizing: border-box;
+  body {
+    color: #565c65;
+    box-sizing: border-box;
+    font-feature-settings: 'kern', 'liga', 'pnum';
+    margin: 0;
+    overflow-x: hidden;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    p {
+      line-height: 1.5;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+    a:hover {
+      color: #00a398;
+    }
+  }
+}
+
+button.api-drop-list {
+  padding-right: 1.25rem;
+  width: 100%;
+
+  .description {
+    padding-right: 1.25rem;
+  }
+
+  & > dl {
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: right center;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    line-height: 1.15;
+  }
+
+  &[aria-expanded='false'] > dl {
+    background-image: url(/fonts/plus.svg),
+      -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
+    background-image: url(/fonts/plus.svg), linear-gradient(transparent, transparent);
+  }
+  &[aria-expanded='true'] > dl {
+    background-image: url(/fonts/minus.svg),
+      -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
+    background-image: url(/fonts/minus.svg), linear-gradient(transparent, transparent);
+  }
+}
+
+.side-search {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  position: relative;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  [role='search'] {
+    display: flex;
+  }
+
+  input[type='search'] {
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  [type='submit'] {
+    background-image: url('/fonts/search.svg'), linear-gradient(transparent, transparent);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1rem;
+    width: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  [type='search'] {
+    padding-bottom: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    float: left;
+    font-size: 0.91rem;
+    height: 2rem;
+    margin: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-right: 1px solid;
+  }
+}
+
+.side-search--left {
+  [type='submit'] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    margin-right: 0;
+  }
+
+  [type='search'] {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.05);
+}
