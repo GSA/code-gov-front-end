@@ -14,7 +14,7 @@ loop
   $important: if($utilities-use-important, ' !important', null);
   $this-mq: null;
 
-  .#{$media-prefix}#{$pseudoclass}#{$separator}#{ns('utility')}#{$selector}:#{$pseudoclass} {
+  .#{$media-prefix}#{$pseudoclass}\:#{ns('utility')}#{$selector}:#{$pseudoclass} {
     @each $this-property in $property {
       #{$this-property}: unquote('#{$value}#{$important}');
     }
@@ -24,7 +24,7 @@ loop
 // utility-feature? utility-property
 @mixin add-utility-declaration($declaration, $utility-type, $important) {
   @each $ext-prop, $ext-value in map-get($declaration, $utility-type) {
-    #{$ext-prop}: unquote('#{$ext-value}#{$important}');
+    #{strunquote($ext-prop)}: unquote('#{strunquote($ext-value)}#{$important}');
   }
 }
 
@@ -49,7 +49,7 @@ future version of Sass' warning.
   $value-is-map: if(type-of($val-props) == 'map', true, false);
 
   @if $media-key {
-    $media-prefix: #{$media-key}#{$separator};
+    $media-prefix: #{$media-key}\: ;
   }
 
   .#{$media-prefix}#{ns('utility')}#{$selector} {
@@ -184,6 +184,10 @@ through all possible variants
               $value: map-get($utility, valuePrepend) + $value;
             }
 
+            // Then unquote the entire value string.
+
+            $value: strunquote($value);
+
             // And we'll set the $v as $val-slug for use in
             // constructing the selector (.$b-$m-$v).
 
@@ -200,7 +204,7 @@ through all possible variants
 
             // So, check for modifiers.
 
-            @if map-get($utility, modifiers) {
+            @if map-get($utility, modifiers) != null {
               // If there are modifiers, capture them as $our-modifiers.
 
               $our-modifiers: map-get($utility, modifiers);
@@ -232,7 +236,7 @@ through all possible variants
               @if $mod-key == '' or $mod-key == slug or smart-quote($mod-key) == 'noModifier' {
                 // First, we can test to see if the base $b is null
 
-                @if not $b {
+                @if $b == null {
                   // If it _is_ null, the rule's selector is $v.
 
                   $selector: $v;

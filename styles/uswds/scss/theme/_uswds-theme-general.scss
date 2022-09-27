@@ -7,7 +7,7 @@
 ========================================
 ========================================
 ----------------------------------------
-USWDS 2.13.3
+USWDS 2.10.1
 ----------------------------------------
 GENERAL SETTINGS
 ----------------------------------------
@@ -19,7 +19,7 @@ https://designsystem.digital.gov/design-tokens
 
 /*
 ----------------------------------------
-Image path
+Image Path
 ----------------------------------------
 Relative image file path
 ----------------------------------------
@@ -60,22 +60,6 @@ $theme-namespace: (
 
 /*
 ----------------------------------------
-Prefix separator
-----------------------------------------
-Set the character the separates
-responsive and state prefixes from the
-main class name.
-
-The default (":") needs to be preceded
-by two backslashes to be properly
-escaped.
-----------------------------------------
-*/
-
-$theme-prefix-separator: '\\:';
-
-/*
-----------------------------------------
 Layout grid
 ----------------------------------------
 Should the layout grid classes output
@@ -83,7 +67,7 @@ with !important
 ----------------------------------------
 */
 
-$theme-layout-grid-use-important: false;
+$theme-layout-grid-use-important: false !default;
 
 /*
 ----------------------------------------

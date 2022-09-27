@@ -1,16 +1,18 @@
 @mixin alert-status-styles($name, $icon) {
   $bgcolor: if($name != 'emergency', '#{$name}-lighter', $name);
-  $banner-text-color-token: get-color-token-from-bg(
-    $bgcolor,
-    $theme-alert-text-reverse-color,
-    $theme-alert-text-color,
-    $context: 'Alert (#{$name})'
-  );
-
-  @include add-alert-icon($icon, $banner-text-color-token, $bgcolor);
+  $banner-text-color-token: get-color-token-from-bg($bgcolor, $context: 'Alert text');
+  $icon-path: if($banner-text-color-token == 'ink', 'usa-icons/#{$icon}', 'alerts/#{$icon}-white');
+  @include add-background-svg($icon-path);
   background-color: color($bgcolor);
-  border-left-color: color($name);
   color: color($banner-text-color-token);
+
+  &::before {
+    background-color: color($name);
+  }
+
+  .usa-alert__body {
+    padding-left: units($theme-alert-icon-size) + units($theme-alert-padding-x);
+  }
 
   .usa-link {
     @include set-link-from-bg(
@@ -22,12 +24,10 @@
   }
 
   &.usa-alert--no-icon {
-    &:before {
-      display: none;
-    }
+    background-image: none;
 
     .usa-alert__body {
-      padding-left: units($theme-alert-padding-x);
+      padding-left: 0;
     }
   }
 }

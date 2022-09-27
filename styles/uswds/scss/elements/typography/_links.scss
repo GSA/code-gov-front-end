@@ -7,9 +7,9 @@
 // [href^='https:']:not([href*='my-domain.com'])
 
 .usa-link--external {
-  @include external-link();
+  @include external-link(usa-icons-bg/launch--blue-60v, usa-icons-bg/launch--blue-70v);
 
   &.usa-link--alt {
-    @include external-link($contrast-bg: 'base-darker');
+    @include external-link(usa-icons-bg/launch--gray-5, usa-icons-bg/launch--white);
   }
 }

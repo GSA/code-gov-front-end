@@ -3,10 +3,8 @@
   $preferred-link-color: 'default',
   $fallback-link-color: 'default',
   $wcag-target: 'AA',
-  $important: null,
   $context: false
 ) {
-  $important: if($important, ' !important', null);
   $link-tokens: get-link-tokens-from-bg(
     $bg-color,
     $preferred-link-color,
@@ -22,12 +20,12 @@
     $theme-link-visited-color,
     $link-token
   );
-  color: color($link-token) #{$important};
+  color: color($link-token);
   &:visited {
-    color: color($visited-token) #{$important};
+    color: color($visited-token);
   }
   &:hover,
   &:active {
-    color: color($hover-token) #{$important};
+    color: color($hover-token);
   }
 }

@@ -1,11 +1,9 @@
-// Map for high contrast search icon
-$search-icon: (
-  'name': 'search',
-  'color': ButtonText,
-  'svg-height': 20,
-  'svg-width': 20,
-  'height': units(3)
-);
+// TODO: abstract and integrate
+@mixin search-icon {
+  @include add-background-svg('usa-icons-bg/search--white');
+  background-position: center center;
+  background-size: units(3);
+}
 
 .usa-search {
   @include border-box-sizing;
@@ -23,6 +21,7 @@ $search-icon: (
   }
 
   [type='submit'] {
+    @include search-icon;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     height: units(4);
@@ -32,28 +31,8 @@ $search-icon: (
 
     @include at-media('mobile-lg') {
       @include u-padding-x(2);
+      background-image: none;
       width: auto;
-    }
-
-    @media (forced-colors: active) {
-      border: 2px solid transparent;
-      @include place-icon($search-icon, 'before');
-
-      &::before {
-        @include at-media('mobile-lg') {
-          content: none;
-        }
-      }
-    }
-  }
-
-  &__submit-icon {
-    @include at-media('mobile-lg') {
-      display: none;
-    }
-
-    @media (forced-colors: active) {
-      display: none;
     }
   }
 }
@@ -81,28 +60,11 @@ $search-icon: (
 }
 
 .usa-search--small {
-  [type='submit'] {
-    @media (forced-colors: active) {
-      &::before {
-        @include at-media('mobile-lg') {
-          content: '';
-        }
-      }
-    }
-  }
-
   [type='submit'],
   .usa-search__submit {
-    @include u-padding-x(1.5);
-    min-width: units($theme-button-small-width);
-  }
-
-  .usa-search__submit-icon {
-    @include u-square(3);
-    display: block;
-
-    @media (forced-colors: active) {
-      display: none;
+    @include at-media('mobile-lg') {
+      @include search-icon;
+      width: units($theme-button-small-width);
     }
   }
 }
@@ -128,9 +90,9 @@ input[type='search'] {
 }
 
 .usa-search__submit-text {
-  display: none;
+  @include sr-only;
 
   @include at-media('mobile-lg') {
-    display: block;
+    @include not-sr-only;
   }
 }

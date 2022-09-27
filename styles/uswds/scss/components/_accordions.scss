@@ -34,10 +34,6 @@ $accordion-border: units($theme-accordion-border-width) solid color($theme-accor
     color: color('ink');
     text-decoration: none;
   }
-
-  @media (forced-colors: active) {
-    forced-color-adjust: none;
-  }
 }
 // scss-lint:enable PropertyCount
 

@@ -37,18 +37,18 @@
 
   p,
   span {
-    color: color($theme-text-reverse-color);
+    color: color('white');
   }
 
   a {
-    color: color($theme-link-reverse-color);
+    color: color('base-lighter');
 
     &:visited {
-      color: color($theme-link-reverse-color);
+      color: color('base-lighter');
     }
 
     &:hover {
-      color: color($theme-link-reverse-hover-color);
+      color: color('white');
     }
   }
 }
