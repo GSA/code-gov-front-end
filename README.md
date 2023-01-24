@@ -27,9 +27,9 @@ Here’s how you can help contribute to code.gov:
 
 ## Getting Started
 
-You will need node to run this website. It's built against v10.19.0. The best way to get node is to install it via `nvm`. See the [nvm installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) to set it up on your system.
+You will need node to run this website. It's built against v14.21.2 (`lts/fermium`). The best way to get node is to install it via `nvm`. See the [nvm installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) to set it up on your system. 
 
-After you have cloned this repo, you can use `npm install` to install all of the
+A fter you have cloned this repo, you can use `npm install` to install all of the
 project’s dependencies.
 
 You can then run the server using `npm run start`.
