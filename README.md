@@ -6,7 +6,7 @@
 
 ## Introduction
 
-[Code.gov](https://code.gov) is a website promoting good practices in code development, collaboration, and reuse across the U.S. Government. Code.gov provides tools and guidance to help agencies implement the [Federal Source Code Policy](https://sourcecode.cio.gov). It also includes an inventory of government custom code to promote reuse between agencies and provides tools to help government and the public collaborate on open source projects.
+[Code.gov](https://code.gov) is a website promoting good practices in code development, collaboration, and reuse across the U.S. Government. Code.gov provides tools and guidance to help agencies implement the [Federal Source Code Policy](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m_16_21.pdf). It also includes an inventory of government custom code to promote reuse between agencies and provides tools to help government and the public collaborate on open source projects.
 
 To learn more about the project, check out this [blog post](https://www.whitehouse.gov/blog/2016/08/08/peoples-code).
 
@@ -18,7 +18,7 @@ Here’s how you can help contribute to code.gov:
 
 - Source Code Policy
 
-  - To provide feedback on the [Federal Source Code Policy](https://sourcecode.cio.gov/), follow [this issue tracker](https://github.com/WhiteHouse/source-code-policy/issues)
+  - To provide feedback on the [Federal Source Code Policy](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2016/m_16_21.pdf), follow [this issue tracker](https://github.com/WhiteHouse/source-code-policy/issues)
 
 - Code.gov
   - To provide feedback on code-gov-front-end, please checkout our [Contributing Guildelines](CONTRIBUTING.md).
