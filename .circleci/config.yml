@@ -2,9 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15.1-browsers
+      - image: cimg/node:20.10-browsers
         environment:
           CHROME_PATH: /usr/bin/google-chrome
+          NODE_OPTIONS: --openssl-legacy-provider
 
     steps:
       - checkout
