@@ -23,11 +23,9 @@
     </script>
 
     <!-- We use Google Tag Manager to participate in the Federal Government's Digital Analytics Program (DAP). You can see the data for code.gov and other federal websites at analytics.usa.gov -->
-    <script>
-      <% if (ENABLE_GOOGLE_ANALYTICS === true) { %>
-      (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-5CKH6WC');
-      <% } %>
-    </script>
+    <% if (ENABLE_GOOGLE_ANALYTICS === true) { %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYYJFE9VNQ"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TYYJFE9VNQ'); </script>
+    <% } %>
     <!-- End Google Tag Manager -->
     <% if (ENABLE_FED_ANALYTICS === true) { %>
     <script

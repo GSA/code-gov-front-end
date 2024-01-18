@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - App render should render correctly 1`] = `
-<Connect(ConnectedRouter)
+<Connect(ConnectedRouterWithContext)
   history={
     Object {
       "action": "POP",
@@ -72,5 +72,5 @@ exports[`components - App render should render correctly 1`] = `
     </Switch>
     <Connect(Footer) />
   </div>
-</Connect(ConnectedRouter)>
+</Connect(ConnectedRouterWithContext)>
 `;

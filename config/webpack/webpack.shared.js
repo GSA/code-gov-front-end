@@ -1,6 +1,6 @@
 const path = require('path')
 const { dirname, join, resolve } = require('path')
-const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -135,20 +135,16 @@ module.exports = {
         removeScriptTypeAttributes: true
       }
     }),
-    new AppManifestWebpackPlugin({
-      emitStats: true,
+    new FaviconsWebpackPlugin({
       logo: './assets/img/favicon.png',
-      icons: {
-        appleStartup: false
-      },
       inject: true,
       prefix: join(PUBLIC_PATH, '/assets/img/favicons'),
-      output: './assets/img/favicons/',
-      config: {
-        favicons: true,
-        firefox: true,
-        windows: true,
-        yandex: false
+      favicons: {
+        developerURL: null, // prevent retrieving from the nearest package.json
+        icons: {
+          coast: false,
+          yandex: false
+        }
       }
     })
     // new CleanWebpackPlugin()
