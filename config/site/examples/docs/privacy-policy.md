@@ -24,13 +24,13 @@ If you do not want to accept cookies, you can edit your browser’s options to s
 
 Code.gov participates in the U.S. Digital Analytics Program, (DAP) which utilizes a unified Google Analytics account for Federal agencies. This program helps Federal agencies understand how people find, access, and use government services online.
 
-The DAP is a hosted shared service provided by the General Services Administration’s (GSA’s) Office of Citizen Services and Innovative Technologies, and the protocol and information collected are the same for all websites participating in the DAP. As a participant in GSA’s DAP program, this website’s Google Analytics traffic data is automatically reported to GSA.
+The DAP is a hosted shared service provided by the General Services Administration’s (GSA’s) Technology Transformation Services, and the protocol and information collected are the same for all websites participating in the DAP. As a participant in GSA’s DAP program, this website’s Google Analytics traffic data is automatically reported to GSA.
 
 Google Analytics is a third-party web measurement and customization technology as defined in OMB M-10-22 (PDF).
 
 Here is how it works: Google Analytics sets one or more cookies on your computer so that it can recognize your computer if you visit the Code.gov website in the future. These cookies do not collect personally identifiable information. This is considered a Tier 2 usage, as defined in the OMB guidance.
 
-Google Analytics does not collect personally identifiable information through its cookies. The program does not track individuals and anonymizes the IP addresses of visitors. Common Questions about DAP (FAQ) provides more information about how IP addresses are anonymized. According to GSA’s Common Questions About DAP, “none of the federal government data tracked as part of the Data Analytics Program will be shared with or available to Google’s corporate advertising partners.”
+Google Analytics does not collect personally identifiable information through its cookies. The program does not track individuals and anonymizes the IP addresses of visitors. Common Questions about DAP (FAQ) provides more information about how IP addresses are anonymized. According to GSA’s Common Questions About DAP, “none of the federal government data tracked as part of the Digital Analytics Program will be shared with or available to Google’s corporate advertising partners.”
 
 A limited number of authorized individuals will have user accounts that will allow them to log in to the Google Analytics dashboard and view or run reports regarding visits to Code.gov and the other web metrics available from the DAP.
 
