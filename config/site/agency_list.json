@@ -77,7 +77,7 @@
     "metrics": {
       "policy": "red",
       "acquisition": "red",
-      "inventory": "red",
+      "inventory": "yellow",
       "overall": "red"
     },
     "complianceDashboard": true,
