@@ -25,7 +25,6 @@
       "usda-ars-wmsru",
       "USDA-ERS",
       "USDA-FSA",
-      "USDA-NIFA",
       "usda-vs",
       "usdaForestService",
       "WFMRDA"
@@ -538,7 +537,7 @@
     "complianceDashboard": true,
     "agencyDashboard": true,
     "score": 8,
-    "orgs": ["usajobs"]
+    "orgs": []
   },
   {
     "id": 23,
